@@ -64,6 +64,33 @@ Os `fetch()` usam **caminho relativo sem barra inicial** (`fetch('precos.json')`
 para `/precos.json` — o deploy do Lovable serve a página dentro de um iframe em subcaminho,
 e a barra inicial quebraria lá.
 
+## Arquitetura de navegação
+
+São **cinco seções**, uma por universo, controladas por `st.sec` e pela função `navega()`:
+
+| Seção | `st.sec` | Contêiner |
+|---|---|---|
+| Visão geral | `geral` | `#secGeral` — montada por `geralHTML()` |
+| Empresas brasileiras | `empresas` | `#secEmpresas` — mosaico ou tabela |
+| BDRs | `bdrs` | `#secBdrs` — tabela ou cards |
+| Radar de listagens | `radar` | `#secRadar` — montada por `radarHTML()` |
+| Metodologia | `metodologia` | `#secMetodologia` |
+
+**Mosaico e tabela são modos internos**, guardados em `st.modoEmp` e `st.modoBdr` — não são
+irmãos de "BDRs" na navegação. Essa confusão era o principal problema da versão anterior:
+o usuário não distinguia universo de modo de visualização. Não volte a misturar os dois.
+
+A tabela de BDR é a visualização **padrão**, porque 825 cards não permitem comparar. Os
+cards continuam disponíveis como alternativa. A ordenação por coluna vive em
+`st.bdrSort` + `st.bdrDir`; `valorCol()` é o único lugar que sabe extrair o valor
+comparável de cada coluna, e sempre joga ausência de dado para o fim, nas duas direções.
+
+Os **recortes de exploração** (`RECORTES`) são atalhos declarados que combinam filtro e
+ordenação. Cada um carrega o texto do critério que aplica, exibido na tela ao ser
+selecionado. Eles **não são recomendação** e não podem ser renomeados para algo que sugira
+isso ("melhores", "oportunidades", "comprar"). Todo recorte de ranking aplica um piso de
+liquidez explícito — sem ele o topo vira papel que negociou uma única vez no período.
+
 ## Onde está publicado
 
 | Destino | URL | Estado |
@@ -146,10 +173,14 @@ npx serve -l 4173 .
 
 Acesse `http://localhost:4173`. Depois de qualquer mudança no `index.html`, vale conferir:
 
-1. O mosaico desenha 369 blocos em 19 grupos
-2. A aba BDRs lista 825 cards
-3. Abrir uma ficha, apertar Esc, e o foco voltar para o card de origem
-4. Sem erro no console
+1. Em **Empresas brasileiras**, o mosaico desenha 369 blocos em 19 grupos
+2. Em **BDRs**, a tabela lista 825 linhas e a ordenação por coluna inverte com o segundo clique
+3. Abrir uma ficha, apertar Esc, e o foco voltar para a linha ou card de origem
+4. Nenhuma seção rola horizontalmente em 375 px de largura
+5. Sem erro no console
+
+Vale rodar também `node scripts/valida-bdrs.js`, que além da cobertura dos BDRs confere a
+sintaxe do JavaScript embutido no `index.html` e se toda indústria tem tradução.
 
 Atualizar dados:
 

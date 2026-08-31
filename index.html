@@ -9,314 +9,485 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter+Tight:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0D1016; --panel:#151A23; --panel2:#1B212C; --line:#262E3B; --line2:#333D4D;
-  --tx:#E8EBF1; --tx2:#A8B0C0; --tx3:#767F92; --am:#F2B441;
+  /* Grafite neutro, quase sem azul: o fundo nao deve competir com as cores
+     das categorias, que sao o unico uso legitimo de cor forte no mapa. */
+  --bg:#101216; --sup:#171A1F; --sup2:#1D2127;
+  --line:#242830; --line2:#343A45;
+  --tx:#E9EBEE; --tx2:#A4A9B4; --tx3:#727884;
+  --am:#F2B441; --am2:#8A6415;
   --up:#4FD69C; --down:#FF7B75;
-  --r:10px;
+  --r:3px;
+  --ed:'Bricolage Grotesque',Georgia,serif;
+  --ui:'Inter Tight',system-ui,-apple-system,sans-serif;
+  --mo:'IBM Plex Mono',ui-monospace,monospace;
 }
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
 body{
-  background:var(--bg); color:var(--tx);
-  font-family:'Inter Tight',system-ui,-apple-system,sans-serif;
-  font-size:14px; line-height:1.5;
-  -webkit-font-smoothing:antialiased;
+  background:var(--bg); color:var(--tx); font-family:var(--ui);
+  font-size:14px; line-height:1.5; -webkit-font-smoothing:antialiased;
 }
-.wrap{max-width:1320px;margin:0 auto;padding:26px 18px 70px}
+a{color:var(--am);text-decoration:underline;text-underline-offset:2px}
+:where(button,select,input,a):focus-visible{outline:2px solid var(--am);outline-offset:2px}
+.hide{display:none!important}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.num{font-family:var(--mo);font-variant-numeric:tabular-nums}
+.up{color:var(--up)} .down{color:var(--down)} .flat{color:var(--tx3)}
 
-/* ---------- cabecalho ---------- */
-.eyebrow{
-  font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.22em;
-  text-transform:uppercase; color:var(--am); margin-bottom:12px;
+/* ---------- cabecalho e navegacao ---------- */
+.topo{border-bottom:1px solid var(--line);background:var(--bg);position:sticky;top:0;z-index:40}
+.topo .in{max-width:1340px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:26px;min-height:54px;flex-wrap:wrap}
+.marca{display:flex;align-items:baseline;gap:8px;font-family:var(--ed);font-weight:800;font-size:17px;letter-spacing:-.02em;flex:none}
+.marca i{font-style:normal;width:9px;height:9px;background:var(--am);border-radius:1px;display:inline-block;transform:translateY(-1px)}
+nav.prim{display:flex;gap:2px;flex:1 1 auto;flex-wrap:wrap}
+nav.prim button{
+  background:none;border:0;border-bottom:2px solid transparent;color:var(--tx3);
+  font:inherit;font-size:13.5px;padding:8px 11px;cursor:pointer;white-space:nowrap;
 }
-h1{
-  font-family:'Bricolage Grotesque',sans-serif; font-weight:800;
-  font-size:clamp(34px,6.2vw,62px); line-height:.94; letter-spacing:-.03em;
-  margin:0 0 14px;
-}
-h1 em{font-style:normal;color:var(--tx3)}
-.lede{max-width:66ch;color:var(--tx2);font-size:15px;margin:0 0 22px}
+nav.prim button:hover{color:var(--tx2)}
+nav.prim button[aria-current="page"]{color:var(--tx);border-bottom-color:var(--am)}
+nav.prim button:focus-visible{outline:2px solid var(--am);outline-offset:-2px}
+.estado{font-family:var(--mo);font-size:11px;color:var(--tx3);display:flex;gap:14px;flex:0 1 auto;flex-wrap:wrap;min-width:0}
+.estado b{font-weight:500;color:var(--tx2)}
 
-.stats{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-bottom:26px}
-.stat{flex:1 1 150px;padding:13px 16px;border-right:1px solid var(--line);background:var(--panel)}
-.stat:last-child{border-right:0}
-.stat b{display:block;font-family:'IBM Plex Mono',monospace;font-size:23px;font-weight:600;letter-spacing:-.02em}
-.stat span{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--tx3)}
+.wrap{max-width:1340px;margin:0 auto;padding:26px 20px 64px}
 
-/* ---------- controles ---------- */
-.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px}
-.search{flex:1 1 260px;position:relative}
-.search input{
-  width:100%;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);
-  color:var(--tx);padding:11px 13px 11px 36px;font:inherit;font-size:14px;
-}
-.search input:focus{outline:2px solid var(--am);outline-offset:1px;border-color:transparent}
-.search svg{position:absolute;left:12px;top:12px;opacity:.45}
-select,.btn{
-  background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--tx);
-  padding:10px 13px;font:inherit;font-size:13px;cursor:pointer;
-}
-select:focus-visible,.btn:focus-visible{outline:2px solid var(--am);outline-offset:1px}
-.btn:hover{border-color:var(--line2)}
-.seg{display:inline-flex;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
-.seg button{
-  background:none;border:0;color:var(--tx3);padding:10px 14px;font:inherit;font-size:13px;
-  cursor:pointer;border-right:1px solid var(--line);
-}
-.seg button:last-child{border-right:0}
-.seg button[aria-pressed="true"]{background:var(--panel2);color:var(--tx);box-shadow:inset 0 -2px 0 var(--am)}
-.seg button:focus-visible{outline:2px solid var(--am);outline-offset:-2px}
+/* ---------- intro de secao ---------- */
+.intro{margin:0 0 24px;max-width:74ch}
+.intro h1{font-family:var(--ed);font-weight:800;font-size:clamp(27px,4vw,40px);line-height:1.04;letter-spacing:-.025em;margin:0 0 8px}
+.intro p{color:var(--tx2);font-size:14.5px;margin:0;max-width:68ch}
+.intro .kicker{font-family:var(--mo);font-size:11px;color:var(--am);margin-bottom:9px;letter-spacing:.04em}
 
-/* ---------- filtros ---------- */
-.fbox{border:1px solid var(--line);border-radius:var(--r);background:var(--panel);margin-bottom:10px}
+h2.sec{font-family:var(--ed);font-weight:600;font-size:20px;letter-spacing:-.015em;margin:34px 0 4px}
+h2.sec:first-child{margin-top:0}
+h3.sub{font-family:var(--ui);font-weight:600;font-size:13px;color:var(--tx2);margin:22px 0 9px}
+p.nota{color:var(--tx3);font-size:12.5px;margin:0 0 14px;max-width:76ch;line-height:1.55}
+
+/* ---------- retrato / numeros ---------- */
+.retrato{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:1px;background:var(--line);border-block:1px solid var(--line);margin:0 0 8px}
+.retrato div{background:var(--bg);padding:14px 16px}
+.retrato b{display:block;font-family:var(--mo);font-size:25px;font-weight:500;letter-spacing:-.02em;line-height:1.1}
+.retrato span{font-size:12px;color:var(--tx3)}
+
+/* ---------- barras de distribuicao ---------- */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start}
+.dist{display:flex;flex-direction:column;gap:6px;margin:0 0 6px}
+.dist .l{display:grid;grid-template-columns:150px 1fr 54px;gap:10px;align-items:center;font-size:12.5px}
+.dist .b{height:7px;background:var(--sup2);position:relative;overflow:hidden}
+.dist .b i{position:absolute;inset:0 auto 0 0;display:block}
+.dist .v{font-family:var(--mo);font-size:11.5px;color:var(--tx3);text-align:right}
+.dist .k{color:var(--tx2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* ---------- layout com sidebar ---------- */
+.lay{display:grid;grid-template-columns:236px minmax(0,1fr);gap:30px;align-items:start}
+.side{position:sticky;top:70px;max-height:calc(100vh - 88px);overflow-y:auto;padding-right:4px}
+.side::-webkit-scrollbar{width:8px}
+.side::-webkit-scrollbar-thumb{background:var(--line2)}
+.painel{min-width:0}
+
+.fgrp{border-bottom:1px solid var(--line)}
+.fgrp:first-child{border-top:1px solid var(--line)}
 .fhead{
-  display:flex;align-items:center;gap:10px;padding:10px 14px;cursor:pointer;
-  font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--tx3);
-  user-select:none;background:none;border:0;width:100%;text-align:left;font-weight:500;
+  display:flex;align-items:center;gap:8px;width:100%;background:none;border:0;cursor:pointer;
+  font:600 12px var(--ui);color:var(--tx2);padding:11px 2px;text-align:left;
 }
-.fhead:focus-visible{outline:2px solid var(--am);outline-offset:-2px}
-.fhead .arw{margin-left:auto;transition:transform .18s}
-.fbox[data-open="false"] .arw{transform:rotate(-90deg)}
-.fbox[data-open="false"] .fbody{display:none}
-.fbody{padding:0 14px 14px;display:flex;flex-wrap:wrap;gap:6px}
-.chip{
-  display:inline-flex;align-items:center;gap:7px;background:var(--panel2);
-  border:1px solid var(--line);border-radius:99px;color:var(--tx2);
-  padding:5px 11px;font-size:12.5px;cursor:pointer;font-family:inherit;
-  transition:border-color .12s,color .12s;
-}
-.chip:hover{border-color:var(--line2);color:var(--tx)}
-.chip:focus-visible{outline:2px solid var(--am);outline-offset:1px}
-.chip .dot{width:8px;height:8px;border-radius:2px;flex:none}
-.chip .n{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--tx3)}
-.chip[aria-pressed="true"]{background:#232B38;color:var(--tx);border-color:var(--line2)}
-.chip[aria-pressed="true"] .n{color:var(--tx2)}
-.mini{font-size:11.5px;padding:4px 9px}
+.fhead .arw{margin-left:auto;color:var(--tx3);transition:transform .16s;font-size:10px}
+.fgrp[data-open="false"] .arw{transform:rotate(-90deg)}
+.fgrp[data-open="false"] .fbody{display:none}
+.fhead .cnt{font-family:var(--mo);font-size:10.5px;color:var(--bg);background:var(--am);border-radius:2px;padding:1px 5px}
+.fbody{padding:0 2px 13px}
+.fbusca{width:100%;background:var(--sup);border:1px solid var(--line);border-radius:var(--r);color:var(--tx);
+  padding:6px 9px;font:inherit;font-size:12.5px;margin-bottom:8px}
+.opts{max-height:238px;overflow-y:auto;display:flex;flex-direction:column;gap:1px}
+.opts::-webkit-scrollbar{width:8px}
+.opts::-webkit-scrollbar-thumb{background:var(--line2)}
+.opt{display:flex;align-items:center;gap:8px;padding:4px 3px;cursor:pointer;font-size:12.5px;color:var(--tx2);border-radius:2px}
+.opt:hover{background:var(--sup);color:var(--tx)}
+.opt input{accent-color:var(--am);margin:0;width:13px;height:13px;flex:none;cursor:pointer}
+.opt .dot{width:7px;height:7px;border-radius:1px;flex:none}
+.opt .k{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.opt .n{margin-left:auto;font-family:var(--mo);font-size:10.5px;color:var(--tx3);flex:none}
+.opt input:focus-visible{outline:2px solid var(--am);outline-offset:1px}
+.vazio{color:var(--tx3);font-size:12px;padding:4px 3px}
 
-.count{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:16px 0 12px;color:var(--tx3);font-size:12.5px}
-.count b{font-family:'IBM Plex Mono',monospace;color:var(--tx);font-size:15px;font-weight:600}
-.link{background:none;border:0;color:var(--am);cursor:pointer;font:inherit;font-size:12.5px;padding:0;text-decoration:underline;text-underline-offset:3px}
-.link:focus-visible{outline:2px solid var(--am);outline-offset:2px}
+/* ---------- recortes ---------- */
+.recs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 4px}
+.rec{background:none;border:1px solid var(--line2);border-radius:var(--r);color:var(--tx2);
+  font:inherit;font-size:12.5px;padding:5px 10px;cursor:pointer}
+.rec:hover{border-color:var(--tx3);color:var(--tx)}
+.rec[aria-pressed="true"]{background:var(--am);border-color:var(--am);color:#15130C;font-weight:600}
+.criterio{font-size:12px;color:var(--tx3);margin:8px 0 0;line-height:1.5}
+.criterio b{color:var(--tx2);font-weight:500}
 
-/* ---------- mosaico ---------- */
-#mapa{
-  position:relative;width:100%;height:660px;border:1px solid var(--line);
-  border-radius:var(--r);background:var(--panel);overflow:hidden;
-}
-.grp{position:absolute;border-radius:6px;overflow:hidden}
-.grpname{
-  position:absolute;left:0;right:0;top:0;height:19px;padding:0 6px;
-  font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;
-  white-space:nowrap;overflow:hidden;display:flex;align-items:center;gap:5px;
-  color:#0D1016;font-weight:600;
-}
-.tile{
-  position:absolute;border:0;border-radius:3px;cursor:pointer;overflow:hidden;
-  display:flex;flex-direction:column;justify-content:center;align-items:center;
-  padding:2px;transition:filter .12s;font-family:'IBM Plex Mono',monospace;
-}
-.tile:hover{filter:brightness(1.35)}
-.tile:focus-visible{outline:2px solid #fff;outline-offset:-2px;z-index:5}
-.tile .tc{font-size:10.5px;font-weight:600;letter-spacing:.02em;line-height:1}
-.tile .tn{font-size:8.5px;opacity:.72;margin-top:2px;line-height:1;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:'Inter Tight',sans-serif}
-#tip{
-  position:fixed;pointer-events:none;z-index:60;background:#080A0E;border:1px solid var(--line2);
-  border-radius:8px;padding:9px 11px;max-width:270px;font-size:12.5px;opacity:0;transition:opacity .1s;
-  box-shadow:0 12px 30px rgba(0,0,0,.6);
-}
-#tip strong{display:block;font-size:13.5px;margin-bottom:2px}
-#tip .m{color:var(--tx3);font-size:11px;font-family:'IBM Plex Mono',monospace}
+/* ---------- barra de resultados ---------- */
+.res{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:11px 0;border-bottom:1px solid var(--line);margin-bottom:2px}
+.res .qt{font-family:var(--mo);font-size:15px;color:var(--tx)}
+.res .qt span{font-family:var(--ui);font-size:12.5px;color:var(--tx3);margin-left:5px}
+.recorte{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:12px;color:var(--tx3)}
+.recorte b{background:var(--sup2);border:1px solid var(--line2);border-radius:var(--r);padding:2px 7px;
+  color:var(--tx2);font-weight:500;font-size:11.5px}
+.res .dir{margin-left:auto;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.lnk{background:none;border:0;color:var(--am);cursor:pointer;font:inherit;font-size:12.5px;padding:0;
+  text-decoration:underline;text-underline-offset:3px}
+.busca{position:relative;flex:1 1 210px;max-width:330px}
+.busca input{width:100%;background:var(--sup);border:1px solid var(--line);border-radius:var(--r);
+  color:var(--tx);padding:8px 10px 8px 30px;font:inherit;font-size:13px}
+.busca svg{position:absolute;left:9px;top:9px;opacity:.4}
+select.ord{background:var(--sup);border:1px solid var(--line);border-radius:var(--r);color:var(--tx);
+  padding:7px 9px;font:inherit;font-size:12.5px;cursor:pointer}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.seg button{background:none;border:0;color:var(--tx3);padding:7px 12px;font:inherit;font-size:12.5px;
+  cursor:pointer;border-right:1px solid var(--line)}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--sup2);color:var(--tx)}
+.seg button:focus-visible{outline:2px solid var(--am);outline-offset:-2px}
+.btn{background:var(--sup);border:1px solid var(--line);border-radius:var(--r);color:var(--tx2);
+  padding:7px 11px;font:inherit;font-size:12.5px;cursor:pointer}
+.btn:hover{border-color:var(--line2);color:var(--tx)}
+#btFiltros{display:none}
 
-/* ---------- lista ---------- */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(292px,1fr));gap:10px}
-.card{
-  background:var(--panel);border:1px solid var(--line);border-left-width:3px;border-radius:var(--r);
-  padding:13px 14px;cursor:pointer;text-align:left;font:inherit;color:inherit;
-  transition:border-color .12s,background .12s;
+/* ---------- tabela comparativa ---------- */
+.tabw{overflow-x:auto}
+table.tab{width:100%;border-collapse:collapse;font-size:13px}
+table.tab th,table.tab td{padding:8px 9px;text-align:left;white-space:nowrap}
+table.tab thead th{
+  position:sticky;top:54px;z-index:5;background:var(--bg);color:var(--tx3);
+  font:600 11.5px var(--ui);border-bottom:1px solid var(--line2);
 }
-.card:hover{background:var(--panel2);border-color:var(--line2)}
-.card:focus-visible{outline:2px solid var(--am);outline-offset:1px}
-.card .top{display:flex;align-items:baseline;gap:8px;margin-bottom:4px}
-.card .cod{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600}
-.card .nm{font-weight:600;font-size:13.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+table.tab thead th button{
+  background:none;border:0;color:inherit;font:inherit;cursor:pointer;padding:0;display:inline-flex;
+  align-items:center;gap:4px;
+}
+table.tab thead th button:hover{color:var(--tx2)}
+table.tab thead th[aria-sort] button{color:var(--tx)}
+table.tab thead th .s{font-size:9px;color:var(--am)}
+table.tab tbody tr{border-bottom:1px solid var(--line);cursor:pointer}
+table.tab tbody tr:hover{background:var(--sup)}
+table.tab tbody tr:focus-visible{outline:2px solid var(--am);outline-offset:-2px}
+table.tab td.n{font-family:var(--mo);font-variant-numeric:tabular-nums;text-align:right;font-size:12.5px}
+table.tab th.n{text-align:right}
+table.tab .tk{font-family:var(--mo);font-weight:600;font-size:12.5px}
+table.tab .emp{max-width:230px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  display:block;font-size:13px}
+table.tab .sub{color:var(--tx3);font-size:11.5px;max-width:190px;overflow:hidden;
+  text-overflow:ellipsis;white-space:nowrap;display:block}
+table.tab .marc{display:inline-block;width:6px;height:6px;border-radius:1px;margin-right:6px;
+  vertical-align:middle}
+.na{color:var(--tx3)}
+.est{font-size:11px;color:var(--tx3)}
+.est.viva{color:var(--tx2)}
+.expand{display:none}
 
-/* ---------- cotacoes ---------- */
-.pr{margin-left:auto;flex:none;font-family:'IBM Plex Mono',monospace;font-size:12px;white-space:nowrap}
+/* ---------- cards (modo alternativo) ---------- */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--line);
+  border-block:1px solid var(--line)}
+.card{background:var(--bg);border:0;border-left:2px solid transparent;padding:13px 15px;cursor:pointer;
+  text-align:left;font:inherit;color:inherit}
+.card:hover{background:var(--sup)}
+.card:focus-visible{outline:2px solid var(--am);outline-offset:-2px}
+.card .top{display:flex;align-items:baseline;gap:8px;margin-bottom:3px}
+.card .cod{font-family:var(--mo);font-size:12.5px;font-weight:600}
+.card .nm{font-weight:600;font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.card .cat{font-size:11.5px;color:var(--tx3);margin-bottom:6px}
+.card .ds{font-size:12.5px;color:var(--tx2);margin-bottom:8px;display:-webkit-box;-webkit-line-clamp:2;
+  -webkit-box-orient:vertical;overflow:hidden}
+.pr{margin-left:auto;flex:none;font-family:var(--mo);font-size:12px;white-space:nowrap}
 .pr b{font-weight:600;color:var(--tx)}
 .pr i{font-style:normal;font-size:11px;margin-left:5px}
-.pr.na{color:var(--tx3);font-size:10.5px}
-.up{color:var(--up)} .down{color:var(--down)} .flat{color:var(--tx3)}
-.atz{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--tx3)}
-.cot{border-top:1px solid var(--line);margin-top:16px;padding-top:14px}
-.cot h3{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
-        color:var(--tx3);margin:0 0 10px;font-weight:500}
-.cot ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px}
-.cot li{display:flex;align-items:baseline;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:12.5px}
-.cot .tk{font-weight:600;min-width:64px}
-.cot .vl{margin-left:auto;text-align:right}
-.cot .ref{font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--tx3);
-          border:1px solid var(--line2);border-radius:4px;padding:1px 5px}
-.fnt{color:var(--tx3);font-size:11px;line-height:1.45}
-.cot .fnt{margin:10px 0 0}
-.card .cat{font-size:11px;color:var(--tx3);margin-bottom:7px}
-.card .ds{font-size:12.5px;color:var(--tx2);margin-bottom:9px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.met{display:flex;flex-wrap:wrap;gap:5px;margin:2px 0 9px}
-.met span{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--tx3);background:#10141B;border:1px solid var(--line);border-radius:4px;padding:2px 5px}
-.met i{font-style:normal}
+.pr.na{font-size:10.5px}
+.met{display:flex;flex-wrap:wrap;gap:10px;margin:2px 0 8px;font-family:var(--mo);font-size:10.5px;color:var(--tx3)}
 .tg{display:flex;flex-wrap:wrap;gap:4px}
-.tg span{font-size:10.5px;color:var(--tx3);background:var(--panel2);border:1px solid var(--line);border-radius:4px;padding:2px 6px}
-.card:hover .tg span{border-color:var(--line2)}
+.tg span{font-size:10.5px;color:var(--tx3);border:1px solid var(--line);border-radius:2px;padding:1px 6px}
 
-/* ---------- pipeline ---------- */
-.note{border:1px solid var(--line);border-left:3px solid var(--am);border-radius:var(--r);background:var(--panel);padding:15px 17px;margin-bottom:18px}
-.note h3{margin:0 0 6px;font-size:15px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600}
-.note p{margin:0;color:var(--tx2);font-size:13.5px}
-.subh{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--tx3);margin:26px 0 11px;display:flex;align-items:center;gap:9px}
-.subh:after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---------- mosaico ---------- */
+#mapa{position:relative;width:100%;height:640px;border:1px solid var(--line);background:var(--sup);overflow:hidden}
+.grp{position:absolute;border-radius:2px;overflow:hidden}
+.grpname{position:absolute;left:0;right:0;top:0;height:18px;padding:0 6px;font-family:var(--mo);
+  font-size:9.5px;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;overflow:hidden;
+  display:flex;align-items:center;gap:5px;font-weight:600}
+.tile{position:absolute;border:0;border-radius:2px;cursor:pointer;overflow:hidden;display:flex;
+  flex-direction:column;justify-content:center;align-items:center;padding:2px;transition:filter .12s;
+  font-family:var(--mo)}
+.tile:hover{filter:brightness(1.32)}
+.tile:focus-visible{outline:2px solid #fff;outline-offset:-2px;z-index:5}
+.tile .tc{font-size:10.5px;font-weight:600;line-height:1}
+.tile .tn{font-size:8.5px;opacity:.74;margin-top:2px;line-height:1;max-width:100%;overflow:hidden;
+  text-overflow:ellipsis;white-space:nowrap;font-family:var(--ui)}
+.leg{display:flex;flex-wrap:wrap;gap:3px 16px;margin:11px 0 0;font-size:11.5px;color:var(--tx3)}
+.leg span{display:inline-flex;align-items:center;gap:5px}
+.leg i{width:7px;height:7px;border-radius:1px;display:inline-block}
+#tip{position:fixed;pointer-events:none;z-index:60;background:#0A0C0F;border:1px solid var(--line2);
+  border-radius:var(--r);padding:10px 12px;max-width:280px;font-size:12.5px;opacity:0;
+  transition:opacity .1s;box-shadow:0 14px 34px rgba(0,0,0,.66)}
+#tip .t1{font-weight:600;font-size:13.5px;display:block}
+#tip .t2{font-family:var(--mo);font-size:11px;color:var(--tx3);display:block;margin-top:1px}
+#tip .t3{font-family:var(--mo);font-size:12.5px;display:block;margin-top:7px;
+  padding-top:7px;border-top:1px solid var(--line)}
+#tip .t4{color:var(--tx2);display:block;margin-top:7px;line-height:1.45}
 
-/* ---------- painel lateral ---------- */
-#dim{position:fixed;inset:0;background:rgba(6,8,12,.72);opacity:0;pointer-events:none;transition:opacity .18s;z-index:70}
+/* ---------- radar ---------- */
+.aviso{border-left:2px solid var(--am);padding:2px 0 2px 15px;margin:0 0 22px}
+.aviso h3{margin:0 0 6px;font-size:15px;font-family:var(--ed);font-weight:600}
+.aviso p{margin:0;color:var(--tx2);font-size:13.5px;max-width:80ch}
+
+/* ---------- ficha lateral ---------- */
+#dim{position:fixed;inset:0;background:rgba(6,8,11,.74);opacity:0;pointer-events:none;
+  transition:opacity .18s;z-index:70}
 #dim.on{opacity:1;pointer-events:auto}
-#drw{
-  position:fixed;top:0;right:0;bottom:0;width:min(430px,100%);background:var(--panel);
-  border-left:1px solid var(--line);z-index:80;transform:translateX(100%);
-  transition:transform .22s cubic-bezier(.4,0,.2,1);overflow-y:auto;padding:22px 24px 40px;
-}
+#drw{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--bg);
+  border-left:1px solid var(--line2);z-index:80;transform:translateX(100%);
+  transition:transform .22s cubic-bezier(.4,0,.2,1);overflow-y:auto;padding:20px 24px 44px}
 #drw.on{transform:none}
-#drw .x{position:absolute;top:14px;right:14px;background:var(--panel2);border:1px solid var(--line);color:var(--tx2);border-radius:8px;width:32px;height:32px;cursor:pointer;font-size:17px;line-height:1}
-#drw .x:focus-visible{outline:2px solid var(--am)}
-#drw h2{font-family:'Bricolage Grotesque',sans-serif;font-size:24px;line-height:1.1;margin:14px 0 4px;letter-spacing:-.02em;padding-right:38px}
-#drw .rz{color:var(--tx3);font-size:12px;margin-bottom:16px}
-.kv{display:grid;grid-template-columns:118px 1fr;gap:7px 12px;font-size:13px;margin:16px 0}
-.kv dt{color:var(--tx3);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding-top:2px}
-.kv dd{margin:0;font-family:'IBM Plex Mono',monospace;font-size:12.5px}
-.pill{display:inline-flex;align-items:center;gap:7px;border-radius:99px;padding:5px 12px;font-size:12px;font-weight:600}
-.dsc{color:var(--tx2);font-size:13.5px;border-top:1px solid var(--line);padding-top:15px;margin-top:4px}
+#drw .x{position:absolute;top:13px;right:15px;background:none;border:1px solid var(--line2);
+  color:var(--tx2);border-radius:var(--r);width:29px;height:29px;cursor:pointer;font-size:16px;line-height:1}
+#drw .x:hover{color:var(--tx);border-color:var(--tx3)}
+#drw .selo{display:inline-block;font-size:11px;font-weight:600;padding:3px 8px;border-radius:2px}
+#drw h2{font-family:var(--mo);font-size:22px;font-weight:600;line-height:1.1;margin:13px 0 3px;
+  letter-spacing:-.01em;padding-right:36px}
+#drw .rz{color:var(--tx2);font-size:13.5px;margin-bottom:4px;font-family:var(--ui)}
+.bloco{border-top:1px solid var(--line);margin-top:17px;padding-top:13px}
+.bloco:first-of-type{margin-top:14px}
+.bloco h3{font:600 11.5px var(--ui);color:var(--tx3);margin:0 0 9px}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:13px;margin:0}
+.kv dt{color:var(--tx3);font-size:12.5px}
+.kv dd{margin:0;font-family:var(--mo);font-size:12.5px;text-align:right;font-variant-numeric:tabular-nums}
+.kv dd.tx{font-family:var(--ui);font-size:12.5px}
+.fnt{color:var(--tx3);font-size:11.5px;line-height:1.5;margin:9px 0 0}
+.fnt a{color:var(--tx2)}
+.dsc{color:var(--tx2);font-size:13.5px;margin:14px 0 0;line-height:1.55}
 
-footer{margin-top:44px;border-top:1px solid var(--line);padding-top:20px;color:var(--tx3);font-size:12px}
-footer p{margin:0 0 8px;max-width:82ch}
-footer b{color:var(--tx2);font-weight:600}
-.hide{display:none!important}
-@media (max-width:640px){
-  .wrap{padding:20px 13px 60px}
-  #mapa{height:470px}
-  .kv{grid-template-columns:96px 1fr}
+/* ---------- metodologia ---------- */
+.meto{max-width:76ch}
+.meto h2{font-family:var(--ed);font-weight:600;font-size:18px;margin:30px 0 7px;letter-spacing:-.01em}
+.meto h2:first-child{margin-top:0}
+.meto p{color:var(--tx2);font-size:13.5px;line-height:1.62;margin:0 0 10px}
+.meto ul{margin:0 0 10px;padding-left:18px;color:var(--tx2);font-size:13.5px;line-height:1.62}
+.meto li{margin-bottom:4px}
+.meto b{color:var(--tx);font-weight:600}
+
+/* ---------- rodape ---------- */
+footer{border-top:1px solid var(--line);margin-top:42px;padding:18px 0 0;color:var(--tx3);font-size:12px}
+footer .fl{display:flex;gap:10px 26px;flex-wrap:wrap;align-items:baseline}
+footer p{margin:0;max-width:62ch;line-height:1.55}
+
+/* ---------- responsivo ---------- */
+@media (max-width:900px){
+  .lay{grid-template-columns:1fr;gap:0}
+  .side{
+    position:fixed;inset:auto 0 0 0;top:auto;max-height:82vh;z-index:75;background:var(--bg);
+    border-top:1px solid var(--line2);padding:8px 18px 24px;transform:translateY(101%);
+    transition:transform .22s cubic-bezier(.4,0,.2,1);box-shadow:0 -14px 40px rgba(0,0,0,.5);
+  }
+  .side.on{transform:none}
+  .side .fechaF{display:block;width:100%;margin-top:12px}
+  #btFiltros{display:inline-flex;align-items:center;gap:6px}
+  .topo .in{min-height:48px;gap:14px}
+  table.tab thead th{top:48px}
+}
+@media (min-width:901px){ .side .fechaF{display:none} }
+@media (max-width:760px){
+  .wrap{padding:20px 14px 56px}
+  #mapa{height:460px}
+  nav.prim{order:3;width:100%;border-top:1px solid var(--line);padding-top:2px;gap:0}
+  nav.prim button{font-size:12.5px;padding:7px 9px}
+  .estado{font-size:10.5px;gap:10px;width:100%;order:2}
+  table.tab thead th{top:0}
+  table.tab .col-s{display:none}
+  table.tab th,table.tab td{padding:7px 5px}
+  table.tab .emp{max-width:150px}
+  .expand{display:table-cell;width:26px;text-align:center}
+  .expand button{background:none;border:0;color:var(--tx3);cursor:pointer;font-size:11px;padding:3px 5px}
+  tr.det td{padding:2px 6px 11px;white-space:normal}
+  tr.det .dl{display:grid;grid-template-columns:1fr auto;gap:4px 12px;font-size:12px}
+  tr.det .dl span:nth-child(odd){color:var(--tx3)}
+  tr.det .dl span:nth-child(even){font-family:var(--mo);text-align:right}
+  #drw{width:100%;border-left:0;padding:18px 18px 40px}
+  .retrato b{font-size:21px}
+  .duo{grid-template-columns:1fr;gap:6px}
+  .dist .l{grid-template-columns:minmax(0,1fr) 58px 52px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
+<header class="topo">
+  <div class="in">
+    <div class="marca"><i></i>Mapa da B3</div>
+    <nav class="prim" aria-label="Seções">
+      <button data-sec="geral" aria-current="page">Visão geral</button>
+      <button data-sec="empresas">Empresas brasileiras</button>
+      <button data-sec="bdrs">BDRs</button>
+      <button data-sec="radar">Radar de listagens</button>
+      <button data-sec="metodologia">Metodologia</button>
+    </nav>
+    <div class="estado">
+      <span>base <b id="snapDate">14 de agosto de 2026</b></span>
+      <span id="atz"></span>
+      <span id="mtz"></span>
+    </div>
+  </div>
+</header>
+
 <div class="wrap">
 
-<div class="eyebrow">B3 · posição de <span id="snapDate">14 de agosto de 2026</span></div>
-<h1>Mapa da bolsa<br><em>brasileira</em></h1>
-<p class="lede">Todas as companhias com ações registradas na B3, organizadas em 19 categorias temáticas e cruzadas por tags de exposição. Uma empresa de agro pode carregar tag de tecnologia, uma de energia pode carregar tag de saneamento. Clique em qualquer bloco para abrir a ficha.</p>
-
-<div class="stats">
-  <div class="stat"><b>369</b><span>empresas</span></div>
-  <div class="stat"><b>19</b><span>categorias</span></div>
-  <div class="stat"><b id="sTags">114</b><span>tags de cruzamento</span></div>
-  <div class="stat"><b>R$ 5,1 tri</b><span>valor de mercado somado</span></div>
-  <div class="stat"><b>1</b><span>IPO desde 2021</span></div>
-  <div class="stat"><b id="sBdr">–</b><span>BDRs de empresas</span></div>
+<div class="intro">
+  <div class="kicker" id="kicker">B3 · panorama</div>
+  <h1 id="secTitulo">Visão geral</h1>
+  <p id="secDesc"></p>
 </div>
 
-<div class="bar">
-  <label class="search">
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-    <input id="q" type="search" placeholder="Buscar por nome, ticker, tag ou segmento" aria-label="Buscar empresas">
-  </label>
-  <div class="seg" role="group" aria-label="Modo de visualização">
-    <button id="vMapa" aria-pressed="true">Mosaico</button>
-    <button id="vLista" aria-pressed="false">Lista</button>
-    <button id="vIpo" aria-pressed="false">Fila de IPO</button>
-    <button id="vBdr" aria-pressed="false">BDRs</button>
-  </div>
-  <select id="sort" aria-label="Ordenar">
-    <option value="vm">Maior valor de mercado</option>
-    <option value="liq">Maior liquidez</option>
-    <option value="nome">Nome A a Z</option>
-    <option value="novo">Registro mais recente</option>
-  </select>
-  <div class="seg" id="areaSw" role="group" aria-label="Área dos blocos">
-    <button id="aVal" aria-pressed="true">Área por valor</button>
-    <button id="aIgual" aria-pressed="false">Área igual</button>
-  </div>
-  <button class="btn" id="csv">Baixar CSV</button>
-</div>
+<!-- ============ VISÃO GERAL ============ -->
+<section id="secGeral"></section>
 
-<div class="fbox" data-open="true" id="fcat">
-  <button class="fhead" aria-expanded="true">Categorias<span class="arw">▾</span></button>
-  <div class="fbody" id="cats"></div>
-</div>
-
-<div class="fbox" data-open="false" id="ftag">
-  <button class="fhead" aria-expanded="false">Tags de cruzamento<span class="arw">▾</span></button>
-  <div class="fbody">
-    <div style="width:100%;display:flex;gap:6px;align-items:center;margin-bottom:9px">
-      <span style="color:var(--tx3);font-size:11.5px">Combinar tags por</span>
-      <div class="seg" role="group" aria-label="Modo de combinação de tags">
-        <button id="mOu" class="mini" aria-pressed="true" style="padding:5px 11px">qualquer uma</button>
-        <button id="mE" class="mini" aria-pressed="false" style="padding:5px 11px">todas juntas</button>
+<!-- ============ EMPRESAS BRASILEIRAS ============ -->
+<section id="secEmpresas" class="hide">
+  <div class="lay">
+    <aside class="side" id="sideEmp" aria-label="Filtros de empresas">
+      <div class="fgrp" data-open="true">
+        <button class="fhead" aria-expanded="true">Categorias<span class="cnt hide" id="cntCat"></span><span class="arw">▾</span></button>
+        <div class="fbody">
+          <div class="opts" id="cats"></div>
+        </div>
       </div>
+      <div class="fgrp" data-open="false">
+        <button class="fhead" aria-expanded="false">Tags de cruzamento<span class="cnt hide" id="cntTag"></span><span class="arw">▾</span></button>
+        <div class="fbody">
+          <input class="fbusca" id="bTag" type="search" placeholder="Buscar tag" aria-label="Buscar tag">
+          <div class="seg" role="group" aria-label="Combinar tags" style="margin-bottom:8px">
+            <button id="mOu" aria-pressed="true">Qualquer</button>
+            <button id="mE" aria-pressed="false">Todas</button>
+          </div>
+          <div class="opts" id="tags"></div>
+        </div>
+      </div>
+      <button class="btn fechaF" data-fecha-filtro>Ver resultados</button>
+    </aside>
+
+    <div class="painel">
+      <div class="res">
+        <span class="qt"><b id="nEmp">369</b><span>empresas no recorte</span></span>
+        <span id="vmSel" class="est"></span>
+        <button class="lnk hide" id="clearEmp">limpar</button>
+        <div class="dir">
+          <label class="busca">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+            <input id="qEmp" type="search" placeholder="Nome, ticker, tag ou segmento" aria-label="Buscar empresas">
+          </label>
+          <button class="btn" id="btFiltros" data-abre-filtro>Filtros</button>
+          <select class="ord" id="ordEmp" aria-label="Ordenar empresas">
+            <option value="vm">Maior valor de mercado</option>
+            <option value="liq">Maior liquidez</option>
+            <option value="nome">Nome A a Z</option>
+            <option value="novo">Registro mais recente</option>
+          </select>
+          <div class="seg" role="group" aria-label="Modo de visualização">
+            <button id="mMosaico" aria-pressed="true">Mosaico</button>
+            <button id="mTabelaE" aria-pressed="false">Tabela</button>
+          </div>
+          <button class="btn" id="csvEmp">CSV</button>
+        </div>
+      </div>
+
+      <div id="boxMosaico">
+        <div class="res" style="border:0;padding:8px 0 10px">
+          <div class="seg" role="group" aria-label="Área dos blocos">
+            <button id="aVal" aria-pressed="true">Área por valor</button>
+            <button id="aIgual" aria-pressed="false">Área igual</button>
+          </div>
+          <span class="est">O tamanho vem do valor de mercado estimado na data da base, não do preço do dia.</span>
+        </div>
+        <div id="mapa"></div>
+        <div class="leg" id="legenda"></div>
+      </div>
+
+      <div id="boxTabelaE" class="hide"></div>
     </div>
-    <div id="tags" style="display:flex;flex-wrap:wrap;gap:6px"></div>
   </div>
-</div>
+</section>
 
-<div class="fbox hide" data-open="true" id="fpais">
-  <button class="fhead" aria-expanded="true">País<span class="arw">▾</span></button>
-  <div class="fbody" id="paises"></div>
-</div>
+<!-- ============ BDRs ============ -->
+<section id="secBdrs" class="hide">
+  <div class="lay">
+    <aside class="side" id="sideBdr" aria-label="Filtros de BDRs">
+      <div class="fgrp" data-open="true">
+        <button class="fhead" aria-expanded="true">País<span class="cnt hide" id="cntPais"></span><span class="arw">▾</span></button>
+        <div class="fbody">
+          <input class="fbusca" id="bPais" type="search" placeholder="Buscar país" aria-label="Buscar país">
+          <div class="opts" id="paises"></div>
+        </div>
+      </div>
+      <div class="fgrp" data-open="true">
+        <button class="fhead" aria-expanded="true">Setor<span class="cnt hide" id="cntSetor"></span><span class="arw">▾</span></button>
+        <div class="fbody"><div class="opts" id="setores"></div></div>
+      </div>
+      <div class="fgrp" data-open="false">
+        <button class="fhead" aria-expanded="false">Indústria<span class="cnt hide" id="cntInd"></span><span class="arw">▾</span></button>
+        <div class="fbody">
+          <input class="fbusca" id="bInd" type="search" placeholder="Buscar indústria" aria-label="Buscar indústria">
+          <div class="opts" id="industrias"></div>
+        </div>
+      </div>
+      <div class="fgrp" data-open="true">
+        <button class="fhead" aria-expanded="true">Liquidez<span class="arw">▾</span></button>
+        <div class="fbody"><div class="opts" id="fLiq"></div></div>
+      </div>
+      <div class="fgrp" data-open="false">
+        <button class="fhead" aria-expanded="false">Frequência de negociação<span class="arw">▾</span></button>
+        <div class="fbody"><div class="opts" id="fFreq"></div></div>
+      </div>
+      <div class="fgrp" data-open="false">
+        <button class="fhead" aria-expanded="false">Histórico<span class="arw">▾</span></button>
+        <div class="fbody"><div class="opts" id="fHist"></div></div>
+      </div>
+      <button class="btn fechaF" data-fecha-filtro>Ver resultados</button>
+    </aside>
 
-<div class="fbox hide" data-open="false" id="fsetor">
-  <button class="fhead" aria-expanded="false">Setor<span class="arw">▾</span></button>
-  <div class="fbody" id="setores"></div>
-</div>
+    <div class="painel">
+      <h3 class="sub" style="margin-top:0">Recortes de exploração</h3>
+      <div class="recs" id="recs"></div>
+      <p class="criterio" id="criterio"></p>
 
-<div class="fbox hide" data-open="false" id="findustria">
-  <button class="fhead" aria-expanded="false">Indústria<span class="arw">▾</span></button>
-  <div class="fbody" id="industrias"></div>
-</div>
+      <div class="res" style="margin-top:16px">
+        <span class="qt"><b id="nBdr">825</b><span>BDRs no recorte</span></span>
+        <button class="lnk hide" id="clearBdr">limpar tudo</button>
+        <div class="dir">
+          <label class="busca">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+            <input id="qBdr" type="search" placeholder="Ticker, empresa, país, setor" aria-label="Buscar BDRs">
+          </label>
+          <button class="btn" id="btFiltros2" data-abre-filtro>Filtros</button>
+          <div class="seg" role="group" aria-label="Modo de visualização">
+            <button id="mTabela" aria-pressed="true">Tabela</button>
+            <button id="mCards" aria-pressed="false">Cards</button>
+          </div>
+          <button class="btn" id="csvBdr">CSV</button>
+        </div>
+      </div>
+      <div class="recorte" id="resumoBdr"></div>
 
-<div class="fbox hide" data-open="true" id="fliq">
-  <button class="fhead" aria-expanded="true">Liquidez recente<span class="arw">▾</span></button>
-  <div class="fbody" id="liquidez">
-    <button class="chip mini" data-liq="todas" aria-pressed="true">Todas</button>
-    <button class="chip mini" data-liq="ativa" aria-pressed="false">Negociou em 15 de 20 pregões</button>
-    <button class="chip mini" data-liq="10k" aria-pressed="false">Giro médio ≥ R$ 10 mil</button>
-    <button class="chip mini" data-liq="100k" aria-pressed="false">Giro médio ≥ R$ 100 mil</button>
-    <button class="chip mini" data-liq="1m" aria-pressed="false">Giro médio ≥ R$ 1 milhão</button>
+      <div id="boxTabelaB"></div>
+      <div id="boxCardsB" class="hide"></div>
+    </div>
   </div>
-</div>
+</section>
 
-<div class="count">
-  <span><b id="n">369</b> <span id="nLbl">empresas no recorte atual</span></span>
-  <span id="vmSel"></span>
-  <span class="atz" id="atz"></span>
-  <span class="atz" id="mtz"></span>
-  <button class="link hide" id="clear">limpar filtros</button>
-</div>
+<!-- ============ RADAR ============ -->
+<section id="secRadar" class="hide"></section>
 
-<div id="mapa"></div>
-<div id="lista" class="grid hide"></div>
-<div id="ipo" class="hide"></div>
-<div id="bdr" class="grid hide"></div>
+<!-- ============ METODOLOGIA ============ -->
+<section id="secMetodologia" class="hide"></section>
 
 <footer>
-  <p><b>De onde vêm os dados.</b> A relação de companhias e a classificação setorial oficial vêm da base de emissores da B3, consultada hoje. Valor de mercado e liquidez média de dois meses são estimados a partir de dados públicos de mercado e servem para dar escala, não para decisão de investimento.</p>
-  <p><b>O que é meu e o que é da B3.</b> As 19 categorias temáticas e as tags de cruzamento são uma leitura analítica minha, feita para responder a pergunta de onde cada empresa realmente ganha dinheiro. Elas não substituem a classificação oficial da B3, que aparece na ficha de cada companhia.</p>
-  <p><b>Escopo.</b> No mosaico principal estão as companhias brasileiras com ações registradas, incluindo 61 que hoje não têm negociação relevante (holdings de controle, empresas em processo de saída e candidatas a oferta que já se registraram). Na aba <b>BDRs</b> estão as ações de empresas estrangeiras negociadas na B3 por recibo de depósito — patrocinadas e não patrocinadas, todas as ativas para compra. ETFs internacionais listados como BDR, ETPs de cripto e emissores exclusivos de dívida ficaram de fora dos dois.</p>
-  <p><b>Sobre as cotações.</b> Os preços vêm do Yahoo Finance, que não é fonte oficial da B3, e chegam com atraso de cerca de 15 minutos. Servem como referência do dia, não para operar. O <b>tamanho dos blocos no mosaico continua vindo do valor de mercado estimado na data do levantamento</b>, que é um retrato fixo: ele não se move junto com o preço, então os dois vão divergir com o tempo. Empresas sem negociação aparecem como sem cotação.</p>
-  <p><b>Sobre os BDRs.</b> A lista de tickers e o tipo de programa (patrocinado ou não patrocinado) vêm da base oficial de empresas listadas da B3. País, setor e indústria não têm classificação oficial da B3 para BDR: a fonte padrão é o perfil do Yahoo Finance, com tradução editorial para português. Quando esse perfil não existe, a classificação é verificada em página oficial da companhia ou documento regulatório, indicado na ficha. A base tem cobertura completa, mas não inclui recomendação nem análise de investimento.</p>
-  <p><b>Métricas dos BDRs.</b> Retornos e volatilidade usam até dois anos de preços diários ajustados do Yahoo Finance. Os períodos de 1, 3 e 12 meses correspondem a 21, 63 e 252 pregões. A força relativa é a diferença, em pontos percentuais, para a mediana da indústria ou do setor; o giro médio inclui pregões sem negócio. Histórico insuficiente fica explicitamente sem dado. Desempenho passado não garante resultado futuro.</p>
-  <p>Nada aqui é recomendação de compra ou venda.</p>
+  <div class="fl">
+    <p><b>Fontes:</b> B3 (relação de companhias e programas de BDR) e Yahoo Finance, não oficial, para cotações e perfis. Cotações com atraso de cerca de 15 minutos.</p>
+    <p>Nada aqui é recomendação de compra ou venda. <button class="lnk" data-sec="metodologia">Ver metodologia completa</button></p>
+  </div>
 </footer>
 </div>
 
 <div id="tip" role="status" aria-live="off"></div>
 <div id="dim"></div>
-<aside id="drw" role="dialog" aria-modal="true" aria-label="Ficha da empresa" tabindex="-1"></aside>
+<aside id="drw" role="dialog" aria-modal="true" aria-label="Ficha do ativo" tabindex="-1"></aside>
 
 <script>
 const D = {
@@ -9411,20 +9582,23 @@ const SNAPSHOT = {iso:'2026-08-14', label:'14 de agosto de 2026'};
 
 const $ = id => document.getElementById(id);
 const wrap = document.querySelector('.wrap');
-const mapa = $('mapa'), lista = $('lista'), ipo = $('ipo'), bdr = $('bdr');
-const drw = $('drw'), dim = $('dim'), tip = $('tip');
-const qInput = $('q'), nEl = $('n'), nLbl = $('nLbl'), vmSel = $('vmSel'), clearBtn = $('clear');
-const sortSel = $('sort'), csvBtn = $('csv'), areaSw = $('areaSw');
-const catsBox = $('cats'), tagsBox = $('tags');
-const fcat = $('fcat'), ftag = $('ftag'), fpais = $('fpais'), fsetor = $('fsetor');
-const findustria = $('findustria'), fliq = $('fliq');
+const mapa = $('mapa'), drw = $('drw'), dim = $('dim'), tip = $('tip');
 $('snapDate').textContent = SNAPSHOT.label;
 
-const st = {q:'', cats:new Set(), tags:new Set(), tagMode:'ou', sort:'vm', view:'mapa', area:'val',
-            bdrPais:new Set(), bdrSetor:new Set(), bdrIndustria:new Set(), bdrLiq:'todas', bdrSort:'nome'};
+/* Uma secao por universo (empresas, BDR, radar); mosaico/tabela sao modos
+   internos, nao irmaos de "BDRs" -- foi o principal problema da navegacao antiga. */
+const st = {
+  sec:'geral', modoEmp:'mosaico', modoBdr:'tabela',
+  q:'', cats:new Set(), tags:new Set(), tagMode:'ou', sort:'vm', area:'val',
+  qb:'', bdrPais:new Set(), bdrSetor:new Set(), bdrIndustria:new Set(),
+  bdrLiq:'todas', bdrFreq:'todas', bdrHist:'todos',
+  bdrSort:'g20', bdrDir:'desc', recorte:null,
+  buscaPais:'', buscaInd:'', buscaTag:''
+};
 
 const norm = s => (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
 E.forEach(e => e._s = norm([e.cod,e.nome,e.pregao,e.tickers,e.macroL,e.seg,e.tagsL.join(' '),e.desc].join(' ')));
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
 const brl = v => {
   if(!v) return 'sem dado';
@@ -9447,14 +9621,16 @@ const fmtVar = v => {
   return `<i class="${cls}">${seta} ${Math.abs(v).toFixed(2).replace('.',',')}%</i>`;
 };
 const fmtRet = v => {
-  if(typeof v !== 'number') return '—';
+  if(typeof v !== 'number') return '<span class="na">—</span>';
   const cls = v > 0 ? 'up' : v < 0 ? 'down' : 'flat';
   const seta = v > 0 ? '▲' : v < 0 ? '▼' : '·';
   return `<i class="${cls}">${seta} ${Math.abs(v).toFixed(2).replace('.',',')}%</i>`;
 };
-const fmtPp = v => typeof v === 'number' ? (v > 0 ? '+' : '') + v.toFixed(2).replace('.',',') + ' p.p.' : '—';
+const fmtPp = v => typeof v === 'number'
+  ? `<i class="${v > 0 ? 'up' : v < 0 ? 'down' : 'flat'}">${v > 0 ? '▲' : v < 0 ? '▼' : '·'} ${Math.abs(v).toFixed(1).replace('.',',')} p.p.</i>`
+  : '<span class="na">—</span>';
 const fmtGiro = v => {
-  if(typeof v !== 'number') return '—';
+  if(typeof v !== 'number') return '<span class="na">—</span>';
   if(v >= 1e9) return 'R$ ' + (v/1e9).toFixed(1).replace('.',',') + ' bi';
   if(v >= 1e6) return 'R$ ' + (v/1e6).toFixed(1).replace('.',',') + ' mi';
   if(v >= 1e3) return 'R$ ' + (v/1e3).toFixed(0) + ' mil';
@@ -9632,81 +9808,248 @@ function filtra(){
   return [...r].sort(o[st.sort]);
 }
 
+/* ---------- criterios de recorte ---------- */
+/* Cada criterio e uma funcao sobre a metrica, para o resumo textual e o
+   filtro usarem exatamente a mesma definicao e nunca divergirem. */
+const LIQ = {
+  todas:{rot:'Qualquer liquidez', t:()=>true},
+  '10k':{rot:'Giro médio ≥ R$ 10 mil', t:m=>!!m && m.g20>=1e4},
+  '100k':{rot:'Giro médio ≥ R$ 100 mil', t:m=>!!m && m.g20>=1e5},
+  '1m':{rot:'Giro médio ≥ R$ 1 milhão', t:m=>!!m && m.g20>=1e6}
+};
+const FREQ = {
+  todas:{rot:'Qualquer frequência', t:()=>true},
+  alta:{rot:'15 ou mais de 20 pregões', t:m=>!!m && m.d20>=15},
+  media:{rot:'Entre 5 e 14 pregões', t:m=>!!m && m.d20>=5 && m.d20<15},
+  baixa:{rot:'Menos de 5 pregões', t:m=>!!m && m.d20<5}
+};
+const HIST = {
+  todos:{rot:'Com ou sem histórico', t:()=>true},
+  com:{rot:'Com histórico calculado', t:m=>!!m},
+  sem:{rot:'Sem histórico suficiente', t:m=>!m}
+};
+
+/* Recortes sao atalhos declarados: cada um diz quais filtros aplica, e o
+   texto do criterio e mostrado na tela. Nenhum deles e recomendacao. */
+const RECORTES = {
+  negociados:{rot:'Mais negociados', liq:'100k', sort:'g20', dir:'desc',
+    crit:'Giro médio de 20 pregões igual ou acima de R$ 100 mil, ordenado do maior giro para o menor.'},
+  forca:{rot:'Força relativa recente', liq:'10k', sort:'forca', dir:'desc',
+    crit:'Giro médio igual ou acima de R$ 10 mil, ordenado pela diferença em pontos percentuais para a mediana do próprio grupo em 3 meses.'},
+  maxima:{rot:'Perto da máxima anual', liq:'10k', sort:'dd252', dir:'desc',
+    crit:'Giro médio igual ou acima de R$ 10 mil, ordenado pela menor distância da máxima de 252 pregões.'},
+  recuperacao:{rot:'Recuperação após queda', liq:'10k', sort:'r21', dir:'desc',
+    pred:m => !!m && typeof m.r252==='number' && m.r252<0 && typeof m.r21==='number' && m.r21>0,
+    crit:'Giro médio igual ou acima de R$ 10 mil, retorno de 12 meses negativo e retorno de 1 mês positivo.'},
+  positivo:{rot:'Alta com liquidez', liq:'100k', sort:'r63', dir:'desc',
+    pred:m => !!m && typeof m.r63==='number' && m.r63>0,
+    crit:'Giro médio igual ou acima de R$ 100 mil e retorno de 3 meses positivo.'},
+  rarefeito:{rot:'Baixa frequência', freq:'baixa', sort:'d20', dir:'asc',
+    crit:'Negociou em menos de 5 dos últimos 20 pregões. Preço pouco frequente é referência frágil.'},
+  semhist:{rot:'Sem histórico', hist:'sem', sort:'nome', dir:'asc',
+    crit:'BDRs sem série diária suficiente para calcular retornos e volatilidade.'}
+};
+
+function aplicaRecorte(k){
+  const r = RECORTES[k];
+  st.recorte = st.recorte === k ? null : k;
+  if(st.recorte){
+    st.bdrLiq = r.liq || 'todas';
+    st.bdrFreq = r.freq || 'todas';
+    st.bdrHist = r.hist || 'todos';
+    st.bdrSort = r.sort; st.bdrDir = r.dir;
+  }
+  chipsBDR(); render();
+}
+
 function filtraBDR(){
   let r = BDR;
-  if(st.q){ const q = norm(st.q); r = r.filter(b => b._s.includes(q)); }
+  if(st.qb){ const q = norm(st.qb); r = r.filter(b => b._s.includes(q)); }
   if(st.bdrPais.size) r = r.filter(b => st.bdrPais.has(b.pais));
   if(st.bdrSetor.size) r = r.filter(b => st.bdrSetor.has(b.setor));
   if(st.bdrIndustria.size) r = r.filter(b => st.bdrIndustria.has(b.industria));
-  if(st.bdrLiq !== 'todas') r = r.filter(b => {
-    const m = met(b.ticker); if(!m) return false;
-    if(st.bdrLiq === 'ativa') return m.d20 >= 15;
-    return m.g20 >= ({'10k':1e4,'100k':1e5,'1m':1e6}[st.bdrLiq] || 0);
+  const tLiq = LIQ[st.bdrLiq].t, tFreq = FREQ[st.bdrFreq].t, tHist = HIST[st.bdrHist].t;
+  const pred = st.recorte && RECORTES[st.recorte].pred;
+  r = r.filter(b => {
+    const m = met(b.ticker);
+    return tLiq(m) && tFreq(m) && tHist(m) && (!pred || pred(m));
   });
-  const variacao = t => cot(t)?.v;
-  const desc = k => (a,b) => {
-    const x = met(a.ticker)?.[k], y = met(b.ticker)?.[k];
-    if(typeof x !== 'number') return typeof y !== 'number' ? 0 : 1;
-    if(typeof y !== 'number') return -1;
-    return y-x;
-  };
-  const descForca = (a,b) => {
-    const x = forcaBDR(a).v, y = forcaBDR(b).v;
-    if(typeof x !== 'number') return typeof y !== 'number' ? 0 : 1;
-    if(typeof y !== 'number') return -1;
-    return y-x;
-  };
-  const o = {
-    nome:(a,b)=>a.empresa.localeCompare(b.empresa,'pt-BR'),
-    alta:(a,b)=>(variacao(b.ticker) ?? -999) - (variacao(a.ticker) ?? -999),
-    baixa:(a,b)=>(variacao(a.ticker) ?? 999) - (variacao(b.ticker) ?? 999),
-    r21:desc('r21'), r63:desc('r63'), r252:desc('r252'),
-    ri63:descForca, g20:desc('g20'), dd252:desc('dd252')
-  };
-  return [...r].sort(o[st.bdrSort] || o.nome);
+  return ordenaBDR(r);
 }
 
-/* ---------- chips ---------- */
+/* Valor comparavel de cada coluna. Sem dado sempre vai para o fim,
+   independente da direcao, para nao poluir o topo do ranking. */
+function valorCol(b, k){
+  const m = met(b.ticker), r = cot(b.ticker);
+  switch(k){
+    case 'ticker': return b.ticker;
+    case 'empresa': case 'nome': return b.empresa;
+    case 'pais': return paisPT(b.pais) || '';
+    case 'setor': return setorPT(b.setor) || '';
+    case 'preco': return r ? r.p : null;
+    case 'estado': return negociouHoje(r) ? 1 : 0;
+    case 'forca': return forcaBDR(b).v;
+    default: return m ? m[k] : null;
+  }
+}
+function ordenaBDR(list){
+  const k = st.bdrSort, sinal = st.bdrDir === 'asc' ? 1 : -1;
+  return [...list].sort((a,b) => {
+    const x = valorCol(a,k), y = valorCol(b,k);
+    const xv = x === null || x === undefined, yv = y === null || y === undefined;
+    if(xv && yv) return a.empresa.localeCompare(b.empresa,'pt-BR');
+    if(xv) return 1;
+    if(yv) return -1;
+    if(typeof x === 'string') return sinal * x.localeCompare(y,'pt-BR');
+    return sinal * (x - y);
+  });
+}
+
+/* ---------- painel de filtros ---------- */
+function opcoes(destino, itens, set, chave){
+  const box = $(destino);
+  if(!itens.length){ box.innerHTML = '<div class="vazio">Nenhum resultado.</div>'; return; }
+  box.innerHTML = itens.map(i => `<label class="opt">
+    <input type="checkbox" data-f="${chave}" value="${esc(i.v)}"${set.has(i.v)?' checked':''}>
+    ${i.cor ? `<i class="dot" style="background:${i.cor}"></i>` : ''}
+    <span class="k">${esc(i.rot)}</span><span class="n">${i.n}</span></label>`).join('');
+}
+function radios(destino, mapaOpts, atual, chave){
+  $(destino).innerHTML = Object.entries(mapaOpts).map(([v,o]) => `<label class="opt">
+    <input type="radio" name="${chave}" data-f="${chave}" value="${v}"${v===atual?' checked':''}>
+    <span class="k">${esc(o.rot)}</span></label>`).join('');
+}
+function conta(n, alvo){
+  const el = $(alvo);
+  el.textContent = n; el.classList.toggle('hide', !n);
+}
+
 function chips(){
   const cc = {}; E.forEach(e => cc[e.macro]=(cc[e.macro]||0)+1);
-  catsBox.innerHTML = Object.keys(CORES)
-    .sort((a,b)=>cc[b]-cc[a])
-    .map(c=>`<button class="chip" data-cat="${c}" aria-pressed="false"><i class="dot" style="background:${CORES[c]}"></i>${ACENTOS[c]||c}<i class="n">${cc[c]}</i></button>`).join('');
+  opcoes('cats', Object.keys(CORES).sort((a,b)=>cc[b]-cc[a])
+    .map(c => ({v:c, rot:ACENTOS[c]||c, n:cc[c], cor:CORES[c]})), st.cats, 'cat');
 
   const tc = {}; E.forEach(e => e.tagsL.forEach(t => tc[t]=(tc[t]||0)+1));
-  const ts = Object.keys(tc).sort((a,b)=>tc[b]-tc[a]||a.localeCompare(b,'pt-BR'));
-  document.getElementById('sTags').textContent = ts.length;
-  tagsBox.innerHTML = ts
-    .map(t=>`<button class="chip mini" data-tag="${t}" aria-pressed="false">${t}<i class="n">${tc[t]}</i></button>`).join('');
-
-  document.querySelectorAll('[data-cat]').forEach(b => b.onclick = () => tog(st.cats, b.dataset.cat, b));
-  document.querySelectorAll('[data-tag]').forEach(b => b.onclick = () => tog(st.tags, b.dataset.tag, b));
-}
-function tog(set, k, btn){
-  set.has(k) ? set.delete(k) : set.add(k);
-  btn.setAttribute('aria-pressed', set.has(k));
-  render();
+  const q = norm(st.buscaTag);
+  const ts = Object.keys(tc).sort((a,b)=>tc[b]-tc[a]||a.localeCompare(b,'pt-BR'))
+    .filter(t => !q || norm(t).includes(q));
+  opcoes('tags', ts.map(t => ({v:t, rot:t, n:tc[t]})), st.tags, 'tag');
+  conta(st.cats.size, 'cntCat'); conta(st.tags.size, 'cntTag');
 }
 
 function chipsBDR(){
-  const pc = {}; BDR.forEach(b => { if(b.pais) pc[b.pais] = (pc[b.pais]||0)+1; });
-  const ps = Object.keys(pc).sort((a,b)=>pc[b]-pc[a]||a.localeCompare(b));
-  $('paises').innerHTML = ps
-    .map(p=>`<button class="chip mini" data-pais="${p}" aria-pressed="false">${paisPT(p)}<i class="n">${pc[p]}</i></button>`).join('');
+  const conj = (campo, rotulo) => {
+    const c = {}; BDR.forEach(b => { if(b[campo]) c[b[campo]] = (c[b[campo]]||0)+1; });
+    return Object.keys(c).sort((a,b)=>c[b]-c[a]||a.localeCompare(b))
+      .map(v => ({v, rot:rotulo(v), n:c[v]}));
+  };
+  const qp = norm(st.buscaPais), qi = norm(st.buscaInd);
+  opcoes('paises', conj('pais', paisPT).filter(i => !qp || norm(i.rot).includes(qp)), st.bdrPais, 'pais');
+  opcoes('setores', conj('setor', setorPT).map(i => ({...i, cor:corSetor(i.v)})), st.bdrSetor, 'setor');
+  opcoes('industrias', conj('industria', industriaPT).filter(i => !qi || norm(i.rot).includes(qi)), st.bdrIndustria, 'ind');
+  radios('fLiq', LIQ, st.bdrLiq, 'liq');
+  radios('fFreq', FREQ, st.bdrFreq, 'freq');
+  radios('fHist', HIST, st.bdrHist, 'hist');
+  conta(st.bdrPais.size, 'cntPais'); conta(st.bdrSetor.size, 'cntSetor'); conta(st.bdrIndustria.size, 'cntInd');
+  $('recs').innerHTML = Object.entries(RECORTES).map(([k,r]) =>
+    `<button class="rec" data-rec="${k}" aria-pressed="${st.recorte===k}">${r.rot}</button>`).join('');
+  $('criterio').innerHTML = st.recorte
+    ? `<b>Critério aplicado:</b> ${RECORTES[st.recorte].crit}`
+    : 'Atalhos que combinam filtro e ordenação. Nenhum deles é recomendação de compra ou venda — servem para achar o que investigar.';
+}
 
-  const sc = {}; BDR.forEach(b => { if(b.setor) sc[b.setor] = (sc[b.setor]||0)+1; });
-  const ss = Object.keys(sc).sort((a,b)=>sc[b]-sc[a]);
-  $('setores').innerHTML = ss
-    .map(s=>`<button class="chip mini" data-setor="${s}" aria-pressed="false"><i class="dot" style="background:${corSetor(s)}"></i>${setorPT(s)}<i class="n">${sc[s]}</i></button>`).join('');
+/* ---------- tabela comparativa ---------- */
+const COLS = [
+  {k:'ticker',  rot:'Ticker'},
+  {k:'empresa', rot:'Empresa'},
+  {k:'pais',    rot:'País', sec:true},
+  {k:'preco',   rot:'Último preço', n:true},
+  {k:'estado',  rot:'Negociação', sec:true},
+  {k:'r21',     rot:'1 mês', n:true},
+  {k:'r63',     rot:'3 meses', n:true},
+  {k:'r252',    rot:'12 meses', n:true, sec:true},
+  {k:'forca',   rot:'Força rel.', n:true, sec:true},
+  {k:'g20',     rot:'Giro médio', n:true},
+  {k:'d20',     rot:'Pregões', n:true, sec:true}
+];
 
-  const ic = {}; BDR.forEach(b => { if(b.industria) ic[b.industria] = (ic[b.industria]||0)+1; });
-  const is = Object.keys(ic).sort((a,b)=>ic[b]-ic[a]||a.localeCompare(b));
-  $('industrias').innerHTML = is
-    .map(i=>`<button class="chip mini" data-industria="${i}" aria-pressed="false">${industriaPT(i)}<i class="n">${ic[i]}</i></button>`).join('');
+function tabelaBDR(list){
+  if(!list.length) return '<p class="nota" style="padding-top:16px">Nenhum BDR neste recorte. Ajuste os filtros ou limpe tudo.</p>';
+  const th = COLS.map(c => {
+    const ativo = st.bdrSort === c.k;
+    const seta = ativo ? (st.bdrDir === 'asc' ? '▲' : '▼') : '';
+    return `<th class="${c.n?'n ':''}${c.sec?'col-s':''}"${ativo?` aria-sort="${st.bdrDir==='asc'?'ascending':'descending'}"`:''}>
+      <button data-col="${c.k}">${c.rot}<span class="s">${seta}</span></button></th>`;
+  }).join('');
+  const linhas = list.map(b => {
+    const r = cot(b.ticker), m = met(b.ticker), f = forcaBDR(b);
+    const viva = negociouHoje(r);
+    const preco = r ? (viva ? fmtPreco(r.p) : fmtPreco(r.p)) : '<span class="na">—</span>';
+    const det = m ? `<span>Vs. setor 3m</span><span>${fmtPp(m.rs63)}</span>
+        <span>12 meses</span><span>${fmtRet(m.r252)}</span>
+        <span>Pregões com negócio</span><span>${m.d20} de 20</span>
+        <span>Volatilidade 21d</span><span>${typeof m.v21==='number'?m.v21.toFixed(1).replace('.',',')+'%':'—'}</span>`
+      : '<span>Histórico</span><span>insuficiente</span>';
+    return `<tr tabindex="0" data-tk="${b.ticker}">
+      <td class="tk"><span class="marc" style="background:${corSetor(b.setor)}"></span>${b.ticker}</td>
+      <td><span class="emp">${esc(b.empresa)}</span><span class="sub">${esc(setorPT(b.setor)||'')} · ${esc(industriaPT(b.industria)||'')}</span></td>
+      <td class="col-s">${esc(paisPT(b.pais)||'—')}</td>
+      <td class="n">${preco}</td>
+      <td class="col-s"><span class="est${viva?' viva':''}">${viva?'hoje':(r?'último':'—')}</span></td>
+      <td class="n">${m?fmtRet(m.r21):'<span class="na">—</span>'}</td>
+      <td class="n">${m?fmtRet(m.r63):'<span class="na">—</span>'}</td>
+      <td class="n col-s">${m?fmtRet(m.r252):'<span class="na">—</span>'}</td>
+      <td class="n col-s">${m?fmtPp(f.v):'<span class="na">—</span>'}</td>
+      <td class="n">${m?fmtGiro(m.g20):'<span class="na">—</span>'}</td>
+      <td class="n col-s">${m?m.d20+'/20':'<span class="na">—</span>'}</td>
+      <td class="expand"><button aria-expanded="false" aria-label="Mais indicadores de ${b.ticker}">▾</button></td>
+    </tr>
+    <tr class="det hide"><td colspan="12"><div class="dl">${det}</div></td></tr>`;
+  }).join('');
+  return `<div class="tabw"><table class="tab">
+    <caption class="sr">BDRs no recorte atual, com preço, retornos, força relativa e liquidez</caption>
+    <thead><tr>${th}<th class="expand"><span class="sr">Detalhes</span></th></tr></thead>
+    <tbody>${linhas}</tbody></table></div>`;
+}
 
-  document.querySelectorAll('[data-pais]').forEach(b => b.onclick = () => tog(st.bdrPais, b.dataset.pais, b));
-  document.querySelectorAll('[data-setor]').forEach(b => b.onclick = () => tog(st.bdrSetor, b.dataset.setor, b));
-  document.querySelectorAll('[data-industria]').forEach(b => b.onclick = () => tog(st.bdrIndustria, b.dataset.industria, b));
+function cardsBDR(list){
+  if(!list.length) return '<p class="nota" style="padding-top:16px">Nenhum BDR neste recorte.</p>';
+  return '<div class="grid">' + list.map(b => {
+    const r = cot(b.ticker), m = met(b.ticker), f = forcaBDR(b), corS = corSetor(b.setor);
+    const preco = r ? `<span class="pr"><b>${fmtPreco(r.p)}</b>${negociouHoje(r)?fmtVar(r.v):''}</span>`
+      : '<span class="pr na">sem cotação</span>';
+    const sinais = m ? `<div class="met"><span>1m ${fmtRet(m.r21)}</span><span>3m ${fmtRet(m.r63)}</span>
+        <span>${f.rot} ${fmtPp(f.v)}</span><span>giro ${fmtGiro(m.g20)}</span></div>`
+      : '<div class="met"><span>histórico insuficiente</span></div>';
+    return `<button class="card" data-tk="${b.ticker}" style="border-left-color:${corS}">
+      <span class="top"><span class="cod" style="color:${corS}">${b.ticker}</span>
+      <span class="nm">${esc(b.empresa)}</span>${preco}</span>
+      <div class="cat">${esc(setorPT(b.setor)||'')} · ${esc(paisPT(b.pais)||'')}</div>
+      <div class="ds">${esc(industriaPT(b.industria)||'')}</div>${sinais}
+      <div class="tg"><span>${b.tipo}</span></div></button>`;
+  }).join('') + '</div>';
+}
+
+function tabelaEmpresas(list){
+  if(!list.length) return '<p class="nota" style="padding-top:16px">Nenhuma empresa neste recorte.</p>';
+  const linhas = list.map(e => {
+    const r = refPreco(e);
+    return `<tr tabindex="0" data-cod="${e.cod}">
+      <td class="tk"><span class="marc" style="background:${e.cor}"></span>${e.tickers || e.cod}</td>
+      <td><span class="emp">${esc(e.pregao)}</span><span class="sub">${esc(e.seg)}</span></td>
+      <td class="col-s">${esc(e.macroL)}</td>
+      <td class="n">${r ? fmtPreco(r.p) : '<span class="na">—</span>'}</td>
+      <td class="n">${r ? fmtVar(r.v) : '<span class="na">—</span>'}</td>
+      <td class="n col-s">${e.vm ? brl(e.vm) : '<span class="na">—</span>'}</td>
+      <td class="n col-s">${e.liq ? brl(e.liq) : '<span class="na">—</span>'}</td>
+    </tr>`;
+  }).join('');
+  return `<div class="tabw"><table class="tab">
+    <caption class="sr">Empresas brasileiras no recorte atual</caption>
+    <thead><tr><th>Ticker</th><th>Empresa</th><th class="col-s">Categoria</th>
+      <th class="n">Preço</th><th class="n">Variação</th>
+      <th class="n col-s">Valor de mercado</th><th class="n col-s">Liquidez</th></tr></thead>
+    <tbody>${linhas}</tbody></table></div>`;
 }
 
 /* ---------- treemap ---------- */
@@ -9791,57 +10134,156 @@ function desenha(list){
   });
 }
 
-/* ---------- lista ---------- */
-function listaHTML(list){
-  return list.map(e => `<button class="card" data-cod="${e.cod}" style="border-left-color:${e.cor}">
-    <span class="top"><span class="cod" style="color:${e.cor}">${e.tickers || e.cod}</span><span class="nm">${e.pregao}</span>${precoHTML(e)}</span>
-    <div class="cat">${e.macroL} · ${e.seg}</div>
-    <div class="ds">${e.desc}</div>
-    <div class="tg">${e.tagsL.slice(0,6).map(t=>`<span>${t}</span>`).join('')}</div>
-  </button>`).join('');
+/* ---------- visao geral ---------- */
+function barras(pares, total, cor){
+  return '<div class="dist">' + pares.map(([k,n]) => `<div class="l">
+    <span class="k">${esc(k)}</span>
+    <span class="b"><i style="width:${(n/total*100).toFixed(1)}%;background:${typeof cor==='function'?cor(k):cor}"></i></span>
+    <span class="v">${n}</span></div>`).join('') + '</div>';
+}
+function contaPor(campo, rotulo){
+  const c = {}; BDR.forEach(b => { if(b[campo]) c[b[campo]] = (c[b[campo]]||0)+1; });
+  return Object.entries(c).map(([k,n]) => [rotulo(k), n]).sort((a,b)=>b[1]-a[1]);
 }
 
-function bdrHTML(list){
-  return list.map(b => {
-    const r = cot(b.ticker);
-    const preco = r ? `<span class="pr"><b>${negociouHoje(r) ? fmtPreco(r.p) : 'último ' + fmtPreco(r.p)}</b>${negociouHoje(r) ? fmtVar(r.v) : ''}</span>` : '<span class="pr na">sem cotação</span>';
-    const corS = corSetor(b.setor);
-    const m = met(b.ticker);
-    const forca = forcaBDR(b);
-    const sinais = m ? `<div class="met"><span>1 mês ${fmtRet(m.r21)}</span><span>3 meses ${fmtRet(m.r63)}</span><span>${forca.rot} ${fmtPp(forca.v)}</span><span>giro 20d ${fmtGiro(m.g20)}</span></div>`
-      : '<div class="met"><span>histórico insuficiente</span></div>';
-    return `<button class="card" data-tk="${b.ticker}" style="border-left-color:${corS}">
-    <span class="top"><span class="cod" style="color:${corS}">${b.ticker}</span><span class="nm">${b.empresa}</span>${preco}</span>
-    <div class="cat">${setorPT(b.setor)} · ${paisPT(b.pais)}</div>
-    <div class="ds">${industriaPT(b.industria)}</div>
-    ${sinais}
-    <div class="tg"><span>${b.tipo}</span></div>
-  </button>`;
-  }).join('');
-}
+function geralHTML(){
+  const comPreco = E.filter(e => refPreco(e)).length;
+  const bdrPreco = BDR.filter(b => cot(b.ticker)).length;
+  const bdrMet = BDR.filter(b => met(b.ticker)).length;
+  const vmTotal = E.reduce((a,e)=>a+e.vm,0);
+  const semNeg = E.filter(e => e.tagsL.includes('Sem negociação')).length;
 
-/* ---------- fila de IPO ---------- */
-function ipoHTML(){
-  const semNeg = E.filter(e => e.tagsL.includes('Sem negociação'))
-    .sort((a,b)=>(b.ano||0)-(a.ano||0));
-  const grp = (s,t) => D.pipeline.filter(p=>p.s===s).map(p=>`
-    <button class="card" style="border-left-color:${CORES[p.c]};cursor:default">
-      <span class="top"><span class="nm">${p.n}</span></span>
-      <div class="cat">${ACENTOS[p.c]||p.c}</div>
-      <div class="ds" style="-webkit-line-clamp:6">${p.d}</div>
-    </button>`).join('');
+  const paises = contaPor('pais', paisPT), setores = contaPor('setor', setorPT);
+  const corPorSetorPT = k => {
+    const orig = Object.keys(SETOR_PT).find(s => SETOR_PT[s] === k) || k;
+    return corSetor(orig);
+  };
+  const liqPerfil = [
+    ['Giro ≥ R$ 1 milhão', BDR.filter(b => LIQ['1m'].t(met(b.ticker))).length],
+    ['Giro ≥ R$ 100 mil', BDR.filter(b => LIQ['100k'].t(met(b.ticker))).length],
+    ['Giro ≥ R$ 10 mil', BDR.filter(b => LIQ['10k'].t(met(b.ticker))).length],
+    ['Negociou em 15+ pregões', BDR.filter(b => FREQ.alta.t(met(b.ticker))).length],
+    ['Menos de 5 pregões', BDR.filter(b => FREQ.baixa.t(met(b.ticker))).length]
+  ];
+
+  /* Piso de liquidez em todo ranking: sem isso o topo vira ruido de papel
+     que negociou uma vez no mes. */
+  const liquidos = BDR.filter(b => LIQ['100k'].t(met(b.ticker)));
+  const topo = (k, rot) => {
+    const l = [...liquidos].filter(b => typeof met(b.ticker)?.[k] === 'number')
+      .sort((a,b) => met(b.ticker)[k] - met(a.ticker)[k]).slice(0,5);
+    return `<h3 class="sub">${rot}</h3><div class="dist">` + l.map(b => `<div class="l">
+      <span class="k"><b class="num">${b.ticker}</b> ${esc(b.empresa)}</span>
+      <span class="b"></span><span class="v">${fmtRet(met(b.ticker)[k])}</span></div>`).join('') + '</div>';
+  };
+  const topoForca = () => {
+    const l = [...liquidos].filter(b => typeof forcaBDR(b).v === 'number')
+      .sort((a,b) => forcaBDR(b).v - forcaBDR(a).v).slice(0,5);
+    return `<h3 class="sub">Maior força relativa em 3 meses</h3><div class="dist">` + l.map(b => `<div class="l">
+      <span class="k"><b class="num">${b.ticker}</b> ${esc(b.empresa)}</span>
+      <span class="b"></span><span class="v">${fmtPp(forcaBDR(b).v)}</span></div>`).join('') + '</div>';
+  };
+
   return `
-  <div class="note">
-    <h3>Nenhuma empresa tem data de estreia confirmada hoje</h3>
-    <p>A B3 passou de setembro de 2021 a maio de 2026 sem um único IPO. A Compass, do grupo Cosan, quebrou o jejum em 11 de maio de 2026, estreando no Novo Mercado sob o código PASS3 a R$ 28 por ação e captando R$ 2,825 bilhões. Desde então nenhuma outra oferta inicial foi precificada. A B3 fala em mais de 50 companhias já registradas na CVM e prontas do ponto de vista regulatório, mas o calendário eleitoral de outubro de 2026 empurrou a maioria dos planos para adiante.</p>
+  <h2 class="sec">Retrato da B3</h2>
+  <div class="retrato">
+    <div><b>${E.length}</b><span>empresas brasileiras</span></div>
+    <div><b>${BDR.length || '—'}</b><span>BDRs de empresas</span></div>
+    <div><b>19</b><span>categorias temáticas</span></div>
+    <div><b>${brl(vmTotal)}</b><span>valor de mercado somado</span></div>
+    <div><b>${comPreco}</b><span>empresas com cotação</span></div>
+    <div><b>${bdrMet || '—'}</b><span>BDRs com histórico</span></div>
   </div>
-  <h3 class="subh">Pedido protocolado na CVM</h3>
-  <div class="grid">${grp('protocolo')}</div>
-  <h3 class="subh">No radar do mercado, sem protocolo público</h3>
-  <div class="grid">${grp('radar')}</div>
-  <h3 class="subh">Já registradas na B3, sem negociação relevante · ${semNeg.length}</h3>
-  <p style="color:var(--tx3);font-size:12.5px;margin:-2px 0 12px;max-width:80ch">Este grupo mistura três coisas diferentes: candidatas reais a oferta que já cumpriram o registro, como Eurofarma, Tivit, Iguá e Grupo Salta; holdings de controle que nunca tiveram ações em circulação; e empresas que saíram ou estão saindo da bolsa. Vale olhar caso a caso.</p>
-  <div class="grid">${listaHTML(semNeg)}</div>`;
+  <p class="nota">Cotações de ${PRECO_TS || '—'} · métricas de ${METRICA_TS || '—'} · base de companhias de ${SNAPSHOT.label}.
+  ${bdrPreco} dos ${BDR.length || 0} BDRs têm preço; ${semNeg} das ${E.length} empresas não têm negociação relevante.</p>
+
+  <h2 class="sec">Empresas brasileiras</h2>
+  <p class="nota">369 companhias com ações registradas, organizadas em 19 categorias temáticas escritas à mão — a leitura é sobre onde a empresa ganha dinheiro, não sobre a classificação oficial da B3.</p>
+  <div id="miniMapa" style="height:290px;position:relative;border:1px solid var(--line);background:var(--sup);overflow:hidden"></div>
+  <p style="margin:10px 0 0"><button class="lnk" data-sec="empresas">Explorar o mosaico completo →</button></p>
+
+  <h2 class="sec">Universo de BDRs</h2>
+  ${BDR.length ? `<div class="duo">
+    <div><h3 class="sub" style="margin-top:0">Por país</h3>${barras(paises.slice(0,8), BDR.length, 'var(--am2)')}</div>
+    <div><h3 class="sub" style="margin-top:0">Por setor</h3>${barras(setores, BDR.length, corPorSetorPT)}</div>
+  </div>
+  <h3 class="sub">Perfil de liquidez</h3>${barras(liqPerfil, BDR.length, 'var(--line2)')}
+  <p style="margin:10px 0 0"><button class="lnk" data-sec="bdrs">Abrir a tabela comparativa →</button></p>`
+  : '<p class="nota">Carregando a base de BDRs…</p>'}
+
+  <h2 class="sec">Movimentos do mercado</h2>
+  <p class="nota">Todos os recortes abaixo aplicam um piso de giro médio de R$ 100 mil em 20 pregões. Sem esse piso, o topo do ranking vira papel que negociou uma única vez no período. Não é recomendação: é ponto de partida para investigar.</p>
+  ${BDR.length && Object.keys(METRICAS).length ? `<div class="duo">
+    <div>${topo('r63','Maior retorno em 3 meses')}${topo('r252','Maior retorno em 12 meses')}</div>
+    <div>${topoForca()}${topo('dd252','Mais perto da máxima de 12 meses')}</div>
+  </div>` : '<p class="nota">Carregando métricas…</p>'}
+
+  <h2 class="sec">Radar de listagens</h2>
+  <p class="nota">A B3 passou de setembro de 2021 a maio de 2026 sem um único IPO. ${semNeg} companhias já registradas não têm negociação relevante — grupo que mistura candidatas reais a oferta, holdings de controle e empresas saindo da bolsa.</p>
+  <p style="margin:10px 0 0"><button class="lnk" data-sec="radar">Ver o radar completo →</button></p>`;
+}
+
+/* ---------- radar ---------- */
+function radarHTML(){
+  const semNeg = E.filter(e => e.tagsL.includes('Sem negociação')).sort((a,b)=>(b.ano||0)-(a.ano||0));
+  const grp = s => '<div class="grid">' + D.pipeline.filter(p=>p.s===s).map(p=>`
+    <div class="card" style="border-left-color:${CORES[p.c]};cursor:default">
+      <span class="top"><span class="nm">${esc(p.n)}</span></span>
+      <div class="cat">${esc(ACENTOS[p.c]||p.c)}</div>
+      <div class="ds" style="-webkit-line-clamp:6">${esc(p.d)}</div>
+    </div>`).join('') + '</div>';
+  return `
+  <div class="aviso">
+    <h3>Nenhuma empresa tem data de estreia confirmada hoje</h3>
+    <p>A Compass, do grupo Cosan, quebrou o jejum em 11 de maio de 2026, estreando no Novo Mercado sob o código PASS3 a R$ 28 por ação e captando R$ 2,825 bilhões. Desde então nenhuma outra oferta inicial foi precificada. A B3 fala em mais de 50 companhias já registradas na CVM e prontas do ponto de vista regulatório, mas o calendário eleitoral de outubro de 2026 empurrou a maioria dos planos para adiante.</p>
+  </div>
+  <h2 class="sec">Pedido protocolado na CVM</h2>${grp('protocolo')}
+  <h2 class="sec">No radar do mercado, sem protocolo público</h2>${grp('radar')}
+  <h2 class="sec">Registradas na B3, sem negociação relevante · ${semNeg.length}</h2>
+  <p class="nota">Este grupo mistura três coisas diferentes: candidatas reais a oferta que já cumpriram o registro, como Eurofarma, Tivit, Iguá e Grupo Salta; holdings de controle que nunca tiveram ações em circulação; e empresas que saíram ou estão saindo da bolsa. Vale olhar caso a caso.</p>
+  ${tabelaEmpresas(semNeg)}`;
+}
+
+/* ---------- metodologia ---------- */
+function metodologiaHTML(){
+  return `<div class="meto">
+  <h2>Universo coberto</h2>
+  <p>Duas bases distintas. A primeira reúne as <b>${E.length} companhias brasileiras</b> com ações registradas na B3, incluindo as que hoje não têm negociação relevante: holdings de controle, empresas em processo de saída e candidatas a oferta que já se registraram. A segunda reúne os <b>${BDR.length || 825} BDRs de empresas</b> — recibos de depósito de companhias estrangeiras negociados na B3, patrocinados e não patrocinados. ETFs internacionais listados como BDR, ETPs de cripto e emissores exclusivos de dívida ficam de fora das duas.</p>
+
+  <h2>Classificação das empresas brasileiras</h2>
+  <p>As 19 categorias temáticas e as tags de cruzamento são <b>leitura analítica do autor</b>, escritas à mão para responder onde cada empresa realmente ganha dinheiro. Uma companhia de agro pode carregar tag de tecnologia; uma de energia, tag de saneamento. Isso <b>não substitui</b> a classificação setorial oficial da B3, que aparece na ficha de cada companhia.</p>
+  <p>O valor de mercado e a liquidez média de dois meses são estimativas a partir de dados públicos, congeladas na data da base (${SNAPSHOT.label}). Servem para dar escala ao mosaico, não para decisão de investimento.</p>
+
+  <h2>Classificação dos BDRs</h2>
+  <p>A relação de tickers e o tipo de programa vêm da base oficial de empresas listadas da B3. País, setor e indústria <b>não têm classificação oficial da B3 para BDR</b>: a fonte padrão é o perfil que o Yahoo Finance mantém da empresa, com tradução editorial para português. Quando esse perfil não existe, a classificação é verificada em página oficial da companhia ou documento regulatório, e a fonte específica aparece na ficha do ativo.</p>
+  <p>Diferente das empresas brasileiras, os BDRs <b>não têm descrição escrita à mão nem tags de cruzamento</b>. É a lista completa das ativas para compra, com dado de identificação e indicadores calculados — sem curadoria analítica por trás.</p>
+
+  <h2>Cotações</h2>
+  <p>Preços vêm do Yahoo Finance, que <b>não é fonte oficial da B3</b>, com atraso de cerca de 15 minutos. Atualizam a cada 30 minutos durante o pregão. Ação parada retorna preço zero na origem, o que é ausência de dado e não cotação: esses casos aparecem explicitamente como sem cotação, nunca como R$ 0,00.</p>
+  <p>Empresas com mais de uma classe de ação exibem a classe de <b>maior volume no dia</b>, decidida pelo dado da própria API e não por convenção de sufixo. A ficha mostra todas as classes.</p>
+  <p><b>O tamanho dos blocos no mosaico não acompanha o preço.</b> Ele vem do valor de mercado estimado na data da base, que é um retrato fixo. Recalcular exigiria a quantidade de ações em circulação, que não está na base. Os dois divergem com o tempo.</p>
+
+  <h2>Métricas históricas dos BDRs</h2>
+  <p>Calculadas a partir de até dois anos de preços diários <b>ajustados</b> (proventos e desdobramentos considerados). Os períodos de 1, 3 e 12 meses correspondem a <b>21, 63 e 252 pregões</b>, não a meses de calendário. Volatilidade é o desvio-padrão dos retornos diários das últimas 21 sessões, anualizado. Distância da máxima usa a máxima de 252 pregões.</p>
+  <p>Histórico insuficiente fica explicitamente sem dado, nunca preenchido com zero ou estimativa.</p>
+
+  <h2>Força relativa</h2>
+  <p>É a diferença, <b>em pontos percentuais</b>, entre o retorno do ativo e a <b>mediana</b> do seu grupo no mesmo período. O grupo padrão é a indústria; quando a indústria tem menos de três BDRs com histórico, a comparação usa o setor, e a ficha informa o tamanho da amostra. É uma ferramenta de comparação relativa, não um julgamento de qualidade.</p>
+
+  <h2>Liquidez</h2>
+  <p>Giro médio é a média de preço × volume nos últimos 20 ou 60 pregões, e <b>inclui as sessões sem negócio</b> — o que puxa a média para baixo de propósito, para não superestimar a liquidez de recibos pouco negociados. Frequência de negociação conta em quantos dos últimos 20 pregões houve negócio.</p>
+  <p>Todos os recortes de exploração aplicam um piso de liquidez explícito. Sem ele, qualquer ranking de retorno é dominado por papéis que negociaram uma única vez no período, com preço que não representa mercado.</p>
+
+  <h2>Limitações e periodicidade</h2>
+  <ul>
+    <li>Preços: atualizados a cada 30 minutos durante o pregão, com atraso de ~15 minutos.</li>
+    <li>Métricas históricas: recalculadas uma vez por dia, após o fechamento.</li>
+    <li>Lista de BDRs e base de empresas: atualizadas manualmente, com frequência baixa.</li>
+    <li>A fonte de cotações é uma API não documentada e pode mudar ou sair do ar sem aviso.</li>
+    <li>Desempenho passado não garante resultado futuro.</li>
+  </ul>
+  <p><b>Nada nesta página é recomendação de compra ou venda</b>, nem análise de investimento. É um instrumento de exploração e comparação de dados públicos.</p>
+  </div>`;
 }
 
 /* Na ficha cabe o detalhe: todas as classes, marcando qual virou referencia. */
@@ -9895,49 +10337,390 @@ function abre(cod){
   drw.querySelector('.x').onclick = fecha;
   drw.focus();
 }
+
+/* ---------- ficha do BDR, em blocos ---------- */
 function abreBDR(ticker){
   const b = BDR.find(x => x.ticker === ticker); if(!b) return;
-  const r = cot(ticker);
-  const corS = corSetor(b.setor);
-  const fonte = fontePerfilBDR(b);
-  const m = met(ticker);
-  const pares = paresIndustria(b);
-  const linha = (rot, valor) => `<dt>${rot}</dt><dd>${valor}</dd>`;
-  const historico = m ? `
-      ${linha('Retorno 1 mês', fmtRet(m.r21))}
-      ${linha('Retorno 3 meses', fmtRet(m.r63))}
-      ${linha('Retorno 12 meses', fmtRet(m.r252))}
-      ${linha('Vs. indústria 3m', pares >= 3 ? fmtPp(m.ri63) : 'amostra de ' + pares + ' BDR' + (pares === 1 ? '' : 's'))}
-      ${linha('Vs. setor 3m', fmtPp(m.rs63))}
-      ${linha('Giro médio 20d', fmtGiro(m.g20))}
-      ${linha('Pregões com negócio', m.d20 + ' de 20')}
-      ${linha('Distância da máxima', fmtRet(m.dd252))}
-      ${linha('Volatilidade 21d', typeof m.v21 === 'number' ? m.v21.toFixed(2).replace('.',',') + '% a.a.' : '—')}`
-    : `${linha('Histórico', 'insuficiente')}`;
+  const r = cot(ticker), m = met(ticker), corS = corSetor(b.setor);
+  const fonte = fontePerfilBDR(b), pares = paresIndustria(b);
+  const l = (rot, valor, txt) => `<dt>${rot}</dt><dd${txt?' class="tx"':''}>${valor}</dd>`;
+  const viva = negociouHoje(r);
+
+  const cotacao = r ? `<dl class="kv">
+      ${l('Último preço', fmtPreco(r.p))}
+      ${l('Variação no dia', viva && typeof r.v === 'number' ? fmtVar(r.v) : '<span class="na">—</span>')}
+      ${l('Negociou hoje', viva ? 'sim' : 'não', true)}
+      ${l('Último negócio', dataNegocio(r), true)}
+      ${l('Giro do dia', fmtGiro(r.giro))}
+    </dl>${viva ? '' : '<p class="fnt">Sem negócio hoje: o preço acima é o último conhecido, não uma cotação corrente.</p>'}`
+    : '<p class="fnt">Sem cotação disponível para este recibo.</p>';
+
+  const desempenho = m ? `<dl class="kv">
+      ${l('1 mês · 21 pregões', fmtRet(m.r21))}
+      ${l('3 meses · 63 pregões', fmtRet(m.r63))}
+      ${l('12 meses · 252 pregões', fmtRet(m.r252))}
+    </dl>` : '<p class="fnt">Histórico insuficiente para calcular retornos.</p>';
+
+  const comparacao = m ? `<dl class="kv">
+      ${l('Vs. indústria · 3m', pares >= 3 ? fmtPp(m.ri63) : '<span class="na">amostra pequena</span>')}
+      ${l('Vs. setor · 3m', fmtPp(m.rs63))}
+    </dl><p class="fnt">${pares >= 3
+      ? `Diferença em pontos percentuais para a mediana da indústria (${pares} BDRs com histórico).`
+      : `A indústria tem apenas ${pares} BDR${pares===1?'':'s'} com histórico — amostra insuficiente, use a comparação por setor.`}</p>`
+    : '';
+
+  const risco = m ? `<dl class="kv">
+      ${l('Giro médio · 20 pregões', fmtGiro(m.g20))}
+      ${l('Giro médio · 60 pregões', fmtGiro(m.g60))}
+      ${l('Pregões com negócio', m.d20 + ' de 20')}
+      ${l('Volatilidade · 21d anualizada', typeof m.v21==='number' ? m.v21.toFixed(1).replace('.',',')+'%' : '<span class="na">—</span>')}
+      ${l('Distância da máxima · 12m', fmtRet(m.dd252))}
+    </dl>` : '';
+
   lastFocus = document.activeElement;
   drw.innerHTML = `
     <button class="x" aria-label="Fechar ficha">×</button>
-    <span class="pill" style="background:${corS};color:${txOn(corS)}">BDR · ${b.tipo}</span>
+    <span class="selo" style="background:${corS};color:${txOn(corS)}">BDR · ${b.tipo}</span>
     <h2>${ticker}</h2>
-    <div class="rz">${b.empresa}</div>
-    <dl class="kv">
-      <dt>País</dt><dd style="font-family:'Inter Tight',sans-serif">${paisPT(b.pais) || '—'}</dd>
-      <dt>Setor</dt><dd style="font-family:'Inter Tight',sans-serif">${setorPT(b.setor) || '—'}</dd>
-      <dt>Indústria</dt><dd style="font-family:'Inter Tight',sans-serif">${industriaPT(b.industria)}</dd>
-      <dt>Preço</dt><dd>${r ? (negociouHoje(r) ? fmtPreco(r.p) : 'último ' + fmtPreco(r.p)) : 'sem cotação'}</dd>
-      <dt>Negociação hoje</dt><dd>${negociouHoje(r) ? 'sim' : 'não'}</dd>
-      <dt>Último negócio</dt><dd>${dataNegocio(r)}</dd>
-      <dt>Variação hoje</dt><dd>${negociouHoje(r) && typeof r.v === 'number' ? fmtVar(r.v) : '—'}</dd>
-      <dt>Giro hoje</dt><dd>${r ? fmtGiro(r.giro) : '—'}</dd>
-      ${historico}
-    </dl>
-    <p class="fnt" style="margin-top:14px">BDR ${b.tipo}, negociado na B3 com lastro em ações listadas no exterior. Classificação: <a href="${fonte.url}" target="_blank" rel="noopener noreferrer">${fonte.nome}</a>; não é classificação oficial da B3. Cotação e série diária ajustada via Yahoo Finance, com atraso na cotação atual.${PRECO_TS ? ' Cotação consultada em ' + PRECO_TS + '.' : ''}${m ? ' Métricas até ' + m.dt.split('-').reverse().join('/') + '; retornos em 21, 63 e 252 pregões e força relativa contra a mediana do grupo.' : ''}</p>`;
-  drw.classList.add('on');
-  dim.classList.add('on');
-  wrap.inert = true;
+    <div class="rz">${esc(b.empresa)}</div>
+    <div class="bloco"><h3>Identificação</h3><dl class="kv">
+      ${l('País', esc(paisPT(b.pais) || '—'), true)}
+      ${l('Setor', esc(setorPT(b.setor) || '—'), true)}
+      ${l('Indústria', esc(industriaPT(b.industria) || '—'), true)}
+      ${l('Programa', b.tipo, true)}
+    </dl></div>
+    <div class="bloco"><h3>Cotação</h3>${cotacao}
+      <p class="fnt">Yahoo Finance, atraso de ~15 min.${PRECO_TS ? ' Consultada em ' + PRECO_TS + '.' : ''}</p></div>
+    <div class="bloco"><h3>Desempenho</h3>${desempenho}</div>
+    ${comparacao ? `<div class="bloco"><h3>Comparação com o grupo</h3>${comparacao}</div>` : ''}
+    ${risco ? `<div class="bloco"><h3>Negociabilidade e risco</h3>${risco}
+      <p class="fnt">Giro médio inclui sessões sem negócio.${m.dt ? ' Métricas até ' + m.dt.split('-').reverse().join('/') + '.' : ''}</p></div>` : ''}
+    <div class="bloco"><h3>Classificação e fontes</h3>
+      <p class="fnt">Lista e tipo de programa: B3, base oficial de empresas listadas.<br>
+      País, setor e indústria: <a href="${fonte.url}" target="_blank" rel="noopener noreferrer">${esc(fonte.nome)}</a> — não é classificação oficial da B3.<br>
+      Cotação e série diária ajustada: Yahoo Finance, fonte não oficial.</p>
+      <p class="fnt">Desempenho passado não garante resultado futuro. Nada aqui é recomendação.
+      <button class="lnk" data-sec="metodologia" style="font-size:11.5px">Metodologia completa</button></p></div>`;
+  drw.classList.add('on'); dim.classList.add('on'); wrap.inert = true;
   drw.querySelector('.x').onclick = fecha;
   drw.focus();
 }
+
+/* ---------- tooltip do mosaico ---------- */
+mapa.addEventListener('mousemove', ev => {
+  const t = ev.target.closest('.tile');
+  if(!t){ tip.style.opacity = 0; return; }
+  const e = E.find(x => x.cod === t.dataset.cod);
+  const r = refPreco(e);
+  tip.innerHTML = `<span class="t1">${esc(e.pregao)}</span>
+    <span class="t2">${esc(e.tickers || 'sem negociação')} · ${esc(e.macroL)}</span>
+    ${r ? `<span class="t3"><b>${r.tk}</b> ${fmtPreco(r.p)} ${fmtVar(r.v)}</span>` : ''}
+    <span class="t4">${esc(e.desc)}</span>`;
+  tip.style.opacity = 1;
+  const w = tip.offsetWidth, h = tip.offsetHeight;
+  tip.style.left = Math.min(ev.clientX + 14, innerWidth - w - 10) + 'px';
+  tip.style.top = (ev.clientY - h - 12 < 8 ? ev.clientY + 18 : ev.clientY - h - 12) + 'px';
+});
+mapa.addEventListener('mouseleave', () => tip.style.opacity = 0);
+
+/* ---------- navegacao entre secoes ---------- */
+const SECOES = {
+  geral:{t:'Visão geral', k:'B3 · panorama',
+    d:'Um retrato do que está listado na B3 hoje: empresas brasileiras, BDRs de companhias estrangeiras e o que se sabe sobre novas listagens.'},
+  empresas:{t:'Empresas brasileiras', k:'B3 · 369 companhias',
+    d:'Todas as companhias com ações registradas, organizadas em 19 categorias temáticas e cruzadas por tags de exposição. O tamanho de cada bloco vem do valor de mercado estimado.'},
+  bdrs:{t:'BDRs', k:'B3 · 825 recibos',
+    d:'Ações de empresas estrangeiras negociadas na B3 por recibo de depósito. A tabela permite comparar preço, retorno, força relativa e liquidez na mesma linha.'},
+  radar:{t:'Radar de listagens', k:'B3 · pipeline',
+    d:'Companhias com pedido protocolado, nomes no radar do mercado e as já registradas que ainda não têm negociação relevante.'},
+  metodologia:{t:'Metodologia', k:'B3 · como isto é feito',
+    d:'De onde vem cada número, como os indicadores são calculados e o que estes dados não podem responder.'}
+};
+function navega(sec){
+  st.sec = sec;
+  document.querySelectorAll('nav.prim button').forEach(b =>
+    b.setAttribute('aria-current', b.dataset.sec === sec ? 'page' : 'false'));
+  const s = SECOES[sec];
+  $('kicker').textContent = s.k; $('secTitulo').textContent = s.t; $('secDesc').textContent = s.d;
+  ['Geral','Empresas','Bdrs','Radar','Metodologia'].forEach(n =>
+    $('sec' + n).classList.toggle('hide', 'sec' + n !== 'sec' + sec.charAt(0).toUpperCase() + sec.slice(1)));
+  fechaFiltros();
+  scrollTo({top:0, behavior:'instant'});
+  render();
+}
+
+function fechaFiltros(){
+  document.querySelectorAll('.side').forEach(s => s.classList.remove('on'));
+  document.querySelectorAll('[data-abre-filtro]').forEach(b => b.setAttribute('aria-expanded','false'));
+}
+
+/* ---------- render ---------- */
+function resumoRecorte(){
+  const p = [];
+  st.bdrPais.forEach(v => p.push(paisPT(v)));
+  st.bdrSetor.forEach(v => p.push(setorPT(v)));
+  st.bdrIndustria.forEach(v => p.push(industriaPT(v)));
+  if(st.bdrLiq !== 'todas') p.push(LIQ[st.bdrLiq].rot);
+  if(st.bdrFreq !== 'todas') p.push(FREQ[st.bdrFreq].rot);
+  if(st.bdrHist !== 'todos') p.push(HIST[st.bdrHist].rot);
+  if(st.qb) p.push('busca: ' + st.qb);
+  return p;
+}
+
+function render(){
+  if(st.sec === 'geral'){ $('secGeral').innerHTML = geralHTML(); miniMapa(); return; }
+  if(st.sec === 'radar'){ $('secRadar').innerHTML = radarHTML(); return; }
+  if(st.sec === 'metodologia'){ $('secMetodologia').innerHTML = metodologiaHTML(); return; }
+
+  if(st.sec === 'empresas'){
+    const r = filtra();
+    $('nEmp').textContent = r.length;
+    const soma = r.reduce((a,e)=>a+e.vm,0);
+    $('vmSel').textContent = soma ? brl(soma) + ' somados' : '';
+    $('clearEmp').classList.toggle('hide', !(st.q || st.cats.size || st.tags.size));
+    $('boxMosaico').classList.toggle('hide', st.modoEmp !== 'mosaico');
+    $('boxTabelaE').classList.toggle('hide', st.modoEmp !== 'tabela');
+    if(st.modoEmp === 'mosaico'){ desenha(r); legenda(r); }
+    else $('boxTabelaE').innerHTML = tabelaEmpresas(r);
+    return;
+  }
+
+  if(st.sec === 'bdrs'){
+    const r = filtraBDR();
+    $('nBdr').textContent = r.length;
+    const ativos = resumoRecorte();
+    $('clearBdr').classList.toggle('hide', !ativos.length && !st.recorte);
+    $('resumoBdr').innerHTML = ativos.length
+      ? 'Recorte: ' + ativos.map(x => `<b>${esc(x)}</b>`).join('<span>×</span>')
+      : '';
+    $('boxTabelaB').classList.toggle('hide', st.modoBdr !== 'tabela');
+    $('boxCardsB').classList.toggle('hide', st.modoBdr !== 'cards');
+    if(st.modoBdr === 'tabela') $('boxTabelaB').innerHTML = tabelaBDR(r);
+    else $('boxCardsB').innerHTML = cardsBDR(r);
+  }
+}
+
+function legenda(list){
+  const c = {}; list.forEach(e => c[e.macro] = (c[e.macro]||0)+1);
+  $('legenda').innerHTML = Object.keys(c).sort((a,b)=>c[b]-c[a])
+    .map(k => `<span><i style="background:${CORES[k]}"></i>${esc(ACENTOS[k]||k)} <b class="num">${c[k]}</b></span>`).join('');
+}
+
+/* Previa do mosaico na visao geral: mesmo algoritmo, caixa menor. */
+function miniMapa(){
+  const box = $('miniMapa'); if(!box) return;
+  const W = box.clientWidth, H = box.clientHeight;
+  if(W <= 0 || H <= 0) return;
+  box.innerHTML = '';
+  const byCat = {};
+  E.forEach(e => (byCat[e.macro] ||= []).push(e));
+  const grupos = Object.keys(byCat).map(c => ({
+    c, v: byCat[c].reduce((a,e)=>a+Math.pow(Math.max(e.vm,1.5e9),.42),0), itens: byCat[c]
+  })).sort((a,b)=>b.v-a.v);
+  squarify(grupos, 0, 0, W, H).forEach(g => {
+    const d = document.createElement('div');
+    d.className = 'grp';
+    d.style.cssText = `left:${g.x+1}px;top:${g.y+1}px;width:${Math.max(g.w-2,1)}px;height:${Math.max(g.h-2,1)}px;background:${CORES[g.c]}2E;box-shadow:inset 0 0 0 1px ${CORES[g.c]}55`;
+    if(g.h > 30 && g.w > 60){
+      const hd = document.createElement('div');
+      hd.className = 'grpname';
+      hd.style.background = CORES[g.c]; hd.style.color = txOn(CORES[g.c]);
+      hd.textContent = (ACENTOS[g.c]||g.c) + '  ' + g.itens.length;
+      d.appendChild(hd);
+    }
+    box.appendChild(d);
+  });
+}
+
+/* ---------- interacao ---------- */
+document.body.addEventListener('click', ev => {
+  const nav = ev.target.closest('[data-sec]');
+  if(nav){ navega(nav.dataset.sec); return; }
+  const exp = ev.target.closest('.expand button');
+  if(exp){
+    ev.stopPropagation();
+    const tr = exp.closest('tr'), det = tr.nextElementSibling;
+    const aberto = det.classList.toggle('hide');
+    exp.setAttribute('aria-expanded', String(!aberto));
+    exp.textContent = aberto ? '▾' : '▴';
+    return;
+  }
+  const rec = ev.target.closest('[data-rec]');
+  if(rec){ aplicaRecorte(rec.dataset.rec); return; }
+  const abreF = ev.target.closest('[data-abre-filtro]');
+  if(abreF){
+    const side = st.sec === 'bdrs' ? $('sideBdr') : $('sideEmp');
+    const on = side.classList.toggle('on');
+    abreF.setAttribute('aria-expanded', String(on));
+    return;
+  }
+  if(ev.target.closest('[data-fecha-filtro]')){ fechaFiltros(); return; }
+  const col = ev.target.closest('[data-col]');
+  if(col){
+    const k = col.dataset.col;
+    if(st.bdrSort === k) st.bdrDir = st.bdrDir === 'asc' ? 'desc' : 'asc';
+    else { st.bdrSort = k; st.bdrDir = (k === 'ticker' || k === 'empresa' || k === 'pais') ? 'asc' : 'desc'; }
+    render();
+    return;
+  }
+  const c = ev.target.closest('[data-cod]');
+  if(c && c.dataset.cod){ abre(c.dataset.cod); return; }
+  const t = ev.target.closest('[data-tk]');
+  if(t && t.dataset.tk) abreBDR(t.dataset.tk);
+});
+/* Linha de tabela e clicavel: precisa responder a Enter/Espaco como um botao. */
+document.body.addEventListener('keydown', ev => {
+  if(ev.key !== 'Enter' && ev.key !== ' ') return;
+  const tr = ev.target.closest('tr[data-tk],tr[data-cod]');
+  if(!tr) return;
+  ev.preventDefault();
+  if(tr.dataset.tk) abreBDR(tr.dataset.tk); else abre(tr.dataset.cod);
+});
+document.querySelectorAll('.fhead').forEach(h => h.onclick = () => {
+  const g = h.parentElement, o = g.dataset.open === 'true';
+  g.dataset.open = String(!o); h.setAttribute('aria-expanded', String(!o));
+});
+
+/* filtros por checkbox e radio, delegados */
+document.body.addEventListener('change', ev => {
+  const el = ev.target.closest('[data-f]'); if(!el) return;
+  const f = el.dataset.f, v = el.value;
+  const alterna = (set) => { el.checked ? set.add(v) : set.delete(v); };
+  if(f === 'cat') alterna(st.cats);
+  else if(f === 'tag') alterna(st.tags);
+  else if(f === 'pais') alterna(st.bdrPais);
+  else if(f === 'setor') alterna(st.bdrSetor);
+  else if(f === 'ind') alterna(st.bdrIndustria);
+  else if(f === 'liq'){ st.bdrLiq = v; st.recorte = null; }
+  else if(f === 'freq'){ st.bdrFreq = v; st.recorte = null; }
+  else if(f === 'hist'){ st.bdrHist = v; st.recorte = null; }
+  if(st.sec === 'bdrs'){ conta(st.bdrPais.size,'cntPais'); conta(st.bdrSetor.size,'cntSetor'); conta(st.bdrIndustria.size,'cntInd');
+    $('recs').querySelectorAll('[data-rec]').forEach(b => b.setAttribute('aria-pressed', String(st.recorte === b.dataset.rec)));
+    $('criterio').innerHTML = st.recorte ? `<b>Critério aplicado:</b> ${RECORTES[st.recorte].crit}`
+      : 'Atalhos que combinam filtro e ordenação. Nenhum deles é recomendação de compra ou venda — servem para achar o que investigar.';
+  }
+  else { conta(st.cats.size,'cntCat'); conta(st.tags.size,'cntTag'); }
+  render();
+});
+
+let td;
+const deb = (fn) => { clearTimeout(td); td = setTimeout(fn, 140); };
+$('qEmp').addEventListener('input', ev => deb(() => { st.q = ev.target.value; render(); }));
+$('qBdr').addEventListener('input', ev => deb(() => { st.qb = ev.target.value; render(); }));
+$('bPais').addEventListener('input', ev => deb(() => { st.buscaPais = ev.target.value; chipsBDR(); }));
+$('bInd').addEventListener('input', ev => deb(() => { st.buscaInd = ev.target.value; chipsBDR(); }));
+$('bTag').addEventListener('input', ev => deb(() => { st.buscaTag = ev.target.value; chips(); }));
+$('ordEmp').onchange = ev => { st.sort = ev.target.value; render(); };
+
+$('clearEmp').onclick = () => {
+  st.q = ''; st.cats.clear(); st.tags.clear(); $('qEmp').value = '';
+  chips(); render();
+};
+$('clearBdr').onclick = () => {
+  st.qb = ''; st.bdrPais.clear(); st.bdrSetor.clear(); st.bdrIndustria.clear();
+  st.bdrLiq = 'todas'; st.bdrFreq = 'todas'; st.bdrHist = 'todos'; st.recorte = null;
+  $('qBdr').value = ''; chipsBDR(); render();
+};
+
+const par = (a, b, val, key, fn) => {
+  a.onclick = () => { st[key] = val[0]; a.setAttribute('aria-pressed','true'); b.setAttribute('aria-pressed','false'); (fn||render)(); };
+  b.onclick = () => { st[key] = val[1]; b.setAttribute('aria-pressed','true'); a.setAttribute('aria-pressed','false'); (fn||render)(); };
+};
+par($('aVal'), $('aIgual'), ['val','igual'], 'area');
+par($('mOu'), $('mE'), ['ou','e'], 'tagMode');
+par($('mMosaico'), $('mTabelaE'), ['mosaico','tabela'], 'modoEmp');
+par($('mTabela'), $('mCards'), ['tabela','cards'], 'modoBdr');
+
+/* ---------- CSV ---------- */
+function baixaCSV(linhas, nome){
+  const q = s => '"' + String(s ?? '').replace(/"/g,'""') + '"';
+  const blob = new Blob(['\ufeff' + linhas.map(r => r.map(q).join(';')).join('\n')], {type:'text/csv;charset=utf-8'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = nome; a.click();
+}
+$('csvBdr').onclick = () => {
+  const linhas = [['ticker','empresa','tipo','pais','setor','industria','fonte_classificacao','preco','variacao_pct','volume_hoje','giro_hoje','ultimo_negocio','retorno_21d_pct','retorno_63d_pct','retorno_252d_pct','vs_industria_21d_pp','vs_industria_63d_pp','vs_industria_252d_pp','vs_setor_63d_pp','giro_medio_20d','giro_medio_60d','dias_negociados_20d','drawdown_252d_pct','volatilidade_21d_anual_pct','metricas_ate','cotacao_atualizada_em']];
+  filtraBDR().forEach(b => {
+    const r = cot(b.ticker), m = met(b.ticker), fonte = fontePerfilBDR(b);
+    linhas.push([b.ticker, b.empresa, b.tipo, paisPT(b.pais), setorPT(b.setor), industriaPT(b.industria), fonte.url,
+      r ? r.p : '', r && typeof r.v === 'number' ? r.v : '', r?.vol ?? '', r?.giro ?? '', r?.t ? new Date(r.t*1000).toISOString() : '',
+      m?.r21 ?? '', m?.r63 ?? '', m?.r252 ?? '', m?.ri21 ?? '', m?.ri63 ?? '', m?.ri252 ?? '', m?.rs63 ?? '',
+      m?.g20 ?? '', m?.g60 ?? '', m?.d20 ?? '', m?.dd252 ?? '', m?.v21 ?? '', m?.dt ?? '', PRECO_TS]);
+  });
+  baixaCSV(linhas, 'bdrs-b3-' + SNAPSHOT.iso + '.csv');
+};
+$('csvEmp').onclick = () => {
+  const linhas = [['codigo','tickers','nome_pregao','razao_social','categoria','segmento_b3','tags','segmento_listagem','data_registro','valor_mercado','liquidez_2m','ticker_referencia','preco','variacao_pct','precos_todas_classes','cotacao_atualizada_em','descricao']];
+  filtra().forEach(e => {
+    const r = refPreco(e);
+    const todas = classes(e).filter(t => cot(t)).map(t => t + '=' + cot(t).p.toFixed(2)).join(' | ');
+    linhas.push([e.cod, e.tickers, e.pregao, e.nome, e.macroL, e.seg, e.tagsL.join(' | '), e.mkt, e.listagem, e.vm, e.liq,
+      r ? r.tk : '', r ? r.p : '', r && typeof r.v === 'number' ? r.v : '', todas, PRECO_TS, e.desc]);
+  });
+  baixaCSV(linhas, 'mapa-b3-' + SNAPSHOT.iso + '.csv');
+};
+
+let rz;
+addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => {
+  if(st.sec === 'empresas' && st.modoEmp === 'mosaico') render();
+  if(st.sec === 'geral') miniMapa();
+}, 160); });
+
+/* ---------- carga dos dados ---------- */
+/* Roda depois do primeiro render: a pagina nunca fica esperando rede para
+   aparecer, e se um arquivo faltar ela segue funcionando sem aquele bloco. */
+function carregaPrecos(){
+  fetch('precos.json', {cache:'no-store'})
+    .then(r => r.ok ? r.json() : Promise.reject(new Error('HTTP ' + r.status)))
+    .then(d => {
+      PRECOS = d.precos || {};
+      if(!Object.keys(PRECOS).length) return;
+      if(d.atualizadoEm){
+        PRECO_TS = new Date(d.atualizadoEm).toLocaleString('pt-BR', {day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});
+        $('atz').innerHTML = 'cotações <b>' + PRECO_TS + '</b>';
+        $('atz').title = 'Yahoo Finance, atraso de cerca de 15 minutos.';
+      }
+      render();
+    })
+    .catch(() => { /* sem cotacoes o mapa continua completo, so nao mostra preco */ });
+}
+function carregaBDRs(){
+  fetch('bdrs.json', {cache:'no-store'})
+    .then(r => r.ok ? r.json() : Promise.reject(new Error('HTTP ' + r.status)))
+    .then(d => {
+      BDR = (d.bdrs || []).map(b => Object.assign({}, b, {
+        _s: norm([b.ticker, b.empresa, b.pais||'', paisPT(b.pais)||'', b.setor||'', setorPT(b.setor)||'', b.industria||'', industriaPT(b.industria)||''].join(' '))
+      }));
+      PARES_INDUSTRIA = {};
+      chipsBDR(); render();
+    })
+    .catch(() => { /* sem bdrs.json a secao de BDR fica vazia, o resto segue */ });
+}
+function carregaMetricas(){
+  fetch('metricas.json', {cache:'no-store'})
+    .then(r => r.ok ? r.json() : Promise.reject(new Error('HTTP ' + r.status)))
+    .then(d => {
+      METRICAS = d.metricas || {};
+      PARES_INDUSTRIA = {};
+      if(d.atualizadoEm){
+        METRICA_TS = new Date(d.atualizadoEm).toLocaleDateString('pt-BR', {day:'2-digit',month:'2-digit',year:'numeric'});
+        $('mtz').innerHTML = 'métricas <b>' + METRICA_TS + '</b>';
+        $('mtz').title = Object.keys(METRICAS).length + ' BDRs com histórico; fonte Yahoo Finance.';
+      }
+      render();
+    })
+    .catch(() => { /* sem metricas a tabela segue, sem os indicadores historicos */ });
+}
+
+chips(); chipsBDR();
+/* innerWidth 0 significa viewport ainda nao medido, nao tela estreita:
+   sem a guarda, o desktop abriria em tabela por engano. */
+if(innerWidth && innerWidth < 760) st.modoEmp = 'tabela';
+navega('geral');
+carregaPrecos();
+carregaBDRs();
+carregaMetricas();
+
 function fecha(){
   drw.classList.remove('on');
   dim.classList.remove('on');
@@ -9947,212 +10730,6 @@ function fecha(){
 }
 dim.onclick = fecha;
 document.addEventListener('keydown', ev => { if(ev.key === 'Escape') fecha(); });
-
-/* ---------- tooltip ---------- */
-mapa.addEventListener('mousemove', ev => {
-  const t = ev.target.closest('.tile');
-  if(!t){ tip.style.opacity = 0; return; }
-  const e = E.find(x => x.cod === t.dataset.cod);
-  const r = refPreco(e);
-  const cot = r
-    ? `<div style="margin-top:5px;font-family:'IBM Plex Mono',monospace;font-size:12.5px"><b>${r.tk}</b> ${fmtPreco(r.p)} ${fmtVar(r.v)}</div>`
-    : '';
-  tip.innerHTML = `<strong>${e.pregao}</strong><span class="m">${e.tickers || 'sem negociação'} · ${brl(e.vm)}</span>${cot}<div style="margin-top:5px;color:var(--tx2)">${e.desc}</div>`;
-  tip.style.opacity = 1;
-  const w = tip.offsetWidth, h = tip.offsetHeight;
-  tip.style.left = Math.min(ev.clientX + 14, innerWidth - w - 10) + 'px';
-  tip.style.top = (ev.clientY - h - 12 < 8 ? ev.clientY + 18 : ev.clientY - h - 12) + 'px';
-});
-mapa.addEventListener('mouseleave', () => tip.style.opacity = 0);
-
-/* ---------- render ---------- */
-function render(){
-  mapa.classList.toggle('hide', st.view !== 'mapa');
-  lista.classList.toggle('hide', st.view !== 'lista');
-  ipo.classList.toggle('hide', st.view !== 'ipo');
-  bdr.classList.toggle('hide', st.view !== 'bdr');
-  areaSw.style.display = st.view === 'mapa' ? '' : 'none';
-  fcat.classList.toggle('hide', st.view === 'bdr');
-  ftag.classList.toggle('hide', st.view === 'bdr');
-  fpais.classList.toggle('hide', st.view !== 'bdr');
-  fsetor.classList.toggle('hide', st.view !== 'bdr');
-  findustria.classList.toggle('hide', st.view !== 'bdr');
-  fliq.classList.toggle('hide', st.view !== 'bdr');
-
-  if(st.view === 'bdr'){
-    nLbl.textContent = 'BDRs no recorte atual';
-    const r = filtraBDR();
-    nEl.textContent = r.length;
-    vmSel.textContent = '';
-    clearBtn.classList.toggle('hide', !(st.q || st.bdrPais.size || st.bdrSetor.size || st.bdrIndustria.size || st.bdrLiq !== 'todas'));
-    bdr.innerHTML = r.length ? bdrHTML(r) : '<p style="color:var(--tx3)">Nenhum BDR neste recorte.</p>';
-    return;
-  }
-
-  nLbl.textContent = 'empresas no recorte atual';
-  const r = filtra();
-  nEl.textContent = r.length;
-  const soma = r.reduce((a,e)=>a+e.vm,0);
-  vmSel.textContent = soma ? '· ' + brl(soma) + ' somados' : '';
-  clearBtn.classList.toggle('hide', !(st.q || st.cats.size || st.tags.size));
-
-  if(st.view === 'mapa') desenha(r);
-  if(st.view === 'lista'){
-    lista.innerHTML = r.length ? listaHTML(r) : '<p style="color:var(--tx3)">Nenhuma empresa neste recorte.</p>';
-  }
-  if(st.view === 'ipo' && !ipo.dataset.done){ ipo.innerHTML = ipoHTML(); ipo.dataset.done = 1; }
-}
-
-document.body.addEventListener('click', ev => {
-  const c = ev.target.closest('[data-cod]');
-  if(c && c.dataset.cod){ abre(c.dataset.cod); return; }
-  const t = ev.target.closest('[data-tk]');
-  if(t && t.dataset.tk) abreBDR(t.dataset.tk);
-});
-
-/* ---------- controles ---------- */
-let td;
-qInput.addEventListener('input', ev => {
-  clearTimeout(td); td = setTimeout(() => { st.q = ev.target.value; render(); }, 130);
-});
-sortSel.onchange = ev => {
-  if(st.view === 'bdr') st.bdrSort = ev.target.value; else st.sort = ev.target.value;
-  render();
-};
-clearBtn.onclick = () => {
-  st.q = ''; st.cats.clear(); st.tags.clear(); st.bdrPais.clear(); st.bdrSetor.clear(); st.bdrIndustria.clear(); st.bdrLiq = 'todas';
-  qInput.value = '';
-  document.querySelectorAll('.chip').forEach(b => b.setAttribute('aria-pressed','false'));
-  const todas = document.querySelector('[data-liq="todas"]'); if(todas) todas.setAttribute('aria-pressed','true');
-  render();
-};
-document.querySelectorAll('[data-liq]').forEach(b => b.onclick = () => {
-  st.bdrLiq = b.dataset.liq;
-  document.querySelectorAll('[data-liq]').forEach(x => x.setAttribute('aria-pressed', x === b));
-  render();
-});
-const par = (a, b, val, key) => {
-  a.onclick = () => { st[key] = val[0]; a.setAttribute('aria-pressed','true'); b.setAttribute('aria-pressed','false'); render(); };
-  b.onclick = () => { st[key] = val[1]; b.setAttribute('aria-pressed','true'); a.setAttribute('aria-pressed','false'); render(); };
-};
-par($('aVal'), $('aIgual'), ['val','igual'], 'area');
-par($('mOu'), $('mE'), ['ou','e'], 'tagMode');
-
-const views = {vMapa:'mapa', vLista:'lista', vIpo:'ipo', vBdr:'bdr'};
-const SORT_EMPRESA = `<option value="vm">Maior valor de mercado</option><option value="liq">Maior liquidez</option><option value="nome">Nome A a Z</option><option value="novo">Registro mais recente</option>`;
-const SORT_BDR = `<option value="nome">Nome A a Z</option><option value="alta">Maior alta do dia</option><option value="baixa">Maior queda do dia</option><option value="r21">Maior retorno em 1 mês</option><option value="r63">Maior retorno em 3 meses</option><option value="r252">Maior retorno em 12 meses</option><option value="ri63">Maior força relativa em 3 meses</option><option value="g20">Maior giro médio em 20 pregões</option><option value="dd252">Mais perto da máxima de 12 meses</option>`;
-Object.keys(views).forEach(id => {
-  $(id).onclick = () => {
-    st.view = views[id];
-    Object.keys(views).forEach(x => $(x).setAttribute('aria-pressed', x === id));
-    sortSel.innerHTML = st.view === 'bdr' ? SORT_BDR : SORT_EMPRESA;
-    sortSel.value = st.view === 'bdr' ? st.bdrSort : st.sort;
-    qInput.placeholder = st.view === 'bdr' ? 'Buscar por nome, ticker, país, setor ou indústria' : 'Buscar por nome, ticker, tag ou segmento';
-    render();
-  };
-});
-document.querySelectorAll('.fhead').forEach(h => h.onclick = () => {
-  const b = h.parentElement, o = b.dataset.open === 'true';
-  b.dataset.open = !o; h.setAttribute('aria-expanded', !o);
-});
-
-csvBtn.onclick = () => {
-  const esc = s => '"' + String(s ?? '').replace(/"/g,'""') + '"';
-  const baixa = (linhas, nome) => {
-    const blob = new Blob(['\ufeff' + linhas.map(r => r.map(esc).join(';')).join('\n')], {type:'text/csv;charset=utf-8'});
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob); a.download = nome; a.click();
-  };
-
-  if(st.view === 'bdr'){
-    const linhas = [['ticker','empresa','tipo','pais','setor','industria','fonte_classificacao','preco','variacao_pct','volume_hoje','giro_hoje','ultimo_negocio','retorno_21d_pct','retorno_63d_pct','retorno_252d_pct','vs_industria_21d_pp','vs_industria_63d_pp','vs_industria_252d_pp','vs_setor_63d_pp','giro_medio_20d','giro_medio_60d','dias_negociados_20d','drawdown_252d_pct','volatilidade_21d_anual_pct','metricas_ate','cotacao_atualizada_em']];
-    filtraBDR().forEach(b => {
-      const r = cot(b.ticker);
-      const m = met(b.ticker);
-      const fonte = fontePerfilBDR(b);
-      linhas.push([b.ticker, b.empresa, b.tipo, paisPT(b.pais), setorPT(b.setor), industriaPT(b.industria), fonte.url,
-        r ? r.p : '', r && typeof r.v === 'number' ? r.v : '', r?.vol ?? '', r?.giro ?? '', r?.t ? new Date(r.t*1000).toISOString() : '',
-        m?.r21 ?? '', m?.r63 ?? '', m?.r252 ?? '', m?.ri21 ?? '', m?.ri63 ?? '', m?.ri252 ?? '', m?.rs63 ?? '',
-        m?.g20 ?? '', m?.g60 ?? '', m?.d20 ?? '', m?.dd252 ?? '', m?.v21 ?? '', m?.dt ?? '', PRECO_TS]);
-    });
-    baixa(linhas, 'bdrs-b3-' + SNAPSHOT.iso + '.csv');
-    return;
-  }
-
-  const linhas = [['codigo','tickers','nome_pregao','razao_social','categoria','segmento_b3','tags','segmento_listagem','data_registro','valor_mercado','liquidez_2m','ticker_referencia','preco','variacao_pct','precos_todas_classes','cotacao_atualizada_em','descricao']];
-  filtra().forEach(e => {
-    const r = refPreco(e);
-    const todas = classes(e).filter(t => cot(t))
-      .map(t => t + '=' + cot(t).p.toFixed(2)).join(' | ');
-    linhas.push([e.cod, e.tickers, e.pregao, e.nome, e.macroL, e.seg, e.tagsL.join(' | '), e.mkt, e.listagem, e.vm, e.liq,
-      r ? r.tk : '', r ? r.p : '', r && typeof r.v === 'number' ? r.v : '', todas, PRECO_TS, e.desc]);
-  });
-  baixa(linhas, 'mapa-b3-' + SNAPSHOT.iso + '.csv');
-};
-
-let rz;
-addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => { if(st.view === 'mapa') render(); }, 160); });
-
-/* ---------- carga das cotacoes ---------- */
-/* Roda depois do primeiro render: a pagina nunca fica esperando preco para
-   aparecer, e se o arquivo faltar ou a rede cair ela segue funcionando. */
-function carregaPrecos(){
-  fetch('precos.json', {cache:'no-store'})
-    .then(r => r.ok ? r.json() : Promise.reject(new Error('HTTP ' + r.status)))
-    .then(d => {
-      PRECOS = d.precos || {};
-      const q = Object.keys(PRECOS).length;
-      if(!q) return;
-      if(d.atualizadoEm){
-        const dt = new Date(d.atualizadoEm);
-        PRECO_TS = dt.toLocaleString('pt-BR', {day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit'});
-        $('atz').textContent = '· cotações de ' + PRECO_TS;
-        $('atz').title = 'Yahoo Finance, atraso de cerca de 15 minutos. ' + q + ' ações com cotação.';
-      }
-      ipo.dataset.done = '';   // a fila de IPO tambem monta cards, precisa remontar
-      render();
-    })
-    .catch(() => { /* sem cotacoes o mapa continua completo, so nao mostra preco */ });
-}
-
-function carregaBDRs(){
-  fetch('bdrs.json', {cache:'no-store'})
-    .then(r => r.ok ? r.json() : Promise.reject(new Error('HTTP ' + r.status)))
-    .then(d => {
-      BDR = (d.bdrs || []).map(b => Object.assign({}, b, {
-        _s: norm([b.ticker, b.empresa, b.pais||'', paisPT(b.pais)||'', b.setor||'', setorPT(b.setor)||'', b.industria||'', industriaPT(b.industria)||''].join(' '))
-      }));
-      PARES_INDUSTRIA = {};
-      $('sBdr').textContent = BDR.length;
-      chipsBDR();
-      if(st.view === 'bdr') render();
-    })
-    .catch(() => { /* sem bdrs.json a aba de BDR fica vazia, o resto do mapa segue normal */ });
-}
-
-function carregaMetricas(){
-  fetch('metricas.json', {cache:'no-store'})
-    .then(r => r.ok ? r.json() : Promise.reject(new Error('HTTP ' + r.status)))
-    .then(d => {
-      METRICAS = d.metricas || {};
-      PARES_INDUSTRIA = {};
-      if(d.atualizadoEm){
-        const dt = new Date(d.atualizadoEm);
-        METRICA_TS = dt.toLocaleDateString('pt-BR', {day:'2-digit',month:'2-digit',year:'numeric'});
-        $('mtz').textContent = '· métricas de ' + METRICA_TS;
-        $('mtz').title = Object.keys(METRICAS).length + ' BDRs com histórico; fonte Yahoo Finance.';
-      }
-      if(st.view === 'bdr') render();
-    })
-    .catch(() => { /* sem metricas a lista segue funcionando, sem rankings historicos */ });
-}
-
-chips();
-if(innerWidth < 620){ $('vLista').click(); }
-else render();
-carregaPrecos();
-carregaBDRs();
-carregaMetricas();
 </script>
 </body>
 </html>
