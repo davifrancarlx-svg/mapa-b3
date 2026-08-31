@@ -1,0 +1,182 @@
+{
+  "A1HR34": {
+    "pais": "United States",
+    "setor": "Real Estate",
+    "industria": "REIT - Healthcare Facilities",
+    "fontePerfil": {
+      "nome": "American Healthcare REIT — visão geral corporativa",
+      "url": "https://americanhealthcarereit.com/about/"
+    }
+  },
+  "ANTH34": {
+    "pais": "United States",
+    "setor": "Technology",
+    "industria": "Software - Infrastructure",
+    "fontePerfil": {
+      "nome": "Anthropic — página institucional",
+      "url": "https://www.anthropic.com/company"
+    }
+  },
+  "AMLG34": {
+    "pais": "United Kingdom",
+    "setor": "Consumer Cyclical",
+    "industria": "Auto Manufacturers",
+    "fontePerfil": {
+      "nome": "Aston Martin — página institucional",
+      "url": "https://www.astonmartin.com/en/corporate/about-us"
+    }
+  },
+  "B1ZE34": {
+    "pais": "United States",
+    "setor": "Technology",
+    "industria": "Software - Application",
+    "fontePerfil": {
+      "nome": "Braze — relações com investidores",
+      "url": "https://investors.braze.com/overview/default.aspx"
+    }
+  },
+  "C1RB34": {
+    "pais": "United States",
+    "setor": "Technology",
+    "industria": "Semiconductors",
+    "fontePerfil": {
+      "nome": "Cerebras — página institucional",
+      "url": "https://www.cerebras.ai/company"
+    }
+  },
+  "E1DI34": {
+    "pais": "United States",
+    "setor": "Utilities",
+    "industria": "Utilities - Regulated Electric",
+    "fontePerfil": {
+      "nome": "Con Edison — perfil da companhia",
+      "url": "https://lite.conedison.com/ehs/2024-sustainability-report/about-us/company-profile/"
+    }
+  },
+  "GGAL34": {
+    "pais": "Argentina",
+    "setor": "Financial Services",
+    "industria": "Banks - Regional",
+    "fontePerfil": {
+      "nome": "Grupo Financiero Galicia — relatório integrado 2025",
+      "url": "https://downloads.ctfassets.net/yxlyq25bynna/7ieW3ZKlOIAgpmk19BVusp/4c547c78b0bca457c7be602cc2cc34cc/informeintegrado2025-grupogalicia-es.pdf"
+    }
+  },
+  "H9NB34": {
+    "pais": "United States",
+    "setor": "Industrials",
+    "industria": "Aerospace & Defense",
+    "fontePerfil": {
+      "nome": "Honeywell Aerospace — relações com investidores",
+      "url": "https://investor.honeywellaerospace.com/"
+    }
+  },
+  "N2AR34": {
+    "pais": "United States",
+    "setor": "Healthcare",
+    "industria": "Medical Devices",
+    "fontePerfil": {
+      "nome": "Inari Medical — página institucional",
+      "url": "https://www.inarimedical.com/who-we-are"
+    }
+  },
+  "L1TM34": {
+    "pais": "Chile",
+    "setor": "Industrials",
+    "industria": "Airlines",
+    "fontePerfil": {
+      "nome": "LATAM Airlines — relações com investidores",
+      "url": "https://latamairlines.gcs-web.com/es/corporate-profile"
+    }
+  },
+  "M2RT34": {
+    "pais": "United States",
+    "setor": "Healthcare",
+    "industria": "Biotechnology",
+    "fontePerfil": {
+      "nome": "Mirati Therapeutics — Form 10-K na SEC",
+      "url": "https://www.sec.gov/Archives/edgar/data/1576263/000162828023005576/mrtx-20221231.htm"
+    }
+  },
+  "M0BG34": {
+    "pais": "United States",
+    "setor": "Industrials",
+    "industria": "Specialty Business Services",
+    "fontePerfil": {
+      "nome": "Mobility Global — relações com investidores",
+      "url": "https://ir.mobilityglobal.com/"
+    }
+  },
+  "MNDY34": {
+    "pais": "Israel",
+    "setor": "Technology",
+    "industria": "Software - Application",
+    "fontePerfil": {
+      "nome": "monday.com — página institucional",
+      "url": "https://monday.com/p/about/"
+    }
+  },
+  "OPEN34": {
+    "pais": "United States",
+    "setor": "Technology",
+    "industria": "Software - Infrastructure",
+    "fontePerfil": {
+      "nome": "OpenAI — estrutura corporativa",
+      "url": "https://openai.com/our-structure/"
+    }
+  },
+  "SDRH34": {
+    "pais": "United Kingdom",
+    "setor": "Financial Services",
+    "industria": "Asset Management",
+    "fontePerfil": {
+      "nome": "Schroders — página institucional",
+      "url": "https://www.schroders.com/en-gb/uk/individual/about-us/"
+    }
+  },
+  "S1AK34": {
+    "pais": "United States",
+    "setor": "Consumer Cyclical",
+    "industria": "Restaurants",
+    "fontePerfil": {
+      "nome": "Shake Shack — relações com investidores",
+      "url": "https://investor.shakeshack.com/overview/default.aspx"
+    }
+  },
+  "SKHY34": {
+    "pais": "South Korea",
+    "setor": "Technology",
+    "industria": "Semiconductors",
+    "fontePerfil": {
+      "nome": "SK hynix — perfil corporativo",
+      "url": "https://eng.sk.com/companies/info/sk-hynix"
+    }
+  },
+  "SCCO34": {
+    "pais": "United States",
+    "setor": "Basic Materials",
+    "industria": "Copper",
+    "fontePerfil": {
+      "nome": "Southern Copper — Form 10-K na SEC",
+      "url": "https://www.sec.gov/Archives/edgar/data/1001838/000110465926021492/scco-20251231x10k.htm"
+    }
+  },
+  "HMRN31": {
+    "pais": "Canada",
+    "setor": "Basic Materials",
+    "industria": "Other Industrial Metals & Mining",
+    "fontePerfil": {
+      "nome": "Homerun Resources — página institucional",
+      "url": "https://homerunresources.com/"
+    }
+  },
+  "PPLA35": {
+    "pais": "Bermuda",
+    "setor": "Financial Services",
+    "industria": "Asset Management",
+    "fontePerfil": {
+      "nome": "PPLA Participations — prospecto regulatório",
+      "url": "https://live.euronext.com/sites/default/files/20171229_-_prospectus_-_ppla_units.pdf"
+    }
+  }
+}

@@ -119,7 +119,10 @@ async function buscaLote(simbolos, { cookie, crumb }, tentativa = 1){
         p: +q.regularMarketPrice.toFixed(2),
         v: typeof q.regularMarketChangePercent === 'number' ? +q.regularMarketChangePercent.toFixed(2) : null,
         f: typeof q.regularMarketPreviousClose === 'number' ? +q.regularMarketPreviousClose.toFixed(2) : null,
-        vol: q.regularMarketVolume ?? 0
+        vol: q.regularMarketVolume ?? 0,
+        giro: typeof q.regularMarketVolume === 'number' ? Math.round(q.regularMarketPrice * q.regularMarketVolume) : 0,
+        t: typeof q.regularMarketTime === 'number' ? q.regularMarketTime : null,
+        estado: q.marketState || null
       };
     });
     console.log('  lote ' + lotes + ': ' + res.length + '/' + fatia.length);

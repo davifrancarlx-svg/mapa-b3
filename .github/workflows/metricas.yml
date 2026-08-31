@@ -1,0 +1,41 @@
+name: Atualiza métricas dos BDRs
+
+on:
+  schedule:
+    # Depois do fechamento e da ultima rodada intradiaria de precos.
+    - cron: '15 22 * * 1-5'
+  workflow_dispatch: {}
+
+concurrency:
+  group: metricas
+  cancel-in-progress: false
+
+jobs:
+  atualiza:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Calcular métricas históricas
+        run: node scripts/atualiza-metricas.js
+
+      - name: Validar cobertura
+        run: node scripts/valida-metricas.js
+
+      - name: Commitar se mudou
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add metricas.json
+          if git diff --staged --quiet; then
+            echo "Nenhuma mudança nas métricas, nada a commitar."
+          else
+            git commit -m "métricas BDR: $(date -u '+%Y-%m-%d')"
+            git push
+          fi

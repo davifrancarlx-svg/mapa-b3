@@ -1,6 +1,10 @@
 {
- "geradoEm": "2026-08-31T14:54:52.766Z",
- "fonte": "B3 (lista oficial) + Yahoo Finance (país/setor, não oficial)",
+ "geradoEm": "2026-08-31T18:04:05.091Z",
+ "fontes": {
+  "lista": "B3 (lista oficial de programas de BDR)",
+  "perfilPadrao": "Yahoo Finance (país/setor/indústria, terceira parte)",
+  "complementos": "Páginas oficiais das companhias e documentos regulatórios, identificados em cada registro"
+ },
  "total": 825,
  "bdrs": [
   {
@@ -311,9 +315,13 @@
    "ticker": "A1HR34",
    "empresa": "AMERICAN HEALTHCARE REIT INC",
    "tipo": "não patrocinado",
-   "pais": null,
-   "setor": null,
-   "industria": null
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Healthcare Facilities",
+   "fontePerfil": {
+    "nome": "American Healthcare REIT — visão geral corporativa",
+    "url": "https://americanhealthcarereit.com/about/"
+   }
   },
   {
    "ticker": "AIGB34",
@@ -407,9 +415,13 @@
    "ticker": "ANTH34",
    "empresa": "ANTHROPIC PBC",
    "tipo": "não patrocinado",
-   "pais": null,
-   "setor": null,
-   "industria": null
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Infrastructure",
+   "fontePerfil": {
+    "nome": "Anthropic — página institucional",
+    "url": "https://www.anthropic.com/company"
+   }
   },
   {
    "ticker": "A1OS34",
@@ -599,9 +611,13 @@
    "ticker": "AMLG34",
    "empresa": "ASTON MARTIN LAGONDA GLOBAL HOLDINGS PLC",
    "tipo": "não patrocinado",
-   "pais": null,
-   "setor": null,
-   "industria": null
+   "pais": "United Kingdom",
+   "setor": "Consumer Cyclical",
+   "industria": "Auto Manufacturers",
+   "fontePerfil": {
+    "nome": "Aston Martin — página institucional",
+    "url": "https://www.astonmartin.com/en/corporate/about-us"
+   }
   },
   {
    "ticker": "A1ZN34",
@@ -944,8 +960,12 @@
    "empresa": "BRAZE INC",
    "tipo": "não patrocinado",
    "pais": "United States",
-   "setor": null,
-   "industria": null
+   "setor": "Technology",
+   "industria": "Software - Application",
+   "fontePerfil": {
+    "nome": "Braze — relações com investidores",
+    "url": "https://investors.braze.com/overview/default.aspx"
+   }
   },
   {
    "ticker": "A1LL34",
@@ -1231,9 +1251,13 @@
    "ticker": "C1RB34",
    "empresa": "CEREBRAS SYSTEMS INC",
    "tipo": "não patrocinado",
-   "pais": null,
-   "setor": null,
-   "industria": null
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Semiconductors",
+   "fontePerfil": {
+    "nome": "Cerebras — página institucional",
+    "url": "https://www.cerebras.ai/company"
+   }
   },
   {
    "ticker": "C2RN34",
@@ -1487,9 +1511,13 @@
    "ticker": "E1DI34",
    "empresa": "CONSOLIDATED EDISON INC",
    "tipo": "não patrocinado",
-   "pais": null,
-   "setor": null,
-   "industria": null
+   "pais": "United States",
+   "setor": "Utilities",
+   "industria": "Utilities - Regulated Electric",
+   "fontePerfil": {
+    "nome": "Con Edison — perfil da companhia",
+    "url": "https://lite.conedison.com/ehs/2024-sustainability-report/about-us/company-profile/"
+   }
   },
   {
    "ticker": "STZB34",
@@ -2647,9 +2675,13 @@
    "ticker": "GGAL34",
    "empresa": "GRUPO FINANCIERO GALICIA SA",
    "tipo": "não patrocinado",
-   "pais": null,
-   "setor": null,
-   "industria": null
+   "pais": "Argentina",
+   "setor": "Financial Services",
+   "industria": "Banks - Regional",
+   "fontePerfil": {
+    "nome": "Grupo Financiero Galicia — relatório integrado 2025",
+    "url": "https://downloads.ctfassets.net/yxlyq25bynna/7ieW3ZKlOIAgpmk19BVusp/4c547c78b0bca457c7be602cc2cc34cc/informeintegrado2025-grupogalicia-es.pdf"
+   }
   },
   {
    "ticker": "G1SK34",
@@ -2815,9 +2847,13 @@
    "ticker": "H9NB34",
    "empresa": "HONEYWELL AEROSPACE",
    "tipo": "não patrocinado",
-   "pais": null,
-   "setor": null,
-   "industria": null
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Aerospace & Defense",
+   "fontePerfil": {
+    "nome": "Honeywell Aerospace — relações com investidores",
+    "url": "https://investor.honeywellaerospace.com/"
+   }
   },
   {
    "ticker": "HONB34",
@@ -2951,9 +2987,13 @@
    "ticker": "N2AR34",
    "empresa": "INARI MEDICAL INC",
    "tipo": "não patrocinado",
-   "pais": null,
-   "setor": null,
-   "industria": null
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Medical Devices",
+   "fontePerfil": {
+    "nome": "Inari Medical — página institucional",
+    "url": "https://www.inarimedical.com/who-we-are"
+   }
   },
   {
    "ticker": "I1NC34",
@@ -3407,9 +3447,13 @@
    "ticker": "L1TM34",
    "empresa": "LATAM AIRLINES GROUP S.A.",
    "tipo": "não patrocinado",
-   "pais": null,
-   "setor": null,
-   "industria": null
+   "pais": "Chile",
+   "setor": "Industrials",
+   "industria": "Airlines",
+   "fontePerfil": {
+    "nome": "LATAM Airlines — relações com investidores",
+    "url": "https://latamairlines.gcs-web.com/es/corporate-profile"
+   }
   },
   {
    "ticker": "L2SC34",
@@ -3783,9 +3827,13 @@
    "ticker": "M2RT34",
    "empresa": "MIRATI THERAPEUTICS INC",
    "tipo": "não patrocinado",
-   "pais": null,
-   "setor": null,
-   "industria": null
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Biotechnology",
+   "fontePerfil": {
+    "nome": "Mirati Therapeutics — Form 10-K na SEC",
+    "url": "https://www.sec.gov/Archives/edgar/data/1576263/000162828023005576/mrtx-20221231.htm"
+   }
   },
   {
    "ticker": "M1UF34",
@@ -3815,9 +3863,13 @@
    "ticker": "M0BG34",
    "empresa": "MOBILITY GLOBAL INC.",
    "tipo": "não patrocinado",
-   "pais": null,
-   "setor": null,
-   "industria": null
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Specialty Business Services",
+   "fontePerfil": {
+    "nome": "Mobility Global — relações com investidores",
+    "url": "https://ir.mobilityglobal.com/"
+   }
   },
   {
    "ticker": "M1RN34",
@@ -3847,9 +3899,13 @@
    "ticker": "MNDY34",
    "empresa": "MONDAY.COM LTD",
    "tipo": "não patrocinado",
-   "pais": null,
-   "setor": null,
-   "industria": null
+   "pais": "Israel",
+   "setor": "Technology",
+   "industria": "Software - Application",
+   "fontePerfil": {
+    "nome": "monday.com — página institucional",
+    "url": "https://monday.com/p/about/"
+   }
   },
   {
    "ticker": "MDLZ34",
@@ -4255,9 +4311,13 @@
    "ticker": "OPEN34",
    "empresa": "OPENAI GROUP PBC",
    "tipo": "não patrocinado",
-   "pais": null,
-   "setor": null,
-   "industria": null
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Infrastructure",
+   "fontePerfil": {
+    "nome": "OpenAI — estrutura corporativa",
+    "url": "https://openai.com/our-structure/"
+   }
   },
   {
    "ticker": "ORCL34",
@@ -4967,9 +5027,13 @@
    "ticker": "SDRH34",
    "empresa": "SCHRODERS PLC",
    "tipo": "não patrocinado",
-   "pais": null,
-   "setor": null,
-   "industria": null
+   "pais": "United Kingdom",
+   "setor": "Financial Services",
+   "industria": "Asset Management",
+   "fontePerfil": {
+    "nome": "Schroders — página institucional",
+    "url": "https://www.schroders.com/en-gb/uk/individual/about-us/"
+   }
   },
   {
    "ticker": "S2EA34",
@@ -5015,9 +5079,13 @@
    "ticker": "S1AK34",
    "empresa": "SHAKE SHACK INC",
    "tipo": "não patrocinado",
-   "pais": null,
-   "setor": null,
-   "industria": null
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Restaurants",
+   "fontePerfil": {
+    "nome": "Shake Shack — relações com investidores",
+    "url": "https://investor.shakeshack.com/overview/default.aspx"
+   }
   },
   {
    "ticker": "S2HO34",
@@ -5080,8 +5148,12 @@
    "empresa": "SK HYNIX INC",
    "tipo": "não patrocinado",
    "pais": "South Korea",
-   "setor": null,
-   "industria": null
+   "setor": "Technology",
+   "industria": "Semiconductors",
+   "fontePerfil": {
+    "nome": "SK hynix — perfil corporativo",
+    "url": "https://eng.sk.com/companies/info/sk-hynix"
+   }
   },
   {
    "ticker": "S1KM34",
@@ -5175,9 +5247,13 @@
    "ticker": "SCCO34",
    "empresa": "SOUTHERN COPPER CORP",
    "tipo": "não patrocinado",
-   "pais": null,
-   "setor": null,
-   "industria": null
+   "pais": "United States",
+   "setor": "Basic Materials",
+   "industria": "Copper",
+   "fontePerfil": {
+    "nome": "Southern Copper — Form 10-K na SEC",
+    "url": "https://www.sec.gov/Archives/edgar/data/1001838/000110465926021492/scco-20251231x10k.htm"
+   }
   },
   {
    "ticker": "S1OU34",
@@ -6544,8 +6620,12 @@
    "empresa": "HOMERUN RESOURCES INC",
    "tipo": "patrocinado nível I",
    "pais": "Canada",
-   "setor": null,
-   "industria": null
+   "setor": "Basic Materials",
+   "industria": "Other Industrial Metals & Mining",
+   "fontePerfil": {
+    "nome": "Homerun Resources — página institucional",
+    "url": "https://homerunresources.com/"
+   }
   },
   {
    "ticker": "PRXB31",
@@ -6599,9 +6679,13 @@
    "ticker": "PPLA35",
    "empresa": "PPLA PARTICIPATIONS LTD.",
    "tipo": "patrocinado nível III",
-   "pais": null,
-   "setor": null,
-   "industria": null
+   "pais": "Bermuda",
+   "setor": "Financial Services",
+   "industria": "Asset Management",
+   "fontePerfil": {
+    "nome": "PPLA Participations — prospecto regulatório",
+    "url": "https://live.euronext.com/sites/default/files/20171229_-_prospectus_-_ppla_units.pdf"
+   }
   }
  ]
 }

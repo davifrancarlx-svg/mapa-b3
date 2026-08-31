@@ -160,6 +160,9 @@ select:focus-visible,.btn:focus-visible{outline:2px solid var(--am);outline-offs
 .cot .fnt{margin:10px 0 0}
 .card .cat{font-size:11px;color:var(--tx3);margin-bottom:7px}
 .card .ds{font-size:12.5px;color:var(--tx2);margin-bottom:9px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.met{display:flex;flex-wrap:wrap;gap:5px;margin:2px 0 9px}
+.met span{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--tx3);background:#10141B;border:1px solid var(--line);border-radius:4px;padding:2px 5px}
+.met i{font-style:normal}
 .tg{display:flex;flex-wrap:wrap;gap:4px}
 .tg span{font-size:10.5px;color:var(--tx3);background:var(--panel2);border:1px solid var(--line);border-radius:4px;padding:2px 6px}
 .card:hover .tg span{border-color:var(--line2)}
@@ -271,10 +274,27 @@ footer b{color:var(--tx2);font-weight:600}
   <div class="fbody" id="setores"></div>
 </div>
 
+<div class="fbox hide" data-open="false" id="findustria">
+  <button class="fhead" aria-expanded="false">Indústria<span class="arw">▾</span></button>
+  <div class="fbody" id="industrias"></div>
+</div>
+
+<div class="fbox hide" data-open="true" id="fliq">
+  <button class="fhead" aria-expanded="true">Liquidez recente<span class="arw">▾</span></button>
+  <div class="fbody" id="liquidez">
+    <button class="chip mini" data-liq="todas" aria-pressed="true">Todas</button>
+    <button class="chip mini" data-liq="ativa" aria-pressed="false">Negociou em 15 de 20 pregões</button>
+    <button class="chip mini" data-liq="10k" aria-pressed="false">Giro médio ≥ R$ 10 mil</button>
+    <button class="chip mini" data-liq="100k" aria-pressed="false">Giro médio ≥ R$ 100 mil</button>
+    <button class="chip mini" data-liq="1m" aria-pressed="false">Giro médio ≥ R$ 1 milhão</button>
+  </div>
+</div>
+
 <div class="count">
   <span><b id="n">369</b> <span id="nLbl">empresas no recorte atual</span></span>
   <span id="vmSel"></span>
   <span class="atz" id="atz"></span>
+  <span class="atz" id="mtz"></span>
   <button class="link hide" id="clear">limpar filtros</button>
 </div>
 
@@ -288,7 +308,8 @@ footer b{color:var(--tx2);font-weight:600}
   <p><b>O que é meu e o que é da B3.</b> As 19 categorias temáticas e as tags de cruzamento são uma leitura analítica minha, feita para responder a pergunta de onde cada empresa realmente ganha dinheiro. Elas não substituem a classificação oficial da B3, que aparece na ficha de cada companhia.</p>
   <p><b>Escopo.</b> No mosaico principal estão as companhias brasileiras com ações registradas, incluindo 61 que hoje não têm negociação relevante (holdings de controle, empresas em processo de saída e candidatas a oferta que já se registraram). Na aba <b>BDRs</b> estão as ações de empresas estrangeiras negociadas na B3 por recibo de depósito — patrocinadas e não patrocinadas, todas as ativas para compra. ETFs internacionais listados como BDR, ETPs de cripto e emissores exclusivos de dívida ficaram de fora dos dois.</p>
   <p><b>Sobre as cotações.</b> Os preços vêm do Yahoo Finance, que não é fonte oficial da B3, e chegam com atraso de cerca de 15 minutos. Servem como referência do dia, não para operar. O <b>tamanho dos blocos no mosaico continua vindo do valor de mercado estimado na data do levantamento</b>, que é um retrato fixo: ele não se move junto com o preço, então os dois vão divergir com o tempo. Empresas sem negociação aparecem como sem cotação.</p>
-  <p><b>Sobre os BDRs.</b> A lista de tickers e o tipo de programa (patrocinado ou não patrocinado) vêm da base oficial de empresas listadas da B3. País, setor e indústria não têm classificação oficial da B3 para BDR e vêm do perfil que o Yahoo Finance mantém de cada empresa — por isso aparecem em inglês. Diferente das empresas brasileiras, os BDRs não têm descrição escrita à mão nem tags de cruzamento: é a lista completa das ativas para compra, sem curadoria analítica por trás.</p>
+  <p><b>Sobre os BDRs.</b> A lista de tickers e o tipo de programa (patrocinado ou não patrocinado) vêm da base oficial de empresas listadas da B3. País, setor e indústria não têm classificação oficial da B3 para BDR: a fonte padrão é o perfil do Yahoo Finance, com tradução editorial para português. Quando esse perfil não existe, a classificação é verificada em página oficial da companhia ou documento regulatório, indicado na ficha. A base tem cobertura completa, mas não inclui recomendação nem análise de investimento.</p>
+  <p><b>Métricas dos BDRs.</b> Retornos e volatilidade usam até dois anos de preços diários ajustados do Yahoo Finance. Os períodos de 1, 3 e 12 meses correspondem a 21, 63 e 252 pregões. A força relativa é a diferença, em pontos percentuais, para a mediana da indústria ou do setor; o giro médio inclui pregões sem negócio. Histórico insuficiente fica explicitamente sem dado. Desempenho passado não garante resultado futuro.</p>
   <p>Nada aqui é recomendação de compra ou venda.</p>
 </footer>
 </div>
@@ -9396,10 +9417,11 @@ const qInput = $('q'), nEl = $('n'), nLbl = $('nLbl'), vmSel = $('vmSel'), clear
 const sortSel = $('sort'), csvBtn = $('csv'), areaSw = $('areaSw');
 const catsBox = $('cats'), tagsBox = $('tags');
 const fcat = $('fcat'), ftag = $('ftag'), fpais = $('fpais'), fsetor = $('fsetor');
+const findustria = $('findustria'), fliq = $('fliq');
 $('snapDate').textContent = SNAPSHOT.label;
 
 const st = {q:'', cats:new Set(), tags:new Set(), tagMode:'ou', sort:'vm', view:'mapa', area:'val',
-            bdrPais:new Set(), bdrSetor:new Set(), bdrSort:'nome'};
+            bdrPais:new Set(), bdrSetor:new Set(), bdrIndustria:new Set(), bdrLiq:'todas', bdrSort:'nome'};
 
 const norm = s => (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
 E.forEach(e => e._s = norm([e.cod,e.nome,e.pregao,e.tickers,e.macroL,e.seg,e.tagsL.join(' '),e.desc].join(' ')));
@@ -9413,7 +9435,7 @@ const brl = v => {
 };
 
 /* ---------- cotacoes ---------- */
-let PRECOS = {}, PRECO_TS = '';
+let PRECOS = {}, PRECO_TS = '', METRICAS = {}, METRICA_TS = '', PARES_INDUSTRIA = {};
 
 const fmtPreco = p => 'R$ ' + p.toFixed(2).replace('.',',');
 
@@ -9424,6 +9446,28 @@ const fmtVar = v => {
   const seta = v > 0 ? '▲' : v < 0 ? '▼' : '·';
   return `<i class="${cls}">${seta} ${Math.abs(v).toFixed(2).replace('.',',')}%</i>`;
 };
+const fmtRet = v => {
+  if(typeof v !== 'number') return '—';
+  const cls = v > 0 ? 'up' : v < 0 ? 'down' : 'flat';
+  const seta = v > 0 ? '▲' : v < 0 ? '▼' : '·';
+  return `<i class="${cls}">${seta} ${Math.abs(v).toFixed(2).replace('.',',')}%</i>`;
+};
+const fmtPp = v => typeof v === 'number' ? (v > 0 ? '+' : '') + v.toFixed(2).replace('.',',') + ' p.p.' : '—';
+const fmtGiro = v => {
+  if(typeof v !== 'number') return '—';
+  if(v >= 1e9) return 'R$ ' + (v/1e9).toFixed(1).replace('.',',') + ' bi';
+  if(v >= 1e6) return 'R$ ' + (v/1e6).toFixed(1).replace('.',',') + ' mi';
+  if(v >= 1e3) return 'R$ ' + (v/1e3).toFixed(0) + ' mil';
+  return 'R$ ' + v.toLocaleString('pt-BR');
+};
+const met = t => METRICAS[t] || null;
+const paresIndustria = b => PARES_INDUSTRIA[b.industria] ?? (PARES_INDUSTRIA[b.industria] = BDR.filter(x => x.industria === b.industria && typeof met(x.ticker)?.r63 === 'number').length);
+const forcaBDR = b => {
+  const m = met(b.ticker), n = paresIndustria(b);
+  return n >= 3 ? {rot:'vs. indústria', v:m?.ri63, n} : {rot:'vs. setor', v:m?.rs63, n};
+};
+const negociouHoje = r => !!(r && r.vol > 0 && r.t && new Date(r.t*1000).toDateString() === new Date().toDateString());
+const dataNegocio = r => r?.t ? new Date(r.t*1000).toLocaleString('pt-BR', {day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'}) : '—';
 
 /* Empresas com varias classes: a referencia e a de maior volume no dia,
    decidido pelo dado da API e nao por convencao de sufixo (3/4/11). */
@@ -9470,6 +9514,72 @@ const SETOR_PT = {
   'Industrials':'Industrial', 'Energy':'Energia', 'Utilities':'Utilidade Pública',
   'Real Estate':'Imóveis', 'Basic Materials':'Materiais Básicos', 'Communication Services':'Comunicações'
 };
+const INDUSTRIA_PT = {
+  'Advertising Agencies':'Agências de publicidade', 'Aerospace & Defense':'Aeroespacial e defesa',
+  'Agricultural Inputs':'Insumos agrícolas', 'Airlines':'Companhias aéreas',
+  'Airports & Air Services':'Aeroportos e serviços aéreos', 'Apparel Manufacturing':'Fabricação de vestuário',
+  'Apparel Retail':'Varejo de vestuário', 'Asset Management':'Gestão de recursos',
+  'Auto & Truck Dealerships':'Concessionárias de veículos', 'Auto Manufacturers':'Fabricantes de veículos',
+  'Auto Parts':'Autopeças', 'Banks - Diversified':'Bancos diversificados', 'Banks - Regional':'Bancos regionais',
+  'Beverages - Brewers':'Cervejarias', 'Beverages - Non-Alcoholic':'Bebidas não alcoólicas',
+  'Beverages - Wineries & Distilleries':'Vinícolas e destilarias', 'Biotechnology':'Biotecnologia',
+  'Building Materials':'Materiais de construção', 'Building Products & Equipment':'Produtos e equipamentos para construção',
+  'Business Equipment & Supplies':'Equipamentos e suprimentos empresariais', 'Capital Markets':'Mercado de capitais',
+  'Chemicals':'Químicos', 'Communication Equipment':'Equipamentos de comunicação',
+  'Computer Hardware':'Hardware', 'Confectioners':'Confeitaria', 'Conglomerates':'Conglomerados',
+  'Consulting Services':'Consultoria', 'Consumer Electronics':'Eletrônicos de consumo', 'Copper':'Cobre',
+  'Credit Services':'Serviços de crédito', 'Department Stores':'Lojas de departamento',
+  'Diagnostics & Research':'Diagnósticos e pesquisa', 'Discount Stores':'Lojas de desconto',
+  'Drug Manufacturers - General':'Fabricantes de medicamentos',
+  'Drug Manufacturers - Specialty & Generic':'Medicamentos especializados e genéricos',
+  'Education & Training Services':'Educação e treinamento', 'Electrical Equipment & Parts':'Equipamentos e peças elétricas',
+  'Electronic Components':'Componentes eletrônicos', 'Electronic Gaming & Multimedia':'Jogos eletrônicos e multimídia',
+  'Electronics & Computer Distribution':'Distribuição de eletrônicos e computadores',
+  'Engineering & Construction':'Engenharia e construção', 'Entertainment':'Entretenimento',
+  'Farm & Heavy Construction Machinery':'Máquinas agrícolas e de construção pesada', 'Farm Products':'Produtos agropecuários',
+  'Financial Conglomerates':'Conglomerados financeiros', 'Financial Data & Stock Exchanges':'Dados financeiros e bolsas',
+  'Food Distribution':'Distribuição de alimentos', 'Footwear & Accessories':'Calçados e acessórios',
+  'Furnishings, Fixtures & Appliances':'Móveis, utensílios e eletrodomésticos', 'Gambling':'Jogos de azar',
+  'Gold':'Ouro', 'Grocery Stores':'Supermercados', 'Health Information Services':'Informação em saúde',
+  'Healthcare Plans':'Planos de saúde', 'Home Improvement Retail':'Varejo para reforma residencial',
+  'Household & Personal Products':'Produtos domésticos e pessoais', 'Industrial Distribution':'Distribuição industrial',
+  'Information Technology Services':'Serviços de tecnologia da informação',
+  'Insurance - Diversified':'Seguros diversificados', 'Insurance - Life':'Seguro de vida',
+  'Insurance - Property & Casualty':'Seguros patrimoniais e de acidentes', 'Insurance - Reinsurance':'Resseguros',
+  'Insurance Brokers':'Corretoras de seguros', 'Integrated Freight & Logistics':'Frete e logística integrados',
+  'Internet Content & Information':'Conteúdo e informação na internet', 'Internet Retail':'Varejo pela internet',
+  'Leisure':'Lazer', 'Lodging':'Hospedagem', 'Luxury Goods':'Artigos de luxo',
+  'Medical Care Facilities':'Instalações de cuidados médicos', 'Medical Devices':'Dispositivos médicos',
+  'Medical Distribution':'Distribuição médica', 'Medical Instruments & Supplies':'Instrumentos e suprimentos médicos',
+  'Oil & Gas Drilling':'Perfuração de petróleo e gás', 'Oil & Gas E&P':'Exploração e produção de petróleo e gás',
+  'Oil & Gas Equipment & Services':'Equipamentos e serviços de petróleo e gás',
+  'Oil & Gas Integrated':'Petróleo e gás integrados', 'Oil & Gas Midstream':'Transporte e armazenamento de petróleo e gás',
+  'Oil & Gas Refining & Marketing':'Refino e distribuição de petróleo e gás',
+  'Other Industrial Metals & Mining':'Outros metais industriais e mineração',
+  'Other Precious Metals & Mining':'Outros metais preciosos e mineração', 'Packaged Foods':'Alimentos embalados',
+  'Packaging & Containers':'Embalagens e recipientes', 'Personal Services':'Serviços pessoais',
+  'Publishing':'Publicação', 'Railroads':'Ferrovias', 'Real Estate - Development':'Desenvolvimento imobiliário',
+  'Real Estate Services':'Serviços imobiliários', 'Recreational Vehicles':'Veículos recreativos',
+  'REIT - Healthcare Facilities':'REIT de instalações de saúde', 'REIT - Hotel & Motel':'REIT de hotéis e motéis',
+  'REIT - Industrial':'REIT industrial', 'REIT - Mortgage':'REIT hipotecário', 'REIT - Office':'REIT de escritórios',
+  'REIT - Residential':'REIT residencial', 'REIT - Retail':'REIT de varejo', 'REIT - Specialty':'REIT especializado',
+  'Rental & Leasing Services':'Aluguel e leasing', 'Residential Construction':'Construção residencial',
+  'Resorts & Casinos':'Resorts e cassinos', 'Restaurants':'Restaurantes',
+  'Scientific & Technical Instruments':'Instrumentos científicos e técnicos',
+  'Security & Protection Services':'Serviços de segurança e proteção',
+  'Semiconductor Equipment & Materials':'Equipamentos e materiais para semicondutores',
+  'Semiconductors':'Semicondutores', 'Software - Application':'Software de aplicação',
+  'Software - Infrastructure':'Software de infraestrutura', 'Solar':'Energia solar',
+  'Specialty Business Services':'Serviços empresariais especializados', 'Specialty Chemicals':'Químicos especializados',
+  'Specialty Industrial Machinery':'Máquinas industriais especializadas', 'Specialty Retail':'Varejo especializado',
+  'Staffing & Employment Services':'Recrutamento e serviços de emprego', 'Steel':'Aço',
+  'Telecom Services':'Telecomunicações', 'Tobacco':'Tabaco', 'Tools & Accessories':'Ferramentas e acessórios',
+  'Travel Services':'Serviços de viagem', 'Trucking':'Transporte rodoviário', 'Uranium':'Urânio',
+  'Utilities - Diversified':'Serviços públicos diversificados',
+  'Utilities - Independent Power Producers':'Produtores independentes de energia',
+  'Utilities - Regulated Electric':'Energia elétrica regulada', 'Utilities - Regulated Gas':'Gás regulado',
+  'Utilities - Regulated Water':'Água e saneamento regulados', 'Waste Management':'Gestão de resíduos'
+};
 const CORES_SETOR = {
   'Technology':'#3D6FD6', 'Financial Services':'#2E8B74', 'Healthcare':'#D65A8A',
   'Consumer Cyclical':'#F2B441', 'Consumer Defensive':'#8FBF3F', 'Industrials':'#9AA3B5',
@@ -9497,8 +9607,13 @@ const PAIS_PT = {
   'Uruguay':'Uruguai', 'Russia':'Rússia'
 };
 const setorPT = s => s ? (SETOR_PT[s] || s) : null;
+const industriaPT = s => s ? (INDUSTRIA_PT[s] || s) : null;
 const paisPT = p => p ? (PAIS_PT[p] || p) : null;
 const corSetor = s => CORES_SETOR[s] || '#4A5568';
+const fontePerfilBDR = b => b.fontePerfil || {
+  nome: 'Yahoo Finance — perfil da empresa',
+  url: 'https://finance.yahoo.com/quote/' + encodeURIComponent(b.ticker + '.SA') + '/profile/'
+};
 
 /* ---------- filtros ---------- */
 function filtra(){
@@ -9522,11 +9637,31 @@ function filtraBDR(){
   if(st.q){ const q = norm(st.q); r = r.filter(b => b._s.includes(q)); }
   if(st.bdrPais.size) r = r.filter(b => st.bdrPais.has(b.pais));
   if(st.bdrSetor.size) r = r.filter(b => st.bdrSetor.has(b.setor));
+  if(st.bdrIndustria.size) r = r.filter(b => st.bdrIndustria.has(b.industria));
+  if(st.bdrLiq !== 'todas') r = r.filter(b => {
+    const m = met(b.ticker); if(!m) return false;
+    if(st.bdrLiq === 'ativa') return m.d20 >= 15;
+    return m.g20 >= ({'10k':1e4,'100k':1e5,'1m':1e6}[st.bdrLiq] || 0);
+  });
   const variacao = t => cot(t)?.v;
+  const desc = k => (a,b) => {
+    const x = met(a.ticker)?.[k], y = met(b.ticker)?.[k];
+    if(typeof x !== 'number') return typeof y !== 'number' ? 0 : 1;
+    if(typeof y !== 'number') return -1;
+    return y-x;
+  };
+  const descForca = (a,b) => {
+    const x = forcaBDR(a).v, y = forcaBDR(b).v;
+    if(typeof x !== 'number') return typeof y !== 'number' ? 0 : 1;
+    if(typeof y !== 'number') return -1;
+    return y-x;
+  };
   const o = {
     nome:(a,b)=>a.empresa.localeCompare(b.empresa,'pt-BR'),
     alta:(a,b)=>(variacao(b.ticker) ?? -999) - (variacao(a.ticker) ?? -999),
-    baixa:(a,b)=>(variacao(a.ticker) ?? 999) - (variacao(b.ticker) ?? 999)
+    baixa:(a,b)=>(variacao(a.ticker) ?? 999) - (variacao(b.ticker) ?? 999),
+    r21:desc('r21'), r63:desc('r63'), r252:desc('r252'),
+    ri63:descForca, g20:desc('g20'), dd252:desc('dd252')
   };
   return [...r].sort(o[st.bdrSort] || o.nome);
 }
@@ -9564,8 +9699,14 @@ function chipsBDR(){
   $('setores').innerHTML = ss
     .map(s=>`<button class="chip mini" data-setor="${s}" aria-pressed="false"><i class="dot" style="background:${corSetor(s)}"></i>${setorPT(s)}<i class="n">${sc[s]}</i></button>`).join('');
 
+  const ic = {}; BDR.forEach(b => { if(b.industria) ic[b.industria] = (ic[b.industria]||0)+1; });
+  const is = Object.keys(ic).sort((a,b)=>ic[b]-ic[a]||a.localeCompare(b));
+  $('industrias').innerHTML = is
+    .map(i=>`<button class="chip mini" data-industria="${i}" aria-pressed="false">${industriaPT(i)}<i class="n">${ic[i]}</i></button>`).join('');
+
   document.querySelectorAll('[data-pais]').forEach(b => b.onclick = () => tog(st.bdrPais, b.dataset.pais, b));
   document.querySelectorAll('[data-setor]').forEach(b => b.onclick = () => tog(st.bdrSetor, b.dataset.setor, b));
+  document.querySelectorAll('[data-industria]').forEach(b => b.onclick = () => tog(st.bdrIndustria, b.dataset.industria, b));
 }
 
 /* ---------- treemap ---------- */
@@ -9663,11 +9804,17 @@ function listaHTML(list){
 function bdrHTML(list){
   return list.map(b => {
     const r = cot(b.ticker);
-    const preco = r ? `<span class="pr"><b>${fmtPreco(r.p)}</b>${fmtVar(r.v)}</span>` : '<span class="pr na">sem cotação</span>';
+    const preco = r ? `<span class="pr"><b>${negociouHoje(r) ? fmtPreco(r.p) : 'último ' + fmtPreco(r.p)}</b>${negociouHoje(r) ? fmtVar(r.v) : ''}</span>` : '<span class="pr na">sem cotação</span>';
     const corS = corSetor(b.setor);
+    const m = met(b.ticker);
+    const forca = forcaBDR(b);
+    const sinais = m ? `<div class="met"><span>1 mês ${fmtRet(m.r21)}</span><span>3 meses ${fmtRet(m.r63)}</span><span>${forca.rot} ${fmtPp(forca.v)}</span><span>giro 20d ${fmtGiro(m.g20)}</span></div>`
+      : '<div class="met"><span>histórico insuficiente</span></div>';
     return `<button class="card" data-tk="${b.ticker}" style="border-left-color:${corS}">
     <span class="top"><span class="cod" style="color:${corS}">${b.ticker}</span><span class="nm">${b.empresa}</span>${preco}</span>
-    <div class="cat">${setorPT(b.setor) || 'setor não informado'} · ${paisPT(b.pais) || 'país não informado'}</div>
+    <div class="cat">${setorPT(b.setor)} · ${paisPT(b.pais)}</div>
+    <div class="ds">${industriaPT(b.industria)}</div>
+    ${sinais}
     <div class="tg"><span>${b.tipo}</span></div>
   </button>`;
   }).join('');
@@ -9752,6 +9899,21 @@ function abreBDR(ticker){
   const b = BDR.find(x => x.ticker === ticker); if(!b) return;
   const r = cot(ticker);
   const corS = corSetor(b.setor);
+  const fonte = fontePerfilBDR(b);
+  const m = met(ticker);
+  const pares = paresIndustria(b);
+  const linha = (rot, valor) => `<dt>${rot}</dt><dd>${valor}</dd>`;
+  const historico = m ? `
+      ${linha('Retorno 1 mês', fmtRet(m.r21))}
+      ${linha('Retorno 3 meses', fmtRet(m.r63))}
+      ${linha('Retorno 12 meses', fmtRet(m.r252))}
+      ${linha('Vs. indústria 3m', pares >= 3 ? fmtPp(m.ri63) : 'amostra de ' + pares + ' BDR' + (pares === 1 ? '' : 's'))}
+      ${linha('Vs. setor 3m', fmtPp(m.rs63))}
+      ${linha('Giro médio 20d', fmtGiro(m.g20))}
+      ${linha('Pregões com negócio', m.d20 + ' de 20')}
+      ${linha('Distância da máxima', fmtRet(m.dd252))}
+      ${linha('Volatilidade 21d', typeof m.v21 === 'number' ? m.v21.toFixed(2).replace('.',',') + '% a.a.' : '—')}`
+    : `${linha('Histórico', 'insuficiente')}`;
   lastFocus = document.activeElement;
   drw.innerHTML = `
     <button class="x" aria-label="Fechar ficha">×</button>
@@ -9761,11 +9923,15 @@ function abreBDR(ticker){
     <dl class="kv">
       <dt>País</dt><dd style="font-family:'Inter Tight',sans-serif">${paisPT(b.pais) || '—'}</dd>
       <dt>Setor</dt><dd style="font-family:'Inter Tight',sans-serif">${setorPT(b.setor) || '—'}</dd>
-      <dt>Indústria</dt><dd style="font-family:'Inter Tight',sans-serif">${b.industria || '—'}</dd>
-      <dt>Preço</dt><dd>${r ? fmtPreco(r.p) : 'sem cotação'}</dd>
-      <dt>Variação hoje</dt><dd>${r && typeof r.v === 'number' ? fmtVar(r.v) : '—'}</dd>
+      <dt>Indústria</dt><dd style="font-family:'Inter Tight',sans-serif">${industriaPT(b.industria)}</dd>
+      <dt>Preço</dt><dd>${r ? (negociouHoje(r) ? fmtPreco(r.p) : 'último ' + fmtPreco(r.p)) : 'sem cotação'}</dd>
+      <dt>Negociação hoje</dt><dd>${negociouHoje(r) ? 'sim' : 'não'}</dd>
+      <dt>Último negócio</dt><dd>${dataNegocio(r)}</dd>
+      <dt>Variação hoje</dt><dd>${negociouHoje(r) && typeof r.v === 'number' ? fmtVar(r.v) : '—'}</dd>
+      <dt>Giro hoje</dt><dd>${r ? fmtGiro(r.giro) : '—'}</dd>
+      ${historico}
     </dl>
-    <p class="fnt" style="margin-top:14px">BDR ${b.tipo}, negociado na B3 com lastro em ações listadas no exterior. País, setor e indústria vêm do perfil que o Yahoo Finance mantém da empresa, não de classificação oficial da B3. Cotação com atraso de ~15 min.${PRECO_TS ? ' Atualizado às ' + PRECO_TS + '.' : ''}</p>`;
+    <p class="fnt" style="margin-top:14px">BDR ${b.tipo}, negociado na B3 com lastro em ações listadas no exterior. Classificação: <a href="${fonte.url}" target="_blank" rel="noopener noreferrer">${fonte.nome}</a>; não é classificação oficial da B3. Cotação e série diária ajustada via Yahoo Finance, com atraso na cotação atual.${PRECO_TS ? ' Cotação consultada em ' + PRECO_TS + '.' : ''}${m ? ' Métricas até ' + m.dt.split('-').reverse().join('/') + '; retornos em 21, 63 e 252 pregões e força relativa contra a mediana do grupo.' : ''}</p>`;
   drw.classList.add('on');
   dim.classList.add('on');
   wrap.inert = true;
@@ -9810,13 +9976,15 @@ function render(){
   ftag.classList.toggle('hide', st.view === 'bdr');
   fpais.classList.toggle('hide', st.view !== 'bdr');
   fsetor.classList.toggle('hide', st.view !== 'bdr');
+  findustria.classList.toggle('hide', st.view !== 'bdr');
+  fliq.classList.toggle('hide', st.view !== 'bdr');
 
   if(st.view === 'bdr'){
     nLbl.textContent = 'BDRs no recorte atual';
     const r = filtraBDR();
     nEl.textContent = r.length;
     vmSel.textContent = '';
-    clearBtn.classList.toggle('hide', !(st.q || st.bdrPais.size || st.bdrSetor.size));
+    clearBtn.classList.toggle('hide', !(st.q || st.bdrPais.size || st.bdrSetor.size || st.bdrIndustria.size || st.bdrLiq !== 'todas'));
     bdr.innerHTML = r.length ? bdrHTML(r) : '<p style="color:var(--tx3)">Nenhum BDR neste recorte.</p>';
     return;
   }
@@ -9852,11 +10020,17 @@ sortSel.onchange = ev => {
   render();
 };
 clearBtn.onclick = () => {
-  st.q = ''; st.cats.clear(); st.tags.clear(); st.bdrPais.clear(); st.bdrSetor.clear();
+  st.q = ''; st.cats.clear(); st.tags.clear(); st.bdrPais.clear(); st.bdrSetor.clear(); st.bdrIndustria.clear(); st.bdrLiq = 'todas';
   qInput.value = '';
   document.querySelectorAll('.chip').forEach(b => b.setAttribute('aria-pressed','false'));
+  const todas = document.querySelector('[data-liq="todas"]'); if(todas) todas.setAttribute('aria-pressed','true');
   render();
 };
+document.querySelectorAll('[data-liq]').forEach(b => b.onclick = () => {
+  st.bdrLiq = b.dataset.liq;
+  document.querySelectorAll('[data-liq]').forEach(x => x.setAttribute('aria-pressed', x === b));
+  render();
+});
 const par = (a, b, val, key) => {
   a.onclick = () => { st[key] = val[0]; a.setAttribute('aria-pressed','true'); b.setAttribute('aria-pressed','false'); render(); };
   b.onclick = () => { st[key] = val[1]; b.setAttribute('aria-pressed','true'); a.setAttribute('aria-pressed','false'); render(); };
@@ -9866,14 +10040,14 @@ par($('mOu'), $('mE'), ['ou','e'], 'tagMode');
 
 const views = {vMapa:'mapa', vLista:'lista', vIpo:'ipo', vBdr:'bdr'};
 const SORT_EMPRESA = `<option value="vm">Maior valor de mercado</option><option value="liq">Maior liquidez</option><option value="nome">Nome A a Z</option><option value="novo">Registro mais recente</option>`;
-const SORT_BDR = `<option value="nome">Nome A a Z</option><option value="alta">Maior alta do dia</option><option value="baixa">Maior queda do dia</option>`;
+const SORT_BDR = `<option value="nome">Nome A a Z</option><option value="alta">Maior alta do dia</option><option value="baixa">Maior queda do dia</option><option value="r21">Maior retorno em 1 mês</option><option value="r63">Maior retorno em 3 meses</option><option value="r252">Maior retorno em 12 meses</option><option value="ri63">Maior força relativa em 3 meses</option><option value="g20">Maior giro médio em 20 pregões</option><option value="dd252">Mais perto da máxima de 12 meses</option>`;
 Object.keys(views).forEach(id => {
   $(id).onclick = () => {
     st.view = views[id];
     Object.keys(views).forEach(x => $(x).setAttribute('aria-pressed', x === id));
     sortSel.innerHTML = st.view === 'bdr' ? SORT_BDR : SORT_EMPRESA;
     sortSel.value = st.view === 'bdr' ? st.bdrSort : st.sort;
-    qInput.placeholder = st.view === 'bdr' ? 'Buscar por nome, ticker, país ou setor' : 'Buscar por nome, ticker, tag ou segmento';
+    qInput.placeholder = st.view === 'bdr' ? 'Buscar por nome, ticker, país, setor ou indústria' : 'Buscar por nome, ticker, tag ou segmento';
     render();
   };
 });
@@ -9891,11 +10065,15 @@ csvBtn.onclick = () => {
   };
 
   if(st.view === 'bdr'){
-    const linhas = [['ticker','empresa','tipo','pais','setor','industria','preco','variacao_pct','cotacao_atualizada_em']];
+    const linhas = [['ticker','empresa','tipo','pais','setor','industria','fonte_classificacao','preco','variacao_pct','volume_hoje','giro_hoje','ultimo_negocio','retorno_21d_pct','retorno_63d_pct','retorno_252d_pct','vs_industria_21d_pp','vs_industria_63d_pp','vs_industria_252d_pp','vs_setor_63d_pp','giro_medio_20d','giro_medio_60d','dias_negociados_20d','drawdown_252d_pct','volatilidade_21d_anual_pct','metricas_ate','cotacao_atualizada_em']];
     filtraBDR().forEach(b => {
       const r = cot(b.ticker);
-      linhas.push([b.ticker, b.empresa, b.tipo, b.pais || '', b.setor || '', b.industria || '',
-        r ? r.p : '', r && typeof r.v === 'number' ? r.v : '', PRECO_TS]);
+      const m = met(b.ticker);
+      const fonte = fontePerfilBDR(b);
+      linhas.push([b.ticker, b.empresa, b.tipo, paisPT(b.pais), setorPT(b.setor), industriaPT(b.industria), fonte.url,
+        r ? r.p : '', r && typeof r.v === 'number' ? r.v : '', r?.vol ?? '', r?.giro ?? '', r?.t ? new Date(r.t*1000).toISOString() : '',
+        m?.r21 ?? '', m?.r63 ?? '', m?.r252 ?? '', m?.ri21 ?? '', m?.ri63 ?? '', m?.ri252 ?? '', m?.rs63 ?? '',
+        m?.g20 ?? '', m?.g60 ?? '', m?.d20 ?? '', m?.dd252 ?? '', m?.v21 ?? '', m?.dt ?? '', PRECO_TS]);
     });
     baixa(linhas, 'bdrs-b3-' + SNAPSHOT.iso + '.csv');
     return;
@@ -9942,8 +10120,9 @@ function carregaBDRs(){
     .then(r => r.ok ? r.json() : Promise.reject(new Error('HTTP ' + r.status)))
     .then(d => {
       BDR = (d.bdrs || []).map(b => Object.assign({}, b, {
-        _s: norm([b.ticker, b.empresa, b.pais||'', paisPT(b.pais)||'', b.setor||'', setorPT(b.setor)||'', b.industria||''].join(' '))
+        _s: norm([b.ticker, b.empresa, b.pais||'', paisPT(b.pais)||'', b.setor||'', setorPT(b.setor)||'', b.industria||'', industriaPT(b.industria)||''].join(' '))
       }));
+      PARES_INDUSTRIA = {};
       $('sBdr').textContent = BDR.length;
       chipsBDR();
       if(st.view === 'bdr') render();
@@ -9951,11 +10130,29 @@ function carregaBDRs(){
     .catch(() => { /* sem bdrs.json a aba de BDR fica vazia, o resto do mapa segue normal */ });
 }
 
+function carregaMetricas(){
+  fetch('metricas.json', {cache:'no-store'})
+    .then(r => r.ok ? r.json() : Promise.reject(new Error('HTTP ' + r.status)))
+    .then(d => {
+      METRICAS = d.metricas || {};
+      PARES_INDUSTRIA = {};
+      if(d.atualizadoEm){
+        const dt = new Date(d.atualizadoEm);
+        METRICA_TS = dt.toLocaleDateString('pt-BR', {day:'2-digit',month:'2-digit',year:'numeric'});
+        $('mtz').textContent = '· métricas de ' + METRICA_TS;
+        $('mtz').title = Object.keys(METRICAS).length + ' BDRs com histórico; fonte Yahoo Finance.';
+      }
+      if(st.view === 'bdr') render();
+    })
+    .catch(() => { /* sem metricas a lista segue funcionando, sem rankings historicos */ });
+}
+
 chips();
 if(innerWidth < 620){ $('vLista').click(); }
 else render();
 carregaPrecos();
 carregaBDRs();
+carregaMetricas();
 </script>
 </body>
 </html>

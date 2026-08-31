@@ -12,6 +12,8 @@
  *    (o mesmo sistema que alimentou a base de empresas brasileiras do mapa).
  *  - Pais/setor/industria: Yahoo Finance (nao oficial), porque a B3 nao
  *    classifica BDR por setor -- todos vem como "Nao Classificados".
+ *  - Perfis ausentes no Yahoo: bdrs-complementos.json, sempre com fonte
+ *    oficial da companhia ou documento regulatorio.
  *
  * Uso: node scripts/gera-bdrs.js
  */
@@ -20,6 +22,8 @@ const fs = require('fs');
 const path = require('path');
 
 const SAIDA = path.join(__dirname, '..', 'bdrs.json');
+const COMPLEMENTOS = path.join(__dirname, 'bdrs-complementos.json');
+const complementos = JSON.parse(fs.readFileSync(COMPLEMENTOS, 'utf8'));
 const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0 Safari/537.36';
 const espera = ms => new Promise(r => setTimeout(r, ms));
 
@@ -144,25 +148,38 @@ async function perfilYahoo(ticker, sessao, tentativa = 1){
   const finais = [];
   for(let i = 0; i < comTicker.length; i++){
     const item = comTicker[i];
-    const perfil = await perfilYahoo(item.ticker, sessao);
-    finais.push({
+    const extra = complementos[item.ticker];
+    const yahoo = extra ? null : await perfilYahoo(item.ticker, sessao);
+    const perfil = extra || yahoo;
+    const final = {
       ticker: item.ticker,
       empresa: item.empresa,
       tipo: item.tipo,
       pais: perfil?.pais || null,
       setor: perfil?.setor || null,
       industria: perfil?.industria || null
-    });
+    };
+    if(extra?.fontePerfil) final.fontePerfil = extra.fontePerfil;
+    finais.push(final);
     if((i + 1) % 50 === 0) console.log('  ' + (i + 1) + '/' + comTicker.length);
     await espera(300);
   }
 
-  const semPerfil = finais.filter(x => !x.pais).length;
-  console.log('\nconcluído: ' + finais.length + ' BDRs, ' + semPerfil + ' sem perfil de país/setor no Yahoo');
+  const incompletos = finais.filter(x => !x.pais || !x.setor || !x.industria);
+  if(incompletos.length){
+    const lista = incompletos.map(x => x.ticker + ' (' + x.empresa + ')').join(', ');
+    throw new Error('perfis incompletos; revise bdrs-complementos.json: ' + lista);
+  }
+  const usados = finais.filter(x => x.fontePerfil).length;
+  console.log('\nconcluído: ' + finais.length + ' BDRs, todos classificados (' + usados + ' complementos verificados)');
 
   const saida = {
     geradoEm: new Date().toISOString(),
-    fonte: 'B3 (lista oficial) + Yahoo Finance (país/setor, não oficial)',
+    fontes: {
+      lista: 'B3 (lista oficial de programas de BDR)',
+      perfilPadrao: 'Yahoo Finance (país/setor/indústria, terceira parte)',
+      complementos: 'Páginas oficiais das companhias e documentos regulatórios, identificados em cada registro'
+    },
     total: finais.length,
     bdrs: finais
   };

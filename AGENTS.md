@@ -12,7 +12,7 @@ o pregão.
 
 - **369 empresas brasileiras** — dados curados à mão (categoria temática, tags de
   cruzamento, descrição de onde a empresa ganha dinheiro)
-- **825 BDRs** — lista completa da B3, sem curadoria, dado leve (país, setor, preço)
+- **825 BDRs** — lista completa da B3, com país, setor, indústria traduzida e fonte da classificação
 
 ## Regra número um: não reescreva o que já funciona
 
@@ -41,9 +41,11 @@ Em particular, **não toque nestas partes sem um motivo forte e específico**:
 index.html          const D = {...}  ← 369 empresas, embutido no arquivo (fonte da verdade)
    │                fetch('precos.json')   ← cotações, carregado em runtime
    │                fetch('bdrs.json')     ← lista de BDRs, carregado em runtime
+   │                fetch('metricas.json') ← indicadores históricos, carregado em runtime
    │
 scripts/atualiza-precos.js   lê os tickers DO index.html + do bdrs.json → grava precos.json
-scripts/gera-bdrs.js         API da B3 + perfis do Yahoo               → grava bdrs.json
+scripts/gera-bdrs.js         API da B3 + perfis do Yahoo + complementos → grava bdrs.json
+scripts/atualiza-metricas.js Yahoo diário ajustado → grava metricas.json
 ```
 
 **A lista de empresas mora dentro do `index.html`**, como um bloco `const D = {...}` em JSON
@@ -54,7 +56,7 @@ casando chaves (com consciência de string). Consequências:
   para objeto JS com chaves sem aspas ou aspas simples quebra os dois scripts em silêncio.
 - Fica indentado de propósito, para dar diff legível. Não minifique.
 
-**`precos.json` e `bdrs.json` são arquivos separados, e precisam continuar sendo.** O
+**`precos.json`, `bdrs.json` e `metricas.json` são arquivos separados, e precisam continuar sendo.** O
 GitHub Actions commita o `precos.json` sozinho a cada 30 min; embutir os preços no HTML
 mataria a atualização automática.
 
@@ -84,7 +86,9 @@ Ele **não** tem a automação de preços. Para atualizar lá, reenvie os arquiv
   (`listedCompaniesProxy/CompanyCall/GetCompaniesBDR`, parâmetros em base64). `codeCategoryBVMF`
   6 = não patrocinado, 3/4/5 = patrocinado I/II/III. As categorias 28/29/30 são BDRs de **ETF
   estrangeiro**, não de empresa — ficam de fora de propósito.
-- **País/setor dos BDRs: Yahoo**, porque a B3 devolve "Não Classificados" para todos.
+- **País/setor dos BDRs: Yahoo**, porque a B3 devolve "Não Classificados" para todos. Quando
+  o perfil está ausente, `scripts/bdrs-complementos.json` usa página oficial da companhia
+  ou documento regulatório e registra o link da fonte.
 
 ## Armadilhas que causam quebra silenciosa
 
@@ -94,8 +98,14 @@ Ele **não** tem a automação de preços. Para atualizar lá, reenvie os arquiv
 - **`file://` bloqueia `fetch`.** Abrir o HTML com duplo clique mostra o mapa **sem preços e
   sem BDRs**, silenciosamente — a falha é capturada de propósito para a página não quebrar.
   Para testar de verdade, sirva por HTTP.
-- **`bdrs.json` não está no cron.** Só o `precos.json` é atualizado automaticamente. A lista
+- **`bdrs.json` não está no cron.** Preços e métricas têm automações próprias, mas a lista
   de BDRs muda raramente; rode `gera-bdrs.js` à mão quando precisar.
+- **`metricas.json` tem cron diário separado.** Retornos usam 21/63/252 pregões ajustados;
+  força relativa é a diferença para a mediana da indústria ou setor, e giro médio inclui
+  sessões sem negócio. Não compare preços nominais de BDRs como medida de oportunidade.
+- **A classificação de BDR não pode ficar incompleta.** O gerador aborta se país, setor ou
+  indústria faltar. Adicione o caso a `scripts/bdrs-complementos.json`, sempre com fonte
+  oficial ou regulatória, e rode `node scripts/valida-bdrs.js`.
 - **O `vm` (valor de mercado) é um retrato estático** da data do levantamento e **não
   acompanha o preço ao vivo**. Recalcular exigiria quantidade de ações em circulação, que não
   está na base. Os dois divergem com o tempo — e o rodapé da página declara isso. Não tente
@@ -111,9 +121,9 @@ Ele **não** tem a automação de preços. Para atualizar lá, reenvie os arquiv
 O rodapé distingue explicitamente o que é dado oficial da B3, o que é estimativa e o que é
 leitura analítica do autor. **Mantenha essa separação.**
 
-As empresas brasileiras têm descrição e tags escritas à mão; os BDRs **não têm curadoria
-nenhuma** — e a página diz isso. Não gere descrições sintéticas para BDR fingindo o mesmo
-nível de trabalho.
+As empresas brasileiras têm descrição e tags escritas à mão; os BDRs têm classificação
+setorial rastreável, mas não têm tags de cruzamento nem análise autoral. Não gere descrições
+sintéticas para BDR fingindo o mesmo nível de trabalho.
 
 Nada na página é recomendação de investimento, e o texto reflete isso. Não adicione
 linguagem que sugira conselho financeiro.
@@ -146,6 +156,8 @@ Atualizar dados:
 ```bash
 node scripts/atualiza-precos.js   # rápido, ~13 requisições
 node scripts/gera-bdrs.js         # lento, alguns minutos (1 requisição por empresa)
+node scripts/atualiza-metricas.js # lento, historico diario de cada BDR
+node scripts/valida-metricas.js
 ```
 
 ## Configuração do GitHub (não está no código)
