@@ -9,7 +9,7 @@ automaticamente durante o pregão. Tem também uma aba com todos os BDRs de empr
 
 | Caminho | O que é |
 |---|---|
-| `mapa-b3.html` | A página inteira: dados, estilo e lógica em arquivo único |
+| `index.html` | A página inteira: dados, estilo e lógica em arquivo único |
 | `precos.json` | Cotações (empresas + BDR), gerado automaticamente — **não editar à mão** |
 | `bdrs.json` | Lista de BDRs (ticker, empresa, país, setor), gerado automaticamente — **não editar à mão** |
 | `scripts/atualiza-precos.js` | Busca as cotações e grava o `precos.json` |
@@ -26,7 +26,7 @@ cotações, sirva por HTTP:
 npx serve -l 4173 .
 ```
 
-E acesse `http://localhost:4173/mapa-b3`.
+E acesse `http://localhost:4173`.
 
 Para atualizar as cotações na sua máquina:
 
@@ -38,14 +38,18 @@ node scripts/atualiza-precos.js
 listados em `bdrs.json`, se esse arquivo existir. Não precisa rodar os dois scripts
 juntos — o de preços lê a lista, não a gera.
 
-## Publicando no GitHub Pages
+## Publicado no GitHub Pages
 
-1. Renomeie `mapa-b3.html` para `index.html` (o Pages serve esse nome por padrão na raiz).
-   O script de preços aceita os dois nomes, então nada quebra.
-2. Suba o repositório como **público** — Actions e Pages são ilimitados nesse caso.
-3. Em **Settings → Pages**, escolha a branch `main` e a pasta `/ (root)`.
-4. Em **Settings → Actions → General → Workflow permissions**, marque
-   **Read and write permissions**. Sem isso o workflow não consegue commitar o `precos.json`.
+**https://davifrancarlx-svg.github.io/mapa-b3/**
+
+Repositório público (Actions e Pages ilimitados nesse caso), Pages servindo a branch
+`main` a partir da raiz, e permissão de escrita liberada em
+**Settings → Actions → General → Workflow permissions** — sem isso o workflow não
+conseguiria commitar o `precos.json` de volta no repositório.
+
+Se algum dia recriar o projeto do zero, esses três passos (repositório público, Pages
+apontando pra `main`/`/`, permissão de escrita no Actions) são o que precisa configurar
+de novo — nada disso está no código, é configuração do lado do GitHub.
 
 ## Como as cotações funcionam
 
