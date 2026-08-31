@@ -1,5 +1,6 @@
-# Configuração local do Claude Code (allowlist de permissões da sessão) — específica desta máquina
+# Configuração e estado local do Claude Code — específicos desta máquina
 .claude/settings.local.json
+.claude/scheduled_tasks.lock
 
 # Lixo comum de SO
 .DS_Store
