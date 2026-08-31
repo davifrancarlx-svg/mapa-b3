@@ -1,0 +1,6607 @@
+{
+ "geradoEm": "2026-08-31T14:54:52.766Z",
+ "fonte": "B3 (lista oficial) + Yahoo Finance (país/setor, não oficial)",
+ "total": 825,
+ "bdrs": [
+  {
+   "ticker": "MMMC34",
+   "empresa": "3M COMPANY",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Conglomerates"
+  },
+  {
+   "ticker": "ABTT34",
+   "empresa": "ABBOTT LABORATORIES",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Medical Devices"
+  },
+  {
+   "ticker": "ABBV34",
+   "empresa": "ABBVIE INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Drug Manufacturers - General"
+  },
+  {
+   "ticker": "A2SO34",
+   "empresa": "ACADEMY SPORTS & OUTDOORS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Specialty Retail"
+  },
+  {
+   "ticker": "ACNB34",
+   "empresa": "ACCENTURE PLC",
+   "tipo": "não patrocinado",
+   "pais": "Ireland",
+   "setor": "Technology",
+   "industria": "Information Technology Services"
+  },
+  {
+   "ticker": "ADBE34",
+   "empresa": "ADOBE INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "A1AP34",
+   "empresa": "ADVANCE AUTO PARTS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Auto Parts"
+  },
+  {
+   "ticker": "A1MD34",
+   "empresa": "ADVANCED MICRO DEVICES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Semiconductors"
+  },
+  {
+   "ticker": "A1EG34",
+   "empresa": "AEGON LTD.",
+   "tipo": "não patrocinado",
+   "pais": "Netherlands",
+   "setor": "Financial Services",
+   "industria": "Insurance - Diversified"
+  },
+  {
+   "ticker": "A1ES34",
+   "empresa": "AES CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Utilities",
+   "industria": "Utilities - Diversified"
+  },
+  {
+   "ticker": "A1FL34",
+   "empresa": "AFLAC INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Insurance - Life"
+  },
+  {
+   "ticker": "A2FY34",
+   "empresa": "AFYA LTD",
+   "tipo": "não patrocinado",
+   "pais": "Brazil",
+   "setor": "Consumer Defensive",
+   "industria": "Education & Training Services"
+  },
+  {
+   "ticker": "A1GI34",
+   "empresa": "AGILENT TECHNOLOGIES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Diagnostics & Research"
+  },
+  {
+   "ticker": "A1GT34",
+   "empresa": "AGNT. INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "Real Estate Services"
+  },
+  {
+   "ticker": "A1DC34",
+   "empresa": "AGREE REALTY CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Retail"
+  },
+  {
+   "ticker": "A1PD34",
+   "empresa": "AIR PRODUCTS & CHEMICALS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Basic Materials",
+   "industria": "Specialty Chemicals"
+  },
+  {
+   "ticker": "AIRB34",
+   "empresa": "AIRBNB INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Travel Services"
+  },
+  {
+   "ticker": "A1KA34",
+   "empresa": "AKAMAI TECHNOLOGIES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Infrastructure"
+  },
+  {
+   "ticker": "A1LK34",
+   "empresa": "ALASKA AIR GROUP INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Airlines"
+  },
+  {
+   "ticker": "A1LB34",
+   "empresa": "ALBEMARLE CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Basic Materials",
+   "industria": "Specialty Chemicals"
+  },
+  {
+   "ticker": "A2LC34",
+   "empresa": "ALCON INC",
+   "tipo": "não patrocinado",
+   "pais": "Switzerland",
+   "setor": "Healthcare",
+   "industria": "Medical Instruments & Supplies"
+  },
+  {
+   "ticker": "A1RE34",
+   "empresa": "ALEXANDRIA REAL ESTATE EQUITIES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Office"
+  },
+  {
+   "ticker": "BABA34",
+   "empresa": "ALIBABA GROUP HOLDING LTD",
+   "tipo": "não patrocinado",
+   "pais": "China",
+   "setor": "Consumer Cyclical",
+   "industria": "Internet Retail"
+  },
+  {
+   "ticker": "A1LG34",
+   "empresa": "ALIGN TECHNOLOGY INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Medical Instruments & Supplies"
+  },
+  {
+   "ticker": "A1GN34",
+   "empresa": "ALLEGION PLC",
+   "tipo": "não patrocinado",
+   "pais": "Ireland",
+   "setor": "Industrials",
+   "industria": "Security & Protection Services"
+  },
+  {
+   "ticker": "A1EN34",
+   "empresa": "ALLIANT ENERGY CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Utilities",
+   "industria": "Utilities - Regulated Electric"
+  },
+  {
+   "ticker": "A1TT34",
+   "empresa": "ALLSTATE CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Insurance - Property & Casualty"
+  },
+  {
+   "ticker": "A1LN34",
+   "empresa": "ALNYLAM PHARMACEUTICALS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Biotechnology"
+  },
+  {
+   "ticker": "GOGL34",
+   "empresa": "ALPHABET INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Communication Services",
+   "industria": "Internet Content & Information"
+  },
+  {
+   "ticker": "MOOO34",
+   "empresa": "ALTRIA GROUP. INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Tobacco"
+  },
+  {
+   "ticker": "AMZO34",
+   "empresa": "AMAZON.COM. INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Internet Retail"
+  },
+  {
+   "ticker": "A2MB34",
+   "empresa": "AMBARELLA INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Semiconductor Equipment & Materials"
+  },
+  {
+   "ticker": "A1CR34",
+   "empresa": "AMCOR PLC",
+   "tipo": "não patrocinado",
+   "pais": "Switzerland",
+   "setor": "Consumer Cyclical",
+   "industria": "Packaging & Containers"
+  },
+  {
+   "ticker": "D2OX34",
+   "empresa": "AMDOCS LTD",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Infrastructure"
+  },
+  {
+   "ticker": "A1EE34",
+   "empresa": "AMEREN CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Utilities",
+   "industria": "Utilities - Regulated Electric"
+  },
+  {
+   "ticker": "AALL34",
+   "empresa": "AMERICAN AIRLINES GROUP INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Airlines"
+  },
+  {
+   "ticker": "A1EP34",
+   "empresa": "AMERICAN ELECTRIC POWER CO INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Utilities",
+   "industria": "Utilities - Regulated Electric"
+  },
+  {
+   "ticker": "AXPB34",
+   "empresa": "AMERICAN EXPRESS COMPANY",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Credit Services"
+  },
+  {
+   "ticker": "A1HR34",
+   "empresa": "AMERICAN HEALTHCARE REIT INC",
+   "tipo": "não patrocinado",
+   "pais": null,
+   "setor": null,
+   "industria": null
+  },
+  {
+   "ticker": "AIGB34",
+   "empresa": "AMERICAN INTERNATIONAL GROUP INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Insurance - Diversified"
+  },
+  {
+   "ticker": "T1OW34",
+   "empresa": "AMERICAN TOWER CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Specialty"
+  },
+  {
+   "ticker": "A1WK34",
+   "empresa": "AMERICAN WATER WORKS CO INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Utilities",
+   "industria": "Utilities - Regulated Water"
+  },
+  {
+   "ticker": "COLD34",
+   "empresa": "AMERICOLD REALTY TRUST INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Industrial"
+  },
+  {
+   "ticker": "A1MP34",
+   "empresa": "AMERIPRISE FINANCIAL INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Asset Management"
+  },
+  {
+   "ticker": "A1ME34",
+   "empresa": "AMETEK INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Specialty Industrial Machinery"
+  },
+  {
+   "ticker": "AMGN34",
+   "empresa": "AMGEN INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Drug Manufacturers - General"
+  },
+  {
+   "ticker": "A1PH34",
+   "empresa": "AMPHENOL CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Electronic Components"
+  },
+  {
+   "ticker": "A1DI34",
+   "empresa": "ANALOG DEVICES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Semiconductors"
+  },
+  {
+   "ticker": "ABUD34",
+   "empresa": "ANHEUSER-BUSCH INBEV SA/NV",
+   "tipo": "não patrocinado",
+   "pais": "Belgium",
+   "setor": "Consumer Defensive",
+   "industria": "Beverages - Brewers"
+  },
+  {
+   "ticker": "N2LY34",
+   "empresa": "ANNALY CAPITAL MANAGEMENT INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Mortgage"
+  },
+  {
+   "ticker": "ANTH34",
+   "empresa": "ANTHROPIC PBC",
+   "tipo": "não patrocinado",
+   "pais": null,
+   "setor": null,
+   "industria": null
+  },
+  {
+   "ticker": "A1OS34",
+   "empresa": "AO SMITH CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Specialty Industrial Machinery"
+  },
+  {
+   "ticker": "A1ON34",
+   "empresa": "AON PLC",
+   "tipo": "não patrocinado",
+   "pais": "Ireland",
+   "setor": "Financial Services",
+   "industria": "Insurance Brokers"
+  },
+  {
+   "ticker": "A1PA34",
+   "empresa": "APA CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Energy",
+   "industria": "Oil & Gas E&P"
+  },
+  {
+   "ticker": "A1IV34",
+   "empresa": "APARTMENT INVESTMENT & MANAGEMENT CO",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Residential"
+  },
+  {
+   "ticker": "A1PO34",
+   "empresa": "APOLLO GLOBAL MANAGEMENT INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Asset Management"
+  },
+  {
+   "ticker": "AAPL34",
+   "empresa": "APPLE INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Consumer Electronics"
+  },
+  {
+   "ticker": "A1PL34",
+   "empresa": "APPLIED DIGITAL CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Information Technology Services"
+  },
+  {
+   "ticker": "A1MT34",
+   "empresa": "APPLIED MATERIALS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Semiconductor Equipment & Materials"
+  },
+  {
+   "ticker": "A1PP34",
+   "empresa": "APPLOVIN CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Communication Services",
+   "industria": "Advertising Agencies"
+  },
+  {
+   "ticker": "APTV34",
+   "empresa": "APTIV PLC",
+   "tipo": "não patrocinado",
+   "pais": "Switzerland",
+   "setor": "Consumer Cyclical",
+   "industria": "Auto Parts"
+  },
+  {
+   "ticker": "ARMT34",
+   "empresa": "ARCELORMITTAL",
+   "tipo": "não patrocinado",
+   "pais": "Luxembourg",
+   "setor": "Basic Materials",
+   "industria": "Steel"
+  },
+  {
+   "ticker": "A1DM34",
+   "empresa": "ARCHER-DANIELS-MIDLAND CO",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Farm Products"
+  },
+  {
+   "ticker": "A1RC34",
+   "empresa": "ARCOS DORADOS HOLDINGS INC",
+   "tipo": "não patrocinado",
+   "pais": "Uruguay",
+   "setor": "Consumer Cyclical",
+   "industria": "Restaurants"
+  },
+  {
+   "ticker": "A2RE34",
+   "empresa": "ARES MANAGEMENT CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Asset Management"
+  },
+  {
+   "ticker": "A1RG34",
+   "empresa": "ARGENX SE",
+   "tipo": "não patrocinado",
+   "pais": "Netherlands",
+   "setor": "Healthcare",
+   "industria": "Biotechnology"
+  },
+  {
+   "ticker": "A1NE34",
+   "empresa": "ARISTA NETWORKS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Computer Hardware"
+  },
+  {
+   "ticker": "AWII34",
+   "empresa": "ARMSTRONG WORLD INDUSTRIES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Building Products & Equipment"
+  },
+  {
+   "ticker": "A2RW34",
+   "empresa": "ARROW ELECTRONICS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Electronics & Computer Distribution"
+  },
+  {
+   "ticker": "A2RR34",
+   "empresa": "ARROWHEAD PHARMACEUTICALS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Biotechnology"
+  },
+  {
+   "ticker": "A1JG34",
+   "empresa": "ARTHUR J GALLAGHER & CO",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Insurance Brokers"
+  },
+  {
+   "ticker": "A1SN34",
+   "empresa": "ASCENDIS PHARMA A/S",
+   "tipo": "não patrocinado",
+   "pais": "Denmark",
+   "setor": "Healthcare",
+   "industria": "Biotechnology"
+  },
+  {
+   "ticker": "ASML34",
+   "empresa": "ASML HOLDING NV",
+   "tipo": "não patrocinado",
+   "pais": "Netherlands",
+   "setor": "Technology",
+   "industria": "Semiconductor Equipment & Materials"
+  },
+  {
+   "ticker": "A1SU34",
+   "empresa": "ASSURANT INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Insurance - Property & Casualty"
+  },
+  {
+   "ticker": "AMLG34",
+   "empresa": "ASTON MARTIN LAGONDA GLOBAL HOLDINGS PLC",
+   "tipo": "não patrocinado",
+   "pais": null,
+   "setor": null,
+   "industria": null
+  },
+  {
+   "ticker": "A1ZN34",
+   "empresa": "ASTRAZENECA PLC",
+   "tipo": "não patrocinado",
+   "pais": "United Kingdom",
+   "setor": "Healthcare",
+   "industria": "Drug Manufacturers - General"
+  },
+  {
+   "ticker": "ATTB34",
+   "empresa": "AT&T INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Communication Services",
+   "industria": "Telecom Services"
+  },
+  {
+   "ticker": "T1AM34",
+   "empresa": "ATLASSIAN CORPORATION PLC",
+   "tipo": "não patrocinado",
+   "pais": "Australia",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "A1TM34",
+   "empresa": "ATMOS ENERGY CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Utilities",
+   "industria": "Utilities - Regulated Gas"
+  },
+  {
+   "ticker": "A1UT34",
+   "empresa": "AUTODESK INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "A1TH34",
+   "empresa": "AUTOHOME INC",
+   "tipo": "não patrocinado",
+   "pais": "China",
+   "setor": "Communication Services",
+   "industria": "Internet Content & Information"
+  },
+  {
+   "ticker": "ADPR34",
+   "empresa": "AUTOMATIC DATA PROCESSING INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "AZOI34",
+   "empresa": "AUTOZONE INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Auto Parts"
+  },
+  {
+   "ticker": "A1VB34",
+   "empresa": "AVALONBAY COMMUNITIES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Residential"
+  },
+  {
+   "ticker": "A1VY34",
+   "empresa": "AVERY DENNISON CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Packaging & Containers"
+  },
+  {
+   "ticker": "A2XO34",
+   "empresa": "AXON ENTERPRISE INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Aerospace & Defense"
+  },
+  {
+   "ticker": "A2ZT34",
+   "empresa": "AZENTA INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Medical Instruments & Supplies"
+  },
+  {
+   "ticker": "BIDU34",
+   "empresa": "BAIDU INC",
+   "tipo": "não patrocinado",
+   "pais": "China",
+   "setor": "Communication Services",
+   "industria": "Internet Content & Information"
+  },
+  {
+   "ticker": "B1KR34",
+   "empresa": "BAKER HUGHES CO",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Energy",
+   "industria": "Oil & Gas Equipment & Services"
+  },
+  {
+   "ticker": "B1LL34",
+   "empresa": "BALL CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Packaging & Containers"
+  },
+  {
+   "ticker": "BILB34",
+   "empresa": "BANCO BILBAO VIZCAYA ARGENTARIA SA",
+   "tipo": "não patrocinado",
+   "pais": "Spain",
+   "setor": "Financial Services",
+   "industria": "Banks - Diversified"
+  },
+  {
+   "ticker": "B1SA34",
+   "empresa": "BANCO SANTANDER CHILE",
+   "tipo": "não patrocinado",
+   "pais": "Chile",
+   "setor": "Financial Services",
+   "industria": "Banks - Regional"
+  },
+  {
+   "ticker": "BCSA34",
+   "empresa": "BANCO SANTANDER SA",
+   "tipo": "não patrocinado",
+   "pais": "Spain",
+   "setor": "Financial Services",
+   "industria": "Banks - Diversified"
+  },
+  {
+   "ticker": "BOAC34",
+   "empresa": "BANK OF AMERICA CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Banks - Diversified"
+  },
+  {
+   "ticker": "B1CS34",
+   "empresa": "BARCLAYS PLC",
+   "tipo": "não patrocinado",
+   "pais": "United Kingdom",
+   "setor": "Financial Services",
+   "industria": "Banks - Diversified"
+  },
+  {
+   "ticker": "B1BW34",
+   "empresa": "BATH & BODY WORKS. INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Specialty Retail"
+  },
+  {
+   "ticker": "B1AX34",
+   "empresa": "BAXTER INTERNATIONAL INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Medical Instruments & Supplies"
+  },
+  {
+   "ticker": "B1DX34",
+   "empresa": "BECTON DICKINSON AND CO",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Medical Instruments & Supplies"
+  },
+  {
+   "ticker": "B1ME34",
+   "empresa": "BEONE MEDICINES LTD",
+   "tipo": "não patrocinado",
+   "pais": "Switzerland",
+   "setor": "Healthcare",
+   "industria": "Biotechnology"
+  },
+  {
+   "ticker": "BERK34",
+   "empresa": "BERKSHIRE HATHAWAY INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Insurance - Diversified"
+  },
+  {
+   "ticker": "BBYY34",
+   "empresa": "BEST BUY CO.. INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Specialty Retail"
+  },
+  {
+   "ticker": "B2YN34",
+   "empresa": "BEYOND MEAT INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Packaged Foods"
+  },
+  {
+   "ticker": "B1IL34",
+   "empresa": "BILIBILI INC",
+   "tipo": "não patrocinado",
+   "pais": "China",
+   "setor": "Communication Services",
+   "industria": "Internet Content & Information"
+  },
+  {
+   "ticker": "B2HI34",
+   "empresa": "BILL HOLDINGS. INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "BIIB34",
+   "empresa": "BIOGEN INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Drug Manufacturers - General"
+  },
+  {
+   "ticker": "BHVN34",
+   "empresa": "BIOHAVEN LTD",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Biotechnology"
+  },
+  {
+   "ticker": "B1MR34",
+   "empresa": "BIOMARIN PHARMACEUTICAL INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Biotechnology"
+  },
+  {
+   "ticker": "B1NT34",
+   "empresa": "BIONTECH SE",
+   "tipo": "não patrocinado",
+   "pais": "Germany",
+   "setor": "Healthcare",
+   "industria": "Biotechnology"
+  },
+  {
+   "ticker": "T1CH34",
+   "empresa": "BIO-TECHNE CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Biotechnology"
+  },
+  {
+   "ticker": "B2LN34",
+   "empresa": "BLACKLINE INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "BLAK34",
+   "empresa": "BLACKROCK. INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Asset Management"
+  },
+  {
+   "ticker": "X1YZ34",
+   "empresa": "BLOCK. INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Infrastructure"
+  },
+  {
+   "ticker": "BKNG34",
+   "empresa": "BOOKING HOLDINGS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Travel Services"
+  },
+  {
+   "ticker": "B2AH34",
+   "empresa": "BOOZ ALLEN HAMILTON HOLDING CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Consulting Services"
+  },
+  {
+   "ticker": "B1WA34",
+   "empresa": "BORGWARNER INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Auto Parts"
+  },
+  {
+   "ticker": "B1SX34",
+   "empresa": "BOSTON SCIENTIFIC CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Medical Devices"
+  },
+  {
+   "ticker": "B1PP34",
+   "empresa": "BP PLC",
+   "tipo": "não patrocinado",
+   "pais": "United Kingdom",
+   "setor": "Energy",
+   "industria": "Oil & Gas Integrated"
+  },
+  {
+   "ticker": "B1ZE34",
+   "empresa": "BRAZE INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": null,
+   "industria": null
+  },
+  {
+   "ticker": "A1LL34",
+   "empresa": "BREAD FINANCIAL HOLDINGS. INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Credit Services"
+  },
+  {
+   "ticker": "BMYB34",
+   "empresa": "BRISTOL-MYERS SQUIBB COMPANY",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Drug Manufacturers - General"
+  },
+  {
+   "ticker": "B1TI34",
+   "empresa": "BRITISH AMERICAN TOBACCO PLC",
+   "tipo": "não patrocinado",
+   "pais": "United Kingdom",
+   "setor": "Consumer Defensive",
+   "industria": "Tobacco"
+  },
+  {
+   "ticker": "AVGO34",
+   "empresa": "BROADCOM INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Semiconductors"
+  },
+  {
+   "ticker": "B1RF34",
+   "empresa": "BROADRIDGE FINANCIAL SOLUTIONS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Information Technology Services"
+  },
+  {
+   "ticker": "B1AM34",
+   "empresa": "BROOKFIELD CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "Canada",
+   "setor": "Financial Services",
+   "industria": "Asset Management"
+  },
+  {
+   "ticker": "B1FC34",
+   "empresa": "BROWN FORMAN CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Beverages - Wineries & Distilleries"
+  },
+  {
+   "ticker": "B2RK34",
+   "empresa": "BRUKER CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Medical Devices"
+  },
+  {
+   "ticker": "B2MB34",
+   "empresa": "BUMBLE INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Communication Services",
+   "industria": "Internet Content & Information"
+  },
+  {
+   "ticker": "B2UR34",
+   "empresa": "BURLINGTON STORES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Apparel Retail"
+  },
+  {
+   "ticker": "BOXP34",
+   "empresa": "BXP. INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Office"
+  },
+  {
+   "ticker": "C1AB34",
+   "empresa": "CABLE ONE INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Communication Services",
+   "industria": "Telecom Services"
+  },
+  {
+   "ticker": "C2AC34",
+   "empresa": "CACI INTERNATIONAL INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Information Technology Services"
+  },
+  {
+   "ticker": "C1DN34",
+   "empresa": "CADENCE DESIGN SYSTEMS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "C2ZR34",
+   "empresa": "CAESARS ENTERTAINMENT INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Resorts & Casinos"
+  },
+  {
+   "ticker": "C2PT34",
+   "empresa": "CAMDEN PROPERTY TRUST",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Residential"
+  },
+  {
+   "ticker": "C1CJ34",
+   "empresa": "CAMECO CORP",
+   "tipo": "não patrocinado",
+   "pais": "Canada",
+   "setor": "Energy",
+   "industria": "Uranium"
+  },
+  {
+   "ticker": "CNIC34",
+   "empresa": "CANADIAN NATIONAL RAILWAY CO",
+   "tipo": "não patrocinado",
+   "pais": "Canada",
+   "setor": "Industrials",
+   "industria": "Railroads"
+  },
+  {
+   "ticker": "CPRL34",
+   "empresa": "CANADIAN PACIFIC KANSAS CITY LIMITED",
+   "tipo": "não patrocinado",
+   "pais": "Canada",
+   "setor": "Industrials",
+   "industria": "Railroads"
+  },
+  {
+   "ticker": "CAON34",
+   "empresa": "CAPITAL ONE FINANCIAL CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Credit Services"
+  },
+  {
+   "ticker": "CAPH34",
+   "empresa": "CAPRI HOLDINGS LTD",
+   "tipo": "não patrocinado",
+   "pais": "United Kingdom",
+   "setor": "Consumer Cyclical",
+   "industria": "Luxury Goods"
+  },
+  {
+   "ticker": "C1AH34",
+   "empresa": "CARDINAL HEALTH INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Medical Distribution"
+  },
+  {
+   "ticker": "K1MX34",
+   "empresa": "CARMAX INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Auto & Truck Dealerships"
+  },
+  {
+   "ticker": "C1CL34",
+   "empresa": "CARNIVAL CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Travel Services"
+  },
+  {
+   "ticker": "C1RR34",
+   "empresa": "CARRIER GLOBAL CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Building Products & Equipment"
+  },
+  {
+   "ticker": "CRIN34",
+   "empresa": "CARTERS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Apparel Retail"
+  },
+  {
+   "ticker": "CATP34",
+   "empresa": "CATERPILLAR INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Farm & Heavy Construction Machinery"
+  },
+  {
+   "ticker": "C1BO34",
+   "empresa": "CBOE GLOBAL MARKETS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Financial Data & Stock Exchanges"
+  },
+  {
+   "ticker": "C1BR34",
+   "empresa": "CBRE GROUP INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "Real Estate Services"
+  },
+  {
+   "ticker": "C1DW34",
+   "empresa": "CDW CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Information Technology Services"
+  },
+  {
+   "ticker": "C1NS34",
+   "empresa": "CELANESE CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Basic Materials",
+   "industria": "Chemicals"
+  },
+  {
+   "ticker": "C2EM34",
+   "empresa": "CEMEX SAB DE CV",
+   "tipo": "não patrocinado",
+   "pais": "Mexico",
+   "setor": "Basic Materials",
+   "industria": "Building Materials"
+  },
+  {
+   "ticker": "C1CO34",
+   "empresa": "CENCORA INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Medical Distribution"
+  },
+  {
+   "ticker": "C1NC34",
+   "empresa": "CENTENE CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Healthcare Plans"
+  },
+  {
+   "ticker": "C1NP34",
+   "empresa": "CENTERPOINT ENERGY INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Utilities",
+   "industria": "Utilities - Regulated Electric"
+  },
+  {
+   "ticker": "C1RB34",
+   "empresa": "CEREBRAS SYSTEMS INC",
+   "tipo": "não patrocinado",
+   "pais": null,
+   "setor": null,
+   "industria": null
+  },
+  {
+   "ticker": "C2RN34",
+   "empresa": "CERENCE INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "C1FI34",
+   "empresa": "CF INDUSTRIES HOLDINGS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Basic Materials",
+   "industria": "Agricultural Inputs"
+  },
+  {
+   "ticker": "C1HR34",
+   "empresa": "CH ROBINSON WORLDWIDE INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Integrated Freight & Logistics"
+  },
+  {
+   "ticker": "C2HP34",
+   "empresa": "CHARGEPOINT HOLDINGS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Specialty Retail"
+  },
+  {
+   "ticker": "CHCM34",
+   "empresa": "CHARTER COMMUNICATIONS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Communication Services",
+   "industria": "Telecom Services"
+  },
+  {
+   "ticker": "C1HK34",
+   "empresa": "CHECK POINT SOFTWARE TECHNOLOGIES LTD",
+   "tipo": "não patrocinado",
+   "pais": "Israel",
+   "setor": "Technology",
+   "industria": "Software - Infrastructure"
+  },
+  {
+   "ticker": "CHVX34",
+   "empresa": "CHEVRON CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Energy",
+   "industria": "Oil & Gas Integrated"
+  },
+  {
+   "ticker": "C1MG34",
+   "empresa": "CHIPOTLE MEXICAN GRILL INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Restaurants"
+  },
+  {
+   "ticker": "C1BL34",
+   "empresa": "CHUBB LTD",
+   "tipo": "não patrocinado",
+   "pais": "Switzerland",
+   "setor": "Financial Services",
+   "industria": "Insurance - Property & Casualty"
+  },
+  {
+   "ticker": "C1HT34",
+   "empresa": "CHUNGHWA TELECOM CO LTD",
+   "tipo": "não patrocinado",
+   "pais": "Taiwan",
+   "setor": "Communication Services",
+   "industria": "Telecom Services"
+  },
+  {
+   "ticker": "CHDC34",
+   "empresa": "CHURCH & DWIGHT CO INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Household & Personal Products"
+  },
+  {
+   "ticker": "C2HD34",
+   "empresa": "CHURCHILL DOWNS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Gambling"
+  },
+  {
+   "ticker": "CINF34",
+   "empresa": "CINCINNATI FINANCIAL CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Insurance - Property & Casualty"
+  },
+  {
+   "ticker": "C1TA34",
+   "empresa": "CINTAS CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Specialty Business Services"
+  },
+  {
+   "ticker": "CSCO34",
+   "empresa": "CISCO SYSTEMS. INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Communication Equipment"
+  },
+  {
+   "ticker": "CTGP34",
+   "empresa": "CITIGROUP INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Banks - Diversified"
+  },
+  {
+   "ticker": "C1FG34",
+   "empresa": "CITIZENS FINANCIAL GROUP INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Banks - Regional"
+  },
+  {
+   "ticker": "CLXC34",
+   "empresa": "CLOROX COMPANY",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Household & Personal Products"
+  },
+  {
+   "ticker": "N2ET34",
+   "empresa": "CLOUDFLARE INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Infrastructure"
+  },
+  {
+   "ticker": "CLOV34",
+   "empresa": "CLOVER HEALTH INVESTMENTS CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Healthcare Plans"
+  },
+  {
+   "ticker": "CHME34",
+   "empresa": "CME GROUP INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Financial Data & Stock Exchanges"
+  },
+  {
+   "ticker": "C1MS34",
+   "empresa": "CMS ENERGY CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Utilities",
+   "industria": "Utilities - Regulated Electric"
+  },
+  {
+   "ticker": "C2CA34",
+   "empresa": "COCA-COLA FEMSA SAB DE CV",
+   "tipo": "não patrocinado",
+   "pais": "Mexico",
+   "setor": "Consumer Defensive",
+   "industria": "Beverages - Non-Alcoholic"
+  },
+  {
+   "ticker": "C2GN34",
+   "empresa": "COGNEX CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Scientific & Technical Instruments"
+  },
+  {
+   "ticker": "CTSH34",
+   "empresa": "COGNIZANT TECHNOLOGY SOLUTIONS",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Information Technology Services"
+  },
+  {
+   "ticker": "C2OI34",
+   "empresa": "COINBASE GLOBAL INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Financial Data & Stock Exchanges"
+  },
+  {
+   "ticker": "COLG34",
+   "empresa": "COLGATE-PALMOLIVE COMPANY",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Household & Personal Products"
+  },
+  {
+   "ticker": "C2SW34",
+   "empresa": "COLUMBIA SPORTSWEAR CO",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Apparel Manufacturing"
+  },
+  {
+   "ticker": "CMCS34",
+   "empresa": "COMCAST CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Communication Services",
+   "industria": "Telecom Services"
+  },
+  {
+   "ticker": "C1AG34",
+   "empresa": "CONAGRA BRANDS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Packaged Foods"
+  },
+  {
+   "ticker": "COPH34",
+   "empresa": "CONOCOPHILLIPS",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Energy",
+   "industria": "Oil & Gas E&P"
+  },
+  {
+   "ticker": "E1DI34",
+   "empresa": "CONSOLIDATED EDISON INC",
+   "tipo": "não patrocinado",
+   "pais": null,
+   "setor": null,
+   "industria": null
+  },
+  {
+   "ticker": "STZB34",
+   "empresa": "CONSTELLATION BRANDS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Beverages - Brewers"
+  },
+  {
+   "ticker": "C1OO34",
+   "empresa": "COOPER COMPANIES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Medical Instruments & Supplies"
+  },
+  {
+   "ticker": "C1PR34",
+   "empresa": "COPART INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Specialty Business Services"
+  },
+  {
+   "ticker": "C1DP34",
+   "empresa": "COPT DEFENSE PROPERTIES",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Office"
+  },
+  {
+   "ticker": "G1LW34",
+   "empresa": "CORNING INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Electronic Components"
+  },
+  {
+   "ticker": "CPAY34",
+   "empresa": "CORPAY INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Infrastructure"
+  },
+  {
+   "ticker": "C1TV34",
+   "empresa": "CORTEVA INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Basic Materials",
+   "industria": "Agricultural Inputs"
+  },
+  {
+   "ticker": "C1GP34",
+   "empresa": "COSTAR GROUP INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "Real Estate Services"
+  },
+  {
+   "ticker": "COWC34",
+   "empresa": "COSTCO WHOLESALE CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Discount Stores"
+  },
+  {
+   "ticker": "COTY34",
+   "empresa": "COTY. INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Household & Personal Products"
+  },
+  {
+   "ticker": "C2OU34",
+   "empresa": "COURSERA INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Education & Training Services"
+  },
+  {
+   "ticker": "C2PR34",
+   "empresa": "COUSINS PROPERTIES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Office"
+  },
+  {
+   "ticker": "B2AP34",
+   "empresa": "CREDICORP LTD",
+   "tipo": "não patrocinado",
+   "pais": "Peru",
+   "setor": "Financial Services",
+   "industria": "Banks - Regional"
+  },
+  {
+   "ticker": "CRDA34",
+   "empresa": "CREDIT ACCEPTANCE CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Credit Services"
+  },
+  {
+   "ticker": "C1RH34",
+   "empresa": "CRH PLC",
+   "tipo": "não patrocinado",
+   "pais": "Ireland",
+   "setor": "Basic Materials",
+   "industria": "Building Materials"
+  },
+  {
+   "ticker": "C2RS34",
+   "empresa": "CRISPR THERAPEUTICS AG",
+   "tipo": "não patrocinado",
+   "pais": "Switzerland",
+   "setor": "Healthcare",
+   "industria": "Biotechnology"
+  },
+  {
+   "ticker": "C2RW34",
+   "empresa": "CROWDSTRIKE HOLDINGS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Infrastructure"
+  },
+  {
+   "ticker": "C1CI34",
+   "empresa": "CROWN CASTLE INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Specialty"
+  },
+  {
+   "ticker": "CSXC34",
+   "empresa": "CSX CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Railroads"
+  },
+  {
+   "ticker": "C1MI34",
+   "empresa": "CUMMINS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Specialty Industrial Machinery"
+  },
+  {
+   "ticker": "CVSH34",
+   "empresa": "CVS HEALTH CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Healthcare Plans"
+  },
+  {
+   "ticker": "DHER34",
+   "empresa": "DANAHER CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Diagnostics & Research"
+  },
+  {
+   "ticker": "D1RI34",
+   "empresa": "DARDEN RESTAURANTS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Restaurants"
+  },
+  {
+   "ticker": "D2AR34",
+   "empresa": "DARLING INGREDIENTS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Packaged Foods"
+  },
+  {
+   "ticker": "D1DG34",
+   "empresa": "DATADOG INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "DVAI34",
+   "empresa": "DAVITA INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Medical Care Facilities"
+  },
+  {
+   "ticker": "DEEC34",
+   "empresa": "DEERE & CO",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Farm & Heavy Construction Machinery"
+  },
+  {
+   "ticker": "D1EL34",
+   "empresa": "DELL TECHNOLOGIES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Computer Hardware"
+  },
+  {
+   "ticker": "DEAI34",
+   "empresa": "DELTA AIR LINES. INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Airlines"
+  },
+  {
+   "ticker": "D2NL34",
+   "empresa": "DENALI THERAPEUTICS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Biotechnology"
+  },
+  {
+   "ticker": "XRAY34",
+   "empresa": "DENTSPLY SIRONA INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Medical Instruments & Supplies"
+  },
+  {
+   "ticker": "DBAG34",
+   "empresa": "DEUTSCHE BANK AKTIENGESELLSCHAFT",
+   "tipo": "não patrocinado",
+   "pais": "Germany",
+   "setor": "Financial Services",
+   "industria": "Banks - Regional"
+  },
+  {
+   "ticker": "D1VN34",
+   "empresa": "DEVON ENERGY CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Energy",
+   "industria": "Oil & Gas E&P"
+  },
+  {
+   "ticker": "D1EX34",
+   "empresa": "DEXCOM INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Medical Devices"
+  },
+  {
+   "ticker": "DEOP34",
+   "empresa": "DIAGEO PLC",
+   "tipo": "não patrocinado",
+   "pais": "United Kingdom",
+   "setor": "Consumer Defensive",
+   "industria": "Beverages - Wineries & Distilleries"
+  },
+  {
+   "ticker": "F1AN34",
+   "empresa": "DIAMONDBACK ENERGY INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Energy",
+   "industria": "Oil & Gas E&P"
+  },
+  {
+   "ticker": "D2KS34",
+   "empresa": "DICKS SPORTING GOODS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Specialty Retail"
+  },
+  {
+   "ticker": "D1LR34",
+   "empresa": "DIGITAL REALTY TRUST INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Specialty"
+  },
+  {
+   "ticker": "D1OC34",
+   "empresa": "DOCUSIGN INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "DGCO34",
+   "empresa": "DOLLAR GENERAL CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Discount Stores"
+  },
+  {
+   "ticker": "DLTR34",
+   "empresa": "DOLLAR TREE INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Discount Stores"
+  },
+  {
+   "ticker": "D1OM34",
+   "empresa": "DOMINION ENERGY INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Utilities",
+   "industria": "Utilities - Regulated Electric"
+  },
+  {
+   "ticker": "D2PZ34",
+   "empresa": "DOMINO S PIZZA INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Restaurants"
+  },
+  {
+   "ticker": "D2AS34",
+   "empresa": "DOORDASH INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Internet Retail"
+  },
+  {
+   "ticker": "D1OV34",
+   "empresa": "DOVER CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Specialty Industrial Machinery"
+  },
+  {
+   "ticker": "D1OW34",
+   "empresa": "DOW INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Basic Materials",
+   "industria": "Chemicals"
+  },
+  {
+   "ticker": "D2OC34",
+   "empresa": "DOXIMITY INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Health Information Services"
+  },
+  {
+   "ticker": "D1HI34",
+   "empresa": "DR HORTON INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Residential Construction"
+  },
+  {
+   "ticker": "R1DY34",
+   "empresa": "DR REDDYS LABORATORIES LTD",
+   "tipo": "não patrocinado",
+   "pais": "India",
+   "setor": "Healthcare",
+   "industria": "Drug Manufacturers - Specialty & Generic"
+  },
+  {
+   "ticker": "D2KN34",
+   "empresa": "DRAFTKINGS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Gambling"
+  },
+  {
+   "ticker": "D1TE34",
+   "empresa": "DTE ENERGY CO",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Utilities",
+   "industria": "Utilities - Regulated Electric"
+  },
+  {
+   "ticker": "DUKB34",
+   "empresa": "DUKE ENERGY CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Utilities",
+   "industria": "Utilities - Regulated Electric"
+  },
+  {
+   "ticker": "DUOL34",
+   "empresa": "DUOLINGO INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "DDNB34",
+   "empresa": "DUPONT DE NEMOURS INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Basic Materials",
+   "industria": "Specialty Chemicals"
+  },
+  {
+   "ticker": "D1XC34",
+   "empresa": "DXC TECHNOLOGY CO",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Information Technology Services"
+  },
+  {
+   "ticker": "D2TC34",
+   "empresa": "DYNATRACE INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "E2AG34",
+   "empresa": "EAGLE MATERIALS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Basic Materials",
+   "industria": "Building Materials"
+  },
+  {
+   "ticker": "E1MN34",
+   "empresa": "EASTMAN CHEMICAL CO",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Basic Materials",
+   "industria": "Specialty Chemicals"
+  },
+  {
+   "ticker": "E1TN34",
+   "empresa": "EATON CORP PLC",
+   "tipo": "não patrocinado",
+   "pais": "Ireland",
+   "setor": "Industrials",
+   "industria": "Specialty Industrial Machinery"
+  },
+  {
+   "ticker": "EBAY34",
+   "empresa": "EBAY INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Internet Retail"
+  },
+  {
+   "ticker": "E1CL34",
+   "empresa": "ECOLAB INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Basic Materials",
+   "industria": "Specialty Chemicals"
+  },
+  {
+   "ticker": "E1CO34",
+   "empresa": "ECOPETROL SA",
+   "tipo": "não patrocinado",
+   "pais": "Colombia",
+   "setor": "Energy",
+   "industria": "Oil & Gas Integrated"
+  },
+  {
+   "ticker": "E1IX34",
+   "empresa": "EDISON INTERNATIONAL",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Utilities",
+   "industria": "Utilities - Regulated Electric"
+  },
+  {
+   "ticker": "E1WL34",
+   "empresa": "EDWARDS LIFESCIENCES CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Medical Devices"
+  },
+  {
+   "ticker": "E2ST34",
+   "empresa": "ELASTIC NV",
+   "tipo": "não patrocinado",
+   "pais": "Netherlands",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "E1LV34",
+   "empresa": "ELEVANCE HEALTH. INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Healthcare Plans"
+  },
+  {
+   "ticker": "LILY34",
+   "empresa": "ELI LILLY AND COMPANY",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Drug Manufacturers - General"
+  },
+  {
+   "ticker": "E1MR34",
+   "empresa": "EMERSON ELECTRIC CO",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Specialty Industrial Machinery"
+  },
+  {
+   "ticker": "E2NO34",
+   "empresa": "ENOVIS CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Medical Devices"
+  },
+  {
+   "ticker": "E2NP34",
+   "empresa": "ENPHASE ENERGY INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Solar"
+  },
+  {
+   "ticker": "E2NT34",
+   "empresa": "ENTEGRIS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Semiconductor Equipment & Materials"
+  },
+  {
+   "ticker": "E1TR34",
+   "empresa": "ENTERGY CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Utilities",
+   "industria": "Utilities - Regulated Electric"
+  },
+  {
+   "ticker": "E1OG34",
+   "empresa": "EOG RESOURCES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Energy",
+   "industria": "Oil & Gas E&P"
+  },
+  {
+   "ticker": "E2PA34",
+   "empresa": "EPAM SYSTEMS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Information Technology Services"
+  },
+  {
+   "ticker": "EQIX34",
+   "empresa": "EQUINIX INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Specialty"
+  },
+  {
+   "ticker": "E1QN34",
+   "empresa": "EQUINOR ASA",
+   "tipo": "não patrocinado",
+   "pais": "Norway",
+   "setor": "Energy",
+   "industria": "Oil & Gas Integrated"
+  },
+  {
+   "ticker": "E2LS34",
+   "empresa": "EQUITY LIFESTYLE PROPERTIES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Residential"
+  },
+  {
+   "ticker": "E1RI34",
+   "empresa": "ERICSSON LM TELEPHONE CO",
+   "tipo": "não patrocinado",
+   "pais": "Sweden",
+   "setor": "Technology",
+   "industria": "Communication Equipment"
+  },
+  {
+   "ticker": "E1SS34",
+   "empresa": "ESSEX PROPERTY TRUST INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Residential"
+  },
+  {
+   "ticker": "ELCI34",
+   "empresa": "ESTEE LAUDER COMPANIES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Household & Personal Products"
+  },
+  {
+   "ticker": "E2TS34",
+   "empresa": "ETSY INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Internet Retail"
+  },
+  {
+   "ticker": "E2EF34",
+   "empresa": "EURONET WORLDWIDE INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Infrastructure"
+  },
+  {
+   "ticker": "E1VE34",
+   "empresa": "EVEREST GROUP LTD",
+   "tipo": "não patrocinado",
+   "pais": "Bermuda",
+   "setor": "Financial Services",
+   "industria": "Insurance - Reinsurance"
+  },
+  {
+   "ticker": "E1VR34",
+   "empresa": "EVERGY INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Utilities",
+   "industria": "Utilities - Regulated Electric"
+  },
+  {
+   "ticker": "P2ST34",
+   "empresa": "EVERPURE INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Computer Hardware"
+  },
+  {
+   "ticker": "E1SE34",
+   "empresa": "EVERSOURCE ENERGY",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Utilities",
+   "industria": "Utilities - Regulated Electric"
+  },
+  {
+   "ticker": "E2XE34",
+   "empresa": "EXELIXIS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Biotechnology"
+  },
+  {
+   "ticker": "E1XC34",
+   "empresa": "EXELON CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Utilities",
+   "industria": "Utilities - Regulated Electric"
+  },
+  {
+   "ticker": "EXGR34",
+   "empresa": "EXPEDIA GROUP INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Travel Services"
+  },
+  {
+   "ticker": "E1XP34",
+   "empresa": "EXPEDITORS INTERNATIONAL OF WASHINGTON INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Integrated Freight & Logistics"
+  },
+  {
+   "ticker": "E1XR34",
+   "empresa": "EXTRA SPACE STORAGE INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Industrial"
+  },
+  {
+   "ticker": "EXXO34",
+   "empresa": "EXXONMOBIL HOLDINGS CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Energy",
+   "industria": "Oil & Gas Integrated"
+  },
+  {
+   "ticker": "F1FI34",
+   "empresa": "F5. INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Infrastructure"
+  },
+  {
+   "ticker": "F2IC34",
+   "empresa": "FAIR ISAAC CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "FASL34",
+   "empresa": "FASTENAL CO",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Industrial Distribution"
+  },
+  {
+   "ticker": "F1SL34",
+   "empresa": "FASTLY INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "FDXB34",
+   "empresa": "FEDEX CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Integrated Freight & Logistics"
+  },
+  {
+   "ticker": "F1NI34",
+   "empresa": "FIDELITY NATIONAL INFORMATION SERVICES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Information Technology Services"
+  },
+  {
+   "ticker": "FFTD34",
+   "empresa": "FIFTH THIRD BANCORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Banks - Regional"
+  },
+  {
+   "ticker": "F2RT34",
+   "empresa": "FIRST INDUSTRIAL REALTY TRUST INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Industrial"
+  },
+  {
+   "ticker": "FSLR34",
+   "empresa": "FIRST SOLAR. INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Solar"
+  },
+  {
+   "ticker": "F1EC34",
+   "empresa": "FIRSTENERGY CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Utilities",
+   "industria": "Utilities - Regulated Electric"
+  },
+  {
+   "ticker": "F1IS34",
+   "empresa": "FISERV INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Information Technology Services"
+  },
+  {
+   "ticker": "F2IV34",
+   "empresa": "FIVE9 INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Infrastructure"
+  },
+  {
+   "ticker": "F2VR34",
+   "empresa": "FIVERR INTERNATIONAL LTD",
+   "tipo": "não patrocinado",
+   "pais": "Israel",
+   "setor": "Communication Services",
+   "industria": "Internet Content & Information"
+  },
+  {
+   "ticker": "F1LS34",
+   "empresa": "FLOWSERVE CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Specialty Industrial Machinery"
+  },
+  {
+   "ticker": "F1MC34",
+   "empresa": "FMC CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Basic Materials",
+   "industria": "Agricultural Inputs"
+  },
+  {
+   "ticker": "FMXB34",
+   "empresa": "FOMENTO ECONOMICO MEXICANO SAB DE CV - FEMSA",
+   "tipo": "não patrocinado",
+   "pais": "Mexico",
+   "setor": "Consumer Defensive",
+   "industria": "Beverages - Brewers"
+  },
+  {
+   "ticker": "FDMO34",
+   "empresa": "FORD MOTORS COMPANY",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Auto Manufacturers"
+  },
+  {
+   "ticker": "F1TN34",
+   "empresa": "FORTINET INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Infrastructure"
+  },
+  {
+   "ticker": "F1TV34",
+   "empresa": "FORTIVE CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Scientific & Technical Instruments"
+  },
+  {
+   "ticker": "F1BH34",
+   "empresa": "FORTUNE BRANDS INNOVATIONS. INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Building Products & Equipment"
+  },
+  {
+   "ticker": "FOXC34",
+   "empresa": "FOX CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Communication Services",
+   "industria": "Entertainment"
+  },
+  {
+   "ticker": "F2NV34",
+   "empresa": "FRANCO-NEVADA CORP",
+   "tipo": "não patrocinado",
+   "pais": "Canada",
+   "setor": "Basic Materials",
+   "industria": "Gold"
+  },
+  {
+   "ticker": "F1RA34",
+   "empresa": "FRANKLIN TEMPLETON INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Asset Management"
+  },
+  {
+   "ticker": "FCXO34",
+   "empresa": "FREEPORT-MCMORAN INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Basic Materials",
+   "industria": "Copper"
+  },
+  {
+   "ticker": "FMSC34",
+   "empresa": "FRESENIUS MEDICAL CARE AG",
+   "tipo": "não patrocinado",
+   "pais": "Germany",
+   "setor": "Healthcare",
+   "industria": "Medical Care Facilities"
+  },
+  {
+   "ticker": "F2RS34",
+   "empresa": "FRESHWORKS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "G1AM34",
+   "empresa": "GAMING AND LEISURE PROPERTIES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Specialty"
+  },
+  {
+   "ticker": "G1RM34",
+   "empresa": "GARMIN LTD",
+   "tipo": "não patrocinado",
+   "pais": "Switzerland",
+   "setor": "Technology",
+   "industria": "Scientific & Technical Instruments"
+  },
+  {
+   "ticker": "G1AR34",
+   "empresa": "GARTNER INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Information Technology Services"
+  },
+  {
+   "ticker": "G1DS34",
+   "empresa": "GDS HOLDINGS LTD",
+   "tipo": "não patrocinado",
+   "pais": "China",
+   "setor": "Technology",
+   "industria": "Information Technology Services"
+  },
+  {
+   "ticker": "GEOO34",
+   "empresa": "GE AEROSPACE",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Aerospace & Defense"
+  },
+  {
+   "ticker": "GEHC34",
+   "empresa": "GE HEALTHCARE TECHNOLOGIES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Medical Devices"
+  },
+  {
+   "ticker": "G2EV34",
+   "empresa": "GE VERNOVA INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Specialty Industrial Machinery"
+  },
+  {
+   "ticker": "S1YM34",
+   "empresa": "GEN DIGITAL INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Infrastructure"
+  },
+  {
+   "ticker": "GDBR34",
+   "empresa": "GENERAL DYNAMICS CORP.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Aerospace & Defense"
+  },
+  {
+   "ticker": "G1MI34",
+   "empresa": "GENERAL MILLS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Packaged Foods"
+  },
+  {
+   "ticker": "GMCO34",
+   "empresa": "GENERAL MOTORS COMPANY",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Auto Manufacturers"
+  },
+  {
+   "ticker": "G2NT34",
+   "empresa": "GENTEX CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Auto Parts"
+  },
+  {
+   "ticker": "G1PC34",
+   "empresa": "GENUINE PARTS CO",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Auto Parts"
+  },
+  {
+   "ticker": "GPRK34",
+   "empresa": "GEOPARK LTD",
+   "tipo": "não patrocinado",
+   "pais": "Colombia",
+   "setor": "Energy",
+   "industria": "Oil & Gas E&P"
+  },
+  {
+   "ticker": "GILD34",
+   "empresa": "GILEAD SCIENCES. INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Drug Manufacturers - General"
+  },
+  {
+   "ticker": "G1PI34",
+   "empresa": "GLOBAL PAYMENTS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Specialty Business Services"
+  },
+  {
+   "ticker": "G1LO34",
+   "empresa": "GLOBANT SA",
+   "tipo": "não patrocinado",
+   "pais": "Luxembourg",
+   "setor": "Technology",
+   "industria": "Information Technology Services"
+  },
+  {
+   "ticker": "G1LL34",
+   "empresa": "GLOBE LIFE INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Insurance - Life"
+  },
+  {
+   "ticker": "G2ME34",
+   "empresa": "GLOBUS MEDICAL INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Medical Devices"
+  },
+  {
+   "ticker": "G2DD34",
+   "empresa": "GODADDY INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Infrastructure"
+  },
+  {
+   "ticker": "G1FI34",
+   "empresa": "GOLD FIELDS LTD",
+   "tipo": "não patrocinado",
+   "pais": "South Africa",
+   "setor": "Basic Materials",
+   "industria": "Gold"
+  },
+  {
+   "ticker": "GSGI34",
+   "empresa": "GOLDMAN SACHS GROUP INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Capital Markets"
+  },
+  {
+   "ticker": "GPRO34",
+   "empresa": "GOPRO. INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Consumer Electronics"
+  },
+  {
+   "ticker": "P2CF34",
+   "empresa": "GRUPO AEROPORTUARIO DEL PACIFICO SAB DE CV",
+   "tipo": "não patrocinado",
+   "pais": "Mexico",
+   "setor": "Industrials",
+   "industria": "Airports & Air Services"
+  },
+  {
+   "ticker": "S2RE34",
+   "empresa": "GRUPO AEROPORTUARIO DEL SURESTE SAB DE CV",
+   "tipo": "não patrocinado",
+   "pais": "Mexico",
+   "setor": "Industrials",
+   "industria": "Airports & Air Services"
+  },
+  {
+   "ticker": "C2OL34",
+   "empresa": "GRUPO CIBEST S.A",
+   "tipo": "não patrocinado",
+   "pais": "Colombia",
+   "setor": "Financial Services",
+   "industria": "Banks - Regional"
+  },
+  {
+   "ticker": "GGAL34",
+   "empresa": "GRUPO FINANCIERO GALICIA SA",
+   "tipo": "não patrocinado",
+   "pais": null,
+   "setor": null,
+   "industria": null
+  },
+  {
+   "ticker": "G1SK34",
+   "empresa": "GSK PLC.",
+   "tipo": "não patrocinado",
+   "pais": "United Kingdom",
+   "setor": "Healthcare",
+   "industria": "Drug Manufacturers - General"
+  },
+  {
+   "ticker": "G2WR34",
+   "empresa": "GUIDEWIRE SOFTWARE INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "H1TH34",
+   "empresa": "H WORLD GROUP LIMITED",
+   "tipo": "não patrocinado",
+   "pais": "China",
+   "setor": "Consumer Cyclical",
+   "industria": "Lodging"
+  },
+  {
+   "ticker": "H1RB34",
+   "empresa": "H&R BLOCK INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Personal Services"
+  },
+  {
+   "ticker": "HALI34",
+   "empresa": "HALLIBURTON COMPANY",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Energy",
+   "industria": "Oil & Gas Equipment & Services"
+  },
+  {
+   "ticker": "THGI34",
+   "empresa": "HANOVER INSURANCE GROUP INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Insurance - Property & Casualty"
+  },
+  {
+   "ticker": "H1OG34",
+   "empresa": "HARLEY-DAVIDSON INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Recreational Vehicles"
+  },
+  {
+   "ticker": "H1AS34",
+   "empresa": "HASBRO INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Leisure"
+  },
+  {
+   "ticker": "H1CA34",
+   "empresa": "HCA HEALTHCARE INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Medical Care Facilities"
+  },
+  {
+   "ticker": "H1DB34",
+   "empresa": "HDFC BANK LTD",
+   "tipo": "não patrocinado",
+   "pais": "India",
+   "setor": "Financial Services",
+   "industria": "Banks - Regional"
+  },
+  {
+   "ticker": "H2TA34",
+   "empresa": "HEALTHCARE REALTY TRUST INCORPORATED",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Healthcare Facilities"
+  },
+  {
+   "ticker": "P1EA34",
+   "empresa": "HEALTHPEAK PROPERTIES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Healthcare Facilities"
+  },
+  {
+   "ticker": "H1EI34",
+   "empresa": "HEICO CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Aerospace & Defense"
+  },
+  {
+   "ticker": "H1SI34",
+   "empresa": "HENRY SCHEIN INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Medical Distribution"
+  },
+  {
+   "ticker": "H1PE34",
+   "empresa": "HEWLETT PACKARD ENTERPRISE CO",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Communication Equipment"
+  },
+  {
+   "ticker": "HPQB34",
+   "empresa": "HEWLETT-PACKARD COMPANY",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Computer Hardware"
+  },
+  {
+   "ticker": "H1FC34",
+   "empresa": "HF SINCLAIR CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Energy",
+   "industria": "Oil & Gas Refining & Marketing"
+  },
+  {
+   "ticker": "HIWP34",
+   "empresa": "HIGHWOODS PROPERTIES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Office"
+  },
+  {
+   "ticker": "H1LT34",
+   "empresa": "HILTON WORLDWIDE HOLDINGS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Lodging"
+  },
+  {
+   "ticker": "HOND34",
+   "empresa": "HONDA MOTOR CO LTD",
+   "tipo": "não patrocinado",
+   "pais": "Japan",
+   "setor": "Consumer Cyclical",
+   "industria": "Auto Manufacturers"
+  },
+  {
+   "ticker": "H9NB34",
+   "empresa": "HONEYWELL AEROSPACE",
+   "tipo": "não patrocinado",
+   "pais": null,
+   "setor": null,
+   "industria": null
+  },
+  {
+   "ticker": "HONB34",
+   "empresa": "HONEYWELL INTERNATIONAL INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Conglomerates"
+  },
+  {
+   "ticker": "H1RL34",
+   "empresa": "HORMEL FOODS CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Packaged Foods"
+  },
+  {
+   "ticker": "H1ST34",
+   "empresa": "HOST HOTELS & RESORTS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Hotel & Motel"
+  },
+  {
+   "ticker": "H1HH34",
+   "empresa": "HOWARD HUGHES HOLDINGS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "Real Estate - Development"
+  },
+  {
+   "ticker": "ARNC34",
+   "empresa": "HOWMET AEROSPACE INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Aerospace & Defense"
+  },
+  {
+   "ticker": "H1SB34",
+   "empresa": "HSBC HOLDINGS PLC",
+   "tipo": "não patrocinado",
+   "pais": "United Kingdom",
+   "setor": "Financial Services",
+   "industria": "Banks - Diversified"
+  },
+  {
+   "ticker": "H2UB34",
+   "empresa": "HUBSPOT INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "H1UM34",
+   "empresa": "HUMANA INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Healthcare Plans"
+  },
+  {
+   "ticker": "H1BA34",
+   "empresa": "HUNTINGTON BANCSHARES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Banks - Regional"
+  },
+  {
+   "ticker": "H1II34",
+   "empresa": "HUNTINGTON INGALLS INDUSTRIES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Aerospace & Defense"
+  },
+  {
+   "ticker": "I1BN34",
+   "empresa": "ICICI BANK LTD",
+   "tipo": "não patrocinado",
+   "pais": "India",
+   "setor": "Financial Services",
+   "industria": "Banks - Regional"
+  },
+  {
+   "ticker": "ICLR34",
+   "empresa": "ICON PLC",
+   "tipo": "não patrocinado",
+   "pais": "Ireland",
+   "setor": "Healthcare",
+   "industria": "Diagnostics & Research"
+  },
+  {
+   "ticker": "I1EX34",
+   "empresa": "IDEX CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Specialty Industrial Machinery"
+  },
+  {
+   "ticker": "I1DX34",
+   "empresa": "IDEXX LABORATORIES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Diagnostics & Research"
+  },
+  {
+   "ticker": "I1TW34",
+   "empresa": "ILLINOIS TOOL WORKS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Specialty Industrial Machinery"
+  },
+  {
+   "ticker": "I1LM34",
+   "empresa": "ILLUMINA INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Diagnostics & Research"
+  },
+  {
+   "ticker": "N2AR34",
+   "empresa": "INARI MEDICAL INC",
+   "tipo": "não patrocinado",
+   "pais": null,
+   "setor": null,
+   "industria": null
+  },
+  {
+   "ticker": "I1NC34",
+   "empresa": "INCYTE CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Biotechnology"
+  },
+  {
+   "ticker": "I2ND34",
+   "empresa": "INDIE SEMICONDUCTOR INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Semiconductors"
+  },
+  {
+   "ticker": "I1FO34",
+   "empresa": "INFOSYS LTD",
+   "tipo": "não patrocinado",
+   "pais": "India",
+   "setor": "Technology",
+   "industria": "Information Technology Services"
+  },
+  {
+   "ticker": "INGG34",
+   "empresa": "ING GROEP NV",
+   "tipo": "não patrocinado",
+   "pais": "Netherlands",
+   "setor": "Financial Services",
+   "industria": "Banks - Diversified"
+  },
+  {
+   "ticker": "I2RS34",
+   "empresa": "INGERSOLL RAND INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Specialty Industrial Machinery"
+  },
+  {
+   "ticker": "I2NG34",
+   "empresa": "INGREDION INCORPORATED",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Packaged Foods"
+  },
+  {
+   "ticker": "P2OD34",
+   "empresa": "INSULET CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Medical Devices"
+  },
+  {
+   "ticker": "ITLC34",
+   "empresa": "INTEL CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Semiconductors"
+  },
+  {
+   "ticker": "IBKR34",
+   "empresa": "INTERACTIVE BROKERS GROUP INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Capital Markets"
+  },
+  {
+   "ticker": "I1CE34",
+   "empresa": "INTERCONTINENTAL EXCHANGE INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Financial Data & Stock Exchanges"
+  },
+  {
+   "ticker": "I1HG34",
+   "empresa": "INTERCONTINENTAL HOTELS GROUP PLC",
+   "tipo": "não patrocinado",
+   "pais": "United Kingdom",
+   "setor": "Consumer Cyclical",
+   "industria": "Lodging"
+  },
+  {
+   "ticker": "IBMB34",
+   "empresa": "INTERNATIONAL BUSINESS MACHINES CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Information Technology Services"
+  },
+  {
+   "ticker": "I1FF34",
+   "empresa": "INTERNATIONAL FLAVORS & FRAGRANCES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Basic Materials",
+   "industria": "Specialty Chemicals"
+  },
+  {
+   "ticker": "I1PC34",
+   "empresa": "INTERNATIONAL PAPER CO",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Packaging & Containers"
+  },
+  {
+   "ticker": "INTU34",
+   "empresa": "INTUIT INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "I1SR34",
+   "empresa": "INTUITIVE SURGICAL INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Medical Instruments & Supplies"
+  },
+  {
+   "ticker": "I1VZ34",
+   "empresa": "INVESCO LTD",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Asset Management"
+  },
+  {
+   "ticker": "I2NV34",
+   "empresa": "INVITATION HOMES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Residential"
+  },
+  {
+   "ticker": "I1PG34",
+   "empresa": "IPG PHOTONICS CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Semiconductor Equipment & Materials"
+  },
+  {
+   "ticker": "I1QY34",
+   "empresa": "IQIYI INC",
+   "tipo": "não patrocinado",
+   "pais": "China",
+   "setor": "Communication Services",
+   "industria": "Entertainment"
+  },
+  {
+   "ticker": "I1QV34",
+   "empresa": "IQVIA HOLDINGS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Diagnostics & Research"
+  },
+  {
+   "ticker": "I1RM34",
+   "empresa": "IRON MOUNTAIN INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Specialty"
+  },
+  {
+   "ticker": "J2BL34",
+   "empresa": "JABIL INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Electronic Components"
+  },
+  {
+   "ticker": "J1KH34",
+   "empresa": "JACK HENRY & ASSOCIATES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Information Technology Services"
+  },
+  {
+   "ticker": "J1EG34",
+   "empresa": "JACOBS SOLUTIONS INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Engineering & Construction"
+  },
+  {
+   "ticker": "J2AZ34",
+   "empresa": "JAZZ PHARMACEUTICALS PLC",
+   "tipo": "não patrocinado",
+   "pais": "Ireland",
+   "setor": "Healthcare",
+   "industria": "Biotechnology"
+  },
+  {
+   "ticker": "J1BH34",
+   "empresa": "JB HUNT TRANSPORT SERVICES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Integrated Freight & Logistics"
+  },
+  {
+   "ticker": "JDCO34",
+   "empresa": "JD.COM INC",
+   "tipo": "não patrocinado",
+   "pais": "China",
+   "setor": "Consumer Cyclical",
+   "industria": "Internet Retail"
+  },
+  {
+   "ticker": "J1EF34",
+   "empresa": "JEFFERIES FINANCIAL GROUP INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Capital Markets"
+  },
+  {
+   "ticker": "J2WA34",
+   "empresa": "JOHN WILEY & SONS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Communication Services",
+   "industria": "Publishing"
+  },
+  {
+   "ticker": "JNJB34",
+   "empresa": "JOHNSON & JOHNSON",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Drug Manufacturers - General"
+  },
+  {
+   "ticker": "J1CI34",
+   "empresa": "JOHNSON CONTROLS INTERNATIONAL PLC",
+   "tipo": "não patrocinado",
+   "pais": "Ireland",
+   "setor": "Industrials",
+   "industria": "Building Products & Equipment"
+  },
+  {
+   "ticker": "JPMC34",
+   "empresa": "JPMORGAN CHASE & CO.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Banks - Diversified"
+  },
+  {
+   "ticker": "K1BF34",
+   "empresa": "KB FINANCIAL GROUP INC",
+   "tipo": "não patrocinado",
+   "pais": "South Korea",
+   "setor": "Financial Services",
+   "industria": "Banks - Regional"
+  },
+  {
+   "ticker": "KMPR34",
+   "empresa": "KEMPER CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Insurance - Property & Casualty"
+  },
+  {
+   "ticker": "K1EY34",
+   "empresa": "KEYCORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Banks - Regional"
+  },
+  {
+   "ticker": "K1SG34",
+   "empresa": "KEYSIGHT TECHNOLOGIES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Scientific & Technical Instruments"
+  },
+  {
+   "ticker": "K2RC34",
+   "empresa": "KILROY REALTY CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Office"
+  },
+  {
+   "ticker": "KMBB34",
+   "empresa": "KIMBERLY-CLARK CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Household & Personal Products"
+  },
+  {
+   "ticker": "K1IM34",
+   "empresa": "KIMCO REALTY CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Retail"
+  },
+  {
+   "ticker": "KMIC34",
+   "empresa": "KINDER MORGAN INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Energy",
+   "industria": "Oil & Gas Midstream"
+  },
+  {
+   "ticker": "K2CG34",
+   "empresa": "KINGSOFT CLOUD HOLDINGS LTD",
+   "tipo": "não patrocinado",
+   "pais": "China",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "K1RG34",
+   "empresa": "KITE REALTY GROUP TRUST",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Retail"
+  },
+  {
+   "ticker": "K1LA34",
+   "empresa": "KLA CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Semiconductor Equipment & Materials"
+  },
+  {
+   "ticker": "K1SS34",
+   "empresa": "KOHLS CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Department Stores"
+  },
+  {
+   "ticker": "PHGN34",
+   "empresa": "KONINKLIJKE PHILIPS NV",
+   "tipo": "não patrocinado",
+   "pais": "Netherlands",
+   "setor": "Healthcare",
+   "industria": "Medical Devices"
+  },
+  {
+   "ticker": "K1RC34",
+   "empresa": "KROGER CO",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Grocery Stores"
+  },
+  {
+   "ticker": "K1YS34",
+   "empresa": "KRYSTAL BIOTECH INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Biotechnology"
+  },
+  {
+   "ticker": "K1TC34",
+   "empresa": "KT CORP",
+   "tipo": "não patrocinado",
+   "pais": "South Korea",
+   "setor": "Communication Services",
+   "industria": "Telecom Services"
+  },
+  {
+   "ticker": "L1HX34",
+   "empresa": "L3HARRIS TECHNOLOGIES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Aerospace & Defense"
+  },
+  {
+   "ticker": "L1CA34",
+   "empresa": "LABCORP HOLDINGS INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Diagnostics & Research"
+  },
+  {
+   "ticker": "LKFT34",
+   "empresa": "LAKEFRONT BIOTHERAPEUTICS NV",
+   "tipo": "não patrocinado",
+   "pais": "Belgium",
+   "setor": "Healthcare",
+   "industria": "Biotechnology"
+  },
+  {
+   "ticker": "L1RC34",
+   "empresa": "LAM RESEARCH CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Semiconductor Equipment & Materials"
+  },
+  {
+   "ticker": "L1AM34",
+   "empresa": "LAMAR ADVERTISING CO",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Specialty"
+  },
+  {
+   "ticker": "L1WH34",
+   "empresa": "LAMB WESTON HOLDINGS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Packaged Foods"
+  },
+  {
+   "ticker": "L1VS34",
+   "empresa": "LAS VEGAS SANDS CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Resorts & Casinos"
+  },
+  {
+   "ticker": "L1TM34",
+   "empresa": "LATAM AIRLINES GROUP S.A.",
+   "tipo": "não patrocinado",
+   "pais": null,
+   "setor": null,
+   "industria": null
+  },
+  {
+   "ticker": "L2SC34",
+   "empresa": "LATTICE SEMICONDUCTOR CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Semiconductors"
+  },
+  {
+   "ticker": "L1EG34",
+   "empresa": "LEGGETT  PLATT INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Furnishings, Fixtures & Appliances"
+  },
+  {
+   "ticker": "L1DO34",
+   "empresa": "LEIDOS HOLDINGS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Information Technology Services"
+  },
+  {
+   "ticker": "L1EN34",
+   "empresa": "LENNAR CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Residential Construction"
+  },
+  {
+   "ticker": "LBRD34",
+   "empresa": "LIBERTY BROADBAND CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Communication Services",
+   "industria": "Telecom Services"
+  },
+  {
+   "ticker": "L1NC34",
+   "empresa": "LINCOLN NATIONAL CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Insurance - Life"
+  },
+  {
+   "ticker": "L1NE34",
+   "empresa": "LINEAGE INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Industrial"
+  },
+  {
+   "ticker": "L2IV34",
+   "empresa": "LIVANOVA PLC",
+   "tipo": "não patrocinado",
+   "pais": "United Kingdom",
+   "setor": "Healthcare",
+   "industria": "Medical Devices"
+  },
+  {
+   "ticker": "L1YV34",
+   "empresa": "LIVE NATION ENTERTAINMENT INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Communication Services",
+   "industria": "Entertainment"
+  },
+  {
+   "ticker": "L1KQ34",
+   "empresa": "LKQ CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Auto Parts"
+  },
+  {
+   "ticker": "L1YG34",
+   "empresa": "LLOYDS BANKING GROUP PLC",
+   "tipo": "não patrocinado",
+   "pais": "United Kingdom",
+   "setor": "Financial Services",
+   "industria": "Banks - Regional"
+  },
+  {
+   "ticker": "LMTB34",
+   "empresa": "LOCKHEED MARTIN CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Aerospace & Defense"
+  },
+  {
+   "ticker": "L1OE34",
+   "empresa": "LOEWS CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Insurance - Property & Casualty"
+  },
+  {
+   "ticker": "LOWC34",
+   "empresa": "LOWES COMPANIES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Home Improvement Retail"
+  },
+  {
+   "ticker": "L2PL34",
+   "empresa": "LPL FINANCIAL HOLDINGS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Capital Markets"
+  },
+  {
+   "ticker": "L1UL34",
+   "empresa": "LULULEMON ATHLETICA INC",
+   "tipo": "não patrocinado",
+   "pais": "Canada",
+   "setor": "Consumer Cyclical",
+   "industria": "Apparel Retail"
+  },
+  {
+   "ticker": "L1MN34",
+   "empresa": "LUMEN TECHNOLOGIES. INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Communication Services",
+   "industria": "Telecom Services"
+  },
+  {
+   "ticker": "L1YB34",
+   "empresa": "LYONDELLBASELL INDUSTRIES NV",
+   "tipo": "não patrocinado",
+   "pais": "Netherlands",
+   "setor": "Basic Materials",
+   "industria": "Specialty Chemicals"
+  },
+  {
+   "ticker": "M1TB34",
+   "empresa": "M&T BANK CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Banks - Regional"
+  },
+  {
+   "ticker": "MACY34",
+   "empresa": "MACYS INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Department Stores"
+  },
+  {
+   "ticker": "M1PC34",
+   "empresa": "MARATHON PETROLEUM CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Energy",
+   "industria": "Oil & Gas Refining & Marketing"
+  },
+  {
+   "ticker": "MKLC34",
+   "empresa": "MARKEL GROUP INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Insurance - Property & Casualty"
+  },
+  {
+   "ticker": "M1KT34",
+   "empresa": "MARKETAXESS HOLDINGS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Capital Markets"
+  },
+  {
+   "ticker": "M1TT34",
+   "empresa": "MARRIOTT INTERNATIONAL INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Lodging"
+  },
+  {
+   "ticker": "M1MC34",
+   "empresa": "MARSH & MCLENNAN COS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Insurance Brokers"
+  },
+  {
+   "ticker": "M1LM34",
+   "empresa": "MARTIN MARIETTA MATERIALS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Basic Materials",
+   "industria": "Building Materials"
+  },
+  {
+   "ticker": "M2RV34",
+   "empresa": "MARVELL TECHNOLOGY INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Semiconductors"
+  },
+  {
+   "ticker": "M1AS34",
+   "empresa": "MASCO CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Building Products & Equipment"
+  },
+  {
+   "ticker": "MSCD34",
+   "empresa": "MASTERCARD INCORPORATED",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Credit Services"
+  },
+  {
+   "ticker": "M1TC34",
+   "empresa": "MATCH GROUP INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Communication Services",
+   "industria": "Internet Content & Information"
+  },
+  {
+   "ticker": "M1KC34",
+   "empresa": "MCCORMICK & CO INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Packaged Foods"
+  },
+  {
+   "ticker": "MCDC34",
+   "empresa": "MCDONALDS CORP.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Restaurants"
+  },
+  {
+   "ticker": "M1CK34",
+   "empresa": "MCKESSON CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Medical Distribution"
+  },
+  {
+   "ticker": "M2PT34",
+   "empresa": "MEDICAL PROPERTIES TRUST INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Healthcare Facilities"
+  },
+  {
+   "ticker": "MDTC34",
+   "empresa": "MEDTRONIC PUBLIC LIMITED COMPANY",
+   "tipo": "não patrocinado",
+   "pais": "Ireland",
+   "setor": "Healthcare",
+   "industria": "Medical Devices"
+  },
+  {
+   "ticker": "M1LC34",
+   "empresa": "MELCO RESORTS & ENTERTAINMENT LTD",
+   "tipo": "não patrocinado",
+   "pais": "Hong Kong",
+   "setor": "Consumer Cyclical",
+   "industria": "Resorts & Casinos"
+  },
+  {
+   "ticker": "MELI34",
+   "empresa": "MERCADOLIBRE INC",
+   "tipo": "não patrocinado",
+   "pais": "Uruguay",
+   "setor": "Consumer Cyclical",
+   "industria": "Internet Retail"
+  },
+  {
+   "ticker": "MRCK34",
+   "empresa": "MERCK & CO.. INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Drug Manufacturers - General"
+  },
+  {
+   "ticker": "M1TA34",
+   "empresa": "META PLATFORMS. INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Communication Services",
+   "industria": "Internet Content & Information"
+  },
+  {
+   "ticker": "METB34",
+   "empresa": "METLIFE INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Insurance - Life"
+  },
+  {
+   "ticker": "M1TD34",
+   "empresa": "METTLER-TOLEDO INTERNATIONAL INC",
+   "tipo": "não patrocinado",
+   "pais": "Switzerland",
+   "setor": "Healthcare",
+   "industria": "Diagnostics & Research"
+  },
+  {
+   "ticker": "M1GM34",
+   "empresa": "MGM RESORTS INTERNATIONAL",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Resorts & Casinos"
+  },
+  {
+   "ticker": "M1CH34",
+   "empresa": "MICROCHIP TECHNOLOGY INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Semiconductors"
+  },
+  {
+   "ticker": "MUTC34",
+   "empresa": "MICRON TECHNOLOGY INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Semiconductors"
+  },
+  {
+   "ticker": "MSFT34",
+   "empresa": "MICROSOFT CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Infrastructure"
+  },
+  {
+   "ticker": "M1AA34",
+   "empresa": "MID-AMERICA APARTMENT COMMUNITIES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Residential"
+  },
+  {
+   "ticker": "M2RT34",
+   "empresa": "MIRATI THERAPEUTICS INC",
+   "tipo": "não patrocinado",
+   "pais": null,
+   "setor": null,
+   "industria": null
+  },
+  {
+   "ticker": "M1UF34",
+   "empresa": "MITSUBISHI UFJ FINANCIAL GROUP INC",
+   "tipo": "não patrocinado",
+   "pais": "Japan",
+   "setor": "Financial Services",
+   "industria": "Banks - Diversified"
+  },
+  {
+   "ticker": "M2KS34",
+   "empresa": "MKS INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Scientific & Technical Instruments"
+  },
+  {
+   "ticker": "M1BT34",
+   "empresa": "MOBILE TELESYSTEMS PUBLIC JOINT STOCK CO.",
+   "tipo": "não patrocinado",
+   "pais": "Russia",
+   "setor": "Communication Services",
+   "industria": "Telecom Services"
+  },
+  {
+   "ticker": "M0BG34",
+   "empresa": "MOBILITY GLOBAL INC.",
+   "tipo": "não patrocinado",
+   "pais": null,
+   "setor": null,
+   "industria": null
+  },
+  {
+   "ticker": "M1RN34",
+   "empresa": "MODERNA INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Biotechnology"
+  },
+  {
+   "ticker": "M1HK34",
+   "empresa": "MOHAWK INDUSTRIES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Furnishings, Fixtures & Appliances"
+  },
+  {
+   "ticker": "M1CB34",
+   "empresa": "MOLSON COORS BREWING CO",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Beverages - Brewers"
+  },
+  {
+   "ticker": "MNDY34",
+   "empresa": "MONDAY.COM LTD",
+   "tipo": "não patrocinado",
+   "pais": null,
+   "setor": null,
+   "industria": null
+  },
+  {
+   "ticker": "MDLZ34",
+   "empresa": "MONDELEZ INTERNATIONAL. INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Confectioners"
+  },
+  {
+   "ticker": "M1DB34",
+   "empresa": "MONGODB INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Infrastructure"
+  },
+  {
+   "ticker": "M2PR34",
+   "empresa": "MONOLITHIC POWER SYSTEMS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Semiconductors"
+  },
+  {
+   "ticker": "M1NS34",
+   "empresa": "MONSTER BEVERAGE CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Beverages - Non-Alcoholic"
+  },
+  {
+   "ticker": "MCOR34",
+   "empresa": "MOODYS CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Financial Data & Stock Exchanges"
+  },
+  {
+   "ticker": "MSBR34",
+   "empresa": "MORGAN STANLEY",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Capital Markets"
+  },
+  {
+   "ticker": "M1SI34",
+   "empresa": "MOTOROLA SOLUTIONS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Communication Equipment"
+  },
+  {
+   "ticker": "M2PM34",
+   "empresa": "MP MATERIALS CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Basic Materials",
+   "industria": "Other Industrial Metals & Mining"
+  },
+  {
+   "ticker": "M1SC34",
+   "empresa": "MSCI INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Financial Data & Stock Exchanges"
+  },
+  {
+   "ticker": "N1DA34",
+   "empresa": "NASDAQ INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Financial Data & Stock Exchanges"
+  },
+  {
+   "ticker": "N1GG34",
+   "empresa": "NATIONAL GRID PLC",
+   "tipo": "não patrocinado",
+   "pais": "United Kingdom",
+   "setor": "Utilities",
+   "industria": "Utilities - Regulated Electric"
+  },
+  {
+   "ticker": "N1WG34",
+   "empresa": "NATWEST GROUP PLC",
+   "tipo": "não patrocinado",
+   "pais": "United Kingdom",
+   "setor": "Financial Services",
+   "industria": "Banks - Regional"
+  },
+  {
+   "ticker": "N1TA34",
+   "empresa": "NETAPP INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Infrastructure"
+  },
+  {
+   "ticker": "NETE34",
+   "empresa": "NETEASE INC",
+   "tipo": "não patrocinado",
+   "pais": "China",
+   "setor": "Communication Services",
+   "industria": "Electronic Gaming & Multimedia"
+  },
+  {
+   "ticker": "NFLX34",
+   "empresa": "NETFLIX. INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Communication Services",
+   "industria": "Entertainment"
+  },
+  {
+   "ticker": "NTST34",
+   "empresa": "NETSTREIT CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Retail"
+  },
+  {
+   "ticker": "N1BI34",
+   "empresa": "NEUROCRINE BIOSCIENCES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Drug Manufacturers - Specialty & Generic"
+  },
+  {
+   "ticker": "E1DU34",
+   "empresa": "NEW ORIENTAL EDUCATION & TECHNOLOGY GROUP INC",
+   "tipo": "não patrocinado",
+   "pais": "China",
+   "setor": "Consumer Defensive",
+   "industria": "Education & Training Services"
+  },
+  {
+   "ticker": "N1WL34",
+   "empresa": "NEWELL BRANDS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Household & Personal Products"
+  },
+  {
+   "ticker": "N1MR34",
+   "empresa": "NEWMARK GROUP INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "Real Estate Services"
+  },
+  {
+   "ticker": "N1EM34",
+   "empresa": "NEWMONT CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Basic Materials",
+   "industria": "Gold"
+  },
+  {
+   "ticker": "N1WS34",
+   "empresa": "NEWS CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Communication Services",
+   "industria": "Entertainment"
+  },
+  {
+   "ticker": "NEXT34",
+   "empresa": "NEXTERA ENERGY INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Utilities",
+   "industria": "Utilities - Regulated Electric"
+  },
+  {
+   "ticker": "N1IC34",
+   "empresa": "NICE LTD",
+   "tipo": "não patrocinado",
+   "pais": "Israel",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "NIKE34",
+   "empresa": "NIKE INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Footwear & Accessories"
+  },
+  {
+   "ticker": "N1IS34",
+   "empresa": "NISOURCE INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Utilities",
+   "industria": "Utilities - Regulated Gas"
+  },
+  {
+   "ticker": "NOKI34",
+   "empresa": "NOKIA CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "Finland",
+   "setor": "Technology",
+   "industria": "Communication Equipment"
+  },
+  {
+   "ticker": "NMRH34",
+   "empresa": "NOMURA HOLDINGS INC",
+   "tipo": "não patrocinado",
+   "pais": "Japan",
+   "setor": "Financial Services",
+   "industria": "Capital Markets"
+  },
+  {
+   "ticker": "N1SC34",
+   "empresa": "NORFOLK SOUTHERN CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Railroads"
+  },
+  {
+   "ticker": "N1TR34",
+   "empresa": "NORTHERN TRUST CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Asset Management"
+  },
+  {
+   "ticker": "NOCG34",
+   "empresa": "NORTHROP GRUMMAN CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Aerospace & Defense"
+  },
+  {
+   "ticker": "N1CL34",
+   "empresa": "NORWEGIAN CRUISE LINE HOLDINGS LTD",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Travel Services"
+  },
+  {
+   "ticker": "N1OV34",
+   "empresa": "NOV INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Energy",
+   "industria": "Oil & Gas Equipment & Services"
+  },
+  {
+   "ticker": "N1VS34",
+   "empresa": "NOVARTIS AG",
+   "tipo": "não patrocinado",
+   "pais": "Switzerland",
+   "setor": "Healthcare",
+   "industria": "Drug Manufacturers - General"
+  },
+  {
+   "ticker": "N1VO34",
+   "empresa": "NOVO NORDISK A/S",
+   "tipo": "não patrocinado",
+   "pais": "Denmark",
+   "setor": "Healthcare",
+   "industria": "Drug Manufacturers - General"
+  },
+  {
+   "ticker": "N2VC34",
+   "empresa": "NOVOCURE LTD",
+   "tipo": "não patrocinado",
+   "pais": "Switzerland",
+   "setor": "Healthcare",
+   "industria": "Medical Devices"
+  },
+  {
+   "ticker": "N1RG34",
+   "empresa": "NRG ENERGY INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Utilities",
+   "industria": "Utilities - Independent Power Producers"
+  },
+  {
+   "ticker": "ROXO34",
+   "empresa": "NU HOLDINGS LTD.",
+   "tipo": "não patrocinado",
+   "pais": "Brazil",
+   "setor": "Financial Services",
+   "industria": "Banks - Regional"
+  },
+  {
+   "ticker": "N1UE34",
+   "empresa": "NUCOR CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Basic Materials",
+   "industria": "Steel"
+  },
+  {
+   "ticker": "N2TN34",
+   "empresa": "NUTANIX INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Infrastructure"
+  },
+  {
+   "ticker": "NVDC34",
+   "empresa": "NVIDIA CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Semiconductors"
+  },
+  {
+   "ticker": "N1VR34",
+   "empresa": "NVR INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Residential Construction"
+  },
+  {
+   "ticker": "N1XP34",
+   "empresa": "NXP SEMICONDUCTORS NV",
+   "tipo": "não patrocinado",
+   "pais": "Netherlands",
+   "setor": "Technology",
+   "industria": "Semiconductors"
+  },
+  {
+   "ticker": "OXYP34",
+   "empresa": "OCCIDENTAL PETROLEUM CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Energy",
+   "industria": "Oil & Gas E&P"
+  },
+  {
+   "ticker": "O1KT34",
+   "empresa": "OKTA INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Infrastructure"
+  },
+  {
+   "ticker": "O1DF34",
+   "empresa": "OLD DOMINION FREIGHT LINE INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Trucking"
+  },
+  {
+   "ticker": "O2HI34",
+   "empresa": "OMEGA HEALTHCARE INVESTORS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Healthcare Facilities"
+  },
+  {
+   "ticker": "O1MC34",
+   "empresa": "OMNICOM GROUP INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Communication Services",
+   "industria": "Advertising Agencies"
+  },
+  {
+   "ticker": "O2NS34",
+   "empresa": "ON SEMICONDUCTOR CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Semiconductors"
+  },
+  {
+   "ticker": "O1KE34",
+   "empresa": "ONEOK INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Energy",
+   "industria": "Oil & Gas Midstream"
+  },
+  {
+   "ticker": "OPEN34",
+   "empresa": "OPENAI GROUP PBC",
+   "tipo": "não patrocinado",
+   "pais": null,
+   "setor": null,
+   "industria": null
+  },
+  {
+   "ticker": "ORCL34",
+   "empresa": "ORACLE CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Infrastructure"
+  },
+  {
+   "ticker": "ORLY34",
+   "empresa": "OREILLY AUTOMOTIVE INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Auto Parts"
+  },
+  {
+   "ticker": "I1XC34",
+   "empresa": "ORIX CORP",
+   "tipo": "não patrocinado",
+   "pais": "Japan",
+   "setor": "Financial Services",
+   "industria": "Financial Conglomerates"
+  },
+  {
+   "ticker": "O1TI34",
+   "empresa": "OTIS WORLDWIDE CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Specialty Industrial Machinery"
+  },
+  {
+   "ticker": "O1UT34",
+   "empresa": "OUTFRONT MEDIA INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Specialty"
+  },
+  {
+   "ticker": "P1AC34",
+   "empresa": "PACCAR INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Farm & Heavy Construction Machinery"
+  },
+  {
+   "ticker": "P1KG34",
+   "empresa": "PACKAGING CORP OF AMERICA",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Packaging & Containers"
+  },
+  {
+   "ticker": "PAGS34",
+   "empresa": "PAGSEGURO DIGITAL LTD",
+   "tipo": "não patrocinado",
+   "pais": "Brazil",
+   "setor": "Technology",
+   "industria": "Software - Infrastructure"
+  },
+  {
+   "ticker": "P2LT34",
+   "empresa": "PALANTIR TECHNOLOGIES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Infrastructure"
+  },
+  {
+   "ticker": "P2AN34",
+   "empresa": "PALO ALTO NETWORKS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Infrastructure"
+  },
+  {
+   "ticker": "PSKY34",
+   "empresa": "PARAMOUNT SKYDANCE CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Communication Services",
+   "industria": "Entertainment"
+  },
+  {
+   "ticker": "P1HC34",
+   "empresa": "PARKER-HANNIFIN CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Specialty Industrial Machinery"
+  },
+  {
+   "ticker": "P2AX34",
+   "empresa": "PATRIA INVESTMENTS LTD",
+   "tipo": "não patrocinado",
+   "pais": "Cayman Islands",
+   "setor": "Financial Services",
+   "industria": "Asset Management"
+  },
+  {
+   "ticker": "P1AY34",
+   "empresa": "PAYCHEX INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "P1YC34",
+   "empresa": "PAYCOM SOFTWARE INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "P2CY34",
+   "empresa": "PAYLOCITY HOLDING CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "PYPL34",
+   "empresa": "PAYPAL HOLDINGS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Credit Services"
+  },
+  {
+   "ticker": "P1DD34",
+   "empresa": "PDD HOLDINGS INC.",
+   "tipo": "não patrocinado",
+   "pais": "Ireland",
+   "setor": "Consumer Cyclical",
+   "industria": "Internet Retail"
+  },
+  {
+   "ticker": "P2EG34",
+   "empresa": "PEGASYSTEMS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "P2EN34",
+   "empresa": "PENN ENTERTAINMENT INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Resorts & Casinos"
+  },
+  {
+   "ticker": "P1NR34",
+   "empresa": "PENTAIR PLC",
+   "tipo": "não patrocinado",
+   "pais": "United Kingdom",
+   "setor": "Industrials",
+   "industria": "Specialty Industrial Machinery"
+  },
+  {
+   "ticker": "P2NB34",
+   "empresa": "PENUMBRA INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Medical Devices"
+  },
+  {
+   "ticker": "PPLI34",
+   "empresa": "PEOPLE INCORPORATED",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Communication Services",
+   "industria": "Internet Content & Information"
+  },
+  {
+   "ticker": "PEPB34",
+   "empresa": "PEPSICO. INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Beverages - Non-Alcoholic"
+  },
+  {
+   "ticker": "P1RG34",
+   "empresa": "PERRIGO CO PLC",
+   "tipo": "não patrocinado",
+   "pais": "Ireland",
+   "setor": "Healthcare",
+   "industria": "Drug Manufacturers - Specialty & Generic"
+  },
+  {
+   "ticker": "PFIZ34",
+   "empresa": "PFIZER INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Drug Manufacturers - General"
+  },
+  {
+   "ticker": "PHMO34",
+   "empresa": "PHILIP MORRIS INTERNATIONAL INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Tobacco"
+  },
+  {
+   "ticker": "P1SX34",
+   "empresa": "PHILLIPS 66",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Energy",
+   "industria": "Oil & Gas Refining & Marketing"
+  },
+  {
+   "ticker": "P1NW34",
+   "empresa": "PINNACLE WEST CAPITAL CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Utilities",
+   "industria": "Utilities - Regulated Electric"
+  },
+  {
+   "ticker": "P2IN34",
+   "empresa": "PINTEREST INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Communication Services",
+   "industria": "Internet Content & Information"
+  },
+  {
+   "ticker": "P2LN34",
+   "empresa": "PLANET FITNESS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Leisure"
+  },
+  {
+   "ticker": "PNCS34",
+   "empresa": "PNC FINANCIAL SERVICES GROUP INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Banks - Regional"
+  },
+  {
+   "ticker": "P1KX34",
+   "empresa": "POSCO HOLDINGS INC.",
+   "tipo": "não patrocinado",
+   "pais": "South Korea",
+   "setor": "Basic Materials",
+   "industria": "Steel"
+  },
+  {
+   "ticker": "P2OS34",
+   "empresa": "POST HOLDINGS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Packaged Foods"
+  },
+  {
+   "ticker": "P1PG34",
+   "empresa": "PPG INDUSTRIES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Basic Materials",
+   "industria": "Specialty Chemicals"
+  },
+  {
+   "ticker": "P1PL34",
+   "empresa": "PPL CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Utilities",
+   "industria": "Utilities - Regulated Electric"
+  },
+  {
+   "ticker": "P1FG34",
+   "empresa": "PRINCIPAL FINANCIAL GROUP INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Asset Management"
+  },
+  {
+   "ticker": "P2CO34",
+   "empresa": "PROCORE TECHNOLOGIES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "PGCO34",
+   "empresa": "PROCTER & GAMBLE COMPANY",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Household & Personal Products"
+  },
+  {
+   "ticker": "P1LD34",
+   "empresa": "PROLOGIS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Industrial"
+  },
+  {
+   "ticker": "P1DT34",
+   "empresa": "PRUDENTIAL FINANCIAL INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Insurance - Life"
+  },
+  {
+   "ticker": "P1UK34",
+   "empresa": "PRUDENTIAL PLC",
+   "tipo": "não patrocinado",
+   "pais": "Hong Kong",
+   "setor": "Financial Services",
+   "industria": "Insurance - Life"
+  },
+  {
+   "ticker": "T1LK34",
+   "empresa": "PT TELEKOMUNIKASI INDONESIA PERSERO TBK",
+   "tipo": "não patrocinado",
+   "pais": "Indonesia",
+   "setor": "Communication Services",
+   "industria": "Telecom Services"
+  },
+  {
+   "ticker": "P2TC34",
+   "empresa": "PTC INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "P1EG34",
+   "empresa": "PUBLIC SERVICE ENTERPRISE GROUP INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Utilities",
+   "industria": "Utilities - Regulated Electric"
+  },
+  {
+   "ticker": "P1SA34",
+   "empresa": "PUBLIC STORAGE",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Industrial"
+  },
+  {
+   "ticker": "P1HM34",
+   "empresa": "PULTEGROUP INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Residential Construction"
+  },
+  {
+   "ticker": "P1VH34",
+   "empresa": "PVH CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Apparel Manufacturing"
+  },
+  {
+   "ticker": "Q1RV34",
+   "empresa": "QORVO INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Semiconductors"
+  },
+  {
+   "ticker": "QCOM34",
+   "empresa": "QUALCOMM INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Semiconductors"
+  },
+  {
+   "ticker": "Q1UA34",
+   "empresa": "QUANTA SERVICES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Engineering & Construction"
+  },
+  {
+   "ticker": "QUBT34",
+   "empresa": "QUANTUM COMPUTING INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Computer Hardware"
+  },
+  {
+   "ticker": "Q2SC34",
+   "empresa": "QUANTUMSCAPE CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Auto Parts"
+  },
+  {
+   "ticker": "Q1UE34",
+   "empresa": "QUEST DIAGNOSTICS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Diagnostics & Research"
+  },
+  {
+   "ticker": "R1LC34",
+   "empresa": "RALPH LAUREN CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Apparel Manufacturing"
+  },
+  {
+   "ticker": "R2PD34",
+   "empresa": "RAPID7 INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Infrastructure"
+  },
+  {
+   "ticker": "R1JF34",
+   "empresa": "RAYMOND JAMES FINANCIAL INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Asset Management"
+  },
+  {
+   "ticker": "R1IN34",
+   "empresa": "REALTY INCOME CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Retail"
+  },
+  {
+   "ticker": "R2RX34",
+   "empresa": "REGAL REXNORD CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Specialty Industrial Machinery"
+  },
+  {
+   "ticker": "R1EG34",
+   "empresa": "REGENCY CENTERS CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Retail"
+  },
+  {
+   "ticker": "REGN34",
+   "empresa": "REGENERON PHARMACEUTICALS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Biotechnology"
+  },
+  {
+   "ticker": "R1FC34",
+   "empresa": "REGIONS FINANCIAL CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Banks - Regional"
+  },
+  {
+   "ticker": "R1EL34",
+   "empresa": "RELX PLC",
+   "tipo": "não patrocinado",
+   "pais": "United Kingdom",
+   "setor": "Industrials",
+   "industria": "Specialty Business Services"
+  },
+  {
+   "ticker": "R2GE34",
+   "empresa": "REPLIGEN CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Medical Instruments & Supplies"
+  },
+  {
+   "ticker": "R1SG34",
+   "empresa": "REPUBLIC SERVICES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Waste Management"
+  },
+  {
+   "ticker": "R1MD34",
+   "empresa": "RESMED INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Medical Instruments & Supplies"
+  },
+  {
+   "ticker": "R1VT34",
+   "empresa": "REVVITY. INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Diagnostics & Research"
+  },
+  {
+   "ticker": "R2HH34",
+   "empresa": "RH",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Specialty Retail"
+  },
+  {
+   "ticker": "RGTI34",
+   "empresa": "RIGETTI COMPUTING INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Computer Hardware"
+  },
+  {
+   "ticker": "R2NG34",
+   "empresa": "RINGCENTRAL INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "RIOT34",
+   "empresa": "RIO TINTO PLC",
+   "tipo": "não patrocinado",
+   "pais": "United Kingdom",
+   "setor": "Basic Materials",
+   "industria": "Other Industrial Metals & Mining"
+  },
+  {
+   "ticker": "R1HI34",
+   "empresa": "ROBERT HALF INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Staffing & Employment Services"
+  },
+  {
+   "ticker": "R2BL34",
+   "empresa": "ROBLOX CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Communication Services",
+   "industria": "Electronic Gaming & Multimedia"
+  },
+  {
+   "ticker": "R1OK34",
+   "empresa": "ROCKWELL AUTOMATION INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Specialty Industrial Machinery"
+  },
+  {
+   "ticker": "R1KU34",
+   "empresa": "ROKU INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Communication Services",
+   "industria": "Entertainment"
+  },
+  {
+   "ticker": "R1OL34",
+   "empresa": "ROLLINS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Personal Services"
+  },
+  {
+   "ticker": "R1OP34",
+   "empresa": "ROPER TECHNOLOGIES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "ROST34",
+   "empresa": "ROSS STORES. INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Apparel Retail"
+  },
+  {
+   "ticker": "R1CL34",
+   "empresa": "ROYAL CARIBBEAN GROUP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Travel Services"
+  },
+  {
+   "ticker": "RYTT34",
+   "empresa": "RTX CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Aerospace & Defense"
+  },
+  {
+   "ticker": "R1YA34",
+   "empresa": "RYANAIR HOLDINGS PLC",
+   "tipo": "não patrocinado",
+   "pais": "Ireland",
+   "setor": "Industrials",
+   "industria": "Airlines"
+  },
+  {
+   "ticker": "R1HP34",
+   "empresa": "RYMAN HOSPITALITY PROPERTIES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Hotel & Motel"
+  },
+  {
+   "ticker": "SPGI34",
+   "empresa": "S&P GLOBAL INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Financial Data & Stock Exchanges"
+  },
+  {
+   "ticker": "SSFO34",
+   "empresa": "SALESFORCE. INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "SAPP34",
+   "empresa": "SAP SE",
+   "tipo": "não patrocinado",
+   "pais": "Germany",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "S1RP34",
+   "empresa": "SAREPTA THERAPEUTICS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Biotechnology"
+  },
+  {
+   "ticker": "S1BA34",
+   "empresa": "SBA COMMUNICATIONS CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Specialty"
+  },
+  {
+   "ticker": "SLBG34",
+   "empresa": "SCHLUMBERGER LIMITED",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Energy",
+   "industria": "Oil & Gas Equipment & Services"
+  },
+  {
+   "ticker": "SDRH34",
+   "empresa": "SCHRODERS PLC",
+   "tipo": "não patrocinado",
+   "pais": null,
+   "setor": null,
+   "industria": null
+  },
+  {
+   "ticker": "S2EA34",
+   "empresa": "SEA LTD",
+   "tipo": "não patrocinado",
+   "pais": "Singapore",
+   "setor": "Consumer Cyclical",
+   "industria": "Internet Retail"
+  },
+  {
+   "ticker": "S1TX34",
+   "empresa": "SEAGATE TECHNOLOGY HOLDINGS PLC",
+   "tipo": "não patrocinado",
+   "pais": "Singapore",
+   "setor": "Technology",
+   "industria": "Computer Hardware"
+  },
+  {
+   "ticker": "S2EI34",
+   "empresa": "SEI INVESTMENTS CO",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Asset Management"
+  },
+  {
+   "ticker": "S1RE34",
+   "empresa": "SEMPRA",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Utilities",
+   "industria": "Utilities - Diversified"
+  },
+  {
+   "ticker": "N1OW34",
+   "empresa": "SERVICENOW INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "S1AK34",
+   "empresa": "SHAKE SHACK INC",
+   "tipo": "não patrocinado",
+   "pais": null,
+   "setor": null,
+   "industria": null
+  },
+  {
+   "ticker": "S2HO34",
+   "empresa": "SHOPIFY INC",
+   "tipo": "não patrocinado",
+   "pais": "Canada",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "S1BS34",
+   "empresa": "SIBANYE STILLWATER LTD",
+   "tipo": "não patrocinado",
+   "pais": "South Africa",
+   "setor": "Basic Materials",
+   "industria": "Other Precious Metals & Mining"
+  },
+  {
+   "ticker": "S2GM34",
+   "empresa": "SIGMA LITHIUM CORP",
+   "tipo": "não patrocinado",
+   "pais": "Canada",
+   "setor": "Basic Materials",
+   "industria": "Other Industrial Metals & Mining"
+  },
+  {
+   "ticker": "S2LA34",
+   "empresa": "SILICON LABORATORIES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Semiconductors"
+  },
+  {
+   "ticker": "SIMN34",
+   "empresa": "SIMON PROPERTY GROUP INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Retail"
+  },
+  {
+   "ticker": "S2MP34",
+   "empresa": "SIMPLY GOOD FOODS CO/THE",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Packaged Foods"
+  },
+  {
+   "ticker": "F1UN34",
+   "empresa": "SIX FLAGS ENTERTAINMENT CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Leisure"
+  },
+  {
+   "ticker": "SKHY34",
+   "empresa": "SK HYNIX INC",
+   "tipo": "não patrocinado",
+   "pais": "South Korea",
+   "setor": null,
+   "industria": null
+  },
+  {
+   "ticker": "S1KM34",
+   "empresa": "SK TELECOM CO LTD",
+   "tipo": "não patrocinado",
+   "pais": "South Korea",
+   "setor": "Communication Services",
+   "industria": "Telecom Services"
+  },
+  {
+   "ticker": "S1SL34",
+   "empresa": "SKYWORKS SOLUTIONS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Semiconductors"
+  },
+  {
+   "ticker": "S1LG34",
+   "empresa": "SL GREEN REALTY CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Office"
+  },
+  {
+   "ticker": "S1NN34",
+   "empresa": "SMITH & NEPHEW PLC",
+   "tipo": "não patrocinado",
+   "pais": "United Kingdom",
+   "setor": "Healthcare",
+   "industria": "Medical Devices"
+  },
+  {
+   "ticker": "S2NA34",
+   "empresa": "SNAP INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Communication Services",
+   "industria": "Internet Content & Information"
+  },
+  {
+   "ticker": "S1NA34",
+   "empresa": "SNAP-ON INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Tools & Accessories"
+  },
+  {
+   "ticker": "S2NW34",
+   "empresa": "SNOWFLAKE INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "S2CH34",
+   "empresa": "SOCIEDAD QUIMICA Y MINERA DE CHILE SA",
+   "tipo": "não patrocinado",
+   "pais": "Chile",
+   "setor": "Basic Materials",
+   "industria": "Specialty Chemicals"
+  },
+  {
+   "ticker": "S2ED34",
+   "empresa": "SOLAREDGE TECHNOLOGIES INC",
+   "tipo": "não patrocinado",
+   "pais": "Israel",
+   "setor": "Technology",
+   "industria": "Solar"
+  },
+  {
+   "ticker": "S2GI34",
+   "empresa": "SOMNIGROUP INTERNATIONAL INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Furnishings, Fixtures & Appliances"
+  },
+  {
+   "ticker": "SNEC34",
+   "empresa": "SONY GROUP CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "Japan",
+   "setor": "Technology",
+   "industria": "Consumer Electronics"
+  },
+  {
+   "ticker": "SCCO34",
+   "empresa": "SOUTHERN COPPER CORP",
+   "tipo": "não patrocinado",
+   "pais": null,
+   "setor": null,
+   "industria": null
+  },
+  {
+   "ticker": "S1OU34",
+   "empresa": "SOUTHWEST AIRLINES CO",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Airlines"
+  },
+  {
+   "ticker": "SPCX34",
+   "empresa": "SPACE EXPLORATION TECHNOLOGIES CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Aerospace & Defense"
+  },
+  {
+   "ticker": "S1PO34",
+   "empresa": "SPOTIFY TECHNOLOGY SA",
+   "tipo": "não patrocinado",
+   "pais": "Sweden",
+   "setor": "Communication Services",
+   "industria": "Internet Content & Information"
+  },
+  {
+   "ticker": "S2FM34",
+   "empresa": "SPROUTS FARMERS MARKET INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Grocery Stores"
+  },
+  {
+   "ticker": "S1SN34",
+   "empresa": "SS&C TECHNOLOGIES HOLDINGS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "S2TA34",
+   "empresa": "STAG INDUSTRIAL INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Industrial"
+  },
+  {
+   "ticker": "S1WK34",
+   "empresa": "STANLEY BLACK & DECKER INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Tools & Accessories"
+  },
+  {
+   "ticker": "SBUB34",
+   "empresa": "STARBUCKS CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Restaurants"
+  },
+  {
+   "ticker": "S2TW34",
+   "empresa": "STARWOOD PROPERTY TRUST INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Mortgage"
+  },
+  {
+   "ticker": "S1TT34",
+   "empresa": "STATE STREET CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Asset Management"
+  },
+  {
+   "ticker": "S1TE34",
+   "empresa": "STERIS PLC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Medical Devices"
+  },
+  {
+   "ticker": "STMN34",
+   "empresa": "STMICROELECTRONICS NV",
+   "tipo": "não patrocinado",
+   "pais": "Netherlands",
+   "setor": "Technology",
+   "industria": "Semiconductors"
+  },
+  {
+   "ticker": "STOC34",
+   "empresa": "STONECO LTD.",
+   "tipo": "não patrocinado",
+   "pais": "Cayman Islands",
+   "setor": "Technology",
+   "industria": "Software - Infrastructure"
+  },
+  {
+   "ticker": "M2ST34",
+   "empresa": "STRATEGY INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "L2RN34",
+   "empresa": "STRIDE INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Education & Training Services"
+  },
+  {
+   "ticker": "S1YK34",
+   "empresa": "STRYKER CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Medical Devices"
+  },
+  {
+   "ticker": "S1MF34",
+   "empresa": "SUMITOMO MITSUI FINANCIAL GROUP INC",
+   "tipo": "não patrocinado",
+   "pais": "Japan",
+   "setor": "Financial Services",
+   "industria": "Banks - Diversified"
+  },
+  {
+   "ticker": "S2UI34",
+   "empresa": "SUN COMMUNITIES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Residential"
+  },
+  {
+   "ticker": "S2YN34",
+   "empresa": "SYNAPTICS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Semiconductors"
+  },
+  {
+   "ticker": "S1YF34",
+   "empresa": "SYNCHRONY FINANCIAL",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Credit Services"
+  },
+  {
+   "ticker": "S1NP34",
+   "empresa": "SYNOPSYS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Infrastructure"
+  },
+  {
+   "ticker": "S1YY34",
+   "empresa": "SYSCO CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Food Distribution"
+  },
+  {
+   "ticker": "T1RO34",
+   "empresa": "T ROWE PRICE GROUP INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Asset Management"
+  },
+  {
+   "ticker": "TSMC34",
+   "empresa": "TAIWAN SEMICONDUCTOR MANUFACTURING CO LTD",
+   "tipo": "não patrocinado",
+   "pais": "Taiwan",
+   "setor": "Technology",
+   "industria": "Semiconductors"
+  },
+  {
+   "ticker": "TAKP34",
+   "empresa": "TAKEDA PHARMACEUTICAL CO LTD",
+   "tipo": "não patrocinado",
+   "pais": "Japan",
+   "setor": "Healthcare",
+   "industria": "Drug Manufacturers - Specialty & Generic"
+  },
+  {
+   "ticker": "T1TW34",
+   "empresa": "TAKE-TWO INTERACTIVE SOFTWARE INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Communication Services",
+   "industria": "Electronic Gaming & Multimedia"
+  },
+  {
+   "ticker": "T1AL34",
+   "empresa": "TAL EDUCATION GROUP",
+   "tipo": "não patrocinado",
+   "pais": "China",
+   "setor": "Consumer Defensive",
+   "industria": "Education & Training Services"
+  },
+  {
+   "ticker": "T2ND34",
+   "empresa": "TANDEM DIABETES CARE INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Medical Devices"
+  },
+  {
+   "ticker": "S1KT34",
+   "empresa": "TANGER INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Retail"
+  },
+  {
+   "ticker": "TPRY34",
+   "empresa": "TAPESTRY INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Luxury Goods"
+  },
+  {
+   "ticker": "TGTB34",
+   "empresa": "TARGET CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Discount Stores"
+  },
+  {
+   "ticker": "T1EL34",
+   "empresa": "TE CONNECTIVITY PLC",
+   "tipo": "não patrocinado",
+   "pais": "Ireland",
+   "setor": "Technology",
+   "industria": "Electronic Components"
+  },
+  {
+   "ticker": "T1EC34",
+   "empresa": "TECHNIPFMC PLC",
+   "tipo": "não patrocinado",
+   "pais": "United Kingdom",
+   "setor": "Energy",
+   "industria": "Oil & Gas Equipment & Services"
+  },
+  {
+   "ticker": "T2DH34",
+   "empresa": "TELADOC HEALTH INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Health Information Services"
+  },
+  {
+   "ticker": "T1FX34",
+   "empresa": "TELEFLEX INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Medical Instruments & Supplies"
+  },
+  {
+   "ticker": "T1SS34",
+   "empresa": "TENARIS SA",
+   "tipo": "não patrocinado",
+   "pais": "Luxembourg",
+   "setor": "Energy",
+   "industria": "Oil & Gas Equipment & Services"
+  },
+  {
+   "ticker": "T2ER34",
+   "empresa": "TERADYNE INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Semiconductor Equipment & Materials"
+  },
+  {
+   "ticker": "TXSA34",
+   "empresa": "TERNIUM SA",
+   "tipo": "não patrocinado",
+   "pais": "Luxembourg",
+   "setor": "Basic Materials",
+   "industria": "Steel"
+  },
+  {
+   "ticker": "TSLA34",
+   "empresa": "TESLA. INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Auto Manufacturers"
+  },
+  {
+   "ticker": "T1EV34",
+   "empresa": "TEVA PHARMACEUTICAL INDUSTRIES LTD",
+   "tipo": "não patrocinado",
+   "pais": "Israel",
+   "setor": "Healthcare",
+   "industria": "Drug Manufacturers - Specialty & Generic"
+  },
+  {
+   "ticker": "TEXA34",
+   "empresa": "TEXAS INSTRUMENTS INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Semiconductors"
+  },
+  {
+   "ticker": "T1XT34",
+   "empresa": "TEXTRON INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Aerospace & Defense"
+  },
+  {
+   "ticker": "BONY34",
+   "empresa": "THE BANK OF NEW YORK MELLON CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Banks - Diversified"
+  },
+  {
+   "ticker": "BOEI34",
+   "empresa": "THE BOEING COMPANY",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Aerospace & Defense"
+  },
+  {
+   "ticker": "C1PB34",
+   "empresa": "THE CAMPBELLS COMPANY",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Packaged Foods"
+  },
+  {
+   "ticker": "SCHW34",
+   "empresa": "THE CHARLES SCHWAB CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Capital Markets"
+  },
+  {
+   "ticker": "C1IC34",
+   "empresa": "THE CIGNA GROUP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Healthcare Plans"
+  },
+  {
+   "ticker": "COCA34",
+   "empresa": "THE COCA-COLA COMPANY",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Beverages - Non-Alcoholic"
+  },
+  {
+   "ticker": "GPSI34",
+   "empresa": "THE GAP. INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Apparel Retail"
+  },
+  {
+   "ticker": "H2AI34",
+   "empresa": "THE HAIN CELESTIAL GROUP INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Packaged Foods"
+  },
+  {
+   "ticker": "H1IG34",
+   "empresa": "THE HARTFORD INSURANCE GROUP. INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Insurance - Diversified"
+  },
+  {
+   "ticker": "HSHY34",
+   "empresa": "THE HERSHEY COMPANY",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Confectioners"
+  },
+  {
+   "ticker": "HOME34",
+   "empresa": "THE HOME DEPOT. INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Home Improvement Retail"
+  },
+  {
+   "ticker": "S1JM34",
+   "empresa": "THE JM SMUCKER CO",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Packaged Foods"
+  },
+  {
+   "ticker": "KHCB34",
+   "empresa": "THE KRAFT HEINZ COMPANY",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Packaged Foods"
+  },
+  {
+   "ticker": "MOSC34",
+   "empresa": "THE MOSAIC COMPANY",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Basic Materials",
+   "industria": "Agricultural Inputs"
+  },
+  {
+   "ticker": "P1GR34",
+   "empresa": "THE PROGRESSIVE CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Insurance - Property & Casualty"
+  },
+  {
+   "ticker": "S1HW34",
+   "empresa": "THE SHERWIN-WILLIAMS CO",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Basic Materials",
+   "industria": "Specialty Chemicals"
+  },
+  {
+   "ticker": "T1SO34",
+   "empresa": "THE SOUTHERN CO",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Utilities",
+   "industria": "Utilities - Regulated Electric"
+  },
+  {
+   "ticker": "T2TD34",
+   "empresa": "THE TRADE DESK INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Communication Services",
+   "industria": "Advertising Agencies"
+  },
+  {
+   "ticker": "TRVC34",
+   "empresa": "THE TRAVELERS COMPANIES. INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Insurance - Property & Casualty"
+  },
+  {
+   "ticker": "DISB34",
+   "empresa": "THE WALT DISNEY COMPANY",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Communication Services",
+   "industria": "Entertainment"
+  },
+  {
+   "ticker": "WUNI34",
+   "empresa": "THE WESTERN UNION COMPANY",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Credit Services"
+  },
+  {
+   "ticker": "W1MB34",
+   "empresa": "THE WILLIAMS COS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Energy",
+   "industria": "Oil & Gas Midstream"
+  },
+  {
+   "ticker": "TMOS34",
+   "empresa": "THERMO FISHER SCIENTIFIC. INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Diagnostics & Research"
+  },
+  {
+   "ticker": "TJXC34",
+   "empresa": "TJX COMPANIES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Apparel Retail"
+  },
+  {
+   "ticker": "T1MU34",
+   "empresa": "T-MOBILE US INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Communication Services",
+   "industria": "Telecom Services"
+  },
+  {
+   "ticker": "TOST34",
+   "empresa": "TOAST INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Infrastructure"
+  },
+  {
+   "ticker": "TMCO34",
+   "empresa": "TOYOTA MOTOR CORP.",
+   "tipo": "não patrocinado",
+   "pais": "Japan",
+   "setor": "Consumer Cyclical",
+   "industria": "Auto Manufacturers"
+  },
+  {
+   "ticker": "T1SC34",
+   "empresa": "TRACTOR SUPPLY CO",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Specialty Retail"
+  },
+  {
+   "ticker": "I1RP34",
+   "empresa": "TRANE TECHNOLOGIES PLC",
+   "tipo": "não patrocinado",
+   "pais": "Ireland",
+   "setor": "Industrials",
+   "industria": "Building Products & Equipment"
+  },
+  {
+   "ticker": "T1DG34",
+   "empresa": "TRANSDIGM GROUP INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Aerospace & Defense"
+  },
+  {
+   "ticker": "RIGG34",
+   "empresa": "TRANSOCEAN LTD.",
+   "tipo": "não patrocinado",
+   "pais": "Switzerland",
+   "setor": "Energy",
+   "industria": "Oil & Gas Drilling"
+  },
+  {
+   "ticker": "T2RE34",
+   "empresa": "TREX CO INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Building Products & Equipment"
+  },
+  {
+   "ticker": "T2RM34",
+   "empresa": "TRIMBLE INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Scientific & Technical Instruments"
+  },
+  {
+   "ticker": "CRIP34",
+   "empresa": "TRIP.COM GROUP LIMITED",
+   "tipo": "não patrocinado",
+   "pais": "Singapore",
+   "setor": "Consumer Cyclical",
+   "industria": "Travel Services"
+  },
+  {
+   "ticker": "T1RI34",
+   "empresa": "TRIPADVISOR INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Travel Services"
+  },
+  {
+   "ticker": "B1BT34",
+   "empresa": "TRUIST FINANCIAL CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Banks - Regional"
+  },
+  {
+   "ticker": "T1WL34",
+   "empresa": "TWILIO INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Infrastructure"
+  },
+  {
+   "ticker": "T2YL34",
+   "empresa": "TYLER TECHNOLOGIES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "TSNF34",
+   "empresa": "TYSON FOODS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Farm Products"
+  },
+  {
+   "ticker": "USBC34",
+   "empresa": "U.S. BANCORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Banks - Regional"
+  },
+  {
+   "ticker": "U1BE34",
+   "empresa": "UBER TECHNOLOGIES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "UBSG34",
+   "empresa": "UBS GROUP AG",
+   "tipo": "não patrocinado",
+   "pais": "Switzerland",
+   "setor": "Financial Services",
+   "industria": "Banks - Diversified"
+  },
+  {
+   "ticker": "U1DR34",
+   "empresa": "UDR INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Residential"
+  },
+  {
+   "ticker": "P2AT34",
+   "empresa": "UIPATH INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Infrastructure"
+  },
+  {
+   "ticker": "U1LT34",
+   "empresa": "ULTA BEAUTY INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Specialty Retail"
+  },
+  {
+   "ticker": "R2AR34",
+   "empresa": "ULTRAGENYX PHARMACEUTICAL INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Biotechnology"
+  },
+  {
+   "ticker": "U1MH34",
+   "empresa": "UMH PROPERTIES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Residential"
+  },
+  {
+   "ticker": "U1AI34",
+   "empresa": "UNDER ARMOUR INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Apparel Manufacturing"
+  },
+  {
+   "ticker": "ULEV34",
+   "empresa": "UNILEVER PLC",
+   "tipo": "não patrocinado",
+   "pais": "United Kingdom",
+   "setor": "Consumer Defensive",
+   "industria": "Household & Personal Products"
+  },
+  {
+   "ticker": "UPAC34",
+   "empresa": "UNION PACIFIC CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Railroads"
+  },
+  {
+   "ticker": "U1AL34",
+   "empresa": "UNITED AIRLINES HOLDINGS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Airlines"
+  },
+  {
+   "ticker": "U2NF34",
+   "empresa": "UNITED NATURAL FOODS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Food Distribution"
+  },
+  {
+   "ticker": "UPSS34",
+   "empresa": "UNITED PARCEL SERVICE. INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Integrated Freight & Logistics"
+  },
+  {
+   "ticker": "U1RI34",
+   "empresa": "UNITED RENTALS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Rental & Leasing Services"
+  },
+  {
+   "ticker": "U2TH34",
+   "empresa": "UNITED THERAPEUTICS CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Drug Manufacturers - Specialty & Generic"
+  },
+  {
+   "ticker": "UNHH34",
+   "empresa": "UNITEDHEALTH GROUP INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Healthcare Plans"
+  },
+  {
+   "ticker": "U2ST34",
+   "empresa": "UNITY SOFTWARE INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "O2LE34",
+   "empresa": "UNIVERSAL DISPLAY CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Electronic Components"
+  },
+  {
+   "ticker": "U1HS34",
+   "empresa": "UNIVERSAL HEALTH SERVICES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Medical Care Facilities"
+  },
+  {
+   "ticker": "U1NM34",
+   "empresa": "UNUM GROUP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Insurance - Life"
+  },
+  {
+   "ticker": "U2PS34",
+   "empresa": "UPSTART HOLDINGS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Credit Services"
+  },
+  {
+   "ticker": "U2PW34",
+   "empresa": "UPWORK INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Communication Services",
+   "industria": "Internet Content & Information"
+  },
+  {
+   "ticker": "VLOE34",
+   "empresa": "VALERO ENERGY CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Energy",
+   "industria": "Oil & Gas Refining & Marketing"
+  },
+  {
+   "ticker": "VLYB34",
+   "empresa": "VALLEY NATIONAL BANCORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Banks - Regional"
+  },
+  {
+   "ticker": "V2RN34",
+   "empresa": "VARONIS SYSTEMS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Infrastructure"
+  },
+  {
+   "ticker": "V2EE34",
+   "empresa": "VEEVA SYSTEMS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Health Information Services"
+  },
+  {
+   "ticker": "V1TA34",
+   "empresa": "VENTAS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Healthcare Facilities"
+  },
+  {
+   "ticker": "VRSN34",
+   "empresa": "VERISIGN INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Infrastructure"
+  },
+  {
+   "ticker": "V1RS34",
+   "empresa": "VERISK ANALYTICS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Consulting Services"
+  },
+  {
+   "ticker": "VERZ34",
+   "empresa": "VERIZON COMMUNICATIONS INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Communication Services",
+   "industria": "Telecom Services"
+  },
+  {
+   "ticker": "VRTX34",
+   "empresa": "VERTEX PHARMACEUTICALS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Biotechnology"
+  },
+  {
+   "ticker": "V1RT34",
+   "empresa": "VERTIV HOLDINGS CO",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Electrical Equipment & Parts"
+  },
+  {
+   "ticker": "VFCO34",
+   "empresa": "VF CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Apparel Manufacturing"
+  },
+  {
+   "ticker": "V1IP34",
+   "empresa": "VIPSHOP HOLDINGS LTD",
+   "tipo": "não patrocinado",
+   "pais": "China",
+   "setor": "Consumer Cyclical",
+   "industria": "Internet Retail"
+  },
+  {
+   "ticker": "VISA34",
+   "empresa": "VISA INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Credit Services"
+  },
+  {
+   "ticker": "V1ST34",
+   "empresa": "VISTRA CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Utilities",
+   "industria": "Utilities - Independent Power Producers"
+  },
+  {
+   "ticker": "VMRK34",
+   "empresa": "VIVMARK RESIDENTIAL",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Residential"
+  },
+  {
+   "ticker": "V1OD34",
+   "empresa": "VODAFONE GROUP PUBLIC LTD COMPANY",
+   "tipo": "não patrocinado",
+   "pais": "United Kingdom",
+   "setor": "Communication Services",
+   "industria": "Telecom Services"
+  },
+  {
+   "ticker": "V1NO34",
+   "empresa": "VORNADO REALTY TRUST",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Office"
+  },
+  {
+   "ticker": "V2TX34",
+   "empresa": "VTEX",
+   "tipo": "não patrocinado",
+   "pais": "Cayman Islands",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "V1MC34",
+   "empresa": "VULCAN MATERIALS CO",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Basic Materials",
+   "industria": "Building Materials"
+  },
+  {
+   "ticker": "W1AB34",
+   "empresa": "WABTEC CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Railroads"
+  },
+  {
+   "ticker": "WALM34",
+   "empresa": "WALMART INC.",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Defensive",
+   "industria": "Discount Stores"
+  },
+  {
+   "ticker": "W1BD34",
+   "empresa": "WARNER BROS. DISCOVERY. INC..",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Communication Services",
+   "industria": "Entertainment"
+  },
+  {
+   "ticker": "W1MG34",
+   "empresa": "WARNER MUSIC GROUP CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Communication Services",
+   "industria": "Entertainment"
+  },
+  {
+   "ticker": "W1MC34",
+   "empresa": "WASTE MANAGEMENT INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Waste Management"
+  },
+  {
+   "ticker": "WATC34",
+   "empresa": "WATERS CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Diagnostics & Research"
+  },
+  {
+   "ticker": "W1SO34",
+   "empresa": "WATSCO INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Industrial Distribution"
+  },
+  {
+   "ticker": "W2YF34",
+   "empresa": "WAYFAIR INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Internet Retail"
+  },
+  {
+   "ticker": "W1EC34",
+   "empresa": "WEC ENERGY GROUP INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Utilities",
+   "industria": "Utilities - Regulated Electric"
+  },
+  {
+   "ticker": "W1BO34",
+   "empresa": "WEIBO CORP",
+   "tipo": "não patrocinado",
+   "pais": "China",
+   "setor": "Communication Services",
+   "industria": "Internet Content & Information"
+  },
+  {
+   "ticker": "WFCO34",
+   "empresa": "WELLS FARGO & COMPANY",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Banks - Diversified"
+  },
+  {
+   "ticker": "W1EL34",
+   "empresa": "WELLTOWER INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Healthcare Facilities"
+  },
+  {
+   "ticker": "W2ST34",
+   "empresa": "WEST PHARMACEUTICAL SERVICES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Medical Instruments & Supplies"
+  },
+  {
+   "ticker": "WABC34",
+   "empresa": "WESTERN ALLIANCE BANCORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Banks - Regional"
+  },
+  {
+   "ticker": "W1DC34",
+   "empresa": "WESTERN DIGITAL CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Computer Hardware"
+  },
+  {
+   "ticker": "W2EX34",
+   "empresa": "WEX INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Infrastructure"
+  },
+  {
+   "ticker": "W1YC34",
+   "empresa": "WEYERHAEUSER CO",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Real Estate",
+   "industria": "REIT - Specialty"
+  },
+  {
+   "ticker": "W1HR34",
+   "empresa": "WHIRLPOOL CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Furnishings, Fixtures & Appliances"
+  },
+  {
+   "ticker": "W1LT34",
+   "empresa": "WILLIS TOWERS WATSON PLC",
+   "tipo": "não patrocinado",
+   "pais": "United Kingdom",
+   "setor": "Financial Services",
+   "industria": "Insurance Brokers"
+  },
+  {
+   "ticker": "W1IX34",
+   "empresa": "WIX.COM LTD",
+   "tipo": "não patrocinado",
+   "pais": "Israel",
+   "setor": "Technology",
+   "industria": "Software - Infrastructure"
+  },
+  {
+   "ticker": "W1DA34",
+   "empresa": "WORKDAY INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "W1PP34",
+   "empresa": "WPP PLC",
+   "tipo": "não patrocinado",
+   "pais": "United Kingdom",
+   "setor": "Communication Services",
+   "industria": "Advertising Agencies"
+  },
+  {
+   "ticker": "W1RB34",
+   "empresa": "WR BERKLEY CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Insurance - Property & Casualty"
+  },
+  {
+   "ticker": "G1WW34",
+   "empresa": "WW GRAINGER INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Industrial Distribution"
+  },
+  {
+   "ticker": "W1YN34",
+   "empresa": "WYNN RESORTS LTD",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Resorts & Casinos"
+  },
+  {
+   "ticker": "X1EL34",
+   "empresa": "XCEL ENERGY INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Utilities",
+   "industria": "Utilities - Regulated Electric"
+  },
+  {
+   "ticker": "XRXB34",
+   "empresa": "XEROX HOLDINGS CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Business Equipment & Supplies"
+  },
+  {
+   "ticker": "X1YL34",
+   "empresa": "XYLEM INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Specialty Industrial Machinery"
+  },
+  {
+   "ticker": "Y2PF34",
+   "empresa": "YPF SA",
+   "tipo": "não patrocinado",
+   "pais": "Argentina",
+   "setor": "Energy",
+   "industria": "Oil & Gas Integrated"
+  },
+  {
+   "ticker": "YUMR34",
+   "empresa": "YUM BRANDS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Consumer Cyclical",
+   "industria": "Restaurants"
+  },
+  {
+   "ticker": "Z1BR34",
+   "empresa": "ZEBRA TECHNOLOGIES CORPORATION",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Communication Equipment"
+  },
+  {
+   "ticker": "Z1TA34",
+   "empresa": "ZETA GLOBAL HOLDINGS CORP",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Infrastructure"
+  },
+  {
+   "ticker": "Z2DV34",
+   "empresa": "ZIFF DAVIS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Communication Services",
+   "industria": "Advertising Agencies"
+  },
+  {
+   "ticker": "Z2LL34",
+   "empresa": "ZILLOW GROUP INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Communication Services",
+   "industria": "Internet Content & Information"
+  },
+  {
+   "ticker": "Z1BH34",
+   "empresa": "ZIMMER BIOMET HOLDINGS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Medical Devices"
+  },
+  {
+   "ticker": "Z1IO34",
+   "empresa": "ZIONS BANCORPORATION NA",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Financial Services",
+   "industria": "Banks - Regional"
+  },
+  {
+   "ticker": "Z1TS34",
+   "empresa": "ZOETIS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Healthcare",
+   "industria": "Drug Manufacturers - Specialty & Generic"
+  },
+  {
+   "ticker": "Z1OM34",
+   "empresa": "ZOOM COMMUNICATIONS INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "Z2IT34",
+   "empresa": "ZOOMINFO TECHNOLOGIES INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Application"
+  },
+  {
+   "ticker": "Z2SC34",
+   "empresa": "ZSCALER INC",
+   "tipo": "não patrocinado",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Infrastructure"
+  },
+  {
+   "ticker": "Z1TO34",
+   "empresa": "ZTO EXPRESS CAYMAN INC",
+   "tipo": "não patrocinado",
+   "pais": "China",
+   "setor": "Industrials",
+   "industria": "Integrated Freight & Logistics"
+  },
+  {
+   "ticker": "GROP31",
+   "empresa": "BRAZIL POTASH CORP.",
+   "tipo": "patrocinado nível I",
+   "pais": "Canada",
+   "setor": "Basic Materials",
+   "industria": "Other Industrial Metals & Mining"
+  },
+  {
+   "ticker": "DEFT31",
+   "empresa": "DEFI TECHNOLOGIES INC",
+   "tipo": "patrocinado nível I",
+   "pais": "Canada",
+   "setor": "Financial Services",
+   "industria": "Capital Markets"
+  },
+  {
+   "ticker": "EFXB31",
+   "empresa": "EQUIFAX INC.",
+   "tipo": "patrocinado nível I",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Consulting Services"
+  },
+  {
+   "ticker": "EVEB31",
+   "empresa": "EVE HOLDING. INC.",
+   "tipo": "patrocinado nível I",
+   "pais": "United States",
+   "setor": "Industrials",
+   "industria": "Aerospace & Defense"
+  },
+  {
+   "ticker": "EVTC31",
+   "empresa": "EVERTEC INC",
+   "tipo": "patrocinado nível I",
+   "pais": "United States",
+   "setor": "Technology",
+   "industria": "Software - Infrastructure"
+  },
+  {
+   "ticker": "EXPB31",
+   "empresa": "EXPERIAN PLC",
+   "tipo": "patrocinado nível I",
+   "pais": "Ireland",
+   "setor": "Industrials",
+   "industria": "Consulting Services"
+  },
+  {
+   "ticker": "HMRN31",
+   "empresa": "HOMERUN RESOURCES INC",
+   "tipo": "patrocinado nível I",
+   "pais": "Canada",
+   "setor": null,
+   "industria": null
+  },
+  {
+   "ticker": "PRXB31",
+   "empresa": "PROSUS N.V.",
+   "tipo": "patrocinado nível I",
+   "pais": "Netherlands",
+   "setor": "Consumer Cyclical",
+   "industria": "Internet Retail"
+  },
+  {
+   "ticker": "XPBR31",
+   "empresa": "XP INC.",
+   "tipo": "patrocinado nível I",
+   "pais": "Cayman Islands",
+   "setor": "Financial Services",
+   "industria": "Capital Markets"
+  },
+  {
+   "ticker": "INBR32",
+   "empresa": "INTER CO INC",
+   "tipo": "patrocinado nível II",
+   "pais": "Brazil",
+   "setor": "Financial Services",
+   "industria": "Banks - Regional"
+  },
+  {
+   "ticker": "JBSS32",
+   "empresa": "JBS N.V.",
+   "tipo": "patrocinado nível II",
+   "pais": "Netherlands",
+   "setor": "Consumer Defensive",
+   "industria": "Packaged Foods"
+  },
+  {
+   "ticker": "AURA33",
+   "empresa": "AURA MINERALS INC.",
+   "tipo": "patrocinado nível III",
+   "pais": "United States",
+   "setor": "Basic Materials",
+   "industria": "Gold"
+  },
+  {
+   "ticker": "G2DI33",
+   "empresa": "G2D INVESTMENTS LTD",
+   "tipo": "patrocinado nível III",
+   "pais": "Bermuda",
+   "setor": "Financial Services",
+   "industria": "Asset Management"
+  },
+  {
+   "ticker": "PPLA35",
+   "empresa": "PPLA PARTICIPATIONS LTD.",
+   "tipo": "patrocinado nível III",
+   "pais": null,
+   "setor": null,
+   "industria": null
+  }
+ ]
+}

@@ -1,0 +1,41 @@
+name: Atualiza cotações
+
+on:
+  schedule:
+    # A cada 30 minutos, das 13h as 21h UTC, de segunda a sexta.
+    # O Brasil nao tem mais horario de verao, entao BRT = UTC-3 o ano todo:
+    # isso cobre das 10h as 18h de Brasilia, o pregao da B3 mais a margem.
+    - cron: '*/30 13-21 * * 1-5'
+  workflow_dispatch: {}
+
+# Duas execucoes simultaneas dariam conflito de push no mesmo arquivo.
+concurrency:
+  group: precos
+  cancel-in-progress: false
+
+jobs:
+  atualiza:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Buscar cotações
+        run: node scripts/atualiza-precos.js
+
+      - name: Commitar se mudou
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add precos.json
+          if git diff --staged --quiet; then
+            echo "Nenhuma mudança nos preços, nada a commitar."
+          else
+            git commit -m "cotações: $(date -u '+%Y-%m-%d %H:%M UTC')"
+            git push
+          fi

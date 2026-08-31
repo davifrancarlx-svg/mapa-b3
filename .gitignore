@@ -1,0 +1,6 @@
+# Configuração local do Claude Code (allowlist de permissões da sessão) — específica desta máquina
+.claude/settings.local.json
+
+# Lixo comum de SO
+.DS_Store
+Thumbs.db
