@@ -49,6 +49,7 @@ nav.prim button[aria-current="page"]{color:var(--tx);border-bottom-color:var(--a
 nav.prim button:focus-visible{outline:2px solid var(--am);outline-offset:-2px}
 .estado{font-family:var(--mo);font-size:11px;color:var(--tx3);display:flex;gap:14px;flex:0 1 auto;flex-wrap:wrap;min-width:0}
 .estado b{font-weight:500;color:var(--tx2)}
+.estado button{background:none;border:0;color:inherit;font:inherit;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
 
 .wrap{max-width:1340px;margin:0 auto;padding:26px 20px 64px}
 
@@ -145,6 +146,12 @@ select.ord{background:var(--sup);border:1px solid var(--line);border-radius:var(
   padding:7px 11px;font:inherit;font-size:12.5px;cursor:pointer}
 .btn:hover{border-color:var(--line2);color:var(--tx)}
 #btFiltros{display:none}
+.btn b{font-family:var(--mo);font-weight:500;color:var(--tx)}
+.fav{background:none;border:0;color:var(--tx3);font-size:17px;line-height:1;cursor:pointer;padding:2px 4px}
+.fav[aria-pressed="true"]{color:var(--am)}
+.only-mob{display:none}
+.sel{width:52px;text-align:center!important}
+.sel .cmp{background:none;border:0;color:var(--tx3);font-size:15px;line-height:1;cursor:pointer;padding:3px}.sel .cmp[aria-pressed="true"]{color:var(--am)}
 
 /* ---------- tabela comparativa ---------- */
 .tabw{overflow-x:auto}
@@ -177,6 +184,24 @@ table.tab .marc{display:inline-block;width:6px;height:6px;border-radius:1px;marg
 .est{font-size:11px;color:var(--tx3)}
 .est.viva{color:var(--tx2)}
 .expand{display:none}
+.spark{display:block;width:100%;height:72px;margin:8px 0 2px}
+.spark path{fill:none;stroke:var(--am);stroke-width:1.6;vector-effect:non-scaling-stroke}
+.spark .base{stroke:var(--line2);stroke-width:1;stroke-dasharray:3 3}
+.eventos{display:flex;flex-direction:column;gap:8px}
+.evento{display:grid;grid-template-columns:76px 1fr;gap:10px;font-size:12px}
+.evento time{font-family:var(--mo);color:var(--tx3)}
+.evento a{color:var(--tx2)}
+.cmpbar{position:fixed;left:50%;bottom:18px;z-index:65;transform:translateX(-50%);background:var(--sup2);border:1px solid var(--line2);padding:8px 10px;display:flex;align-items:center;gap:12px;box-shadow:0 12px 34px rgba(0,0,0,.5);font-size:12.5px}
+.cmpbar span{font-family:var(--mo)}
+.matrizCtl{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.matrizCtl label{font-size:11.5px;color:var(--tx3);display:flex;align-items:center;gap:6px}
+.matriz{border:1px solid var(--line);background:var(--sup);min-height:560px;position:relative}
+.matriz svg{display:block;width:100%;height:560px}
+.matriz line{stroke:var(--line2);stroke-width:1}.matriz line.med{stroke-dasharray:5 5;opacity:.7}.matriz circle{cursor:pointer;opacity:.72;stroke:var(--bg);stroke-width:1}.matriz circle:hover,.matriz circle:focus{opacity:1;stroke:var(--tx);stroke-width:2;outline:none}
+.matriz text{fill:var(--tx3);font:11px var(--mo)}
+.saude{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border-block:1px solid var(--line)}
+.saude div{background:var(--bg);padding:11px 13px}.saude b{display:block;font:500 17px var(--mo)}.saude span,.saude small{display:block;font-size:11.5px;color:var(--tx3)}.saude small{font-family:var(--mo);font-size:10px;margin-top:3px}
+.compare{width:100%;border-collapse:collapse;font-size:12px}.compare th,.compare td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:right}.compare th:first-child,.compare td:first-child{text-align:left}.compare thead th{font-family:var(--mo);color:var(--tx)}
 
 /* ---------- cards (modo alternativo) ---------- */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--line);
@@ -238,6 +263,7 @@ table.tab .marc{display:inline-block;width:6px;height:6px;border-radius:1px;marg
   border-left:1px solid var(--line2);z-index:80;transform:translateX(100%);
   transition:transform .22s cubic-bezier(.4,0,.2,1);overflow-y:auto;padding:20px 24px 44px}
 #drw.on{transform:none}
+#drw.wide{width:min(940px,100%)}
 #drw .x{position:absolute;top:13px;right:15px;background:none;border:1px solid var(--line2);
   color:var(--tx2);border-radius:var(--r);width:29px;height:29px;cursor:pointer;font-size:16px;line-height:1}
 #drw .x:hover{color:var(--tx);border-color:var(--tx3)}
@@ -288,11 +314,13 @@ footer p{margin:0;max-width:62ch;line-height:1.55}
 @media (max-width:760px){
   .wrap{padding:20px 14px 56px}
   #mapa{height:460px}
-  nav.prim{order:3;width:100%;border-top:1px solid var(--line);padding-top:2px;gap:0}
+  nav.prim{order:3;width:100%;border-top:1px solid var(--line);padding-top:2px;gap:0;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
   nav.prim button{font-size:12.5px;padding:7px 9px}
   .estado{font-size:10.5px;gap:10px;width:100%;order:2}
   table.tab thead th{top:0}
   table.tab .col-s{display:none}
+  table.tab .col-m{display:none}
+  table.tab .only-mob{display:block;max-width:145px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:var(--sans);font-weight:400}
   table.tab th,table.tab td{padding:7px 5px}
   table.tab .emp{max-width:150px}
   .expand{display:table-cell;width:26px;text-align:center}
@@ -305,6 +333,11 @@ footer p{margin:0;max-width:62ch;line-height:1.55}
   .retrato b{font-size:21px}
   .duo{grid-template-columns:1fr;gap:6px}
   .dist .l{grid-template-columns:minmax(0,1fr) 58px 52px}
+  .recs{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+  .recs .rec{flex:none}
+  .cmpbar{left:12px;right:12px;bottom:10px;transform:none;justify-content:space-between}
+  .matriz,.matriz svg{min-height:430px;height:430px}
+  .sel{width:46px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -324,6 +357,7 @@ footer p{margin:0;max-width:62ch;line-height:1.55}
       <span>base <b id="snapDate">14 de agosto de 2026</b></span>
       <span id="atz"></span>
       <span id="mtz"></span>
+      <button id="saudeBt" title="Cobertura e atualização das fontes">dados <b id="saudeTxt">—</b></button>
     </div>
   </div>
 </header>
@@ -456,9 +490,11 @@ footer p{margin:0;max-width:62ch;line-height:1.55}
             <input id="qBdr" type="search" placeholder="Ticker, empresa, país, setor" aria-label="Buscar BDRs">
           </label>
           <button class="btn" id="btFiltros2" data-abre-filtro>Filtros</button>
+          <button class="btn" id="soFav" aria-pressed="false">Acompanhando <b id="nFav">0</b></button>
           <div class="seg" role="group" aria-label="Modo de visualização">
             <button id="mTabela" aria-pressed="true">Tabela</button>
             <button id="mCards" aria-pressed="false">Cards</button>
+            <button id="mMatriz" aria-pressed="false">Matriz</button>
           </div>
           <button class="btn" id="csvBdr">CSV</button>
         </div>
@@ -467,6 +503,7 @@ footer p{margin:0;max-width:62ch;line-height:1.55}
 
       <div id="boxTabelaB"></div>
       <div id="boxCardsB" class="hide"></div>
+      <div id="boxMatrizB" class="hide"></div>
     </div>
   </div>
 </section>
@@ -479,7 +516,7 @@ footer p{margin:0;max-width:62ch;line-height:1.55}
 
 <footer>
   <div class="fl">
-    <p><b>Fontes:</b> B3 (relação de companhias e programas de BDR) e Yahoo Finance, não oficial, para cotações e perfis. Cotações com atraso de cerca de 15 minutos.</p>
+    <p><b>Fontes:</b> B3 e Banco B3 (listas e programas), CVM (documentos), Banco Central (PTAX) e Yahoo Finance, não oficial, para cotações, perfis e históricos. Cotações com atraso de cerca de 15 minutos.</p>
     <p>Nada aqui é recomendação de compra ou venda. <button class="lnk" data-sec="metodologia">Ver metodologia completa</button></p>
   </div>
 </footer>
@@ -488,6 +525,7 @@ footer p{margin:0;max-width:62ch;line-height:1.55}
 <div id="tip" role="status" aria-live="off"></div>
 <div id="dim"></div>
 <aside id="drw" role="dialog" aria-modal="true" aria-label="Ficha do ativo" tabindex="-1"></aside>
+<div class="cmpbar hide" id="cmpbar" role="status" aria-live="polite"><span><b id="nCmp">0</b> selecionados</span><button class="btn" id="abreCmp">Comparar</button><button class="lnk" id="limpaCmp">limpar</button></div>
 
 <script>
 const D = {
@@ -9592,9 +9630,13 @@ const st = {
   q:'', cats:new Set(), tags:new Set(), tagMode:'ou', sort:'vm', area:'val',
   qb:'', bdrPais:new Set(), bdrSetor:new Set(), bdrIndustria:new Set(),
   bdrLiq:'todas', bdrFreq:'todas', bdrHist:'todos',
-  bdrSort:'g20', bdrDir:'desc', recorte:null,
+  bdrSort:'g20', bdrDir:'desc', recorte:null, soFav:false,
+  matX:'g20', matY:'forca', ativo:null,
   buscaPais:'', buscaInd:'', buscaTag:''
 };
+
+let FAVORITOS = new Set(), COMPARAR = new Set();
+try { FAVORITOS = new Set(JSON.parse(localStorage.getItem('mapaB3Favoritos') || '[]')); } catch {}
 
 const norm = s => (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
 E.forEach(e => e._s = norm([e.cod,e.nome,e.pregao,e.tickers,e.macroL,e.seg,e.tagsL.join(' '),e.desc].join(' ')));
@@ -9610,6 +9652,7 @@ const brl = v => {
 
 /* ---------- cotacoes ---------- */
 let PRECOS = {}, PRECO_TS = '', METRICAS = {}, METRICA_TS = '', PARES_INDUSTRIA = {};
+let ANALISE = {}, METRICAS_EMP = {}, EVENTOS = {}, SAUDE = null, URL_ATIVA = false;
 
 const fmtPreco = p => 'R$ ' + p.toFixed(2).replace('.',',');
 
@@ -9637,6 +9680,8 @@ const fmtGiro = v => {
   return 'R$ ' + v.toLocaleString('pt-BR');
 };
 const met = t => METRICAS[t] || null;
+const ana = t => ANALISE[t] || null;
+const metEmp = cod => METRICAS_EMP[cod] || null;
 const paresIndustria = b => PARES_INDUSTRIA[b.industria] ?? (PARES_INDUSTRIA[b.industria] = BDR.filter(x => x.industria === b.industria && typeof met(x.ticker)?.r63 === 'number').length);
 const forcaBDR = b => {
   const m = met(b.ticker), n = paresIndustria(b);
@@ -9644,6 +9689,13 @@ const forcaBDR = b => {
 };
 const negociouHoje = r => !!(r && r.vol > 0 && r.t && new Date(r.t*1000).toDateString() === new Date().toDateString());
 const dataNegocio = r => r?.t ? new Date(r.t*1000).toLocaleString('pt-BR', {day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'}) : '—';
+const spark = valores => {
+  if(!valores || valores.length < 2) return '';
+  const w=360,h=72,min=Math.min(...valores),max=Math.max(...valores),faixa=max-min||1;
+  const pts=valores.map((v,i)=>[(i/(valores.length-1)*w).toFixed(1),(h-4-(v-min)/faixa*(h-8)).toFixed(1)]);
+  const d=pts.map((p,i)=>(i?'L':'M')+p.join(' ')).join(' '),base=(h-4-(100-min)/faixa*(h-8)).toFixed(1);
+  return `<svg class="spark" viewBox="0 0 ${w} ${h}" role="img" aria-label="Evolução normalizada em 12 meses"><path class="base" d="M0 ${base} L${w} ${base}"></path><path d="${d}"></path></svg>`;
+};
 
 /* Empresas com varias classes: a referencia e a de maior volume no dia,
    decidido pelo dado da API e nao por convencao de sufixo (3/4/11). */
@@ -9864,6 +9916,7 @@ function aplicaRecorte(k){
 
 function filtraBDR(){
   let r = BDR;
+  if(st.soFav) r = r.filter(b => FAVORITOS.has(b.ticker));
   if(st.qb){ const q = norm(st.qb); r = r.filter(b => b._s.includes(q)); }
   if(st.bdrPais.size) r = r.filter(b => st.bdrPais.has(b.pais));
   if(st.bdrSetor.size) r = r.filter(b => st.bdrSetor.has(b.setor));
@@ -9961,54 +10014,58 @@ function chipsBDR(){
 /* ---------- tabela comparativa ---------- */
 const COLS = [
   {k:'ticker',  rot:'Ticker'},
-  {k:'empresa', rot:'Empresa'},
+  {k:'empresa', rot:'Empresa', mob:true},
   {k:'pais',    rot:'País', sec:true},
   {k:'preco',   rot:'Último preço', n:true},
   {k:'estado',  rot:'Negociação', sec:true},
-  {k:'r21',     rot:'1 mês', n:true},
-  {k:'r63',     rot:'3 meses', n:true},
+  {k:'r21',     rot:'1 mês', n:true, mob:true},
+  {k:'r63',     rot:'3 meses', n:true, mob:true},
   {k:'r252',    rot:'12 meses', n:true, sec:true},
   {k:'forca',   rot:'Força rel.', n:true, sec:true},
-  {k:'g20',     rot:'Giro médio', n:true},
+  {k:'g20',     rot:'Giro médio', n:true, mob:true},
   {k:'d20',     rot:'Pregões', n:true, sec:true}
 ];
+
+function detalheLinhaBDR(ticker){
+  const b=BDR.find(x=>x.ticker===ticker),m=met(ticker),a=ana(ticker);
+  if(!m) return '<span>Histórico</span><span>insuficiente</span>';
+  return `<span>1 mês</span><span>${fmtRet(m.r21)}</span><span>3 meses</span><span>${fmtRet(m.r63)}</span>
+    <span>12 meses</span><span>${fmtRet(m.r252)}</span><span>Vs. setor 3m</span><span>${fmtPp(m.rs63)}</span>
+    <span>Percentil no setor</span><span>${a?.pSetor63 ?? '—'}</span><span>Giro médio</span><span>${fmtGiro(m.g20)}</span>
+    <span>Pregões com negócio</span><span>${m.d20} de 20</span><span>Volatilidade 21d</span><span>${typeof m.v21==='number'?m.v21.toFixed(1).replace('.',',')+'%':'—'}</span>`;
+}
 
 function tabelaBDR(list){
   if(!list.length) return '<p class="nota" style="padding-top:16px">Nenhum BDR neste recorte. Ajuste os filtros ou limpe tudo.</p>';
   const th = COLS.map(c => {
     const ativo = st.bdrSort === c.k;
     const seta = ativo ? (st.bdrDir === 'asc' ? '▲' : '▼') : '';
-    return `<th class="${c.n?'n ':''}${c.sec?'col-s':''}"${ativo?` aria-sort="${st.bdrDir==='asc'?'ascending':'descending'}"`:''}>
+    return `<th class="${c.n?'n ':''}${c.sec?'col-s ':''}${c.mob?'col-m':''}"${ativo?` aria-sort="${st.bdrDir==='asc'?'ascending':'descending'}"`:''}>
       <button data-col="${c.k}">${c.rot}<span class="s">${seta}</span></button></th>`;
   }).join('');
   const linhas = list.map(b => {
     const r = cot(b.ticker), m = met(b.ticker), f = forcaBDR(b);
     const viva = negociouHoje(r);
     const preco = r ? (viva ? fmtPreco(r.p) : fmtPreco(r.p)) : '<span class="na">—</span>';
-    const det = m ? `<span>Vs. setor 3m</span><span>${fmtPp(m.rs63)}</span>
-        <span>12 meses</span><span>${fmtRet(m.r252)}</span>
-        <span>Pregões com negócio</span><span>${m.d20} de 20</span>
-        <span>Volatilidade 21d</span><span>${typeof m.v21==='number'?m.v21.toFixed(1).replace('.',',')+'%':'—'}</span>`
-      : '<span>Histórico</span><span>insuficiente</span>';
     return `<tr tabindex="0" data-tk="${b.ticker}">
-      <td class="tk"><span class="marc" style="background:${corSetor(b.setor)}"></span>${b.ticker}</td>
-      <td><span class="emp">${esc(b.empresa)}</span><span class="sub">${esc(setorPT(b.setor)||'')} · ${esc(industriaPT(b.industria)||'')}</span></td>
+      <td class="sel"><button class="fav" data-fav="${b.ticker}" aria-pressed="${FAVORITOS.has(b.ticker)}" aria-label="${FAVORITOS.has(b.ticker)?'Remover':'Adicionar'} ${b.ticker} do acompanhamento">${FAVORITOS.has(b.ticker)?'★':'☆'}</button><button class="cmp" data-cmp="${b.ticker}" aria-pressed="${COMPARAR.has(b.ticker)}" aria-label="${COMPARAR.has(b.ticker)?'Remover':'Selecionar'} ${b.ticker} ${COMPARAR.has(b.ticker)?'da':'para'} comparação">${COMPARAR.has(b.ticker)?'▣':'□'}</button></td>
+      <td class="tk"><span class="marc" style="background:${corSetor(b.setor)}"></span>${b.ticker}<span class="sub only-mob">${esc(b.empresa)}</span></td>
+      <td class="col-m"><span class="emp">${esc(b.empresa)}</span><span class="sub">${esc(setorPT(b.setor)||'')} · ${esc(industriaPT(b.industria)||'')}</span></td>
       <td class="col-s">${esc(paisPT(b.pais)||'—')}</td>
       <td class="n">${preco}</td>
       <td class="col-s"><span class="est${viva?' viva':''}">${viva?'hoje':(r?'último':'—')}</span></td>
-      <td class="n">${m?fmtRet(m.r21):'<span class="na">—</span>'}</td>
-      <td class="n">${m?fmtRet(m.r63):'<span class="na">—</span>'}</td>
+      <td class="n col-m">${m?fmtRet(m.r21):'<span class="na">—</span>'}</td>
+      <td class="n col-m">${m?fmtRet(m.r63):'<span class="na">—</span>'}</td>
       <td class="n col-s">${m?fmtRet(m.r252):'<span class="na">—</span>'}</td>
       <td class="n col-s">${m?fmtPp(f.v):'<span class="na">—</span>'}</td>
-      <td class="n">${m?fmtGiro(m.g20):'<span class="na">—</span>'}</td>
+      <td class="n col-m">${m?fmtGiro(m.g20):'<span class="na">—</span>'}</td>
       <td class="n col-s">${m?m.d20+'/20':'<span class="na">—</span>'}</td>
       <td class="expand"><button aria-expanded="false" aria-label="Mais indicadores de ${b.ticker}">▾</button></td>
-    </tr>
-    <tr class="det hide"><td colspan="12"><div class="dl">${det}</div></td></tr>`;
+    </tr>`;
   }).join('');
   return `<div class="tabw"><table class="tab">
     <caption class="sr">BDRs no recorte atual, com preço, retornos, força relativa e liquidez</caption>
-    <thead><tr>${th}<th class="expand"><span class="sr">Detalhes</span></th></tr></thead>
+    <thead><tr><th class="sel"><span class="sr">Acompanhar e comparar</span></th>${th}<th class="expand"><span class="sr">Detalhes</span></th></tr></thead>
     <tbody>${linhas}</tbody></table></div>`;
 }
 
@@ -10028,6 +10085,27 @@ function cardsBDR(list){
       <div class="ds">${esc(industriaPT(b.industria)||'')}</div>${sinais}
       <div class="tg"><span>${b.tipo}</span></div></button>`;
   }).join('') + '</div>';
+}
+
+const EIXOS = {
+  g20:{rot:'Giro médio (log)',v:b=>{const x=met(b.ticker)?.g20;return x>0?Math.log10(x):null;}},
+  r63:{rot:'Retorno em 3 meses',v:b=>met(b.ticker)?.r63},
+  r252:{rot:'Retorno em 12 meses',v:b=>met(b.ticker)?.r252},
+  forca:{rot:'Força relativa em 3 meses',v:b=>forcaBDR(b).v},
+  dd252:{rot:'Distância da máxima',v:b=>met(b.ticker)?.dd252},
+  v21:{rot:'Volatilidade anualizada',v:b=>met(b.ticker)?.v21}
+};
+function matrizBDR(list){
+  const ex=EIXOS[st.matX],ey=EIXOS[st.matY],pontos=list.map(b=>({b,x:ex.v(b),y:ey.v(b)})).filter(p=>typeof p.x==='number'&&typeof p.y==='number');
+  if(!pontos.length)return '<p class="nota">Sem dados suficientes para estes eixos.</p>';
+  const xs=pontos.map(p=>p.x),ys=pontos.map(p=>p.y),xmin=Math.min(...xs),xmax=Math.max(...xs),ymin=Math.min(...ys),ymax=Math.max(...ys),w=1000,h=560,p=42;
+  const sx=x=>p+(x-xmin)/(xmax-xmin||1)*(w-p*2),sy=y=>h-p-(y-ymin)/(ymax-ymin||1)*(h-p*2);
+  const med=a=>[...a].sort((x,y)=>x-y)[Math.floor(a.length/2)],mx=med(xs),my=med(ys),rot=(k,v)=>k==='g20'?fmtGiro(10**v):(v.toFixed(1).replace('.',',')+'%');
+  const opts=atual=>Object.entries(EIXOS).map(([k,e])=>`<option value="${k}"${k===atual?' selected':''}>${e.rot}</option>`).join('');
+  const cs=pontos.map(o=>`<circle data-tk="${o.b.ticker}" tabindex="0" role="button" aria-label="Abrir ${o.b.ticker}, ${esc(o.b.empresa)}" cx="${sx(o.x).toFixed(1)}" cy="${sy(o.y).toFixed(1)}" r="${Math.max(3,Math.min(8,3+Math.log10((met(o.b.ticker)?.g20||1)+1)/2)).toFixed(1)}" fill="${corSetor(o.b.setor)}"><title>${o.b.ticker} · ${esc(o.b.empresa)}</title></circle>`).join('');
+  return `<div class="matrizCtl"><label>Eixo horizontal <select class="ord" data-mat="x">${opts(st.matX)}</select></label><label>Eixo vertical <select class="ord" data-mat="y">${opts(st.matY)}</select></label></div>
+    <p class="nota">Cada ponto é um BDR; cor indica setor e tamanho aproxima o giro médio. Passe o cursor ou clique para abrir a ficha.</p>
+    <div class="matriz"><svg viewBox="0 0 ${w} ${h}" role="img" aria-label="Matriz de exploração de BDRs"><line x1="${p}" y1="${h-p}" x2="${w-p}" y2="${h-p}"/><line x1="${p}" y1="${p}" x2="${p}" y2="${h-p}"/><line class="med" x1="${sx(mx)}" y1="${p}" x2="${sx(mx)}" y2="${h-p}"/><line class="med" x1="${p}" y1="${sy(my)}" x2="${w-p}" y2="${sy(my)}"/><text x="${p}" y="${h-26}">${rot(st.matX,xmin)}</text><text x="${w-p}" y="${h-26}" text-anchor="end">${rot(st.matX,xmax)}</text><text x="${p+5}" y="${p+14}">${rot(st.matY,ymax)}</text><text x="${p+5}" y="${h-p-7}">${rot(st.matY,ymin)}</text><text x="${w/2}" y="${h-8}" text-anchor="middle">${ex.rot}</text><text x="12" y="${h/2}" transform="rotate(-90 12 ${h/2})" text-anchor="middle">${ey.rot}</text>${cs}</svg></div>`;
 }
 
 function tabelaEmpresas(list){
@@ -10152,6 +10230,7 @@ function geralHTML(){
   const bdrMet = BDR.filter(b => met(b.ticker)).length;
   const vmTotal = E.reduce((a,e)=>a+e.vm,0);
   const semNeg = E.filter(e => e.tagsL.includes('Sem negociação')).length;
+  const saude = SAUDE?.fontes;
 
   const paises = contaPor('pais', paisPT), setores = contaPor('setor', setorPT);
   const corPorSetorPT = k => {
@@ -10196,6 +10275,7 @@ function geralHTML(){
   </div>
   <p class="nota">Cotações de ${PRECO_TS || '—'} · métricas de ${METRICA_TS || '—'} · base de companhias de ${SNAPSHOT.label}.
   ${bdrPreco} dos ${BDR.length || 0} BDRs têm preço; ${semNeg} das ${E.length} empresas não têm negociação relevante.</p>
+  ${saude ? `<h3 class="sub">Saúde das fontes</h3><div class="saude"><div><b>${saude.precos.cobertura}%</b><span>cobertura de preços</span></div><div><b>${saude.metricasBdr.cobertura}%</b><span>histórico de BDRs</span></div><div><b>${saude.metricasEmpresas.cobertura}%</b><span>histórico de empresas</span></div><div><b>${saude.analise.cobertura}%</b><span>ativo lastro resolvido</span></div></div><p style="margin:8px 0 0"><button class="lnk" id="saudeGeral">Ver diagnóstico completo →</button></p>` : ''}
 
   <h2 class="sec">Empresas brasileiras</h2>
   <p class="nota">369 companhias com ações registradas, organizadas em 19 categorias temáticas escritas à mão — a leitura é sobre onde a empresa ganha dinheiro, não sobre a classificação oficial da B3.</p>
@@ -10226,6 +10306,8 @@ function geralHTML(){
 /* ---------- radar ---------- */
 function radarHTML(){
   const semNeg = E.filter(e => e.tagsL.includes('Sem negociação')).sort((a,b)=>(b.ano||0)-(a.ano||0));
+  const recentes = Object.entries(EVENTOS).flatMap(([cod,itens]) => itens.map(x => ({...x,cod,e:E.find(v=>v.cod===cod)})))
+    .filter(x=>x.e).sort((a,b)=>b.dt.localeCompare(a.dt)).slice(0,16);
   const grp = s => '<div class="grid">' + D.pipeline.filter(p=>p.s===s).map(p=>`
     <div class="card" style="border-left-color:${CORES[p.c]};cursor:default">
       <span class="top"><span class="nm">${esc(p.n)}</span></span>
@@ -10237,6 +10319,7 @@ function radarHTML(){
     <h3>Nenhuma empresa tem data de estreia confirmada hoje</h3>
     <p>A Compass, do grupo Cosan, quebrou o jejum em 11 de maio de 2026, estreando no Novo Mercado sob o código PASS3 a R$ 28 por ação e captando R$ 2,825 bilhões. Desde então nenhuma outra oferta inicial foi precificada. A B3 fala em mais de 50 companhias já registradas na CVM e prontas do ponto de vista regulatório, mas o calendário eleitoral de outubro de 2026 empurrou a maioria dos planos para adiante.</p>
   </div>
+  ${recentes.length ? `<h2 class="sec">Documentos recentes na CVM</h2><p class="nota">Fatos relevantes, comunicados, avisos e calendários entregues oficialmente. Os links abrem o documento original, sem resumo automático.</p><div class="eventos">${recentes.map(x=>`<div class="evento"><time>${x.dt.split('-').reverse().join('/')}</time><span><button class="lnk" data-cod="${x.cod}">${esc(x.e.pregao)}</button> · <a href="${x.url}" target="_blank" rel="noopener noreferrer">${esc(x.categoria)}${x.assunto?' · '+esc(x.assunto):''}</a></span></div>`).join('')}</div>` : ''}
   <h2 class="sec">Pedido protocolado na CVM</h2>${grp('protocolo')}
   <h2 class="sec">No radar do mercado, sem protocolo público</h2>${grp('radar')}
   <h2 class="sec">Registradas na B3, sem negociação relevante · ${semNeg.length}</h2>
@@ -10267,6 +10350,17 @@ function metodologiaHTML(){
   <p>Calculadas a partir de até dois anos de preços diários <b>ajustados</b> (proventos e desdobramentos considerados). Os períodos de 1, 3 e 12 meses correspondem a <b>21, 63 e 252 pregões</b>, não a meses de calendário. Volatilidade é o desvio-padrão dos retornos diários das últimas 21 sessões, anualizado. Distância da máxima usa a máxima de 252 pregões.</p>
   <p>Histórico insuficiente fica explicitamente sem dado, nunca preenchido com zero ou estimativa.</p>
 
+  <h2>Paridade e decomposição do BDR</h2>
+  <p>A relação entre BDRs e ações do ativo-lastro vem dos <b>descritivos operacionais oficiais do Banco B3</b>. A paridade indicativa multiplica o preço do ativo no exterior pela cotação de venda PTAX mais recente e pela quantidade de ações representada por cada BDR. O desvio compara essa referência com a última cotação disponível do recibo.</p>
+  <p>Paridade <b>não é preço justo</b>. Bolsas fecham em horários diferentes e há diferenças de liquidez, formação de mercado, custos, impostos e defasagem entre fontes. A decomposição histórica separa o retorno do ativo-lastro e o efeito cambial; o residual reúne justamente essas diferenças e eventuais descasamentos de dados.</p>
+
+  <h2>Métricas das empresas brasileiras</h2>
+  <p>Usam a classe de ação com histórico recente mais líquido entre os códigos disponíveis. Retornos, volatilidade, distância da máxima e giro seguem a mesma metodologia aplicada aos BDRs. A comparação relativa usa a mediana da categoria temática ou do segmento oficial, conforme indicado na ficha.</p>
+
+  <h2>Percentis, matriz e acompanhamento</h2>
+  <p>Percentil indica a posição do retorno de 63 pregões dentro do setor ou da indústria: 80 significa que o ativo ficou acima ou igual a 80% dos pares com dado, não que seja melhor investimento. A matriz apenas cruza dois indicadores selecionados e respeita todos os filtros ativos.</p>
+  <p>A lista de acompanhamento e a seleção do comparador ficam somente neste navegador, em armazenamento local. Filtros, ordenação, modo de visualização e ficha aberta ficam na URL, permitindo compartilhar o mesmo recorte sem transmitir a lista pessoal.</p>
+
   <h2>Força relativa</h2>
   <p>É a diferença, <b>em pontos percentuais</b>, entre o retorno do ativo e a <b>mediana</b> do seu grupo no mesmo período. O grupo padrão é a indústria; quando a indústria tem menos de três BDRs com histórico, a comparação usa o setor, e a ficha informa o tamanho da amostra. É uma ferramenta de comparação relativa, não um julgamento de qualidade.</p>
 
@@ -10274,10 +10368,15 @@ function metodologiaHTML(){
   <p>Giro médio é a média de preço × volume nos últimos 20 ou 60 pregões, e <b>inclui as sessões sem negócio</b> — o que puxa a média para baixo de propósito, para não superestimar a liquidez de recibos pouco negociados. Frequência de negociação conta em quantos dos últimos 20 pregões houve negócio.</p>
   <p>Todos os recortes de exploração aplicam um piso de liquidez explícito. Sem ele, qualquer ranking de retorno é dominado por papéis que negociaram uma única vez no período, com preço que não representa mercado.</p>
 
+  <h2>Eventos corporativos e saúde dos dados</h2>
+  <p>Fatos relevantes, comunicados, avisos aos acionistas e calendários vêm do conjunto IPE oficial da CVM. O site mostra título, categoria, data e link do documento original, sem criar resumo automático. O painel de saúde informa data, cobertura e alertas de cada base; ausência de alerta não garante exatidão da fonte externa.</p>
+
   <h2>Limitações e periodicidade</h2>
   <ul>
     <li>Preços: atualizados a cada 30 minutos durante o pregão, com atraso de ~15 minutos.</li>
     <li>Métricas históricas: recalculadas uma vez por dia, após o fechamento.</li>
+    <li>Eventos da CVM: consultados diariamente em dias úteis.</li>
+    <li>Paridade: combina fontes com horários de referência distintos e deve ser lida como aproximação.</li>
     <li>Lista de BDRs e base de empresas: atualizadas manualmente, com frequência baixa.</li>
     <li>A fonte de cotações é uma API não documentada e pode mudar ou sair do ar sem aviso.</li>
     <li>Desempenho passado não garante resultado futuro.</li>
@@ -10311,9 +10410,12 @@ function cotacoesHTML(e){
 let lastFocus = null;
 function abre(cod){
   const e = E.find(x => x.cod === cod); if(!e) return;
+  const m = metEmp(cod), eventos = EVENTOS[cod] || [];
   const cn = e.cnpj && e.cnpj.length > 5
     ? String(e.cnpj).padStart(14,'0').replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/,'$1.$2.$3/$4-$5') : '-';
   lastFocus = document.activeElement;
+  st.ativo=cod;if(URL_ATIVA)sincronizaURL();
+  drw.classList.remove('wide');
   drw.innerHTML = `
     <button class="x" aria-label="Fechar ficha">×</button>
     <span class="pill" style="background:${e.cor};color:${txOn(e.cor)}">${e.macroL}</span>
@@ -10330,6 +10432,12 @@ function abre(cod){
     </dl>
     <div class="dsc">${e.desc}</div>
     ${cotacoesHTML(e)}
+    ${m ? `<div class="bloco"><h3>Desempenho e negociabilidade</h3><dl class="kv">
+      <dt>1 mês</dt><dd>${fmtRet(m.r21)}</dd><dt>3 meses</dt><dd>${fmtRet(m.r63)}</dd><dt>12 meses</dt><dd>${fmtRet(m.r252)}</dd>
+      <dt>Vs. categoria · 3m</dt><dd>${fmtPp(m.rc63)}</dd><dt>Vs. segmento · 3m</dt><dd>${fmtPp(m.rg63)}</dd>
+      <dt>Giro médio · 20d</dt><dd>${fmtGiro(m.g20)}</dd><dt>Pregões com negócio</dt><dd>${m.d20}/20</dd><dt>Volatilidade · 21d</dt><dd>${typeof m.v21==='number'?m.v21.toFixed(1).replace('.',',')+'%':'—'}</dd>
+    </dl>${spark(m.sp)}<p class="fnt">Série ajustada do Yahoo Finance, fonte não oficial. Métricas até ${m.dt.split('-').reverse().join('/')}.</p></div>` : ''}
+    ${eventos.length ? `<div class="bloco"><h3>Documentos recentes na CVM</h3><div class="eventos">${eventos.slice(0,5).map(x=>`<div class="evento"><time>${x.dt.split('-').reverse().join('/')}</time><a href="${x.url}" target="_blank" rel="noopener noreferrer">${esc(x.categoria)}${x.assunto?' · '+esc(x.assunto):''}</a></div>`).join('')}</div><p class="fnt">Links oficiais; o projeto não resume nem interpreta o conteúdo regulatório.</p></div>` : ''}
     <div class="tg" style="margin-top:15px">${e.tagsL.map(t=>`<span>${t}</span>`).join('')}</div>`;
   drw.classList.add('on');
   dim.classList.add('on');
@@ -10341,7 +10449,7 @@ function abre(cod){
 /* ---------- ficha do BDR, em blocos ---------- */
 function abreBDR(ticker){
   const b = BDR.find(x => x.ticker === ticker); if(!b) return;
-  const r = cot(ticker), m = met(ticker), corS = corSetor(b.setor);
+  const r = cot(ticker), m = met(ticker), a = ana(ticker), corS = corSetor(b.setor);
   const fonte = fontePerfilBDR(b), pares = paresIndustria(b);
   const l = (rot, valor, txt) => `<dt>${rot}</dt><dd${txt?' class="tx"':''}>${valor}</dd>`;
   const viva = negociouHoje(r);
@@ -10359,7 +10467,26 @@ function abreBDR(ticker){
       ${l('1 mês · 21 pregões', fmtRet(m.r21))}
       ${l('3 meses · 63 pregões', fmtRet(m.r63))}
       ${l('12 meses · 252 pregões', fmtRet(m.r252))}
-    </dl>` : '<p class="fnt">Histórico insuficiente para calcular retornos.</p>';
+    </dl>${spark(m.sp)}` : '<p class="fnt">Histórico insuficiente para calcular retornos.</p>';
+
+  const paridade = a?.paridade ? `<dl class="kv">
+      ${l('Ativo no exterior', `${esc(a.simbolo)} · ${esc(a.moeda||'')}`, true)}
+      ${l('Preço do ativo', typeof a.precoAtivo==='number'?a.precoAtivo.toLocaleString('pt-BR',{maximumFractionDigits:4}):'—')}
+      ${l('Relação do programa', `${a.bdrs} BDR${a.bdrs===1?'':'s'} : ${a.acoes} ${a.acoes===1?'ação':'ações'}`, true)}
+      ${l('Câmbio PTAX', typeof a.cambio==='number'?a.cambio.toFixed(4).replace('.',','):'—')}
+      ${l('Paridade indicativa', fmtPreco(a.paridade))}
+      ${l('Desvio observado', fmtRet(a.desvio))}
+    </dl><p class="fnt">${a.stale?'<b>O último histórico válido foi preservado após falha na atualização. </b>':''}Horários, liquidez, custos e tributos podem explicar diferenças. Não é preço justo nem arbitragem executável. <a href="${a.fontePrograma}" target="_blank" rel="noopener noreferrer">Documento oficial do programa</a>.</p>` : '';
+
+  const decomposicao = a ? `<dl class="kv">
+      ${l('BDR em reais · 3m', fmtRet(m?.r63))}
+      ${l('Ativo subjacente · 3m', fmtRet(a.u63))}
+      ${l('Efeito cambial · 3m', fmtRet(a.c63))}
+      ${l('Combinado teórico · 3m', fmtRet(a.e63))}
+      ${l('Diferença residual · 3m', fmtRet(a.res63))}
+      ${l('Percentil na indústria', a.pIndustria63 ?? '—')}
+      ${l('Percentil no setor', a.pSetor63 ?? '—')}
+    </dl><p class="fnt">A diferença residual inclui desencontro de horários e baixa liquidez do recibo.</p>` : '';
 
   const comparacao = m ? `<dl class="kv">
       ${l('Vs. indústria · 3m', pares >= 3 ? fmtPp(m.ri63) : '<span class="na">amostra pequena</span>')}
@@ -10378,11 +10505,14 @@ function abreBDR(ticker){
     </dl>` : '';
 
   lastFocus = document.activeElement;
+  st.ativo=ticker;if(URL_ATIVA)sincronizaURL();
+  drw.classList.remove('wide');
   drw.innerHTML = `
     <button class="x" aria-label="Fechar ficha">×</button>
     <span class="selo" style="background:${corS};color:${txOn(corS)}">BDR · ${b.tipo}</span>
     <h2>${ticker}</h2>
     <div class="rz">${esc(b.empresa)}</div>
+    <p style="display:flex;gap:7px;margin:10px 0 0"><button class="btn" data-fav="${ticker}" aria-pressed="${FAVORITOS.has(ticker)}">${FAVORITOS.has(ticker)?'★ Acompanhando':'☆ Acompanhar'}</button><button class="btn" data-cmpadd="${ticker}">${COMPARAR.has(ticker)?'Remover da comparação':'Adicionar à comparação'}</button></p>
     <div class="bloco"><h3>Identificação</h3><dl class="kv">
       ${l('País', esc(paisPT(b.pais) || '—'), true)}
       ${l('Setor', esc(setorPT(b.setor) || '—'), true)}
@@ -10392,6 +10522,8 @@ function abreBDR(ticker){
     <div class="bloco"><h3>Cotação</h3>${cotacao}
       <p class="fnt">Yahoo Finance, atraso de ~15 min.${PRECO_TS ? ' Consultada em ' + PRECO_TS + '.' : ''}</p></div>
     <div class="bloco"><h3>Desempenho</h3>${desempenho}</div>
+    ${paridade ? `<div class="bloco"><h3>Ativo lastro e paridade</h3>${paridade}</div>` : ''}
+    ${decomposicao ? `<div class="bloco"><h3>Decomposição e posição no grupo</h3>${decomposicao}</div>` : ''}
     ${comparacao ? `<div class="bloco"><h3>Comparação com o grupo</h3>${comparacao}</div>` : ''}
     ${risco ? `<div class="bloco"><h3>Negociabilidade e risco</h3>${risco}
       <p class="fnt">Giro médio inclui sessões sem negócio.${m.dt ? ' Métricas até ' + m.dt.split('-').reverse().join('/') + '.' : ''}</p></div>` : ''}
@@ -10404,6 +10536,26 @@ function abreBDR(ticker){
   drw.classList.add('on'); dim.classList.add('on'); wrap.inert = true;
   drw.querySelector('.x').onclick = fecha;
   drw.focus();
+}
+
+function abreComparacao(){
+  const itens=[...COMPARAR].map(t=>BDR.find(b=>b.ticker===t)).filter(Boolean);if(itens.length<2)return;
+  lastFocus=document.activeElement;drw.classList.add('wide');
+  const linha=(rot,fn)=>`<tr><td>${rot}</td>${itens.map(b=>`<td>${fn(b)}</td>`).join('')}</tr>`;
+  drw.innerHTML=`<button class="x" aria-label="Fechar comparação">×</button><h2>Comparação</h2><p class="rz">Indicadores separados, sem nota composta. Ausência de dado permanece explícita.</p>
+    <div style="overflow-x:auto"><table class="compare"><thead><tr><th>Indicador</th>${itens.map(b=>`<th>${b.ticker}<br><span class="na">${esc(b.empresa)}</span></th>`).join('')}</tr></thead><tbody>
+    ${linha('Preço',b=>cot(b.ticker)?fmtPreco(cot(b.ticker).p):'—')}${linha('1 mês',b=>fmtRet(met(b.ticker)?.r21))}${linha('3 meses',b=>fmtRet(met(b.ticker)?.r63))}${linha('12 meses',b=>fmtRet(met(b.ticker)?.r252))}
+    ${linha('Força relativa',b=>fmtPp(forcaBDR(b).v))}${linha('Percentil no setor',b=>ana(b.ticker)?.pSetor63??'—')}${linha('Giro médio',b=>fmtGiro(met(b.ticker)?.g20))}${linha('Pregões',b=>met(b.ticker)?met(b.ticker).d20+'/20':'—')}
+    ${linha('Volatilidade',b=>typeof met(b.ticker)?.v21==='number'?met(b.ticker).v21.toFixed(1).replace('.',',')+'%':'—')}${linha('Paridade indicativa',b=>ana(b.ticker)?.paridade?fmtPreco(ana(b.ticker).paridade):'—')}${linha('Desvio da paridade',b=>fmtRet(ana(b.ticker)?.desvio))}
+    </tbody></table></div><div class="bloco"><h3>Evolução normalizada em 12 meses</h3>${itens.map(b=>`<p class="fnt"><b>${b.ticker}</b></p>${spark(met(b.ticker)?.sp)}`).join('')}</div>`;
+  drw.classList.add('on');dim.classList.add('on');wrap.inert=true;drw.querySelector('.x').onclick=fecha;drw.focus();
+}
+
+function abreSaude(){
+  lastFocus=document.activeElement;drw.classList.remove('wide');const f=SAUDE?.fontes||{};
+  const item=(rot,x)=>`<div><b>${x?.cobertura===null?'—':(x?.cobertura??0)+'%'}</b><span>${rot} · ${x?.registros??0} registros</span><small>${x?.atualizadoEm?new Date(x.atualizadoEm).toLocaleString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'}):'sem data de atualização'}</small></div>`;
+  drw.innerHTML=`<button class="x" aria-label="Fechar saúde dos dados">×</button><h2>Saúde dos dados</h2><p class="rz">Cobertura, atualização e limites automáticos das fontes.</p><div class="saude">${item('Preços',f.precos)}${item('BDRs',f.bdrs)}${item('Histórico BDR',f.metricasBdr)}${item('Histórico empresas',f.metricasEmpresas)}${item('Ativo lastro',f.analise)}${item('Eventos CVM',f.eventos)}</div><div class="bloco"><h3>Estado</h3><p class="fnt">${SAUDE?.avisos?.length?SAUDE.avisos.map(esc).join('<br>'):'Todas as coberturas estão dentro dos limites definidos.'}</p></div>`;
+  drw.classList.add('on');dim.classList.add('on');wrap.inert=true;drw.querySelector('.x').onclick=fecha;drw.focus();
 }
 
 /* ---------- tooltip do mosaico ---------- */
@@ -10424,6 +10576,25 @@ mapa.addEventListener('mousemove', ev => {
 mapa.addEventListener('mouseleave', () => tip.style.opacity = 0);
 
 /* ---------- navegacao entre secoes ---------- */
+function sincronizaURL(){
+  const p=new URLSearchParams();p.set('sec',st.sec);
+  if(st.sec==='bdrs'){
+    if(st.modoBdr!=='tabela')p.set('modo',st.modoBdr);if(st.qb)p.set('q',st.qb);
+    if(st.bdrPais.size)p.set('pais',[...st.bdrPais].join(','));if(st.bdrSetor.size)p.set('setor',[...st.bdrSetor].join(','));if(st.bdrIndustria.size)p.set('industria',[...st.bdrIndustria].join(','));
+    if(st.bdrLiq!=='todas')p.set('liq',st.bdrLiq);if(st.bdrFreq!=='todas')p.set('freq',st.bdrFreq);if(st.bdrHist!=='todos')p.set('hist',st.bdrHist);
+    if(st.bdrSort!=='g20')p.set('ord',st.bdrSort);if(st.bdrDir!=='desc')p.set('dir',st.bdrDir);if(st.recorte)p.set('recorte',st.recorte);if(st.soFav)p.set('acompanhando','1');
+  } else if(st.sec==='empresas'){if(st.modoEmp!=='mosaico')p.set('modo',st.modoEmp);if(st.q)p.set('q',st.q);if(st.cats.size)p.set('categoria',[...st.cats].join(','));if(st.tags.size)p.set('tag',[...st.tags].join(','));}
+  if(st.ativo)p.set('ativo',st.ativo);history.replaceState(null,'','?'+p.toString());
+}
+function leURL(){
+  const p=new URLSearchParams(location.search),sec=p.get('sec');if(SECOES?.[sec])st.sec=sec;
+  if(st.sec==='bdrs'){const modo=p.get('modo');if(['tabela','cards','matriz'].includes(modo))st.modoBdr=modo;st.qb=p.get('q')||'';
+    const carrega=(k,set)=>{set.clear();(p.get(k)||'').split(',').filter(Boolean).forEach(x=>set.add(x));};carrega('pais',st.bdrPais);carrega('setor',st.bdrSetor);carrega('industria',st.bdrIndustria);
+    if(LIQ[p.get('liq')])st.bdrLiq=p.get('liq');if(FREQ[p.get('freq')])st.bdrFreq=p.get('freq');if(HIST[p.get('hist')])st.bdrHist=p.get('hist');
+    if(p.get('ord'))st.bdrSort=p.get('ord');if(['asc','desc'].includes(p.get('dir')))st.bdrDir=p.get('dir');if(RECORTES[p.get('recorte')])st.recorte=p.get('recorte');st.soFav=p.get('acompanhando')==='1';
+  }else if(st.sec==='empresas'){if(['mosaico','tabela'].includes(p.get('modo')))st.modoEmp=p.get('modo');st.q=p.get('q')||'';st.cats.clear();st.tags.clear();(p.get('categoria')||'').split(',').filter(Boolean).forEach(x=>st.cats.add(x));(p.get('tag')||'').split(',').filter(Boolean).forEach(x=>st.tags.add(x));}
+  st.ativo=p.get('ativo');
+}
 const SECOES = {
   geral:{t:'Visão geral', k:'B3 · panorama',
     d:'Um retrato do que está listado na B3 hoje: empresas brasileiras, BDRs de companhias estrangeiras e o que se sabe sobre novas listagens.'},
@@ -10468,6 +10639,7 @@ function resumoRecorte(){
 }
 
 function render(){
+  if(URL_ATIVA) sincronizaURL();
   if(st.sec === 'geral'){ $('secGeral').innerHTML = geralHTML(); miniMapa(); return; }
   if(st.sec === 'radar'){ $('secRadar').innerHTML = radarHTML(); return; }
   if(st.sec === 'metodologia'){ $('secMetodologia').innerHTML = metodologiaHTML(); return; }
@@ -10495,8 +10667,10 @@ function render(){
       : '';
     $('boxTabelaB').classList.toggle('hide', st.modoBdr !== 'tabela');
     $('boxCardsB').classList.toggle('hide', st.modoBdr !== 'cards');
+    $('boxMatrizB').classList.toggle('hide', st.modoBdr !== 'matriz');
     if(st.modoBdr === 'tabela') $('boxTabelaB').innerHTML = tabelaBDR(r);
-    else $('boxCardsB').innerHTML = cardsBDR(r);
+    else if(st.modoBdr === 'cards') $('boxCardsB').innerHTML = cardsBDR(r);
+    else $('boxMatrizB').innerHTML = matrizBDR(r);
   }
 }
 
@@ -10533,16 +10707,27 @@ function miniMapa(){
 }
 
 /* ---------- interacao ---------- */
+function atualizaSelecao(){
+  $('nFav').textContent=FAVORITOS.size;$('nCmp').textContent=COMPARAR.size;
+  $('cmpbar').classList.toggle('hide',!COMPARAR.size);
+  $('abreCmp').disabled=COMPARAR.size<2;
+}
 document.body.addEventListener('click', ev => {
   const nav = ev.target.closest('[data-sec]');
-  if(nav){ navega(nav.dataset.sec); return; }
+  if(nav){ if(drw.classList.contains('on')) fecha(); navega(nav.dataset.sec); return; }
+  if(ev.target.closest('#saudeBt,#saudeGeral')){abreSaude();return;}
+  const cmpadd=ev.target.closest('[data-cmpadd]');
+  if(cmpadd){ev.stopPropagation();const t=cmpadd.dataset.cmpadd;COMPARAR.has(t)?COMPARAR.delete(t):COMPARAR.add(t);atualizaSelecao();abreBDR(t);return;}
+  const fav=ev.target.closest('[data-fav]');
+  if(fav){ev.stopPropagation();const t=fav.dataset.fav;FAVORITOS.has(t)?FAVORITOS.delete(t):FAVORITOS.add(t);localStorage.setItem('mapaB3Favoritos',JSON.stringify([...FAVORITOS]));atualizaSelecao();render();return;}
+  const cmp=ev.target.closest('[data-cmp]');
+  if(cmp){ev.stopPropagation();const t=cmp.dataset.cmp;COMPARAR.has(t)?COMPARAR.delete(t):COMPARAR.add(t);cmp.setAttribute('aria-pressed',String(COMPARAR.has(t)));cmp.textContent=COMPARAR.has(t)?'▣':'□';atualizaSelecao();return;}
   const exp = ev.target.closest('.expand button');
   if(exp){
     ev.stopPropagation();
-    const tr = exp.closest('tr'), det = tr.nextElementSibling;
-    const aberto = det.classList.toggle('hide');
-    exp.setAttribute('aria-expanded', String(!aberto));
-    exp.textContent = aberto ? '▾' : '▴';
+    const tr = exp.closest('tr'), atual=tr.nextElementSibling;
+    if(atual?.classList.contains('det')){atual.remove();exp.setAttribute('aria-expanded','false');exp.textContent='▾';}
+    else{const det=document.createElement('tr');det.className='det';det.innerHTML=`<td colspan="13"><div class="dl">${detalheLinhaBDR(tr.dataset.tk)}</div></td>`;tr.after(det);exp.setAttribute('aria-expanded','true');exp.textContent='▴';}
     return;
   }
   const rec = ev.target.closest('[data-rec]');
@@ -10571,6 +10756,8 @@ document.body.addEventListener('click', ev => {
 /* Linha de tabela e clicavel: precisa responder a Enter/Espaco como um botao. */
 document.body.addEventListener('keydown', ev => {
   if(ev.key !== 'Enter' && ev.key !== ' ') return;
+  const ponto = ev.target.closest('circle[data-tk]');
+  if(ponto){ev.preventDefault();abreBDR(ponto.dataset.tk);return;}
   const tr = ev.target.closest('tr[data-tk],tr[data-cod]');
   if(!tr) return;
   ev.preventDefault();
@@ -10583,6 +10770,8 @@ document.querySelectorAll('.fhead').forEach(h => h.onclick = () => {
 
 /* filtros por checkbox e radio, delegados */
 document.body.addEventListener('change', ev => {
+  const eixo=ev.target.closest('[data-mat]');
+  if(eixo){if(eixo.dataset.mat==='x')st.matX=eixo.value;else st.matY=eixo.value;render();return;}
   const el = ev.target.closest('[data-f]'); if(!el) return;
   const f = el.dataset.f, v = el.value;
   const alterna = (set) => { el.checked ? set.add(v) : set.delete(v); };
@@ -10629,7 +10818,12 @@ const par = (a, b, val, key, fn) => {
 par($('aVal'), $('aIgual'), ['val','igual'], 'area');
 par($('mOu'), $('mE'), ['ou','e'], 'tagMode');
 par($('mMosaico'), $('mTabelaE'), ['mosaico','tabela'], 'modoEmp');
-par($('mTabela'), $('mCards'), ['tabela','cards'], 'modoBdr');
+$('mMatriz').onclick=()=>{st.modoBdr='matriz';[$('mTabela'),$('mCards'),$('mMatriz')].forEach(b=>b.setAttribute('aria-pressed',String(b===$('mMatriz'))));render();};
+$('mTabela').onclick=()=>{st.modoBdr='tabela';[$('mTabela'),$('mCards'),$('mMatriz')].forEach(b=>b.setAttribute('aria-pressed',String(b===$('mTabela'))));render();};
+$('mCards').onclick=()=>{st.modoBdr='cards';[$('mTabela'),$('mCards'),$('mMatriz')].forEach(b=>b.setAttribute('aria-pressed',String(b===$('mCards'))));render();};
+$('soFav').onclick=()=>{st.soFav=!st.soFav;$('soFav').setAttribute('aria-pressed',String(st.soFav));render();};
+$('abreCmp').onclick=abreComparacao;
+$('limpaCmp').onclick=()=>{COMPARAR.clear();atualizaSelecao();render();};
 
 /* ---------- CSV ---------- */
 function baixaCSV(linhas, nome){
@@ -10639,23 +10833,23 @@ function baixaCSV(linhas, nome){
   a.href = URL.createObjectURL(blob); a.download = nome; a.click();
 }
 $('csvBdr').onclick = () => {
-  const linhas = [['ticker','empresa','tipo','pais','setor','industria','fonte_classificacao','preco','variacao_pct','volume_hoje','giro_hoje','ultimo_negocio','retorno_21d_pct','retorno_63d_pct','retorno_252d_pct','vs_industria_21d_pp','vs_industria_63d_pp','vs_industria_252d_pp','vs_setor_63d_pp','giro_medio_20d','giro_medio_60d','dias_negociados_20d','drawdown_252d_pct','volatilidade_21d_anual_pct','metricas_ate','cotacao_atualizada_em']];
+  const linhas = [['ticker','empresa','tipo','pais','setor','industria','fonte_classificacao','preco','variacao_pct','volume_hoje','giro_hoje','ultimo_negocio','retorno_21d_pct','retorno_63d_pct','retorno_252d_pct','vs_industria_21d_pp','vs_industria_63d_pp','vs_industria_252d_pp','vs_setor_63d_pp','percentil_industria_63d','percentil_setor_63d','giro_medio_20d','giro_medio_60d','dias_negociados_20d','drawdown_252d_pct','volatilidade_21d_anual_pct','ativo_lastro','moeda','bdrs_relacao','acoes_relacao','preco_ativo','ptax','paridade_indicativa','desvio_paridade_pct','retorno_ativo_63d_pct','efeito_cambio_63d_pct','residual_63d_pp','fonte_programa','metricas_ate','cotacao_atualizada_em']];
   filtraBDR().forEach(b => {
-    const r = cot(b.ticker), m = met(b.ticker), fonte = fontePerfilBDR(b);
+    const r = cot(b.ticker), m = met(b.ticker), a = ana(b.ticker), fonte = fontePerfilBDR(b);
     linhas.push([b.ticker, b.empresa, b.tipo, paisPT(b.pais), setorPT(b.setor), industriaPT(b.industria), fonte.url,
       r ? r.p : '', r && typeof r.v === 'number' ? r.v : '', r?.vol ?? '', r?.giro ?? '', r?.t ? new Date(r.t*1000).toISOString() : '',
-      m?.r21 ?? '', m?.r63 ?? '', m?.r252 ?? '', m?.ri21 ?? '', m?.ri63 ?? '', m?.ri252 ?? '', m?.rs63 ?? '',
-      m?.g20 ?? '', m?.g60 ?? '', m?.d20 ?? '', m?.dd252 ?? '', m?.v21 ?? '', m?.dt ?? '', PRECO_TS]);
+      m?.r21 ?? '', m?.r63 ?? '', m?.r252 ?? '', m?.ri21 ?? '', m?.ri63 ?? '', m?.ri252 ?? '', m?.rs63 ?? '', a?.pIndustria63 ?? '', a?.pSetor63 ?? '',
+      m?.g20 ?? '', m?.g60 ?? '', m?.d20 ?? '', m?.dd252 ?? '', m?.v21 ?? '', a?.simbolo ?? '', a?.moeda ?? '', a?.bdrs ?? '', a?.acoes ?? '', a?.precoAtivo ?? '', a?.cambio ?? '', a?.paridade ?? '', a?.desvio ?? '', a?.u63 ?? '', a?.c63 ?? '', a?.res63 ?? '', a?.fontePrograma ?? '', m?.dt ?? '', PRECO_TS]);
   });
   baixaCSV(linhas, 'bdrs-b3-' + SNAPSHOT.iso + '.csv');
 };
 $('csvEmp').onclick = () => {
-  const linhas = [['codigo','tickers','nome_pregao','razao_social','categoria','segmento_b3','tags','segmento_listagem','data_registro','valor_mercado','liquidez_2m','ticker_referencia','preco','variacao_pct','precos_todas_classes','cotacao_atualizada_em','descricao']];
+  const linhas = [['codigo','tickers','nome_pregao','razao_social','categoria','segmento_b3','tags','segmento_listagem','data_registro','valor_mercado','liquidez_2m','ticker_referencia','preco','variacao_pct','precos_todas_classes','retorno_21d_pct','retorno_63d_pct','retorno_252d_pct','vs_categoria_63d_pp','vs_segmento_63d_pp','giro_medio_20d','drawdown_252d_pct','volatilidade_21d_anual_pct','eventos_recentes','metricas_ate','cotacao_atualizada_em','descricao']];
   filtra().forEach(e => {
-    const r = refPreco(e);
+    const r = refPreco(e), m = metEmp(e.cod), ev = EVENTOS[e.cod] || [];
     const todas = classes(e).filter(t => cot(t)).map(t => t + '=' + cot(t).p.toFixed(2)).join(' | ');
     linhas.push([e.cod, e.tickers, e.pregao, e.nome, e.macroL, e.seg, e.tagsL.join(' | '), e.mkt, e.listagem, e.vm, e.liq,
-      r ? r.tk : '', r ? r.p : '', r && typeof r.v === 'number' ? r.v : '', todas, PRECO_TS, e.desc]);
+      r ? r.tk : '', r ? r.p : '', r && typeof r.v === 'number' ? r.v : '', todas, m?.r21 ?? '', m?.r63 ?? '', m?.r252 ?? '', m?.rc63 ?? '', m?.rg63 ?? '', m?.g20 ?? '', m?.dd252 ?? '', m?.v21 ?? '', ev.length, m?.dt ?? '', PRECO_TS, e.desc]);
   });
   baixaCSV(linhas, 'mapa-b3-' + SNAPSHOT.iso + '.csv');
 };
@@ -10692,7 +10886,7 @@ function carregaBDRs(){
         _s: norm([b.ticker, b.empresa, b.pais||'', paisPT(b.pais)||'', b.setor||'', setorPT(b.setor)||'', b.industria||'', industriaPT(b.industria)||''].join(' '))
       }));
       PARES_INDUSTRIA = {};
-      chipsBDR(); render();
+      chipsBDR(); render(); tentaAtivo();
     })
     .catch(() => { /* sem bdrs.json a secao de BDR fica vazia, o resto segue */ });
 }
@@ -10707,29 +10901,58 @@ function carregaMetricas(){
         $('mtz').innerHTML = 'métricas <b>' + METRICA_TS + '</b>';
         $('mtz').title = Object.keys(METRICAS).length + ' BDRs com histórico; fonte Yahoo Finance.';
       }
-      render();
+      render(); tentaAtivo();
     })
     .catch(() => { /* sem metricas a tabela segue, sem os indicadores historicos */ });
 }
+function carregaAnalise(){
+  fetch('analise.json',{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject()).then(d=>{ANALISE=d.analise||{};render();tentaAtivo();}).catch(()=>{});
+}
+function carregaMetricasEmpresas(){
+  fetch('metricas-empresas.json',{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject()).then(d=>{METRICAS_EMP=d.metricas||{};render();tentaAtivo();}).catch(()=>{});
+}
+function carregaEventos(){
+  fetch('eventos.json',{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject()).then(d=>{EVENTOS=d.eventos||{};render();}).catch(()=>{});
+}
+function carregaSaude(){
+  fetch('saude.json',{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject()).then(d=>{SAUDE=d;$('saudeTxt').textContent=d.estado==='ok'?'ok':'atenção';$('saudeTxt').className=d.estado==='ok'?'up':'down';render();}).catch(()=>{});
+}
+let ATIVO_ABERTO=false;
+function tentaAtivo(){
+  if(ATIVO_ABERTO||!st.ativo)return;
+  const b=BDR.find(x=>x.ticker===st.ativo),e=E.find(x=>x.cod===st.ativo);
+  if(b&&Object.keys(METRICAS).length&&Object.keys(ANALISE).length){ATIVO_ABERTO=true;abreBDR(b.ticker);}
+  else if(e&&Object.keys(METRICAS_EMP).length){ATIVO_ABERTO=true;abre(e.cod);}
+}
 
-chips(); chipsBDR();
+leURL(); URL_ATIVA = true;
+$('qEmp').value=st.q;$('qBdr').value=st.qb;$('soFav').setAttribute('aria-pressed',String(st.soFav));
+[$('mTabela'),$('mCards'),$('mMatriz')].forEach(b=>b.setAttribute('aria-pressed',String(b.id===({tabela:'mTabela',cards:'mCards',matriz:'mMatriz'}[st.modoBdr]))));
+chips(); chipsBDR(); atualizaSelecao();
 /* innerWidth 0 significa viewport ainda nao medido, nao tela estreita:
    sem a guarda, o desktop abriria em tabela por engano. */
-if(innerWidth && innerWidth < 760) st.modoEmp = 'tabela';
-navega('geral');
+if(innerWidth && innerWidth < 760 && !new URLSearchParams(location.search).get('modo')) st.modoEmp = 'tabela';
+navega(st.sec);
 carregaPrecos();
 carregaBDRs();
 carregaMetricas();
+carregaAnalise();
+carregaMetricasEmpresas();
+carregaEventos();
+carregaSaude();
 
 function fecha(){
   drw.classList.remove('on');
   dim.classList.remove('on');
   wrap.inert = false;
+  drw.classList.remove('wide');
+  st.ativo=null;if(URL_ATIVA)sincronizaURL();
   if(lastFocus && document.body.contains(lastFocus)) lastFocus.focus();
   lastFocus = null;
 }
 dim.onclick = fecha;
 document.addEventListener('keydown', ev => { if(ev.key === 'Escape') fecha(); });
+addEventListener('popstate',()=>{if(drw.classList.contains('on'))fecha();ATIVO_ABERTO=false;URL_ATIVA=false;leURL();URL_ATIVA=true;chips();chipsBDR();navega(st.sec);tentaAtivo();});
 </script>
 </body>
 </html>

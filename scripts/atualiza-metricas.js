@@ -69,6 +69,8 @@ function calcula(rows){
   const retDia = janelaRet.slice(1).map((p,i) => Math.log(p / janelaRet[i]));
   const max252 = Math.max(...j252.map(x => x.a));
   const min252 = Math.min(...j252.map(x => x.a));
+  const baseSpark = j252[0].a;
+  const sp = j252.filter((x,i) => i % 5 === 0 || i === j252.length-1).map(x => arred(x.a / baseSpark * 100, 1));
   return {
     dt: new Date(ult.ts * 1000).toISOString().slice(0,10),
     n: rows.length,
@@ -84,7 +86,8 @@ function calcula(rows){
     max252: arred(max252),
     mm50: rows.length >= 50 ? arred((ult.a / media(ajustados.slice(-50)) - 1) * 100) : null,
     mm200: rows.length >= 200 ? arred((ult.a / media(ajustados.slice(-200)) - 1) * 100) : null,
-    v21: retDia.length >= 15 ? arred(desvio(retDia) * Math.sqrt(252) * 100) : null
+    v21: retDia.length >= 15 ? arred(desvio(retDia) * Math.sqrt(252) * 100) : null,
+    sp
   };
 }
 

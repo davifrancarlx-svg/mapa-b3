@@ -42,10 +42,19 @@ index.html          const D = {...}  ← 369 empresas, embutido no arquivo (font
    │                fetch('precos.json')   ← cotações, carregado em runtime
    │                fetch('bdrs.json')     ← lista de BDRs, carregado em runtime
    │                fetch('metricas.json') ← indicadores históricos, carregado em runtime
+   │                fetch('metricas-empresas.json') ← indicadores das empresas brasileiras
+   │                fetch('analise.json')  ← ativo-lastro, paridade, câmbio e percentis
+   │                fetch('eventos.json')  ← documentos recentes da CVM
+   │                fetch('saude.json')    ← datas, coberturas e alertas das bases
    │
 scripts/atualiza-precos.js   lê os tickers DO index.html + do bdrs.json → grava precos.json
 scripts/gera-bdrs.js         API da B3 + perfis do Yahoo + complementos → grava bdrs.json
 scripts/atualiza-metricas.js Yahoo diário ajustado → grava metricas.json
+scripts/atualiza-metricas-empresas.js Yahoo diário ajustado → grava metricas-empresas.json
+scripts/gera-bdrs-referencia.py PDFs oficiais do Banco B3 → grava bdrs-referencia.json
+scripts/atualiza-analise.js ativo-lastro + PTAX + histórico → grava analise.json
+scripts/atualiza-eventos.py conjunto IPE oficial da CVM → grava eventos.json
+scripts/gera-saude.js cobertura e atualização → grava saude.json
 ```
 
 **A lista de empresas mora dentro do `index.html`**, como um bloco `const D = {...}` em JSON
@@ -56,7 +65,7 @@ casando chaves (com consciência de string). Consequências:
   para objeto JS com chaves sem aspas ou aspas simples quebra os dois scripts em silêncio.
 - Fica indentado de propósito, para dar diff legível. Não minifique.
 
-**`precos.json`, `bdrs.json` e `metricas.json` são arquivos separados, e precisam continuar sendo.** O
+**Os arquivos JSON de runtime são separados, e precisam continuar sendo.** O
 GitHub Actions commita o `precos.json` sozinho a cada 30 min; embutir os preços no HTML
 mataria a atualização automática.
 
@@ -98,8 +107,9 @@ liquidez explícito — sem ele o topo vira papel que negociou uma única vez no
 | GitHub Pages | https://davifrancarlx-svg.github.io/mapa-b3/ | **canônico** — preços atualizam sozinhos |
 | Lovable | https://mapa-b3.lovable.app | cópia estática, preços congelados na data do envio |
 
-O Lovable recebeu uma cópia literal dos 3 arquivos dentro de `public/`, servida via iframe.
-Ele **não** tem a automação de preços. Para atualizar lá, reenvie os arquivos.
+O Lovable recebeu uma cópia literal dos arquivos públicos dentro de `public/`, servida via
+iframe. Ele **não** tem as automações. Para atualizar lá, reenvie `index.html` e todos os
+JSONs de runtime usados pelos `fetch()` relativos.
 
 ## Fonte dos dados, e por que essas
 
@@ -116,6 +126,12 @@ Ele **não** tem a automação de preços. Para atualizar lá, reenvie os arquiv
 - **País/setor dos BDRs: Yahoo**, porque a B3 devolve "Não Classificados" para todos. Quando
   o perfil está ausente, `scripts/bdrs-complementos.json` usa página oficial da companhia
   ou documento regulatório e registra o link da fonte.
+- **Ativo-lastro e relação do programa: descritivos operacionais oficiais do Banco B3.**
+  `scripts/gera-bdrs-referencia.py` lê os PDFs e registra o link específico de cada programa.
+- **Câmbio de referência: PTAX do Banco Central do Brasil.** Histórico do ativo-lastro e do
+  câmbio usado na decomposição vem do Yahoo e continua identificado como fonte não oficial.
+- **Eventos corporativos: conjunto IPE oficial da CVM**, limitado a metadados e documentos
+  recentes de categorias definidas no gerador.
 
 ## Armadilhas que causam quebra silenciosa
 
@@ -130,6 +146,13 @@ Ele **não** tem a automação de preços. Para atualizar lá, reenvie os arquiv
 - **`metricas.json` tem cron diário separado.** Retornos usam 21/63/252 pregões ajustados;
   força relativa é a diferença para a mediana da indústria ou setor, e giro médio inclui
   sessões sem negócio. Não compare preços nominais de BDRs como medida de oportunidade.
+- **Paridade não é preço justo.** `analise.json` combina o preço do ativo-lastro no Yahoo,
+  a relação oficial do programa e a PTAX do Banco Central. Horários, liquidez, custos e
+  tributos diferem; mantenha a linguagem de referência indicativa e o residual explícito.
+- **Acompanhamento é local.** Favoritos ficam em `localStorage`; filtros e ficha aberta ficam
+  na URL. Não introduza conta, backend ou sincronização sem uma decisão explícita do projeto.
+- **Eventos não recebem resumo sintético.** `eventos.json` traz metadados e links oficiais da
+  CVM. Exiba o original sem fingir interpretação editorial ou regulatória.
 - **A classificação de BDR não pode ficar incompleta.** O gerador aborta se país, setor ou
   indústria faltar. Adicione o caso a `scripts/bdrs-complementos.json`, sempre com fonte
   oficial ou regulatória, e rode `node scripts/valida-bdrs.js`.
@@ -189,6 +212,14 @@ node scripts/atualiza-precos.js   # rápido, ~13 requisições
 node scripts/gera-bdrs.js         # lento, alguns minutos (1 requisição por empresa)
 node scripts/atualiza-metricas.js # lento, historico diario de cada BDR
 node scripts/valida-metricas.js
+node scripts/atualiza-metricas-empresas.js
+node scripts/valida-metricas-empresas.js
+node scripts/atualiza-analise.js
+node scripts/valida-analise.js
+python scripts/atualiza-eventos.py
+node scripts/valida-eventos.js
+node scripts/gera-saude.js
+node scripts/valida-saude.js
 ```
 
 ## Configuração do GitHub (não está no código)

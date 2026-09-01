@@ -1,4 +1,4 @@
-name: Atualiza métricas dos BDRs
+name: Atualiza métricas e análise
 
 on:
   schedule:
@@ -28,14 +28,30 @@ jobs:
       - name: Validar cobertura
         run: node scripts/valida-metricas.js
 
+      - name: Calcular métricas das empresas brasileiras
+        run: node scripts/atualiza-metricas-empresas.js
+
+      - name: Validar métricas das empresas
+        run: node scripts/valida-metricas-empresas.js
+
+      - name: Atualizar ativo lastro, câmbio e paridade
+        run: node scripts/atualiza-analise.js
+
+      - name: Validar análise
+        run: node scripts/valida-analise.js
+
+      - name: Atualizar saúde dos dados
+        run: node scripts/gera-saude.js
+
       - name: Commitar se mudou
         run: |
           git config user.name  'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add metricas.json
+          git add metricas.json metricas-empresas.json analise.json saude.json
           if git diff --staged --quiet; then
             echo "Nenhuma mudança nas métricas, nada a commitar."
           else
-            git commit -m "métricas BDR: $(date -u '+%Y-%m-%d')"
+            git commit -m "métricas e análise: $(date -u '+%Y-%m-%d')"
+            git pull --rebase origin main
             git push
           fi

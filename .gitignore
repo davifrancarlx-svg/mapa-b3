@@ -5,3 +5,7 @@
 # Lixo comum de SO
 .DS_Store
 Thumbs.db
+
+# Cache do Python (scripts/*.py geram isso ao rodar)
+__pycache__/
+*.pyc

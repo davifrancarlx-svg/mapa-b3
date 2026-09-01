@@ -1,0 +1,35 @@
+name: Atualiza eventos da CVM
+
+on:
+  schedule:
+    - cron: '20 12 * * 1-5'
+  workflow_dispatch: {}
+
+concurrency:
+  group: eventos
+  cancel-in-progress: false
+
+jobs:
+  atualiza:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/atualiza-eventos.py
+      - run: node scripts/valida-eventos.js
+      - run: node scripts/gera-saude.js
+      - run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add eventos.json saude.json
+          if git diff --staged --quiet; then
+            echo "Nenhum evento novo."
+          else
+            git commit -m "eventos CVM: $(date -u '+%Y-%m-%d')"
+            git pull --rebase origin main
+            git push
+          fi

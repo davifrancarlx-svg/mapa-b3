@@ -1,0 +1,24 @@
+name: Valida dados e página
+
+on:
+  push: {}
+  pull_request: {}
+
+jobs:
+  valida:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: node scripts/valida-bdrs.js
+      - run: node scripts/valida-pagina.js
+      - run: node scripts/valida-bdrs-referencia.js
+      - run: node scripts/valida-precos.js
+      - run: node scripts/valida-metricas.js
+      - run: node scripts/valida-metricas-empresas.js
+      - run: node scripts/valida-analise.js
+      - run: node scripts/valida-eventos.js
+      - run: node scripts/gera-saude.js
+      - run: node scripts/valida-saude.js
