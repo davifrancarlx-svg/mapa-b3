@@ -1,5 +1,5 @@
 {
- "atualizadoEm": "2026-08-31T20:57:08.519Z",
+ "atualizadoEm": "2026-09-01T00:25:49.871Z",
  "fonte": "Yahoo Finance (nao oficial), cotacoes com atraso",
  "tickersConsultados": 1300,
  "tickersComPreco": 1218,
@@ -11,7 +11,7 @@
    "vol": 31500,
    "giro": 65520,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "AFLT3": {
    "p": 7.28,
@@ -20,7 +20,7 @@
    "vol": 500,
    "giro": 3640,
    "t": 1788203215,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "AGXY3": {
    "p": 1.41,
@@ -29,7 +29,7 @@
    "vol": 13900,
    "giro": 19599,
    "t": 1788205769,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "RPAD3": {
    "p": 7,
@@ -38,7 +38,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787256000,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "RPAD5": {
    "p": 7.79,
@@ -47,7 +47,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787067387,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "RPAD6": {
    "p": 7,
@@ -56,7 +56,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787155223,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "AALR3": {
    "p": 2.96,
@@ -65,7 +65,7 @@
    "vol": 16600,
    "giro": 49136,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ALLD3": {
    "p": 5.08,
@@ -74,16 +74,16 @@
    "vol": 464400,
    "giro": 2359152,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ALOS3": {
    "p": 26.69,
    "v": 1.06,
    "f": 26.41,
-   "vol": 4711900,
-   "giro": 125760611,
+   "vol": 4695300,
+   "giro": 125317557,
    "t": 1788206759,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ALPK3": {
    "p": 4.34,
@@ -92,7 +92,7 @@
    "vol": 103200,
    "giro": 447888,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ALPA3": {
    "p": 10.2,
@@ -101,7 +101,7 @@
    "vol": 13600,
    "giro": 138720,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ALPA4": {
    "p": 14.99,
@@ -110,7 +110,7 @@
    "vol": 2425400,
    "giro": 36356746,
    "t": 1788206751,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "AVLL3": {
    "p": 6.9,
@@ -119,7 +119,7 @@
    "vol": 300,
    "giro": 2070,
    "t": 1788200702,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ALUP11": {
    "p": 32.74,
@@ -128,7 +128,7 @@
    "vol": 1270200,
    "giro": 41586348,
    "t": 1788206756,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ALUP3": {
    "p": 11.16,
@@ -137,7 +137,7 @@
    "vol": 2900,
    "giro": 32364,
    "t": 1788204666,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ALUP4": {
    "p": 10.8,
@@ -146,7 +146,7 @@
    "vol": 8100,
    "giro": 87480,
    "t": 1788205770,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ABEV3": {
    "p": 15.03,
@@ -155,7 +155,7 @@
    "vol": 50655700,
    "giro": 761355171,
    "t": 1788207004,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "AMBP3": {
    "p": 0.17,
@@ -164,7 +164,7 @@
    "vol": 3685000,
    "giro": 626450,
    "t": 1788206880,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "AMER3": {
    "p": 5.1,
@@ -173,7 +173,7 @@
    "vol": 1710000,
    "giro": 8721000,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CBEE3": {
    "p": 8.81,
@@ -182,7 +182,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787836821,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ANIM3": {
    "p": 2.81,
@@ -191,7 +191,7 @@
    "vol": 10391000,
    "giro": 29198710,
    "t": 1788206755,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ARND3": {
    "p": 0.5,
@@ -200,7 +200,7 @@
    "vol": 2100,
    "giro": 1050,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ARML3": {
    "p": 3.58,
@@ -209,7 +209,7 @@
    "vol": 320700,
    "giro": 1148106,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ATED3": {
    "p": 1.25,
@@ -218,7 +218,7 @@
    "vol": 9300,
    "giro": 11625,
    "t": 1788205597,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "AURA33": {
    "p": 142.6,
@@ -227,7 +227,7 @@
    "vol": 1068515,
    "giro": 152370239,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "AURE3": {
    "p": 11.19,
@@ -236,7 +236,7 @@
    "vol": 2291500,
    "giro": 25641885,
    "t": 1788206746,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "AMOB3": {
    "p": 11.6,
@@ -245,7 +245,7 @@
    "vol": 21700,
    "giro": 251720,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "AXIA3": {
    "p": 53.12,
@@ -254,7 +254,7 @@
    "vol": 8502000,
    "giro": 451626240,
    "t": 1788206731,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "AZTE3": {
    "p": 1.41,
@@ -263,7 +263,7 @@
    "vol": 971700,
    "giro": 1370097,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "AZEV3": {
    "p": 5.45,
@@ -272,7 +272,7 @@
    "vol": 2381000,
    "giro": 12976450,
    "t": 1788206752,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "AZEV4": {
    "p": 1.52,
@@ -281,7 +281,7 @@
    "vol": 3572400,
    "giro": 5430048,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "AZUL3": {
    "p": 18.8,
@@ -290,7 +290,7 @@
    "vol": 142800,
    "giro": 2684640,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "AZZA3": {
    "p": 14.86,
@@ -299,7 +299,7 @@
    "vol": 2109500,
    "giro": 31347170,
    "t": 1788206740,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "B3SA3": {
    "p": 16.22,
@@ -308,7 +308,7 @@
    "vol": 32497600,
    "giro": 527111072,
    "t": 1788206752,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BMGB4": {
    "p": 5.39,
@@ -317,7 +317,7 @@
    "vol": 1242800,
    "giro": 6698692,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BEES3": {
    "p": 8.55,
@@ -326,7 +326,7 @@
    "vol": 32400,
    "giro": 277020,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BEES4": {
    "p": 9.14,
@@ -335,7 +335,7 @@
    "vol": 400,
    "giro": 3656,
    "t": 1788197249,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BDLL3": {
    "p": 4.46,
@@ -344,7 +344,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787342580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BDLL4": {
    "p": 3.5,
@@ -353,7 +353,7 @@
    "vol": 5600,
    "giro": 19600,
    "t": 1788203423,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BALM3": {
    "p": 26,
@@ -362,7 +362,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787943686,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BALM4": {
    "p": 15.45,
@@ -371,7 +371,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787858383,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BBSE3": {
    "p": 40.4,
@@ -380,7 +380,7 @@
    "vol": 9936600,
    "giro": 401438640,
    "t": 1788206743,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ABCB4": {
    "p": 23.1,
@@ -389,7 +389,7 @@
    "vol": 510100,
    "giro": 11783310,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BAZA3": {
    "p": 63.55,
@@ -398,7 +398,7 @@
    "vol": 7000,
    "giro": 444850,
    "t": 1788205716,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BBDC3": {
    "p": 15.17,
@@ -407,7 +407,7 @@
    "vol": 10217300,
    "giro": 154996441,
    "t": 1788206732,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BBDC4": {
    "p": 17.19,
@@ -416,7 +416,7 @@
    "vol": 40262200,
    "giro": 692107218,
    "t": 1788206880,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BBAS3": {
    "p": 20.74,
@@ -425,7 +425,7 @@
    "vol": 44963600,
    "giro": 932545064,
    "t": 1788207004,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BPAC11": {
    "p": 54.71,
@@ -434,7 +434,7 @@
    "vol": 7302200,
    "giro": 399503362,
    "t": 1788206741,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BPAC3": {
    "p": 22.17,
@@ -443,7 +443,7 @@
    "vol": 4400,
    "giro": 97548,
    "t": 1788205770,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BPAC5": {
    "p": 18.5,
@@ -452,7 +452,7 @@
    "vol": 2500,
    "giro": 46250,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BGIP3": {
    "p": 46.38,
@@ -461,7 +461,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786370062,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BGIP4": {
    "p": 33.05,
@@ -470,7 +470,7 @@
    "vol": 600,
    "giro": 19830,
    "t": 1788193865,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BPAR3": {
    "p": 180,
@@ -479,7 +479,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089448,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BRSR3": {
    "p": 17.29,
@@ -488,7 +488,7 @@
    "vol": 2100,
    "giro": 36309,
    "t": 1788204837,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BRSR5": {
    "p": 18,
@@ -497,7 +497,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787576400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BRSR6": {
    "p": 14.07,
@@ -506,7 +506,7 @@
    "vol": 950300,
    "giro": 13370721,
    "t": 1788206758,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BMIN3": {
    "p": 19.5,
@@ -515,7 +515,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787062093,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BMIN4": {
    "p": 18.87,
@@ -524,7 +524,7 @@
    "vol": 1400,
    "giro": 26418,
    "t": 1788203022,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BMEB3": {
    "p": 48.5,
@@ -533,7 +533,7 @@
    "vol": 18100,
    "giro": 877850,
    "t": 1788205758,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BMEB4": {
    "p": 60.38,
@@ -542,7 +542,7 @@
    "vol": 39700,
    "giro": 2397086,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BNBR3": {
    "p": 109.9,
@@ -551,7 +551,7 @@
    "vol": 200,
    "giro": 21980,
    "t": 1788195659,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "PINE3": {
    "p": 10.74,
@@ -560,7 +560,7 @@
    "vol": 300,
    "giro": 3222,
    "t": 1788201907,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "PINE4": {
    "p": 11.01,
@@ -569,7 +569,7 @@
    "vol": 1228500,
    "giro": 13525785,
    "t": 1788206731,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "SANB11": {
    "p": 29.56,
@@ -578,7 +578,7 @@
    "vol": 3853000,
    "giro": 113894680,
    "t": 1788206748,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "SANB3": {
    "p": 14.74,
@@ -587,7 +587,7 @@
    "vol": 125300,
    "giro": 1846922,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "SANB4": {
    "p": 14.8,
@@ -596,7 +596,7 @@
    "vol": 90000,
    "giro": 1332000,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CCTY3": {
    "p": 5.75,
@@ -605,7 +605,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787600922,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BMOB3": {
    "p": 25.47,
@@ -614,7 +614,7 @@
    "vol": 1044100,
    "giro": 26593227,
    "t": 1788206730,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BMKS3": {
    "p": 370,
@@ -623,7 +623,7 @@
    "vol": 24,
    "giro": 8880,
    "t": 1788205419,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BIED3": {
    "p": 6.17,
@@ -632,7 +632,7 @@
    "vol": 4600,
    "giro": 28382,
    "t": 1788196136,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BIOM3": {
    "p": 6.27,
@@ -641,7 +641,7 @@
    "vol": 10800,
    "giro": 67716,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BLAU3": {
    "p": 9.28,
@@ -650,7 +650,7 @@
    "vol": 172400,
    "giro": 1599872,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "SOJA3": {
    "p": 6.9,
@@ -659,7 +659,7 @@
    "vol": 438400,
    "giro": 3024960,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BOBR4": {
    "p": 1.4,
@@ -668,7 +668,7 @@
    "vol": 125000,
    "giro": 175000,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BRAP3": {
    "p": 18.97,
@@ -677,7 +677,7 @@
    "vol": 41100,
    "giro": 779667,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BRAP4": {
    "p": 22,
@@ -686,7 +686,7 @@
    "vol": 2237000,
    "giro": 49214000,
    "t": 1788206737,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "SAUD3": {
    "p": 13.87,
@@ -695,7 +695,7 @@
    "vol": 15946200,
    "giro": 221173794,
    "t": 1788207004,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "AGRO3": {
    "p": 19.21,
@@ -704,7 +704,7 @@
    "vol": 68700,
    "giro": 1319727,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BRKM3": {
    "p": 3.96,
@@ -713,7 +713,7 @@
    "vol": 102000,
    "giro": 403920,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BRKM5": {
    "p": 4.33,
@@ -722,7 +722,7 @@
    "vol": 6707900,
    "giro": 29045207,
    "t": 1788206738,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BRKM6": {
    "p": 7,
@@ -731,7 +731,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787850867,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BRAV3": {
    "p": 17.13,
@@ -740,7 +740,7 @@
    "vol": 3608800,
    "giro": 61818744,
    "t": 1788206740,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BSLI3": {
    "p": 2.61,
@@ -749,7 +749,7 @@
    "vol": 6400,
    "giro": 16704,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BSLI4": {
    "p": 2.65,
@@ -758,7 +758,7 @@
    "vol": 16100,
    "giro": 42665,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BRBI11": {
    "p": 13.4,
@@ -767,7 +767,7 @@
    "vol": 336400,
    "giro": 4507760,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BRST3": {
    "p": 2.75,
@@ -776,7 +776,7 @@
    "vol": 247200,
    "giro": 679800,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CXSE3": {
    "p": 19.34,
@@ -785,7 +785,7 @@
    "vol": 8237100,
    "giro": 159305514,
    "t": 1788206734,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CAMB3": {
    "p": 8.5,
@@ -794,7 +794,7 @@
    "vol": 33500,
    "giro": 284750,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CAML3": {
    "p": 5.06,
@@ -803,7 +803,7 @@
    "vol": 1446800,
    "giro": 7320808,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CEAB3": {
    "p": 8.32,
@@ -812,7 +812,7 @@
    "vol": 19270800,
    "giro": 160333056,
    "t": 1788206880,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MAPT3": {
    "p": 2.5,
@@ -821,7 +821,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786552551,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MAPT4": {
    "p": 3,
@@ -830,7 +830,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089461,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CLSC3": {
    "p": 134,
@@ -839,7 +839,7 @@
    "vol": 400,
    "giro": 53600,
    "t": 1788200912,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CLSC4": {
    "p": 152.98,
@@ -848,7 +848,7 @@
    "vol": 11900,
    "giro": 1820462,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "PCAR3": {
    "p": 2.73,
@@ -857,7 +857,7 @@
    "vol": 6047100,
    "giro": 16508583,
    "t": 1788206758,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CASN3": {
    "p": 8.81,
@@ -866,7 +866,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089449,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "GPAR3": {
    "p": 10.51,
@@ -875,7 +875,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089456,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CEGR3": {
    "p": 35,
@@ -884,7 +884,7 @@
    "vol": 600,
    "giro": 21000,
    "t": 1788200863,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CEEB3": {
    "p": 46.95,
@@ -893,7 +893,7 @@
    "vol": 300,
    "giro": 14085,
    "t": 1788190277,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CEEB5": {
    "p": 40,
@@ -902,7 +902,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1785441900,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CEBR3": {
    "p": 23.24,
@@ -911,7 +911,7 @@
    "vol": 5000,
    "giro": 116200,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CEBR5": {
    "p": 23.48,
@@ -920,7 +920,7 @@
    "vol": 1800,
    "giro": 42264,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CEBR6": {
    "p": 27.1,
@@ -929,7 +929,7 @@
    "vol": 600,
    "giro": 16260,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CMIG3": {
    "p": 16.47,
@@ -938,7 +938,7 @@
    "vol": 408400,
    "giro": 6726348,
    "t": 1788206880,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CMIG4": {
    "p": 10.7,
@@ -947,7 +947,7 @@
    "vol": 20269200,
    "giro": 216880440,
    "t": 1788207004,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "COCE3": {
    "p": 28.8,
@@ -956,7 +956,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787856582,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "COCE5": {
    "p": 30.6,
@@ -965,7 +965,7 @@
    "vol": 2500,
    "giro": 76500,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CEED3": {
    "p": 10,
@@ -974,16 +974,16 @@
    "vol": 200,
    "giro": 2000,
    "t": 1788193380,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CEED4": {
    "p": 20,
    "v": 0,
-   "f": 20,
+   "f": null,
    "vol": 0,
    "giro": 0,
    "t": 1788089450,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "FESA3": {
    "p": 9.59,
@@ -992,7 +992,7 @@
    "vol": 1300,
    "giro": 12467,
    "t": 1788203001,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "FESA4": {
    "p": 5.06,
@@ -1001,7 +1001,7 @@
    "vol": 8107400,
    "giro": 41023444,
    "t": 1788206940,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CEDO3": {
    "p": 9,
@@ -1010,7 +1010,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089450,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CEDO4": {
    "p": 5.23,
@@ -1019,7 +1019,7 @@
    "vol": 700,
    "giro": 3661,
    "t": 1788198566,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CGAS3": {
    "p": 125.39,
@@ -1028,7 +1028,7 @@
    "vol": 100,
    "giro": 12539,
    "t": 1788188941,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CGAS5": {
    "p": 120.15,
@@ -1037,7 +1037,7 @@
    "vol": 500,
    "giro": 60075,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "HBTS5": {
    "p": 32,
@@ -1046,7 +1046,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787595500,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MSPA3": {
    "p": 37.4,
@@ -1055,7 +1055,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786551124,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MSPA4": {
    "p": 35.1,
@@ -1064,7 +1064,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089462,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CPLE3": {
    "p": 14.95,
@@ -1073,7 +1073,7 @@
    "vol": 22657100,
    "giro": 338723645,
    "t": 1788207004,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "PEAB3": {
    "p": 38.86,
@@ -1082,7 +1082,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787339586,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "PEAB4": {
    "p": 38.87,
@@ -1091,7 +1091,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787324074,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "SBSP3": {
    "p": 25.28,
@@ -1100,7 +1100,7 @@
    "vol": 16452600,
    "giro": 415921728,
    "t": 1788206740,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CSMG3": {
    "p": 55.22,
@@ -1109,7 +1109,7 @@
    "vol": 6893000,
    "giro": 380631460,
    "t": 1788206738,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "SAPR11": {
    "p": 33.52,
@@ -1118,7 +1118,7 @@
    "vol": 1096400,
    "giro": 36751328,
    "t": 1788207004,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "SAPR3": {
    "p": 7.37,
@@ -1127,7 +1127,7 @@
    "vol": 76500,
    "giro": 563805,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "SAPR4": {
    "p": 6.52,
@@ -1136,7 +1136,7 @@
    "vol": 1493400,
    "giro": 9736968,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CSNA3": {
    "p": 5.32,
@@ -1145,7 +1145,7 @@
    "vol": 16461500,
    "giro": 87575180,
    "t": 1788206733,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CTSA3": {
    "p": 2,
@@ -1154,7 +1154,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089451,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CTSA4": {
    "p": 1.29,
@@ -1163,7 +1163,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089451,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "VVEO3": {
    "p": 0.68,
@@ -1172,7 +1172,7 @@
    "vol": 746800,
    "giro": 507824,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "COGN3": {
    "p": 2.3,
@@ -1181,7 +1181,7 @@
    "vol": 21526600,
    "giro": 49511180,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CBAV3": {
    "p": 11.23,
@@ -1190,7 +1190,7 @@
    "vol": 2627800,
    "giro": 29510194,
    "t": 1788206740,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "PASS3": {
    "p": 23,
@@ -1199,7 +1199,7 @@
    "vol": 5158300,
    "giro": 118640900,
    "t": 1788206820,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ODER4": {
    "p": 100,
@@ -1208,7 +1208,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089463,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CALI3": {
    "p": 29.99,
@@ -1217,7 +1217,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786564068,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "TEND3": {
    "p": 33.1,
@@ -1226,7 +1226,7 @@
    "vol": 1941800,
    "giro": 64273580,
    "t": 1788206758,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CTAX3": {
    "p": 1.41,
@@ -1235,7 +1235,7 @@
    "vol": 2700,
    "giro": 3807,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CSAN3": {
    "p": 3.9,
@@ -1244,7 +1244,7 @@
    "vol": 38821900,
    "giro": 151405410,
    "t": 1788207004,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CPFE3": {
    "p": 44.54,
@@ -1253,7 +1253,7 @@
    "vol": 2278100,
    "giro": 101466574,
    "t": 1788206733,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CSED3": {
    "p": 4.93,
@@ -1262,7 +1262,7 @@
    "vol": 279700,
    "giro": 1378921,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CMIN3": {
    "p": 5.92,
@@ -1271,16 +1271,16 @@
    "vol": 5526800,
    "giro": 32718656,
    "t": 1788206757,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CSUD3": {
    "p": 13.74,
    "v": 1.33,
    "f": 13.56,
-   "vol": 29900,
-   "giro": 410826,
+   "vol": 30000,
+   "giro": 412200,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CURY3": {
    "p": 32.6,
@@ -1289,7 +1289,7 @@
    "vol": 2658400,
    "giro": 86663840,
    "t": 1788206755,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CVCB3": {
    "p": 1.86,
@@ -1298,7 +1298,7 @@
    "vol": 16951200,
    "giro": 31529232,
    "t": 1788206741,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CYRE3": {
    "p": 24.29,
@@ -1307,16 +1307,16 @@
    "vol": 7987500,
    "giro": 194016375,
    "t": 1788206749,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CYRE4": {
    "p": 22.73,
    "v": 4.94,
    "f": 21.66,
-   "vol": 226300,
-   "giro": 5143799,
+   "vol": 225500,
+   "giro": 5125615,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "DMVF3": {
    "p": 6.54,
@@ -1325,7 +1325,7 @@
    "vol": 80900,
    "giro": 529086,
    "t": 1788206820,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "DESK3": {
    "p": 18.9,
@@ -1334,7 +1334,7 @@
    "vol": 489900,
    "giro": 9259110,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "DXCO3": {
    "p": 5.2,
@@ -1343,7 +1343,7 @@
    "vol": 1502000,
    "giro": 7810400,
    "t": 1788206759,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "DEXP3": {
    "p": 7.23,
@@ -1352,7 +1352,7 @@
    "vol": 50900,
    "giro": 368007,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "DEXP4": {
    "p": 7.2,
@@ -1361,7 +1361,7 @@
    "vol": 400,
    "giro": 2880,
    "t": 1788205532,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "DASA3": {
    "p": 2.61,
@@ -1370,7 +1370,7 @@
    "vol": 1214500,
    "giro": 3169845,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "PNVL3": {
    "p": 11.99,
@@ -1379,7 +1379,7 @@
    "vol": 928100,
    "giro": 11127919,
    "t": 1788206739,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "DIRR3": {
    "p": 11.12,
@@ -1388,7 +1388,7 @@
    "vol": 8275200,
    "giro": 92020224,
    "t": 1788206742,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "DOHL3": {
    "p": 6.46,
@@ -1397,7 +1397,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787324628,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "DOHL4": {
    "p": 3.69,
@@ -1406,7 +1406,7 @@
    "vol": 6500,
    "giro": 23985,
    "t": 1788205563,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "DOTZ3": {
    "p": 10.67,
@@ -1415,7 +1415,7 @@
    "vol": 163100,
    "giro": 1740277,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "DTCY3": {
    "p": 2,
@@ -1424,7 +1424,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787859139,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ECOM3": {
    "p": 1.06,
@@ -1433,7 +1433,7 @@
    "vol": 4600,
    "giro": 4876,
    "t": 1788202309,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ECOR3": {
    "p": 7.29,
@@ -1442,7 +1442,7 @@
    "vol": 5759400,
    "giro": 41986026,
    "t": 1788206741,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "EALT3": {
    "p": 11.5,
@@ -1451,7 +1451,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787761209,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "EALT4": {
    "p": 10.79,
@@ -1460,7 +1460,7 @@
    "vol": 5100,
    "giro": 55029,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "EKTR3": {
    "p": 51.52,
@@ -1469,7 +1469,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089453,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "EKTR4": {
    "p": 38.6,
@@ -1478,7 +1478,7 @@
    "vol": 100,
    "giro": 3860,
    "t": 1788181380,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "EMAE4": {
    "p": 33.28,
@@ -1487,7 +1487,7 @@
    "vol": 1600,
    "giro": 53248,
    "t": 1788184540,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "EPAR3": {
    "p": 1.31,
@@ -1496,7 +1496,7 @@
    "vol": 4700,
    "giro": 6157,
    "t": 1788195216,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "EMBJ3": {
    "p": 93.49,
@@ -1505,7 +1505,7 @@
    "vol": 5857000,
    "giro": 547570930,
    "t": 1788206749,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "PGMN3": {
    "p": 3.53,
@@ -1514,7 +1514,7 @@
    "vol": 3211600,
    "giro": 11336948,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ENMT3": {
    "p": 32.8,
@@ -1523,7 +1523,7 @@
    "vol": 3700,
    "giro": 121360,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ENMT4": {
    "p": 32.99,
@@ -1532,7 +1532,7 @@
    "vol": 900,
    "giro": 29691,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ENGI11": {
    "p": 48,
@@ -1541,7 +1541,7 @@
    "vol": 6207000,
    "giro": 297936000,
    "t": 1788206758,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ENGI3": {
    "p": 11.74,
@@ -1550,7 +1550,7 @@
    "vol": 1200,
    "giro": 14088,
    "t": 1788195813,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ENGI4": {
    "p": 9.13,
@@ -1559,7 +1559,7 @@
    "vol": 3600,
    "giro": 32868,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ENEV3": {
    "p": 26.21,
@@ -1568,7 +1568,7 @@
    "vol": 9348700,
    "giro": 245029427,
    "t": 1788206758,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "EGIE3": {
    "p": 29.38,
@@ -1577,7 +1577,7 @@
    "vol": 6581300,
    "giro": 193358594,
    "t": 1788206745,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ENJU3": {
    "p": 0.78,
@@ -1586,7 +1586,7 @@
    "vol": 1236200,
    "giro": 964236,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "EQMA3B": {
    "p": 29.15,
@@ -1595,7 +1595,7 @@
    "vol": 1000,
    "giro": 29150,
    "t": 1788199893,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "EQPA3": {
    "p": 5.62,
@@ -1604,7 +1604,7 @@
    "vol": 8800,
    "giro": 49456,
    "t": 1788203072,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "EQPA5": {
    "p": 9.89,
@@ -1613,7 +1613,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786992600,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "EQPA6": {
    "p": 6.59,
@@ -1622,7 +1622,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089453,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "EQPA7": {
    "p": 10,
@@ -1631,7 +1631,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089453,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "EQTL3": {
    "p": 36.67,
@@ -1640,7 +1640,7 @@
    "vol": 10350800,
    "giro": 379563836,
    "t": 1788206754,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ETER3": {
    "p": 3.66,
@@ -1649,7 +1649,7 @@
    "vol": 38800,
    "giro": 142008,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "EUCA3": {
    "p": 21.05,
@@ -1658,7 +1658,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787941806,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "EUCA4": {
    "p": 21.01,
@@ -1667,7 +1667,7 @@
    "vol": 53100,
    "giro": 1115631,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "EVEN3": {
    "p": 4.27,
@@ -1676,7 +1676,7 @@
    "vol": 761000,
    "giro": 3249470,
    "t": 1788206751,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BAUH4": {
    "p": 93.9,
@@ -1685,7 +1685,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089445,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "EZTC3": {
    "p": 11.9,
@@ -1694,7 +1694,7 @@
    "vol": 2170500,
    "giro": 25828950,
    "t": 1788206731,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "FHER3": {
    "p": 3.12,
@@ -1703,7 +1703,7 @@
    "vol": 34800,
    "giro": 108576,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "FIEI3": {
    "p": 7.69,
@@ -1712,7 +1712,7 @@
    "vol": 600,
    "giro": 4614,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "FICT3": {
    "p": 0.19,
@@ -1721,7 +1721,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787944285,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "FLRY3": {
    "p": 19.68,
@@ -1730,7 +1730,7 @@
    "vol": 5805500,
    "giro": 114252240,
    "t": 1788206743,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "FRAS3": {
    "p": 23.02,
@@ -1739,7 +1739,7 @@
    "vol": 125200,
    "giro": 2882104,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "GFSA3": {
    "p": 0.21,
@@ -1748,7 +1748,7 @@
    "vol": 973100,
    "giro": 204351,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "GSHP3": {
    "p": 2.75,
@@ -1757,7 +1757,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787682408,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "GGBR3": {
    "p": 20.44,
@@ -1766,7 +1766,7 @@
    "vol": 15100,
    "giro": 308644,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "GGBR4": {
    "p": 23.74,
@@ -1775,7 +1775,7 @@
    "vol": 10818300,
    "giro": 256826442,
    "t": 1788206751,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "GGPS3": {
    "p": 12.42,
@@ -1784,7 +1784,7 @@
    "vol": 3499600,
    "giro": 43465032,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "EGGY3": {
    "p": 0.17,
@@ -1793,7 +1793,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089453,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CGRA3": {
    "p": 23.3,
@@ -1802,7 +1802,7 @@
    "vol": 1200,
    "giro": 27960,
    "t": 1788201367,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CGRA4": {
    "p": 22.75,
@@ -1811,7 +1811,7 @@
    "vol": 7900,
    "giro": 179725,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "GRND3": {
    "p": 3.48,
@@ -1820,7 +1820,7 @@
    "vol": 12562400,
    "giro": 43717152,
    "t": 1788206940,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BHIA3": {
    "p": 0.66,
@@ -1829,7 +1829,7 @@
    "vol": 34559600,
    "giro": 22809336,
    "t": 1788206739,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "GMAT3": {
    "p": 4.63,
@@ -1838,7 +1838,7 @@
    "vol": 5764700,
    "giro": 26690561,
    "t": 1788206745,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MLAS3": {
    "p": 1.9,
@@ -1847,7 +1847,7 @@
    "vol": 2018200,
    "giro": 3834580,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "SBFG3": {
    "p": 8.23,
@@ -1856,7 +1856,7 @@
    "vol": 3147700,
    "giro": 25905571,
    "t": 1788207060,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "TOKY3": {
    "p": 6.4,
@@ -1865,7 +1865,7 @@
    "vol": 45600,
    "giro": 291840,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "RIAA3": {
    "p": 7.03,
@@ -1874,7 +1874,7 @@
    "vol": 1474400,
    "giro": 10365032,
    "t": 1788206735,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "HAGA3": {
    "p": 2.77,
@@ -1883,7 +1883,7 @@
    "vol": 4300,
    "giro": 11911,
    "t": 1788205795,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "HAGA4": {
    "p": 2.04,
@@ -1892,7 +1892,7 @@
    "vol": 60000,
    "giro": 122400,
    "t": 1788205781,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "HAPV3": {
    "p": 6.61,
@@ -1901,7 +1901,7 @@
    "vol": 7616800,
    "giro": 50347048,
    "t": 1788206744,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "HBRE3": {
    "p": 2.74,
@@ -1910,7 +1910,7 @@
    "vol": 908200,
    "giro": 2488468,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "HBOR3": {
    "p": 2.16,
@@ -1919,7 +1919,7 @@
    "vol": 571000,
    "giro": 1233360,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "HETA3": {
    "p": 96,
@@ -1928,7 +1928,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089457,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "HETA4": {
    "p": 4.8,
@@ -1937,7 +1937,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1785441600,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "HBSA3": {
    "p": 3.45,
@@ -1946,7 +1946,7 @@
    "vol": 2379200,
    "giro": 8208240,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MATD3": {
    "p": 4.9,
@@ -1955,7 +1955,7 @@
    "vol": 270300,
    "giro": 1324470,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "HOOT4": {
    "p": 7.31,
@@ -1964,7 +1964,7 @@
    "vol": 100,
    "giro": 731,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "HYPE3": {
    "p": 21.7,
@@ -1973,7 +1973,7 @@
    "vol": 2735600,
    "giro": 59362520,
    "t": 1788206759,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "IGTI11": {
    "p": 24.53,
@@ -1982,7 +1982,7 @@
    "vol": 2436500,
    "giro": 59767345,
    "t": 1788206749,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "IGTI3": {
    "p": 3.11,
@@ -1991,7 +1991,7 @@
    "vol": 6400,
    "giro": 19904,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "INEP3": {
    "p": 1.48,
@@ -2000,7 +2000,7 @@
    "vol": 37400,
    "giro": 55352,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "INEP4": {
    "p": 1.38,
@@ -2009,7 +2009,7 @@
    "vol": 3500,
    "giro": 4830,
    "t": 1788202715,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "IFCM3": {
    "p": 1.75,
@@ -2018,7 +2018,7 @@
    "vol": 31000,
    "giro": 54250,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "INTB3": {
    "p": 14.93,
@@ -2027,7 +2027,7 @@
    "vol": 1235700,
    "giro": 18449001,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MEAL3": {
    "p": 0.64,
@@ -2036,7 +2036,7 @@
    "vol": 250100,
    "giro": 160064,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "FIGE3": {
    "p": 33,
@@ -2045,7 +2045,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089454,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MYPK3": {
    "p": 9.12,
@@ -2054,7 +2054,7 @@
    "vol": 502100,
    "giro": 4579152,
    "t": 1788206759,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "RANI3": {
    "p": 7.56,
@@ -2063,7 +2063,7 @@
    "vol": 1079900,
    "giro": 8164044,
    "t": 1788206748,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "IRBR3": {
    "p": 56.89,
@@ -2072,7 +2072,7 @@
    "vol": 508200,
    "giro": 28911498,
    "t": 1788206744,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ISAE3": {
    "p": 33.3,
@@ -2081,7 +2081,7 @@
    "vol": 6100,
    "giro": 203130,
    "t": 1788205543,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ISAE4": {
    "p": 26.63,
@@ -2090,7 +2090,7 @@
    "vol": 12483000,
    "giro": 332422290,
    "t": 1788206880,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ITUB3": {
    "p": 43.06,
@@ -2099,7 +2099,7 @@
    "vol": 3177700,
    "giro": 136831762,
    "t": 1788206750,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ITUB4": {
    "p": 39.52,
@@ -2108,7 +2108,7 @@
    "vol": 25679700,
    "giro": 1014861744,
    "t": 1788207004,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ITSA3": {
    "p": 13.57,
@@ -2117,7 +2117,7 @@
    "vol": 126200,
    "giro": 1712534,
    "t": 1788206753,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ITSA4": {
    "p": 13.1,
@@ -2126,7 +2126,7 @@
    "vol": 30408100,
    "giro": 398346110,
    "t": 1788206742,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "JALL3": {
    "p": 2.64,
@@ -2135,7 +2135,7 @@
    "vol": 1209200,
    "giro": 3192288,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "JHSF3": {
    "p": 10.9,
@@ -2144,7 +2144,7 @@
    "vol": 6950500,
    "giro": 75760450,
    "t": 1788207004,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "JFEN3": {
    "p": 0.44,
@@ -2153,7 +2153,7 @@
    "vol": 14300,
    "giro": 6292,
    "t": 1788197788,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "JOPA3": {
    "p": 17.1,
@@ -2162,7 +2162,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1785520959,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "JOPA4": {
    "p": 18,
@@ -2171,7 +2171,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089459,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "JSLG3": {
    "p": 5.48,
@@ -2180,7 +2180,7 @@
    "vol": 652000,
    "giro": 3572960,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CTKA3": {
    "p": 44,
@@ -2189,7 +2189,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089451,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CTKA4": {
    "p": 31.25,
@@ -2198,7 +2198,7 @@
    "vol": 800,
    "giro": 25000,
    "t": 1788204314,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "KEPL3": {
    "p": 6.58,
@@ -2207,7 +2207,7 @@
    "vol": 1241900,
    "giro": 8171702,
    "t": 1788206744,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "KLBN11": {
    "p": 18.9,
@@ -2216,7 +2216,7 @@
    "vol": 7603000,
    "giro": 143696700,
    "t": 1788207004,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "KLBN3": {
    "p": 3.87,
@@ -2225,7 +2225,7 @@
    "vol": 378200,
    "giro": 1463634,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "KLBN4": {
    "p": 3.75,
@@ -2234,7 +2234,7 @@
    "vol": 2067800,
    "giro": 7754250,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "LAVV3": {
    "p": 10.1,
@@ -2243,7 +2243,7 @@
    "vol": 529800,
    "giro": 5350980,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "LIGT3": {
    "p": 3.55,
@@ -2252,7 +2252,7 @@
    "vol": 3968200,
    "giro": 14087110,
    "t": 1788206753,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "WDCN3": {
    "p": 2.35,
@@ -2261,7 +2261,7 @@
    "vol": 2100,
    "giro": 4935,
    "t": 1788204412,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "RENT3": {
    "p": 35.07,
@@ -2270,7 +2270,7 @@
    "vol": 7974500,
    "giro": 279665715,
    "t": 1788206750,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "LOGG3": {
    "p": 24.6,
@@ -2279,7 +2279,7 @@
    "vol": 504200,
    "giro": 12403320,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "LOGN3": {
    "p": 28,
@@ -2288,7 +2288,7 @@
    "vol": 5300,
    "giro": 148400,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "LJQQ3": {
    "p": 1.16,
@@ -2297,7 +2297,7 @@
    "vol": 819100,
    "giro": 950156,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "LREN3": {
    "p": 10.9,
@@ -2306,7 +2306,7 @@
    "vol": 16073900,
    "giro": 175205510,
    "t": 1788206759,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "LPSB3": {
    "p": 1.26,
@@ -2315,7 +2315,7 @@
    "vol": 162600,
    "giro": 204876,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "LUPA3": {
    "p": 3.84,
@@ -2324,7 +2324,7 @@
    "vol": 3500,
    "giro": 13440,
    "t": 1788205030,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "LWSA3": {
    "p": 4.3,
@@ -2333,7 +2333,7 @@
    "vol": 2254100,
    "giro": 9692630,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MDIA3": {
    "p": 17.28,
@@ -2342,7 +2342,7 @@
    "vol": 843700,
    "giro": 14579136,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MGLU3": {
    "p": 4.81,
@@ -2351,7 +2351,7 @@
    "vol": 25481300,
    "giro": 122565053,
    "t": 1788206733,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "LEVE3": {
    "p": 32.73,
@@ -2360,7 +2360,7 @@
    "vol": 202700,
    "giro": 6634371,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MGEL4": {
    "p": 5.49,
@@ -2369,7 +2369,7 @@
    "vol": 2800,
    "giro": 15372,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ESTR3": {
    "p": 3.01,
@@ -2378,7 +2378,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089453,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ESTR4": {
    "p": 1.44,
@@ -2387,7 +2387,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787922791,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "POMO3": {
    "p": 4.08,
@@ -2396,7 +2396,7 @@
    "vol": 6603800,
    "giro": 26943504,
    "t": 1788206880,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "POMO4": {
    "p": 4.4,
@@ -2405,7 +2405,7 @@
    "vol": 12906900,
    "giro": 56790360,
    "t": 1788206734,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MBRF3": {
    "p": 18.26,
@@ -2414,7 +2414,7 @@
    "vol": 5653100,
    "giro": 103225606,
    "t": 1788206735,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "AMAR3": {
    "p": 0.75,
@@ -2423,7 +2423,7 @@
    "vol": 377300,
    "giro": 282975,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CASH3": {
    "p": 5.64,
@@ -2432,7 +2432,7 @@
    "vol": 1895000,
    "giro": 10687800,
    "t": 1788206733,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MELK3": {
    "p": 2.81,
@@ -2441,7 +2441,7 @@
    "vol": 437800,
    "giro": 1230218,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "FRIO3": {
    "p": 205,
@@ -2450,7 +2450,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089455,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "GOAU3": {
    "p": 9.39,
@@ -2459,7 +2459,7 @@
    "vol": 21000,
    "giro": 197190,
    "t": 1788205770,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "GOAU4": {
    "p": 10.39,
@@ -2468,7 +2468,7 @@
    "vol": 7037000,
    "giro": 73114430,
    "t": 1788206757,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "RSUL4": {
    "p": 38.49,
@@ -2477,7 +2477,7 @@
    "vol": 3100,
    "giro": 119319,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MTSA4": {
    "p": 47.7,
@@ -2486,7 +2486,7 @@
    "vol": 2800,
    "giro": 133560,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MILS3": {
    "p": 15.74,
@@ -2495,7 +2495,7 @@
    "vol": 611700,
    "giro": 9628158,
    "t": 1788206751,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MMAQ3": {
    "p": 2550.01,
@@ -2504,7 +2504,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089462,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MMAQ4": {
    "p": 2550.01,
@@ -2513,7 +2513,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089462,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BEEF3": {
    "p": 3.82,
@@ -2522,7 +2522,7 @@
    "vol": 14538500,
    "giro": 55537070,
    "t": 1788206751,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MNPR3": {
    "p": 3.93,
@@ -2531,7 +2531,7 @@
    "vol": 3800,
    "giro": 14934,
    "t": 1788205220,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MTRE3": {
    "p": 3.11,
@@ -2540,7 +2540,7 @@
    "vol": 549300,
    "giro": 1708323,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MOTV3": {
    "p": 15.46,
@@ -2549,7 +2549,7 @@
    "vol": 19576400,
    "giro": 302651144,
    "t": 1788206731,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MDNE3": {
    "p": 24.45,
@@ -2558,7 +2558,7 @@
    "vol": 737500,
    "giro": 18031875,
    "t": 1788206740,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MOVI3": {
    "p": 7.3,
@@ -2567,7 +2567,7 @@
    "vol": 7939600,
    "giro": 57959080,
    "t": 1788206753,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ESPA3": {
    "p": 6.83,
@@ -2576,7 +2576,7 @@
    "vol": 69200,
    "giro": 472636,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MRSA3B": {
    "p": 44.5,
@@ -2585,7 +2585,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787856947,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MRSA5B": {
    "p": 38,
@@ -2594,7 +2594,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1785765747,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MRSA6B": {
    "p": 34.89,
@@ -2603,7 +2603,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787855829,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MRVE3": {
    "p": 5.51,
@@ -2612,7 +2612,7 @@
    "vol": 30228300,
    "giro": 166557933,
    "t": 1788206880,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MULT3": {
    "p": 27.92,
@@ -2621,7 +2621,7 @@
    "vol": 4206700,
    "giro": 117451064,
    "t": 1788206755,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MNDL3": {
    "p": 18.49,
@@ -2630,7 +2630,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787926017,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "NATU3": {
    "p": 8.74,
@@ -2639,7 +2639,7 @@
    "vol": 8594400,
    "giro": 75115056,
    "t": 1788206736,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "NEXP3": {
    "p": 2.35,
@@ -2648,7 +2648,7 @@
    "vol": 100,
    "giro": 235,
    "t": 1788198059,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "NORD3": {
    "p": 1.49,
@@ -2657,7 +2657,7 @@
    "vol": 1900,
    "giro": 2831,
    "t": 1788203972,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "NUTR3": {
    "p": 2.21,
@@ -2666,7 +2666,7 @@
    "vol": 1300,
    "giro": 2873,
    "t": 1788202185,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "OPCT3": {
    "p": 10.26,
@@ -2675,7 +2675,7 @@
    "vol": 589400,
    "giro": 6047244,
    "t": 1788206735,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "OIBR3": {
    "p": 0.1,
@@ -2684,7 +2684,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787601960,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "OIBR4": {
    "p": 0.5,
@@ -2693,7 +2693,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787601840,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ONCO3": {
    "p": 1.26,
@@ -2702,7 +2702,7 @@
    "vol": 31291200,
    "giro": 39426912,
    "t": 1788206757,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "OBTC3": {
    "p": 6.88,
@@ -2711,7 +2711,7 @@
    "vol": 3023200,
    "giro": 20799616,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ORVR3": {
    "p": 16.56,
@@ -2720,7 +2720,7 @@
    "vol": 1970700,
    "giro": 32634792,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "OSXB3": {
    "p": 1.2,
@@ -2729,7 +2729,7 @@
    "vol": 400,
    "giro": 480,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "OFSA3": {
    "p": 25.4,
@@ -2738,7 +2738,7 @@
    "vol": 25600,
    "giro": 650240,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "PDTC3": {
    "p": 1.73,
@@ -2747,7 +2747,7 @@
    "vol": 21100,
    "giro": 36503,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "PATI3": {
    "p": 28.66,
@@ -2756,7 +2756,7 @@
    "vol": 1000,
    "giro": 28660,
    "t": 1788204614,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "PATI4": {
    "p": 30.37,
@@ -2765,7 +2765,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787930121,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "PMAM3": {
    "p": 0.16,
@@ -2774,7 +2774,7 @@
    "vol": 4588300,
    "giro": 734128,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "PTBL3": {
    "p": 1.6,
@@ -2783,7 +2783,7 @@
    "vol": 549600,
    "giro": 879360,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "PDGR3": {
    "p": 1.14,
@@ -2792,7 +2792,7 @@
    "vol": 129300,
    "giro": 147402,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "PETR3": {
    "p": 50.29,
@@ -2801,7 +2801,7 @@
    "vol": 11594600,
    "giro": 583092434,
    "t": 1788206731,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "PETR4": {
    "p": 45.02,
@@ -2810,7 +2810,7 @@
    "vol": 68344500,
    "giro": 3076869390,
    "t": 1788207004,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "RECV3": {
    "p": 10.89,
@@ -2819,7 +2819,7 @@
    "vol": 2943700,
    "giro": 32056893,
    "t": 1788206744,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "PLPL3": {
    "p": 7.15,
@@ -2828,7 +2828,7 @@
    "vol": 1262900,
    "giro": 9029735,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "PLAS3": {
    "p": 2.44,
@@ -2837,7 +2837,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787942580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "PSSA3": {
    "p": 49.08,
@@ -2846,7 +2846,7 @@
    "vol": 2296300,
    "giro": 112702404,
    "t": 1788206739,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "POSI3": {
    "p": 3.3,
@@ -2855,7 +2855,7 @@
    "vol": 1783200,
    "giro": 5884560,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "PRNR3": {
    "p": 17.6,
@@ -2864,7 +2864,7 @@
    "vol": 393400,
    "giro": 6923840,
    "t": 1788206747,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "PRIO3": {
    "p": 62.68,
@@ -2873,7 +2873,7 @@
    "vol": 7082600,
    "giro": 443937368,
    "t": 1788206747,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "PFRM3": {
    "p": 7.45,
@@ -2882,7 +2882,7 @@
    "vol": 183200,
    "giro": 1364840,
    "t": 1788206758,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "QUAL3": {
    "p": 1.54,
@@ -2891,7 +2891,7 @@
    "vol": 5272100,
    "giro": 8119034,
    "t": 1788206749,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "RADL3": {
    "p": 19.6,
@@ -2900,7 +2900,7 @@
    "vol": 8007900,
    "giro": 156954840,
    "t": 1788206746,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "RAIZ4": {
    "p": 0.23,
@@ -2909,7 +2909,7 @@
    "vol": 11843500,
    "giro": 2724005,
    "t": 1788206756,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "RAPT3": {
    "p": 8.49,
@@ -2918,7 +2918,7 @@
    "vol": 87200,
    "giro": 740328,
    "t": 1788206820,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "RAPT4": {
    "p": 4.81,
@@ -2927,7 +2927,7 @@
    "vol": 1235500,
    "giro": 5942755,
    "t": 1788206746,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "RCSL3": {
    "p": 0.38,
@@ -2936,7 +2936,7 @@
    "vol": 77700,
    "giro": 29526,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "RCSL4": {
    "p": 0.39,
@@ -2945,7 +2945,7 @@
    "vol": 4446800,
    "giro": 1734252,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "RDOR3": {
    "p": 35.18,
@@ -2954,7 +2954,7 @@
    "vol": 14305500,
    "giro": 503267490,
    "t": 1788207004,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "REDE3": {
    "p": 5.51,
@@ -2963,7 +2963,7 @@
    "vol": 1600,
    "giro": 8816,
    "t": 1788203999,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "RPMG3": {
    "p": 0.85,
@@ -2972,7 +2972,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786391107,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "RNEW3": {
    "p": 0.8,
@@ -2981,7 +2981,7 @@
    "vol": 14300,
    "giro": 11440,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "RNEW4": {
    "p": 0.8,
@@ -2990,7 +2990,7 @@
    "vol": 8700,
    "giro": 6960,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "RVEE3": {
    "p": 0.72,
@@ -2999,7 +2999,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787931818,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "GEPA3": {
    "p": 33.71,
@@ -3008,7 +3008,7 @@
    "vol": 300,
    "giro": 10113,
    "t": 1788205018,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "GEPA4": {
    "p": 36.99,
@@ -3017,16 +3017,16 @@
    "vol": 300,
    "giro": 11097,
    "t": 1788191623,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ROMI3": {
    "p": 5.7,
    "v": 0.18,
    "f": 5.69,
-   "vol": 73100,
-   "giro": 416670,
+   "vol": 71500,
+   "giro": 407550,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "RSID3": {
    "p": 1.6,
@@ -3035,7 +3035,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089467,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "RAIL3": {
    "p": 15.08,
@@ -3044,7 +3044,7 @@
    "vol": 9659400,
    "giro": 145663752,
    "t": 1788206746,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "SNSY5": {
    "p": 2.5,
@@ -3053,7 +3053,7 @@
    "vol": 500,
    "giro": 1250,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "SCAR3": {
    "p": 13.1,
@@ -3062,7 +3062,7 @@
    "vol": 45300,
    "giro": 593430,
    "t": 1788206880,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "SMTO3": {
    "p": 19.75,
@@ -3071,7 +3071,7 @@
    "vol": 3503600,
    "giro": 69196100,
    "t": 1788206745,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "AHEB3": {
    "p": 23.89,
@@ -3080,7 +3080,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786130114,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "AHEB5": {
    "p": 58,
@@ -3089,7 +3089,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089443,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "AHEB6": {
    "p": 55,
@@ -3098,7 +3098,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089443,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "SHUL4": {
    "p": 4.52,
@@ -3107,7 +3107,7 @@
    "vol": 323500,
    "giro": 1462220,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ASAI3": {
    "p": 8.44,
@@ -3116,7 +3116,7 @@
    "vol": 17902100,
    "giro": 151093724,
    "t": 1788206732,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "SEQL3": {
    "p": 0.07,
@@ -3125,7 +3125,7 @@
    "vol": 510900,
    "giro": 35763,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "SEER3": {
    "p": 12.54,
@@ -3134,7 +3134,7 @@
    "vol": 2750800,
    "giro": 34495032,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "SIMH3": {
    "p": 6.6,
@@ -3143,7 +3143,7 @@
    "vol": 3064600,
    "giro": 20226360,
    "t": 1788206748,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "SLCE3": {
    "p": 16.07,
@@ -3152,7 +3152,7 @@
    "vol": 4816800,
    "giro": 77405976,
    "t": 1788206740,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "SMFT3": {
    "p": 16.81,
@@ -3161,7 +3161,7 @@
    "vol": 10224700,
    "giro": 171877207,
    "t": 1788206759,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "SOND3": {
    "p": 38.66,
@@ -3170,7 +3170,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089469,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "SOND5": {
    "p": 82.1,
@@ -3179,7 +3179,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787924429,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "SOND6": {
    "p": 79.52,
@@ -3188,16 +3188,16 @@
    "vol": 0,
    "giro": 0,
    "t": 1786478482,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "SUZB3": {
    "p": 45.3,
    "v": -1.5,
    "f": 45.99,
-   "vol": 6025500,
-   "giro": 272955150,
-   "t": 1788206750,
-   "estado": "POST"
+   "vol": 6039300,
+   "giro": 273580290,
+   "t": 1788210926,
+   "estado": "POSTPOST"
   },
   "SYNE3": {
    "p": 3.69,
@@ -3206,7 +3206,7 @@
    "vol": 521900,
    "giro": 1925811,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "SHOW3": {
    "p": 6.55,
@@ -3215,7 +3215,7 @@
    "vol": 24000,
    "giro": 157200,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "TASA3": {
    "p": 5.55,
@@ -3224,7 +3224,7 @@
    "vol": 10500,
    "giro": 58275,
    "t": 1788205745,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "TASA4": {
    "p": 5.52,
@@ -3233,7 +3233,7 @@
    "vol": 326600,
    "giro": 1802832,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "TECN3": {
    "p": 9.97,
@@ -3242,7 +3242,7 @@
    "vol": 72400,
    "giro": 721828,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "TCSA3": {
    "p": 0.63,
@@ -3251,7 +3251,7 @@
    "vol": 183900,
    "giro": 115857,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "TGMA3": {
    "p": 34.11,
@@ -3260,7 +3260,7 @@
    "vol": 550100,
    "giro": 18763911,
    "t": 1788206742,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "TELB3": {
    "p": 15.7,
@@ -3269,7 +3269,7 @@
    "vol": 6400,
    "giro": 100480,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "TELB4": {
    "p": 8.15,
@@ -3278,7 +3278,7 @@
    "vol": 900,
    "giro": 7335,
    "t": 1788205752,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "VIVT3": {
    "p": 29.85,
@@ -3287,7 +3287,7 @@
    "vol": 7730300,
    "giro": 230749455,
    "t": 1788206743,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "LAND3": {
    "p": 8.75,
@@ -3296,7 +3296,7 @@
    "vol": 19400,
    "giro": 169750,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "TXRX3": {
    "p": 9,
@@ -3305,7 +3305,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089473,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "TXRX4": {
    "p": 1.65,
@@ -3314,7 +3314,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089473,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "TIMS3": {
    "p": 18.61,
@@ -3323,7 +3323,7 @@
    "vol": 13283900,
    "giro": 247213379,
    "t": 1788206752,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "TOTS3": {
    "p": 35.45,
@@ -3332,7 +3332,7 @@
    "vol": 4650300,
    "giro": 164853135,
    "t": 1788206730,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "TPIS3": {
    "p": 9.99,
@@ -3341,7 +3341,7 @@
    "vol": 17600,
    "giro": 175824,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "TFCO4": {
    "p": 12.78,
@@ -3350,7 +3350,7 @@
    "vol": 830300,
    "giro": 10611234,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "TAEE11": {
    "p": 39.1,
@@ -3359,7 +3359,7 @@
    "vol": 2071500,
    "giro": 80995650,
    "t": 1788206748,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "TAEE3": {
    "p": 12.96,
@@ -3368,7 +3368,7 @@
    "vol": 68800,
    "giro": 891648,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "TAEE4": {
    "p": 13.2,
@@ -3377,7 +3377,7 @@
    "vol": 136700,
    "giro": 1804440,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "TTEN3": {
    "p": 11.51,
@@ -3386,7 +3386,7 @@
    "vol": 1536700,
    "giro": 17687417,
    "t": 1788206747,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "LUXM4": {
    "p": 2.56,
@@ -3395,7 +3395,7 @@
    "vol": 7400,
    "giro": 18944,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "TRIS3": {
    "p": 4.81,
@@ -3404,7 +3404,7 @@
    "vol": 256000,
    "giro": 1231360,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CRPG3": {
    "p": 17,
@@ -3413,7 +3413,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1785334018,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CRPG5": {
    "p": 9.3,
@@ -3422,7 +3422,7 @@
    "vol": 2400,
    "giro": 22320,
    "t": 1788203768,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CRPG6": {
    "p": 9.75,
@@ -3431,7 +3431,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787944850,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "TUPY3": {
    "p": 15.24,
@@ -3440,7 +3440,7 @@
    "vol": 465300,
    "giro": 7091172,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "UGPA3": {
    "p": 34.82,
@@ -3449,7 +3449,7 @@
    "vol": 12052000,
    "giro": 419650640,
    "t": 1788206747,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "AUAU3": {
    "p": 3.44,
@@ -3458,7 +3458,7 @@
    "vol": 5716300,
    "giro": 19664072,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "UCAS3": {
    "p": 1.14,
@@ -3467,7 +3467,7 @@
    "vol": 7500,
    "giro": 8550,
    "t": 1788205170,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "FIQE3": {
    "p": 4.87,
@@ -3476,7 +3476,7 @@
    "vol": 735300,
    "giro": 3580911,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "UNIP3": {
    "p": 55.64,
@@ -3485,7 +3485,7 @@
    "vol": 3600,
    "giro": 200304,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "UNIP5": {
    "p": 58,
@@ -3494,7 +3494,7 @@
    "vol": 100,
    "giro": 5800,
    "t": 1788201245,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "UNIP6": {
    "p": 55.98,
@@ -3503,7 +3503,7 @@
    "vol": 184100,
    "giro": 10305918,
    "t": 1788206749,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "USIM3": {
    "p": 6.86,
@@ -3512,7 +3512,7 @@
    "vol": 896400,
    "giro": 6149304,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "USIM5": {
    "p": 7.47,
@@ -3521,7 +3521,7 @@
    "vol": 7851600,
    "giro": 58651452,
    "t": 1788206755,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "USIM6": {
    "p": 6.47,
@@ -3530,7 +3530,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787584232,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "VALE3": {
    "p": 77.85,
@@ -3539,7 +3539,7 @@
    "vol": 27931200,
    "giro": 2174443920,
    "t": 1788207004,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "VLID3": {
    "p": 16.75,
@@ -3548,7 +3548,7 @@
    "vol": 375400,
    "giro": 6287950,
    "t": 1788206735,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "VAMO3": {
    "p": 2.99,
@@ -3557,7 +3557,7 @@
    "vol": 10751600,
    "giro": 32147284,
    "t": 1788206748,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "VSTE3": {
    "p": 2.41,
@@ -3566,7 +3566,7 @@
    "vol": 61500,
    "giro": 148215,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "VBBR3": {
    "p": 34.42,
@@ -3575,7 +3575,7 @@
    "vol": 15187000,
    "giro": 522736540,
    "t": 1788206746,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "VTRU3": {
    "p": 14.06,
@@ -3584,7 +3584,7 @@
    "vol": 832100,
    "giro": 11699326,
    "t": 1788206745,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "VITT3": {
    "p": 3.05,
@@ -3593,7 +3593,7 @@
    "vol": 160100,
    "giro": 488305,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "VIVA3": {
    "p": 22.28,
@@ -3602,7 +3602,7 @@
    "vol": 2543200,
    "giro": 56662496,
    "t": 1788206743,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "VIVR3": {
    "p": 1.52,
@@ -3611,7 +3611,7 @@
    "vol": 1100,
    "giro": 1672,
    "t": 1788195578,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "VULC3": {
    "p": 13.46,
@@ -3620,7 +3620,7 @@
    "vol": 1857200,
    "giro": 24997912,
    "t": 1788206732,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "WEGE3": {
    "p": 50.15,
@@ -3629,7 +3629,7 @@
    "vol": 11272500,
    "giro": 565315875,
    "t": 1788206759,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "WEST3": {
    "p": 2.87,
@@ -3638,7 +3638,7 @@
    "vol": 15900,
    "giro": 45633,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MWET3": {
    "p": 16,
@@ -3647,7 +3647,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089462,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MWET4": {
    "p": 26,
@@ -3656,7 +3656,7 @@
    "vol": 1700,
    "giro": 44200,
    "t": 1788184362,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "WHRL3": {
    "p": 3.64,
@@ -3665,7 +3665,7 @@
    "vol": 4700,
    "giro": 17108,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "WHRL4": {
    "p": 3.69,
@@ -3674,7 +3674,7 @@
    "vol": 22200,
    "giro": 81918,
    "t": 1788205482,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "WIZC3": {
    "p": 7.96,
@@ -3683,7 +3683,7 @@
    "vol": 258400,
    "giro": 2056864,
    "t": 1788206739,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "WLMM3": {
    "p": 19.69,
@@ -3692,7 +3692,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787594538,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "WLMM4": {
    "p": 16.1,
@@ -3701,7 +3701,7 @@
    "vol": 13600,
    "giro": 218960,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "YDUQ3": {
    "p": 8.73,
@@ -3710,7 +3710,7 @@
    "vol": 4627200,
    "giro": 40395456,
    "t": 1788206748,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MMMC34": {
    "p": 222.18,
@@ -3719,7 +3719,7 @@
    "vol": 171,
    "giro": 37993,
    "t": 1788205117,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ABTT34": {
    "p": 47.62,
@@ -3728,7 +3728,7 @@
    "vol": 304,
    "giro": 14476,
    "t": 1788205246,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ABBV34": {
    "p": 83.63,
@@ -3737,7 +3737,7 @@
    "vol": 18,
    "giro": 1505,
    "t": 1788205112,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A2SO34": {
    "p": 55,
@@ -3746,7 +3746,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787848459,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ACNB34": {
    "p": 986.49,
@@ -3755,7 +3755,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787943694,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ADBE34": {
    "p": 29.95,
@@ -3764,7 +3764,7 @@
    "vol": 35020,
    "giro": 1048849,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1AP34": {
    "p": 14.32,
@@ -3773,7 +3773,7 @@
    "vol": 11472,
    "giro": 164279,
    "t": 1788206880,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1MD34": {
    "p": 304,
@@ -3782,7 +3782,7 @@
    "vol": 42977,
    "giro": 13065008,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1EG34": {
    "p": 47.9,
@@ -3791,7 +3791,7 @@
    "vol": 314,
    "giro": 15041,
    "t": 1788204369,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1ES34": {
    "p": 74.33,
@@ -3800,7 +3800,7 @@
    "vol": 6,
    "giro": 446,
    "t": 1788181260,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1FL34": {
    "p": 603.9,
@@ -3809,7 +3809,7 @@
    "vol": 30,
    "giro": 18117,
    "t": 1788185417,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A2FY34": {
    "p": 37.64,
@@ -3818,7 +3818,7 @@
    "vol": 2,
    "giro": 75,
    "t": 1788205584,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1GI34": {
    "p": 72.26,
@@ -3827,7 +3827,7 @@
    "vol": 10,
    "giro": 723,
    "t": 1788181380,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1GT34": {
    "p": 13.45,
@@ -3836,7 +3836,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1785514800,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1DC34": {
    "p": 47.9,
@@ -3845,7 +3845,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787752246,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1PD34": {
    "p": 66.71,
@@ -3854,7 +3854,7 @@
    "vol": 4,
    "giro": 267,
    "t": 1788192648,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "AIRB34": {
    "p": 48.99,
@@ -3863,7 +3863,7 @@
    "vol": 10363,
    "giro": 507683,
    "t": 1788206880,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1KA34": {
    "p": 47.4,
@@ -3872,7 +3872,7 @@
    "vol": 12,
    "giro": 569,
    "t": 1788205364,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1LK34": {
    "p": 215.38,
@@ -3881,7 +3881,7 @@
    "vol": 4,
    "giro": 862,
    "t": 1788191357,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1LB34": {
    "p": 28.83,
@@ -3890,7 +3890,7 @@
    "vol": 52,
    "giro": 1499,
    "t": 1788204596,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A2LC34": {
    "p": 38,
@@ -3899,7 +3899,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787058060,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1RE34": {
    "p": 66.45,
@@ -3908,7 +3908,7 @@
    "vol": 10,
    "giro": 665,
    "t": 1788200406,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BABA34": {
    "p": 21.03,
@@ -3917,7 +3917,7 @@
    "vol": 312108,
    "giro": 6563631,
    "t": 1788206820,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1LG34": {
    "p": 205.6,
@@ -3926,7 +3926,7 @@
    "vol": 5,
    "giro": 1028,
    "t": 1788196790,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1GN34": {
    "p": 415,
@@ -3935,7 +3935,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787083800,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1EN34": {
    "p": 358.72,
@@ -3944,7 +3944,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1785936055,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1TT34": {
    "p": 55.38,
@@ -3953,7 +3953,7 @@
    "vol": 231,
    "giro": 12793,
    "t": 1788205362,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1LN34": {
    "p": 62.03,
@@ -3962,7 +3962,7 @@
    "vol": 1854,
    "giro": 115004,
    "t": 1788194642,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "GOGL34": {
    "p": 146.63,
@@ -3971,7 +3971,7 @@
    "vol": 671306,
    "giro": 98433599,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MOOO34": {
    "p": 71.4,
@@ -3980,7 +3980,7 @@
    "vol": 3,
    "giro": 214,
    "t": 1788182468,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "AMZO34": {
    "p": 67.1,
@@ -3989,7 +3989,7 @@
    "vol": 968446,
    "giro": 64982727,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A2MB34": {
    "p": 14.48,
@@ -3998,7 +3998,7 @@
    "vol": 342,
    "giro": 4952,
    "t": 1788205624,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1CR34": {
    "p": 240.24,
@@ -4007,7 +4007,7 @@
    "vol": 51,
    "giro": 12252,
    "t": 1788193174,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "D2OX34": {
    "p": 37.52,
@@ -4016,7 +4016,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786386858,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1EE34": {
    "p": 269.09,
@@ -4025,7 +4025,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089442,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "AALL34": {
    "p": 69.74,
@@ -4034,7 +4034,7 @@
    "vol": 12069,
    "giro": 841692,
    "t": 1788205325,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1EP34": {
    "p": 63.48,
@@ -4043,7 +4043,7 @@
    "vol": 554,
    "giro": 35168,
    "t": 1788202922,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "AXPB34": {
    "p": 171.36,
@@ -4052,7 +4052,7 @@
    "vol": 104,
    "giro": 17821,
    "t": 1788198712,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "AIGB34": {
    "p": 392.34,
@@ -4061,7 +4061,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787330026,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "T1OW34": {
    "p": 38.24,
@@ -4070,7 +4070,7 @@
    "vol": 67,
    "giro": 2562,
    "t": 1788204220,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1WK34": {
    "p": 59.39,
@@ -4079,7 +4079,7 @@
    "vol": 43,
    "giro": 2554,
    "t": 1788184718,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "COLD34": {
    "p": 25,
@@ -4088,7 +4088,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786461222,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1MP34": {
    "p": 72.73,
@@ -4097,7 +4097,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787944144,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1ME34": {
    "p": 52.75,
@@ -4106,7 +4106,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787841272,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "AMGN34": {
    "p": 79.75,
@@ -4115,7 +4115,7 @@
    "vol": 116,
    "giro": 9251,
    "t": 1788205112,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1PH34": {
    "p": 68.32,
@@ -4124,7 +4124,7 @@
    "vol": 54,
    "giro": 3689,
    "t": 1788205361,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1DI34": {
    "p": 44,
@@ -4133,7 +4133,7 @@
    "vol": 160,
    "giro": 7040,
    "t": 1788205362,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ABUD34": {
    "p": 68.17,
@@ -4142,7 +4142,7 @@
    "vol": 5,
    "giro": 341,
    "t": 1788205112,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "N2LY34": {
    "p": 118.9,
@@ -4151,7 +4151,7 @@
    "vol": 133,
    "giro": 15814,
    "t": 1788202003,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1OS34": {
    "p": 330.56,
@@ -4160,7 +4160,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787169286,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1ON34": {
    "p": 70.31,
@@ -4169,7 +4169,7 @@
    "vol": 180,
    "giro": 12656,
    "t": 1788203040,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1PA34": {
    "p": 219,
@@ -4178,7 +4178,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787859271,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1IV34": {
    "p": 13.1,
@@ -4187,7 +4187,7 @@
    "vol": 287,
    "giro": 3760,
    "t": 1788206700,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1PO34": {
    "p": 47.41,
@@ -4196,7 +4196,7 @@
    "vol": 1039,
    "giro": 49259,
    "t": 1788205456,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "AAPL34": {
    "p": 82.32,
@@ -4205,7 +4205,7 @@
    "vol": 492866,
    "giro": 40572729,
    "t": 1788206820,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1PL34": {
    "p": 130.77,
@@ -4214,7 +4214,7 @@
    "vol": 1550,
    "giro": 202694,
    "t": 1788204471,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1MT34": {
    "p": 236.4,
@@ -4223,7 +4223,7 @@
    "vol": 2295,
    "giro": 542538,
    "t": 1788206700,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1PP34": {
    "p": 49.97,
@@ -4232,7 +4232,7 @@
    "vol": 2644,
    "giro": 132121,
    "t": 1788206820,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "APTV34": {
    "p": 118.43,
@@ -4241,7 +4241,7 @@
    "vol": 3,
    "giro": 355,
    "t": 1788197596,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ARMT34": {
    "p": 193.45,
@@ -4250,7 +4250,7 @@
    "vol": 1351,
    "giro": 261351,
    "t": 1788206700,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1DM34": {
    "p": 51.55,
@@ -4259,7 +4259,7 @@
    "vol": 150,
    "giro": 7733,
    "t": 1788203072,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1RC34": {
    "p": 41.72,
@@ -4268,7 +4268,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787945786,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A2RE34": {
    "p": 74.69,
@@ -4277,7 +4277,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787930517,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1RG34": {
    "p": 209.16,
@@ -4286,7 +4286,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787599679,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1NE34": {
    "p": 254.26,
@@ -4295,7 +4295,7 @@
    "vol": 2603,
    "giro": 661839,
    "t": 1788205362,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "AWII34": {
    "p": 958.5,
@@ -4304,7 +4304,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786464042,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A2RW34": {
    "p": 70.42,
@@ -4313,7 +4313,7 @@
    "vol": 4,
    "giro": 282,
    "t": 1788205362,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A2RR34": {
    "p": 55.68,
@@ -4322,7 +4322,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787945744,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1JG34": {
    "p": 691.6,
@@ -4331,7 +4331,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787665607,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1SN34": {
    "p": 91.5,
@@ -4340,7 +4340,7 @@
    "vol": 175,
    "giro": 16013,
    "t": 1788185499,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ASML34": {
    "p": 159.75,
@@ -4349,7 +4349,7 @@
    "vol": 40763,
    "giro": 6511889,
    "t": 1788206700,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1SU34": {
    "p": 369.99,
@@ -4358,7 +4358,7 @@
    "vol": 18,
    "giro": 6660,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1ZN34": {
    "p": 140.55,
@@ -4367,7 +4367,7 @@
    "vol": 120,
    "giro": 16866,
    "t": 1788196364,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ATTB34": {
    "p": 44.99,
@@ -4376,7 +4376,7 @@
    "vol": 600,
    "giro": 26994,
    "t": 1788205770,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "T1AM34": {
    "p": 50.5,
@@ -4385,7 +4385,7 @@
    "vol": 1164,
    "giro": 58782,
    "t": 1788205546,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1TM34": {
    "p": 432.58,
@@ -4394,7 +4394,7 @@
    "vol": 4,
    "giro": 1730,
    "t": 1788192520,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1UT34": {
    "p": 67.33,
@@ -4403,7 +4403,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787941582,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1TH34": {
    "p": 11.7,
@@ -4412,7 +4412,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787923910,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ADPR34": {
    "p": 62.1,
@@ -4421,7 +4421,7 @@
    "vol": 2,
    "giro": 124,
    "t": 1788205348,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "AZOI34": {
    "p": 70.2,
@@ -4430,7 +4430,7 @@
    "vol": 1014,
    "giro": 71183,
    "t": 1788204780,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1VY34": {
    "p": 405,
@@ -4439,7 +4439,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089442,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A2XO34": {
    "p": 163.71,
@@ -4448,7 +4448,7 @@
    "vol": 8,
    "giro": 1310,
    "t": 1788204666,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A2ZT34": {
    "p": 14.16,
@@ -4457,7 +4457,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787753189,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BIDU34": {
    "p": 35.34,
@@ -4466,7 +4466,7 @@
    "vol": 21996,
    "giro": 777339,
    "t": 1788205769,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "B1KR34": {
    "p": 322.09,
@@ -4475,7 +4475,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1785873048,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "B1LL34": {
    "p": 162.51,
@@ -4484,7 +4484,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787859621,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BILB34": {
    "p": 151.5,
@@ -4493,7 +4493,7 @@
    "vol": 10,
    "giro": 1515,
    "t": 1788181200,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "B1SA34": {
    "p": 90.27,
@@ -4502,7 +4502,7 @@
    "vol": 4,
    "giro": 361,
    "t": 1788202361,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BCSA34": {
    "p": 75.75,
@@ -4511,7 +4511,7 @@
    "vol": 247,
    "giro": 18710,
    "t": 1788204372,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BOAC34": {
    "p": 80.16,
@@ -4520,7 +4520,7 @@
    "vol": 64042,
    "giro": 5133607,
    "t": 1788205794,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "B1CS34": {
    "p": 138.32,
@@ -4529,7 +4529,7 @@
    "vol": 28,
    "giro": 3873,
    "t": 1788189257,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "B1BW34": {
    "p": 22.2,
@@ -4538,7 +4538,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787750380,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "B1AX34": {
    "p": 67.51,
@@ -4547,7 +4547,7 @@
    "vol": 1,
    "giro": 68,
    "t": 1788192276,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "B1DX34": {
    "p": 195.8,
@@ -4556,7 +4556,7 @@
    "vol": 231,
    "giro": 45230,
    "t": 1788204164,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "B1ME34": {
    "p": 74,
@@ -4565,7 +4565,7 @@
    "vol": 253,
    "giro": 18722,
    "t": 1788198261,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BERK34": {
    "p": 131.09,
@@ -4574,7 +4574,7 @@
    "vol": 21303,
    "giro": 2792610,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BBYY34": {
    "p": 70,
@@ -4583,7 +4583,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787838096,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "B2YN34": {
    "p": 70,
@@ -4592,7 +4592,7 @@
    "vol": 28,
    "giro": 1960,
    "t": 1788203601,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "B1IL34": {
    "p": 16.86,
@@ -4601,7 +4601,7 @@
    "vol": 1677,
    "giro": 28274,
    "t": 1788205045,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "B2HI34": {
    "p": 1.42,
@@ -4610,7 +4610,7 @@
    "vol": 16436,
    "giro": 23339,
    "t": 1788204555,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BIIB34": {
    "p": 188.29,
@@ -4619,7 +4619,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787944433,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BHVN34": {
    "p": 23.68,
@@ -4628,7 +4628,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1785332333,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "B1MR34": {
    "p": 168.65,
@@ -4637,7 +4637,7 @@
    "vol": 50,
    "giro": 8433,
    "t": 1788186789,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "B1NT34": {
    "p": 32.67,
@@ -4646,7 +4646,7 @@
    "vol": 119,
    "giro": 3888,
    "t": 1788201279,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "T1CH34": {
    "p": 12.46,
@@ -4655,7 +4655,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787855556,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "B2LN34": {
    "p": 12.73,
@@ -4664,7 +4664,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1785942248,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BLAK34": {
    "p": 89.74,
@@ -4673,7 +4673,7 @@
    "vol": 952,
    "giro": 85432,
    "t": 1788206700,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "X1YZ34": {
    "p": 17.84,
@@ -4682,7 +4682,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787843631,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BKNG34": {
    "p": 5.92,
@@ -4691,7 +4691,7 @@
    "vol": 22432,
    "giro": 132797,
    "t": 1788205769,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "B2AH34": {
    "p": 39.72,
@@ -4700,7 +4700,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786577884,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "B1WA34": {
    "p": 325.92,
@@ -4709,7 +4709,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787922060,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "B1SX34": {
    "p": 62.46,
@@ -4718,7 +4718,7 @@
    "vol": 240,
    "giro": 14990,
    "t": 1788205364,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "B1PP34": {
    "p": 55.55,
@@ -4727,7 +4727,7 @@
    "vol": 246,
    "giro": 13665,
    "t": 1788203804,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "B1ZE34": {
    "p": 47.4,
@@ -4736,7 +4736,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089445,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "A1LL34": {
    "p": 139.02,
@@ -4745,7 +4745,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787873988,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BMYB34": {
    "p": 348.25,
@@ -4754,7 +4754,7 @@
    "vol": 25,
    "giro": 8706,
    "t": 1788205112,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "B1TI34": {
    "p": 57.65,
@@ -4763,7 +4763,7 @@
    "vol": 779,
    "giro": 44909,
    "t": 1788205746,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "AVGO34": {
    "p": 27.56,
@@ -4772,7 +4772,7 @@
    "vol": 170498,
    "giro": 4698925,
    "t": 1788206880,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "B1RF34": {
    "p": 236.68,
@@ -4781,7 +4781,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787851820,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "B1AM34": {
    "p": 53.7,
@@ -4790,7 +4790,7 @@
    "vol": 2587,
    "giro": 138922,
    "t": 1788204203,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "B1FC34": {
    "p": 138.78,
@@ -4799,7 +4799,7 @@
    "vol": 3,
    "giro": 416,
    "t": 1788204524,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "B2RK34": {
    "p": 30,
@@ -4808,7 +4808,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787925061,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "B2MB34": {
    "p": 2.84,
@@ -4817,7 +4817,7 @@
    "vol": 5,
    "giro": 14,
    "t": 1788184911,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "B2UR34": {
    "p": 53.85,
@@ -4826,7 +4826,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787770148,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BOXP34": {
    "p": 35.39,
@@ -4835,7 +4835,7 @@
    "vol": 21,
    "giro": 743,
    "t": 1788203383,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C1AB34": {
    "p": 0.7,
@@ -4844,7 +4844,7 @@
    "vol": 8721,
    "giro": 6105,
    "t": 1788205649,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C2AC34": {
    "p": 4.16,
@@ -4853,7 +4853,7 @@
    "vol": 1012,
    "giro": 4210,
    "t": 1788199290,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C1DN34": {
    "p": 52.05,
@@ -4862,7 +4862,7 @@
    "vol": 691,
    "giro": 35967,
    "t": 1788202977,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C2ZR34": {
    "p": 13.31,
@@ -4871,7 +4871,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089449,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C2PT34": {
    "p": 37.32,
@@ -4880,7 +4880,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786982894,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C1CJ34": {
    "p": 101.5,
@@ -4889,7 +4889,7 @@
    "vol": 272,
    "giro": 27608,
    "t": 1788203562,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CNIC34": {
    "p": 27,
@@ -4898,7 +4898,7 @@
    "vol": 408,
    "giro": 11016,
    "t": 1788202109,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CPRL34": {
    "p": 120.12,
@@ -4907,7 +4907,7 @@
    "vol": 650,
    "giro": 78078,
    "t": 1788181837,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CAON34": {
    "p": 70.07,
@@ -4916,7 +4916,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787234197,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CAPH34": {
    "p": 91,
@@ -4925,7 +4925,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089449,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C1AH34": {
    "p": 1221.22,
@@ -4934,7 +4934,7 @@
    "vol": 11,
    "giro": 13433,
    "t": 1788205362,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "K1MX34": {
    "p": 164.96,
@@ -4943,7 +4943,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787675690,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C1CL34": {
    "p": 124,
@@ -4952,7 +4952,7 @@
    "vol": 1094,
    "giro": 135656,
    "t": 1788205362,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C1RR34": {
    "p": 76,
@@ -4961,7 +4961,7 @@
    "vol": 64,
    "giro": 4864,
    "t": 1788204442,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CRIN34": {
    "p": 109.48,
@@ -4970,7 +4970,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089451,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CATP34": {
    "p": 258,
@@ -4979,7 +4979,7 @@
    "vol": 5280,
    "giro": 1362240,
    "t": 1788206700,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C1BO34": {
    "p": 795.23,
@@ -4988,7 +4988,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787772856,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C1BR34": {
    "p": 783.85,
@@ -4997,7 +4997,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787944144,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C1DW34": {
    "p": 34.93,
@@ -5006,7 +5006,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787253521,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C1NS34": {
    "p": 117.72,
@@ -5015,7 +5015,7 @@
    "vol": 2,
    "giro": 235,
    "t": 1788205496,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C2EM34": {
    "p": 52.54,
@@ -5024,7 +5024,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787232601,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C1CO34": {
    "p": 707.04,
@@ -5033,7 +5033,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089449,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C1NC34": {
    "p": 340.3,
@@ -5042,7 +5042,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787076111,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C1NP34": {
    "p": 210.21,
@@ -5051,7 +5051,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089449,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C2RN34": {
    "p": 9.7,
@@ -5060,7 +5060,7 @@
    "vol": 1,
    "giro": 10,
    "t": 1788181669,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C1FI34": {
    "p": 665.6,
@@ -5069,7 +5069,7 @@
    "vol": 75,
    "giro": 49920,
    "t": 1788181784,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C1HR34": {
    "p": 47.6,
@@ -5078,7 +5078,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089449,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C2HP34": {
    "p": 9.81,
@@ -5087,7 +5087,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787932945,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CHCM34": {
    "p": 13.11,
@@ -5096,7 +5096,7 @@
    "vol": 3189,
    "giro": 41808,
    "t": 1788204839,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C1HK34": {
    "p": 60.01,
@@ -5105,7 +5105,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787945436,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CHVX34": {
    "p": 104.4,
@@ -5114,7 +5114,7 @@
    "vol": 9695,
    "giro": 1012158,
    "t": 1788206700,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C1MG34": {
    "p": 9.9,
@@ -5123,7 +5123,7 @@
    "vol": 32256,
    "giro": 319334,
    "t": 1788200188,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C1BL34": {
    "p": 73.64,
@@ -5132,7 +5132,7 @@
    "vol": 67,
    "giro": 4934,
    "t": 1788204312,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C1HT34": {
    "p": 55.85,
@@ -5141,7 +5141,7 @@
    "vol": 3,
    "giro": 168,
    "t": 1788205508,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CHDC34": {
    "p": 488.56,
@@ -5150,7 +5150,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089450,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C2HD34": {
    "p": 21.12,
@@ -5159,7 +5159,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786109301,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CINF34": {
    "p": 371.32,
@@ -5168,7 +5168,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089450,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C1TA34": {
    "p": 205.67,
@@ -5177,7 +5177,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786988242,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CSCO34": {
    "p": 115.19,
@@ -5186,7 +5186,7 @@
    "vol": 1816,
    "giro": 209185,
    "t": 1788205769,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CTGP34": {
    "p": 113.53,
@@ -5195,7 +5195,7 @@
    "vol": 3251,
    "giro": 369086,
    "t": 1788205783,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C1FG34": {
    "p": 357.12,
@@ -5204,7 +5204,7 @@
    "vol": 50,
    "giro": 17856,
    "t": 1788185293,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CLXC34": {
    "p": 127.13,
@@ -5213,7 +5213,7 @@
    "vol": 102,
    "giro": 12967,
    "t": 1788202871,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "N2ET34": {
    "p": 88.46,
@@ -5222,7 +5222,7 @@
    "vol": 1982,
    "giro": 175328,
    "t": 1788205740,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CLOV34": {
    "p": 21.74,
@@ -5231,7 +5231,7 @@
    "vol": 794,
    "giro": 17262,
    "t": 1788198253,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CHME34": {
    "p": 74.26,
@@ -5240,7 +5240,7 @@
    "vol": 9101,
    "giro": 675840,
    "t": 1788203916,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C1MS34": {
    "p": 178.19,
@@ -5249,7 +5249,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787764936,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C2CA34": {
    "p": 116.04,
@@ -5258,7 +5258,7 @@
    "vol": 2,
    "giro": 232,
    "t": 1788198388,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C2GN34": {
    "p": 39.05,
@@ -5267,7 +5267,7 @@
    "vol": 15,
    "giro": 586,
    "t": 1788203978,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CTSH34": {
    "p": 318.12,
@@ -5276,7 +5276,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787590398,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C2OI34": {
    "p": 39.38,
@@ -5285,7 +5285,7 @@
    "vol": 48354,
    "giro": 1904181,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "COLG34": {
    "p": 66.65,
@@ -5294,7 +5294,7 @@
    "vol": 136,
    "giro": 9064,
    "t": 1788204855,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C2SW34": {
    "p": 29.34,
@@ -5303,7 +5303,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786995824,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CMCS34": {
    "p": 27.75,
@@ -5312,7 +5312,7 @@
    "vol": 539,
    "giro": 14957,
    "t": 1788204777,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C1AG34": {
    "p": 75.67,
@@ -5321,7 +5321,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786456589,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "COPH34": {
    "p": 56.94,
@@ -5330,7 +5330,7 @@
    "vol": 788,
    "giro": 44869,
    "t": 1788205456,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "E1DI34": {
    "p": 281.62,
@@ -5339,7 +5339,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786736459,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "STZB34": {
    "p": 56.45,
@@ -5348,7 +5348,7 @@
    "vol": 58,
    "giro": 3274,
    "t": 1788203199,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C1OO34": {
    "p": 39.92,
@@ -5357,7 +5357,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787164492,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C1PR34": {
    "p": 85.6,
@@ -5366,7 +5366,7 @@
    "vol": 200,
    "giro": 17120,
    "t": 1788200808,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C1DP34": {
    "p": 47.6,
@@ -5375,7 +5375,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089449,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "G1LW34": {
    "p": 192.09,
@@ -5384,7 +5384,7 @@
    "vol": 984,
    "giro": 189017,
    "t": 1788205100,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CPAY34": {
    "p": 386.1,
@@ -5393,7 +5393,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089450,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C1TV34": {
    "p": 105.89,
@@ -5402,7 +5402,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787859872,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C1GP34": {
    "p": 1.66,
@@ -5411,7 +5411,7 @@
    "vol": 18171,
    "giro": 30164,
    "t": 1788205457,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "COWC34": {
    "p": 122.2,
@@ -5420,7 +5420,7 @@
    "vol": 62,
    "giro": 7576,
    "t": 1788204522,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "COTY34": {
    "p": 7.3,
@@ -5429,7 +5429,7 @@
    "vol": 8593,
    "giro": 62729,
    "t": 1788206820,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C2OU34": {
    "p": 14.84,
@@ -5438,7 +5438,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786979762,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C2PR34": {
    "p": 38.56,
@@ -5447,7 +5447,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787579778,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "B2AP34": {
    "p": 158.66,
@@ -5456,7 +5456,7 @@
    "vol": 265,
    "giro": 42045,
    "t": 1788205131,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CRDA34": {
    "p": 245.34,
@@ -5465,7 +5465,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089451,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C1RH34": {
    "p": 81.83,
@@ -5474,7 +5474,7 @@
    "vol": 26,
    "giro": 2128,
    "t": 1788205363,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C2RS34": {
    "p": 36.63,
@@ -5483,7 +5483,7 @@
    "vol": 400,
    "giro": 14652,
    "t": 1788201345,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C2RW34": {
    "p": 53.74,
@@ -5492,7 +5492,7 @@
    "vol": 21445,
    "giro": 1152454,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C1CI34": {
    "p": 98,
@@ -5501,7 +5501,7 @@
    "vol": 2,
    "giro": 196,
    "t": 1788196764,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CSXC34": {
    "p": 130.52,
@@ -5510,7 +5510,7 @@
    "vol": 100,
    "giro": 13052,
    "t": 1788202166,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C1MI34": {
    "p": 52,
@@ -5519,7 +5519,7 @@
    "vol": 62,
    "giro": 3224,
    "t": 1788205362,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CVSH34": {
    "p": 48.5,
@@ -5528,7 +5528,7 @@
    "vol": 1,
    "giro": 49,
    "t": 1788196144,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "DHER34": {
    "p": 40.16,
@@ -5537,7 +5537,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787941284,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "D1RI34": {
    "p": 265.92,
@@ -5546,7 +5546,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089451,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "D2AR34": {
    "p": 41.27,
@@ -5555,7 +5555,7 @@
    "vol": 1127,
    "giro": 46511,
    "t": 1788203180,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "D1DG34": {
    "p": 124.17,
@@ -5564,7 +5564,7 @@
    "vol": 1423,
    "giro": 176694,
    "t": 1788205484,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "DVAI34": {
    "p": 916.49,
@@ -5573,7 +5573,7 @@
    "vol": 1,
    "giro": 916,
    "t": 1788197243,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "DEEC34": {
    "p": 112.81,
@@ -5582,7 +5582,7 @@
    "vol": 1030,
    "giro": 116194,
    "t": 1788205770,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "D1EL34": {
    "p": 94.97,
@@ -5591,7 +5591,7 @@
    "vol": 11895,
    "giro": 1129668,
    "t": 1788205798,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "DEAI34": {
    "p": 74.97,
@@ -5600,7 +5600,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787081740,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "D2NL34": {
    "p": 27.06,
@@ -5609,7 +5609,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089452,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "XRAY34": {
    "p": 57.48,
@@ -5618,7 +5618,7 @@
    "vol": 2,
    "giro": 115,
    "t": 1788201032,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "DBAG34": {
    "p": 207.27,
@@ -5627,7 +5627,7 @@
    "vol": 6,
    "giro": 1244,
    "t": 1788201434,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "D1VN34": {
    "p": 246,
@@ -5636,7 +5636,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787937150,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "D1EX34": {
    "p": 9.44,
@@ -5645,7 +5645,7 @@
    "vol": 50,
    "giro": 472,
    "t": 1788205112,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "DEOP34": {
    "p": 26.61,
@@ -5654,7 +5654,7 @@
    "vol": 2,
    "giro": 53,
    "t": 1788204184,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "F1AN34": {
    "p": 64.68,
@@ -5663,7 +5663,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787925076,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "D2KS34": {
    "p": 68.11,
@@ -5672,7 +5672,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787848819,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "D1LR34": {
    "p": 60.48,
@@ -5681,7 +5681,7 @@
    "vol": 8,
    "giro": 484,
    "t": 1788203907,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "D1OC34": {
    "p": 17.16,
@@ -5690,7 +5690,7 @@
    "vol": 10,
    "giro": 172,
    "t": 1788205780,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "DGCO34": {
    "p": 26.47,
@@ -5699,7 +5699,7 @@
    "vol": 10,
    "giro": 265,
    "t": 1788182094,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "DLTR34": {
    "p": 300.45,
@@ -5708,7 +5708,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089452,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "D1OM34": {
    "p": 57,
@@ -5717,7 +5717,7 @@
    "vol": 19,
    "giro": 1083,
    "t": 1788198512,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "D2PZ34": {
    "p": 35.79,
@@ -5726,7 +5726,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787774056,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "D2AS34": {
    "p": 82.07,
@@ -5735,7 +5735,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787938020,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "D1OV34": {
    "p": 535,
@@ -5744,7 +5744,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089451,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "D1OW34": {
    "p": 39.16,
@@ -5753,7 +5753,7 @@
    "vol": 6,
    "giro": 235,
    "t": 1788203879,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "D2OC34": {
    "p": 22.91,
@@ -5762,7 +5762,7 @@
    "vol": 2837,
    "giro": 64996,
    "t": 1788186300,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "D1HI34": {
    "p": 706.11,
@@ -5771,7 +5771,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089451,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "R1DY34": {
    "p": 10.25,
@@ -5780,7 +5780,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786385575,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "D2KN34": {
    "p": 20.9,
@@ -5789,7 +5789,7 @@
    "vol": 5,
    "giro": 105,
    "t": 1788203280,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "D1TE34": {
    "p": 176.11,
@@ -5798,7 +5798,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787673745,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "DUKB34": {
    "p": 623.72,
@@ -5807,7 +5807,7 @@
    "vol": 100,
    "giro": 62372,
    "t": 1788202952,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "DUOL34": {
    "p": 23.56,
@@ -5816,7 +5816,7 @@
    "vol": 43,
    "giro": 1013,
    "t": 1788183795,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "DDNB34": {
    "p": 699.35,
@@ -5825,7 +5825,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787590448,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "D1XC34": {
    "p": 57.18,
@@ -5834,7 +5834,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1785771067,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "D2TC34": {
    "p": 35.25,
@@ -5843,7 +5843,7 @@
    "vol": 9,
    "giro": 317,
    "t": 1788202977,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "E2AG34": {
    "p": 63,
@@ -5852,7 +5852,7 @@
    "vol": 1000,
    "giro": 63000,
    "t": 1788184056,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "E1MN34": {
    "p": 187.56,
@@ -5861,7 +5861,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787591068,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "E1TN34": {
    "p": 149.11,
@@ -5870,7 +5870,7 @@
    "vol": 476,
    "giro": 70976,
    "t": 1788204799,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "EBAY34": {
    "p": 268.66,
@@ -5879,7 +5879,7 @@
    "vol": 2,
    "giro": 537,
    "t": 1788192296,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "E1CL34": {
    "p": 333.82,
@@ -5888,7 +5888,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089452,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "E1CO34": {
    "p": 42.96,
@@ -5897,7 +5897,7 @@
    "vol": 4515,
    "giro": 193964,
    "t": 1788204666,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "E1IX34": {
    "p": 139,
@@ -5906,7 +5906,7 @@
    "vol": 557,
    "giro": 77423,
    "t": 1788205406,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "E1WL34": {
    "p": 105.71,
@@ -5915,7 +5915,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1785181674,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "E2ST34": {
    "p": 44.35,
@@ -5924,7 +5924,7 @@
    "vol": 84,
    "giro": 3725,
    "t": 1788181200,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "E1LV34": {
    "p": 410.8,
@@ -5933,7 +5933,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786976607,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "LILY34": {
    "p": 201,
@@ -5942,7 +5942,7 @@
    "vol": 43556,
    "giro": 8754756,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "E1MR34": {
    "p": 66.14,
@@ -5951,7 +5951,7 @@
    "vol": 21,
    "giro": 1389,
    "t": 1788200662,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "E2NO34": {
    "p": 34.59,
@@ -5960,7 +5960,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787150478,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "E2NP34": {
    "p": 7.55,
@@ -5969,7 +5969,7 @@
    "vol": 16945,
    "giro": 127935,
    "t": 1788205423,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "E2NT34": {
    "p": 43.1,
@@ -5978,7 +5978,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787076718,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "E1TR34": {
    "p": 273.78,
@@ -5987,7 +5987,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786491733,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "E1OG34": {
    "p": 74.82,
@@ -5996,7 +5996,7 @@
    "vol": 41,
    "giro": 3068,
    "t": 1788192328,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "E2PA34": {
    "p": 10.04,
@@ -6005,7 +6005,7 @@
    "vol": 5002,
    "giro": 50220,
    "t": 1788183507,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "EQIX34": {
    "p": 67.4,
@@ -6014,7 +6014,7 @@
    "vol": 396,
    "giro": 26690,
    "t": 1788205615,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "E1QN34": {
    "p": 110.2,
@@ -6023,7 +6023,7 @@
    "vol": 47,
    "giro": 5179,
    "t": 1788197764,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "E2LS34": {
    "p": 32.73,
@@ -6032,7 +6032,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786109401,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "E1RI34": {
    "p": 26.16,
@@ -6041,7 +6041,7 @@
    "vol": 15,
    "giro": 392,
    "t": 1788204695,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "E1SS34": {
    "p": 145.88,
@@ -6050,7 +6050,7 @@
    "vol": 6,
    "giro": 875,
    "t": 1788188217,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ELCI34": {
    "p": 21.53,
@@ -6059,7 +6059,7 @@
    "vol": 450,
    "giro": 9689,
    "t": 1788206820,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "E2TS34": {
    "p": 28.17,
@@ -6068,7 +6068,7 @@
    "vol": 50,
    "giro": 1409,
    "t": 1788193463,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "E2EF34": {
    "p": 2.36,
@@ -6077,7 +6077,7 @@
    "vol": 93,
    "giro": 219,
    "t": 1788201256,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "E1VE34": {
    "p": 476.64,
@@ -6086,7 +6086,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787148977,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "E1VR34": {
    "p": 217.92,
@@ -6095,7 +6095,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089452,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "P2ST34": {
    "p": 137.07,
@@ -6104,7 +6104,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787836264,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "E1SE34": {
    "p": 188.48,
@@ -6113,7 +6113,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089452,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "E2XE34": {
    "p": 137.4,
@@ -6122,7 +6122,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787146369,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "E1XC34": {
    "p": 56.72,
@@ -6131,7 +6131,7 @@
    "vol": 22,
    "giro": 1248,
    "t": 1788205726,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "EXGR34": {
    "p": 826.46,
@@ -6140,7 +6140,7 @@
    "vol": 1,
    "giro": 826,
    "t": 1788190876,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "E1XP34": {
    "p": 429.24,
@@ -6149,7 +6149,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1785513000,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "E1XR34": {
    "p": 61.14,
@@ -6158,7 +6158,7 @@
    "vol": 1,
    "giro": 61,
    "t": 1788184199,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "EXXO34": {
    "p": 104.02,
@@ -6167,7 +6167,7 @@
    "vol": 6432,
    "giro": 669057,
    "t": 1788205796,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "F1FI34": {
    "p": 512,
@@ -6176,7 +6176,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089454,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "F2IC34": {
    "p": 132.98,
@@ -6185,7 +6185,7 @@
    "vol": 1590,
    "giro": 211438,
    "t": 1788196195,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "FASL34": {
    "p": 262.86,
@@ -6194,7 +6194,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787928992,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "F1SL34": {
    "p": 11.65,
@@ -6203,7 +6203,7 @@
    "vol": 270,
    "giro": 3146,
    "t": 1788184317,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "FDXB34": {
    "p": 1721.97,
@@ -6212,7 +6212,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787932294,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "F1NI34": {
    "p": 13.3,
@@ -6221,7 +6221,7 @@
    "vol": 56,
    "giro": 745,
    "t": 1788204231,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "FFTD34": {
    "p": 261.02,
@@ -6230,7 +6230,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089454,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "F2RT34": {
    "p": 43.87,
@@ -6239,7 +6239,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089454,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "FSLR34": {
    "p": 52.45,
@@ -6248,7 +6248,7 @@
    "vol": 3902,
    "giro": 204660,
    "t": 1788205416,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "F1EC34": {
    "p": 247.37,
@@ -6257,7 +6257,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089454,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "F1IS34": {
    "p": 135.52,
@@ -6266,7 +6266,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787859049,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "F2IV34": {
    "p": 11.58,
@@ -6275,7 +6275,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786457891,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "F2VR34": {
    "p": 2.47,
@@ -6284,7 +6284,7 @@
    "vol": 12,
    "giro": 30,
    "t": 1788205100,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "F1LS34": {
    "p": 410.66,
@@ -6293,7 +6293,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089454,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "F1MC34": {
    "p": 29.31,
@@ -6302,7 +6302,7 @@
    "vol": 3,
    "giro": 88,
    "t": 1788197334,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "FMXB34": {
    "p": 614.42,
@@ -6311,7 +6311,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787334946,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "FDMO34": {
    "p": 72.56,
@@ -6320,7 +6320,7 @@
    "vol": 15,
    "giro": 1088,
    "t": 1788205112,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "F1TN34": {
    "p": 73.63,
@@ -6329,7 +6329,7 @@
    "vol": 9705,
    "giro": 714579,
    "t": 1788199184,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "F1TV34": {
    "p": 153.84,
@@ -6338,7 +6338,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1785343125,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "F1BH34": {
    "p": 219.88,
@@ -6347,7 +6347,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089454,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "FOXC34": {
    "p": 315,
@@ -6356,7 +6356,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786033302,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "F2NV34": {
    "p": 7.64,
@@ -6365,7 +6365,7 @@
    "vol": 2723,
    "giro": 20804,
    "t": 1788205715,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "F1RA34": {
    "p": 168.81,
@@ -6374,7 +6374,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1785250922,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "FCXO34": {
    "p": 130.44,
@@ -6383,7 +6383,7 @@
    "vol": 16964,
    "giro": 2212784,
    "t": 1788205783,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "FMSC34": {
    "p": 122.6,
@@ -6392,7 +6392,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787243813,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "F2RS34": {
    "p": 23.98,
@@ -6401,7 +6401,7 @@
    "vol": 1200,
    "giro": 28776,
    "t": 1788200851,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "G1AM34": {
    "p": 43.68,
@@ -6410,7 +6410,7 @@
    "vol": 2,
    "giro": 87,
    "t": 1788183650,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "G1RM34": {
    "p": 95.04,
@@ -6419,7 +6419,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787330101,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "G1AR34": {
    "p": 260,
@@ -6428,7 +6428,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787944776,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "G1DS34": {
    "p": 16.62,
@@ -6437,7 +6437,7 @@
    "vol": 1167,
    "giro": 19396,
    "t": 1788205669,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "GEOO34": {
    "p": 87.29,
@@ -6446,7 +6446,7 @@
    "vol": 4062,
    "giro": 354572,
    "t": 1788205107,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "GEHC34": {
    "p": 47.95,
@@ -6455,7 +6455,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786648435,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "G2EV34": {
    "p": 231.3,
@@ -6464,7 +6464,7 @@
    "vol": 1527,
    "giro": 353195,
    "t": 1788204683,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S1YM34": {
    "p": 160.63,
@@ -6473,7 +6473,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787945437,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "GDBR34": {
    "p": 1928.63,
@@ -6482,7 +6482,7 @@
    "vol": 3,
    "giro": 5786,
    "t": 1788205362,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "G1MI34": {
    "p": 70,
@@ -6491,7 +6491,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787857193,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "GMCO34": {
    "p": 111.14,
@@ -6500,7 +6500,7 @@
    "vol": 1068,
    "giro": 118698,
    "t": 1788207000,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "G2NT34": {
    "p": 29.82,
@@ -6509,7 +6509,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089455,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "G1PC34": {
    "p": 355.94,
@@ -6518,7 +6518,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787757522,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "GPRK34": {
    "p": 57.4,
@@ -6527,7 +6527,7 @@
    "vol": 127,
    "giro": 7290,
    "t": 1788203986,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "GILD34": {
    "p": 63.19,
@@ -6536,7 +6536,7 @@
    "vol": 674,
    "giro": 42590,
    "t": 1788205362,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "G1PI34": {
    "p": 117.12,
@@ -6545,7 +6545,7 @@
    "vol": 35,
    "giro": 4099,
    "t": 1788197105,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "G1LO34": {
    "p": 10.65,
@@ -6554,7 +6554,7 @@
    "vol": 213,
    "giro": 2268,
    "t": 1788205770,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "G1LL34": {
    "p": 46.63,
@@ -6563,7 +6563,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089455,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "G2ME34": {
    "p": 52,
@@ -6572,7 +6572,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786123638,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "G2DD34": {
    "p": 49.95,
@@ -6581,7 +6581,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787941943,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "G1FI34": {
    "p": 120.36,
@@ -6590,7 +6590,7 @@
    "vol": 933,
    "giro": 112296,
    "t": 1788205457,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "GSGI34": {
    "p": 176.58,
@@ -6599,7 +6599,7 @@
    "vol": 15776,
    "giro": 2785726,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "GPRO34": {
    "p": 4.57,
@@ -6608,7 +6608,7 @@
    "vol": 57720,
    "giro": 263780,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "P2CF34": {
    "p": 7.42,
@@ -6617,7 +6617,7 @@
    "vol": 22,
    "giro": 163,
    "t": 1788189130,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S2RE34": {
    "p": 68.5,
@@ -6626,7 +6626,7 @@
    "vol": 1,
    "giro": 69,
    "t": 1788181380,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C2OL34": {
    "p": 124.17,
@@ -6635,7 +6635,7 @@
    "vol": 1668,
    "giro": 207116,
    "t": 1788203457,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "G1SK34": {
    "p": 52.6,
@@ -6644,7 +6644,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787946352,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "G2WR34": {
    "p": 73.57,
@@ -6653,7 +6653,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786455001,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "H1TH34": {
    "p": 54.45,
@@ -6662,7 +6662,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786389258,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "H1RB34": {
    "p": 279.18,
@@ -6671,7 +6671,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787240728,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "HALI34": {
    "p": 175.34,
@@ -6680,7 +6680,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787755215,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "THGI34": {
    "p": 455.56,
@@ -6689,7 +6689,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089472,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "H1OG34": {
    "p": 142,
@@ -6698,7 +6698,7 @@
    "vol": 1,
    "giro": 142,
    "t": 1788183924,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "H1AS34": {
    "p": 246.72,
@@ -6707,7 +6707,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787939594,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "H1CA34": {
    "p": 109.22,
@@ -6716,7 +6716,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787941598,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "H1DB34": {
    "p": 23.29,
@@ -6725,7 +6725,7 @@
    "vol": 212,
    "giro": 4937,
    "t": 1788184060,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "H2TA34": {
    "p": 26.85,
@@ -6734,7 +6734,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089456,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "P1EA34": {
    "p": 107.58,
@@ -6743,7 +6743,7 @@
    "vol": 6,
    "giro": 645,
    "t": 1788203697,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "H1EI34": {
    "p": 179.27,
@@ -6752,7 +6752,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787751588,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "H1SI34": {
    "p": 234.78,
@@ -6761,7 +6761,7 @@
    "vol": 1,
    "giro": 235,
    "t": 1788181217,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "H1PE34": {
    "p": 272.98,
@@ -6770,7 +6770,7 @@
    "vol": 232,
    "giro": 63331,
    "t": 1788194748,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "HPQB34": {
    "p": 155.2,
@@ -6779,7 +6779,7 @@
    "vol": 607,
    "giro": 94206,
    "t": 1788205730,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "H1FC34": {
    "p": 483,
@@ -6788,7 +6788,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787593237,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "HIWP34": {
    "p": 83.2,
@@ -6797,7 +6797,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786562830,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "H1LT34": {
    "p": 70.27,
@@ -6806,7 +6806,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787340290,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "HOND34": {
    "p": 166.43,
@@ -6815,7 +6815,7 @@
    "vol": 49,
    "giro": 8155,
    "t": 1788191341,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "HONB34": {
    "p": 1105.14,
@@ -6824,7 +6824,7 @@
    "vol": 11,
    "giro": 12157,
    "t": 1788201921,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "H1RL34": {
    "p": 124.2,
@@ -6833,7 +6833,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787750158,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "H1ST34": {
    "p": 113.64,
@@ -6842,7 +6842,7 @@
    "vol": 57,
    "giro": 6477,
    "t": 1788205364,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "H1HH34": {
    "p": 44.6,
@@ -6851,7 +6851,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787246249,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ARNC34": {
    "p": 50.46,
@@ -6860,7 +6860,7 @@
    "vol": 896,
    "giro": 45212,
    "t": 1788197309,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "H1SB34": {
    "p": 132.52,
@@ -6869,7 +6869,7 @@
    "vol": 1661,
    "giro": 220116,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "H2UB34": {
    "p": 27.37,
@@ -6878,7 +6878,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787938387,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "H1UM34": {
    "p": 44.56,
@@ -6887,7 +6887,7 @@
    "vol": 13,
    "giro": 579,
    "t": 1788197637,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "H1BA34": {
    "p": 93.07,
@@ -6896,7 +6896,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786714390,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "H1II34": {
    "p": 20.46,
@@ -6905,7 +6905,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787786384,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "I1BN34": {
    "p": 156.21,
@@ -6914,7 +6914,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787945129,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ICLR34": {
    "p": 41.72,
@@ -6923,7 +6923,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1785954227,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "I1EX34": {
    "p": 56.49,
@@ -6932,7 +6932,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1785179248,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "I1DX34": {
    "p": 572.47,
@@ -6941,7 +6941,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787762626,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "I1TW34": {
    "p": 373.54,
@@ -6950,7 +6950,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786626228,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "I1LM34": {
    "p": 220.6,
@@ -6959,7 +6959,7 @@
    "vol": 216,
    "giro": 47650,
    "t": 1788205395,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "I1NC34": {
    "p": 328.02,
@@ -6968,7 +6968,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787600262,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "I2ND34": {
    "p": 19.1,
@@ -6977,7 +6977,7 @@
    "vol": 109,
    "giro": 2082,
    "t": 1788196221,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "I1FO34": {
    "p": 30.92,
@@ -6986,7 +6986,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787678320,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "INGG34": {
    "p": 183.78,
@@ -6995,7 +6995,7 @@
    "vol": 15,
    "giro": 2757,
    "t": 1788194168,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "I2RS34": {
    "p": 67.41,
@@ -7004,7 +7004,7 @@
    "vol": 103115,
    "giro": 6950982,
    "t": 1788194386,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "I2NG34": {
    "p": 65.06,
@@ -7013,7 +7013,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1785852577,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "P2OD34": {
    "p": 25.7,
@@ -7022,7 +7022,7 @@
    "vol": 1,
    "giro": 26,
    "t": 1788200063,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ITLC34": {
    "p": 77.62,
@@ -7031,7 +7031,7 @@
    "vol": 276095,
    "giro": 21430494,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "IBKR34": {
    "p": 29.37,
@@ -7040,7 +7040,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787152715,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "I1CE34": {
    "p": 69,
@@ -7049,7 +7049,7 @@
    "vol": 1154,
    "giro": 79626,
    "t": 1788206940,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "I1HG34": {
    "p": 141.12,
@@ -7058,7 +7058,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787852578,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "IBMB34": {
    "p": 1221.05,
@@ -7067,7 +7067,7 @@
    "vol": 145,
    "giro": 177052,
    "t": 1788205464,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "I1FF34": {
    "p": 201.6,
@@ -7076,7 +7076,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1785266984,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "I1PC34": {
    "p": 70.55,
@@ -7085,7 +7085,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787840323,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "INTU34": {
    "p": 42.2,
@@ -7094,7 +7094,7 @@
    "vol": 17559,
    "giro": 740990,
    "t": 1788202977,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "I1SR34": {
    "p": 97.6,
@@ -7103,7 +7103,7 @@
    "vol": 3963,
    "giro": 386789,
    "t": 1788205112,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "I1VZ34": {
    "p": 172.04,
@@ -7112,7 +7112,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787936906,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "I2NV34": {
    "p": 30.12,
@@ -7121,7 +7121,7 @@
    "vol": 316,
    "giro": 9518,
    "t": 1788205362,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "I1PG34": {
    "p": 180,
@@ -7130,7 +7130,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787579649,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "I1QY34": {
    "p": 2.47,
@@ -7139,7 +7139,7 @@
    "vol": 1453,
    "giro": 3589,
    "t": 1788202708,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "I1QV34": {
    "p": 84.64,
@@ -7148,7 +7148,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787596555,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "I1RM34": {
    "p": 49.4,
@@ -7157,7 +7157,7 @@
    "vol": 6,
    "giro": 296,
    "t": 1788197078,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "J2BL34": {
    "p": 197.41,
@@ -7166,7 +7166,7 @@
    "vol": 9,
    "giro": 1777,
    "t": 1788205360,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "J1KH34": {
    "p": 223.3,
@@ -7175,7 +7175,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787756760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "J1EG34": {
    "p": 347.6,
@@ -7184,7 +7184,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089459,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "J2AZ34": {
    "p": 87.2,
@@ -7193,7 +7193,7 @@
    "vol": 1029,
    "giro": 89729,
    "t": 1788205364,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "J1BH34": {
    "p": 43.64,
@@ -7202,7 +7202,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1785157202,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "JDCO34": {
    "p": 24.72,
@@ -7211,7 +7211,7 @@
    "vol": 705,
    "giro": 17428,
    "t": 1788206820,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "J1EF34": {
    "p": 55.62,
@@ -7220,7 +7220,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787157441,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "J2WA34": {
    "p": 55.25,
@@ -7229,7 +7229,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787855556,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "JNJB34": {
    "p": 92.39,
@@ -7238,7 +7238,7 @@
    "vol": 2823,
    "giro": 260817,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "J1CI34": {
    "p": 48.05,
@@ -7247,7 +7247,7 @@
    "vol": 154,
    "giro": 7400,
    "t": 1788205364,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "JPMC34": {
    "p": 184.17,
@@ -7256,7 +7256,7 @@
    "vol": 27168,
    "giro": 5003531,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "K1BF34": {
    "p": 161.75,
@@ -7265,7 +7265,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787931716,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "KMPR34": {
    "p": 212.1,
@@ -7274,7 +7274,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089460,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "K1EY34": {
    "p": 114.96,
@@ -7283,7 +7283,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089459,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "K1SG34": {
    "p": 835.81,
@@ -7292,7 +7292,7 @@
    "vol": 11,
    "giro": 9194,
    "t": 1788205363,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "K2RC34": {
    "p": 23.58,
@@ -7301,7 +7301,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787072279,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "KMBB34": {
    "p": 572.32,
@@ -7310,7 +7310,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787596968,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "K1IM34": {
    "p": 125.84,
@@ -7319,7 +7319,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787576898,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "KMIC34": {
    "p": 54,
@@ -7328,7 +7328,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787844862,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "K2CG34": {
    "p": 8.95,
@@ -7337,7 +7337,7 @@
    "vol": 146,
    "giro": 1307,
    "t": 1788205614,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "K1RG34": {
    "p": 39.16,
@@ -7346,7 +7346,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089459,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "K1LA34": {
    "p": 45.35,
@@ -7355,7 +7355,7 @@
    "vol": 3599,
    "giro": 163215,
    "t": 1788205117,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "K1SS34": {
    "p": 86.13,
@@ -7364,7 +7364,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787749919,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "PHGN34": {
    "p": 137,
@@ -7373,7 +7373,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786386041,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "K1RC34": {
    "p": 49.84,
@@ -7382,7 +7382,7 @@
    "vol": 251,
    "giro": 12510,
    "t": 1788196647,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "K1YS34": {
    "p": 44.8,
@@ -7391,7 +7391,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089459,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "K1TC34": {
    "p": 102.05,
@@ -7400,7 +7400,7 @@
    "vol": 4,
    "giro": 408,
    "t": 1788199876,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "L1HX34": {
    "p": 341.36,
@@ -7409,7 +7409,7 @@
    "vol": 20,
    "giro": 6827,
    "t": 1788186752,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "L1CA34": {
    "p": 374.88,
@@ -7418,7 +7418,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1785417237,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "LKFT34": {
    "p": 7.07,
@@ -7427,7 +7427,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787922180,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "L1RC34": {
    "p": 35.5,
@@ -7436,7 +7436,7 @@
    "vol": 26620,
    "giro": 945010,
    "t": 1788205454,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "L1AM34": {
    "p": 45.15,
@@ -7445,7 +7445,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089460,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "L1WH34": {
    "p": 124.49,
@@ -7454,7 +7454,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089460,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "L1VS34": {
    "p": 51.11,
@@ -7463,7 +7463,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1785420484,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "L2SC34": {
    "p": 86.9,
@@ -7472,7 +7472,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1785938176,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "L1DO34": {
    "p": 71.55,
@@ -7481,7 +7481,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787600133,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "L1EN34": {
    "p": 54.6,
@@ -7490,7 +7490,7 @@
    "vol": 6,
    "giro": 328,
    "t": 1788204373,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "L1NC34": {
    "p": 223.74,
@@ -7499,7 +7499,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787837887,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "L1NE34": {
    "p": 26.97,
@@ -7508,7 +7508,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089460,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "L2IV34": {
    "p": 54.5,
@@ -7517,7 +7517,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1785868657,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "L1YV34": {
    "p": 193,
@@ -7526,7 +7526,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786996200,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "L1KQ34": {
    "p": 124.86,
@@ -7535,7 +7535,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1785872893,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "L1YG34": {
    "p": 30.48,
@@ -7544,7 +7544,7 @@
    "vol": 218,
    "giro": 6645,
    "t": 1788205162,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "LMTB34": {
    "p": 2901.22,
@@ -7553,7 +7553,7 @@
    "vol": 13,
    "giro": 37716,
    "t": 1788205362,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "L1OE34": {
    "p": 596,
@@ -7562,7 +7562,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089460,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "LOWC34": {
    "p": 54.14,
@@ -7571,7 +7571,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787922060,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "L2PL34": {
    "p": 106.67,
@@ -7580,7 +7580,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787944174,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "L1UL34": {
    "p": 157.75,
@@ -7589,7 +7589,7 @@
    "vol": 155,
    "giro": 24451,
    "t": 1788196135,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "L1MN34": {
    "p": 31.5,
@@ -7598,7 +7598,7 @@
    "vol": 1608,
    "giro": 50652,
    "t": 1788202048,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "L1YB34": {
    "p": 165,
@@ -7607,7 +7607,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787940165,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "M1TB34": {
    "p": 306.88,
@@ -7616,7 +7616,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787859591,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MACY34": {
    "p": 114.17,
@@ -7625,7 +7625,7 @@
    "vol": 21,
    "giro": 2398,
    "t": 1788193318,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "M1PC34": {
    "p": 118.44,
@@ -7634,7 +7634,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787944656,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MKLC34": {
    "p": 469.5,
@@ -7643,7 +7643,7 @@
    "vol": 62,
    "giro": 29109,
    "t": 1788190084,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "M1KT34": {
    "p": 16.84,
@@ -7652,7 +7652,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786736415,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "M1TT34": {
    "p": 442.52,
@@ -7661,7 +7661,7 @@
    "vol": 10,
    "giro": 4425,
    "t": 1788205117,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "M1MC34": {
    "p": 61.92,
@@ -7670,7 +7670,7 @@
    "vol": 110,
    "giro": 6811,
    "t": 1788197420,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "M1LM34": {
    "p": 541.26,
@@ -7679,7 +7679,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787859655,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "M2RV34": {
    "p": 108.88,
@@ -7688,7 +7688,7 @@
    "vol": 67378,
    "giro": 7336117,
    "t": 1788206820,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "M1AS34": {
    "p": 362.3,
@@ -7697,7 +7697,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089461,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MSCD34": {
    "p": 98.6,
@@ -7706,7 +7706,7 @@
    "vol": 81539,
    "giro": 8039745,
    "t": 1788206700,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "M1TC34": {
    "p": 10.76,
@@ -7715,7 +7715,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787922000,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "M1KC34": {
    "p": 66,
@@ -7724,7 +7724,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1785263291,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MCDC34": {
    "p": 67.81,
@@ -7733,7 +7733,7 @@
    "vol": 22656,
    "giro": 1536303,
    "t": 1788206700,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "M1CK34": {
    "p": 69,
@@ -7742,7 +7742,7 @@
    "vol": 224,
    "giro": 15456,
    "t": 1788205362,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "M2PT34": {
    "p": 10.31,
@@ -7751,7 +7751,7 @@
    "vol": 184,
    "giro": 1897,
    "t": 1788206700,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MDTC34": {
    "p": 59.1,
@@ -7760,7 +7760,7 @@
    "vol": 322,
    "giro": 19030,
    "t": 1788199624,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "M1LC34": {
    "p": 14.05,
@@ -7769,7 +7769,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786374774,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MELI34": {
    "p": 83.4,
@@ -7778,7 +7778,7 @@
    "vol": 485199,
    "giro": 40465597,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MRCK34": {
    "p": 96.11,
@@ -7787,7 +7787,7 @@
    "vol": 10739,
    "giro": 1032125,
    "t": 1788205770,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "M1TA34": {
    "p": 106.12,
@@ -7796,7 +7796,7 @@
    "vol": 539107,
    "giro": 57210035,
    "t": 1788206820,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "METB34": {
    "p": 486,
@@ -7805,7 +7805,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787340888,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "M1TD34": {
    "p": 718.71,
@@ -7814,7 +7814,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787579859,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "M1GM34": {
    "p": 222.2,
@@ -7823,7 +7823,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787321619,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "M1CH34": {
    "p": 191.52,
@@ -7832,7 +7832,7 @@
    "vol": 919,
    "giro": 176007,
    "t": 1788205364,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MUTC34": {
    "p": 824,
@@ -7841,7 +7841,7 @@
    "vol": 144302,
    "giro": 118904848,
    "t": 1788206820,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MSFT34": {
    "p": 109.62,
@@ -7850,7 +7850,7 @@
    "vol": 467290,
    "giro": 51224330,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "M1AA34": {
    "p": 57,
@@ -7859,7 +7859,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787762086,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "M1UF34": {
    "p": 118.2,
@@ -7868,7 +7868,7 @@
    "vol": 9,
    "giro": 1064,
    "t": 1788204504,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "M2KS34": {
    "p": 80.64,
@@ -7877,7 +7877,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787253546,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "M1BT34": {
    "p": 29.01,
@@ -7886,7 +7886,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089461,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "M1RN34": {
    "p": 35.76,
@@ -7895,7 +7895,7 @@
    "vol": 62076,
    "giro": 2219838,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "M1HK34": {
    "p": 26.58,
@@ -7904,7 +7904,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787676163,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "M1CB34": {
    "p": 219.82,
@@ -7913,7 +7913,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787786379,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MDLZ34": {
    "p": 53.9,
@@ -7922,7 +7922,7 @@
    "vol": 107,
    "giro": 5767,
    "t": 1788204186,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "M1DB34": {
    "p": 117.08,
@@ -7931,7 +7931,7 @@
    "vol": 614,
    "giro": 71887,
    "t": 1788205112,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "M2PR34": {
    "p": 109.67,
@@ -7940,7 +7940,7 @@
    "vol": 155,
    "giro": 16999,
    "t": 1788202977,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "M1NS34": {
    "p": 29.82,
@@ -7949,7 +7949,7 @@
    "vol": 275975,
    "giro": 8229575,
    "t": 1788205483,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MCOR34": {
    "p": 81.92,
@@ -7958,7 +7958,7 @@
    "vol": 10161,
    "giro": 832389,
    "t": 1788200304,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MSBR34": {
    "p": 218.5,
@@ -7967,7 +7967,7 @@
    "vol": 1739,
    "giro": 379972,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "M1SI34": {
    "p": 79.09,
@@ -7976,7 +7976,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787927046,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "M2PM34": {
    "p": 56.51,
@@ -7985,7 +7985,7 @@
    "vol": 839,
    "giro": 47412,
    "t": 1788205444,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "M1SC34": {
    "p": 66.65,
@@ -7994,7 +7994,7 @@
    "vol": 2,
    "giro": 133,
    "t": 1788186196,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "N1DA34": {
    "p": 254.28,
@@ -8003,7 +8003,7 @@
    "vol": 36,
    "giro": 9154,
    "t": 1788205652,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "N1GG34": {
    "p": 68.6,
@@ -8012,7 +8012,7 @@
    "vol": 18,
    "giro": 1235,
    "t": 1788204551,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "N1WG34": {
    "p": 94.2,
@@ -8021,7 +8021,7 @@
    "vol": 76,
    "giro": 7159,
    "t": 1788205362,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "N1TA34": {
    "p": 69.17,
@@ -8030,7 +8030,7 @@
    "vol": 139,
    "giro": 9615,
    "t": 1788202977,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "NETE34": {
    "p": 63.54,
@@ -8039,7 +8039,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787929965,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "NFLX34": {
    "p": 8.47,
@@ -8048,7 +8048,7 @@
    "vol": 548202,
    "giro": 4643271,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "NTST34": {
    "p": 48.95,
@@ -8057,7 +8057,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089463,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "N1BI34": {
    "p": 40.28,
@@ -8066,7 +8066,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787945862,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "E1DU34": {
    "p": 20.32,
@@ -8075,7 +8075,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787936858,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "N1WL34": {
    "p": 30.72,
@@ -8084,7 +8084,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787770150,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "N1MR34": {
    "p": 40.59,
@@ -8093,7 +8093,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089462,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "N1EM34": {
    "p": 640.14,
@@ -8102,7 +8102,7 @@
    "vol": 705,
    "giro": 451299,
    "t": 1788206700,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "N1WS34": {
    "p": 149.1,
@@ -8111,7 +8111,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786642540,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "NEXT34": {
    "p": 106.6,
@@ -8120,7 +8120,7 @@
    "vol": 531,
    "giro": 56605,
    "t": 1788205736,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "N1IC34": {
    "p": 20.76,
@@ -8129,7 +8129,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787755306,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "NIKE34": {
    "p": 20.18,
@@ -8138,7 +8138,7 @@
    "vol": 22109,
    "giro": 446160,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "N1IS34": {
    "p": 212.31,
@@ -8147,7 +8147,7 @@
    "vol": 47,
    "giro": 9979,
    "t": 1788205365,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "NOKI34": {
    "p": 52.79,
@@ -8156,7 +8156,7 @@
    "vol": 2790,
    "giro": 147284,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "NMRH34": {
    "p": 49.15,
@@ -8165,7 +8165,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786455005,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "N1SC34": {
    "p": 424.84,
@@ -8174,7 +8174,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1785766428,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "N1TR34": {
    "p": 451.5,
@@ -8183,7 +8183,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089462,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "NOCG34": {
    "p": 55.62,
@@ -8192,7 +8192,7 @@
    "vol": 61,
    "giro": 3393,
    "t": 1788197026,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "N1CL34": {
    "p": 83.97,
@@ -8201,7 +8201,7 @@
    "vol": 1359,
    "giro": 114115,
    "t": 1788203942,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "N1OV34": {
    "p": 109.56,
@@ -8210,7 +8210,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787077183,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "N1VS34": {
    "p": 79.12,
@@ -8219,7 +8219,7 @@
    "vol": 2,
    "giro": 158,
    "t": 1788202652,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "N1VO34": {
    "p": 29.07,
@@ -8228,7 +8228,7 @@
    "vol": 3873,
    "giro": 112588,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "N2VC34": {
    "p": 9.2,
@@ -8237,7 +8237,7 @@
    "vol": 11,
    "giro": 101,
    "t": 1788182905,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "N1RG34": {
    "p": 56.75,
@@ -8246,7 +8246,7 @@
    "vol": 33,
    "giro": 1873,
    "t": 1788204363,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ROXO34": {
    "p": 12.48,
@@ -8255,7 +8255,7 @@
    "vol": 5747831,
    "giro": 71732931,
    "t": 1788206880,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "N1UE34": {
    "p": 108.68,
@@ -8264,7 +8264,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787943394,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "N2TN34": {
    "p": 88.11,
@@ -8273,7 +8273,7 @@
    "vol": 3,
    "giro": 264,
    "t": 1788189072,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "NVDC34": {
    "p": 23.77,
@@ -8282,7 +8282,7 @@
    "vol": 5498159,
    "giro": 130691239,
    "t": 1788206820,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "N1VR34": {
    "p": 657.15,
@@ -8291,7 +8291,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089462,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "N1XP34": {
    "p": 58.08,
@@ -8300,7 +8300,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787925357,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "OXYP34": {
    "p": 51.74,
@@ -8309,7 +8309,7 @@
    "vol": 49,
    "giro": 2535,
    "t": 1788203708,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "O1KT34": {
    "p": 45.08,
@@ -8318,7 +8318,7 @@
    "vol": 305,
    "giro": 13749,
    "t": 1788204766,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "O1DF34": {
    "p": 56.58,
@@ -8327,7 +8327,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786642122,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "O2HI34": {
    "p": 79.2,
@@ -8336,7 +8336,7 @@
    "vol": 50,
    "giro": 3960,
    "t": 1788202701,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "O1MC34": {
    "p": 229.09,
@@ -8345,7 +8345,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787844684,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "O2NS34": {
    "p": 47.65,
@@ -8354,7 +8354,7 @@
    "vol": 595,
    "giro": 28352,
    "t": 1788196730,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "O1KE34": {
    "p": 237.39,
@@ -8363,7 +8363,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787678118,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ORCL34": {
    "p": 129.7,
@@ -8372,7 +8372,7 @@
    "vol": 47331,
    "giro": 6138831,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ORLY34": {
    "p": 1.49,
@@ -8381,7 +8381,7 @@
    "vol": 4430,
    "giro": 6601,
    "t": 1788205030,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "I1XC34": {
    "p": 24.46,
@@ -8390,7 +8390,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787250683,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "O1TI34": {
    "p": 37.4,
@@ -8399,7 +8399,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786477799,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "O1UT34": {
    "p": 76.16,
@@ -8408,7 +8408,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787328715,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "P1AC34": {
    "p": 336.44,
@@ -8417,7 +8417,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1785848877,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "P1KG34": {
    "p": 590.63,
@@ -8426,7 +8426,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089464,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "PAGS34": {
    "p": 9.33,
@@ -8435,7 +8435,7 @@
    "vol": 369820,
    "giro": 3450421,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "P2LT34": {
    "p": 322.8,
@@ -8444,7 +8444,7 @@
    "vol": 38411,
    "giro": 12399071,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "P2AN34": {
    "p": 32.89,
@@ -8453,7 +8453,7 @@
    "vol": 23967,
    "giro": 788275,
    "t": 1788206820,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "PSKY34": {
    "p": 57,
@@ -8462,7 +8462,7 @@
    "vol": 9,
    "giro": 513,
    "t": 1788189231,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "P1HC34": {
    "p": 63.25,
@@ -8471,7 +8471,7 @@
    "vol": 119,
    "giro": 7527,
    "t": 1788205641,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "P2AX34": {
    "p": 29.4,
@@ -8480,7 +8480,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787937718,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "P1AY34": {
    "p": 331.5,
@@ -8489,7 +8489,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787943958,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "P1YC34": {
    "p": 40.92,
@@ -8498,7 +8498,7 @@
    "vol": 1,
    "giro": 41,
    "t": 1788182926,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "P2CY34": {
    "p": 26.91,
@@ -8507,7 +8507,7 @@
    "vol": 2001,
    "giro": 53847,
    "t": 1788184533,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "PYPL34": {
    "p": 13.59,
@@ -8516,7 +8516,7 @@
    "vol": 25002,
    "giro": 339777,
    "t": 1788206820,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "P1DD34": {
    "p": 42.81,
@@ -8525,7 +8525,7 @@
    "vol": 680,
    "giro": 29111,
    "t": 1788206820,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "P2EG34": {
    "p": 13.96,
@@ -8534,7 +8534,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786736303,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "P2EN34": {
    "p": 9.21,
@@ -8543,7 +8543,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787770151,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "P1NR34": {
    "p": 379.25,
@@ -8552,7 +8552,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089464,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "P2NB34": {
    "p": 57.47,
@@ -8561,7 +8561,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089464,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "PPLI34": {
    "p": 10.16,
@@ -8570,7 +8570,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787855036,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "PEPB34": {
    "p": 48.65,
@@ -8579,7 +8579,7 @@
    "vol": 801,
    "giro": 38969,
    "t": 1788205769,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "P1RG34": {
    "p": 50.71,
@@ -8588,7 +8588,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787058180,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "PFIZ34": {
    "p": 36.44,
@@ -8597,7 +8597,7 @@
    "vol": 9864,
    "giro": 359444,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "PHMO34": {
    "p": 61.14,
@@ -8606,7 +8606,7 @@
    "vol": 1407,
    "giro": 86024,
    "t": 1788197123,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "P1SX34": {
    "p": 430.76,
@@ -8615,7 +8615,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089464,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "P1NW34": {
    "p": 243.14,
@@ -8624,7 +8624,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089464,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "P2IN34": {
    "p": 20.06,
@@ -8633,7 +8633,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787590476,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "P2LN34": {
    "p": 34.05,
@@ -8642,7 +8642,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787751234,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "PNCS34": {
    "p": 63.23,
@@ -8651,7 +8651,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787773226,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "P1KX34": {
    "p": 78.8,
@@ -8660,7 +8660,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787922299,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "P2OS34": {
    "p": 73.93,
@@ -8669,7 +8669,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089464,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "P1PG34": {
    "p": 300,
@@ -8678,7 +8678,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089464,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "P1PL34": {
    "p": 185.82,
@@ -8687,7 +8687,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786981835,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "P1FG34": {
    "p": 337.31,
@@ -8696,7 +8696,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089464,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "P2CO34": {
    "p": 21.09,
@@ -8705,7 +8705,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089464,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "PGCO34": {
    "p": 54.5,
@@ -8714,7 +8714,7 @@
    "vol": 1337,
    "giro": 72867,
    "t": 1788206820,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "P1LD34": {
    "p": 60.3,
@@ -8723,7 +8723,7 @@
    "vol": 30,
    "giro": 1809,
    "t": 1788201889,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "P1DT34": {
    "p": 307.21,
@@ -8732,7 +8732,7 @@
    "vol": 16,
    "giro": 4915,
    "t": 1788189908,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "P1UK34": {
    "p": 35.76,
@@ -8741,7 +8741,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787855283,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "T1LK34": {
    "p": 37.84,
@@ -8750,7 +8750,7 @@
    "vol": 7,
    "giro": 265,
    "t": 1788196185,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "P2TC34": {
    "p": 54.1,
@@ -8759,7 +8759,7 @@
    "vol": 7,
    "giro": 379,
    "t": 1788204158,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "P1EG34": {
    "p": 407.81,
@@ -8768,7 +8768,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089464,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "P1SA34": {
    "p": 65.34,
@@ -8777,7 +8777,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787945913,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "P1HM34": {
    "p": 649.6,
@@ -8786,7 +8786,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089464,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "P1VH34": {
    "p": 197.23,
@@ -8795,7 +8795,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787937077,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "Q1RV34": {
    "p": 257,
@@ -8804,7 +8804,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786714482,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "QCOM34": {
    "p": 73.57,
@@ -8813,7 +8813,7 @@
    "vol": 6412,
    "giro": 471731,
    "t": 1788205736,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "Q1UA34": {
    "p": 261.82,
@@ -8822,7 +8822,7 @@
    "vol": 2413,
    "giro": 631772,
    "t": 1788205117,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "QUBT34": {
    "p": 42.5,
@@ -8831,7 +8831,7 @@
    "vol": 1219,
    "giro": 51808,
    "t": 1788205281,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "Q2SC34": {
    "p": 9.6,
@@ -8840,7 +8840,7 @@
    "vol": 270,
    "giro": 2592,
    "t": 1788201295,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "Q1UE34": {
    "p": 613.8,
@@ -8849,7 +8849,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786637941,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "R1LC34": {
    "p": 964.26,
@@ -8858,7 +8858,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787325105,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "R2PD34": {
    "p": 5.82,
@@ -8867,7 +8867,7 @@
    "vol": 4,
    "giro": 23,
    "t": 1788203585,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "R1JF34": {
    "p": 76.8,
@@ -8876,7 +8876,7 @@
    "vol": 150,
    "giro": 11520,
    "t": 1788205362,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "R1IN34": {
    "p": 53,
@@ -8885,7 +8885,7 @@
    "vol": 726,
    "giro": 38478,
    "t": 1788205655,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "R2RX34": {
    "p": 62.1,
@@ -8894,7 +8894,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089466,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "R1EG34": {
    "p": 196.2,
@@ -8903,7 +8903,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787326108,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "REGN34": {
    "p": 68.1,
@@ -8912,7 +8912,7 @@
    "vol": 2178,
    "giro": 148322,
    "t": 1788186435,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "R1FC34": {
    "p": 159.04,
@@ -8921,7 +8921,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786110128,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "R1EL34": {
    "p": 41.5,
@@ -8930,7 +8930,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089465,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "R2GE34": {
    "p": 18.55,
@@ -8939,7 +8939,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089466,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "R1SG34": {
    "p": 552.57,
@@ -8948,7 +8948,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786564062,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "R1MD34": {
    "p": 243.85,
@@ -8957,7 +8957,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089466,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "R1VT34": {
    "p": 20.6,
@@ -8966,7 +8966,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1785940895,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "R2HH34": {
    "p": 12.36,
@@ -8975,7 +8975,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787597808,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "RGTI34": {
    "p": 80.75,
@@ -8984,7 +8984,7 @@
    "vol": 3894,
    "giro": 314441,
    "t": 1788205781,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "R2NG34": {
    "p": 13.57,
@@ -8993,7 +8993,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787761643,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "RIOT34": {
    "p": 530.43,
@@ -9002,7 +9002,7 @@
    "vol": 10216,
    "giro": 5418873,
    "t": 1788205743,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "R1HI34": {
    "p": 227.26,
@@ -9011,7 +9011,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787076176,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "R2BL34": {
    "p": 21.2,
@@ -9020,7 +9020,7 @@
    "vol": 10161,
    "giro": 215413,
    "t": 1788205642,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "R1OK34": {
    "p": 550.48,
@@ -9029,7 +9029,7 @@
    "vol": 20,
    "giro": 11010,
    "t": 1788204904,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "R1KU34": {
    "p": 40.57,
@@ -9038,7 +9038,7 @@
    "vol": 2,
    "giro": 81,
    "t": 1788204718,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "R1OL34": {
    "p": 189.62,
@@ -9047,7 +9047,7 @@
    "vol": 3,
    "giro": 569,
    "t": 1788191921,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "R1OP34": {
    "p": 222.2,
@@ -9056,7 +9056,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787943780,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ROST34": {
    "p": 74.34,
@@ -9065,7 +9065,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787945918,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "R1CL34": {
    "p": 52.49,
@@ -9074,7 +9074,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787944742,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "RYTT34": {
    "p": 180.9,
@@ -9083,7 +9083,7 @@
    "vol": 3133,
    "giro": 566760,
    "t": 1788205112,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "R1YA34": {
    "p": 36.9,
@@ -9092,7 +9092,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787932704,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "R1HP34": {
    "p": 51.8,
@@ -9101,7 +9101,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089466,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "SPGI34": {
    "p": 62.88,
@@ -9110,7 +9110,7 @@
    "vol": 151,
    "giro": 9495,
    "t": 1788190857,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "SSFO34": {
    "p": 60.97,
@@ -9119,7 +9119,7 @@
    "vol": 33987,
    "giro": 2072187,
    "t": 1788205769,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "SAPP34": {
    "p": 81.76,
@@ -9128,7 +9128,7 @@
    "vol": 5057,
    "giro": 413460,
    "t": 1788205770,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S1RP34": {
    "p": 5.44,
@@ -9137,7 +9137,7 @@
    "vol": 14,
    "giro": 76,
    "t": 1788196105,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S1BA34": {
    "p": 194.58,
@@ -9146,7 +9146,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787751609,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "SLBG34": {
    "p": 156.66,
@@ -9155,7 +9155,7 @@
    "vol": 117,
    "giro": 18329,
    "t": 1788204733,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S2EA34": {
    "p": 23.95,
@@ -9164,7 +9164,7 @@
    "vol": 11294,
    "giro": 270491,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S1TX34": {
    "p": 76.06,
@@ -9173,7 +9173,7 @@
    "vol": 25693,
    "giro": 1954210,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S2EI34": {
    "p": 88.55,
@@ -9182,7 +9182,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786117366,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S1RE34": {
    "p": 106.15,
@@ -9191,7 +9191,7 @@
    "vol": 11,
    "giro": 1168,
    "t": 1788196583,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "N1OW34": {
    "p": 15.1,
@@ -9200,7 +9200,7 @@
    "vol": 158751,
    "giro": 2397140,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S2HO34": {
    "p": 6.37,
@@ -9209,7 +9209,7 @@
    "vol": 71022,
    "giro": 452410,
    "t": 1788205582,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S1BS34": {
    "p": 30.54,
@@ -9218,7 +9218,7 @@
    "vol": 44989,
    "giro": 1373964,
    "t": 1788205783,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S2GM34": {
    "p": 21.68,
@@ -9227,7 +9227,7 @@
    "vol": 30451,
    "giro": 660178,
    "t": 1788206700,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S2LA34": {
    "p": 51.51,
@@ -9236,7 +9236,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786640759,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "SIMN34": {
    "p": 70.32,
@@ -9245,7 +9245,7 @@
    "vol": 321,
    "giro": 22573,
    "t": 1788206700,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S2MP34": {
    "p": 18.64,
@@ -9254,7 +9254,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787751381,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "F1UN34": {
    "p": 22.52,
@@ -9263,7 +9263,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089454,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "SKHY34": {
    "p": 54.06,
@@ -9272,7 +9272,7 @@
    "vol": 14173,
    "giro": 766192,
    "t": 1788207000,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S1KM34": {
    "p": 49.9,
@@ -9281,7 +9281,7 @@
    "vol": 16237,
    "giro": 810226,
    "t": 1788204245,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S1SL34": {
    "p": 178.38,
@@ -9290,7 +9290,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787165959,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S1LG34": {
    "p": 72.89,
@@ -9299,7 +9299,7 @@
    "vol": 5,
    "giro": 364,
    "t": 1788193996,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S1NN34": {
    "p": 30.3,
@@ -9308,7 +9308,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787854645,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S2NA34": {
    "p": 4.77,
@@ -9317,7 +9317,7 @@
    "vol": 123,
    "giro": 587,
    "t": 1788183000,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S1NA34": {
    "p": 510,
@@ -9326,7 +9326,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787841480,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S2NW34": {
    "p": 43.01,
@@ -9335,7 +9335,7 @@
    "vol": 7923,
    "giro": 340768,
    "t": 1788205774,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S2CH34": {
    "p": 67.6,
@@ -9344,7 +9344,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787687224,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S2ED34": {
    "p": 4.76,
@@ -9353,7 +9353,7 @@
    "vol": 1992,
    "giro": 9482,
    "t": 1788205770,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S2GI34": {
    "p": 126.82,
@@ -9362,7 +9362,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089467,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "SNEC34": {
    "p": 128,
@@ -9371,7 +9371,7 @@
    "vol": 67,
    "giro": 8576,
    "t": 1788201604,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S1OU34": {
    "p": 226.58,
@@ -9380,7 +9380,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1785417212,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "SPCX34": {
    "p": 49.4,
@@ -9389,7 +9389,7 @@
    "vol": 627726,
    "giro": 31009664,
    "t": 1788206880,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S1PO34": {
    "p": 701.47,
@@ -9398,7 +9398,7 @@
    "vol": 19,
    "giro": 13328,
    "t": 1788202457,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S2FM34": {
    "p": 146.25,
@@ -9407,7 +9407,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787675944,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S1SN34": {
    "p": 58.02,
@@ -9416,7 +9416,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089467,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S2TA34": {
    "p": 38.52,
@@ -9425,7 +9425,7 @@
    "vol": 16,
    "giro": 616,
    "t": 1788201904,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S1WK34": {
    "p": 126.48,
@@ -9434,7 +9434,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787932206,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "SBUB34": {
    "p": 550.62,
@@ -9443,7 +9443,7 @@
    "vol": 55,
    "giro": 30284,
    "t": 1788204081,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S2TW34": {
    "p": 27.12,
@@ -9452,7 +9452,7 @@
    "vol": 3,
    "giro": 81,
    "t": 1788203453,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S1TT34": {
    "p": 1001,
@@ -9461,7 +9461,7 @@
    "vol": 1,
    "giro": 1001,
    "t": 1788185712,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S1TE34": {
    "p": 52.14,
@@ -9470,7 +9470,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089467,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "STMN34": {
    "p": 261.56,
@@ -9479,7 +9479,7 @@
    "vol": 346,
    "giro": 90500,
    "t": 1788186633,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "STOC34": {
    "p": 49.7,
@@ -9488,7 +9488,7 @@
    "vol": 87339,
    "giro": 4340748,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "M2ST34": {
    "p": 9.86,
@@ -9497,7 +9497,7 @@
    "vol": 2618886,
    "giro": 25822216,
    "t": 1788206820,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "L2RN34": {
    "p": 112.2,
@@ -9506,7 +9506,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787938101,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S1YK34": {
    "p": 84.51,
@@ -9515,7 +9515,7 @@
    "vol": 2729,
    "giro": 230628,
    "t": 1788198816,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S1MF34": {
    "p": 134.81,
@@ -9524,7 +9524,7 @@
    "vol": 2,
    "giro": 270,
    "t": 1788204369,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S2UI34": {
    "p": 31.38,
@@ -9533,7 +9533,7 @@
    "vol": 18,
    "giro": 565,
    "t": 1788194783,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S2YN34": {
    "p": 17,
@@ -9542,7 +9542,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787317380,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S1YF34": {
    "p": 67.19,
@@ -9551,7 +9551,7 @@
    "vol": 1,
    "giro": 67,
    "t": 1788183001,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S1NP34": {
    "p": 56.94,
@@ -9560,7 +9560,7 @@
    "vol": 4139,
    "giro": 235675,
    "t": 1788205117,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S1YY34": {
    "p": 72.86,
@@ -9569,7 +9569,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787580492,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "T1RO34": {
    "p": 286.81,
@@ -9578,7 +9578,7 @@
    "vol": 1,
    "giro": 287,
    "t": 1788191756,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "TSMC34": {
    "p": 268.21,
@@ -9587,7 +9587,7 @@
    "vol": 74420,
    "giro": 19960188,
    "t": 1788206936,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "TAKP34": {
    "p": 93.69,
@@ -9596,7 +9596,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787944377,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "T1TW34": {
    "p": 284.47,
@@ -9605,7 +9605,7 @@
    "vol": 48045,
    "giro": 13667361,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "T1AL34": {
    "p": 6.04,
@@ -9614,7 +9614,7 @@
    "vol": 88,
    "giro": 532,
    "t": 1788205335,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "T2ND34": {
    "p": 7.52,
@@ -9623,7 +9623,7 @@
    "vol": 187,
    "giro": 1406,
    "t": 1788201923,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S1KT34": {
    "p": 42.05,
@@ -9632,7 +9632,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089467,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "TPRY34": {
    "p": 64.04,
@@ -9641,7 +9641,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787854887,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "TGTB34": {
    "p": 833.85,
@@ -9650,7 +9650,7 @@
    "vol": 20,
    "giro": 16677,
    "t": 1788204558,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "T1EL34": {
    "p": 65.66,
@@ -9659,7 +9659,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787945862,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "T1EC34": {
    "p": 389.99,
@@ -9668,7 +9668,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787672009,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "T2DH34": {
    "p": 32.09,
@@ -9677,7 +9677,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787601184,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "T1FX34": {
    "p": 69.78,
@@ -9686,7 +9686,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089469,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "T1SS34": {
    "p": 138.32,
@@ -9695,7 +9695,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787237382,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "T2ER34": {
    "p": 100.6,
@@ -9704,7 +9704,7 @@
    "vol": 73,
    "giro": 7344,
    "t": 1788205362,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "TXSA34": {
    "p": 285.32,
@@ -9713,7 +9713,7 @@
    "vol": 4262,
    "giro": 1216034,
    "t": 1788206700,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "TSLA34": {
    "p": 59.58,
@@ -9722,7 +9722,7 @@
    "vol": 2095591,
    "giro": 124855312,
    "t": 1788206880,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "T1EV34": {
    "p": 95.2,
@@ -9731,7 +9731,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787946800,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "TEXA34": {
    "p": 90.34,
@@ -9740,7 +9740,7 @@
    "vol": 3000,
    "giro": 271020,
    "t": 1788205112,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "T1XT34": {
    "p": 358.5,
@@ -9749,7 +9749,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089469,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BONY34": {
    "p": 839.16,
@@ -9758,7 +9758,7 @@
    "vol": 47,
    "giro": 39441,
    "t": 1788198015,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "BOEI34": {
    "p": 1075.83,
@@ -9767,7 +9767,7 @@
    "vol": 18,
    "giro": 19365,
    "t": 1788205112,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C1PB34": {
    "p": 118.94,
@@ -9776,7 +9776,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787837297,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "SCHW34": {
    "p": 71.32,
@@ -9785,7 +9785,7 @@
    "vol": 196,
    "giro": 13979,
    "t": 1788205365,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "C1IC34": {
    "p": 60.47,
@@ -9794,7 +9794,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787945862,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "COCA34": {
    "p": 77.15,
@@ -9803,7 +9803,7 @@
    "vol": 34353,
    "giro": 2650334,
    "t": 1788206700,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "GPSI34": {
    "p": 123.65,
@@ -9812,7 +9812,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787944676,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "H2AI34": {
    "p": 40.65,
@@ -9821,7 +9821,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089456,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "H1IG34": {
    "p": 60.4,
@@ -9830,7 +9830,7 @@
    "vol": 2,
    "giro": 121,
    "t": 1788205756,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "HSHY34": {
    "p": 61.03,
@@ -9839,7 +9839,7 @@
    "vol": 52,
    "giro": 3174,
    "t": 1788200478,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "HOME34": {
    "p": 60.6,
@@ -9848,7 +9848,7 @@
    "vol": 251,
    "giro": 15211,
    "t": 1788204837,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S1JM34": {
    "p": 300,
@@ -9857,7 +9857,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786379601,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "KHCB34": {
    "p": 33.34,
@@ -9866,7 +9866,7 @@
    "vol": 179,
    "giro": 5968,
    "t": 1788203679,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "MOSC34": {
    "p": 20.79,
@@ -9875,7 +9875,7 @@
    "vol": 20464,
    "giro": 425447,
    "t": 1788205770,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "P1GR34": {
    "p": 56.82,
@@ -9884,7 +9884,7 @@
    "vol": 102,
    "giro": 5796,
    "t": 1788200148,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "S1HW34": {
    "p": 175.94,
@@ -9893,7 +9893,7 @@
    "vol": 1062,
    "giro": 186848,
    "t": 1788205112,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "T1SO34": {
    "p": 56.95,
@@ -9902,7 +9902,7 @@
    "vol": 12848,
    "giro": 731694,
    "t": 1788199182,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "T2TD34": {
    "p": 0.72,
@@ -9911,7 +9911,7 @@
    "vol": 60546,
    "giro": 43593,
    "t": 1788205633,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "TRVC34": {
    "p": 59.64,
@@ -9920,7 +9920,7 @@
    "vol": 151,
    "giro": 9006,
    "t": 1788192877,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "DISB34": {
    "p": 37.45,
@@ -9929,7 +9929,7 @@
    "vol": 10241,
    "giro": 383525,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "WUNI34": {
    "p": 36.73,
@@ -9938,7 +9938,7 @@
    "vol": 24,
    "giro": 882,
    "t": 1788194442,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "W1MB34": {
    "p": 383.42,
@@ -9947,7 +9947,7 @@
    "vol": 1,
    "giro": 383,
    "t": 1788183737,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "TMOS34": {
    "p": 66.85,
@@ -9956,7 +9956,7 @@
    "vol": 17642,
    "giro": 1179368,
    "t": 1788205117,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "TJXC34": {
    "p": 46.06,
@@ -9965,7 +9965,7 @@
    "vol": 11,
    "giro": 507,
    "t": 1788205117,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "T1MU34": {
    "p": 67.07,
@@ -9974,7 +9974,7 @@
    "vol": 992,
    "giro": 66533,
    "t": 1788194529,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "TOST34": {
    "p": 46.15,
@@ -9983,7 +9983,7 @@
    "vol": 1,
    "giro": 46,
    "t": 1788183379,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "TMCO34": {
    "p": 63.88,
@@ -9992,7 +9992,7 @@
    "vol": 827,
    "giro": 52829,
    "t": 1788206700,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "T1SC34": {
    "p": 10.12,
@@ -10001,7 +10001,7 @@
    "vol": 15,
    "giro": 152,
    "t": 1788203662,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "I1RP34": {
    "p": 57.58,
@@ -10010,7 +10010,7 @@
    "vol": 13428,
    "giro": 773184,
    "t": 1788205362,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "T1DG34": {
    "p": 121.55,
@@ -10019,7 +10019,7 @@
    "vol": 11853,
    "giro": 1440732,
    "t": 1788203978,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "RIGG34": {
    "p": 29.96,
@@ -10028,7 +10028,7 @@
    "vol": 36097,
    "giro": 1081466,
    "t": 1788202810,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "T2RE34": {
    "p": 14.52,
@@ -10037,7 +10037,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787231160,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "T2RM34": {
    "p": 26.86,
@@ -10046,7 +10046,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089469,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "CRIP34": {
    "p": 230.23,
@@ -10055,7 +10055,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787859122,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "T1RI34": {
    "p": 50.2,
@@ -10064,7 +10064,7 @@
    "vol": 1,
    "giro": 50,
    "t": 1788188651,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "B1BT34": {
    "p": 66.15,
@@ -10073,7 +10073,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786388104,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "T1WL34": {
    "p": 48.62,
@@ -10082,7 +10082,7 @@
    "vol": 2,
    "giro": 97,
    "t": 1788184431,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "T2YL34": {
    "p": 32.4,
@@ -10091,7 +10091,7 @@
    "vol": 1002,
    "giro": 32465,
    "t": 1788184496,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "TSNF34": {
    "p": 61.5,
@@ -10100,7 +10100,7 @@
    "vol": 125,
    "giro": 7688,
    "t": 1788201242,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "USBC34": {
    "p": 80.16,
@@ -10109,7 +10109,7 @@
    "vol": 220,
    "giro": 17635,
    "t": 1788205769,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "U1BE34": {
    "p": 97.85,
@@ -10118,7 +10118,7 @@
    "vol": 5045,
    "giro": 493653,
    "t": 1788206700,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "UBSG34": {
    "p": 72.1,
@@ -10127,7 +10127,7 @@
    "vol": 9942,
    "giro": 716818,
    "t": 1788200178,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "U1DR34": {
    "p": 191.1,
@@ -10136,7 +10136,7 @@
    "vol": 4,
    "giro": 764,
    "t": 1788188622,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "P2AT34": {
    "p": 12.04,
@@ -10145,7 +10145,7 @@
    "vol": 282,
    "giro": 3395,
    "t": 1788204830,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "U1LT34": {
    "p": 139.61,
@@ -10154,7 +10154,7 @@
    "vol": 14,
    "giro": 1955,
    "t": 1788204670,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "R2AR34": {
    "p": 13.39,
@@ -10163,7 +10163,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787936922,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "U1MH34": {
    "p": 42.2,
@@ -10172,7 +10172,7 @@
    "vol": 4,
    "giro": 169,
    "t": 1788190224,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "U1AI34": {
    "p": 25.62,
@@ -10181,7 +10181,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787859034,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "ULEV34": {
    "p": 66.99,
@@ -10190,7 +10190,7 @@
    "vol": 135,
    "giro": 9044,
    "t": 1788204666,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "UPAC34": {
    "p": 65.45,
@@ -10199,7 +10199,7 @@
    "vol": 201,
    "giro": 13155,
    "t": 1788197803,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "U1AL34": {
    "p": 293.75,
@@ -10208,7 +10208,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787850467,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "U2NF34": {
    "p": 62.15,
@@ -10217,7 +10217,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786640231,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "UPSS34": {
    "p": 33.75,
@@ -10226,7 +10226,7 @@
    "vol": 39,
    "giro": 1316,
    "t": 1788205721,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "U1RI34": {
    "p": 188.68,
@@ -10235,7 +10235,7 @@
    "vol": 1,
    "giro": 189,
    "t": 1788186159,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "U2TH34": {
    "p": 129.5,
@@ -10244,7 +10244,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786715234,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "UNHH34": {
    "p": 28.51,
@@ -10253,7 +10253,7 @@
    "vol": 6485,
    "giro": 184887,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "U2ST34": {
    "p": 10.85,
@@ -10262,7 +10262,7 @@
    "vol": 11029,
    "giro": 119665,
    "t": 1788204659,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "O2LE34": {
    "p": 24.38,
@@ -10271,7 +10271,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787601171,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "U1HS34": {
    "p": 222.25,
@@ -10280,7 +10280,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787859838,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "U1NM34": {
    "p": 469.23,
@@ -10289,7 +10289,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089473,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "U2PS34": {
    "p": 7.46,
@@ -10298,7 +10298,7 @@
    "vol": 226,
    "giro": 1686,
    "t": 1788201353,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "U2PW34": {
    "p": 8.78,
@@ -10307,7 +10307,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787071797,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "VLOE34": {
    "p": 115.72,
@@ -10316,7 +10316,7 @@
    "vol": 38,
    "giro": 4397,
    "t": 1788201048,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "VLYB34": {
    "p": 72.8,
@@ -10325,7 +10325,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787923833,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "V2RN34": {
    "p": 38.8,
@@ -10334,7 +10334,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787945345,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "V2EE34": {
    "p": 50,
@@ -10343,7 +10343,7 @@
    "vol": 17,
    "giro": 850,
    "t": 1788197627,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "V1TA34": {
    "p": 235.68,
@@ -10352,7 +10352,7 @@
    "vol": 27,
    "giro": 6363,
    "t": 1788205362,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "VRSN34": {
    "p": 383.47,
@@ -10361,7 +10361,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787853807,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "V1RS34": {
    "p": 13.32,
@@ -10370,7 +10370,7 @@
    "vol": 2,
    "giro": 27,
    "t": 1788201431,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "VERZ34": {
    "p": 44.18,
@@ -10379,7 +10379,7 @@
    "vol": 1163,
    "giro": 51381,
    "t": 1788206700,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "VRTX34": {
    "p": 87.93,
@@ -10388,7 +10388,7 @@
    "vol": 2204,
    "giro": 193798,
    "t": 1788198884,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "V1RT34": {
    "p": 133.13,
@@ -10397,7 +10397,7 @@
    "vol": 10053,
    "giro": 1338356,
    "t": 1788205359,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "VFCO34": {
    "p": 37.8,
@@ -10406,7 +10406,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787078521,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "V1IP34": {
    "p": 36.39,
@@ -10415,7 +10415,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787680375,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "VISA34": {
    "p": 97.78,
@@ -10424,7 +10424,7 @@
    "vol": 21358,
    "giro": 2088385,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "V1ST34": {
    "p": 50.6,
@@ -10433,7 +10433,7 @@
    "vol": 5952,
    "giro": 301171,
    "t": 1788206700,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "VMRK34": {
    "p": 56.64,
@@ -10442,7 +10442,7 @@
    "vol": 25,
    "giro": 1416,
    "t": 1788205700,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "V1OD34": {
    "p": 41.4,
@@ -10451,7 +10451,7 @@
    "vol": 22,
    "giro": 911,
    "t": 1788205589,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "V1NO34": {
    "p": 193,
@@ -10460,7 +10460,7 @@
    "vol": 8,
    "giro": 1544,
    "t": 1788205247,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "V2TX34": {
    "p": 18.78,
@@ -10469,7 +10469,7 @@
    "vol": 1303,
    "giro": 24470,
    "t": 1788207132,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "V1MC34": {
    "p": 23.5,
@@ -10478,7 +10478,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787687212,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "W1AB34": {
    "p": 770.18,
@@ -10487,7 +10487,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787597885,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "WALM34": {
    "p": 33.89,
@@ -10496,7 +10496,7 @@
    "vol": 23772,
    "giro": 805633,
    "t": 1788205796,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "W1BD34": {
    "p": 147.55,
@@ -10505,7 +10505,7 @@
    "vol": 4,
    "giro": 590,
    "t": 1788193200,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "W1MG34": {
    "p": 37.44,
@@ -10514,7 +10514,7 @@
    "vol": 4,
    "giro": 150,
    "t": 1788181232,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "W1MC34": {
    "p": 71.03,
@@ -10523,7 +10523,7 @@
    "vol": 52,
    "giro": 3694,
    "t": 1788204764,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "WATC34": {
    "p": 476.58,
@@ -10532,7 +10532,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089475,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "W1SO34": {
    "p": 63.9,
@@ -10541,7 +10541,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787855556,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "W2YF34": {
    "p": 15.32,
@@ -10550,7 +10550,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787946238,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "W1EC34": {
    "p": 296.96,
@@ -10559,7 +10559,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089475,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "W1BO34": {
    "p": 8.9,
@@ -10568,7 +10568,7 @@
    "vol": 356,
    "giro": 3168,
    "t": 1788204913,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "WFCO34": {
    "p": 109.65,
@@ -10577,7 +10577,7 @@
    "vol": 2318,
    "giro": 254169,
    "t": 1788206760,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "W1EL34": {
    "p": 76.16,
@@ -10586,7 +10586,7 @@
    "vol": 11,
    "giro": 838,
    "t": 1788197400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "W2ST34": {
    "p": 51.33,
@@ -10595,7 +10595,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1785937500,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "WABC34": {
    "p": 416.22,
@@ -10604,7 +10604,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089475,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "W1DC34": {
    "p": 2324,
@@ -10613,7 +10613,7 @@
    "vol": 1392,
    "giro": 3235008,
    "t": 1788205631,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "W2EX34": {
    "p": 57.04,
@@ -10622,7 +10622,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089475,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "W1YC34": {
    "p": 127.37,
@@ -10631,7 +10631,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787576993,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "W1HR34": {
    "p": 53,
@@ -10640,7 +10640,7 @@
    "vol": 1,
    "giro": 53,
    "t": 1788199552,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "W1LT34": {
    "p": 300,
@@ -10649,7 +10649,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089475,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "W1IX34": {
    "p": 15.12,
@@ -10658,7 +10658,7 @@
    "vol": 213,
    "giro": 3221,
    "t": 1788202977,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "W1DA34": {
    "p": 64.2,
@@ -10667,7 +10667,7 @@
    "vol": 150,
    "giro": 9630,
    "t": 1788204329,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "W1PP34": {
    "p": 26.76,
@@ -10676,7 +10676,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787855556,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "W1RB34": {
    "p": 35.32,
@@ -10685,7 +10685,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787664689,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "G1WW34": {
    "p": 168.47,
@@ -10694,7 +10694,7 @@
    "vol": 1563,
    "giro": 263319,
    "t": 1788195185,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "W1YN34": {
    "p": 246.31,
@@ -10703,7 +10703,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089475,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "X1EL34": {
    "p": 50.1,
@@ -10712,7 +10712,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787761010,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "XRXB34": {
    "p": 16.88,
@@ -10721,7 +10721,7 @@
    "vol": 20,
    "giro": 338,
    "t": 1788206700,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "X1YL34": {
    "p": 288.55,
@@ -10730,7 +10730,7 @@
    "vol": 1,
    "giro": 289,
    "t": 1788181387,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "Y2PF34": {
    "p": 267.02,
@@ -10739,7 +10739,7 @@
    "vol": 80,
    "giro": 21362,
    "t": 1788197785,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "YUMR34": {
    "p": 380,
@@ -10748,7 +10748,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787243723,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "Z1BR34": {
    "p": 62.2,
@@ -10757,7 +10757,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787671957,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "Z1TA34": {
    "p": 80.4,
@@ -10766,7 +10766,7 @@
    "vol": 628,
    "giro": 50491,
    "t": 1788205718,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "Z2DV34": {
    "p": 19.01,
@@ -10775,7 +10775,7 @@
    "vol": 5,
    "giro": 95,
    "t": 1788193808,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "Z2LL34": {
    "p": 13.58,
@@ -10784,7 +10784,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787058180,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "Z1BH34": {
    "p": 121.92,
@@ -10793,7 +10793,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1785865566,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "Z1IO34": {
    "p": 348.12,
@@ -10802,7 +10802,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089476,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "Z1TS34": {
    "p": 24.84,
@@ -10811,7 +10811,7 @@
    "vol": 464,
    "giro": 11526,
    "t": 1788204437,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "Z1OM34": {
    "p": 20.11,
@@ -10820,7 +10820,7 @@
    "vol": 313,
    "giro": 6294,
    "t": 1788203000,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "Z2IT34": {
    "p": 2.73,
@@ -10829,7 +10829,7 @@
    "vol": 52,
    "giro": 142,
    "t": 1788198450,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "Z2SC34": {
    "p": 32.81,
@@ -10838,7 +10838,7 @@
    "vol": 463,
    "giro": 15191,
    "t": 1788202977,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "Z1TO34": {
    "p": 29.85,
@@ -10847,7 +10847,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787064157,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "GROP31": {
    "p": 13,
@@ -10856,7 +10856,7 @@
    "vol": 1222,
    "giro": 15886,
    "t": 1788191025,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "DEFT31": {
    "p": 2.21,
@@ -10865,7 +10865,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1787249918,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "EFXB31": {
    "p": 969.34,
@@ -10874,7 +10874,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1788089453,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "EVEB31": {
    "p": 11.86,
@@ -10883,7 +10883,7 @@
    "vol": 25204,
    "giro": 298919,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "EVTC31": {
    "p": 153.45,
@@ -10892,7 +10892,7 @@
    "vol": 17,
    "giro": 2609,
    "t": 1788203704,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "EXPB31": {
    "p": 235.88,
@@ -10901,7 +10901,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1786031930,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "HMRN31": {
    "p": 2.75,
@@ -10910,7 +10910,7 @@
    "vol": 170,
    "giro": 468,
    "t": 1788197742,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "PRXB31": {
    "p": 23.31,
@@ -10919,7 +10919,7 @@
    "vol": 60,
    "giro": 1399,
    "t": 1788194152,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "XPBR31": {
    "p": 94.51,
@@ -10928,7 +10928,7 @@
    "vol": 900385,
    "giro": 85095386,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "INBR32": {
    "p": 28.29,
@@ -10937,7 +10937,7 @@
    "vol": 2237146,
    "giro": 63288860,
    "t": 1788206580,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "JBSS32": {
    "p": 70.24,
@@ -10946,7 +10946,7 @@
    "vol": 526638,
    "giro": 36991053,
    "t": 1788206640,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "G2DI33": {
    "p": 1.1,
@@ -10955,7 +10955,7 @@
    "vol": 25364,
    "giro": 27900,
    "t": 1788206400,
-   "estado": "POST"
+   "estado": "POSTPOST"
   },
   "PPLA35": {
    "p": 0.55,
@@ -10964,7 +10964,7 @@
    "vol": 0,
    "giro": 0,
    "t": 1721764800,
-   "estado": "POST"
+   "estado": "POSTPOST"
   }
  }
 }
