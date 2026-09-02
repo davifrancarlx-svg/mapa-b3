@@ -1,5 +1,5 @@
 {
- "geradoEm": "2026-09-01T22:43:17.526Z",
+ "geradoEm": "2026-09-02T00:07:46.334Z",
  "estado": "ok",
  "avisos": [],
  "fontes": {
@@ -14,17 +14,17 @@
    "registros": 825
   },
   "metricasBdr": {
-   "atualizadoEm": "2026-09-01T14:46:40.097Z",
-   "cobertura": 96.2,
-   "registros": 794
+   "atualizadoEm": "2026-09-02T00:07:06.878Z",
+   "cobertura": 96.4,
+   "registros": 795
   },
   "metricasEmpresas": {
-   "atualizadoEm": "2026-09-01T14:31:40.151Z",
-   "cobertura": 84.6,
-   "registros": 312
+   "atualizadoEm": "2026-09-02T00:07:20.877Z",
+   "cobertura": 84.8,
+   "registros": 313
   },
   "analise": {
-   "atualizadoEm": "2026-09-01T19:41:35.987Z",
+   "atualizadoEm": "2026-09-02T00:07:46.221Z",
    "cobertura": 92.1,
    "registros": 760
   },
