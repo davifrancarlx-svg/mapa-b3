@@ -1,6 +1,8 @@
 {
- "atualizadoEm": "2026-09-01T14:29:44.524647+00:00",
- "fonte": "https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/IPE/DADOS/ipe_cia_aberta_2026.zip",
+ "atualizadoEm": "2026-09-02T16:38:02.453529+00:00",
+ "fonte": [
+  "https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/IPE/DADOS/ipe_cia_aberta_2026.zip"
+ ],
  "metodologia": "Documentos IPE entregues nos ultimos 180 dias; links apontam para a CVM",
  "empresasComEventos": 333,
  "eventos": {
@@ -3184,13 +3186,6 @@
     "tipo": "Apresentações a analistas/agentes do mercado",
     "assunto": "Apresentação de Resultados 4T25",
     "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1498490&numSequencia=1023196&numVersao=1"
-   },
-   {
-    "dt": "2026-03-05",
-    "categoria": "Comunicado ao Mercado",
-    "tipo": "Outros Comunicados Não Considerados Fatos Relevantes",
-    "assunto": "Participação de Executivo em Entrevista",
-    "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1486325&numSequencia=1011031&numVersao=1"
    }
   ],
   "RDOR": [
@@ -5629,13 +5624,6 @@
     "tipo": "Apresentações a analistas/agentes do mercado",
     "assunto": "Webcast 3T25",
     "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1520547&numSequencia=1045253&numVersao=2"
-   },
-   {
-    "dt": "2026-03-05",
-    "categoria": "Comunicado ao Mercado",
-    "tipo": "Outros Comunicados Não Considerados Fatos Relevantes",
-    "assunto": "REAPRESENTAÇÃO DE BOLETIM DE VOTO À DISTÂNCIA",
-    "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1486278&numSequencia=1010984&numVersao=1"
    }
   ],
   "CVCB": [
@@ -6823,13 +6811,6 @@
     "tipo": "Outros Comunicados Não Considerados Fatos Relevantes",
     "assunto": "Reajuste Tarifário Neoenergia Coelba 2026",
     "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1507239&numSequencia=1031945&numVersao=1"
-   },
-   {
-    "dt": "2026-03-05",
-    "categoria": "Aviso aos Acionistas",
-    "tipo": "Outros avisos",
-    "assunto": "Juros sobre Capital Próprio 1ºTrimestre/2026",
-    "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1486252&numSequencia=1010958&numVersao=1"
    }
   ],
   "FESA": [
@@ -8865,13 +8846,6 @@
     "tipo": "Outros Comunicados Não Considerados Fatos Relevantes",
     "assunto": "Esclarecimento Antecipação de Contribuições Ordinárias ao FGC",
     "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1492537&numSequencia=1017243&numVersao=1"
-   },
-   {
-    "dt": "2026-03-05",
-    "categoria": "Fato Relevante",
-    "tipo": null,
-    "assunto": "Indicação de Diretor-Presidente",
-    "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1486069&numSequencia=1010775&numVersao=1"
    }
   ],
   "ABCB": [
@@ -9509,13 +9483,6 @@
     "tipo": "Esclarecimentos sobre questionamentos da CVM/B3",
     "assunto": "Notícia divulgada na mídia",
     "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1488302&numSequencia=1013008&numVersao=1"
-   },
-   {
-    "dt": "2026-03-05",
-    "categoria": "Comunicado ao Mercado",
-    "tipo": "Apresentações a analistas/agentes do mercado",
-    "assunto": "Apresentação de resultados do 4T25",
-    "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1485793&numSequencia=1010499&numVersao=1"
    }
   ],
   "IRBR": [
@@ -12915,13 +12882,6 @@
     "tipo": "Apresentações a analistas/agentes do mercado",
     "assunto": "Webcast de Resultados 4T25",
     "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1486451&numSequencia=1011157&numVersao=1"
-   },
-   {
-    "dt": "2026-03-05",
-    "categoria": "Comunicado ao Mercado",
-    "tipo": "Mudança de Auditor (art. 28, Instr. CVM nº308/99)",
-    "assunto": "Comunicado ao Mercado",
-    "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1486268&numSequencia=1010974&numVersao=1"
    }
   ],
   "ESTR": [
@@ -13807,13 +13767,6 @@
     "tipo": "Apresentações a analistas/agentes do mercado",
     "assunto": "Apresentação de Resultados 4T25/2025",
     "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1518218&numSequencia=1042924&numVersao=1"
-   },
-   {
-    "dt": "2026-03-05",
-    "categoria": "Aviso aos Acionistas",
-    "tipo": "Data prevista para a assembleia",
-    "assunto": "Data AGO 2026",
-    "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1486060&numSequencia=1010766&numVersao=1"
    }
   ],
   "VIVR": [
@@ -16045,13 +15998,6 @@
     "tipo": "Apresentações a analistas/agentes do mercado",
     "assunto": "Teleconferência de Resultados 1T26",
     "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1518489&numSequencia=1043195&numVersao=1"
-   },
-   {
-    "dt": "2026-03-05",
-    "categoria": "Comunicado ao Mercado",
-    "tipo": "Apresentações a analistas/agentes do mercado",
-    "assunto": "Teleconferência de Resultados 4T25 e 2025",
-    "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1485817&numSequencia=1010523&numVersao=1"
    }
   ],
   "DXCO": [

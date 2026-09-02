@@ -1,5 +1,5 @@
 {
- "geradoEm": "2026-09-02T00:07:46.334Z",
+ "geradoEm": "2026-09-02T16:38:04.515Z",
  "estado": "ok",
  "avisos": [],
  "fontes": {
@@ -29,9 +29,9 @@
    "registros": 760
   },
   "eventos": {
-   "atualizadoEm": "2026-09-01T14:29:44.524647+00:00",
+   "atualizadoEm": "2026-09-02T16:38:02.453529+00:00",
    "cobertura": null,
-   "registros": 2206
+   "registros": 2198
   }
  }
 }
