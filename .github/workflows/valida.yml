@@ -16,6 +16,7 @@ jobs:
         with:
           python-version: '3.12'
       - run: node scripts/valida-bdrs.js
+      - run: node scripts/valida-etfs.js
       - run: node scripts/valida-pagina.js
       - run: node scripts/valida-url.js
       - run: node scripts/valida-comparador.js

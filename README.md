@@ -3,7 +3,8 @@
 Visualização em treemap das companhias com ações registradas na B3, organizadas em
 19 categorias temáticas e cruzadas por tags de exposição, com cotações atualizadas
 automaticamente durante o pregão. Tem também uma aba com todos os BDRs de empresas
-(patrocinados e não patrocinados) compráveis na B3.
+(patrocinados e não patrocinados) compráveis na B3, e uma aba com os ETFs listados,
+por categoria oficial da B3.
 
 ## Arquivos
 
@@ -12,6 +13,7 @@ automaticamente durante o pregão. Tem também uma aba com todos os BDRs de empr
 | `index.html` | A página inteira: dados, estilo e lógica em arquivo único |
 | `precos.json` | Cotações (empresas + BDR), gerado automaticamente — **não editar à mão** |
 | `bdrs.json` | Lista de BDRs (ticker, empresa, país, setor, indústria e fonte), gerado automaticamente — **não editar à mão** |
+| `etfs.json` | Lista de ETFs (ticker, nome do fundo e categoria oficial da B3), gerado automaticamente — **não editar à mão** |
 | `metricas.json` | Indicadores históricos dos BDRs, gerado diariamente — **não editar à mão** |
 | `metricas-empresas.json` | Indicadores históricos das empresas brasileiras, gerado diariamente — **não editar à mão** |
 | `bdrs-referencia.json` | Ativo-lastro, bolsa e relação do programa, extraídos dos documentos oficiais do Banco B3 |
@@ -27,7 +29,9 @@ automaticamente durante o pregão. Tem também uma aba com todos os BDRs de empr
 | `scripts/gera-saude.js` | Consolida cobertura, atualização e alertas das bases |
 | `scripts/gera-bdrs.js` | Busca a lista de BDRs na B3 + país/setor no Yahoo e grava o `bdrs.json` |
 | `scripts/bdrs-complementos.json` | Complementos verificados para perfis ausentes no Yahoo, com fonte por companhia |
+| `scripts/gera-etfs.js` | Busca a lista de ETFs na B3 (seis categorias), verifica o ticker no Yahoo e grava o `etfs.json` |
 | `scripts/valida-bdrs.js` | Confere cobertura, fontes, taxonomia, traduções e sintaxe do JavaScript |
+| `scripts/valida-etfs.js` | Confere cobertura, taxonomia de categorias, tradução e sintaxe do JavaScript |
 | `scripts/valida-bdrs-referencia.js` | Confere cobertura, relações e fontes oficiais dos programas |
 | `scripts/valida-metricas.js` | Confere cobertura e limites dos indicadores históricos |
 | `scripts/valida-pagina.js` | Confere sintaxe, navegação, elementos críticos e caminhos relativos |
@@ -73,7 +77,7 @@ de novo — nada disso está no código, é configuração do lado do GitHub.
 
 A publicação no Lovable é uma cópia estática servida em iframe e não executa os workflows.
 Ao atualizá-la, envie o `index.html` e todos os JSONs carregados por `fetch`: preços, BDRs,
-métricas, análise, eventos e saúde. Os caminhos precisam continuar relativos, sem `/` inicial.
+ETFs, métricas, análise, eventos e saúde. Os caminhos precisam continuar relativos, sem `/` inicial.
 
 ## Como as cotações funcionam
 
@@ -342,4 +346,33 @@ python -B scripts/testa-eventos.py
 node scripts/gera-saude.js
 node scripts/testa-saude.js
 node scripts/valida-saude.js
+```
+
+## Aba de ETFs
+
+219 ETFs (de 222 listados oficialmente pela B3 hoje) nas seis categorias oficiais de
+fundo listado tipo ETF: renda variável, renda fixa, cripto, renda fixa internacional,
+FII e moeda. Vêm da lista oficial de fundos da B3 (`fundsListedProxy/Search/GetListFunds`),
+o mesmo padrão de engenharia reversa já usado para BDR, só que em outro endpoint.
+
+**Base bem mais enxuta que a de BDR, de propósito**: só ticker, nome do fundo e categoria
+oficial, além da cotação. Não há índice de referência, taxa de administração nem patrimônio
+líquido — nenhuma fonte oficial encontrada expõe esses campos por fundo sem risco de cruzar
+o dado de um fundo com outro (a B3 identifica cada fundo por um `id` interno; a CVM, por
+CNPJ; não existe chave em comum entre as duas). Por isso a ficha do ETF é mais curta que a
+do BDR: sem desempenho histórico, sem comparação, sem recorte de exploração — um recorte
+de ranking exigiria um piso de liquidez que só existe quando há histórico, e não há
+`metricas-etfs.json` ainda.
+
+**Ticker**: `<código da B3>+11`, verificado contra o Yahoo antes de entrar na base (mesmo
+princípio do `resolveSufixoPatrocinado` do BDR, mas sem lista de sufixos alternativos —
+nenhum contraexemplo de `+11` foi encontrado até agora).
+
+**`etfs.json` não faz parte do cron de 30 minutos**, pelo mesmo motivo do `bdrs.json`: muda
+raramente. Rode `node scripts/gera-etfs.js` manualmente de vez em quando e, depois,
+`node scripts/atualiza-precos.js` para os preços dos ETFs aparecerem.
+
+```bash
+node scripts/gera-etfs.js
+node scripts/valida-etfs.js
 ```

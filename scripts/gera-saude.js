@@ -1,6 +1,6 @@
 const fs=require('fs'),path=require('path'),R=path.join(__dirname,'..');
-const FONTES={precos:['Preços',80,72],bdrs:['Catálogo BDR',100,null],metricasBdr:['Histórico BDR',90,96],metricasEmpresas:['Histórico empresas',75,96],analise:['Ativo lastro',70,96],eventos:['Documentos CVM',null,120]};
-const ARQUIVOS={precos:'precos.json',bdrs:'bdrs.json',metricasBdr:'metricas.json',metricasEmpresas:'metricas-empresas.json',analise:'analise.json',eventos:'eventos.json'};
+const FONTES={precos:['Preços',80,72],bdrs:['Catálogo BDR',100,null],etfs:['Catálogo ETF',100,null],metricasBdr:['Histórico BDR',90,96],metricasEmpresas:['Histórico empresas',75,96],analise:['Ativo lastro',70,96],eventos:['Documentos CVM',null,120]};
+const ARQUIVOS={precos:'precos.json',bdrs:'bdrs.json',etfs:'etfs.json',metricasBdr:'metricas.json',metricasEmpresas:'metricas-empresas.json',analise:'analise.json',eventos:'eventos.json'};
 const objeto=x=>x&&typeof x==='object'&&!Array.isArray(x),percentual=(n,t)=>Number.isInteger(t)&&t>0?+(n/t*100).toFixed(1):null;
 const data=d=>typeof d==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(d)&&Number.isFinite(Date.parse(d))&&new Date(d).toISOString().slice(0,10)===d;
 function avaliaFonte(x,agora){
@@ -29,6 +29,9 @@ function gera(bases,agora=Date.now()){
     if(k==='bdrs'){
       total=d.total;itens=Array.isArray(d.bdrs)?d.bdrs:[];
       const vistos=new Set();validos=itens.filter(b=>{if(!b||!['ticker','pais','setor','industria'].every(c=>typeof b[c]==='string'&&b[c].trim())||vistos.has(b.ticker))return false;vistos.add(b.ticker);return true;});
+    }else if(k==='etfs'){
+      total=d.total;itens=Array.isArray(d.etfs)?d.etfs:[];
+      const vistos=new Set();validos=itens.filter(x=>{if(!x||!['ticker','nome','categoria'].every(c=>typeof x[c]==='string'&&x[c].trim())||vistos.has(x.ticker))return false;vistos.add(x.ticker);return true;});
     }else if(k==='eventos'){
       if(!objeto(d.eventos)||Object.values(d.eventos).some(a=>!Array.isArray(a)))avisos.push('Estrutura de documentos inválida.');
       else itens=Object.values(d.eventos).flat();
@@ -45,7 +48,7 @@ function gera(bases,agora=Date.now()){
     if(k!=='eventos'){
       if(!Number.isInteger(total)||total<=0||validos.length>total){avisos.push('Total do universo ausente ou inconsistente.');total=null;}
       if(['metricasBdr','analise'].includes(k)&&Number.isInteger(bases.bdrs?.total)&&total!==bases.bdrs.total)avisos.push('Universo diferente do catálogo BDR.');
-      if(k==='bdrs'&&itens.length!==d.total)avisos.push('Contagem do catálogo diferente do total declarado.');
+      if(['bdrs','etfs'].includes(k)&&itens.length!==d.total)avisos.push('Contagem do catálogo diferente do total declarado.');
     }
     const preservados=validos.filter(v=>v.stale===true).length,renovados=validos.length-preservados;
     const datas=validos.map(v=>k==='precos'&&Number.isFinite(v.t)&&v.t>0&&v.t<8640000000000?new Date(v.t*1000).toISOString().slice(0,10):k==='analise'?v.dtAtivo:v.dt).filter(data).sort();

@@ -1,0 +1,1543 @@
+{
+ "geradoEm": "2026-09-03T18:26:36.848Z",
+ "fontes": {
+  "lista": "B3 (GetListFunds, seis categorias oficiais de fundo listado tipo ETF)",
+  "verificacaoTicker": "Yahoo Finance (confirma que o ticker acronym+11 tem cotação; não é fonte da lista nem da categoria)"
+ },
+ "total": 219,
+ "etfs": [
+  {
+   "ticker": "BMMT11",
+   "nome": "B- INDEX MORNINGSTAR BRASIL MOMENTO FUNDO DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "B INDEX MOME",
+   "idB3": 9253
+  },
+  {
+   "ticker": "AGRI11",
+   "nome": "BB ETF IAGRO-FFS B3 FUNDO DE ÍNDICE RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "BB ETF IAGRO",
+   "idB3": 8038
+  },
+  {
+   "ticker": "BBOV11",
+   "nome": "BB ETF IBOVESPA FUNDO DE ÍNDICE RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "BB ETF IBOV",
+   "idB3": 3665
+  },
+  {
+   "ticker": "BRAZ11",
+   "nome": "BB ETF ÍNDICE BOVESPA B3 BR+ FUNDO DE ÍNDICE RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "BB ETF BRAZ",
+   "idB3": 15863
+  },
+  {
+   "ticker": "DVER11",
+   "nome": "BB ETF ÍNDICE DIVERSIDADE B3 INVESTIMENTO SUSTENTÁVEL FUNDO DE ÍNDICE RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "BB ETF DVER",
+   "idB3": 10719
+  },
+  {
+   "ticker": "BBOI11",
+   "nome": "BB ETF ÍNDICE FUTURO DE BOI GORDO B3 FUNDO DE ÍNDICE RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "BB ETF BOI G",
+   "idB3": 8892
+  },
+  {
+   "ticker": "DOLA11",
+   "nome": "BB ETF ÍNDICE FUTURO DE DOLAR S&P/B3 FUNDO DE ÍNDICE RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "BB ETF DOLAR",
+   "idB3": 12629
+  },
+  {
+   "ticker": "CORN11",
+   "nome": "BB ETF ÍNDICE FUTURO DE MILHO B3 FUNDO DE ÍNDICE RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "BB ETF MILHO",
+   "idB3": 8748
+  },
+  {
+   "ticker": "BBSD11",
+   "nome": "BB ETF S&P DIVIDENDOS BRASIL FUNDO DE ÍNDICE RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "BB ETF SP DV",
+   "idB3": 987
+  },
+  {
+   "ticker": "TECX11",
+   "nome": "B-INDEX ETF CONNECT CHINA AMC CHINEXT FUNDO DE ÍNDICE - RESP LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "B INDEX TECX",
+   "idB3": 19536
+  },
+  {
+   "ticker": "PKIN11",
+   "nome": "B-INDEX ETF CONNECT CHINA UNIVERSAL CSI 300 FUNDO DE ÍNDICE - RESP LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "B INDEX PKIN",
+   "idB3": 18957
+  },
+  {
+   "ticker": "OURO11",
+   "nome": "B-INDEX ETF OURO BRL B3 FUNDO DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "B INDEX OURO",
+   "idB3": 23759
+  },
+  {
+   "ticker": "SPYR11",
+   "nome": "B-INDEX ETF S&P 500 BRL FUNDO DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "B INDEX SPYR",
+   "idB3": 23901
+  },
+  {
+   "ticker": "BREW11",
+   "nome": "B-INDEX MORNINGSTAR BRASIL PESOS IGUAIS FUNDO DE INDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "B INDEX BREW",
+   "idB3": 9254
+  },
+  {
+   "ticker": "BCIC11",
+   "nome": "B-INDEX MORNINGSTAR SETORES CICLICOS BRASIL FUNDO DE INDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "B INDEX CICL",
+   "idB3": 9255
+  },
+  {
+   "ticker": "BDEF11",
+   "nome": "B-INDEX MORNINGSTAR SETORES DEFENSIVOS BRASIL FUNDO DE INDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "B INDEX DEFE",
+   "idB3": 9256
+  },
+  {
+   "ticker": "IBOB11",
+   "nome": "BTG PACTUAL B3 IBOVESPA FUNDO DE ÍNDICE",
+   "categoria": "ETF",
+   "nomeCurto": "PACTUAL IBOV",
+   "idB3": 6485
+  },
+  {
+   "ticker": "ESGB11",
+   "nome": "BTG PACTUAL ESG FUNDO DE ÍNDICE S&P/B3 BRAZIL ESG",
+   "categoria": "ETF",
+   "nomeCurto": "ETF ESG BTG",
+   "idB3": 3717
+  },
+  {
+   "ticker": "GOLB11",
+   "nome": "BTG PACTUAL FUTURO DE OURO B3 FUNDO DE ÍNDICE",
+   "categoria": "ETF",
+   "nomeCurto": "BTGP GOLB ",
+   "idB3": 22320
+  },
+  {
+   "ticker": "BZEQ11",
+   "nome": "BTG PACTUAL MSCI BRAZIL 25/50 FUNDO DE ÍNDICE",
+   "categoria": "ETF",
+   "nomeCurto": "BTGP BZEQ",
+   "idB3": 26856
+  },
+  {
+   "ticker": "DOLB11",
+   "nome": "BTG PACTUAL REFERENCE S&P/B3 CAMBIAL FUNDO DE ÍNDICE",
+   "categoria": "ETF",
+   "nomeCurto": "BTG SP DOLAR",
+   "idB3": 19294
+  },
+  {
+   "ticker": "SPXB11",
+   "nome": "BTG PACTUAL S&P 500 FUNDO DE ÍNDICE",
+   "categoria": "ETF",
+   "nomeCurto": "BTG S&P 500",
+   "idB3": 6784
+  },
+  {
+   "ticker": "SPBZ11",
+   "nome": "BTG PACTUAL S&P 500 FUTURES QUANTO BRL FUNDO DE ÍNDICE",
+   "categoria": "ETF",
+   "nomeCurto": "BTG SPHEDGE",
+   "idB3": 23167
+  },
+  {
+   "ticker": "GENB11",
+   "nome": "BTG PACTUAL S&P/B3 INGENIUS FUNDO DE ÍNDICE",
+   "categoria": "ETF",
+   "nomeCurto": "ETF BTG GENB",
+   "idB3": 6501
+  },
+  {
+   "ticker": "SMAB11",
+   "nome": "BTG PACTUAL SMLL B3 FUNDO DE ÍNDICE",
+   "categoria": "ETF",
+   "nomeCurto": "BTG SMLL CAP",
+   "idB3": 6773
+  },
+  {
+   "ticker": "CMDB11",
+   "nome": "BTG PACTUAL TEVA AÇÕES COMMODITIES BRASIL FUNDO DE ÍNDICE",
+   "categoria": "ETF",
+   "nomeCurto": "BTG COMMODIT",
+   "idB3": 7090
+  },
+  {
+   "ticker": "AUVP11",
+   "nome": "BTG PACTUAL TEVA AUVP AÇÕES FUNDAMENTOS FUNDO DE ÍNDICE",
+   "categoria": "ETF",
+   "nomeCurto": "BTGTEVA AUVP",
+   "idB3": 20312
+  },
+  {
+   "ticker": "BRXC11",
+   "nome": "BTG PACTUAL TEVA IABR SELECTOR FUNDO DE ÍNDICE",
+   "categoria": "ETF",
+   "nomeCurto": "BTGIABRSELEC",
+   "idB3": 18508
+  },
+  {
+   "ticker": "DINF11",
+   "nome": "BTG PACTUAL TEVA INFRAESTRUTURA HÍBRIDO FUNDO DE ÍNDICE",
+   "categoria": "ETF",
+   "nomeCurto": "BTGP DINF",
+   "idB3": 27321
+  },
+  {
+   "ticker": "RICO11",
+   "nome": "BUENA VISTA BLOOMBERG US BILLIONAIRES INVESTMENT SELECT INDEX FUNDO DE ÍNDICE - RESP LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "ETF RICO",
+   "idB3": 18673
+  },
+  {
+   "ticker": "GDIV11",
+   "nome": "BUENA VISTA DEX NEOS INTERNATIONAL HIGH INCOME FUNDO DE ÍNDICE DE RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "ETF BV GDIV",
+   "idB3": 23179
+  },
+  {
+   "ticker": "XBCI11",
+   "nome": "BUENA VISTA DEX VETTAFI NEOS BOOSTED BITCOIN HIGH INCOME FUNDO DE ÍNDICE DE RESPONSABILIDADE LIMITAD",
+   "categoria": "ETF",
+   "nomeCurto": "ETF BV XBCI",
+   "idB3": 25260
+  },
+  {
+   "ticker": "XSPI11",
+   "nome": "BUENA VISTA DEX VETTAFI NEOS BOOSTED S&P 500 HIGH INCOME FUNDO DE ÍNDICE DE RESPONSABILIDADE LIMITAD",
+   "categoria": "ETF",
+   "nomeCurto": "ETF BV XSPI",
+   "idB3": 25262
+  },
+  {
+   "ticker": "PIPE11",
+   "nome": "BUENA VISTA DEX VETTAFI NEOS ENERGY INFRASTRUCTURE HIGH INCOME FUNDO DE ÍNDICE DE RESPONSABILIDADE L",
+   "categoria": "ETF",
+   "nomeCurto": "ETF BV PIPE",
+   "idB3": 24593
+  },
+  {
+   "ticker": "TOPY11",
+   "nome": "BUENA VISTA DEX VETTAFI NEOS MULTI HIGH INCOME FUNDO DE ÍNDICE DE RESPONSABILIDADE LIMITAD",
+   "categoria": "ETF",
+   "nomeCurto": "ETF BV TOPY",
+   "idB3": 25415
+  },
+  {
+   "ticker": "QQQQ11",
+   "nome": "BUENA VISTA NASDAQ-100 HIGH BETA INDEX FUNDO DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "ETF QQQQ",
+   "idB3": 16402
+  },
+  {
+   "ticker": "QQQI11",
+   "nome": "BUENA VISTA NASDAQ-100 NEOS HIGH INCOME ETF INDEX (NDXHIEN) FUNDO DE ÍNDICE - RESPONSABILIDADE LIM",
+   "categoria": "ETF",
+   "nomeCurto": "ETF BV QQQI",
+   "idB3": 12195
+  },
+  {
+   "ticker": "COIN11",
+   "nome": "BUENA VISTA NEOS BITCOIN HIGH INCOME INDEX FUNDO DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "ETF BV COIN",
+   "idB3": 15874
+  },
+  {
+   "ticker": "FIXX11",
+   "nome": "BUENA VISTA NEOS ENCHANCED INCOME 1-3 MONTH T-BILL ETF BR INDEX FUNDO DE ÍNDICE - RESP LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "ETF FIXX",
+   "idB3": 18746
+  },
+  {
+   "ticker": "AURO11",
+   "nome": "BUENA VISTA NEOS GOLD HIGH INCOME INDEX FUNDO DE ÍNDICE DE RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "ETF BV AURO",
+   "idB3": 22112
+  },
+  {
+   "ticker": "CASA11",
+   "nome": "BUENA VISTA NEOS REAL ESTATE HIGH INCOME BR INDEX FUNDO DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "ETF CASA",
+   "idB3": 18607
+  },
+  {
+   "ticker": "IWMI11",
+   "nome": "BUENA VISTA NEOS RUSSELL 2000 HIGH INCOME INDEX FUNDO DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "ETF BV IWMI",
+   "idB3": 15876
+  },
+  {
+   "ticker": "SPYI11",
+   "nome": "BUENA VISTA US HIGH INCOME ETF FUNDO DE ÍNDICE NEOS U.S. EQUITY HIGH INCOME INDEX - RESPONSABILIDADE",
+   "categoria": "ETF",
+   "nomeCurto": "ETF BV SPYI",
+   "idB3": 10570
+  },
+  {
+   "ticker": "XBOV11",
+   "nome": "CAIXA ETF IBOVESPA FUNDO DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "CAIXAETFXBOV",
+   "idB3": 988
+  },
+  {
+   "ticker": "GLDX11",
+   "nome": "CLASSE A DA INVESTO ETF SOLACTIVE GOLD SPOT INDEX DE FUNDO DE ÍNDICE  RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "INVESTO GLDX",
+   "idB3": 7666
+  },
+  {
+   "ticker": "TRIG11",
+   "nome": "ETF TRÍGONO TEVA AÇÕES MICRO CAP / SMALL CAP FUNDO DE ÍNDICE",
+   "categoria": "ETF",
+   "nomeCurto": "TRG SMIC CAP",
+   "idB3": 7084
+  },
+  {
+   "ticker": "BOVB11",
+   "nome": "FUNDO DE INVESTIMENTO DE ÍNDICE - CLASSE DE INVESTIMENTO ETF BRADESCO IBOVESPA - RESP LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "ETF BRA IBOV",
+   "idB3": 1230
+  },
+  {
+   "ticker": "GXUS11",
+   "nome": "GALAPAGOS FTSE GLOBAL EQUITIES EX US FUNDO DE ÍNDICE",
+   "categoria": "ETF",
+   "nomeCurto": "GLPG GLBEXUS",
+   "idB3": 23381
+  },
+  {
+   "ticker": "EUAT11",
+   "nome": "GALAPAGOS MORNINGSTAR US TOTAL MARKET AÇÕES FUNDO DE ÍNDICE",
+   "categoria": "ETF",
+   "nomeCurto": "GLPG EUA TM",
+   "idB3": 27325
+  },
+  {
+   "ticker": "OROF11",
+   "nome": "GALAPAGOS OURO FÍSICO DEX FUNDO DE ÍNDICE",
+   "categoria": "ETF",
+   "nomeCurto": "GLPG OURO",
+   "idB3": 25459
+  },
+  {
+   "ticker": "PRAF11",
+   "nome": "GALAPAGOS PRATA FÍSICA DEX FUNDO DE ÍNDICE",
+   "categoria": "ETF",
+   "nomeCurto": "GLPG PRATA",
+   "idB3": 25461
+  },
+  {
+   "ticker": "BULZ11",
+   "nome": "GENIAL TEVA AÇÕES HIGH BETA CLASSE DE ÍNDICE RESP LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "GENIAL HBETA",
+   "idB3": 23451
+  },
+  {
+   "ticker": "ARGE11",
+   "nome": "INVESTO ARGENTINA FUNDO DE ÍNDICE",
+   "categoria": "ETF",
+   "nomeCurto": "INVESTOARGE",
+   "idB3": 21467
+  },
+  {
+   "ticker": "UTLL11",
+   "nome": "INVESTO B3 UTILIDADE PÚBLICA FUNDO DE ÍNDICE",
+   "categoria": "ETF",
+   "nomeCurto": "INVESTOUTIL",
+   "idB3": 22381
+  },
+  {
+   "ticker": "PEVC11",
+   "nome": "INVESTO BLUESTAR TOP 10 US LISTED ALTERNATIVE ASSET MANAGERS ETF FUNDO DE INVESTIMENTO DE ÍNDICE - I",
+   "categoria": "ETF",
+   "nomeCurto": "INVESTO PEVC",
+   "idB3": 8574
+  },
+  {
+   "ticker": "BNKS11",
+   "nome": "INVESTO BRASIL BANCOS B3 CLASSE DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "INVESTOBANK",
+   "idB3": 26120
+  },
+  {
+   "ticker": "BTER11",
+   "nome": "INVESTO BRAZIL BESST QUALITY ACUMULAÇÃO FUNDO DE ÍNDICE",
+   "categoria": "ETF",
+   "nomeCurto": "INVESTOBTER",
+   "idB3": 25945
+  },
+  {
+   "ticker": "BEST11",
+   "nome": "INVESTO BRAZIL BESST QUALITY FUNDO DE ÍNDICE",
+   "categoria": "ETF",
+   "nomeCurto": "INVESTOBEST",
+   "idB3": 21871
+  },
+  {
+   "ticker": "BVBR11",
+   "nome": "INVESTO CONSTÂNCIA FATORES DEFENSIVIDADE FUNDO DE ÍNDICE",
+   "categoria": "ETF",
+   "nomeCurto": "INVCONSTQBRL",
+   "idB3": 23365
+  },
+  {
+   "ticker": "JOGO11",
+   "nome": "INVESTO ETF GLOBAL VIDEO GAMING & ESPORTS CLASSE DE ÍNDICE - IE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "INVESTO JOGO",
+   "idB3": 7175
+  },
+  {
+   "ticker": "USTK11",
+   "nome": "INVESTO ETF MSCI US TECHNOLOGY CLASSE DE ÍNDICE - INVESTIMENTO NO EXTERIOR - RESP LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "INVESTO USTK",
+   "idB3": 6265
+  },
+  {
+   "ticker": "SVAL11",
+   "nome": "INVESTO ETF S&P SMALLCAP 600 VALUE CLASSE DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "INVESTO SVAL",
+   "idB3": 7815
+  },
+  {
+   "ticker": "CHIP11",
+   "nome": "INVESTO ETF US LISTED  SEMICONDUCTOR 25 INDEX CLASSE DE ÍNDICE IE RESP LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "INVESTO CHIP",
+   "idB3": 7413
+  },
+  {
+   "ticker": "VWRA11",
+   "nome": "INVESTO FTSE ALL-WORLD FUNDO DE ÍNDICE",
+   "categoria": "ETF",
+   "nomeCurto": "INVESTOVWRA",
+   "idB3": 21586
+  },
+  {
+   "ticker": "IVWO11",
+   "nome": "INVESTO FTSE EMERGING MARKETS ALL CAP CHINA  A INCLUSION CLASSE DE ÍNDICE RESPONS LIMITADADA",
+   "categoria": "ETF",
+   "nomeCurto": "INVESTOEMERG",
+   "idB3": 25348
+  },
+  {
+   "ticker": "WRLD11",
+   "nome": "INVESTO FTSE GLOBAL EQUITIES ETF CLASSE DE ÍNDICE - IE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "INVESTO WRLD",
+   "idB3": 6981
+  },
+  {
+   "ticker": "GPUS11",
+   "nome": "INVESTO GP ETF S&P 500 FUNDO DE ÍNDICE",
+   "categoria": "ETF",
+   "nomeCurto": "INVESTOGPS&P",
+   "idB3": 19834
+  },
+  {
+   "ticker": "BDOM11",
+   "nome": "INVESTO MARKETVECTOR BRAZIL DOMESTIC EXPOSURE ETF CLASSE DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "INVESTO BDOM",
+   "idB3": 8703
+  },
+  {
+   "ticker": "BXPO11",
+   "nome": "INVESTO MARKETVECTOR BRAZIL GLOBAL EXPOSURE ETF CLASSE DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "INVESTO BXPO",
+   "idB3": 8712
+  },
+  {
+   "ticker": "SCVB11",
+   "nome": "INVESTO MARKETVECTOR BRAZIL SMALL CAP VALUE ETF CLASSE DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "INVESTO SCVB",
+   "idB3": 8715
+  },
+  {
+   "ticker": "ALUG11",
+   "nome": "INVESTO MSCI US REAL ESTATE ETF CLASSE DE ÍNDICE - IE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "INVESTO ALUG",
+   "idB3": 6980
+  },
+  {
+   "ticker": "NUCL11",
+   "nome": "INVESTO MVIS GLOBAL URANIUM &  NUCLEAR ENERGY ETF CLASSE DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "INVESTO NUCL",
+   "idB3": 7241
+  },
+  {
+   "ticker": "BIZD11",
+   "nome": "INVESTO MVIS®US BUSINESS DEVELOPMENT COMPANIES INDEX ETF FUNDO DE ÍNDICE",
+   "categoria": "ETF",
+   "nomeCurto": "INVESTO BIZD",
+   "idB3": 18985
+  },
+  {
+   "ticker": "OLEO11",
+   "nome": "INVESTO OIL SERVICES CLASSE DE ÍNDICE -  RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "INVESTOOLEO",
+   "idB3": 26402
+  },
+  {
+   "ticker": "RARA11",
+   "nome": "INVESTO RARE EARTH/STRATEGIC METALS FUNDO DE ÍNDICE",
+   "categoria": "ETF",
+   "nomeCurto": "INVESTRARA11",
+   "idB3": 26430
+  },
+  {
+   "ticker": "SMAL11",
+   "nome": "ISHARES BM&FBOVESPA SMALL CAP CLASSE DE  ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "ISHARES SMAL",
+   "idB3": 989
+  },
+  {
+   "ticker": "CAPE11",
+   "nome": "ISHARES BOVESPA BR+ CAP 5% B3 CLASSE DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "ISHARES CAP5",
+   "idB3": 19540
+  },
+  {
+   "ticker": "EWBZ11",
+   "nome": "ISHARES BOVESPA BR+ EQUAL WEIGHT B3 CLASSE DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "ISHARES EQWE",
+   "idB3": 19542
+  },
+  {
+   "ticker": "BOVA11",
+   "nome": "ISHARES IBOVESPA CLASSE DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "ISHARES BOVA",
+   "idB3": 990
+  },
+  {
+   "ticker": "BRAX11",
+   "nome": "ISHARES IBRX - ÍNDICE  BRASIL (IBRX-100) CLASSE DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "ISHARES BRAX",
+   "idB3": 991
+  },
+  {
+   "ticker": "ECOO11",
+   "nome": "ISHARES INDICE CARBONO EFICIENTE (ICO2)  BRASIL IS CLASSE DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "ISHARES ECOO",
+   "idB3": 992
+  },
+  {
+   "ticker": "IVVB11",
+   "nome": "ISHARES S&P 500 CLASSE DE ÍNDICE EM COTAS DE CLASSES DE ÍNDICE IE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "ISHARE SP500",
+   "idB3": 993
+  },
+  {
+   "ticker": "SILK11",
+   "nome": "IT NOW ETF CONNECT E FUND MSCI CHINA  A50 FUNDO DE ÍNDICE RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "IT NOW CHINA",
+   "idB3": 20242
+  },
+  {
+   "ticker": "GLDI11",
+   "nome": "IT NOW GOLD BRL FUNDO DE ÍNDICE RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "IT NOW GOLD",
+   "idB3": 23253
+  },
+  {
+   "ticker": "B3BR11",
+   "nome": "IT NOW IBOVESPA B3 BR+ FUNDO DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "IT NOW B3BR+",
+   "idB3": 12914
+  },
+  {
+   "ticker": "BOVV11",
+   "nome": "IT NOW IBOVESPA FUNDO DE ÍNDICE RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "IT NOW IBOV",
+   "idB3": 995
+  },
+  {
+   "ticker": "DIVO11",
+   "nome": "IT NOW IDIV FUNDO DE ÍNDICE RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "IT NOW IDIV",
+   "idB3": 996
+  },
+  {
+   "ticker": "DIVD11",
+   "nome": "IT NOW IDIV RENDA DIVIDENDOS FUNDO DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "IT NOW DIVD",
+   "idB3": 11927
+  },
+  {
+   "ticker": "FIND11",
+   "nome": "IT NOW IFNC FUNDO DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "IT NOW IFNC",
+   "idB3": 997
+  },
+  {
+   "ticker": "GOVE11",
+   "nome": "IT NOW IGCT FUNDO DE INDICE INVESTIMENTO SUSTENTÁVEL RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "IT NOW IGCT",
+   "idB3": 998
+  },
+  {
+   "ticker": "MATB11",
+   "nome": "IT NOW IMAT FUNDO DE INDICE RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "IT NOW IMAT",
+   "idB3": 999
+  },
+  {
+   "ticker": "ISUS11",
+   "nome": "IT NOW ISE FUNDO DE ÍNDICE INVESTIMENTO SUSTENTÁVEL - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "IT NOW ISE",
+   "idB3": 1000
+  },
+  {
+   "ticker": "MILL11",
+   "nome": "IT NOW MORNINGSTAR US DIGITAL LIFESTYLE FUNDO DE ÍNDICE RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "DIGITAL LIFE",
+   "idB3": 6211
+  },
+  {
+   "ticker": "HTEK11",
+   "nome": "IT NOW MORNINGSTAR XT US HEALTHCARE FUNDO DE ÍNDICE RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "IT NOW HCARE",
+   "idB3": 6212
+  },
+  {
+   "ticker": "TECK11",
+   "nome": "IT NOW NYSE FANG+T FUNDO DE ÍNDICE RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "IT NOW TECK",
+   "idB3": 6091
+  },
+  {
+   "ticker": "PIBB11",
+   "nome": "IT NOW PIBB IBRX-50 FUNDO DE ÍNDICE RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "IT NOW PIBB",
+   "idB3": 1001
+  },
+  {
+   "ticker": "REVE11",
+   "nome": "IT NOW RUSSELL® 1000 GREEN REVENUES 50 FUNDO DE ÍNDICE INVESTIMENTO SUSTENTÁVEL RESP LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "IT NOW GREEN",
+   "idB3": 6439
+  },
+  {
+   "ticker": "SPXR11",
+   "nome": "IT NOW S&P 500 FUTURES QUANTO BRL FUNDO DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "IT NOW SP BR",
+   "idB3": 16037
+  },
+  {
+   "ticker": "SPXI11",
+   "nome": "IT NOW S&P500® TRN FUNDO DE ÍNDICE RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "IT NOW SPXI",
+   "idB3": 1002
+  },
+  {
+   "ticker": "SMAC11",
+   "nome": "IT NOW SMALL CAPS FUNDO DE ÍNDICE RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "IT NOW SMALL",
+   "idB3": 3248
+  },
+  {
+   "ticker": "UTLI11",
+   "nome": "IT NOW UTILIDADE PÚBLICA FUNDO DE ÍNDICE RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "IT NOW UTIL",
+   "idB3": 27233
+  },
+  {
+   "ticker": "NSDV11",
+   "nome": "NU IBOV SMART DIVIDENDOS CLASSE DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "NU IBOV DIV",
+   "idB3": 10678
+  },
+  {
+   "ticker": "HIGH11",
+   "nome": "NU IBOV SMART HIGH BETA B3 CLASSE DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "NUIBOVHIGHBT",
+   "idB3": 12693
+  },
+  {
+   "ticker": "LVOL11",
+   "nome": "NU IBOV SMART LOW VOLATILITY B3 CLASSE DE  ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "NUIBOVLOWVOL",
+   "idB3": 12694
+  },
+  {
+   "ticker": "NBOV11",
+   "nome": "NU IBOVESPA B3 BR+ CLASSE DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "NUIBOVBRMAIS",
+   "idB3": 12908
+  },
+  {
+   "ticker": "NDIV11",
+   "nome": "NU RENDA IBOV SMART DIVIDENDOS CLASSE DE  ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "NU REND IBOV",
+   "idB3": 10677
+  },
+  {
+   "ticker": "QLBR11",
+   "nome": "RIO BRAVO INVESTO MARKETVECTOR BRAZIL MULTIFACTOR QUALITY FUNDO DE ÍNDICE",
+   "categoria": "ETF",
+   "nomeCurto": "RBINVESTOETF",
+   "idB3": 22895
+  },
+  {
+   "ticker": "SPUB11",
+   "nome": "SAFRA ETF IBOVESPA EMPRESAS ESTATAIS FUNDO DE INDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "SAFRAIBOVEST",
+   "idB3": 13129
+  },
+  {
+   "ticker": "SPVT11",
+   "nome": "SAFRA ETF IBOVESPA EMPRESAS PRIVADAS FUNDO DE INDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "SAFRAIBOVPVT",
+   "idB3": 13128
+  },
+  {
+   "ticker": "BOVS11",
+   "nome": "SAFRA ETF IBOVESPA FUNDO DE INDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "SAFRAETFIBOV",
+   "idB3": 6255
+  },
+  {
+   "ticker": "ELAS11",
+   "nome": "SAFRA ETF MULHERES NA LIDERANÇA FUNDO DE ÍNDICE DE AÇÕES INVESTIMENTO SUSTENTÁVEL - RESP LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "SAFRAETFELAS",
+   "idB3": 7517
+  },
+  {
+   "ticker": "GOLX11",
+   "nome": "TREND ETF B3 OURO CLASSE DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "TREND OURO H",
+   "idB3": 23761
+  },
+  {
+   "ticker": "ACWI11",
+   "nome": "TREND ETF BLOOMBERG ALL COUNTRIES CLASSE DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "XPETFACWI",
+   "idB3": 5716
+  },
+  {
+   "ticker": "XINA11",
+   "nome": "TREND ETF BLOOMBERG CHINA CLASSE DE ÍNDICE - RESPONSABILIDADE LIMITADA INVESTIMENTO NO EXTERIOR",
+   "categoria": "ETF",
+   "nomeCurto": "XPETFCHINA",
+   "idB3": 5555
+  },
+  {
+   "ticker": "UTEC11",
+   "nome": "TREND ETF BLOOMBERG US 3000 TECHNOLOGY  CLASSE DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "XPETFUSTECH",
+   "idB3": 7936
+  },
+  {
+   "ticker": "BOVX11",
+   "nome": "TREND ETF IBOVESPA CLASSE DE ÍNDICE -  RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "TREND IBOVX",
+   "idB3": 6260
+  },
+  {
+   "ticker": "GOLD11",
+   "nome": "TREND ETF LBMA OURO CLASSE DE ÍNDICE INVESTIMENTO NO EXTERIOR - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "TREND OURO",
+   "idB3": 5484
+  },
+  {
+   "ticker": "SLVR11",
+   "nome": "TREND ETF LBMA PRATA CLASSE DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "TREND PRATA",
+   "idB3": 25254
+  },
+  {
+   "ticker": "NASD11",
+   "nome": "TREND ETF NASDAQ 100 CLASSE DE ÍNDICE INVESTIMENTO NO EXTERIOR - RESPONSABILIDADE  LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "TREND NASDAQ",
+   "idB3": 6199
+  },
+  {
+   "ticker": "DOLX11",
+   "nome": "TREND ETF S&P / B3 DOLAR CLASSE DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "TREND DOLAR",
+   "idB3": 23845
+  },
+  {
+   "ticker": "SPXU11",
+   "nome": "TREND ETF S&P 500 FUTURES USD-BRLCLASSE DE  ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "TRD SPX USD",
+   "idB3": 7408
+  },
+  {
+   "ticker": "SPXH11",
+   "nome": "TREND ETF S&P 500 QUANTO CLASSE DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "TREND SP BRL",
+   "idB3": 23843
+  },
+  {
+   "ticker": "XCAP11",
+   "nome": "TREND ETF SMALL CAPS SMART REBAL B3 CLASSE DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "TREND SMALL",
+   "idB3": 25943
+  },
+  {
+   "ticker": "BDAP11",
+   "nome": "BB ETF ÍNDICE DAP5 B3 FUNDO DE ÍNDICE RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-RF",
+   "nomeCurto": "BB ETF DAP5",
+   "idB3": 10553
+  },
+  {
+   "ticker": "FIXA11",
+   "nome": "BB ETF RENDA FIXA PRÉ ÍNDICE FUTURO DE TAXAS DE JUROS S&P/B3  FUNDO DE ÍNDICE RESP LIMITADA",
+   "categoria": "ETF-RF",
+   "nomeCurto": "BB FIXA11",
+   "idB3": 1069
+  },
+  {
+   "ticker": "SELI11",
+   "nome": "BB ETF TESOURO SELIC B3 FUNDO DE ÍNDICE RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-RF",
+   "nomeCurto": "BB ETF SELIC",
+   "idB3": 27497
+  },
+  {
+   "ticker": "BOL511",
+   "nome": "B-INDEX ETF IMA-B 5 P2 FUNDO DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-RF",
+   "nomeCurto": "B INDEX BOL",
+   "idB3": 22232
+  },
+  {
+   "ticker": "BPRE11",
+   "nome": "B-INDEX ETF IRF-M P2 FUNDO DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-RF",
+   "nomeCurto": "B INDEX BPRE",
+   "idB3": 22270
+  },
+  {
+   "ticker": "BLFT11",
+   "nome": "B-INDEX ETF TEVA LFT CURTO PRAZO FUNDO DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-RF",
+   "nomeCurto": "B INDEX BLFT",
+   "idB3": 22305
+  },
+  {
+   "ticker": "AMAB11",
+   "nome": "BTG PACTUAL AMAZÔNIA PARA TODOS FUNDO DE ÍNDICE",
+   "categoria": "ETF-RF",
+   "nomeCurto": "BTGP AMAB",
+   "idB3": 27323
+  },
+  {
+   "ticker": "PACC11",
+   "nome": "BTG PACTUAL IMA-B 5 P2 FUNDO DE ÍNDICE",
+   "categoria": "ETF-RF",
+   "nomeCurto": "BTGINF CURTO",
+   "idB3": 13451
+  },
+  {
+   "ticker": "PACL11",
+   "nome": "BTG PACTUAL IMA-B 5+ FUNDO DE ÍNDICE",
+   "categoria": "ETF-RF",
+   "nomeCurto": "BTGP IMAB5",
+   "idB3": 20795
+  },
+  {
+   "ticker": "PACG11",
+   "nome": "BTG PACTUAL IMA-B FUNDO DE ÍNDICE",
+   "categoria": "ETF-RF",
+   "nomeCurto": "BTGINF GERAL",
+   "idB3": 13450
+  },
+  {
+   "ticker": "LTNB11",
+   "nome": "BTG PACTUAL IRF-M P2 FUNDO DE ÍNDICE",
+   "categoria": "ETF-RF",
+   "nomeCurto": "BTGP IRFM",
+   "idB3": 20793
+  },
+  {
+   "ticker": "MARG11",
+   "nome": "BTG PACTUAL MARGEM DEBÊNTURES ULTRA QUALIDADE DI B3 FUNDO DE ÍNDICE",
+   "categoria": "ETF-RF",
+   "nomeCurto": "BTG MARGDEB",
+   "idB3": 17448
+  },
+  {
+   "ticker": "PFJR11",
+   "nome": "BTG PACTUAL PF TEVA ITBR TESOURO IPCA FUNDO DE ÍNDICE",
+   "categoria": "ETF-RF",
+   "nomeCurto": "BTGP PFJR",
+   "idB3": 25971
+  },
+  {
+   "ticker": "AUPO11",
+   "nome": "BTG PACTUAL TEVA AUVP ITBR LIQUIDEZ FUNDO DE ÍNDICE",
+   "categoria": "ETF-RF",
+   "nomeCurto": "BTGP AUPO",
+   "idB3": 23987
+  },
+  {
+   "ticker": "AREA11",
+   "nome": "BTG PACTUAL TEVA AUVP RENDA AUTOMÁTICA ITBR IPCA RENDIMENTO FUNDO DE ÍNDICE",
+   "categoria": "ETF-RF",
+   "nomeCurto": "BTGP AREA",
+   "idB3": 22467
+  },
+  {
+   "ticker": "DEBB11",
+   "nome": "BTG PACTUAL TEVA DEBÊNTURES DI FUNDO DE ÍNDICE",
+   "categoria": "ETF-RF",
+   "nomeCurto": "BTG DEB DI",
+   "idB3": 8168
+  },
+  {
+   "ticker": "SFIX11",
+   "nome": "BTG PACTUAL TEVA ITBR IPCA 95-5 FUNDO DE ÍNDICE",
+   "categoria": "ETF-RF",
+   "nomeCurto": "BTGP SFIX",
+   "idB3": 22238
+  },
+  {
+   "ticker": "WEJR11",
+   "nome": "BTG PACTUAL TEVA ITBR IPCA FUNDO DE ÍNDICE",
+   "categoria": "ETF-RF",
+   "nomeCurto": "BTGP WEJR",
+   "idB3": 22880
+  },
+  {
+   "ticker": "LIQB11",
+   "nome": "BTG PACTUAL TEVA ITBR TARGET 750 FUNDO DE ÍNDICE",
+   "categoria": "ETF-RF",
+   "nomeCurto": "BTGP LIQB",
+   "idB3": 26772
+  },
+  {
+   "ticker": "MIDB11",
+   "nome": "BTG PACTUAL TEVA ITBR TESOURO IPCA 2035 FUNDO DE ÍNDICE",
+   "categoria": "ETF-RF",
+   "nomeCurto": "BTGP B2035",
+   "idB3": 24766
+  },
+  {
+   "ticker": "LFIN11",
+   "nome": "BTG PACTUAL TEVA LETRAS FINANCEIRAS DI QUALIDADE FUNDO DE ÍNDICE",
+   "categoria": "ETF-RF",
+   "nomeCurto": "BTGP LFIN",
+   "idB3": 21950
+  },
+  {
+   "ticker": "PACB11",
+   "nome": "BTG PACTUAL TEVA TESOURO IPCA ULTRA LONGO CE FUNDO DE ÍNDICE",
+   "categoria": "ETF-RF",
+   "nomeCurto": "BTG INF LONG",
+   "idB3": 7624
+  },
+  {
+   "ticker": "LLFT11",
+   "nome": "BTG PACTUAL TEVA TESOURO SELIC FUNDO DE ÍNDICE",
+   "categoria": "ETF-RF",
+   "nomeCurto": "BTG TEVALFT",
+   "idB3": 20116
+  },
+  {
+   "ticker": "GPOS11",
+   "nome": "CLASSE ÚNICA GRÃO TEVA ITBR SELIC INTELIGENTE FUNDO DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-RF",
+   "nomeCurto": "GRAO LFTB 2Y",
+   "idB3": 27501
+  },
+  {
+   "ticker": "GPCA11",
+   "nome": "CLASSE ÚNICA GRÃO TEVA ITBR TESOURO IPCA 2 ANOS FUNDO DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-RF",
+   "nomeCurto": "GRAO IPCA 2Y",
+   "idB3": 25343
+  },
+  {
+   "ticker": "IMBB11",
+   "nome": "ETF BRADESCO IMA-B - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-RF",
+   "nomeCurto": "BRAD IMA-B",
+   "idB3": 3113
+  },
+  {
+   "ticker": "B5MB11",
+   "nome": "ETF BRADESCO IMAB5+ - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-RF",
+   "nomeCurto": "BRAD IMA-B5M",
+   "idB3": 3112
+  },
+  {
+   "ticker": "10BK11",
+   "nome": "GALAPAGOS TEVA ITBR TESOURO IPCA 10 ANOS FUNDO DE ÍNDICE",
+   "categoria": "ETF-RF",
+   "nomeCurto": "GLPG JR10A",
+   "idB3": 27206
+  },
+  {
+   "ticker": "03BK11",
+   "nome": "GALAPAGOS TEVA ITBR TESOURO IPCA 3 ANOS FUNDO DE ÍNDICE",
+   "categoria": "ETF-RF",
+   "nomeCurto": "GLPG JR03A",
+   "idB3": 27208
+  },
+  {
+   "ticker": "3PRE11",
+   "nome": "GALAPAGOS TEVA ITBR TESOURO PRÉ FIXADO 3 ANOS FUNDO DE ÍNDICE",
+   "categoria": "ETF-RF",
+   "nomeCurto": "GLPG PRE3A",
+   "idB3": 25652
+  },
+  {
+   "ticker": "POSB11",
+   "nome": "GALAPAGOS TEVA TESOURO SELIC & IPCA+ FUNDO DE ÍNDICE",
+   "categoria": "ETF-RF",
+   "nomeCurto": "GLGP SELIC B",
+   "idB3": 25019
+  },
+  {
+   "ticker": "GLFT11",
+   "nome": "GALAPAGOS TEVA TESOURO SELIC FUNDO DE ÍNDICE",
+   "categoria": "ETF-RF",
+   "nomeCurto": "GLPG TEVALFT",
+   "idB3": 22647
+  },
+  {
+   "ticker": "GICP11",
+   "nome": "GENIAL TEVA DEBÊNTURES DI QUALITY HIGH BETA  FUNDO DE ÍNDICE",
+   "categoria": "ETF-RF",
+   "nomeCurto": "GENIAL DEBDI",
+   "idB3": 21623
+  },
+  {
+   "ticker": "LFTB11",
+   "nome": "INVESTO ETF MARKETVECTOR BRAZIL TREASURY 760 DAY TARGET DURATION CLASSE DE ÍNDICE - RESP LIMITADA",
+   "categoria": "ETF-RF",
+   "nomeCurto": "INVESTO LFTB",
+   "idB3": 12916
+  },
+  {
+   "ticker": "NTNS11",
+   "nome": "INVESTO TEVA TESOURO IPCA+ 0 A 4 ANOS ETF CLASSE DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-RF",
+   "nomeCurto": "INVESTO NTNS",
+   "idB3": 9988
+  },
+  {
+   "ticker": "LFTS11",
+   "nome": "INVESTO TEVA TESOURO SELIC ETF CLASSE DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-RF",
+   "nomeCurto": "INVESTO LFTS",
+   "idB3": 8806
+  },
+  {
+   "ticker": "NTNF11",
+   "nome": "INVESTO V8 B3 TESOURO PREFIXADO JUROS FUNDO DE ÍNDICE",
+   "categoria": "ETF-RF",
+   "nomeCurto": "INVESTOV8PRE",
+   "idB3": 26202
+  },
+  {
+   "ticker": "LFIX11",
+   "nome": "INVESTO V8 LETRA FINANCEIRA S1 DI B3 FUNDO DE ÍNDICE",
+   "categoria": "ETF-RF",
+   "nomeCurto": "INVESTO LFIX",
+   "idB3": 24793
+  },
+  {
+   "ticker": "IMAB11",
+   "nome": "IT NOW ID ETF IMA-B FUNDO DE ÍNDICE RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-RF",
+   "nomeCurto": "IT NOW IMA-B",
+   "idB3": 1211
+  },
+  {
+   "ticker": "B5P211",
+   "nome": "IT NOW IMA-B5 P2 FUNDO DE INDICE RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-RF",
+   "nomeCurto": "IT NOW B5P2",
+   "idB3": 3817
+  },
+  {
+   "ticker": "IB5M11",
+   "nome": "IT NOW IMA-B5+ FUNDO DE ÍNDICE RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-RF",
+   "nomeCurto": "IT NOW IB5M",
+   "idB3": 2375
+  },
+  {
+   "ticker": "IRFM11",
+   "nome": "IT NOW IRF-M P2 FUNDO DE ÍNDICE RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-RF",
+   "nomeCurto": "IT NOW IRF-M",
+   "idB3": 2376
+  },
+  {
+   "ticker": "IDKA11",
+   "nome": "IT NOW IRFM P3 FUNDO DE ÍNDICE RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-RF",
+   "nomeCurto": "IT NOW PRE 3",
+   "idB3": 13113
+  },
+  {
+   "ticker": "T10R11",
+   "nome": "IT NOW S&P TESOURO AMERICANO 10 ANOS BRL FUNDO DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-RF",
+   "nomeCurto": "IT NOW TSY10",
+   "idB3": 21904
+  },
+  {
+   "ticker": "5PRE11",
+   "nome": "IT NOW TEVA ITBR PRÉ 5 ANOS FUNDO DE ÍNDICE RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-RF",
+   "nomeCurto": "IT NOW PRÉ 5",
+   "idB3": 24662
+  },
+  {
+   "ticker": "CDIB11",
+   "nome": "IT NOW TEVA ITBR SELIC IPCA TARGET 800 FUNDO DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-RF",
+   "nomeCurto": "IT NOW DIPCA",
+   "idB3": 25666
+  },
+  {
+   "ticker": "LFTI11",
+   "nome": "IT NOW TEVA TESOURO SELIC FUNDO DE ÍNDICE RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-RF",
+   "nomeCurto": "IT NOW SELIC",
+   "idB3": 23720
+  },
+  {
+   "ticker": "NCDI11",
+   "nome": "NU CDI TESOURO SELIC B3 CLASSE DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-RF",
+   "nomeCurto": "NUCDISELICB3",
+   "idB3": 22868
+  },
+  {
+   "ticker": "HYBR11",
+   "nome": "NU IBOXX HIGH YIELD HEDGE CARRY BRL CLASSE  DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-RF",
+   "nomeCurto": "NUIBOXXBRLHY",
+   "idB3": 22234
+  },
+  {
+   "ticker": "HGBR11",
+   "nome": "NU IBOXX INVESTMENT GRADE HEDGE CARRY BRL  CLASSE DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-RF",
+   "nomeCurto": "NUIBOXXBRLIG",
+   "idB3": 22236
+  },
+  {
+   "ticker": "NLFA11",
+   "nome": "NU LETRAS FINANCEIRAS ANBIMA CLASSE DE  ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-RF",
+   "nomeCurto": "NULFSRANBIMA",
+   "idB3": 23784
+  },
+  {
+   "ticker": "NB1011",
+   "nome": "NU TESOURO IPCA B3 PRAZO 10 ANOS CLASSE DE  ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-RF",
+   "nomeCurto": "NUIPCA10ANOS",
+   "idB3": 25701
+  },
+  {
+   "ticker": "NB0211",
+   "nome": "NU TESOURO IPCA B3 PRAZO 2 ANOS CLASSE DE  ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-RF",
+   "nomeCurto": "NUIPCA02ANOS",
+   "idB3": 26729
+  },
+  {
+   "ticker": "NB0511",
+   "nome": "NU TESOURO IPCA B3 PRAZO 5 ANOS CLASSE DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-RF",
+   "nomeCurto": "NUIPCA05ANOS",
+   "idB3": 26731
+  },
+  {
+   "ticker": "PHIP11",
+   "nome": "PHRONESIS TEVA IPCA DYNAMIC SELECTION YIELD FUNDO DE ÍNDICE",
+   "categoria": "ETF-RF",
+   "nomeCurto": "ITBRCURTOPHR",
+   "idB3": 16347
+  },
+  {
+   "ticker": "LFTX11",
+   "nome": "TREND ETF B3 TESOURO SELIC CLASSE DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-RF",
+   "nomeCurto": "TREND SELIC",
+   "idB3": 25243
+  },
+  {
+   "ticker": "XB3011",
+   "nome": "TREND ETF IDEX B30 CLASSE DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-RF",
+   "nomeCurto": "TREND NTNB30",
+   "idB3": 24850
+  },
+  {
+   "ticker": "XB3511",
+   "nome": "TREND ETF IDEX B35 CLASSE DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-RF",
+   "nomeCurto": "TREND NTNB35",
+   "idB3": 23724
+  },
+  {
+   "ticker": "XB4511",
+   "nome": "TREND ETF IDEX B45 CLASSE DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-RF",
+   "nomeCurto": "TREND NTNB45",
+   "idB3": 24854
+  },
+  {
+   "ticker": "XB5011",
+   "nome": "TREND ETF IDEX B50 CLASSE DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-RF",
+   "nomeCurto": "TREND NTNB50",
+   "idB3": 23722
+  },
+  {
+   "ticker": "XB6011",
+   "nome": "TREND ETF IDEX B60 CLASSE DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-RF",
+   "nomeCurto": "TREND NTNB60",
+   "idB3": 24852
+  },
+  {
+   "ticker": "PREX11",
+   "nome": "TREND ETF IRF-M P2 CLASSE DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-RF",
+   "nomeCurto": "TREND IRFM",
+   "idB3": 25252
+  },
+  {
+   "ticker": "LTBX11",
+   "nome": "TREND ETF TEVA ITBR SELIC TARGET 760 CLASSE DE  ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-RF",
+   "nomeCurto": "TREND CASH B",
+   "idB3": 25241
+  },
+  {
+   "ticker": "ABTC11",
+   "nome": "BTG PACTUAL TEVA AUVP BITCOIN FEAR ARBITRAGE FUNDO DE ÍNDICE",
+   "categoria": "ETF-CRIPTO",
+   "nomeCurto": "BTGP ABTC",
+   "idB3": 26611
+  },
+  {
+   "ticker": "BITC11",
+   "nome": "BTG PACTUAL TEVA BITCOIN FUNDO DE ÍNDICE",
+   "categoria": "ETF-CRIPTO",
+   "nomeCurto": "BPTEVABITC",
+   "idB3": 22164
+  },
+  {
+   "ticker": "EETH11",
+   "nome": "BTG PACTUAL TEVA ETHEREUM FUNDO DE ÍNDICE",
+   "categoria": "ETF-CRIPTO",
+   "nomeCurto": "BPTEVAETHE",
+   "idB3": 22162
+  },
+  {
+   "ticker": "ETHY11",
+   "nome": "BUENA VISTA DEX VETTAFI NEOS ETHEREUM HIGH INCOME FUNDO DE ÍNDICE DE RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-CRIPTO",
+   "nomeCurto": "ETF BV ETHY",
+   "idB3": 23903
+  },
+  {
+   "ticker": "GBTC11",
+   "nome": "BUENA VISTA HASHDEX GOLD & BITCOIN FUNDO DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-CRIPTO",
+   "nomeCurto": "GBTC BV HASH",
+   "idB3": 20228
+  },
+  {
+   "ticker": "EBIT11",
+   "nome": "EMPIRICUS TEVA BITCOIN FUNDO DE ÍNDICE",
+   "categoria": "ETF-CRIPTO",
+   "nomeCurto": "EMPIRICUSBTC",
+   "idB3": 20918
+  },
+  {
+   "ticker": "CRPT11",
+   "nome": "EMPIRICUS TEVA CRIPTOMOEDAS TOP20 FUNDO DE ÍNDICE",
+   "categoria": "ETF-CRIPTO",
+   "nomeCurto": "CRIPTO20 EMP",
+   "idB3": 7918
+  },
+  {
+   "ticker": "GBIT11",
+   "nome": "GALAPAGOS BITCOIN CME CF FUNDO DE ÍNDICE",
+   "categoria": "ETF-CRIPTO",
+   "nomeCurto": "GLPG BITCOIN",
+   "idB3": 23811
+  },
+  {
+   "ticker": "META11",
+   "nome": "HASHDEX CRYPTO METAVERSE FUNDO DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-CRIPTO",
+   "nomeCurto": "META HASH",
+   "idB3": 7966
+  },
+  {
+   "ticker": "DEFI11",
+   "nome": "HASHDEX DEFI INDEX FUNDO DE ÍNDICE RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-CRIPTO",
+   "nomeCurto": "DEFI HASH",
+   "idB3": 7435
+  },
+  {
+   "ticker": "FOMO11",
+   "nome": "HASHDEX MOMENTUM FUNDO DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-CRIPTO",
+   "nomeCurto": "FOMO HASH",
+   "idB3": 9108
+  },
+  {
+   "ticker": "BITH11",
+   "nome": "HASHDEX NASDAQ BITCOIN REFERENCE PRICE FUNDO DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-CRIPTO",
+   "nomeCurto": "BITCOIN HASH",
+   "idB3": 6468
+  },
+  {
+   "ticker": "HASH11",
+   "nome": "HASHDEX NASDAQ CME CRYPTO INDEX FUNDO DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-CRIPTO",
+   "nomeCurto": "HASHDEX NCI",
+   "idB3": 5899
+  },
+  {
+   "ticker": "ETHE11",
+   "nome": "HASHDEX NASDAQ ETHEREUM REFERENCE PRICE FUNDO DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-CRIPTO",
+   "nomeCurto": "ETHER HASH",
+   "idB3": 6488
+  },
+  {
+   "ticker": "SOLH11",
+   "nome": "HASHDEX NASDAQ SOLANA FUNDO DE ÍNDICE",
+   "categoria": "ETF-CRIPTO",
+   "nomeCurto": "SOLANA HASH",
+   "idB3": 13000
+  },
+  {
+   "ticker": "XRPH11",
+   "nome": "HASHDEX NASDAQ XRP FUNDO DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-CRIPTO",
+   "nomeCurto": "XRP HASH",
+   "idB3": 16510
+  },
+  {
+   "ticker": "WEB311",
+   "nome": "HASHDEX SMART CONTRACT PLATFORMS FUNDO DE ÍNDICE",
+   "categoria": "ETF-CRIPTO",
+   "nomeCurto": "SMART HASH",
+   "idB3": 7664
+  },
+  {
+   "ticker": "HODL11",
+   "nome": "INVESTO ETF MARKETVECTOR BITCOIN BENCHMARK RATE FUNDO DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-CRIPTO",
+   "nomeCurto": "INVESTO HODL",
+   "idB3": 12915
+  },
+  {
+   "ticker": "BITI11",
+   "nome": "IT NOW BLOOMBERG GALAXY BITCOIN FUNDO DE ÍNDICE RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-CRIPTO",
+   "nomeCurto": "ETF GALAXY B",
+   "idB3": 8730
+  },
+  {
+   "ticker": "NBIT11",
+   "nome": "NU NASDAQ BRAZIL BITCOIN CARRY FUTURES  CLASSE DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-CRIPTO",
+   "nomeCurto": "NUBITCOINFUT",
+   "idB3": 21746
+  },
+  {
+   "ticker": "QDFI11",
+   "nome": "QR BLOOMBERG DEFI FUNDO DE ÍNDICE - INVESTIMENTO NO EXTERIOR",
+   "categoria": "ETF-CRIPTO",
+   "nomeCurto": "QR DEFI",
+   "idB3": 7506
+  },
+  {
+   "ticker": "QBTC11",
+   "nome": "QR CME CF BITCOIN REFERENCE RATE FUNDO DE ÍNDICE - INVESTIMENTO NO EXTERIOR",
+   "categoria": "ETF-CRIPTO",
+   "nomeCurto": "QR BITCOIN",
+   "idB3": 5904
+  },
+  {
+   "ticker": "QETH11",
+   "nome": "QR CME CF ETHER REFERENCE RATE FUNDO DE ÍNDICE - INVESTIMENTO NO EXTERIOR",
+   "categoria": "ETF-CRIPTO",
+   "nomeCurto": "QR ETHER",
+   "idB3": 6563
+  },
+  {
+   "ticker": "QSOL11",
+   "nome": "QR CME CF SOLANA DOLLAR REFERENCE RATE FUNDO DE ÍNDICE RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-CRIPTO",
+   "nomeCurto": "QR SOLANA",
+   "idB3": 12877
+  },
+  {
+   "ticker": "XBIT11",
+   "nome": "TREND ETF BLOOMBERG BITCOIN CLASSE DE  ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-CRIPTO",
+   "nomeCurto": "TREND BTC",
+   "idB3": 23498
+  },
+  {
+   "ticker": "XETH11",
+   "nome": "TREND ETF BLOOMBERG ETHEREUM CLASSE DE  ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-CRIPTO",
+   "nomeCurto": "TREND ETH",
+   "idB3": 23675
+  },
+  {
+   "ticker": "CLOB11",
+   "nome": "BTG PACTUAL DYNAMIC BALANCED CLO FUNDO DE ÍNDICE",
+   "categoria": "ETF-INT-RF",
+   "nomeCurto": "BTGP CLOB",
+   "idB3": 22989
+  },
+  {
+   "ticker": "BNDX11",
+   "nome": "INVESTO BLOOMBERG GLOBAL BOND ETF CLASSE  DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-INT-RF",
+   "nomeCurto": "INVESTO BNDX",
+   "idB3": 7522
+  },
+  {
+   "ticker": "USDB11",
+   "nome": "INVESTO BLOOMBERG US BOND ETF CLASSE DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-INT-RF",
+   "nomeCurto": "INVESTO USDB",
+   "idB3": 7521
+  },
+  {
+   "ticker": "GOAT11",
+   "nome": "IT NOW S&P IMA-B FUNDO DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-INT-RF",
+   "nomeCurto": "IT NOW SP+RF",
+   "idB3": 18791
+  },
+  {
+   "ticker": "AGGX11",
+   "nome": "TREND ETF BLOOMBERG AGGREGATE US BONDS CLASSE DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-INT-RF",
+   "nomeCurto": "TREND US BND",
+   "idB3": 25152
+  },
+  {
+   "ticker": "HERT11",
+   "nome": "HEDGE BRASIL EQUITY REITS FUNDO DE ÍNDICE DE RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-FII",
+   "nomeCurto": "ETF HEQREITS",
+   "idB3": 19423
+  },
+  {
+   "ticker": "XFIX11",
+   "nome": "TREND ETF IFIX-L  CLASSE DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF-FII",
+   "nomeCurto": "TREND IFIX-L",
+   "idB3": 3822
+  }
+ ]
+}

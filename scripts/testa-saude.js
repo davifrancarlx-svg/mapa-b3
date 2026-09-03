@@ -4,6 +4,7 @@ const agora=Date.parse('2026-09-03T15:00:00Z'),ts=new Date(agora).toISOString();
 const bases={
   precos:{atualizadoEm:ts,tickersConsultados:2,tickersComPreco:99,precos:{A:{p:10,t:agora/1000},B:{p:20,t:agora/1000}}},
   bdrs:{geradoEm:ts,total:2,bdrs:[{ticker:'A',pais:'BR',setor:'Setor',industria:'Indústria'},{ticker:'B',pais:'US',setor:'Setor',industria:'Indústria'}]},
+  etfs:{geradoEm:ts,total:2,etfs:[{ticker:'AAAA11',nome:'Fundo A',categoria:'ETF'},{ticker:'BBBB11',nome:'Fundo B',categoria:'ETF-RF'}]},
   metricasBdr:{atualizadoEm:ts,totalBDRs:2,metricas:{A:{n:252,dt:'2026-09-02'},B:{n:22,dt:'2026-09-03'}}},
   metricasEmpresas:{atualizadoEm:ts,totalEmpresas:2,metricas:{A:{n:252,dt:'2026-09-02'},B:{n:252,dt:'2026-09-03'}}},
   analise:{atualizadoEm:ts,totalBDRs:2,analise:{A:{precoAtivo:10,fator:1,dtAtivo:'2026-09-02'},B:{precoAtivo:10,fator:1,dtAtivo:'2026-09-03'}}},
@@ -18,7 +19,7 @@ for(const k of ['metricasBdr','metricasEmpresas','analise']){
 }
 for(const k of Object.keys(FONTES)){
   for(const valor of [null,{},'invalido']){const b=structuredClone(bases);b[k]=valor;const s=gera(b,agora);valida(s);assert.equal(s.estado,'atencao');casos.push(s);}
-  for(const valor of [null,'invalida','2026-09-04T15:00:00Z']){const b=structuredClone(bases);b[k][k==='bdrs'?'geradoEm':'atualizadoEm']=valor;const s=gera(b,agora);valida(s);assert.equal(s.estado,'atencao');casos.push(s);}
+  for(const valor of [null,'invalida','2026-09-04T15:00:00Z']){const b=structuredClone(bases);b[k][['bdrs','etfs'].includes(k)?'geradoEm':'atualizadoEm']=valor;const s=gera(b,agora);valida(s);assert.equal(s.estado,'atencao');casos.push(s);}
 }
 for(const modifica of [b=>b.precos.precos.A.p=0,b=>b.precos.tickersConsultados=0,b=>b.precos.tickersConsultados=1,b=>b.bdrs.bdrs[1]=b.bdrs.bdrs[0],b=>b.bdrs.bdrs[0].industria='',b=>b.eventos.eventos={},b=>b.metricasBdr.metricas.A.dt='2026-02-30']){
   const b=structuredClone(bases);modifica(b);const s=gera(b,agora);valida(s);assert.equal(s.estado,'atencao');casos.push(s);

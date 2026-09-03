@@ -355,6 +355,7 @@ footer p{margin:0;max-width:62ch;line-height:1.55}
       <button data-sec="geral" aria-current="page">Visão geral</button>
       <button data-sec="empresas">Empresas brasileiras</button>
       <button data-sec="bdrs">BDRs</button>
+      <button data-sec="etfs">ETFs</button>
       <button data-sec="radar">Radar de listagens</button>
       <button data-sec="metodologia">Metodologia</button>
     </nav>
@@ -513,6 +514,42 @@ footer p{margin:0;max-width:62ch;line-height:1.55}
       <div id="boxTabelaB"></div>
       <div id="boxCardsB" class="hide"></div>
       <div id="boxMatrizB" class="hide"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ETFs ============ -->
+<section id="secEtfs" class="hide">
+  <div class="lay">
+    <aside class="side" id="sideEtf" aria-label="Filtros de ETFs">
+      <div class="fgrp" data-open="true">
+        <button class="fhead" aria-expanded="true">Categoria<span class="cnt hide" id="cntCatEtf"></span><span class="arw">▾</span></button>
+        <div class="fbody">
+          <div class="opts" id="etfCategorias"></div>
+        </div>
+      </div>
+      <button class="btn fechaF" data-fecha-filtro>Ver resultados</button>
+    </aside>
+
+    <div class="painel">
+      <div class="res">
+        <span class="qt"><b id="nEtf">0</b><span>ETFs no recorte</span></span>
+        <button class="lnk hide" id="clearEtf">limpar filtros</button>
+        <div class="dir">
+          <label class="busca">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+            <input id="qEtf" type="search" placeholder="Ticker ou nome do fundo" aria-label="Buscar ETFs">
+          </label>
+          <button class="btn" id="btFiltros3" data-abre-filtro>Filtros</button>
+          <div class="seg" role="group" aria-label="Modo de visualização">
+            <button id="mTabelaEtf" aria-pressed="true">Tabela</button>
+            <button id="mCardsEtf" aria-pressed="false">Cards</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="boxTabelaEtf"></div>
+      <div id="boxCardsEtf" class="hide"></div>
     </div>
   </div>
 </section>
@@ -9641,7 +9678,8 @@ const st = {
   bdrLiq:'todas', bdrFreq:'todas', bdrHist:'todos',
   bdrSort:'g20', bdrDir:'desc', recorte:null, soFav:false,
   matX:'g20', matY:'forca', ativo:null,
-  buscaPais:'', buscaInd:'', buscaTag:''
+  buscaPais:'', buscaInd:'', buscaTag:'',
+  modoEtf:'tabela', qe:'', etfCategoria:new Set(), etfSort:'nome', etfDir:'asc'
 };
 
 let FAVORITOS = new Set(), COMPARAR = new Set();
@@ -10674,7 +10712,7 @@ function abreComparacao(){
 }
 
 /* ---------- diagnostico das bases ---------- */
-const SAUDE_REGRAS={precos:['Preços',80,72],bdrs:['Catálogo BDR',100,null],metricasBdr:['Histórico BDR',90,96],metricasEmpresas:['Histórico empresas',75,96],analise:['Ativo lastro',70,96],eventos:['Documentos CVM',null,120]};
+const SAUDE_REGRAS={precos:['Preços',80,72],bdrs:['Catálogo BDR',100,null],etfs:['Catálogo ETF',100,null],metricasBdr:['Histórico BDR',90,96],metricasEmpresas:['Histórico empresas',75,96],analise:['Ativo lastro',70,96],eventos:['Documentos CVM',null,120]};
 function avisosFonte(x,agora){
   const avisos=[...x.avisos],t=typeof x.atualizadoEm==='string'?Date.parse(x.atualizadoEm):NaN;
   if(!Number.isFinite(t))avisos.push('Data da coleta ausente ou inválida.');
@@ -10741,6 +10779,158 @@ mapa.addEventListener('mousemove', ev => {
 });
 mapa.addEventListener('mouseleave', () => tip.style.opacity = 0);
 
+/* ---------- ETF ---------- */
+let ETF = [];
+
+/* Categoria vem pronta da B3 (typeFund), sem falha por item -- diferente de
+   pais/setor/industria do BDR, que dependem de uma consulta por empresa. */
+const CATEGORIA_ETF_PT = {
+  'ETF':'Renda variável', 'ETF-RF':'Renda fixa', 'ETF-CRIPTO':'Criptoativos',
+  'ETF-INT-RF':'Renda fixa internacional', 'ETF-FII':'Fundos imobiliários', 'ETF-MOEDA':'Moedas'
+};
+const CATEGORIAS_ETF = new Set(Object.keys(CATEGORIA_ETF_PT));
+const CORES_CATEGORIA_ETF = {
+  'ETF':'#3D6FD6', 'ETF-RF':'#2E8B74', 'ETF-CRIPTO':'#F2B441',
+  'ETF-INT-RF':'#7A5FD1', 'ETF-FII':'#D65A8A', 'ETF-MOEDA':'#6B7280'
+};
+const categoriaETFPT = c => c ? (CATEGORIA_ETF_PT[c] || c) : null;
+const corCategoriaEtf = c => CORES_CATEGORIA_ETF[c] || '#4A5568';
+
+function filtraETF(){
+  let r = ETF;
+  if(st.qe){ const q = norm(st.qe); r = r.filter(x => x._s.includes(q)); }
+  if(st.etfCategoria.size) r = r.filter(x => st.etfCategoria.has(x.categoria));
+  return ordenaETF(r);
+}
+/* Mesma regra do valorCol/ordenaBDR: sem dado sempre vai para o fim,
+   independente da direcao. */
+function valorColETF(x, k){
+  const r = cot(x.ticker);
+  switch(k){
+    case 'ticker': return x.ticker;
+    case 'nome': return x.nome;
+    case 'categoria': return categoriaETFPT(x.categoria) || '';
+    case 'preco': return r ? r.p : null;
+    case 'variacao': return r && typeof r.v === 'number' ? r.v : null;
+    default: return null;
+  }
+}
+function ordenaETF(list){
+  const k = st.etfSort, sinal = st.etfDir === 'asc' ? 1 : -1;
+  return [...list].sort((a,b) => {
+    const x = valorColETF(a,k), y = valorColETF(b,k);
+    const xv = x === null || x === undefined, yv = y === null || y === undefined;
+    if(xv && yv) return a.nome.localeCompare(b.nome,'pt-BR');
+    if(xv) return 1;
+    if(yv) return -1;
+    if(typeof x === 'string') return sinal * x.localeCompare(y,'pt-BR');
+    return sinal * (x - y);
+  });
+}
+function chipsETF(){
+  const c = {}; ETF.forEach(x => { if(x.categoria) c[x.categoria] = (c[x.categoria]||0)+1; });
+  const itens = Object.keys(c).sort((a,b)=>c[b]-c[a]||a.localeCompare(b))
+    .map(v => ({v, rot:categoriaETFPT(v), n:c[v], cor:corCategoriaEtf(v)}));
+  opcoes('etfCategorias', itens, st.etfCategoria, 'etfcat');
+  conta(st.etfCategoria.size, 'cntCatEtf');
+}
+
+const COLS_ETF = [
+  {k:'ticker',    rot:'Ticker'},
+  {k:'nome',      rot:'Fundo', mob:true},
+  {k:'categoria', rot:'Categoria', sec:true},
+  {k:'preco',     rot:'Último preço', n:true},
+  {k:'variacao',  rot:'Variação no dia', n:true}
+];
+
+function tabelaETF(list){
+  if(!list.length) return '<p class="nota" style="padding-top:16px">Nenhum ETF neste recorte. Ajuste os filtros ou limpe tudo.</p>';
+  const th = COLS_ETF.map(c => {
+    const ativo = st.etfSort === c.k;
+    const seta = ativo ? (st.etfDir === 'asc' ? '▲' : '▼') : '';
+    return `<th class="${c.n?'n ':''}${c.sec?'col-s ':''}${c.mob?'col-m':''}"${ativo?` aria-sort="${st.etfDir==='asc'?'ascending':'descending'}"`:''}>
+      <button data-col="${c.k}">${c.rot}<span class="s">${seta}</span></button></th>`;
+  }).join('');
+  const linhas = list.map(x => {
+    const r = cot(x.ticker), viva = negociouHoje(r);
+    const preco = r ? fmtPreco(r.p) : '<span class="na">—</span>';
+    return `<tr tabindex="0" data-te="${x.ticker}">
+      <td class="tk"><span class="marc" style="background:${corCategoriaEtf(x.categoria)}"></span>${x.ticker}<span class="sub only-mob">${esc(x.nome)}</span></td>
+      <td class="col-m">${esc(x.nome)}</td>
+      <td class="col-s">${esc(categoriaETFPT(x.categoria)||'')}</td>
+      <td class="n">${preco}</td>
+      <td class="n">${r && viva && typeof r.v === 'number' ? fmtVar(r.v) : '<span class="na">—</span>'}</td>
+    </tr>`;
+  }).join('');
+  return `<div class="tabw"><table class="tab">
+    <caption class="sr">ETFs no recorte atual, com preço e categoria oficial da B3</caption>
+    <thead><tr>${th}</tr></thead>
+    <tbody>${linhas}</tbody></table></div>`;
+}
+
+function cardsETF(list){
+  if(!list.length) return '<p class="nota" style="padding-top:16px">Nenhum ETF neste recorte.</p>';
+  return '<div class="grid">' + list.map(x => {
+    const r = cot(x.ticker), cor = corCategoriaEtf(x.categoria);
+    const preco = r ? `<span class="pr"><b>${fmtPreco(r.p)}</b>${negociouHoje(r)?fmtVar(r.v):''}</span>`
+      : '<span class="pr na">sem cotação</span>';
+    return `<button class="card" data-te="${x.ticker}" style="border-left-color:${cor}">
+      <span class="top"><span class="cod" style="color:${cor}">${x.ticker}</span>
+      <span class="nm">${esc(x.nome)}</span>${preco}</span>
+      <div class="cat">${esc(categoriaETFPT(x.categoria)||'')}</div></button>`;
+  }).join('') + '</div>';
+}
+
+function abreETF(ticker){
+  const x = ETF.find(f => f.ticker === ticker); if(!x) return;
+  const r = cot(ticker), viva = negociouHoje(r), cor = corCategoriaEtf(x.categoria);
+  const l = (rot, valor, txt) => `<dt>${rot}</dt><dd${txt?' class="tx"':''}>${valor}</dd>`;
+
+  const cotacao = r ? `<dl class="kv">
+      ${l('Último preço', fmtPreco(r.p))}
+      ${l('Variação no dia', viva && typeof r.v === 'number' ? fmtVar(r.v) : '<span class="na">—</span>')}
+      ${l('Negociou hoje', viva ? 'sim' : 'não', true)}
+      ${l('Último negócio', dataNegocio(r), true)}
+      ${l('Giro do dia', fmtGiro(r.giro))}
+    </dl>${viva ? '' : '<p class="fnt">Sem negócio hoje: o preço acima é o último conhecido, não uma cotação corrente.</p>'}`
+    : '<p class="fnt">Sem cotação disponível para este ETF.</p>';
+
+  lastFocus = document.activeElement;
+  st.ativo = ticker; if(URL_ATIVA) sincronizaURL();
+  drw.classList.remove('wide');
+  drw.innerHTML = `
+    <button class="x" aria-label="Fechar ficha">×</button>
+    <span class="selo" style="background:${cor};color:${txOn(cor)}">ETF · ${esc(categoriaETFPT(x.categoria)||'')}</span>
+    <h2>${ticker}</h2>
+    <div class="rz">${esc(x.nome)}</div>
+    <div class="bloco"><h3>Identificação</h3><dl class="kv">
+      ${l('Nome do fundo', esc(x.nome), true)}
+      ${l('Categoria B3', esc(categoriaETFPT(x.categoria) || '—'), true)}
+    </dl></div>
+    <div class="bloco"><h3>Cotação</h3>${cotacao}
+      <p class="fnt">Yahoo Finance, atraso de ~15 min.${PRECO_TS ? ' Consultada em ' + PRECO_TS + '.' : ''}</p></div>
+    <div class="bloco"><h3>Classificação e fontes</h3>
+      <p class="fnt">Lista, ticker e categoria: B3, base oficial de fundos listados.<br>
+      Cotação e giro do dia: Yahoo Finance, fonte não oficial.</p>
+      <p class="fnt">Índice de referência, taxa de administração e patrimônio líquido não constam desta base — consulte o regulamento e a lâmina oficiais do fundo. Nada aqui é recomendação de compra ou venda.
+      <button class="lnk" data-sec="metodologia" style="font-size:11.5px">Metodologia completa</button></p></div>`;
+  drw.classList.add('on'); dim.classList.add('on'); wrap.inert = true;
+  drw.querySelector('.x').onclick = fecha;
+  drw.focus();
+}
+
+function carregaETFs(){
+  fetch('etfs.json', {cache:'no-store'})
+    .then(r => r.ok ? r.json() : Promise.reject(new Error('HTTP ' + r.status)))
+    .then(d => {
+      ETF = (d.etfs || []).map(x => Object.assign({}, x, {
+        _s: norm([x.ticker, x.nome, x.nomeCurto||'', categoriaETFPT(x.categoria)||''].join(' '))
+      }));
+      chipsETF(); render(); tentaAtivo();
+    })
+    .catch(() => { render(); });
+}
+
 /* ---------- navegacao entre secoes ---------- */
 function sincronizaURL(){
   const p=new URLSearchParams();p.set('sec',st.sec);
@@ -10754,6 +10944,10 @@ function sincronizaURL(){
     if(st.modoEmp!=='mosaico')p.set('modo',st.modoEmp);if(st.q)p.set('q',st.q);
     [...st.cats].sort().forEach(v=>p.append('categoria',v));[...st.tags].sort().forEach(v=>p.append('tag',v));
     if(st.tagMode!=='ou')p.set('tags',st.tagMode);if(st.sort!=='vm')p.set('ord',st.sort);if(st.area!=='val')p.set('area',st.area);
+  } else if(st.sec==='etfs'){
+    if(st.modoEtf!=='tabela')p.set('modo',st.modoEtf);if(st.qe)p.set('q',st.qe);
+    [...st.etfCategoria].sort().forEach(v=>p.append('categoria',v));
+    if(st.etfSort!=='nome')p.set('ord',st.etfSort);if(st.etfDir!=='asc')p.set('dir',st.etfDir);
   }
   if(st.ativo)p.set('ativo',st.ativo);history.replaceState(null,'','?'+p.toString());
 }
@@ -10769,6 +10963,8 @@ function padroesURL(sec){
     st.bdrPais.clear();st.bdrSetor.clear();st.bdrIndustria.clear();
   }else if(sec==='empresas'){
     Object.assign(st,{modoEmp:typeof innerWidth==='number'&&innerWidth>0&&innerWidth<760?'tabela':'mosaico',q:'',tagMode:'ou',sort:'vm',area:'val'});st.cats.clear();st.tags.clear();
+  }else if(sec==='etfs'){
+    Object.assign(st,{modoEtf:'tabela',qe:'',etfSort:'nome',etfDir:'asc'});st.etfCategoria.clear();
   }
 }
 function leURL(){
@@ -10782,6 +10978,10 @@ function leURL(){
     if(['mosaico','tabela'].includes(p.get('modo')))st.modoEmp=p.get('modo');st.q=(p.get('q')||'').slice(0,200);
     const tags=new Set(E.flatMap(e=>e.tagsL));listaURL(p,'categoria',new Set(Object.keys(CORES))).forEach(x=>st.cats.add(x));listaURL(p,'tag',tags).forEach(x=>st.tags.add(x));
     if(['ou','e'].includes(p.get('tags')))st.tagMode=p.get('tags');if(['vm','liq','nome','novo'].includes(p.get('ord')))st.sort=p.get('ord');if(['val','igual'].includes(p.get('area')))st.area=p.get('area');
+  }else if(st.sec==='etfs'){
+    if(['tabela','cards'].includes(p.get('modo')))st.modoEtf=p.get('modo');st.qe=(p.get('q')||'').slice(0,200);
+    listaURL(p,'categoria',CATEGORIAS_ETF).forEach(x=>st.etfCategoria.add(x));
+    if(COLS_ETF.some(c=>c.k===p.get('ord')))st.etfSort=p.get('ord');if(['asc','desc'].includes(p.get('dir')))st.etfDir=p.get('dir');
   }
   st.ativo=(p.get('ativo')||'').slice(0,30)||null;
 }
@@ -10790,8 +10990,8 @@ function normalizaSelecoesBDR(){
   corrige(st.bdrPais,'pais');corrige(st.bdrSetor,'setor');corrige(st.bdrIndustria,'industria');
 }
 function refleteEstado(){
-  $('qEmp').value=st.q;$('qBdr').value=st.qb;$('ordEmp').value=st.sort;$('soFav').setAttribute('aria-pressed',String(st.soFav));
-  [[$('aVal'),'val',st.area],[$('aIgual'),'igual',st.area],[$('mOu'),'ou',st.tagMode],[$('mE'),'e',st.tagMode],[$('mMosaico'),'mosaico',st.modoEmp],[$('mTabelaE'),'tabela',st.modoEmp]].forEach(([b,v,a])=>b.setAttribute('aria-pressed',String(v===a)));
+  $('qEmp').value=st.q;$('qBdr').value=st.qb;$('qEtf').value=st.qe;$('ordEmp').value=st.sort;$('soFav').setAttribute('aria-pressed',String(st.soFav));
+  [[$('aVal'),'val',st.area],[$('aIgual'),'igual',st.area],[$('mOu'),'ou',st.tagMode],[$('mE'),'e',st.tagMode],[$('mMosaico'),'mosaico',st.modoEmp],[$('mTabelaE'),'tabela',st.modoEmp],[$('mTabelaEtf'),'tabela',st.modoEtf],[$('mCardsEtf'),'cards',st.modoEtf]].forEach(([b,v,a])=>b.setAttribute('aria-pressed',String(v===a)));
   [$('mTabela'),$('mCards'),$('mMatriz')].forEach(b=>b.setAttribute('aria-pressed',String(b.id===({tabela:'mTabela',cards:'mCards',matriz:'mMatriz'}[st.modoBdr]))));
 }
 const SECOES = {
@@ -10801,6 +11001,8 @@ const SECOES = {
     d:'Todas as companhias com ações registradas, organizadas em 19 categorias temáticas e cruzadas por tags de exposição. O tamanho de cada bloco vem do valor de mercado estimado.'},
   bdrs:{t:'BDRs', k:'B3 · 825 recibos',
     d:'Ações de empresas estrangeiras negociadas na B3 por recibo de depósito. A tabela permite comparar preço, retorno, força relativa e liquidez na mesma linha.'},
+  etfs:{t:'ETFs', k:'B3 · fundos de índice',
+    d:'Fundos de índice negociados na B3, por categoria oficial (renda variável, renda fixa, cripto, internacional, FII e moeda).'},
   radar:{t:'Radar de listagens', k:'B3 · pipeline',
     d:'Companhias com pedido protocolado, nomes no radar do mercado e as já registradas que ainda não têm negociação relevante.'},
   metodologia:{t:'Metodologia', k:'B3 · como isto é feito',
@@ -10812,7 +11014,7 @@ function navega(sec){
     b.setAttribute('aria-current', b.dataset.sec === sec ? 'page' : 'false'));
   const s = SECOES[sec];
   $('kicker').textContent = s.k; $('secTitulo').textContent = s.t; $('secDesc').textContent = s.d;
-  ['Geral','Empresas','Bdrs','Radar','Metodologia'].forEach(n =>
+  ['Geral','Empresas','Bdrs','Etfs','Radar','Metodologia'].forEach(n =>
     $('sec' + n).classList.toggle('hide', 'sec' + n !== 'sec' + sec.charAt(0).toUpperCase() + sec.slice(1)));
   fechaFiltros();
   scrollTo({top:0, behavior:'instant'});
@@ -10874,6 +11076,17 @@ function render(){
     if(st.modoBdr === 'tabela') $('boxTabelaB').innerHTML = tabelaBDR(r);
     else if(st.modoBdr === 'cards') $('boxCardsB').innerHTML = cardsBDR(r);
     else $('boxMatrizB').innerHTML = matrizBDR(r,$('boxMatrizB').clientWidth||1000);
+    return;
+  }
+
+  if(st.sec === 'etfs'){
+    const r = filtraETF();
+    $('nEtf').textContent = r.length;
+    $('clearEtf').classList.toggle('hide', !(st.qe || st.etfCategoria.size));
+    $('boxTabelaEtf').classList.toggle('hide', st.modoEtf !== 'tabela');
+    $('boxCardsEtf').classList.toggle('hide', st.modoEtf !== 'cards');
+    if(st.modoEtf === 'tabela') $('boxTabelaEtf').innerHTML = tabelaETF(r);
+    else $('boxCardsEtf').innerHTML = cardsETF(r);
   }
 }
 
@@ -10959,6 +11172,10 @@ function limpaFiltrosBDR(){
   st.bdrLiq='todas';st.bdrFreq='todas';st.bdrHist='todos';st.recorte=null;
   $('qBdr').value='';chipsBDR();render();
 }
+function limpaFiltrosETF(){
+  st.qe='';st.etfCategoria.clear();
+  $('qEtf').value='';chipsETF();render();
+}
 function leComparacao(salvos){
   return new Set(Array.isArray(salvos)?[...new Set(salvos.filter(t=>typeof t==='string'&&/^[A-Z0-9]{4}\d{2}$/.test(t)))].slice(0,MAX_COMPARAR):[]);
 }
@@ -11011,7 +11228,7 @@ document.body.addEventListener('click', ev => {
   if(rec){ aplicaRecorte(rec.dataset.rec); return; }
   const abreF = ev.target.closest('[data-abre-filtro]');
   if(abreF){
-    const side = st.sec === 'bdrs' ? $('sideBdr') : $('sideEmp');
+    const side = st.sec === 'bdrs' ? $('sideBdr') : st.sec === 'etfs' ? $('sideEtf') : $('sideEmp');
     const on = side.classList.toggle('on');
     abreF.setAttribute('aria-expanded', String(on));
     return;
@@ -11020,13 +11237,20 @@ document.body.addEventListener('click', ev => {
   const col = ev.target.closest('[data-col]');
   if(col){
     const k = col.dataset.col;
-    if(st.bdrSort === k) st.bdrDir = st.bdrDir === 'asc' ? 'desc' : 'asc';
-    else { st.bdrSort = k; st.bdrDir = (k === 'ticker' || k === 'empresa' || k === 'pais') ? 'asc' : 'desc'; }
+    if(st.sec === 'etfs'){
+      if(st.etfSort === k) st.etfDir = st.etfDir === 'asc' ? 'desc' : 'asc';
+      else { st.etfSort = k; st.etfDir = (k === 'ticker' || k === 'nome' || k === 'categoria') ? 'asc' : 'desc'; }
+    } else {
+      if(st.bdrSort === k) st.bdrDir = st.bdrDir === 'asc' ? 'desc' : 'asc';
+      else { st.bdrSort = k; st.bdrDir = (k === 'ticker' || k === 'empresa' || k === 'pais') ? 'asc' : 'desc'; }
+    }
     render();
     return;
   }
   const c = ev.target.closest('[data-cod]');
   if(c && c.dataset.cod){ abre(c.dataset.cod); return; }
+  const te = ev.target.closest('[data-te]');
+  if(te && te.dataset.te){ abreETF(te.dataset.te); return; }
   const t = ev.target.closest('[data-tk]');
   if(t && t.dataset.tk) abreBDR(t.dataset.tk);
 });
@@ -11036,10 +11260,10 @@ document.body.addEventListener('keydown', ev => {
   if(ev.target.closest('button,a,input,select,textarea'))return;
   const ponto = ev.target.closest('circle[data-tk]');
   if(ponto){ev.preventDefault();abreBDR(ponto.dataset.tk);return;}
-  const tr = ev.target.closest('tr[data-tk],tr[data-cod]');
+  const tr = ev.target.closest('tr[data-tk],tr[data-cod],tr[data-te]');
   if(!tr) return;
   ev.preventDefault();
-  if(tr.dataset.tk) abreBDR(tr.dataset.tk); else abre(tr.dataset.cod);
+  if(tr.dataset.tk) abreBDR(tr.dataset.tk); else if(tr.dataset.te) abreETF(tr.dataset.te); else abre(tr.dataset.cod);
 });
 document.querySelectorAll('.fhead').forEach(h => h.onclick = () => {
   const g = h.parentElement, o = g.dataset.open === 'true';
@@ -11065,6 +11289,7 @@ document.body.addEventListener('change', ev => {
   else if(f === 'pais') alterna(st.bdrPais);
   else if(f === 'setor') alterna(st.bdrSetor);
   else if(f === 'ind') alterna(st.bdrIndustria);
+  else if(f === 'etfcat') alterna(st.etfCategoria);
   else if(f === 'liq'){ st.bdrLiq = v; st.recorte = null; }
   else if(f === 'freq'){ st.bdrFreq = v; st.recorte = null; }
   else if(f === 'hist'){ st.bdrHist = v; st.recorte = null; }
@@ -11073,6 +11298,7 @@ document.body.addEventListener('change', ev => {
     $('criterio').innerHTML = st.recorte ? `<b>Critério aplicado:</b> ${RECORTES[st.recorte].crit}`
       : 'Atalhos que combinam filtro e ordenação. Nenhum deles é recomendação de compra ou venda — servem para achar o que investigar.';
   }
+  else if(st.sec === 'etfs'){ conta(st.etfCategoria.size,'cntCatEtf'); }
   else { conta(st.cats.size,'cntCat'); conta(st.tags.size,'cntTag'); }
   render();
 });
@@ -11081,6 +11307,7 @@ let td;
 const deb = (fn) => { clearTimeout(td); td = setTimeout(fn, 140); };
 $('qEmp').addEventListener('input', ev => deb(() => { st.q = ev.target.value; render(); }));
 $('qBdr').addEventListener('input', ev => deb(() => { st.qb = ev.target.value; render(); }));
+$('qEtf').addEventListener('input', ev => deb(() => { st.qe = ev.target.value; render(); }));
 $('bPais').addEventListener('input', ev => deb(() => { st.buscaPais = ev.target.value; chipsBDR(); }));
 $('bInd').addEventListener('input', ev => deb(() => { st.buscaInd = ev.target.value; chipsBDR(); }));
 $('bTag').addEventListener('input', ev => deb(() => { st.buscaTag = ev.target.value; chips(); }));
@@ -11091,6 +11318,7 @@ $('clearEmp').onclick = () => {
   chips(); render();
 };
 $('clearBdr').onclick=()=>{limpaFiltrosBDR();$('qBdr').focus();};
+$('clearEtf').onclick=()=>{limpaFiltrosETF();$('qEtf').focus();};
 
 const par = (a, b, val, key, fn) => {
   a.onclick = () => { st[key] = val[0]; a.setAttribute('aria-pressed','true'); b.setAttribute('aria-pressed','false'); (fn||render)(); };
@@ -11102,6 +11330,7 @@ par($('mMosaico'), $('mTabelaE'), ['mosaico','tabela'], 'modoEmp');
 $('mMatriz').onclick=()=>{st.modoBdr='matriz';[$('mTabela'),$('mCards'),$('mMatriz')].forEach(b=>b.setAttribute('aria-pressed',String(b===$('mMatriz'))));render();};
 $('mTabela').onclick=()=>{st.modoBdr='tabela';[$('mTabela'),$('mCards'),$('mMatriz')].forEach(b=>b.setAttribute('aria-pressed',String(b===$('mTabela'))));render();};
 $('mCards').onclick=()=>{st.modoBdr='cards';[$('mTabela'),$('mCards'),$('mMatriz')].forEach(b=>b.setAttribute('aria-pressed',String(b===$('mCards'))));render();};
+par($('mTabelaEtf'), $('mCardsEtf'), ['tabela','cards'], 'modoEtf');
 $('soFav').onclick=()=>{st.soFav=!st.soFav;$('soFav').setAttribute('aria-pressed',String(st.soFav));render();};
 $('abreCmp').onclick=abreComparacao;
 $('limpaCmp').onclick=()=>{COMPARAR.clear();salvaComparacao();$('cmpMsg').textContent='';atualizaSelecao();render();$('qBdr').focus();};
@@ -11238,16 +11467,18 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden)atualizaSa
 let ATIVO_ABERTO=false;
 function tentaAtivo(){
   if(ATIVO_ABERTO||!st.ativo)return;
-  const b=BDR.find(x=>x.ticker===st.ativo),e=E.find(x=>x.cod===st.ativo);
+  const b=BDR.find(x=>x.ticker===st.ativo),e=E.find(x=>x.cod===st.ativo),x=ETF.find(f=>f.ticker===st.ativo);
   if(b&&Object.keys(METRICAS).length&&Object.keys(ANALISE).length){ATIVO_ABERTO=true;abreBDR(b.ticker);}
   else if(e&&Object.keys(METRICAS_EMP).length){ATIVO_ABERTO=true;abre(e.cod);}
+  else if(x&&ETF.length){ATIVO_ABERTO=true;abreETF(x.ticker);}
 }
 
 leURL();refleteEstado();URL_ATIVA = true;
-chips(); chipsBDR(); atualizaSelecao();
+chips(); chipsBDR(); chipsETF(); atualizaSelecao();
 navega(st.sec);
 carregaPrecos();
 carregaBDRs();
+carregaETFs();
 carregaMetricas();
 carregaAnalise();
 carregaMetricasEmpresas();
@@ -11273,7 +11504,7 @@ document.addEventListener('keydown', ev => {
     else if(!ev.shiftKey&&(document.activeElement===ultimo||document.activeElement===drw)){ev.preventDefault();primeiro?.focus();}
   }
 });
-addEventListener('popstate',()=>{URL_ATIVA=false;if(drw.classList.contains('on'))fecha();ATIVO_ABERTO=false;leURL();refleteEstado();URL_ATIVA=true;chips();chipsBDR();navega(st.sec);tentaAtivo();});
+addEventListener('popstate',()=>{URL_ATIVA=false;if(drw.classList.contains('on'))fecha();ATIVO_ABERTO=false;leURL();refleteEstado();URL_ATIVA=true;chips();chipsBDR();chipsETF();navega(st.sec);tentaAtivo();});
 </script>
 </body>
 </html>

@@ -7,12 +7,15 @@ algo que era intencional.
 ## O que é
 
 Página única que mostra as companhias da B3 num treemap interativo, mais uma aba com
-os BDRs de empresas negociados no Brasil. Cotações atualizadas automaticamente durante
-o pregão.
+os BDRs de empresas negociados no Brasil e uma aba com os ETFs listados. Cotações
+atualizadas automaticamente durante o pregão.
 
 - **369 empresas brasileiras** — dados curados à mão (categoria temática, tags de
   cruzamento, descrição de onde a empresa ganha dinheiro)
 - **825 BDRs** — lista completa da B3, com país, setor, indústria traduzida e fonte da classificação
+- **219 ETFs** — lista completa da B3 nas seis categorias oficiais de fundo listado tipo
+  ETF, com ticker e categoria; base deliberadamente mais enxuta que a de BDR (ver seção
+  "Fonte dos dados")
 
 ## Regra número um: não reescreva o que já funciona
 
@@ -41,14 +44,16 @@ Em particular, **não toque nestas partes sem um motivo forte e específico**:
 index.html          const D = {...}  ← 369 empresas, embutido no arquivo (fonte da verdade)
    │                fetch('precos.json')   ← cotações, carregado em runtime
    │                fetch('bdrs.json')     ← lista de BDRs, carregado em runtime
+   │                fetch('etfs.json')     ← lista de ETFs, carregado em runtime
    │                fetch('metricas.json') ← indicadores históricos, carregado em runtime
    │                fetch('metricas-empresas.json') ← indicadores das empresas brasileiras
    │                fetch('analise.json')  ← ativo-lastro, paridade, câmbio e percentis
    │                fetch('eventos.json')  ← documentos recentes da CVM
    │                fetch('saude.json')    ← datas, coberturas e alertas das bases
    │
-scripts/atualiza-precos.js   lê os tickers DO index.html + do bdrs.json → grava precos.json
+scripts/atualiza-precos.js   lê os tickers DO index.html + do bdrs.json + do etfs.json → grava precos.json
 scripts/gera-bdrs.js         API da B3 + perfis do Yahoo + complementos → grava bdrs.json
+scripts/gera-etfs.js         API da B3 (fundos listados) + verificação de ticker no Yahoo → grava etfs.json
 scripts/atualiza-metricas.js Yahoo diário ajustado → grava metricas.json
 scripts/atualiza-metricas-empresas.js Yahoo diário ajustado → grava metricas-empresas.json
 scripts/gera-bdrs-referencia.py PDFs oficiais do Banco B3 → grava bdrs-referencia.json
@@ -75,15 +80,21 @@ e a barra inicial quebraria lá.
 
 ## Arquitetura de navegação
 
-São **cinco seções**, uma por universo, controladas por `st.sec` e pela função `navega()`:
+São **seis seções**, uma por universo, controladas por `st.sec` e pela função `navega()`:
 
 | Seção | `st.sec` | Contêiner |
 |---|---|---|
 | Visão geral | `geral` | `#secGeral` — montada por `geralHTML()` |
 | Empresas brasileiras | `empresas` | `#secEmpresas` — mosaico ou tabela |
-| BDRs | `bdrs` | `#secBdrs` — tabela ou cards |
+| BDRs | `bdrs` | `#secBdrs` — tabela, cards ou matriz |
+| ETFs | `etfs` | `#secEtfs` — tabela ou cards |
 | Radar de listagens | `radar` | `#secRadar` — montada por `radarHTML()` |
 | Metodologia | `metodologia` | `#secMetodologia` |
+
+A aba de ETFs **não tem treemap nem matriz**, de propósito: como BDR, é um conjunto
+grande e plano sem categoria hierárquica curada à mão (o treemap é exclusivo de
+`empresas`) e, diferente de BDR, ainda não tem histórico de retorno/liquidez para
+sustentar um eixo de dispersão. Não adicione um até existir um `metricas-etfs.json`.
 
 **Mosaico e tabela são modos internos**, guardados em `st.modoEmp` e `st.modoBdr` — não são
 irmãos de "BDRs" na navegação. Essa confusão era o principal problema da versão anterior:
@@ -134,6 +145,16 @@ JSONs de runtime usados pelos `fetch()` relativos.
 - **País/setor dos BDRs: Yahoo**, porque a B3 devolve "Não Classificados" para todos. Quando
   o perfil está ausente, `scripts/bdrs-complementos.json` usa página oficial da companhia
   ou documento regulatório e registra o link da fonte.
+- **Lista de ETFs: API oficial de fundos listados da B3**
+  (`fundsListedProxy/Search/GetListFunds`, parâmetros em base64 como no endpoint de BDR,
+  mas outro sistema). `typeFund` cobre seis categorias (`ETF`, `ETF-RF`, `ETF-CRIPTO`,
+  `ETF-INT-RF`, `ETF-FII`, `ETF-MOEDA`); cada uma já vem pronta como categoria, sem precisar
+  de perfil externo. **Não existe fonte oficial limpa para índice de referência, taxa de
+  administração ou patrimônio líquido por fundo** — o endpoint da B3 não tem detalhe por
+  fundo, e a CVM (`dados.cvm.gov.br`, cadastro de fundos de índice) usa CNPJ como chave,
+  sem correspondência com o `id` interno da B3. Cruzar as duas por nome arriscaria atribuir
+  o patrimônio de um fundo a outro; por isso esses campos ficam de fora, e a ficha do ETF
+  diz isso explicitamente em vez de fingir cobertura completa.
 - **Ativo-lastro e relação do programa: descritivos operacionais oficiais do Banco B3.**
   `scripts/gera-bdrs-referencia.py` lê os PDFs e registra o link específico de cada programa.
 - **Câmbio de referência: PTAX do Banco Central do Brasil.** Histórico do ativo-lastro e do
@@ -149,8 +170,9 @@ JSONs de runtime usados pelos `fetch()` relativos.
 - **`file://` bloqueia `fetch`.** Abrir o HTML com duplo clique mostra o mapa **sem preços e
   sem BDRs**, silenciosamente — a falha é capturada de propósito para a página não quebrar.
   Para testar de verdade, sirva por HTTP.
-- **`bdrs.json` não está no cron.** Preços e métricas têm automações próprias, mas a lista
-  de BDRs muda raramente; rode `gera-bdrs.js` à mão quando precisar.
+- **`bdrs.json` e `etfs.json` não estão no cron.** Preços e métricas têm automações
+  próprias, mas as duas listas mudam raramente; rode `gera-bdrs.js`/`gera-etfs.js` à mão
+  quando precisar.
 - **`metricas.json` tem cron diário separado.** Retornos usam 21/63/252 pregões ajustados;
   força relativa é a diferença para a mediana da indústria ou setor, e giro médio inclui
   sessões sem negócio. Não compare preços nominais de BDRs como medida de oportunidade.
@@ -171,6 +193,10 @@ JSONs de runtime usados pelos `fetch()` relativos.
 - **Tickers de BDR patrocinado não seguem o padrão `+34`.** Variam por programa (XP é
   `XPBR31`, Inter é `INBR32`, Aura é `AURA33`, PPLA é `PPLA35`). O `gera-bdrs.js` testa
   candidatos contra o Yahoo em vez de assumir sufixo.
+- **Ticker de ETF assume `+11`, sem lista de sufixos alternativos.** Diferente do BDR
+  patrocinado, nenhum contraexemplo foi encontrado até agora — mas se a B3 listar um ETF
+  com sufixo diferente, `gera-etfs.js` só vai descartá-lo e logar, não vai travar sozinho
+  (a trava é um piso de cobertura de 85% dos tickers verificados, não uma checagem por item).
 - **Os preços carregam depois do primeiro render**, de propósito: a página nunca fica em
   branco esperando rede.
 
@@ -206,18 +232,23 @@ Acesse `http://localhost:4173`. Depois de qualquer mudança no `index.html`, val
 
 1. Em **Empresas brasileiras**, o mosaico desenha 369 blocos em 19 grupos
 2. Em **BDRs**, a tabela lista 825 linhas e a ordenação por coluna inverte com o segundo clique
-3. Abrir uma ficha, apertar Esc, e o foco voltar para a linha ou card de origem
-4. Nenhuma seção rola horizontalmente em 375 px de largura
-5. Sem erro no console
+3. Em **ETFs**, a tabela lista as linhas do catálogo, o filtro de categoria funciona e a
+   ordenação por coluna inverte com o segundo clique
+4. Abrir uma ficha, apertar Esc, e o foco voltar para a linha ou card de origem
+5. Nenhuma seção rola horizontalmente em 375 px de largura
+6. Sem erro no console
 
-Vale rodar também `node scripts/valida-bdrs.js`, que além da cobertura dos BDRs confere a
-sintaxe do JavaScript embutido no `index.html` e se toda indústria tem tradução.
+Vale rodar também `node scripts/valida-bdrs.js` e `node scripts/valida-etfs.js`, que além
+da cobertura de cada catálogo conferem a sintaxe do JavaScript embutido no `index.html` e
+se toda categoria/indústria tem tradução.
 
 Atualizar dados:
 
 ```bash
 node scripts/atualiza-precos.js   # rápido, ~13 requisições
 node scripts/gera-bdrs.js         # lento, alguns minutos (1 requisição por empresa)
+node scripts/gera-etfs.js         # lento, alguns minutos (1 requisição por fundo)
+node scripts/valida-etfs.js
 node scripts/atualiza-metricas.js # lento, historico diario de cada BDR
 node scripts/valida-metricas.js
 node scripts/atualiza-metricas-empresas.js

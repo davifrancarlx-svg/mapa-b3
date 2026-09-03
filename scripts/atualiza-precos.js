@@ -1,10 +1,11 @@
 /*
  * Busca cotacoes das acoes da B3 no Yahoo Finance e grava precos.json.
  *
- * A lista de tickers vem de duas fontes: o proprio mapa-b3.html (empresas
- * brasileiras) e o bdrs.json (BDRs), quando ele existir. bdrs.json e gerado
- * por scripts/gera-bdrs.js -- este script aqui so consome a lista, nao
- * decide quais BDRs existem.
+ * A lista de tickers vem de tres fontes: o proprio mapa-b3.html (empresas
+ * brasileiras), o bdrs.json (BDRs) e o etfs.json (ETFs), quando existirem.
+ * bdrs.json e etfs.json sao gerados por scripts/gera-bdrs.js e
+ * scripts/gera-etfs.js -- este script aqui so consome as listas, nao decide
+ * quais BDRs ou ETFs existem.
  *
  * Uso: node scripts/atualiza-precos.js
  */
@@ -15,6 +16,7 @@ const path = require('path');
 const RAIZ = path.join(__dirname, '..');
 const SAIDA = path.join(RAIZ, 'precos.json');
 const BDRS = path.join(RAIZ, 'bdrs.json');
+const ETFS = path.join(RAIZ, 'etfs.json');
 
 /* Aceita os dois nomes: no GitHub Pages o arquivo da raiz costuma virar
    index.html, mas localmente pode continuar como mapa-b3.html. */
@@ -61,6 +63,12 @@ function leTickersBDR(){
   return (j.bdrs || []).map(b => b.ticker).filter(Boolean);
 }
 
+function leTickersETF(){
+  if(!fs.existsSync(ETFS)) return [];
+  const j = JSON.parse(fs.readFileSync(ETFS, 'utf8'));
+  return (j.etfs || []).map(x => x.ticker).filter(Boolean);
+}
+
 /* O endpoint em lote do Yahoo exige cookie + crumb. O de simbolo unico nao,
    mas exigiria uma request por ticker. */
 async function autentica(){
@@ -99,8 +107,9 @@ async function buscaLote(simbolos, { cookie, crumb }, tentativa = 1){
 (async () => {
   const tickersEmpresas = leTickers();
   const tickersBDR = leTickersBDR();
-  const tickers = [...new Set([...tickersEmpresas, ...tickersBDR])];
-  console.log(tickersEmpresas.length + ' tickers de empresas + ' + tickersBDR.length + ' de BDR = ' + tickers.length + ' únicos');
+  const tickersETF = leTickersETF();
+  const tickers = [...new Set([...tickersEmpresas, ...tickersBDR, ...tickersETF])];
+  console.log(tickersEmpresas.length + ' tickers de empresas + ' + tickersBDR.length + ' de BDR + ' + tickersETF.length + ' de ETF = ' + tickers.length + ' únicos');
 
   const sessao = await autentica();
   const precos = {};
