@@ -12,13 +12,25 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
       - run: node scripts/valida-bdrs.js
       - run: node scripts/valida-pagina.js
+      - run: node scripts/valida-url.js
+      - run: node scripts/valida-comparador.js
+      - run: node scripts/valida-matriz.js
+      - run: node scripts/valida-acompanhamento.js
+      - run: node scripts/testa-csv.js
       - run: node scripts/valida-bdrs-referencia.js
       - run: node scripts/valida-precos.js
       - run: node scripts/valida-metricas.js
       - run: node scripts/valida-metricas-empresas.js
+      - run: node scripts/testa-metricas-empresas.js
       - run: node scripts/valida-analise.js
       - run: node scripts/valida-eventos.js
+      - run: node scripts/testa-eventos.js
+      - run: python -B scripts/testa-eventos.py
       - run: node scripts/gera-saude.js
+      - run: node scripts/testa-saude.js
       - run: node scripts/valida-saude.js

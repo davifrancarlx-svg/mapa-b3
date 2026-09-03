@@ -100,6 +100,14 @@ selecionado. Eles **não são recomendação** e não podem ser renomeados para 
 isso ("melhores", "oportunidades", "comprar"). Todo recorte de ranking aplica um piso de
 liquidez explícito — sem ele o topo vira papel que negociou uma única vez no período.
 
+O estado compartilhável é restaurado por `leURL()` e escrito por `sincronizaURL()`. Antes
+de ler cada universo, `padroesURL()` precisa zerar seus parâmetros: sem isso, voltar ou abrir
+um link mais curto herda filtros da tela anterior. Nas empresas, a URL inclui modo, busca,
+categorias, tags, combinação de tags, ordenação e regra de área. Nos BDRs, inclui também os
+eixos da matriz. Filtros que podem conter vírgula são gravados como parâmetros repetidos;
+não volte a serializá-los com `join(',')`. `refleteEstado()` mantém os controles visuais de
+acordo com o estado lido. Rode `node scripts/valida-url.js` ao alterar qualquer parte disso.
+
 ## Onde está publicado
 
 | Destino | URL | Estado |

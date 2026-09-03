@@ -149,6 +149,10 @@ Antes do commit, valide a integridade da base:
 ```bash
 node scripts/valida-bdrs.js
 node scripts/valida-pagina.js
+node scripts/valida-comparador.js
+node scripts/valida-matriz.js
+node scripts/valida-acompanhamento.js
+node scripts/testa-metricas-empresas.js
 node scripts/valida-bdrs-referencia.js
 ```
 
@@ -207,27 +211,124 @@ o site publicado continua sendo HTML, CSS e JavaScript puros, sem build ou pacot
 
 - A tabela continua sendo o modo padrão para os 825 BDRs; cards e matriz são alternativas.
 - A matriz cruza retorno, força relativa, liquidez, volatilidade ou distância da máxima e
-  respeita os filtros ativos.
+  respeita os filtros ativos. Mostra cobertura e exclusões, unidades corretas (força relativa
+  em pontos percentuais), datas dos históricos, medianas do recorte e legenda setorial.
+  O giro usa escala logarítmica e exclui zero; as medianas usam os valores originais.
+  Os pontos têm tamanho fixo, valores no foco/cursor e uma lista textual equivalente para
+  consulta no celular e por teclado. Os eixos selecionados ficam na URL (`matx` e `maty`).
 - A lista de acompanhamento é salva apenas no navegador. Nada é enviado a um servidor.
-- É possível selecionar BDRs e abrir uma comparação lado a lado, sem nota composta.
+- O acompanhamento distingue lista vazia, ativos ocultos pelos filtros e códigos salvos
+  ausentes do catálogo atual. Códigos ausentes não são apagados automaticamente e podem
+  ser removidos individualmente. Limpar filtros não limpa a lista nem desativa esse modo.
+- Falhas de leitura ou gravação no armazenamento local são informadas. Se a gravação for
+  bloqueada, a alteração continua na sessão e a lista previamente salva é preservada.
+  Botões da tabela e da ficha mantêm o mesmo estado; remover a linha de origem devolve
+  o foco ao botão Acompanhando ao fechar a ficha.
+- O parâmetro `acompanhando=1` no link ativa a lista local de quem o abre, sem transmitir
+  os tickers pessoais. O CSV segue os filtros e exporta somente os BDRs visíveis.
+- É possível selecionar de dois a quatro BDRs e abrir uma comparação lado a lado, sem
+  nota composta. A seleção persiste localmente, não muda com os filtros e não entra na URL.
+  Se o navegador bloquear o armazenamento, ela continua disponível na sessão, com aviso.
+- O comparador informa país, setor, indústria, referências da classificação, retornos,
+  grupo da força relativa, liquidez, risco, paridade, datas e fontes por ativo. Sinaliza
+  setores distintos, datas divergentes, baixa liquidez e históricos ausentes ou preservados.
+- Os minigráficos não são sobrepostos no comparador: a base compacta não traz datas por
+  ponto e pode conter históricos de extensões diferentes. As janelas numéricas permanecem
+  explícitas, sem sugerir uma evolução sincronizada que os dados não permitem demonstrar.
 - Seção, filtros, ordenação, visualização e ficha aberta ficam na URL para compartilhar o
   mesmo recorte.
+- Nas empresas, o link inclui também a combinação das tags (`qualquer` ou `todas`), a
+  ordenação e a regra de área do mosaico. Categorias, tags, países, setores e indústrias
+  usam parâmetros repetidos, para preservar nomes que contêm vírgula. Parâmetros inválidos
+  são ignorados; buscas e listas têm limites defensivos. Ao abrir outro link ou usar os
+  controles de voltar/avançar, parâmetros ausentes restauram os padrões em vez de herdar
+  filtros anteriores. No celular, a tabela continua sendo o padrão das empresas quando o
+  link não escolhe explicitamente o modo. `node scripts/valida-url.js` cobre esses casos.
 - Os CSVs exportam os indicadores visíveis e também paridade, percentis e métricas das
   empresas brasileiras quando disponíveis.
+
+#### Exportação CSV rastreável
+
+O CSV segue os filtros e a ordenação da tabela, inclusive o acompanhamento local.
+O nome do arquivo usa o instante da exportação (UTC), não a data da curadoria. Cada linha
+registra os filtros e a ordenação efetivos, a versão do formato, as datas de coleta completas
+e fontes por ativo. O contexto não contém a lista completa de favoritos nem a seleção do
+comparador; contém apenas a indicação de que o filtro de acompanhamento estava ativo.
+Em modo matriz, são exportados todos os ativos do recorte filtrado, inclusive os que não
+podem ser plotados por falta de um dos eixos.
+
+Os campos vazios representam ausência, enquanto zero e retornos negativos são preservados.
+Os históricos e análises preservados após falha recebem sinalização. Comparações de empresas
+com amostra insuficiente ou histórico preservado ficam vazias, como na ficha. O CSV dos BDRs
+traz também a força exibida na tabela, seu grupo e a amostra da indústria, além das colunas
+de comparação originais. Paridade continua indicativa e acompanha as datas do ativo e da PTAX.
+As contagens de documentos CVM só são preenchidas após o carregamento da base; o arquivo
+distingue documentos carregados do total encontrado no recorte e inclui os links oficiais.
+Nenhum arquivo é gerado para um recorte vazio ou enquanto o catálogo BDR está indisponível.
+
+Formato: UTF-8 com BOM, separador ponto e vírgula, decimais com ponto, campos entre aspas
+e quebras de linha CRLF. Na importação, escolha esses separadores e preserve tickers e
+identificadores como texto. Campos de texto com prefixos de fórmula recebem um apóstrofo;
+valores numéricos negativos não são alterados. Essa mitigação segue as orientações da
+[OWASP](https://owasp.org/www-community/attacks/CSV_Injection), mas não é garantia universal:
+salvar e reabrir o CSV em outro aplicativo pode alterar a proteção. Não habilite execução
+de fórmulas ou conteúdo externo a partir de textos exportados.
+
+`node scripts/testa-csv.js` verifica os filtros, datas, células especiais, estados ausentes,
+campos preservados e a liberação dos recursos do download sem depender da rede.
 
 ### Empresas brasileiras, CVM e saúde dos dados
 
 As fichas das empresas brasileiras agora trazem retorno, comparação com a categoria e o
 segmento, giro, volatilidade e uma série compacta. A classe de referência histórica é a de
-maior liquidez recente entre os códigos disponíveis; ela pode ser diferente da classe usada
-na cotação intradiária.
+maior giro médio em 20 sessões entre as classes com histórico suficiente na data mais
+recente disponível; ela pode ser diferente da classe usada na cotação intradiária. Todas
+as classes são consultadas. Falhas parciais ficam identificadas na ficha e na base.
+
+Comparações por categoria e segmento exigem pelo menos três empresas com retorno para
+a mesma data final, excluindo históricos preservados após falha. A base informa a amostra
+de cada comparação; datas iguais não garantem ausência de lacunas nas séries originais.
+Volume ausente não vira zero e janelas incompletas de 60 sessões ficam sem indicador.
+O gráfico informa seu período efetivo, inclusive quando há menos de um ano disponível.
+O CSV distingue o ticker de referência histórica do ticker da cotação intradiária.
+
+O gerador valida a saída e exige pelo menos 85% de cobertura nova entre empresas com
+ticker antes de gravar. `node scripts/testa-metricas-empresas.js` testa os cálculos sem rede.
 
 Fatos relevantes, comunicados, avisos aos acionistas e calendários recentes vêm do conjunto
-IPE oficial da CVM. O projeto exibe os metadados e liga ao documento original, sem produzir
-resumo ou interpretação automática.
+[IPE oficial da CVM](https://dados.cvm.gov.br/dataset/cia_aberta-doc-ipe). O projeto exibe
+os metadados e liga ao documento original, sem produzir resumo ou interpretação automática.
+A fonte informa atualização semanal; a consulta diária do projeto não significa tempo real.
+O recorte cobre 180 dias inclusivos pela data de entrega, não pela data do acontecimento,
+e carrega os oito registros mais recentes por empresa. A ficha informa quantos foram
+encontrados antes desse limite e permite expandir os documentos além dos cinco iniciais.
+Protocolos e versões distintos são preservados, mesmo quando o assunto é igual.
+Os links são restritos a HTTPS em domínios da CVM. Falha de download, alteração das
+colunas obrigatórias, base vazia ou queda superior a 50% impedem a substituição da base.
+Carregamento, falha e ausência de documentos no recorte têm mensagens próprias na interface.
 
 O botão de saúde no cabeçalho mostra data e cobertura de cada base. Os limites também são
-verificados por scripts e pelo workflow de integração contínua. Para conferir tudo localmente:
+verificados por scripts e pelo workflow de integração contínua. A cobertura disponível
+inclui registros preservados após falha; a renovada os exclui. Os percentuais são calculados
+pelos registros, não pelos contadores de sucesso declarados nos arquivos. O diagnóstico
+mostra o denominador, a última coleta e o intervalo das datas das observações disponíveis.
+Os validadores específicos de cada base continuam responsáveis pela integridade completa.
+
+Os pisos de cobertura renovada são 80% para preços, 100% para a classificação do catálogo
+BDR, 90% para histórico BDR, 75% para histórico de empresas e 70% para ativo-lastro.
+Documentos CVM não recebem percentual de cobertura. Ausência de base não vira 0% silencioso:
+gera aviso e percentual indisponível. O catálogo é manual, sem prazo automático de atraso.
+
+Os limites de atraso continuam em horas corridas: 72 para preços, 96 para históricos e
+ativo-lastro e 120 para consulta de documentos. Não são um calendário de pregões ou feriados.
+O navegador reavalia as datas ao carregar, ao voltar à aba e a cada minuto; um diagnóstico
+com mais de 96 horas também gera aviso, mesmo se estiver marcado como `ok` no arquivo.
+Isso depende do relógio do dispositivo. O painel não certifica os downloads da sessão nem
+a atualidade de cada observação. Carregamento e falha têm estados próprios, sem indicar
+que está tudo certo. Uma cópia antiga de `saude.json` sem o novo esquema é indicada como
+indisponível: envie o HTML e a base juntos ao atualizar a cópia estática.
+
+Para conferir tudo localmente:
 
 ```bash
 node scripts/valida-bdrs.js
@@ -236,6 +337,9 @@ node scripts/valida-metricas.js
 node scripts/valida-metricas-empresas.js
 node scripts/valida-analise.js
 node scripts/valida-eventos.js
+node scripts/testa-eventos.js
+python -B scripts/testa-eventos.py
 node scripts/gera-saude.js
+node scripts/testa-saude.js
 node scripts/valida-saude.js
 ```
