@@ -58,7 +58,7 @@ function desvio(a){if(a.length<2)return null;const m=media(a);return Math.sqrt(a
 function calcula(rows,ticker){
   if(rows.length<22)return null; const ult=rows.at(-1),a=rows.map(x=>x.a);
   const j20=rows.slice(-20),j60=rows.slice(-60),j252=rows.slice(-252),r22=a.slice(-22),rd=r22.slice(1).map((p,i)=>Math.log(p/r22[i]));
-  const max=Math.max(...j252.map(x=>x.a)),min=Math.min(...j252.map(x=>x.a)),base=j252[0].a;
+  const max=Math.max(...j252.map(x=>x.a)),min=Math.min(...j252.map(x=>x.a)),base=j252[0].a,amostras=j252.filter((x,i)=>i%5===0||i===j252.length-1);
   const completa=(janela,n)=>janela.length===n&&janela.every(x=>Number.isFinite(x.vol)&&x.vol>=0);
   return {ticker,dt:new Date(ult.ts*1000).toISOString().slice(0,10),n:rows.length,
     r21:arred(retorno(a,21)),r63:arred(retorno(a,63)),r252:arred(retorno(a,252)),
@@ -69,7 +69,7 @@ function calcula(rows,ticker){
     mm200:rows.length>=200?arred((ult.a/media(a.slice(-200))-1)*100):null,
     v21:rd.length>=15?arred(desvio(rd)*Math.sqrt(252)*100):null,
     spInicio:new Date(j252[0].ts*1000).toISOString().slice(0,10),spFim:new Date(ult.ts*1000).toISOString().slice(0,10),spN:j252.length,
-    sp:j252.filter((x,i)=>i%5===0||i===j252.length-1).map(x=>arred(x.a/base*100,1))};
+    sp:amostras.map(x=>arred(x.a/base*100,1)),spP:amostras.map(x=>arred(x.a,4)),spD:amostras.map(x=>new Date(x.ts*1000).toISOString().slice(0,10))};
 }
 function relativos(metricas,empresas,chave,destino,grupo){
   const v=new Map(),amostra='n'+destino.slice(1),ch=e=>JSON.stringify([e[grupo],metricas[e.cod]?.dt]);

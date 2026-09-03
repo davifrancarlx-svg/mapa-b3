@@ -7,4 +7,6 @@ new Function(scripts[0][1]);
 const secoes=[...h.matchAll(/<button data-sec="([^"]+)"/g)].map(x=>x[1]);if(JSON.stringify(secoes)!==JSON.stringify(['geral','empresas','bdrs','etfs','radar','metodologia']))falha('navegacao primaria invalida');
 const fetches=[...scripts[0][1].matchAll(/fetch\('([^']+)'/g)].map(x=>x[1]);if(fetches.some(x=>x.startsWith('/')))falha('fetch com barra inicial quebra o deploy em subcaminho');
 ['precos.json','bdrs.json','etfs.json','metricas.json','metricas-empresas.json','analise.json','eventos.json','saude.json'].forEach(x=>{if(!fetches.includes(x))falha('carga ausente: '+x);});
+if(!/table\.tab thead th\{\s*position:sticky;top:0;/.test(h))falha('cabecalho das tabelas pode sobrepor a primeira linha');
+if(/table\.tab thead th\{top:\d+px\}/.test(h))falha('offset responsivo reintroduz sobreposicao na primeira linha');
 console.log('OK: estrutura, JavaScript e caminhos relativos da pagina validos');

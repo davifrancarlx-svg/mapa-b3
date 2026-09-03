@@ -1,10 +1,26 @@
 {
- "geradoEm": "2026-09-03T18:26:36.848Z",
+ "geradoEm": "2026-09-03T19:21:51.896Z",
  "fontes": {
   "lista": "B3 (GetListFunds, seis categorias oficiais de fundo listado tipo ETF)",
-  "verificacaoTicker": "Yahoo Finance (confirma que o ticker acronym+11 tem cotação; não é fonte da lista nem da categoria)"
+  "listaUrl": "https://sistemaswebb3-listados.b3.com.br/fundsListedPage/",
+  "verificacaoTicker": "Yahoo Finance (confirma que o ticker acronym+11 tem cotação positiva; não é fonte da lista nem da categoria)",
+  "verificacaoTickerUrl": "https://finance.yahoo.com/"
  },
- "total": 219,
+ "catalogoB3": {
+  "total": 222,
+  "categorias": {
+   "ETF": 125,
+   "ETF-RF": 64,
+   "ETF-CRIPTO": 26,
+   "ETF-INT-RF": 5,
+   "ETF-FII": 2,
+   "ETF-MOEDA": 0
+  },
+  "verificadosAgora": 219,
+  "preservados": 0,
+  "naoVerificados": 3
+ },
+ "total": 222,
  "etfs": [
   {
    "ticker": "BMMT11",
@@ -84,6 +100,14 @@
    "idB3": 18957
   },
   {
+   "ticker": "BRIA11",
+   "nome": "B-INDEX ETF FTSE AI GLOBAL LEADERS FUNDO DE ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "B-INDEX BRIA",
+   "idB3": 27970,
+   "tickerVerificado": false
+  },
+  {
    "ticker": "OURO11",
    "nome": "B-INDEX ETF OURO BRL B3 FUNDO DE ÍNDICE - RESPONSABILIDADE LIMITADA",
    "categoria": "ETF",
@@ -136,7 +160,7 @@
    "ticker": "GOLB11",
    "nome": "BTG PACTUAL FUTURO DE OURO B3 FUNDO DE ÍNDICE",
    "categoria": "ETF",
-   "nomeCurto": "BTGP GOLB ",
+   "nomeCurto": "BTGP GOLB",
    "idB3": 22320
   },
   {
@@ -819,6 +843,14 @@
    "idB3": 6260
   },
   {
+   "ticker": "OBRA11",
+   "nome": "TREND ETF INFRAESTRUTURA ESG CLASSE DE  ÍNDICE - RESPONSABILIDADE LIMITADA",
+   "categoria": "ETF",
+   "nomeCurto": "TREND INFRA",
+   "idB3": 25154,
+   "tickerVerificado": false
+  },
+  {
    "ticker": "GOLD11",
    "nome": "TREND ETF LBMA OURO CLASSE DE ÍNDICE INVESTIMENTO NO EXTERIOR - RESPONSABILIDADE LIMITADA",
    "categoria": "ETF",
@@ -1223,6 +1255,14 @@
    "categoria": "ETF-RF",
    "nomeCurto": "NULFSRANBIMA",
    "idB3": 23784
+  },
+  {
+   "ticker": "LLBR11",
+   "nome": "NU S&P USD SELECT LEVERAGED LOAN BRL HEDGE  CARRY CLASSE DE ÍNDICE - RESPONSABILIDADE  LIMITADA",
+   "categoria": "ETF-RF",
+   "nomeCurto": "NUSPLLBRHEDG",
+   "idB3": 26632,
+   "tickerVerificado": false
   },
   {
    "ticker": "NB1011",

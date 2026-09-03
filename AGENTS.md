@@ -13,7 +13,7 @@ atualizadas automaticamente durante o pregão.
 - **369 empresas brasileiras** — dados curados à mão (categoria temática, tags de
   cruzamento, descrição de onde a empresa ganha dinheiro)
 - **825 BDRs** — lista completa da B3, com país, setor, indústria traduzida e fonte da classificação
-- **219 ETFs** — lista completa da B3 nas seis categorias oficiais de fundo listado tipo
+- **222 ETFs** — lista completa da B3 nas seis categorias oficiais de fundo listado tipo
   ETF, com ticker e categoria; base deliberadamente mais enxuta que a de BDR (ver seção
   "Fonte dos dados")
 
@@ -194,9 +194,10 @@ JSONs de runtime usados pelos `fetch()` relativos.
   `XPBR31`, Inter é `INBR32`, Aura é `AURA33`, PPLA é `PPLA35`). O `gera-bdrs.js` testa
   candidatos contra o Yahoo em vez de assumir sufixo.
 - **Ticker de ETF assume `+11`, sem lista de sufixos alternativos.** Diferente do BDR
-  patrocinado, nenhum contraexemplo foi encontrado até agora — mas se a B3 listar um ETF
-  com sufixo diferente, `gera-etfs.js` só vai descartá-lo e logar, não vai travar sozinho
-  (a trava é um piso de cobertura de 85% dos tickers verificados, não uma checagem por item).
+  patrocinado, nenhum contraexemplo foi encontrado até agora. Uma listagem oficial nova sem
+  cotação positiva permanece no catálogo com `tickerVerificado: false`; uma falha transitória
+  preserva um ticker antes confirmado com `stale: true`. O diagnóstico de saúde sinaliza os
+  dois casos, e uma queda em massa da lista interrompe a geração antes de sobrescrever a base.
 - **Os preços carregam depois do primeiro render**, de propósito: a página nunca fica em
   branco esperando rede.
 

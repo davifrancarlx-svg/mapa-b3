@@ -14,6 +14,7 @@ function valida(base,empresas){
       if(base.versao===2&&m.n<n&&(m['g'+n]!==null||m['d'+n]!==null))erro(k+' janela '+n+' incompleta');
     }
     if(!numero(m.dd252,-100,0)||!numero(m.v21,0)||!Array.isArray(m.sp)||m.sp.length<2||m.sp.some(v=>!Number.isFinite(v)||v<=0))erro(k+' risco ou serie invalida');
+    if(m.spP!==undefined||m.spD!==undefined){if(!Array.isArray(m.spP)||!Array.isArray(m.spD)||m.sp.length!==m.spP.length||m.sp.length!==m.spD.length||m.spP.some(v=>!Number.isFinite(v)||v<=0)||m.spD.some(d=>!data(d)))erro(k+' amostras de preco e data invalidas');}
     for(const p of ['c','g'])for(const n of [21,63,252]){
       if(!(base.versao!==2&&m['r'+p+n]===undefined)&&!numero(m['r'+p+n]))erro(k+' relativo invalido');
       if(base.versao===2){const am=m['n'+p+n];if(!Number.isInteger(am)||am<0||am>registros.length||((am<3||m.stale)&&m['r'+p+n]!==null))erro(k+' amostra relativa invalida');}

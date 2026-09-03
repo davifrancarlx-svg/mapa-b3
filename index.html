@@ -158,7 +158,7 @@ select.ord{background:var(--sup);border:1px solid var(--line);border-radius:var(
 table.tab{width:100%;border-collapse:collapse;font-size:13px}
 table.tab th,table.tab td{padding:8px 9px;text-align:left;white-space:nowrap}
 table.tab thead th{
-  position:sticky;top:54px;z-index:5;background:var(--bg);color:var(--tx3);
+  position:sticky;top:0;z-index:5;background:var(--bg);color:var(--tx3);
   font:600 11.5px var(--ui);border-bottom:1px solid var(--line2);
 }
 table.tab thead th button{
@@ -187,6 +187,19 @@ table.tab .marc{display:inline-block;width:6px;height:6px;border-radius:1px;marg
 .spark{display:block;width:100%;height:72px;margin:8px 0 2px}
 .spark path{fill:none;stroke:var(--am);stroke-width:1.6;vector-effect:non-scaling-stroke}
 .spark .base{stroke:var(--line2);stroke-width:1;stroke-dasharray:3 3}
+.sparkBox{position:relative;margin:8px 0 2px}
+.sparkBox .spark{margin:0;touch-action:none}
+.spark .mira{stroke:var(--tx3);stroke-width:1;stroke-dasharray:2 2;opacity:0;pointer-events:none}
+.spark .ponto{fill:var(--am);stroke:var(--bg);stroke-width:2;opacity:0;pointer-events:none}
+.spark .hit{fill:transparent;cursor:crosshair;outline:none}
+.sparkBox.on .mira,.sparkBox.on .ponto{opacity:1}
+.sparkInfo{display:flex;justify-content:space-between;gap:10px;min-height:17px;margin-top:4px;color:var(--tx3);font:11px var(--mo)}
+.sparkInfo b{color:var(--tx);font-weight:500}.sparkInfo span:last-child{text-align:right}
+.guiaEtf{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:8px;margin:14px 0 18px}
+.guiaEtf article{background:var(--bg);padding:12px 14px;border:1px solid var(--line);border-left:2px solid var(--cat)}
+.guiaEtf h3{margin:0 0 5px;font:600 12px var(--ui);color:var(--tx)}
+.guiaEtf p{margin:0;color:var(--tx3);font-size:11.5px;line-height:1.45}
+.guiaEtf .num{font-family:var(--mo);font-weight:400;color:var(--tx3)}
 .eventos{display:flex;flex-direction:column;gap:8px}
 .evento{display:grid;grid-template-columns:76px 1fr;gap:10px;font-size:12px}
 .evento time{font-family:var(--mo);color:var(--tx3)}
@@ -313,7 +326,6 @@ footer p{margin:0;max-width:62ch;line-height:1.55}
   .side .fechaF{display:block;width:100%;margin-top:12px}
   #btFiltros{display:inline-flex;align-items:center;gap:6px}
   .topo .in{min-height:48px;gap:14px}
-  table.tab thead th{top:48px}
 }
 @media (min-width:901px){ .side .fechaF{display:none} }
 @media (max-width:760px){
@@ -322,7 +334,6 @@ footer p{margin:0;max-width:62ch;line-height:1.55}
   nav.prim{order:3;width:100%;border-top:1px solid var(--line);padding-top:2px;gap:0;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
   nav.prim button{font-size:12.5px;padding:7px 9px}
   .estado{font-size:10.5px;gap:10px;width:100%;order:2}
-  table.tab thead th{top:0}
   table.tab .col-s{display:none}
   table.tab .col-m{display:none}
   table.tab .only-mob{display:block;max-width:145px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:var(--sans);font-weight:400}
@@ -547,6 +558,9 @@ footer p{margin:0;max-width:62ch;line-height:1.55}
           </div>
         </div>
       </div>
+      <div class="recorte" id="resumoEtf" aria-live="polite"></div>
+      <p class="nota">Categorias são as classes oficiais da B3. Preço nominal menor não significa fundo mais barato; use-o para localizar e comparar a negociação, não como medida isolada de oportunidade.</p>
+      <div class="guiaEtf" id="guiaEtf" aria-label="O foco de cada categoria de ETF"></div>
 
       <div id="boxTabelaEtf"></div>
       <div id="boxCardsEtf" class="hide"></div>
@@ -9744,13 +9758,26 @@ const forcaBDR = b => {
 };
 const negociouHoje = r => !!(r && r.vol > 0 && r.t && new Date(r.t*1000).toDateString() === new Date().toDateString());
 const dataNegocio = r => r?.t ? new Date(r.t*1000).toLocaleString('pt-BR', {day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'}) : '—';
-const spark = valores => {
+const spark = (valores, meta={}) => {
   if(!valores || valores.length < 2) return '';
   const w=360,h=72,min=Math.min(...valores),max=Math.max(...valores),faixa=max-min||1;
   const pts=valores.map((v,i)=>[(i/(valores.length-1)*w).toFixed(1),(h-4-(v-min)/faixa*(h-8)).toFixed(1)]);
   const d=pts.map((p,i)=>(i?'L':'M')+p.join(' ')).join(' '),base=(h-4-(100-min)/faixa*(h-8)).toFixed(1);
-  return `<svg class="spark" viewBox="0 0 ${w} ${h}" role="img" aria-label="Evolução normalizada em 12 meses"><path class="base" d="M0 ${base} L${w} ${base}"></path><path d="${d}"></path></svg>`;
+  const precos=Array.isArray(meta.spP)&&meta.spP.length===valores.length?meta.spP:[],datas=Array.isArray(meta.spD)&&meta.spD.length===valores.length?meta.spD:[];
+  const dados=esc(JSON.stringify({v:valores,p:precos,d:datas})),rot=precos.length?'Evolução do preço ajustado':'Evolução normalizada, base 100';
+  return `<div class="sparkBox" data-spark="${dados}"><svg class="spark" viewBox="0 0 ${w} ${h}" role="img" tabindex="0" aria-label="${rot}; use as setas para consultar os pontos"><path class="base" d="M0 ${base} L${w} ${base}"></path><path d="${d}"></path><line class="mira" x1="0" y1="4" x2="0" y2="68"></line><circle class="ponto" cx="0" cy="0" r="3.5"></circle><rect class="hit" width="${w}" height="${h}"></rect></svg><output class="sparkInfo"><span>Passe o mouse ou use as setas</span><span>${precos.length?'preço ajustado':'índice base 100'}</span></output></div>`;
 };
+
+function mostraSpark(box,i){
+  let d;try{d=JSON.parse(box.dataset.spark);}catch{return;}
+  if(!Array.isArray(d.v)||d.v.length<2)return;
+  i=Math.max(0,Math.min(d.v.length-1,i));box.dataset.i=i;box.classList.add('on');
+  const min=Math.min(...d.v),max=Math.max(...d.v),faixa=max-min||1,x=i/(d.v.length-1)*360,y=68-(d.v[i]-min)/faixa*64;
+  const data=d.d[i]?d.d[i].split('-').reverse().join('/'):'amostra '+(i+1)+' de '+d.v.length;
+  const valor=Number.isFinite(d.p[i])?'R$ '+d.p[i].toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:4}):'índice '+d.v[i].toLocaleString('pt-BR',{maximumFractionDigits:1});
+  const linha=box.querySelector('.mira'),ponto=box.querySelector('.ponto');linha.setAttribute('x1',x);linha.setAttribute('x2',x);ponto.setAttribute('cx',x);ponto.setAttribute('cy',y);
+  box.querySelector('.sparkInfo').innerHTML='<span>'+data+'</span><span><b>'+valor+'</b></span>';
+}
 
 /* Empresas com varias classes: a referencia e a de maior volume no dia,
    decidido pelo dado da API e nao por convencao de sufixo (3/4/11). */
@@ -10537,7 +10564,7 @@ function metricasEmpresaHTML(e){
   const relativo=(v,n)=>!m.stale&&Number.isInteger(n)&&n>=3?fmtPp(v):'<span class="na">—</span>';
   const amostra=n=>Number.isInteger(n)?n+(n===1?' empresa':' empresas')+' com retorno e mesma data final':'amostra não registrada nesta base';
   const periodo=m.spInicio&&m.spFim?data(m.spInicio)+' a '+data(m.spFim):null;
-  const grafico=periodo?spark(m.sp).replace('aria-label="Evolução normalizada em 12 meses"','aria-label="Evolução normalizada de '+periodo+'"'):'';
+  const grafico=periodo?spark(m.sp,m):'';
   return `<div class="bloco"><h3>Desempenho e negociabilidade</h3><p class="fnt"><b>Referência histórica: ${esc(m.ticker)}</b> · dados até ${data(m.dt)} · ${m.n} observações.</p>
     <p class="fnt">${m.criterioReferencia==='g20'?'Classe com maior giro médio em 20 sessões entre as classes com histórico suficiente na data mais recente.':'Base anterior: classe escolhida pelo volume do dia, sem verificação de todas as classes pelo giro recente.'} ${ref&&ref.tk!==m.ticker?'A cotação intradiária usa '+esc(ref.tk)+', uma classe diferente.':''}</p>
     ${m.referenciaParcial?'<p class="fnt"><b>Seleção parcial:</b> '+m.classesValidas+' de '+m.classesConsultadas+' classes com histórico e volume suficientes. A classe escolhida pode mudar quando a cobertura se recuperar.</p>':''}
@@ -10547,7 +10574,7 @@ function metricasEmpresaHTML(e){
     <dt>Giro médio · 20 pregões</dt><dd>${Number.isFinite(m.g20)?fmtGiro(m.g20):'—'}</dd><dt>Pregões com negócio · 20</dt><dd>${Number.isFinite(m.d20)?m.d20+'/20':'—'}</dd>
     <dt>Volatilidade anualizada · 21 pregões</dt><dd>${Number.isFinite(m.v21)?num(m.v21)+'%':'—'}</dd><dt>Distância da máxima · até 252 pregões</dt><dd>${fmtRet(m.dd252)}</dd></dl>
     <p class="fnt">Categoria ${esc(e.macroL)}: ${amostra(m.nc63)}. Segmento ${esc(e.seg)}: ${amostra(m.ng63)}. Comparações exigem ao menos três empresas; registros preservados são excluídos. A data final comum não elimina eventuais lacunas das séries.</p>
-    ${grafico}${periodo?'<p class="fnt">Série normalizada, base 100 · '+periodo+' · '+m.spN+' observações, com pontos reduzidos para exibição. Não representa necessariamente 12 meses completos.</p>':''}
+    ${grafico}${periodo?'<p class="fnt">Série de preço ajustado, normalizada em base 100 para desenhar a curva · '+periodo+' · '+m.spN+' observações, com pontos reduzidos para exibição. Não representa necessariamente 12 meses completos.</p>':''}
     <p class="fnt">Preço ajustado e volume: <a href="https://finance.yahoo.com/quote/${encodeURIComponent(m.ticker+'.SA')}/history/" target="_blank" rel="noopener noreferrer">Yahoo Finance</a>, fonte não oficial. Giro inclui sessões com volume zero; volume ausente não é zero. Não é recomendação de investimento.</p></div>`;
 }
 let lastFocus = null;
@@ -10605,7 +10632,7 @@ function abreBDR(ticker){
       ${l('1 mês · 21 pregões', fmtRet(m.r21))}
       ${l('3 meses · 63 pregões', fmtRet(m.r63))}
       ${l('12 meses · 252 pregões', fmtRet(m.r252))}
-    </dl>${spark(m.sp)}` : '<p class="fnt">Histórico insuficiente para calcular retornos.</p>';
+    </dl>${spark(m.sp,m)}` : '<p class="fnt">Histórico insuficiente para calcular retornos.</p>';
 
   const paridade = a?.paridade ? `<dl class="kv">
       ${l('Ativo no exterior', `${esc(a.simbolo)} · ${esc(a.moeda||'')}`, true)}
@@ -10713,16 +10740,18 @@ function abreComparacao(){
 
 /* ---------- diagnostico das bases ---------- */
 const SAUDE_REGRAS={precos:['Preços',80,72],bdrs:['Catálogo BDR',100,null],etfs:['Catálogo ETF',100,null],metricasBdr:['Histórico BDR',90,96],metricasEmpresas:['Histórico empresas',75,96],analise:['Ativo lastro',70,96],eventos:['Documentos CVM',null,120]};
-function avisosFonte(x,agora){
+function avisosFonte(x,agora,chave=''){
   const avisos=[...x.avisos],t=typeof x.atualizadoEm==='string'?Date.parse(x.atualizadoEm):NaN;
   if(!Number.isFinite(t))avisos.push('Data da coleta ausente ou inválida.');
   else if(t>agora+300000)avisos.push('Data da coleta no futuro; confira o relógio e a base.');
   else if(x.limiteHoras!==null&&agora-t>x.limiteHoras*36e5)avisos.push('Última coleta há mais de '+x.limiteHoras+' horas.');
-  if(x.minCobertura!==null&&(x.total===null||x.total<=0||x.renovados/x.total*100<x.minCobertura))avisos.push('Cobertura renovada abaixo do limite de '+x.minCobertura+'%.');
+  // Catalogos medem integridade da lista; bases derivadas medem renovacao.
+  const disponivel=['bdrs','etfs'].includes(chave),registros=disponivel?x.registros:x.renovados;
+  if(x.minCobertura!==null&&(x.total===null||x.total<=0||registros/x.total*100<x.minCobertura))avisos.push('Cobertura '+(disponivel?'disponível':'renovada')+' abaixo do limite de '+x.minCobertura+'%.');
   return avisos;
 }
 function avisosSaude(s,agora=Date.now()){
-  const avisos=Object.values(s.fontes).flatMap(x=>avisosFonte(x,agora).map(a=>x.nome+': '+a)),t=Date.parse(s.geradoEm);
+  const avisos=Object.entries(s.fontes).flatMap(([k,x])=>avisosFonte(x,agora,k).map(a=>x.nome+': '+a)),t=Date.parse(s.geradoEm);
   if(!Number.isFinite(t)||t>agora+300000)avisos.unshift('Data do diagnóstico inválida ou no futuro.');
   else if(agora-t>96*36e5)avisos.unshift('Diagnóstico gerado há mais de 96 horas; a cópia pode estar desatualizada.');
   return avisos;
@@ -10746,10 +10775,10 @@ function saudeHTML(agora=Date.now()){
   if(SAUDE_ESTADO==='falha')return '<p class="fnt" role="status">Não foi possível carregar um diagnóstico válido. A saúde dos dados é desconhecida; isso não significa que as bases estejam atualizadas. Recarregue a página para tentar novamente.</p>';
   const avisos=avisosSaude(SAUDE,agora),fmt=d=>Number.isFinite(Date.parse(d))?new Date(d).toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo',day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'}):'data indisponível',dia=d=>esc(d.split('-').reverse().join('/'));
   const itens=Object.entries(SAUDE.fontes).map(([k,x])=>{
-    const a=avisosFonte(x,agora),hist=['metricasBdr','metricasEmpresas','analise'].includes(k);
-    return `<section class="bloco"><h3>${esc(x.nome)} · ${a.length?'atenção':'dentro dos limites'}</h3><p class="fnt">${x.registros} registros disponíveis${x.total!==null?' de '+x.total+' no universo ('+x.cobertura+'%)':''}.${hist?' '+x.renovados+' renovados na última coleta ('+(x.coberturaRenovada===null?'percentual indisponível':x.coberturaRenovada+'%')+'); '+x.preservados+' preservados após falha.':''}</p><p class="fnt">Última coleta: ${fmt(x.atualizadoEm)} (Brasília).${x.observacaoInicio?' '+(k==='eventos'?'Entregas dos documentos':'Datas das observações')+': '+dia(x.observacaoInicio)+' a '+dia(x.observacaoFim)+'.':''}</p><p class="fnt">${x.minCobertura===null?'Sem percentual de cobertura: documentos limitados ao recorte e às categorias selecionadas.':'Piso de cobertura renovada: '+x.minCobertura+'%.'} ${x.limiteHoras===null?'Catálogo atualizado manualmente, sem prazo automático de atraso.':'Aviso após '+x.limiteHoras+' horas sem coleta.'}</p>${a.length?'<p class="fnt">'+a.map(esc).join('<br>')+'</p>':''}</section>`;
+    const a=avisosFonte(x,agora,k),hist=['metricasBdr','metricasEmpresas','analise'].includes(k),catalogo=['bdrs','etfs'].includes(k),etf=k==='etfs';
+    return `<section class="bloco"><h3>${esc(x.nome)} · ${a.length?'atenção':'dentro dos limites'}</h3><p class="fnt">${x.registros} registros disponíveis${x.total!==null?' de '+x.total+' no universo ('+x.cobertura+'%)':''}.${hist?' '+x.renovados+' renovados na última coleta ('+(x.coberturaRenovada===null?'percentual indisponível':x.coberturaRenovada+'%')+'); '+x.preservados+' preservados após falha.':''}${etf?' '+x.renovados+' tickers confirmados nesta coleta ('+(x.coberturaRenovada===null?'percentual indisponível':x.coberturaRenovada+'%')+'); '+x.preservados+' ainda sem confirmação atual ou preservados após falha.':''}</p><p class="fnt">Última coleta: ${fmt(x.atualizadoEm)} (Brasília).${x.observacaoInicio?' '+(k==='eventos'?'Entregas dos documentos':'Datas das observações')+': '+dia(x.observacaoInicio)+' a '+dia(x.observacaoFim)+'.':''}</p><p class="fnt">${x.minCobertura===null?'Sem percentual de cobertura: documentos limitados ao recorte e às categorias selecionadas.':'Piso de cobertura '+(catalogo?'disponível':'renovada')+': '+x.minCobertura+'%.'} ${x.limiteHoras===null?'Catálogo atualizado manualmente, sem prazo automático de atraso.':'Aviso após '+x.limiteHoras+' horas sem coleta.'}</p>${a.length?'<p class="fnt">'+a.map(esc).join('<br>')+'</p>':''}</section>`;
   }).join('');
-  return `<p class="fnt">Diagnóstico gerado em ${fmt(SAUDE.geradoEm)} (Brasília). ${avisos.length?avisos.length+' avisos; confira as bases abaixo.':'Coberturas e datas dentro dos limites definidos.'}</p>${avisos.filter(a=>a.startsWith('Diagnóstico')||a.startsWith('Data do diagnóstico')).map(a=>'<p class="fnt">'+esc(a)+'</p>').join('')}<p class="fnt">Retrato dos arquivos na geração, não teste dos downloads desta sessão. “Renovados” exclui registros marcados como preservados após falha; não garante a atualidade de cada observação. Os avisos de atraso usam o relógio deste dispositivo, em horas corridas, sem calendário de pregões ou feriados.</p>${itens}<p class="fnt">Documentos CVM: consulta não equivale à atualização da fonte. Estes limites são operacionais, não certificação da qualidade dos dados nem recomendação de investimento.</p>`;
+  return `<p class="fnt">Diagnóstico gerado em ${fmt(SAUDE.geradoEm)} (Brasília). ${avisos.length?avisos.length+' avisos; confira as bases abaixo.':'Coberturas e datas dentro dos limites definidos.'}</p>${avisos.filter(a=>a.startsWith('Diagnóstico')||a.startsWith('Data do diagnóstico')).map(a=>'<p class="fnt">'+esc(a)+'</p>').join('')}<p class="fnt">Retrato dos arquivos na geração, não teste dos downloads desta sessão. “Renovados” exclui registros preservados após falha e, no catálogo ETF, tickers ainda sem confirmação; não garante a atualidade de cada observação. Os avisos de atraso usam o relógio deste dispositivo, em horas corridas, sem calendário de pregões ou feriados.</p>${itens}<p class="fnt">Documentos CVM: consulta não equivale à atualização da fonte. Estes limites são operacionais, não certificação da qualidade dos dados nem recomendação de investimento.</p>`;
 }
 function atualizaSaude(){
   const txt=$('saudeTxt'),pronto=SAUDE_ESTADO==='pronto',atencao=pronto&&avisosSaude(SAUDE).length;
@@ -10788,6 +10817,14 @@ const CATEGORIA_ETF_PT = {
   'ETF':'Renda variável', 'ETF-RF':'Renda fixa', 'ETF-CRIPTO':'Criptoativos',
   'ETF-INT-RF':'Renda fixa internacional', 'ETF-FII':'Fundos imobiliários', 'ETF-MOEDA':'Moedas'
 };
+const FOCO_CATEGORIA_ETF = {
+  'ETF':'Índices negociados em bolsa. A classe é ampla: reúne principalmente ações, mas também pode refletir fatores, commodities ou estratégias indicadas no nome do fundo.',
+  'ETF-RF':'Índices de títulos de renda fixa no Brasil, como dívida pública ou privada. Prazo, emissor e indexador dependem do índice seguido.',
+  'ETF-CRIPTO':'Índices ligados a criptoativos. A exposição pode usar uma cesta, veículos ou contratos; não significa que o cotista possua as moedas diretamente.',
+  'ETF-INT-RF':'Índices de renda fixa do exterior. O resultado em reais também pode ser afetado pelo câmbio, salvo quando o fundo adota proteção cambial.',
+  'ETF-FII':'Índices formados por fundos imobiliários negociados em bolsa. A carteira contém cotas de FIIs, não imóveis comprados diretamente pelo investidor.',
+  'ETF-MOEDA':'Índices ou estratégias ligados a moedas e câmbio. A exposição exata e eventual proteção cambial dependem do regulamento.'
+};
 const CATEGORIAS_ETF = new Set(Object.keys(CATEGORIA_ETF_PT));
 const CORES_CATEGORIA_ETF = {
   'ETF':'#3D6FD6', 'ETF-RF':'#2E8B74', 'ETF-CRIPTO':'#F2B441',
@@ -10795,6 +10832,12 @@ const CORES_CATEGORIA_ETF = {
 };
 const categoriaETFPT = c => c ? (CATEGORIA_ETF_PT[c] || c) : null;
 const corCategoriaEtf = c => CORES_CATEGORIA_ETF[c] || '#4A5568';
+const focoCategoriaEtf = c => FOCO_CATEGORIA_ETF[c] || 'Categoria oficial da B3; consulte o regulamento para conhecer a carteira e o índice seguido.';
+
+function guiaCategoriasETF(){
+  const n={};ETF.forEach(x=>n[x.categoria]=(n[x.categoria]||0)+1);
+  return Object.keys(CATEGORIA_ETF_PT).filter(c=>n[c]).map(c=>`<article style="--cat:${corCategoriaEtf(c)}"><h3>${esc(categoriaETFPT(c))} <span class="num">· ${n[c]}</span></h3><p>${esc(focoCategoriaEtf(c))}</p></article>`).join('');
+}
 
 function filtraETF(){
   let r = ETF;
@@ -10811,6 +10854,7 @@ function valorColETF(x, k){
     case 'nome': return x.nome;
     case 'categoria': return categoriaETFPT(x.categoria) || '';
     case 'preco': return r ? r.p : null;
+    case 'estado': return negociouHoje(r) ? 1 : 0;
     case 'variacao': return r && typeof r.v === 'number' ? r.v : null;
     default: return null;
   }
@@ -10840,6 +10884,7 @@ const COLS_ETF = [
   {k:'nome',      rot:'Fundo', mob:true},
   {k:'categoria', rot:'Categoria', sec:true},
   {k:'preco',     rot:'Último preço', n:true},
+  {k:'estado',    rot:'Negociação', sec:true},
   {k:'variacao',  rot:'Variação no dia', n:true}
 ];
 
@@ -10859,6 +10904,7 @@ function tabelaETF(list){
       <td class="col-m">${esc(x.nome)}</td>
       <td class="col-s">${esc(categoriaETFPT(x.categoria)||'')}</td>
       <td class="n">${preco}</td>
+      <td class="col-s"><span class="est${viva?' viva':''}">${viva?'hoje':(r?'último':'—')}</span></td>
       <td class="n">${r && viva && typeof r.v === 'number' ? fmtVar(r.v) : '<span class="na">—</span>'}</td>
     </tr>`;
   }).join('');
@@ -10906,12 +10952,12 @@ function abreETF(ticker){
     <div class="bloco"><h3>Identificação</h3><dl class="kv">
       ${l('Nome do fundo', esc(x.nome), true)}
       ${l('Categoria B3', esc(categoriaETFPT(x.categoria) || '—'), true)}
-    </dl></div>
+    </dl><p class="fnt"><b>Foco da categoria:</b> ${esc(focoCategoriaEtf(x.categoria))}</p><p class="fnt">Isso descreve a classe, não a carteira específica deste fundo. O catálogo não informa as posições nem o peso de cada ativo; para saber exatamente o que ele acompanha e possui, consulte o índice, o regulamento e a lâmina do gestor.</p></div>
     <div class="bloco"><h3>Cotação</h3>${cotacao}
       <p class="fnt">Yahoo Finance, atraso de ~15 min.${PRECO_TS ? ' Consultada em ' + PRECO_TS + '.' : ''}</p></div>
     <div class="bloco"><h3>Classificação e fontes</h3>
-      <p class="fnt">Lista, ticker e categoria: B3, base oficial de fundos listados.<br>
-      Cotação e giro do dia: Yahoo Finance, fonte não oficial.</p>
+      <p class="fnt">Lista e categoria: <a href="https://sistemaswebb3-listados.b3.com.br/fundsListedPage/" target="_blank" rel="noopener noreferrer">B3, consulta oficial de fundos listados</a>.<br>
+      Ticker: sigla da B3 com o sufixo +11${x.tickerVerificado===false?', ainda sem confirmação de cotação positiva no Yahoo Finance':', verificado no Yahoo Finance'}. Cotação e giro do dia: Yahoo Finance, fonte não oficial.</p>
       <p class="fnt">Índice de referência, taxa de administração e patrimônio líquido não constam desta base — consulte o regulamento e a lâmina oficiais do fundo. Nada aqui é recomendação de compra ou venda.
       <button class="lnk" data-sec="metodologia" style="font-size:11.5px">Metodologia completa</button></p></div>`;
   drw.classList.add('on'); dim.classList.add('on'); wrap.inert = true;
@@ -11081,7 +11127,10 @@ function render(){
 
   if(st.sec === 'etfs'){
     const r = filtraETF();
+    const comPreco = r.filter(x => cot(x.ticker)).length, hoje = r.filter(x => negociouHoje(cot(x.ticker))).length, semTicker = r.filter(x => x.tickerVerificado === false).length;
     $('nEtf').textContent = r.length;
+    $('resumoEtf').innerHTML = r.length ? `<b>${comPreco}</b> com último preço <span>·</span> <b>${hoje}</b> negociados hoje${semTicker?' <span>·</span> <b>'+semTicker+'</b> aguardando confirmação de ticker':''}` : '';
+    $('guiaEtf').innerHTML = guiaCategoriasETF();
     $('clearEtf').classList.toggle('hide', !(st.qe || st.etfCategoria.size));
     $('boxTabelaEtf').classList.toggle('hide', st.modoEtf !== 'tabela');
     $('boxCardsEtf').classList.toggle('hide', st.modoEtf !== 'cards');
@@ -11278,6 +11327,15 @@ function mostraPontoMatriz(ev){
 }
 document.body.addEventListener('pointerover',mostraPontoMatriz);
 document.body.addEventListener('focusin',mostraPontoMatriz);
+document.body.addEventListener('pointermove',ev=>{
+  const svg=ev.target.closest('.spark');if(!svg)return;const r=svg.getBoundingClientRect(),box=svg.closest('.sparkBox'),d=JSON.parse(box.dataset.spark);
+  mostraSpark(box,Math.round(Math.max(0,Math.min(1,(ev.clientX-r.left)/r.width))*(d.v.length-1)));
+});
+document.body.addEventListener('pointerleave',ev=>{const box=ev.target.closest?.('.sparkBox');if(box&&!box.contains(ev.relatedTarget))box.classList.remove('on');},true);
+document.body.addEventListener('keydown',ev=>{
+  const svg=ev.target.closest?.('.spark');if(!svg||!['ArrowLeft','ArrowRight','Home','End'].includes(ev.key))return;ev.preventDefault();const box=svg.closest('.sparkBox'),d=JSON.parse(box.dataset.spark);let i=Number(box.dataset.i);
+  if(!Number.isInteger(i))i=d.v.length-1;if(ev.key==='Home')i=0;else if(ev.key==='End')i=d.v.length-1;else i+=ev.key==='ArrowLeft'?-1:1;mostraSpark(box,i);
+});
 document.body.addEventListener('change', ev => {
   const eixo=ev.target.closest('[data-mat]');
   if(eixo){const k=eixo.dataset.mat;if(!['x','y'].includes(k)||!Object.hasOwn(EIXOS,eixo.value))return;if(k==='x')st.matX=eixo.value;else st.matY=eixo.value;render();document.querySelector('[data-mat="'+k+'"]').focus();return;}

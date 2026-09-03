@@ -3,17 +3,18 @@ const FONTES={precos:['Preços',80,72],bdrs:['Catálogo BDR',100,null],etfs:['Ca
 const ARQUIVOS={precos:'precos.json',bdrs:'bdrs.json',etfs:'etfs.json',metricasBdr:'metricas.json',metricasEmpresas:'metricas-empresas.json',analise:'analise.json',eventos:'eventos.json'};
 const objeto=x=>x&&typeof x==='object'&&!Array.isArray(x),percentual=(n,t)=>Number.isInteger(t)&&t>0?+(n/t*100).toFixed(1):null;
 const data=d=>typeof d==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(d)&&Number.isFinite(Date.parse(d))&&new Date(d).toISOString().slice(0,10)===d;
-function avaliaFonte(x,agora){
+function avaliaFonte(x,agora,chave=''){
   const avisos=[...x.avisos],t=typeof x.atualizadoEm==='string'?Date.parse(x.atualizadoEm):NaN;
   if(!Number.isFinite(t))avisos.push('Data da coleta ausente ou inválida.');
   else if(t>agora+300000)avisos.push('Data da coleta no futuro; confira o relógio e a base.');
   else if(x.limiteHoras!==null&&agora-t>x.limiteHoras*36e5)avisos.push('Última coleta há mais de '+x.limiteHoras+' horas.');
-  // Compara contagens, nao o percentual arredondado mostrado na tela.
-  if(x.minCobertura!==null&&(x.total===null||x.total<=0||x.renovados/x.total*100<x.minCobertura))avisos.push('Cobertura renovada abaixo do limite de '+x.minCobertura+'%.');
+  // Catalogos medem integridade da lista; bases derivadas medem renovacao.
+  const disponivel=['bdrs','etfs'].includes(chave),registros=disponivel?x.registros:x.renovados;
+  if(x.minCobertura!==null&&(x.total===null||x.total<=0||registros/x.total*100<x.minCobertura))avisos.push('Cobertura '+(disponivel?'disponível':'renovada')+' abaixo do limite de '+x.minCobertura+'%.');
   return avisos;
 }
 function avalia(s,agora=Date.now()){
-  const avisos=Object.values(s.fontes).flatMap(x=>avaliaFonte(x,agora).map(a=>x.nome+': '+a));
+  const avisos=Object.entries(s.fontes).flatMap(([k,x])=>avaliaFonte(x,agora,k).map(a=>x.nome+': '+a));
   const t=Date.parse(s.geradoEm);
   if(!Number.isFinite(t)||t>agora+300000)avisos.unshift('Data do diagnóstico inválida ou no futuro.');
   else if(agora-t>96*36e5)avisos.unshift('Diagnóstico gerado há mais de 96 horas; a cópia pode estar desatualizada.');
@@ -50,7 +51,7 @@ function gera(bases,agora=Date.now()){
       if(['metricasBdr','analise'].includes(k)&&Number.isInteger(bases.bdrs?.total)&&total!==bases.bdrs.total)avisos.push('Universo diferente do catálogo BDR.');
       if(['bdrs','etfs'].includes(k)&&itens.length!==d.total)avisos.push('Contagem do catálogo diferente do total declarado.');
     }
-    const preservados=validos.filter(v=>v.stale===true).length,renovados=validos.length-preservados;
+    const preservados=validos.filter(v=>v.stale===true||(k==='etfs'&&v.tickerVerificado===false)).length,renovados=validos.length-preservados;
     const datas=validos.map(v=>k==='precos'&&Number.isFinite(v.t)&&v.t>0&&v.t<8640000000000?new Date(v.t*1000).toISOString().slice(0,10):k==='analise'?v.dtAtivo:v.dt).filter(data).sort();
     Object.assign(x,{total,registros:validos.length,renovados,preservados,cobertura:percentual(validos.length,total),coberturaRenovada:percentual(renovados,total),observacaoInicio:datas[0]||null,observacaoFim:datas.at(-1)||null});
   }

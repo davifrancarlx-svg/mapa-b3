@@ -294,6 +294,10 @@ a mesma data final, excluindo históricos preservados após falha. A base inform
 de cada comparação; datas iguais não garantem ausência de lacunas nas séries originais.
 Volume ausente não vira zero e janelas incompletas de 60 sessões ficam sem indicador.
 O gráfico informa seu período efetivo, inclusive quando há menos de um ano disponível.
+Ao passar o mouse — ou usar as setas com o gráfico focado — a curva informa a data e o
+preço ajustado da amostra. Bases anteriores continuam exibindo o índice normalizado até
+a próxima coleta bem-sucedida. Os geradores guardam somente as amostras semanais usadas
+na curva, não o histórico diário bruto.
 O CSV distingue o ticker de referência histórica do ticker da cotação intradiária.
 
 O gerador valida a saída e exige pelo menos 85% de cobertura nova entre empresas com
@@ -318,8 +322,10 @@ pelos registros, não pelos contadores de sucesso declarados nos arquivos. O dia
 mostra o denominador, a última coleta e o intervalo das datas das observações disponíveis.
 Os validadores específicos de cada base continuam responsáveis pela integridade completa.
 
-Os pisos de cobertura renovada são 80% para preços, 100% para a classificação do catálogo
-BDR, 90% para histórico BDR, 75% para histórico de empresas e 70% para ativo-lastro.
+Os catálogos de BDR e ETF exigem 100% de cobertura disponível. Tickers de ETF ainda sem
+confirmação positiva no Yahoo permanecem detalhados no diagnóstico, mas não tornam um
+catálogo oficial completo inválido. Os pisos de cobertura renovada são 80% para preços,
+90% para histórico BDR, 75% para histórico de empresas e 70% para ativo-lastro.
 Documentos CVM não recebem percentual de cobertura. Ausência de base não vira 0% silencioso:
 gera aviso e percentual indisponível. O catálogo é manual, sem prazo automático de atraso.
 
@@ -350,9 +356,10 @@ node scripts/valida-saude.js
 
 ## Aba de ETFs
 
-219 ETFs (de 222 listados oficialmente pela B3 hoje) nas seis categorias oficiais de
+222 ETFs listados oficialmente pela B3 nas seis categorias oficiais de
 fundo listado tipo ETF: renda variável, renda fixa, cripto, renda fixa internacional,
-FII e moeda. Vêm da lista oficial de fundos da B3 (`fundsListedProxy/Search/GetListFunds`),
+FII e moeda. Desses, 219 têm ticker confirmado por cotação positiva e três listagens novas
+estão sinalizadas como aguardando confirmação. Vêm da lista oficial de fundos da B3 (`fundsListedProxy/Search/GetListFunds`),
 o mesmo padrão de engenharia reversa já usado para BDR, só que em outro endpoint.
 
 **Base bem mais enxuta que a de BDR, de propósito**: só ticker, nome do fundo e categoria
@@ -364,9 +371,14 @@ do BDR: sem desempenho histórico, sem comparação, sem recorte de exploração
 de ranking exigiria um piso de liquidez que só existe quando há histórico, e não há
 `metricas-etfs.json` ainda.
 
-**Ticker**: `<código da B3>+11`, verificado contra o Yahoo antes de entrar na base (mesmo
-princípio do `resolveSufixoPatrocinado` do BDR, mas sem lista de sufixos alternativos —
-nenhum contraexemplo de `+11` foi encontrado até agora).
+A interface explica, em linguagem curta, o foco de cada uma das seis categorias e repete
+o contexto na ficha do ETF. Essa explicação é da classe oficial, não uma descrição da
+carteira específica: posições e pesos continuam exigindo o regulamento e a lâmina do gestor.
+
+**Ticker**: `<código da B3>+11`, verificado contra o Yahoo. Uma listagem oficial nova sem
+cotação positiva continua no catálogo, marcada como não confirmada, em vez de desaparecer
+silenciosamente. Uma falha transitória preserva tickers já confirmados e o diagnóstico de
+saúde detalha quantos foram confirmados na coleta. Nenhum contraexemplo de `+11` foi encontrado até agora.
 
 **`etfs.json` não faz parte do cron de 30 minutos**, pelo mesmo motivo do `bdrs.json`: muda
 raramente. Rode `node scripts/gera-etfs.js` manualmente de vez em quando e, depois,

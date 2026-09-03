@@ -12,6 +12,17 @@ const bases={
 };
 const normal=gera(bases,agora);valida(normal);assert.equal(normal.estado,'ok');assert.equal(normal.fontes.precos.registros,2);assert.equal(normal.fontes.eventos.cobertura,null);
 const casos=[normal];
+{
+  const b=structuredClone(bases);b.etfs.etfs[1].tickerVerificado=false;
+  const s=gera(b,agora);valida(s);casos.push(s);
+  assert.equal(s.fontes.etfs.cobertura,100);assert.equal(s.fontes.etfs.coberturaRenovada,50);assert.equal(s.fontes.etfs.preservados,1);assert.equal(s.estado,'ok');
+  assert.equal(avaliaFonte(s.fontes.etfs,agora,'etfs').length,0);
+}
+{
+  const b=structuredClone(bases);b.etfs.etfs.pop();
+  const s=gera(b,agora);valida(s);casos.push(s);
+  assert.equal(s.fontes.etfs.cobertura,50);assert.equal(s.estado,'atencao');assert.ok(s.avisos.some(a=>a.includes('Cobertura disponível')));
+}
 for(const k of ['metricasBdr','metricasEmpresas','analise']){
   const b=structuredClone(bases),campo=k==='analise'?'analise':'metricas';b[k][campo].B.stale=true;
   const s=gera(b,agora);valida(s);casos.push(s);
@@ -29,6 +40,7 @@ assert.equal(avaliaFonte(normal.fontes.precos,agora+72*36e5+1).length,1);
 assert.equal(avaliaFonte(normal.fontes.bdrs,agora+1000*36e5).length,0);
 assert.ok(avalia(normal,agora+97*36e5).some(a=>a.includes('Diagnóstico')));
 assert.ok(avaliaFonte({...normal.fontes.metricasBdr,total:10001,renovados:9000},agora).some(a=>a.includes('Cobertura')));
+assert.ok(avaliaFonte({...normal.fontes.etfs,registros:1,renovados:1},agora,'etfs').some(a=>a.includes('disponível')));
 for(const modifica of [s=>delete s.fontes.precos,s=>s.fontes.precos.cobertura=101,s=>s.fontes.analise.registros=-1,s=>s.fontes.precos.limiteHoras=999,s=>s.fontes.metricasBdr.observacaoInicio='2026-02-30',s=>s.estado='atencao',s=>s.avisos=['Inventado']]){
   const s=structuredClone(normal);modifica(s);assert.throws(()=>valida(s));
 }
@@ -40,7 +52,7 @@ vm.runInContext(codigo.slice(codigo.indexOf('const SAUDE_REGRAS='),codigo.indexO
 assert.match(ctx.saudeHTML(agora),/Carregando/);ctx.atualizaSaude();assert.equal(botao.textContent,'carregando');
 ctx.SAUDE_ESTADO='falha';assert.match(ctx.saudeHTML(agora),/desconhecida/);ctx.atualizaSaude();assert.equal(botao.textContent,'indisponível');
 for(const s of casos){ctx.recebeSaude(s);for(const t of [agora,agora+97*36e5,agora-36e5])assert.equal(JSON.stringify(ctx.avisosSaude(s,t)),JSON.stringify(avalia(s,t)));}
-ctx.recebeSaude(normal);assert.match(ctx.saudeHTML(agora),/2 renovados na última coleta/);assert.match(ctx.saudeHTML(agora),/sem prazo automático/);assert.match(ctx.saudeHTML(agora),/Sem percentual de cobertura/);assert.match(ctx.saudeHTML(agora+97*36e5),/cópia pode estar desatualizada/);
+ctx.recebeSaude(normal);assert.match(ctx.saudeHTML(agora),/2 renovados na última coleta/);assert.match(ctx.saudeHTML(agora),/2 tickers confirmados nesta coleta/);assert.match(ctx.saudeHTML(agora),/Piso de cobertura disponível: 100%/);assert.match(ctx.saudeHTML(agora),/sem prazo automático/);assert.match(ctx.saudeHTML(agora),/Sem percentual de cobertura/);assert.match(ctx.saudeHTML(agora+97*36e5),/cópia pode estar desatualizada/);
 ctx.atualizaSaude();assert.ok(box.innerHTML.includes('Diagnóstico gerado'));assert.ok(!ctx.saudeHTML(agora).includes('null%'));
 const mal=structuredClone(normal);mal.fontes.precos.avisos=['<img src=x onerror=alert(1)>'];mal.avisos=avalia(mal,agora);mal.estado='atencao';ctx.recebeSaude(mal);assert.ok(!ctx.saudeHTML(agora).includes('<img'));
 assert.throws(()=>ctx.recebeSaude({estado:'ok'}));assert.equal(ctx.SAUDE,mal);

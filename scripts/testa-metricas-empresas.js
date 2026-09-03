@@ -7,6 +7,7 @@ async function testa(){
   assert.equal(leEmpresas('const D = {"empresas":[{"desc":"texto } com chave"}]}')[0].desc,'texto } com chave');
   assert.equal(calcula(rows(21),'TEST3'),null);const curto=calcula(rows(22),'TEST3');
   assert.equal(curto.r21,0);assert.equal(curto.r63,null);assert.equal(curto.g60,null);assert.equal(curto.d60,null);assert.equal(curto.v21,0);assert.equal(curto.spN,22);
+  assert.equal(curto.sp.length,curto.spP.length);assert.equal(curto.sp.length,curto.spD.length);assert.equal(curto.spP[0],100);assert.match(curto.spD[0],/^\d{4}-\d{2}-\d{2}$/);
   const serie=rows(253);serie.at(-1).a=110;assert.equal(calcula(serie,'TEST3').r252,10);assert.equal(calcula(serie,'TEST3').spN,252);
   const zero=rows(22,0);assert.equal(calcula(zero,'TEST3').g20,0);assert.equal(calcula(zero,'TEST3').d20,0);
   zero.at(-1).vol=null;assert.equal(calcula(zero,'TEST3').g20,null);assert.equal(calcula(zero,'TEST3').d20,null);

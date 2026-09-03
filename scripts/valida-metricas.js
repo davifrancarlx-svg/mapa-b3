@@ -28,6 +28,9 @@ Object.entries(metricas).forEach(([ticker,m]) => {
   if(m.d60 < 0 || m.d60 > 60) falha(ticker + ': d60 fora do limite');
   if(m.g20 < 0 || m.g60 < 0) falha(ticker + ': giro negativo');
   if(m.min252 > m.max252) falha(ticker + ': minima acima da maxima');
+  if(m.spP !== undefined || m.spD !== undefined){
+    if(!Array.isArray(m.sp)||!Array.isArray(m.spP)||!Array.isArray(m.spD)||m.sp.length!==m.spP.length||m.sp.length!==m.spD.length||m.spP.some(v=>!Number.isFinite(v)||v<=0)||m.spD.some(d=>!/^\d{4}-\d{2}-\d{2}$/.test(d))) falha(ticker + ': amostras de preco e data invalidas');
+  }
   ['21','63','252'].forEach(n => {
     if(typeof m['r' + n] === 'number' && (typeof m['ri' + n] !== 'number' || typeof m['rs' + n] !== 'number'))
       falha(ticker + ': retorno relativo de ' + n + ' pregoes ausente');
