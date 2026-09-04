@@ -192,6 +192,14 @@ JSONs de runtime usados pelos `fetch()` relativos.
 - **`metricas.json` tem cron diário separado.** Retornos usam 21/63/252 pregões ajustados;
   força relativa é a diferença para a mediana da indústria ou setor, e giro médio inclui
   sessões sem negócio. Não compare preços nominais de BDRs como medida de oportunidade.
+- **`dm252` é o espelho de `dd252`, calculado no servidor, não no cliente.** `dd252` é a
+  queda desde a máxima de 252 pregões (sempre ≤0); `dm252` é a alta desde a mínima (sempre
+  ≥0) — ambos vêm do mesmo `calcula()` em `atualiza-metricas.js` e
+  `atualiza-metricas-empresas.js`, ao lado de `min252`/`max252` que já existiam. O recorte
+  BDR "Perto da mínima histórica" e a ordenação "Mais perto da mínima histórica" em
+  Empresas usam esse campo — não derive a mínima no cliente a partir de `dd252`/`max252`;
+  se o campo não existir na base, é porque ela é anterior a essa mudança e precisa rodar
+  `atualiza-metricas.js`/`atualiza-metricas-empresas.js` de novo.
 - **Paridade não é preço justo.** `analise.json` combina o preço do ativo-lastro no Yahoo,
   a relação oficial do programa e a PTAX do Banco Central. Horários, liquidez, custos e
   tributos diferem; mantenha a linguagem de referência indicativa e o residual explícito.

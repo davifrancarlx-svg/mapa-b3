@@ -13,7 +13,7 @@ function valida(base,empresas){
       if(!numero(m['g'+n],0)||!numero(m['d'+n],0,n)||(m['d'+n]!==null&&!Number.isInteger(m['d'+n])))erro(k+' liquidez invalida');
       if(base.versao===2&&m.n<n&&(m['g'+n]!==null||m['d'+n]!==null))erro(k+' janela '+n+' incompleta');
     }
-    if(!numero(m.dd252,-100,0)||!numero(m.v21,0)||!Array.isArray(m.sp)||m.sp.length<2||m.sp.some(v=>!Number.isFinite(v)||v<=0))erro(k+' risco ou serie invalida');
+    if(!numero(m.dd252,-100,0)||!numero(m.dm252,0)||!numero(m.v21,0)||!Array.isArray(m.sp)||m.sp.length<2||m.sp.some(v=>!Number.isFinite(v)||v<=0))erro(k+' risco ou serie invalida');
     if(m.spP!==undefined||m.spD!==undefined){if(!Array.isArray(m.spP)||!Array.isArray(m.spD)||m.sp.length!==m.spP.length||m.sp.length!==m.spD.length||m.spP.some(v=>!Number.isFinite(v)||v<=0)||m.spD.some(d=>!data(d)))erro(k+' amostras de preco e data invalidas');}
     for(const p of ['c','g'])for(const n of [21,63,252]){
       if(!(base.versao!==2&&m['r'+p+n]===undefined)&&!numero(m['r'+p+n]))erro(k+' relativo invalido');

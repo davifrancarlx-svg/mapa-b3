@@ -12,7 +12,7 @@ const base = JSON.parse(fs.readFileSync(path.join(RAIZ, 'metricas.json'), 'utf8'
 const metricas = base.metricas || {};
 const universo = new Set(bdrs.map(b => b.ticker));
 const erros = [];
-const campos = ['r21','r63','r252','g20','g60','d20','d60','dd252','min252','max252','mm50','mm200','v21','ri21','ri63','ri252','rs21','rs63','rs252'];
+const campos = ['r21','r63','r252','g20','g60','d20','d60','dd252','dm252','min252','max252','mm50','mm200','v21','ri21','ri63','ri252','rs21','rs63','rs252'];
 
 const falha = msg => erros.push(msg);
 if(base.totalBDRs !== bdrs.length) falha('totalBDRs diverge de bdrs.json');
@@ -28,6 +28,8 @@ Object.entries(metricas).forEach(([ticker,m]) => {
   if(m.d60 < 0 || m.d60 > 60) falha(ticker + ': d60 fora do limite');
   if(m.g20 < 0 || m.g60 < 0) falha(ticker + ': giro negativo');
   if(m.min252 > m.max252) falha(ticker + ': minima acima da maxima');
+  if(Number.isFinite(m.dd252) && m.dd252 > 0) falha(ticker + ': dd252 positivo');
+  if(Number.isFinite(m.dm252) && m.dm252 < 0) falha(ticker + ': dm252 negativo');
   if(m.spP !== undefined || m.spD !== undefined){
     if(!Array.isArray(m.sp)||!Array.isArray(m.spP)||!Array.isArray(m.spD)||m.sp.length!==m.spP.length||m.sp.length!==m.spD.length||m.spP.some(v=>!Number.isFinite(v)||v<=0)||m.spD.some(d=>!/^\d{4}-\d{2}-\d{2}$/.test(d))) falha(ticker + ': amostras de preco e data invalidas');
   }

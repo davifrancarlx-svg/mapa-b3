@@ -456,6 +456,7 @@ footer p{margin:0;max-width:62ch;line-height:1.55}
             <option value="liq">Maior liquidez</option>
             <option value="nome">Nome A a Z</option>
             <option value="novo">Registro mais recente</option>
+            <option value="minima">Mais perto da mínima histórica</option>
           </select>
           <div class="seg" role="group" aria-label="Modo de visualização">
             <button id="mMosaico" aria-pressed="true">Mosaico</button>
@@ -10016,9 +10017,17 @@ function filtra(){
       ? r.filter(e => t.every(x => e.tagsL.includes(x)))
       : r.filter(e => t.some(x => e.tagsL.includes(x)));
   }
+  /* minima: sem dado historico sempre vai pro fim, mesma regra do ordenaBDR. */
   const o = {vm:(a,b)=>b.vm-a.vm, liq:(a,b)=>b.liq-a.liq,
              nome:(a,b)=>a.pregao.localeCompare(b.pregao,'pt-BR'),
-             novo:(a,b)=>(b.ano||0)-(a.ano||0)};
+             novo:(a,b)=>(b.ano||0)-(a.ano||0),
+             minima:(a,b)=>{
+               const x=metEmp(a.cod)?.dm252, y=metEmp(b.cod)?.dm252;
+               const xv=x===null||x===undefined, yv=y===null||y===undefined;
+               if(xv&&yv) return a.pregao.localeCompare(b.pregao,'pt-BR');
+               if(xv) return 1; if(yv) return -1;
+               return x-y;
+             }};
   return [...r].sort(o[st.sort]);
 }
 
@@ -10052,6 +10061,8 @@ const RECORTES = {
     crit:'Giro médio igual ou acima de R$ 10 mil, ordenado pela diferença em pontos percentuais para a mediana do próprio grupo em 3 meses.'},
   maxima:{rot:'Perto da máxima anual', liq:'10k', sort:'dd252', dir:'desc',
     crit:'Giro médio igual ou acima de R$ 10 mil, ordenado pela menor distância da máxima de 252 pregões.'},
+  minima:{rot:'Perto da mínima histórica', liq:'10k', sort:'dm252', dir:'asc',
+    crit:'Giro médio igual ou acima de R$ 10 mil, ordenado pela menor distância da mínima de 252 pregões. Não é recomendação: papel perto do piso pode continuar caindo.'},
   recuperacao:{rot:'Recuperação após queda', liq:'10k', sort:'r21', dir:'desc',
     pred:m => !!m && typeof m.r252==='number' && m.r252<0 && typeof m.r21==='number' && m.r21>0,
     crit:'Giro médio igual ou acima de R$ 10 mil, retorno de 12 meses negativo e retorno de 1 mês positivo.'},
@@ -11205,7 +11216,7 @@ function leURL(){
   }else if(st.sec==='empresas'){
     if(['mosaico','tabela'].includes(p.get('modo')))st.modoEmp=p.get('modo');st.q=(p.get('q')||'').slice(0,200);
     const tags=new Set(E.flatMap(e=>e.tagsL));listaURL(p,'categoria',new Set(Object.keys(CORES))).forEach(x=>st.cats.add(x));listaURL(p,'tag',tags).forEach(x=>st.tags.add(x));
-    if(['ou','e'].includes(p.get('tags')))st.tagMode=p.get('tags');if(['vm','liq','nome','novo'].includes(p.get('ord')))st.sort=p.get('ord');if(['val','igual'].includes(p.get('area')))st.area=p.get('area');
+    if(['ou','e'].includes(p.get('tags')))st.tagMode=p.get('tags');if(['vm','liq','nome','novo','minima'].includes(p.get('ord')))st.sort=p.get('ord');if(['val','igual'].includes(p.get('area')))st.area=p.get('area');
   }else if(st.sec==='etfs'){
     if(['tabela','cards'].includes(p.get('modo')))st.modoEtf=p.get('modo');st.qe=(p.get('q')||'').slice(0,200);
     listaURL(p,'categoria',CATEGORIAS_ETF).forEach(x=>st.etfCategoria.add(x));

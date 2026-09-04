@@ -64,7 +64,7 @@ function calcula(rows,ticker){
     r21:arred(retorno(a,21)),r63:arred(retorno(a,63)),r252:arred(retorno(a,252)),
     g20:completa(j20,20)?arred(media(j20.map(x=>x.p*x.vol)),0):null,g60:completa(j60,60)?arred(media(j60.map(x=>x.p*x.vol)),0):null,
     d20:completa(j20,20)?j20.filter(x=>x.vol>0).length:null,d60:completa(j60,60)?j60.filter(x=>x.vol>0).length:null,
-    dd252:arred((ult.a/max-1)*100),min252:arred(min),max252:arred(max),
+    dd252:arred((ult.a/max-1)*100),dm252:arred((ult.a/min-1)*100),min252:arred(min),max252:arred(max),
     mm50:rows.length>=50?arred((ult.a/media(a.slice(-50))-1)*100):null,
     mm200:rows.length>=200?arred((ult.a/media(a.slice(-200))-1)*100):null,
     v21:rd.length>=15?arred(desvio(rd)*Math.sqrt(252)*100):null,

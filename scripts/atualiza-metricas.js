@@ -83,6 +83,7 @@ function calcula(rows){
     d20: j20.filter(x => x.vol > 0).length,
     d60: j60.filter(x => x.vol > 0).length,
     dd252: arred((ult.a / max252 - 1) * 100),
+    dm252: arred((ult.a / min252 - 1) * 100),
     min252: arred(min252),
     max252: arred(max252),
     mm50: rows.length >= 50 ? arred((ult.a / media(ajustados.slice(-50)) - 1) * 100) : null,
