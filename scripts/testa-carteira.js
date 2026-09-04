@@ -1,0 +1,12 @@
+const fs=require('fs'),path=require('path'),vm=require('vm'),assert=require('node:assert/strict');
+const codigo=fs.readFileSync(path.join(__dirname,'..','index.html'),'utf8').match(/<script>([\s\S]*?)<\/script>/)[1];
+let gravado='',bloqueado=false;const precos={PETR4:{p:30},AAPL34:{p:60}};
+const ctx=vm.createContext({console,CARTEIRA:[],AVISO_CARTEIRA:'',FAVORITOS:new Set(),E:[],BDR:[],ETF:[],localStorage:{setItem(k,v){assert.equal(k,'mapaB3Carteira');if(bloqueado)throw new Error('sem acesso');gravado=v;}},cot:t=>precos[t]||null});
+vm.runInContext(codigo.slice(codigo.indexOf('function leCarteira('),codigo.indexOf('function resultadoCarteira(')),ctx);
+assert.deepEqual(JSON.parse(JSON.stringify(ctx.leCarteira([{ticker:' petr4 ',qtd:10,pm:20},{ticker:'PETR4',qtd:12,pm:22},{ticker:'AAPL34',qtd:2,pm:50},{ticker:'<script>',qtd:1,pm:1},{ticker:'BOVA11',qtd:0,pm:10}]))),[{ticker:'PETR4',qtd:12,pm:22},{ticker:'AAPL34',qtd:2,pm:50}]);
+for(const invalido of [null,{},'PETR4'])assert.throws(()=>ctx.leCarteira(invalido));
+assert.equal(ctx.numeroCarteira('1.234,56'),1234.56);assert.equal(ctx.numeroCarteira('12.5'),12.5);assert.ok(Number.isNaN(ctx.numeroCarteira('')));
+ctx.CARTEIRA=[{ticker:'PETR4',qtd:10,pm:20},{ticker:'AAPL34',qtd:2,pm:50},{ticker:'SEMPR1',qtd:3,pm:10}];
+let t=ctx.totaisCarteira();assert.deepEqual({investido:t.investido,atual:t.atual,custoCotado:t.custoCotado,cotados:t.cotados,resultado:t.resultado},{investido:330,atual:420,custoCotado:300,cotados:2,resultado:120});assert.ok(Math.abs(t.retorno-40)<1e-9);
+assert.equal(ctx.salvaCarteira(),true);assert.deepEqual(JSON.parse(gravado),ctx.CARTEIRA);bloqueado=true;assert.equal(ctx.salvaCarteira(),false);assert.match(ctx.AVISO_CARTEIRA,/somente nesta sessão/);
+console.log('OK: carteira local, validação, números em pt-BR, totais, ausência de cotação e persistência');

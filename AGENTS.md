@@ -45,11 +45,13 @@ index.html          const D = {...}  ← 369 empresas, embutido no arquivo (font
    │                fetch('precos.json')   ← cotações, carregado em runtime
    │                fetch('bdrs.json')     ← lista de BDRs, carregado em runtime
    │                fetch('etfs.json')     ← lista de ETFs, carregado em runtime
+   │                fetch('etfs-detalhes.json') ← curadoria progressiva de índice e carteira
    │                fetch('metricas.json') ← indicadores históricos, carregado em runtime
    │                fetch('metricas-empresas.json') ← indicadores das empresas brasileiras
    │                fetch('analise.json')  ← ativo-lastro, paridade, câmbio e percentis
    │                fetch('eventos.json')  ← documentos recentes da CVM
    │                fetch('saude.json')    ← datas, coberturas e alertas das bases
+   │                localStorage           ← carteira e acompanhamento locais
    │
 scripts/atualiza-precos.js   lê os tickers DO index.html + do bdrs.json + do etfs.json → grava precos.json
 scripts/gera-bdrs.js         API da B3 + perfis do Yahoo + complementos → grava bdrs.json
@@ -80,7 +82,7 @@ e a barra inicial quebraria lá.
 
 ## Arquitetura de navegação
 
-São **seis seções**, uma por universo, controladas por `st.sec` e pela função `navega()`:
+São **sete seções**, uma por universo, controladas por `st.sec` e pela função `navega()`:
 
 | Seção | `st.sec` | Contêiner |
 |---|---|---|
@@ -88,6 +90,7 @@ São **seis seções**, uma por universo, controladas por `st.sec` e pela funç�
 | Empresas brasileiras | `empresas` | `#secEmpresas` — mosaico ou tabela |
 | BDRs | `bdrs` | `#secBdrs` — tabela, cards ou matriz |
 | ETFs | `etfs` | `#secEtfs` — tabela ou cards |
+| Carteira | `carteira` | `#secCarteira` — posições e acesso ao acompanhamento local |
 | Radar de listagens | `radar` | `#secRadar` — montada por `radarHTML()` |
 | Metodologia | `metodologia` | `#secMetodologia` |
 
@@ -155,6 +158,13 @@ JSONs de runtime usados pelos `fetch()` relativos.
   sem correspondência com o `id` interno da B3. Cruzar as duas por nome arriscaria atribuir
   o patrimônio de um fundo a outro; por isso esses campos ficam de fora, e a ficha do ETF
   diz isso explicitamente em vez de fingir cobertura completa.
+- **Detalhamento editorial dos ETFs:** os registros curados ficam em
+  `etfs-detalhes.json`; o contrato e os vocabulários ficam em
+  `etfs-detalhes.schema.json`, com regras de preenchimento em `ETFS-DETALHES.md`. Essa
+  camada deve permanecer separada de `etfs.json` e só pode ligar um registro ao catálogo
+  pela coincidência de ticker e `idB3`, com CNPJ confirmado em fonte oficial. Não inferir
+  índice, carteira, geografia ou estratégia apenas pelo nome do fundo. Ao alterar o
+  esquema, rode `node scripts/valida-taxonomia-etfs.js`.
 - **Ativo-lastro e relação do programa: descritivos operacionais oficiais do Banco B3.**
   `scripts/gera-bdrs-referencia.py` lê os PDFs e registra o link específico de cada programa.
 - **Câmbio de referência: PTAX do Banco Central do Brasil.** Histórico do ativo-lastro e do
@@ -179,8 +189,9 @@ JSONs de runtime usados pelos `fetch()` relativos.
 - **Paridade não é preço justo.** `analise.json` combina o preço do ativo-lastro no Yahoo,
   a relação oficial do programa e a PTAX do Banco Central. Horários, liquidez, custos e
   tributos diferem; mantenha a linguagem de referência indicativa e o residual explícito.
-- **Acompanhamento é local.** Favoritos ficam em `localStorage`; filtros e ficha aberta ficam
-  na URL. Não introduza conta, backend ou sincronização sem uma decisão explícita do projeto.
+- **Acompanhamento e carteira são locais.** Favoritos, quantidade e preço médio ficam em
+  `localStorage`; filtros e ficha aberta ficam na URL. Não introduza conta, backend ou
+  sincronização sem uma decisão explícita do projeto.
 - **Eventos não recebem resumo sintético.** `eventos.json` traz metadados e links oficiais da
   CVM. Exiba o original sem fingir interpretação editorial ou regulatória.
 - **A classificação de BDR não pode ficar incompleta.** O gerador aborta se país, setor ou

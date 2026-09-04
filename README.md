@@ -11,9 +11,12 @@ por categoria oficial da B3.
 | Caminho | O que é |
 |---|---|
 | `index.html` | A página inteira: dados, estilo e lógica em arquivo único |
-| `precos.json` | Cotações (empresas + BDR), gerado automaticamente — **não editar à mão** |
+| `precos.json` | Cotações (empresas + BDRs + ETFs), gerado automaticamente — **não editar à mão** |
 | `bdrs.json` | Lista de BDRs (ticker, empresa, país, setor, indústria e fonte), gerado automaticamente — **não editar à mão** |
 | `etfs.json` | Lista de ETFs (ticker, nome do fundo e categoria oficial da B3), gerado automaticamente — **não editar à mão** |
+| `etfs-detalhes.json` | Camada editorial progressiva de índice, exposição e carteira dos ETFs — editar somente com fontes oficiais |
+| `etfs-detalhes.schema.json` | Contrato e vocabulário controlado para a futura camada editorial de índice, exposição e carteira dos ETFs |
+| `ETFS-DETALHES.md` | Regras de preenchimento, identidade e fontes do detalhamento dos ETFs |
 | `metricas.json` | Indicadores históricos dos BDRs, gerado diariamente — **não editar à mão** |
 | `metricas-empresas.json` | Indicadores históricos das empresas brasileiras, gerado diariamente — **não editar à mão** |
 | `bdrs-referencia.json` | Ativo-lastro, bolsa e relação do programa, extraídos dos documentos oficiais do Banco B3 |
@@ -30,6 +33,7 @@ por categoria oficial da B3.
 | `scripts/gera-bdrs.js` | Busca a lista de BDRs na B3 + país/setor no Yahoo e grava o `bdrs.json` |
 | `scripts/bdrs-complementos.json` | Complementos verificados para perfis ausentes no Yahoo, com fonte por companhia |
 | `scripts/gera-etfs.js` | Busca a lista de ETFs na B3 (seis categorias), verifica o ticker no Yahoo e grava o `etfs.json` |
+| `scripts/valida-taxonomia-etfs.js` | Confere o contrato, os vocabulários e a ligação básica de `etfs-detalhes.json` com o catálogo |
 | `scripts/valida-bdrs.js` | Confere cobertura, fontes, taxonomia, traduções e sintaxe do JavaScript |
 | `scripts/valida-etfs.js` | Confere cobertura, taxonomia de categorias, tradução e sintaxe do JavaScript |
 | `scripts/valida-bdrs-referencia.js` | Confere cobertura, relações e fontes oficiais dos programas |
@@ -85,11 +89,14 @@ O workflow roda a cada 30 minutos, de segunda a sexta, das 13h às 21h UTC — q
 corresponde a 10h–18h de Brasília, cobrindo o pregão da B3 com folga. O Brasil não
 tem mais horário de verão, então esse intervalo vale o ano todo.
 
-Cada execução busca em lotes todos os tickers das empresas e dos BDRs, grava o
+Cada execução busca em lotes todos os tickers das empresas, dos BDRs e dos ETFs, grava o
 `precos.json` e commita **apenas se algum preço mudou**.
 
 Para mudar a frequência, edite o `cron` em `.github/workflows/precos.yml`. Você também
 pode disparar uma atualização manual pela aba **Actions** do repositório.
+O botão **atualizar cotações** da página apenas recarrega o `precos.json` mais recente já
+publicado, com cache descartado. Ele não chama o Yahoo diretamente: o site é estático, e a
+autenticação por cookie + crumb e a consulta em lotes continuam restritas ao workflow.
 
 ### Limitações que valem saber
 
@@ -239,6 +246,7 @@ o site publicado continua sendo HTML, CSS e JavaScript puros, sem build ou pacot
 - Os minigráficos não são sobrepostos no comparador: a base compacta não traz datas por
   ponto e pode conter históricos de extensões diferentes. As janelas numéricas permanecem
   explícitas, sem sugerir uma evolução sincronizada que os dados não permitem demonstrar.
+
 - Seção, filtros, ordenação, visualização e ficha aberta ficam na URL para compartilhar o
   mesmo recorte.
 - Nas empresas, o link inclui também a combinação das tags (`qualquer` ou `todas`), a
@@ -354,6 +362,26 @@ node scripts/testa-saude.js
 node scripts/valida-saude.js
 ```
 
+## Carteira local
+
+A seção **Carteira** aceita ticker, quantidade e preço médio unitário para empresas
+brasileiras, BDRs e ETFs presentes nas bases carregadas. As posições são gravadas em
+`localStorage` na chave `mapaB3Carteira`; não há conta, backend ou sincronização.
+
+O valor atual usa a última cotação disponível em `precos.json`. Custo, resultado e retorno
+são brutos: não incluem proventos, aportes intermediários, taxas, impostos ou ajustes para
+declaração fiscal. Posições sem cotação permanecem salvas e são excluídas do resultado
+agregado até que voltem a ter preço.
+
+A mesma seção torna visível a lista de BDRs acompanhados e oferece acesso direto ao filtro
+completo de acompanhamento. Favoritos e carteira continuam sendo dados locais separados.
+
+Validação específica:
+
+```bash
+node scripts/testa-carteira.js
+```
+
 ## Aba de ETFs
 
 222 ETFs listados oficialmente pela B3 nas seis categorias oficiais de
@@ -374,6 +402,35 @@ de ranking exigiria um piso de liquidez que só existe quando há histórico, e 
 A interface explica, em linguagem curta, o foco de cada uma das seis categorias e repete
 o contexto na ficha do ETF. Essa explicação é da classe oficial, não uma descrição da
 carteira específica: posições e pesos continuam exigindo o regulamento e a lâmina do gestor.
+
+### Contrato da classificação detalhada
+
+O primeiro passo da evolução dessa base está definido em `etfs-detalhes.schema.json` e
+documentado em `ETFS-DETALHES.md`. O esquema separa a categoria oficial da B3 de dimensões
+mais úteis para entender cada fundo: classe de ativo, foco, geografia, setores, temas,
+fatores, estratégia, forma de exposição, política cambial, replicação e principais
+posições com data de referência.
+
+Essa nova camada é ligada a `etfs.json` por **ticker + `idB3`** e exige CNPJ e fontes
+oficiais. Ela terá cobertura progressiva: um ETF sem evidência suficiente continuará no
+catálogo, mas não receberá uma classificação específica por inferência do nome. O arquivo
+`etfs-detalhes.json` contém uma curadoria progressiva de 15/222 fundos: LFTS11, WRLD11,
+USTK11, GLDX11, HASH11, HERT11, BOVA11, SMAL11, BNDX11, DOLA11, DIVO11, ISUS11,
+NTNS11, LFIX11 e GOAT11. As posições distinguem ativos diretos de aberturas econômicas
+`look-through`. A ficha consome essa camada quando existe um registro curado, mostra
+data e fontes oficiais e mantém a apresentação anterior nos demais ETFs.
+
+A mesma taxonomia agora também orienta a exploração: a aba filtra por cobertura
+editorial, classe real, foco, geografia e características (setores, temas ou fatores).
+As dimensões específicas só incluem fundos já curados; o seletor de cobertura deixa
+explícitos e acessíveis tanto os detalhados quanto os ainda pendentes. Tabela e cards
+mostram badges de classe, foco e geografia, e todos esses filtros são preservados na URL.
+
+Validação do contrato:
+
+```bash
+node scripts/valida-taxonomia-etfs.js
+```
 
 **Ticker**: `<código da B3>+11`, verificado contra o Yahoo. Uma listagem oficial nova sem
 cotação positiva continua no catálogo, marcada como não confirmada, em vez de desaparecer

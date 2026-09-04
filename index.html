@@ -215,6 +215,12 @@ table.tab .marc{display:inline-block;width:6px;height:6px;border-radius:1px;marg
 .matriz text{fill:var(--tx3);font:11px var(--mo)}
 .matrizLegenda{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:11.5px;color:var(--tx2);margin:12px 0}.matrizLegenda i{display:inline-block;width:8px;height:8px;margin-right:5px}.matrizValores{margin-top:14px;font-size:12px}.matrizValores summary{cursor:pointer;color:var(--am);padding:8px 0}.matrizValores .rolagem{max-height:360px;overflow:auto}.matrizValores table{border-collapse:collapse;width:100%;min-width:560px}.matrizValores th,.matrizValores td{padding:8px;text-align:left;border-bottom:1px solid var(--line)}.matrizValores th{background:var(--sup);position:sticky;top:0}.matrizPonto{min-height:48px;font-size:12px;color:var(--tx2);overflow-wrap:anywhere}.matrizCtl select{max-width:100%;min-width:0}.matrizCtl label{flex-wrap:wrap;max-width:100%}
 .acompResumo{border:1px solid var(--line);padding:12px 14px;margin:12px 0;font-size:12px;color:var(--tx2);overflow-wrap:anywhere}.acompResumo p{margin:0 0 8px}.acompResumo .acoes{display:flex;gap:12px;flex-wrap:wrap}.acompResumo details{margin-top:10px}.acompResumo li{margin:6px 0}.favMsg{color:var(--am);font-size:12px;overflow-wrap:anywhere}.favMsg:empty{display:none}
+.carteiraForm{display:grid;grid-template-columns:minmax(130px,1fr) minmax(120px,1fr) minmax(140px,1fr) auto auto;gap:10px;align-items:end;margin:14px 0}
+.carteiraForm label{display:flex;flex-direction:column;gap:5px;color:var(--tx3);font-size:11.5px}
+.carteiraForm input{width:100%;background:var(--sup);border:1px solid var(--line);border-radius:var(--r);color:var(--tx);font:13px var(--mo);padding:9px 10px}
+.carteiraForm input:focus{border-color:var(--am);outline:0}.carteiraForm .btn,.carteiraForm .lnk{min-height:36px}
+.carteiraAcoes{display:flex;gap:8px;justify-content:flex-end}.carteiraAcoes button{white-space:nowrap}
+.favoritosLista{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0}.favoritosLista button{font-family:var(--mo)}
 .saude{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border-block:1px solid var(--line)}
 .saude div{background:var(--bg);padding:11px 13px}.saude b{display:block;font:500 17px var(--mo)}.saude span,.saude small{display:block;font-size:11.5px;color:var(--tx3)}.saude small{font-family:var(--mo);font-size:10px;margin-top:3px}
 .compare{width:100%;border-collapse:collapse;font-size:12px}.compare th,.compare td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:right}.compare th:first-child,.compare td:first-child{text-align:left}.compare thead th{font-family:var(--mo);color:var(--tx)}
@@ -299,6 +305,20 @@ table.tab .marc{display:inline-block;width:6px;height:6px;border-radius:1px;marg
 .fnt{color:var(--tx3);font-size:11.5px;line-height:1.5;margin:9px 0 0}
 .fnt a{color:var(--tx2)}
 .dsc{color:var(--tx2);font-size:13.5px;margin:14px 0 0;line-height:1.55}
+.detMark{display:inline-block;margin-left:6px;padding:1px 4px;border:1px solid var(--line2);border-radius:2px;
+  color:var(--tx3);font:500 8.5px var(--ui);letter-spacing:.02em;vertical-align:1px}
+.etfBadges{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.etfBadges span{border:1px solid var(--line);border-radius:2px;padding:2px 5px;color:var(--tx3);font:500 9.5px var(--ui)}
+.etfTags{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0 0}
+.etfTags span{border:1px solid var(--line2);border-radius:2px;padding:3px 6px;color:var(--tx2);font-size:10.5px}
+.posEtf{list-style:none;margin:0;padding:0}
+.posEtf li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;padding:7px 0;border-bottom:1px solid var(--line);font-size:12.5px}
+.posEtf li:last-child{border-bottom:0}
+.posEtf b{font-weight:500;min-width:0}
+.posEtf .peso{font:500 12px var(--mo);font-variant-numeric:tabular-nums}
+.posEtf small{color:var(--tx3);font-size:10.5px;grid-column:1/-1}
+.fontesEtf{margin:7px 0 0;padding-left:17px;color:var(--tx3);font-size:11.5px;line-height:1.5}
+.fontesEtf li{margin:4px 0}.fontesEtf a{color:var(--tx2)}
 
 /* ---------- metodologia ---------- */
 .meto{max-width:76ch}
@@ -347,6 +367,7 @@ footer p{margin:0;max-width:62ch;line-height:1.55}
   tr.det .dl span:nth-child(even){font-family:var(--mo);text-align:right}
   #drw{width:100%;border-left:0;padding:18px 18px 40px}
   .retrato b{font-size:21px}
+  .carteiraForm{grid-template-columns:1fr 1fr}.carteiraForm label:first-child{grid-column:1/-1}.carteiraForm .btn,.carteiraForm .lnk{width:100%}
   .duo{grid-template-columns:1fr;gap:6px}
   .dist .l{grid-template-columns:minmax(0,1fr) 58px 52px}
   .recs{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
@@ -367,6 +388,7 @@ footer p{margin:0;max-width:62ch;line-height:1.55}
       <button data-sec="empresas">Empresas brasileiras</button>
       <button data-sec="bdrs">BDRs</button>
       <button data-sec="etfs">ETFs</button>
+      <button data-sec="carteira">Carteira</button>
       <button data-sec="radar">Radar de listagens</button>
       <button data-sec="metodologia">Metodologia</button>
     </nav>
@@ -374,6 +396,8 @@ footer p{margin:0;max-width:62ch;line-height:1.55}
       <span>base <b id="snapDate">14 de agosto de 2026</b></span>
       <span id="atz"></span>
       <span id="mtz"></span>
+      <button id="atualizaPrecosBt" title="Recarregar a base de cotações mais recente já publicada">atualizar cotações</button>
+      <span class="sr" id="precosMsg" role="status" aria-live="polite"></span>
       <button id="saudeBt" title="Cobertura e atualização das fontes">dados <b id="saudeTxt">—</b></button>
     </div>
   </div>
@@ -508,7 +532,7 @@ footer p{margin:0;max-width:62ch;line-height:1.55}
             <input id="qBdr" type="search" placeholder="Ticker, empresa, país, setor" aria-label="Buscar BDRs">
           </label>
           <button class="btn" id="btFiltros2" data-abre-filtro>Filtros</button>
-          <button class="btn" id="soFav" aria-pressed="false">Acompanhando <b id="nFav">0</b></button>
+          <button class="btn" id="soFav" aria-pressed="false" aria-label="Mostrar somente BDRs favoritos">★ Favoritos <b id="nFav">0</b></button>
           <div class="seg" role="group" aria-label="Modo de visualização">
             <button id="mTabela" aria-pressed="true">Tabela</button>
             <button id="mCards" aria-pressed="false">Cards</button>
@@ -539,6 +563,26 @@ footer p{margin:0;max-width:62ch;line-height:1.55}
           <div class="opts" id="etfCategorias"></div>
         </div>
       </div>
+      <div class="fgrp" data-open="true">
+        <button class="fhead" aria-expanded="true">Cobertura editorial<span class="arw">▾</span></button>
+        <div class="fbody"><div class="opts" id="etfCoberturas"></div></div>
+      </div>
+      <div class="fgrp" data-open="true">
+        <button class="fhead" aria-expanded="true">Classe real<span class="cnt hide" id="cntClasseEtf"></span><span class="arw">▾</span></button>
+        <div class="fbody"><div class="opts" id="etfClasses"></div></div>
+      </div>
+      <div class="fgrp" data-open="true">
+        <button class="fhead" aria-expanded="true">Foco<span class="cnt hide" id="cntFocoEtf"></span><span class="arw">▾</span></button>
+        <div class="fbody"><div class="opts" id="etfFocos"></div></div>
+      </div>
+      <div class="fgrp" data-open="false">
+        <button class="fhead" aria-expanded="false">Geografia<span class="cnt hide" id="cntGeoEtf"></span><span class="arw">▾</span></button>
+        <div class="fbody"><div class="opts" id="etfGeografias"></div></div>
+      </div>
+      <div class="fgrp" data-open="false">
+        <button class="fhead" aria-expanded="false">Características<span class="cnt hide" id="cntCaracEtf"></span><span class="arw">▾</span></button>
+        <div class="fbody"><div class="opts" id="etfCaracteristicas"></div></div>
+      </div>
       <button class="btn fechaF" data-fecha-filtro>Ver resultados</button>
     </aside>
 
@@ -565,6 +609,29 @@ footer p{margin:0;max-width:62ch;line-height:1.55}
       <div id="boxTabelaEtf"></div>
       <div id="boxCardsEtf" class="hide"></div>
     </div>
+  </div>
+</section>
+
+<!-- ============ CARTEIRA ============ -->
+<section id="secCarteira" class="hide">
+  <div class="painel">
+    <h2 class="sec">Minha carteira</h2>
+    <p class="nota">As posições ficam somente neste navegador. Informe quantidade e preço médio por unidade; o resultado é bruto, sem proventos, taxas ou impostos, e usa a última cotação disponível.</p>
+    <form class="carteiraForm" id="formCarteira">
+      <label>Ticker<input id="carteiraTicker" name="ticker" maxlength="10" autocomplete="off" autocapitalize="characters" placeholder="Ex.: PETR4" required></label>
+      <label>Quantidade<input id="carteiraQtd" name="quantidade" inputmode="decimal" placeholder="Ex.: 100" required></label>
+      <label>Preço médio unitário<input id="carteiraPm" name="precoMedio" inputmode="decimal" placeholder="Ex.: 28,50" required></label>
+      <button class="btn" type="submit" id="salvaPosicao">Adicionar posição</button>
+      <button class="lnk hide" type="button" id="cancelaPosicao">cancelar</button>
+    </form>
+    <p class="favMsg" id="carteiraMsg" role="status" aria-live="polite"></p>
+    <div class="retrato" id="carteiraResumo"></div>
+    <div id="carteiraTabela"></div>
+
+    <h2 class="sec">BDRs favoritos</h2>
+    <p class="nota">Esta é a lista criada pelas estrelas da tabela e das fichas de BDR. Ela também fica somente neste navegador.</p>
+    <div id="carteiraFavoritos"></div>
+    <p><button class="lnk" id="verAcompanhamento">Abrir todos os favoritos nos BDRs →</button></p>
   </div>
 </section>
 
@@ -9693,13 +9760,17 @@ const st = {
   bdrSort:'g20', bdrDir:'desc', recorte:null, soFav:false,
   matX:'g20', matY:'forca', ativo:null,
   buscaPais:'', buscaInd:'', buscaTag:'',
-  modoEtf:'tabela', qe:'', etfCategoria:new Set(), etfSort:'nome', etfDir:'asc'
+  modoEtf:'tabela', qe:'', etfCategoria:new Set(), etfCobertura:'todos',
+  etfClasse:new Set(), etfFoco:new Set(), etfGeo:new Set(), etfCaracteristica:new Set(),
+  etfSort:'nome', etfDir:'asc'
 };
 
-let FAVORITOS = new Set(), COMPARAR = new Set();
-let AVISO_FAV = '', EVENTO_FAV = '', BDR_CARGA = 'carregando';
+let FAVORITOS = new Set(), COMPARAR = new Set(), CARTEIRA = [];
+let AVISO_FAV = '', EVENTO_FAV = '', AVISO_CARTEIRA = '', BDR_CARGA = 'carregando', CARTEIRA_EDITANDO = null;
 try { FAVORITOS=leFavoritos(JSON.parse(localStorage.getItem('mapaB3Favoritos')||'[]')); }
 catch { AVISO_FAV='Não foi possível ler a lista salva neste navegador. Os dados anteriores não foram alterados; novas alterações tentarão salvar a lista desta sessão.'; }
+try { CARTEIRA=leCarteira(JSON.parse(localStorage.getItem('mapaB3Carteira')||'[]')); }
+catch { AVISO_CARTEIRA='Não foi possível ler a carteira salva neste navegador. Os dados anteriores não foram alterados.'; }
 const MAX_COMPARAR = 4;
 try { COMPARAR=leComparacao(JSON.parse(localStorage.getItem('mapaB3Comparar')||'[]')); } catch {}
 let COMPARACAO_ABERTA = false;
@@ -10458,6 +10529,7 @@ function metodologiaHTML(){
 
   <h2>Cotações</h2>
   <p>Preços vêm do Yahoo Finance, que <b>não é fonte oficial da B3</b>, com atraso de cerca de 15 minutos. Atualizam a cada 30 minutos durante o pregão. Ação parada retorna preço zero na origem, o que é ausência de dado e não cotação: esses casos aparecem explicitamente como sem cotação, nunca como R$ 0,00.</p>
+  <p>O botão <b>atualizar cotações</b> recarrega a versão mais recente já publicada pelo projeto. A coleta no Yahoo continua no GitHub Actions: esta página é estática e não guarda credenciais nem dispara centenas de consultas a partir do navegador.</p>
   <p>Empresas com mais de uma classe de ação exibem a classe de <b>maior volume no dia</b>, decidida pelo dado da própria API e não por convenção de sufixo. A ficha mostra todas as classes.</p>
   <p><b>O tamanho dos blocos no mosaico não acompanha o preço.</b> Ele vem do valor de mercado estimado na data da base, que é um retrato fixo. Recalcular exigiria a quantidade de ações em circulação, que não está na base. Os dois divergem com o tempo.</p>
 
@@ -10476,6 +10548,9 @@ function metodologiaHTML(){
   <h2>Percentis, matriz e acompanhamento</h2>
   <p>Percentil indica a posição do retorno de 63 pregões dentro do setor ou da indústria: 80 significa que o ativo ficou acima ou igual a 80% dos pares com dado, não que seja melhor investimento. A matriz apenas cruza dois indicadores selecionados e respeita todos os filtros ativos.</p>
   <p>A lista de acompanhamento e a seleção do comparador ficam somente neste navegador, em armazenamento local. Filtros, ordenação, modo de visualização e ficha aberta ficam na URL, permitindo compartilhar o mesmo recorte sem transmitir a lista pessoal.</p>
+
+  <h2>Carteira local</h2>
+  <p>Quantidade e preço médio são informados pelo usuário e ficam somente no armazenamento deste navegador. O valor atual usa a última cotação disponível; o resultado é bruto e não incorpora aportes intermediários, proventos, taxas, impostos ou eventos corporativos. Não é relatório fiscal nem recomendação de investimento.</p>
 
   <h2>Força relativa</h2>
   <p>É a diferença, <b>em pontos percentuais</b>, entre o retorno do ativo e a <b>mediana</b> do seu grupo no mesmo período. O grupo padrão é a indústria; quando a indústria tem menos de três BDRs com histórico, a comparação usa o setor, e a ficha informa o tamanho da amostra. É uma ferramenta de comparação relativa, não um julgamento de qualidade.</p>
@@ -10809,7 +10884,7 @@ mapa.addEventListener('mousemove', ev => {
 mapa.addEventListener('mouseleave', () => tip.style.opacity = 0);
 
 /* ---------- ETF ---------- */
-let ETF = [];
+let ETF = [], ETF_DETALHE = new Map();
 
 /* Categoria vem pronta da B3 (typeFund), sem falha por item -- diferente de
    pais/setor/industria do BDR, que dependem de uma consulta por empresa. */
@@ -10833,6 +10908,47 @@ const CORES_CATEGORIA_ETF = {
 const categoriaETFPT = c => c ? (CATEGORIA_ETF_PT[c] || c) : null;
 const corCategoriaEtf = c => CORES_CATEGORIA_ETF[c] || '#4A5568';
 const focoCategoriaEtf = c => FOCO_CATEGORIA_ETF[c] || 'Categoria oficial da B3; consulte o regulamento para conhecer a carteira e o índice seguido.';
+const ROT_ETF_DET = {
+  'acoes':'Ações','renda-fixa':'Renda fixa','fundos-imobiliarios':'Fundos imobiliários','criptoativos':'Criptoativos','commodities':'Commodities','moedas':'Moedas',
+  'mercado-amplo':'Mercado amplo','porte':'Porte','setorial':'Setorial','tematico':'Temático','fator-estilo':'Fator ou estilo','renda':'Renda','sustentabilidade':'Sustentabilidade','vencimento-alvo':'Vencimento-alvo','indexador-macroeconomico':'Indexador macroeconômico','ativo-unico':'Ativo único','multiativo':'Multiativo',
+  'brasil':'Brasil','estados-unidos':'Estados Unidos','global':'Global','mercados-desenvolvidos':'Mercados desenvolvidos','mercados-emergentes':'Mercados emergentes','multirregional':'Multirregional','nao-se-aplica':'Não se aplica',
+  'tecnologia':'Tecnologia','imobiliario':'Imobiliário','financeiro':'Financeiro','tamanho':'Tamanho','dividendos':'Dividendos','ponderacao-valor-mercado':'Ponderação por valor de mercado','ponderacao-fundamentalista':'Ponderação fundamentalista','selecao-sistematica':'Seleção sistemática','juros-pos-fixados':'Juros pós-fixados','cesta-diversificada':'Cesta diversificada','credito':'Crédito','inflacao':'Inflação','duration-alvo':'Duration-alvo','preco-spot':'Preço à vista','rolagem-futuros':'Rolagem de futuros',
+  'ativos-diretos':'Ativos diretos','cotas-etf':'Cotas de outro ETF','cotas-fundo':'Cotas de outro fundo','futuros':'Contratos futuros','caixa-garantias':'Caixa e garantias','exposto':'Exposto ao câmbio','protegido':'Protegido do câmbio','quanto':'Estrutura quanto','misto':'Política cambial mista',
+  'fisica-nao-especificada':'Replicação física','fisica-total':'Replicação física completa','fisica-amostragem':'Replicação física por amostragem','sintetica':'Replicação sintética','indireta':'Replicação indireta','mista':'Replicação mista',
+  'direta':'posição direta','look-through':'exposição econômica'
+};
+const rotEtfDet = x => ROT_ETF_DET[x] || String(x||'').replace(/-/g,' ');
+const fmtCNPJ = x => /^\d{14}$/.test(x||'') ? x.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, '$1.$2.$3/$4-$5') : x;
+const caracEtf = d => d ? [...d.classificacao.setores,...d.classificacao.temas,...d.classificacao.fatores] : [];
+const badgesETF = x => {
+  const d=ETF_DETALHE.get(x.ticker);if(!d)return '';
+  const c=d.classificacao, itens=[...c.classesAtivo,c.focoPrincipal,c.geografia.escopo].filter((v,i,a)=>v&&a.indexOf(v)===i);
+  return `<div class="etfBadges">${itens.map(v=>'<span>'+esc(rotEtfDet(v))+'</span>').join('')}</div>`;
+};
+
+function detalheETFHTML(d, l){
+  if(!d) return '';
+  const c=d.classificacao, k=d.carteira, geo=c.geografia;
+  const numero=v=>Number.isFinite(v)?v.toLocaleString('pt-BR',{maximumFractionDigits:2}):'—';
+  const dia=v=>/^\d{4}-\d{2}-\d{2}$/.test(v||'')?v.split('-').reverse().join('/'):'—';
+  const tags=[...c.classesAtivo,c.focoPrincipal,geo.escopo,...c.setores,...c.temas,...c.fatores].filter((x,i,a)=>x&&a.indexOf(x)===i);
+  const implementacao=[...c.estrategias,...c.formasExposicao,c.replicacao,c.politicaCambial].map(rotEtfDet).join(' · ');
+  const pos=k.principaisPosicoes.map(p=>`<li><b>${esc(p.nome)}${p.ticker?' <span class="na">· '+esc(p.ticker)+'</span>':''}</b><span class="peso">${numero(p.participacaoPct)}%</span><small>${esc(rotEtfDet(p.nivel))}${p.nivel==='look-through'?' — componente do índice ou veículo subjacente':''}</small></li>`).join('');
+  const exp=k.exposicoes.length?`<p class="fnt"><b>Exposições publicadas:</b> ${k.exposicoes.map(x=>esc(x.nome)+' '+numero(x.participacaoPct)+'%').join(' · ')}</p>`:'';
+  const fontes=d.fontes.map(f=>`<li><a href="${esc(f.url)}" target="_blank" rel="noopener noreferrer">${esc(f.titulo)}</a> · ${esc(f.publicador)}${f.dataReferencia?' · referência '+dia(f.dataReferencia):''}</li>`).join('');
+  return `<div class="bloco"><h3>O que este ETF acompanha</h3><dl class="kv">
+      ${l('Índice',esc(d.indice.nome),true)}${l('Provedor',esc(d.indice.provedor),true)}
+      ${l('Foco',esc(rotEtfDet(c.focoPrincipal)),true)}${l('Geografia',esc(rotEtfDet(geo.escopo)),true)}
+      ${l('Implementação',esc(implementacao),true)}
+    </dl><div class="etfTags">${tags.map(x=>'<span>'+esc(rotEtfDet(x))+'</span>').join('')}</div></div>
+    <div class="bloco"><h3>Principais posições · ${dia(k.dataReferencia)}</h3>
+      <ul class="posEtf">${pos}</ul>
+      <p class="fnt">As posições exibidas somam ${numero(k.coberturaDivulgadaPct)}% da carteira ou exposição publicada.${k.quantidadePosicoes?' O universo informado contém '+k.quantidadePosicoes+' posições.':''}</p>${exp}
+      ${k.observacao?'<p class="fnt">'+esc(k.observacao)+'</p>':''}</div>
+    <div class="bloco"><h3>Identidade e fontes oficiais</h3><dl class="kv">
+      ${l('CNPJ',esc(fmtCNPJ(d.cnpj)))}${l('Gestor',esc(d.gestor),true)}${d.administrador?l('Administrador',esc(d.administrador),true):''}
+    </dl><ul class="fontesEtf">${fontes}</ul><p class="fnt">Curadoria revisada em ${dia(d.revisadoEm)}. A composição é uma fotografia e pode mudar nos rebalanceamentos.</p></div>`;
+}
 
 function guiaCategoriasETF(){
   const n={};ETF.forEach(x=>n[x.categoria]=(n[x.categoria]||0)+1);
@@ -10843,6 +10959,12 @@ function filtraETF(){
   let r = ETF;
   if(st.qe){ const q = norm(st.qe); r = r.filter(x => x._s.includes(q)); }
   if(st.etfCategoria.size) r = r.filter(x => st.etfCategoria.has(x.categoria));
+  if(st.etfCobertura==='detalhados')r=r.filter(x=>ETF_DETALHE.has(x.ticker));
+  else if(st.etfCobertura==='pendentes')r=r.filter(x=>!ETF_DETALHE.has(x.ticker));
+  if(st.etfClasse.size)r=r.filter(x=>ETF_DETALHE.get(x.ticker)?.classificacao.classesAtivo.some(v=>st.etfClasse.has(v)));
+  if(st.etfFoco.size)r=r.filter(x=>st.etfFoco.has(ETF_DETALHE.get(x.ticker)?.classificacao.focoPrincipal));
+  if(st.etfGeo.size)r=r.filter(x=>st.etfGeo.has(ETF_DETALHE.get(x.ticker)?.classificacao.geografia.escopo));
+  if(st.etfCaracteristica.size)r=r.filter(x=>caracEtf(ETF_DETALHE.get(x.ticker)).some(v=>st.etfCaracteristica.has(v)));
   return ordenaETF(r);
 }
 /* Mesma regra do valorCol/ordenaBDR: sem dado sempre vai para o fim,
@@ -10876,7 +10998,29 @@ function chipsETF(){
   const itens = Object.keys(c).sort((a,b)=>c[b]-c[a]||a.localeCompare(b))
     .map(v => ({v, rot:categoriaETFPT(v), n:c[v], cor:corCategoriaEtf(v)}));
   opcoes('etfCategorias', itens, st.etfCategoria, 'etfcat');
+  const det=[...ETF_DETALHE.values()], lista=(valores,set,chave,destino)=>{
+    const n={};valores.filter(Boolean).forEach(v=>n[v]=(n[v]||0)+1);
+    opcoes(destino,Object.keys(n).sort((a,b)=>n[b]-n[a]||rotEtfDet(a).localeCompare(rotEtfDet(b),'pt-BR')).map(v=>({v,rot:rotEtfDet(v),n:n[v]})),set,chave);
+  };
+  radios('etfCoberturas',{
+    todos:{rot:`Todos os ETFs · ${ETF.length}`},
+    detalhados:{rot:`Com detalhamento · ${det.length}`},
+    pendentes:{rot:`Sem detalhamento · ${Math.max(0,ETF.length-det.length)}`}
+  },st.etfCobertura,'etfcobertura');
+  lista(det.flatMap(d=>d.classificacao.classesAtivo),st.etfClasse,'etfclasse','etfClasses');
+  lista(det.map(d=>d.classificacao.focoPrincipal),st.etfFoco,'etffoco','etfFocos');
+  lista(det.map(d=>d.classificacao.geografia.escopo),st.etfGeo,'etfgeo','etfGeografias');
+  lista(det.flatMap(caracEtf),st.etfCaracteristica,'etfcarac','etfCaracteristicas');
   conta(st.etfCategoria.size, 'cntCatEtf');
+  conta(st.etfClasse.size,'cntClasseEtf');conta(st.etfFoco.size,'cntFocoEtf');
+  conta(st.etfGeo.size,'cntGeoEtf');conta(st.etfCaracteristica.size,'cntCaracEtf');
+}
+
+function resumoFiltrosETF(){
+  const p=[];
+  if(st.etfCobertura==='detalhados')p.push('com detalhamento');else if(st.etfCobertura==='pendentes')p.push('sem detalhamento');
+  [st.etfCategoria,st.etfClasse,st.etfFoco,st.etfGeo,st.etfCaracteristica].forEach((set,i)=>set.forEach(v=>p.push(i===0?(categoriaETFPT(v)||v):rotEtfDet(v))));
+  if(st.qe)p.push('busca: '+st.qe);return p;
 }
 
 const COLS_ETF = [
@@ -10900,8 +11044,8 @@ function tabelaETF(list){
     const r = cot(x.ticker), viva = negociouHoje(r);
     const preco = r ? fmtPreco(r.p) : '<span class="na">—</span>';
     return `<tr tabindex="0" data-te="${x.ticker}">
-      <td class="tk"><span class="marc" style="background:${corCategoriaEtf(x.categoria)}"></span>${x.ticker}<span class="sub only-mob">${esc(x.nome)}</span></td>
-      <td class="col-m">${esc(x.nome)}</td>
+      <td class="tk"><span class="marc" style="background:${corCategoriaEtf(x.categoria)}"></span>${x.ticker}${ETF_DETALHE.has(x.ticker)?'<span class="detMark">detalhado</span>':''}<span class="sub only-mob">${esc(x.nome)}</span></td>
+      <td class="col-m">${esc(x.nome)}${badgesETF(x)}</td>
       <td class="col-s">${esc(categoriaETFPT(x.categoria)||'')}</td>
       <td class="n">${preco}</td>
       <td class="col-s"><span class="est${viva?' viva':''}">${viva?'hoje':(r?'último':'—')}</span></td>
@@ -10922,14 +11066,14 @@ function cardsETF(list){
       : '<span class="pr na">sem cotação</span>';
     return `<button class="card" data-te="${x.ticker}" style="border-left-color:${cor}">
       <span class="top"><span class="cod" style="color:${cor}">${x.ticker}</span>
-      <span class="nm">${esc(x.nome)}</span>${preco}</span>
-      <div class="cat">${esc(categoriaETFPT(x.categoria)||'')}</div></button>`;
+      <span class="nm">${esc(x.nome)}${ETF_DETALHE.has(x.ticker)?'<span class="detMark">detalhado</span>':''}</span>${preco}</span>
+      <div class="cat">${esc(categoriaETFPT(x.categoria)||'')}</div>${badgesETF(x)}</button>`;
   }).join('') + '</div>';
 }
 
 function abreETF(ticker){
   const x = ETF.find(f => f.ticker === ticker); if(!x) return;
-  const r = cot(ticker), viva = negociouHoje(r), cor = corCategoriaEtf(x.categoria);
+  const r = cot(ticker), viva = negociouHoje(r), cor = corCategoriaEtf(x.categoria), detalhe=ETF_DETALHE.get(ticker);
   const l = (rot, valor, txt) => `<dt>${rot}</dt><dd${txt?' class="tx"':''}>${valor}</dd>`;
 
   const cotacao = r ? `<dl class="kv">
@@ -10949,16 +11093,18 @@ function abreETF(ticker){
     <span class="selo" style="background:${cor};color:${txOn(cor)}">ETF · ${esc(categoriaETFPT(x.categoria)||'')}</span>
     <h2>${ticker}</h2>
     <div class="rz">${esc(x.nome)}</div>
+    ${detalhe?'<p class="dsc">'+esc(detalhe.resumo)+'</p>':''}
     <div class="bloco"><h3>Identificação</h3><dl class="kv">
       ${l('Nome do fundo', esc(x.nome), true)}
       ${l('Categoria B3', esc(categoriaETFPT(x.categoria) || '—'), true)}
-    </dl><p class="fnt"><b>Foco da categoria:</b> ${esc(focoCategoriaEtf(x.categoria))}</p><p class="fnt">Isso descreve a classe, não a carteira específica deste fundo. O catálogo não informa as posições nem o peso de cada ativo; para saber exatamente o que ele acompanha e possui, consulte o índice, o regulamento e a lâmina do gestor.</p></div>
+    </dl><p class="fnt"><b>Foco da categoria:</b> ${esc(focoCategoriaEtf(x.categoria))}</p>${detalhe?'':'<p class="fnt">Isso descreve a classe, não a carteira específica deste fundo. Ainda não há curadoria individual para esta ficha; consulte o índice, o regulamento e a lâmina do gestor.</p>'}</div>
     <div class="bloco"><h3>Cotação</h3>${cotacao}
       <p class="fnt">Yahoo Finance, atraso de ~15 min.${PRECO_TS ? ' Consultada em ' + PRECO_TS + '.' : ''}</p></div>
+    ${detalheETFHTML(detalhe,l)}
     <div class="bloco"><h3>Classificação e fontes</h3>
       <p class="fnt">Lista e categoria: <a href="https://sistemaswebb3-listados.b3.com.br/fundsListedPage/" target="_blank" rel="noopener noreferrer">B3, consulta oficial de fundos listados</a>.<br>
       Ticker: sigla da B3 com o sufixo +11${x.tickerVerificado===false?', ainda sem confirmação de cotação positiva no Yahoo Finance':', verificado no Yahoo Finance'}. Cotação e giro do dia: Yahoo Finance, fonte não oficial.</p>
-      <p class="fnt">Índice de referência, taxa de administração e patrimônio líquido não constam desta base — consulte o regulamento e a lâmina oficiais do fundo. Nada aqui é recomendação de compra ou venda.
+      <p class="fnt">${detalhe?'Taxa de administração e patrimônio líquido não fazem parte desta camada editorial.':'Índice de referência, taxa de administração e patrimônio líquido não constam desta base.'} Consulte sempre o regulamento e a lâmina oficiais do fundo. Nada aqui é recomendação de compra ou venda.
       <button class="lnk" data-sec="metodologia" style="font-size:11.5px">Metodologia completa</button></p></div>`;
   drw.classList.add('on'); dim.classList.add('on'); wrap.inert = true;
   drw.querySelector('.x').onclick = fecha;
@@ -10966,12 +11112,16 @@ function abreETF(ticker){
 }
 
 function carregaETFs(){
-  fetch('etfs.json', {cache:'no-store'})
-    .then(r => r.ok ? r.json() : Promise.reject(new Error('HTTP ' + r.status)))
-    .then(d => {
+  Promise.all([
+    fetch('etfs.json', {cache:'no-store'}).then(r => r.ok ? r.json() : Promise.reject(new Error('HTTP ' + r.status))),
+    fetch('etfs-detalhes.json', {cache:'no-store'}).then(r => r.ok ? r.json() : null).catch(()=>null)
+  ]).then(([d,det]) => {
+      ETF_DETALHE = new Map((det?.etfs || []).map(x=>[x.ticker,x]));
       ETF = (d.etfs || []).map(x => Object.assign({}, x, {
-        _s: norm([x.ticker, x.nome, x.nomeCurto||'', categoriaETFPT(x.categoria)||''].join(' '))
+        _s: (()=>{const z=ETF_DETALHE.get(x.ticker),c=z?.classificacao,termos=c?[...c.classesAtivo,c.focoPrincipal,c.geografia.escopo,...caracEtf(z)].flatMap(v=>[v,rotEtfDet(v)]):[];
+          return norm([x.ticker,x.nome,x.nomeCurto||'',categoriaETFPT(x.categoria)||'',z?.resumo||'',...termos].join(' '));})()
       }));
+      normalizaSelecoesETF();
       chipsETF(); render(); tentaAtivo();
     })
     .catch(() => { render(); });
@@ -10993,6 +11143,9 @@ function sincronizaURL(){
   } else if(st.sec==='etfs'){
     if(st.modoEtf!=='tabela')p.set('modo',st.modoEtf);if(st.qe)p.set('q',st.qe);
     [...st.etfCategoria].sort().forEach(v=>p.append('categoria',v));
+    [...st.etfClasse].sort().forEach(v=>p.append('classe',v));[...st.etfFoco].sort().forEach(v=>p.append('foco',v));
+    [...st.etfGeo].sort().forEach(v=>p.append('geo',v));[...st.etfCaracteristica].sort().forEach(v=>p.append('caracteristica',v));
+    if(st.etfCobertura!=='todos')p.set('cobertura',st.etfCobertura);
     if(st.etfSort!=='nome')p.set('ord',st.etfSort);if(st.etfDir!=='asc')p.set('dir',st.etfDir);
   }
   if(st.ativo)p.set('ativo',st.ativo);history.replaceState(null,'','?'+p.toString());
@@ -11010,7 +11163,8 @@ function padroesURL(sec){
   }else if(sec==='empresas'){
     Object.assign(st,{modoEmp:typeof innerWidth==='number'&&innerWidth>0&&innerWidth<760?'tabela':'mosaico',q:'',tagMode:'ou',sort:'vm',area:'val'});st.cats.clear();st.tags.clear();
   }else if(sec==='etfs'){
-    Object.assign(st,{modoEtf:'tabela',qe:'',etfSort:'nome',etfDir:'asc'});st.etfCategoria.clear();
+    Object.assign(st,{modoEtf:'tabela',qe:'',etfCobertura:'todos',etfSort:'nome',etfDir:'asc'});
+    st.etfCategoria.clear();st.etfClasse.clear();st.etfFoco.clear();st.etfGeo.clear();st.etfCaracteristica.clear();
   }
 }
 function leURL(){
@@ -11027,6 +11181,9 @@ function leURL(){
   }else if(st.sec==='etfs'){
     if(['tabela','cards'].includes(p.get('modo')))st.modoEtf=p.get('modo');st.qe=(p.get('q')||'').slice(0,200);
     listaURL(p,'categoria',CATEGORIAS_ETF).forEach(x=>st.etfCategoria.add(x));
+    const carrega=(k,set)=>p.getAll(k).slice(0,30).forEach(x=>set.add(x.slice(0,80)));
+    carrega('classe',st.etfClasse);carrega('foco',st.etfFoco);carrega('geo',st.etfGeo);carrega('caracteristica',st.etfCaracteristica);
+    if(['detalhados','pendentes'].includes(p.get('cobertura')))st.etfCobertura=p.get('cobertura');
     if(COLS_ETF.some(c=>c.k===p.get('ord')))st.etfSort=p.get('ord');if(['asc','desc'].includes(p.get('dir')))st.etfDir=p.get('dir');
   }
   st.ativo=(p.get('ativo')||'').slice(0,30)||null;
@@ -11034,6 +11191,13 @@ function leURL(){
 function normalizaSelecoesBDR(){
   const corrige=(set,campo)=>{const validos=new Set(BDR.map(b=>b[campo]).filter(Boolean)),lista=[];set.forEach(v=>{if(validos.has(v))lista.push(v);else v.split(',').forEach(x=>{if(validos.has(x))lista.push(x);});});set.clear();lista.forEach(x=>set.add(x));};
   corrige(st.bdrPais,'pais');corrige(st.bdrSetor,'setor');corrige(st.bdrIndustria,'industria');
+}
+function normalizaSelecoesETF(){
+  const det=[...ETF_DETALHE.values()],corrige=(set,valores)=>{const validos=new Set(valores.filter(Boolean));[...set].forEach(v=>{if(!validos.has(v))set.delete(v);});};
+  corrige(st.etfClasse,det.flatMap(d=>d.classificacao.classesAtivo));
+  corrige(st.etfFoco,det.map(d=>d.classificacao.focoPrincipal));
+  corrige(st.etfGeo,det.map(d=>d.classificacao.geografia.escopo));
+  corrige(st.etfCaracteristica,det.flatMap(caracEtf));
 }
 function refleteEstado(){
   $('qEmp').value=st.q;$('qBdr').value=st.qb;$('qEtf').value=st.qe;$('ordEmp').value=st.sort;$('soFav').setAttribute('aria-pressed',String(st.soFav));
@@ -11049,6 +11213,8 @@ const SECOES = {
     d:'Ações de empresas estrangeiras negociadas na B3 por recibo de depósito. A tabela permite comparar preço, retorno, força relativa e liquidez na mesma linha.'},
   etfs:{t:'ETFs', k:'B3 · fundos de índice',
     d:'Fundos de índice negociados na B3, por categoria oficial (renda variável, renda fixa, cripto, internacional, FII e moeda).'},
+  carteira:{t:'Carteira', k:'Acompanhamento · local',
+    d:'Posições informadas por você, com quantidade, preço médio e resultado bruto pela última cotação disponível. Os dados ficam somente neste navegador.'},
   radar:{t:'Radar de listagens', k:'B3 · pipeline',
     d:'Companhias com pedido protocolado, nomes no radar do mercado e as já registradas que ainda não têm negociação relevante.'},
   metodologia:{t:'Metodologia', k:'B3 · como isto é feito',
@@ -11060,7 +11226,7 @@ function navega(sec){
     b.setAttribute('aria-current', b.dataset.sec === sec ? 'page' : 'false'));
   const s = SECOES[sec];
   $('kicker').textContent = s.k; $('secTitulo').textContent = s.t; $('secDesc').textContent = s.d;
-  ['Geral','Empresas','Bdrs','Etfs','Radar','Metodologia'].forEach(n =>
+  ['Geral','Empresas','Bdrs','Etfs','Carteira','Radar','Metodologia'].forEach(n =>
     $('sec' + n).classList.toggle('hide', 'sec' + n !== 'sec' + sec.charAt(0).toUpperCase() + sec.slice(1)));
   fechaFiltros();
   scrollTo({top:0, behavior:'instant'});
@@ -11092,6 +11258,7 @@ function render(){
   if(st.sec === 'geral'){ $('secGeral').innerHTML = geralHTML(); miniMapa(); return; }
   if(st.sec === 'radar'){ $('secRadar').innerHTML = radarHTML(); return; }
   if(st.sec === 'metodologia'){ $('secMetodologia').innerHTML = metodologiaHTML(); return; }
+  if(st.sec === 'carteira'){ renderCarteira(); return; }
 
   if(st.sec === 'empresas'){
     const r = filtra();
@@ -11128,10 +11295,12 @@ function render(){
   if(st.sec === 'etfs'){
     const r = filtraETF();
     const comPreco = r.filter(x => cot(x.ticker)).length, hoje = r.filter(x => negociouHoje(cot(x.ticker))).length, semTicker = r.filter(x => x.tickerVerificado === false).length;
+    const filtros=resumoFiltrosETF();
     $('nEtf').textContent = r.length;
-    $('resumoEtf').innerHTML = r.length ? `<b>${comPreco}</b> com último preço <span>·</span> <b>${hoje}</b> negociados hoje${semTicker?' <span>·</span> <b>'+semTicker+'</b> aguardando confirmação de ticker':''}` : '';
+    $('resumoEtf').innerHTML = (r.length ? `<b>${comPreco}</b> com último preço <span>·</span> <b>${hoje}</b> negociados hoje${semTicker?' <span>·</span> <b>'+semTicker+'</b> aguardando confirmação de ticker':''}` : '')+
+      (filtros.length?`${r.length?'<br>':''}Filtros: `+filtros.map(x=>`<b>${esc(x)}</b>`).join('<span>×</span>'):'');
     $('guiaEtf').innerHTML = guiaCategoriasETF();
-    $('clearEtf').classList.toggle('hide', !(st.qe || st.etfCategoria.size));
+    $('clearEtf').classList.toggle('hide', !(st.qe || st.etfCategoria.size || st.etfCobertura!=='todos' || st.etfClasse.size || st.etfFoco.size || st.etfGeo.size || st.etfCaracteristica.size));
     $('boxTabelaEtf').classList.toggle('hide', st.modoEtf !== 'tabela');
     $('boxCardsEtf').classList.toggle('hide', st.modoEtf !== 'cards');
     if(st.modoEtf === 'tabela') $('boxTabelaEtf').innerHTML = tabelaETF(r);
@@ -11172,6 +11341,73 @@ function miniMapa(){
 }
 
 /* ---------- interacao ---------- */
+function leCarteira(salvos){
+  if(!Array.isArray(salvos))throw new Error('carteira invalida');
+  const unicos=new Map();salvos.forEach(x=>{
+    const ticker=typeof x?.ticker==='string'?x.ticker.trim().toUpperCase():'',qtd=Number(x?.qtd),pm=Number(x?.pm);
+    if(/^[A-Z0-9]{5,10}$/.test(ticker)&&Number.isFinite(qtd)&&qtd>0&&Number.isFinite(pm)&&pm>0)unicos.set(ticker,{ticker,qtd,pm});
+  });
+  return [...unicos.values()];
+}
+function numeroCarteira(v){
+  const s=String(v??'').trim().replace(/\s/g,'');if(!s)return NaN;
+  return Number(s.includes(',')?s.replace(/\./g,'').replace(',','.'):s);
+}
+function salvaCarteira(){
+  try { localStorage.setItem('mapaB3Carteira',JSON.stringify(CARTEIRA));AVISO_CARTEIRA='';return true; }
+  catch { AVISO_CARTEIRA='O navegador não permitiu salvar. As alterações da carteira valem somente nesta sessão.';return false; }
+}
+function ativoCarteira(ticker){
+  const e=E.find(x=>(x.tickers||'').split(',').map(t=>t.trim()).includes(ticker));
+  if(e)return {ticker,nome:e.pregao,tipo:'Empresa brasileira',cod:e.cod};
+  const b=BDR.find(x=>x.ticker===ticker);if(b)return {ticker,nome:b.empresa,tipo:'BDR'};
+  const x=ETF.find(x=>x.ticker===ticker);if(x)return {ticker,nome:x.nome,tipo:'ETF'};
+  if(cot(ticker))return {ticker,nome:'Ativo encontrado nas cotações',tipo:'Ativo B3'};
+  return null;
+}
+const dinheiroCarteira=v=>Number.isFinite(v)?v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'}):'—';
+function totaisCarteira(posicoes=CARTEIRA){
+  let investido=0,atual=0,custoCotado=0,cotados=0;
+  posicoes.forEach(x=>{const custo=x.qtd*x.pm,r=cot(x.ticker);investido+=custo;if(r){atual+=x.qtd*r.p;custoCotado+=custo;cotados++;}});
+  return {investido,atual,custoCotado,cotados,resultado:atual-custoCotado,retorno:custoCotado>0?(atual/custoCotado-1)*100:null};
+}
+function resultadoCarteira(v,percentual=false){
+  if(!Number.isFinite(v))return '<span class="na">—</span>';
+  const classe=v>0?'up':v<0?'down':'flat',seta=v>0?'▲ ':v<0?'▼ ':'· ',valor=percentual?Math.abs(v).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})+'%':dinheiroCarteira(Math.abs(v));
+  return `<span class="${classe}">${seta}${valor}</span>`;
+}
+function carteiraTabelaHTML(){
+  if(!CARTEIRA.length)return '<div class="acompResumo"><p><b>Nenhuma posição cadastrada.</b></p><p>Use o formulário acima com o ticker, a quantidade e o seu preço médio.</p></div>';
+  const linhas=[...CARTEIRA].sort((a,b)=>a.ticker.localeCompare(b.ticker,'pt-BR')).map(x=>{
+    const a=ativoCarteira(x.ticker),r=cot(x.ticker),custo=x.qtd*x.pm,atual=r?x.qtd*r.p:null,res=Number.isFinite(atual)?atual-custo:null,ret=Number.isFinite(atual)&&custo>0?(atual/custo-1)*100:null;
+    return `<tr><td><button class="lnk tk" data-pos-abre="${esc(x.ticker)}">${esc(x.ticker)}</button><span class="sub">${esc(a?.nome||'Ativo não identificado na base atual')}</span></td><td class="col-s">${esc(a?.tipo||'—')}</td><td class="n">${x.qtd.toLocaleString('pt-BR',{maximumFractionDigits:8})}</td><td class="n">${dinheiroCarteira(x.pm)}</td><td class="n">${r?fmtPreco(r.p):'<span class="na">—</span>'}</td><td class="n col-s">${dinheiroCarteira(custo)}</td><td class="n">${dinheiroCarteira(atual)}</td><td class="n">${resultadoCarteira(res)}<span class="sub">${resultadoCarteira(ret,true)}</span></td><td><div class="carteiraAcoes"><button class="lnk" data-pos-edita="${esc(x.ticker)}">editar</button><button class="lnk" data-pos-remove="${esc(x.ticker)}">remover</button></div></td></tr>`;
+  }).join('');
+  return `<div class="tabw"><table class="tab"><caption class="sr">Posições da carteira local</caption><thead><tr><th>Ativo</th><th class="col-s">Tipo</th><th class="n">Quantidade</th><th class="n">Preço médio</th><th class="n">Último preço</th><th class="n col-s">Custo</th><th class="n">Valor atual</th><th class="n">Resultado bruto</th><th>Ações</th></tr></thead><tbody>${linhas}</tbody></table></div>`;
+}
+function favoritosCarteiraHTML(){
+  if(!FAVORITOS.size)return '<div class="acompResumo"><p><b>Nenhum BDR favorito.</b></p><p>Use a estrela na tabela ou o botão Acompanhar na ficha de um BDR.</p></div>';
+  const itens=[...FAVORITOS].sort().map(t=>{const b=BDR.find(x=>x.ticker===t),r=cot(t);return `<button class="btn" data-tk="${esc(t)}">${esc(t)}${b?' · '+esc(b.empresa):''}${r?' · '+fmtPreco(r.p):''}</button>`;}).join('');
+  return `<div class="favoritosLista">${itens}</div><p class="nota">${FAVORITOS.size} ${FAVORITOS.size===1?'BDR favorito':'BDRs favoritos'} neste navegador.</p>`;
+}
+function renderCarteira(){
+  const t=totaisCarteira(),comPreco=t.cotados===CARTEIRA.length,ret=t.retorno;
+  $('carteiraResumo').innerHTML=`<div><b>${CARTEIRA.length}</b><span>${CARTEIRA.length===1?'posição':'posições'}</span></div><div><b>${dinheiroCarteira(t.investido)}</b><span>custo informado</span></div><div><b>${t.cotados?dinheiroCarteira(t.atual):'—'}</b><span>valor atual · ${t.cotados}/${CARTEIRA.length} cotadas</span></div><div><b>${t.cotados?resultadoCarteira(t.resultado):'—'}</b><span>resultado bruto${comPreco?'':' das posições cotadas'}</span></div><div><b>${t.cotados?resultadoCarteira(ret,true):'—'}</b><span>retorno bruto${comPreco?'':' das posições cotadas'}</span></div><div><b>${FAVORITOS.size}</b><span>BDRs favoritos</span></div>`;
+  $('carteiraTabela').innerHTML=carteiraTabelaHTML();$('carteiraFavoritos').innerHTML=favoritosCarteiraHTML();$('carteiraMsg').textContent=AVISO_CARTEIRA;
+}
+function limpaFormCarteira(){
+  CARTEIRA_EDITANDO=null;$('formCarteira').reset();$('carteiraTicker').disabled=false;$('salvaPosicao').textContent='Adicionar posição';$('cancelaPosicao').classList.add('hide');
+}
+function editaPosicao(ticker){
+  const x=CARTEIRA.find(x=>x.ticker===ticker);if(!x)return;
+  CARTEIRA_EDITANDO=ticker;$('carteiraTicker').value=ticker;$('carteiraTicker').disabled=true;$('carteiraQtd').value=String(x.qtd).replace('.',',');$('carteiraPm').value=String(x.pm).replace('.',',');$('salvaPosicao').textContent='Salvar alterações';$('cancelaPosicao').classList.remove('hide');$('carteiraQtd').focus();
+}
+function removePosicao(ticker){
+  CARTEIRA=CARTEIRA.filter(x=>x.ticker!==ticker);salvaCarteira();AVISO_CARTEIRA=ticker+' removido da carteira.';if(CARTEIRA_EDITANDO===ticker)limpaFormCarteira();renderCarteira();
+}
+function abrePosicao(ticker){
+  const a=ativoCarteira(ticker);if(!a)return;
+  if(a.cod)abre(a.cod);else if(a.tipo==='BDR')abreBDR(ticker);else if(a.tipo==='ETF')abreETF(ticker);
+}
 function leFavoritos(salvos){
   if(!Array.isArray(salvos))throw new Error('lista de acompanhamento invalida');
   return new Set(salvos.filter(t=>typeof t==='string'&&/^[A-Z0-9]{4}\d{2}$/.test(t)));
@@ -11190,7 +11426,7 @@ function acompanhamentoHTML(list){
     (fora.length?`<details><summary>${fora.length} códigos salvos fora da base atual — mantidos na lista</summary><p>Ausência no catálogo não confirma cancelamento do programa. Nenhum código é removido automaticamente.</p><ul>${fora.map(t=>`<li>${esc(t)} <button class="lnk" data-fav="${esc(t)}" data-fav-ausente aria-label="Remover ${esc(t)} do acompanhamento">Remover da lista</button></li>`).join('')}</ul></details>`:'')+'</div>';
 }
 function atualizaFavoritos(){
-  $('nFav').textContent=FAVORITOS.size;$('soFav').setAttribute('aria-pressed',String(st.soFav));
+  $('nFav').textContent=FAVORITOS.size;$('soFav').setAttribute('aria-pressed',String(st.soFav));$('soFav').setAttribute('aria-label',st.soFav?'Mostrar todos os BDRs':'Mostrar somente BDRs favoritos');
   const msg=[EVENTO_FAV,AVISO_FAV].filter(Boolean).join(' ');
   ['favMsg','favFichaMsg'].forEach(id=>{const el=$(id);if(el&&el.textContent!==msg)el.textContent=msg;});
   document.querySelectorAll('[data-fav]').forEach(bt=>{
@@ -11222,7 +11458,7 @@ function limpaFiltrosBDR(){
   $('qBdr').value='';chipsBDR();render();
 }
 function limpaFiltrosETF(){
-  st.qe='';st.etfCategoria.clear();
+  st.qe='';st.etfCategoria.clear();st.etfCobertura='todos';st.etfClasse.clear();st.etfFoco.clear();st.etfGeo.clear();st.etfCaracteristica.clear();
   $('qEtf').value='';chipsETF();render();
 }
 function leComparacao(salvos){
@@ -11256,6 +11492,9 @@ function atualizaSelecao(){
 document.body.addEventListener('click', ev => {
   const nav = ev.target.closest('[data-sec]');
   if(nav){ if(drw.classList.contains('on')) fecha(); navega(nav.dataset.sec); return; }
+  const edita=ev.target.closest('[data-pos-edita]');if(edita){editaPosicao(edita.dataset.posEdita);return;}
+  const remove=ev.target.closest('[data-pos-remove]');if(remove){removePosicao(remove.dataset.posRemove);return;}
+  const pos=ev.target.closest('[data-pos-abre]');if(pos){abrePosicao(pos.dataset.posAbre);return;}
   if(ev.target.closest('#saudeBt,#saudeGeral')){abreSaude();return;}
   const cmpadd=ev.target.closest('[data-cmpadd]');
   if(cmpadd){ev.stopPropagation();alternaComparacao(cmpadd.dataset.cmpadd);return;}
@@ -11348,6 +11587,11 @@ document.body.addEventListener('change', ev => {
   else if(f === 'setor') alterna(st.bdrSetor);
   else if(f === 'ind') alterna(st.bdrIndustria);
   else if(f === 'etfcat') alterna(st.etfCategoria);
+  else if(f === 'etfclasse') alterna(st.etfClasse);
+  else if(f === 'etffoco') alterna(st.etfFoco);
+  else if(f === 'etfgeo') alterna(st.etfGeo);
+  else if(f === 'etfcarac') alterna(st.etfCaracteristica);
+  else if(f === 'etfcobertura') st.etfCobertura=v;
   else if(f === 'liq'){ st.bdrLiq = v; st.recorte = null; }
   else if(f === 'freq'){ st.bdrFreq = v; st.recorte = null; }
   else if(f === 'hist'){ st.bdrHist = v; st.recorte = null; }
@@ -11356,7 +11600,10 @@ document.body.addEventListener('change', ev => {
     $('criterio').innerHTML = st.recorte ? `<b>Critério aplicado:</b> ${RECORTES[st.recorte].crit}`
       : 'Atalhos que combinam filtro e ordenação. Nenhum deles é recomendação de compra ou venda — servem para achar o que investigar.';
   }
-  else if(st.sec === 'etfs'){ conta(st.etfCategoria.size,'cntCatEtf'); }
+  else if(st.sec === 'etfs'){
+    conta(st.etfCategoria.size,'cntCatEtf');conta(st.etfClasse.size,'cntClasseEtf');conta(st.etfFoco.size,'cntFocoEtf');
+    conta(st.etfGeo.size,'cntGeoEtf');conta(st.etfCaracteristica.size,'cntCaracEtf');
+  }
   else { conta(st.cats.size,'cntCat'); conta(st.tags.size,'cntTag'); }
   render();
 });
@@ -11390,6 +11637,17 @@ $('mTabela').onclick=()=>{st.modoBdr='tabela';[$('mTabela'),$('mCards'),$('mMatr
 $('mCards').onclick=()=>{st.modoBdr='cards';[$('mTabela'),$('mCards'),$('mMatriz')].forEach(b=>b.setAttribute('aria-pressed',String(b===$('mCards'))));render();};
 par($('mTabelaEtf'), $('mCardsEtf'), ['tabela','cards'], 'modoEtf');
 $('soFav').onclick=()=>{st.soFav=!st.soFav;$('soFav').setAttribute('aria-pressed',String(st.soFav));render();};
+$('formCarteira').onsubmit=ev=>{
+  ev.preventDefault();const ticker=(CARTEIRA_EDITANDO||$('carteiraTicker').value).trim().toUpperCase(),qtd=numeroCarteira($('carteiraQtd').value),pm=numeroCarteira($('carteiraPm').value),a=ativoCarteira(ticker);
+  if(!/^[A-Z0-9]{5,10}$/.test(ticker)){AVISO_CARTEIRA='Informe um ticker válido, como PETR4, AAPL34 ou BOVA11.';renderCarteira();return;}
+  if(!a){AVISO_CARTEIRA='Ticker não encontrado nas bases carregadas. Confira o código ou aguarde o carregamento dos catálogos.';renderCarteira();return;}
+  if(!Number.isFinite(qtd)||qtd<=0||!Number.isFinite(pm)||pm<=0){AVISO_CARTEIRA='Quantidade e preço médio precisam ser números maiores que zero.';renderCarteira();return;}
+  const nova={ticker,qtd,pm},i=CARTEIRA.findIndex(x=>x.ticker===ticker);if(i>=0)CARTEIRA[i]=nova;else CARTEIRA.push(nova);
+  salvaCarteira();AVISO_CARTEIRA=ticker+(i>=0?' atualizado.':' adicionado à carteira.');limpaFormCarteira();renderCarteira();
+};
+$('carteiraTicker').addEventListener('input',ev=>{ev.target.value=ev.target.value.toUpperCase().replace(/[^A-Z0-9]/g,'');});
+$('cancelaPosicao').onclick=()=>{limpaFormCarteira();AVISO_CARTEIRA='Edição cancelada.';renderCarteira();$('carteiraTicker').focus();};
+$('verAcompanhamento').onclick=()=>{st.soFav=true;navega('bdrs');$('soFav').focus();};
 $('abreCmp').onclick=abreComparacao;
 $('limpaCmp').onclick=()=>{COMPARAR.clear();salvaComparacao();$('cmpMsg').textContent='';atualizaSelecao();render();$('qBdr').focus();};
 
@@ -11460,21 +11718,24 @@ addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => {
 /* ---------- carga dos dados ---------- */
 /* Roda depois do primeiro render: a pagina nunca fica esperando rede para
    aparecer, e se um arquivo faltar ela segue funcionando sem aquele bloco. */
-function carregaPrecos(){
-  fetch('precos.json', {cache:'no-store'})
+function carregaPrecos(manual=false){
+  const bt=$('atualizaPrecosBt'),msg=$('precosMsg');
+  if(manual){bt.disabled=true;bt.textContent='atualizando…';msg.textContent='Buscando a base de cotações mais recente.';}
+  return fetch('precos.json'+(manual?'?v='+Date.now():''), {cache:'no-store'})
     .then(r => r.ok ? r.json() : Promise.reject(new Error('HTTP ' + r.status)))
     .then(d => {
-      PRECOS = d.precos || {};
+      const novos=d.precos||{};if(!Object.keys(novos).length)throw new Error('base vazia');
+      PRECOS = novos;
       COLETAS.precos=isoCSV(d.atualizadoEm);
-      if(!Object.keys(PRECOS).length) return;
       if(d.atualizadoEm){
         PRECO_TS = new Date(d.atualizadoEm).toLocaleString('pt-BR', {day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});
         $('atz').innerHTML = 'cotações <b>' + PRECO_TS + '</b>';
         $('atz').title = 'Yahoo Finance, atraso de cerca de 15 minutos.';
       }
-      render();
+      if(manual)msg.textContent='Base publicada conferida. Cotações coletadas em '+(PRECO_TS||'data indisponível')+'.';render();
     })
-    .catch(() => { /* sem cotacoes o mapa continua completo, so nao mostra preco */ });
+    .catch(() => { if(manual)msg.textContent='Não foi possível recarregar as cotações. A base anterior foi mantida.';/* sem cotacoes o mapa continua completo */ })
+    .finally(()=>{if(manual){bt.disabled=false;bt.textContent='atualizar cotações';}});
 }
 function carregaBDRs(){
   fetch('bdrs.json', {cache:'no-store'})
@@ -11522,6 +11783,7 @@ function carregaSaude(){
 }
 setInterval(atualizaSaude,60000);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)atualizaSaude();});
+$('atualizaPrecosBt').onclick=()=>carregaPrecos(true);
 let ATIVO_ABERTO=false;
 function tentaAtivo(){
   if(ATIVO_ABERTO||!st.ativo)return;

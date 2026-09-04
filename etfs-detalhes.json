@@ -1,0 +1,518 @@
+{
+  "versaoSchema": 2,
+  "taxonomiaVersao": 2,
+  "geradoEm": "2026-09-04T18:00:00.000Z",
+  "totalCatalogo": 222,
+  "totalDetalhados": 15,
+  "etfs": [
+    {
+      "ticker": "LFTS11",
+      "idB3": 8806,
+      "cnpj": "45823821000166",
+      "gestor": "Investo Gestão de Recursos Ltda.",
+      "administrador": "Banco BNP Paribas Brasil S.A.",
+      "resumo": "Investe em títulos públicos Tesouro Selic de diferentes vencimentos. A carteira acompanha a taxa Selic em reais, sem exposição cambial estrutural.",
+      "indice": {"nome": "ITBR Selic - Índice Teva Tesouro Selic", "provedor": "Teva Índices", "codigo": "TEVALFTS Index", "metodologiaUrl": "https://www.tevaindices.com.br/nossos-indices/itbr-selic-indice-teva-tesouro-selic"},
+      "classificacao": {
+        "classesAtivo": ["renda-fixa"], "focoPrincipal": "indexador-macroeconomico",
+        "geografia": {"escopo": "brasil", "paisesPrincipais": ["BR"]},
+        "setores": [], "temas": [], "fatores": [],
+        "estrategias": ["juros-pos-fixados", "selecao-sistematica"], "formasExposicao": ["ativos-diretos"],
+        "politicaCambial": "nao-se-aplica", "replicacao": "fisica-nao-especificada"
+      },
+      "carteira": {
+        "dataReferencia": "2026-09-01", "quantidadePosicoes": 14,
+        "principaisPosicoes": [
+          {"nome": "LFT 01/03/2029", "tipo": "titulo-publico", "nivel": "look-through", "participacaoPct": 11.48, "pais": "BR", "moeda": "BRL"},
+          {"nome": "LFT 01/09/2028", "tipo": "titulo-publico", "nivel": "look-through", "participacaoPct": 10.81, "pais": "BR", "moeda": "BRL"},
+          {"nome": "LFT 01/09/2029", "tipo": "titulo-publico", "nivel": "look-through", "participacaoPct": 10.43, "pais": "BR", "moeda": "BRL"},
+          {"nome": "LFT 01/06/2032", "tipo": "titulo-publico", "nivel": "look-through", "participacaoPct": 9.44, "pais": "BR", "moeda": "BRL"},
+          {"nome": "LFT 01/03/2030", "tipo": "titulo-publico", "nivel": "look-through", "participacaoPct": 8.60, "pais": "BR", "moeda": "BRL"},
+          {"nome": "LFT 01/09/2030", "tipo": "titulo-publico", "nivel": "look-through", "participacaoPct": 7.00, "pais": "BR", "moeda": "BRL"},
+          {"nome": "LFT 01/03/2031", "tipo": "titulo-publico", "nivel": "look-through", "participacaoPct": 6.98, "pais": "BR", "moeda": "BRL"},
+          {"nome": "LFT 01/06/2030", "tipo": "titulo-publico", "nivel": "look-through", "participacaoPct": 6.38, "pais": "BR", "moeda": "BRL"},
+          {"nome": "LFT 01/06/2031", "tipo": "titulo-publico", "nivel": "look-through", "participacaoPct": 6.09, "pais": "BR", "moeda": "BRL"},
+          {"nome": "LFT 01/03/2032", "tipo": "titulo-publico", "nivel": "look-through", "participacaoPct": 5.64, "pais": "BR", "moeda": "BRL"},
+          {"nome": "LFT 01/09/2031", "tipo": "titulo-publico", "nivel": "look-through", "participacaoPct": 5.17, "pais": "BR", "moeda": "BRL"},
+          {"nome": "LFT 01/12/2030", "tipo": "titulo-publico", "nivel": "look-through", "participacaoPct": 4.64, "pais": "BR", "moeda": "BRL"},
+          {"nome": "LFT 01/12/2031", "tipo": "titulo-publico", "nivel": "look-through", "participacaoPct": 4.27, "pais": "BR", "moeda": "BRL"},
+          {"nome": "LFT 01/09/2032", "tipo": "titulo-publico", "nivel": "look-through", "participacaoPct": 3.07, "pais": "BR", "moeda": "BRL"}
+        ],
+        "coberturaDivulgadaPct": 100,
+        "exposicoes": [{"dimensao": "indexador", "nome": "Selic", "participacaoPct": 100}],
+        "observacao": "Pesos da carteira do índice no rebalanceamento, usados como abertura econômica; não são uma conciliação contábil diária do fundo."
+      },
+      "fontes": [
+        {"titulo": "Lâmina do LFTS11", "publicador": "Investo", "origem": "gestor", "url": "https://api.mziq.com/mzfilemanager/v2/d/02c0bf8f-2988-419f-9a6f-4e116a4bf822/a839659d-1247-d665-5e4c-c08f7e91e3f5?origin=2", "acessadoEm": "2026-09-04", "dataReferencia": "2026-07-31", "usos": ["identidade", "classificacao"]},
+        {"titulo": "ITBR Selic - Índice Teva Tesouro Selic", "publicador": "Teva Índices", "origem": "provedor-indice", "url": "https://www.tevaindices.com.br/nossos-indices/itbr-selic-indice-teva-tesouro-selic", "acessadoEm": "2026-09-04", "dataReferencia": "2026-09-01", "usos": ["identidade", "indice", "classificacao", "carteira"]}
+      ],
+      "revisadoEm": "2026-09-04"
+    },
+    {
+      "ticker": "WRLD11", "idB3": 6981, "cnpj": "42280262000105",
+      "gestor": "Investo Gestão de Recursos Ltda.", "administrador": "Banco BNP Paribas Brasil S.A.",
+      "resumo": "Dá acesso a ações de milhares de empresas grandes, médias e pequenas de mercados desenvolvidos e emergentes por meio do ETF VT. O retorno em reais varia também com o dólar.",
+      "indice": {"nome": "FTSE Global All Cap Index", "provedor": "FTSE Russell", "metodologiaUrl": "https://research.ftserussell.com/products/downloads/FTSE_Global_Equity_Index_Series.pdf"},
+      "classificacao": {
+        "classesAtivo": ["acoes"], "focoPrincipal": "mercado-amplo",
+        "geografia": {"escopo": "global", "paisesPrincipais": ["US", "JP", "GB", "TW", "CA", "CN", "KR", "FR", "CH"]},
+        "setores": [], "temas": [], "fatores": [], "estrategias": ["ponderacao-valor-mercado"],
+        "formasExposicao": ["cotas-etf"], "politicaCambial": "exposto", "replicacao": "indireta"
+      },
+      "carteira": {
+        "dataReferencia": "2026-07-31", "quantidadePosicoes": 10048,
+        "principaisPosicoes": [
+          {"nome": "NVIDIA Corp.", "ticker": "NVDA", "tipo": "acao", "nivel": "look-through", "participacaoPct": 4.00, "pais": "US"},
+          {"nome": "Apple Inc.", "ticker": "AAPL", "tipo": "acao", "nivel": "look-through", "participacaoPct": 3.82, "pais": "US"},
+          {"nome": "Microsoft Corp.", "ticker": "MSFT", "tipo": "acao", "nivel": "look-through", "participacaoPct": 2.95, "pais": "US"},
+          {"nome": "Amazon.com Inc.", "ticker": "AMZN", "tipo": "acao", "nivel": "look-through", "participacaoPct": 2.25, "pais": "US"},
+          {"nome": "Alphabet Inc. classe A", "ticker": "GOOGL", "tipo": "acao", "nivel": "look-through", "participacaoPct": 1.80, "pais": "US"},
+          {"nome": "Broadcom Inc.", "ticker": "AVGO", "tipo": "acao", "nivel": "look-through", "participacaoPct": 1.55, "pais": "US"},
+          {"nome": "Taiwan Semiconductor Manufacturing Co.", "ticker": "TSM", "tipo": "acao", "nivel": "look-through", "participacaoPct": 1.54, "pais": "TW"},
+          {"nome": "Alphabet Inc. classe C", "ticker": "GOOG", "tipo": "acao", "nivel": "look-through", "participacaoPct": 1.42, "pais": "US"},
+          {"nome": "Meta Platforms Inc.", "ticker": "META", "tipo": "acao", "nivel": "look-through", "participacaoPct": 1.05, "pais": "US"},
+          {"nome": "JPMorgan Chase & Co.", "ticker": "JPM", "tipo": "acao", "nivel": "look-through", "participacaoPct": 0.80, "pais": "US"}
+        ],
+        "coberturaDivulgadaPct": 21.18,
+        "exposicoes": [
+          {"dimensao": "pais", "nome": "Estados Unidos", "participacaoPct": 62.04}, {"dimensao": "pais", "nome": "Japão", "participacaoPct": 5.83},
+          {"dimensao": "pais", "nome": "Reino Unido", "participacaoPct": 3.30}, {"dimensao": "pais", "nome": "Taiwan", "participacaoPct": 3.08},
+          {"dimensao": "pais", "nome": "Canadá", "participacaoPct": 3.04}, {"dimensao": "pais", "nome": "China", "participacaoPct": 2.77},
+          {"dimensao": "setor", "nome": "Tecnologia", "participacaoPct": 31.57}, {"dimensao": "setor", "nome": "Financeiro", "participacaoPct": 15.55},
+          {"dimensao": "setor", "nome": "Indústria", "participacaoPct": 13.37}, {"dimensao": "setor", "nome": "Consumo cíclico", "participacaoPct": 11.43},
+          {"dimensao": "setor", "nome": "Saúde", "participacaoPct": 8.09}
+        ],
+        "observacao": "As empresas e exposições são uma abertura econômica do VT; a posição direta central do WRLD11 é a cota desse ETF estrangeiro."
+      },
+      "fontes": [
+        {"titulo": "Lâmina do WRLD11", "publicador": "Investo", "origem": "gestor", "url": "https://api.mziq.com/mzfilemanager/v2/d/02c0bf8f-2988-419f-9a6f-4e116a4bf822/5944aba0-ed83-3bb3-573f-81fa9f5a2ded?origin=2", "acessadoEm": "2026-09-04", "dataReferencia": "2026-07-31", "usos": ["identidade", "classificacao"]},
+        {"titulo": "WRLD11", "publicador": "Investo", "origem": "gestor", "url": "https://www.investoetf.com/etf/wrld11/", "acessadoEm": "2026-09-04", "dataReferencia": "2026-07-31", "usos": ["classificacao", "carteira"]},
+        {"titulo": "FTSE Global Equity Index Series Ground Rules", "publicador": "FTSE Russell", "origem": "provedor-indice", "url": "https://research.ftserussell.com/products/downloads/FTSE_Global_Equity_Index_Series.pdf", "acessadoEm": "2026-09-04", "usos": ["indice", "classificacao"]}
+      ],
+      "revisadoEm": "2026-09-04"
+    },
+    {
+      "ticker": "USTK11", "idB3": 6265, "cnpj": "40751130000180",
+      "gestor": "Investo Gestão de Recursos Ltda.", "administrador": "Banco BNP Paribas Brasil S.A.",
+      "resumo": "Concentra-se em empresas americanas de tecnologia da informação, de portes variados, por meio do ETF VGT. O retorno em reais também oscila com o dólar.",
+      "indice": {"nome": "MSCI US Investable Market Information Technology 25/50 Index", "provedor": "MSCI", "codigo": "734512", "metodologiaUrl": "https://www.msci.com/indexes/index/734512/msci-usa-imi-information-technology-25-50-index"},
+      "classificacao": {
+        "classesAtivo": ["acoes"], "focoPrincipal": "setorial", "geografia": {"escopo": "estados-unidos", "paisesPrincipais": ["US"]},
+        "setores": ["tecnologia"], "temas": [], "fatores": [], "estrategias": ["ponderacao-valor-mercado", "selecao-sistematica"],
+        "formasExposicao": ["cotas-etf"], "politicaCambial": "exposto", "replicacao": "indireta"
+      },
+      "carteira": {
+        "dataReferencia": "2026-07-31", "quantidadePosicoes": 321,
+        "principaisPosicoes": [
+          {"nome": "NVIDIA Corp.", "ticker": "NVDA", "tipo": "acao", "nivel": "look-through", "participacaoPct": 17.15, "pais": "US"},
+          {"nome": "Apple Inc.", "ticker": "AAPL", "tipo": "acao", "nivel": "look-through", "participacaoPct": 16.24, "pais": "US"},
+          {"nome": "Microsoft Corp.", "ticker": "MSFT", "tipo": "acao", "nivel": "look-through", "participacaoPct": 10.96, "pais": "US"},
+          {"nome": "Broadcom Inc.", "ticker": "AVGO", "tipo": "acao", "nivel": "look-through", "participacaoPct": 4.21, "pais": "US"},
+          {"nome": "Micron Technology Inc.", "ticker": "MU", "tipo": "acao", "nivel": "look-through", "participacaoPct": 3.82, "pais": "US"},
+          {"nome": "Advanced Micro Devices Inc.", "ticker": "AMD", "tipo": "acao", "nivel": "look-through", "participacaoPct": 3.18, "pais": "US"},
+          {"nome": "Cisco Systems Inc.", "ticker": "CSCO", "tipo": "acao", "nivel": "look-through", "participacaoPct": 1.91, "pais": "US"},
+          {"nome": "Applied Materials Inc.", "ticker": "AMAT", "tipo": "acao", "nivel": "look-through", "participacaoPct": 1.69, "pais": "US"},
+          {"nome": "Intel Corp.", "ticker": "INTC", "tipo": "acao", "nivel": "look-through", "participacaoPct": 1.65, "pais": "US"},
+          {"nome": "Lam Research Corp.", "ticker": "LRCX", "tipo": "acao", "nivel": "look-through", "participacaoPct": 1.54, "pais": "US"}
+        ],
+        "coberturaDivulgadaPct": 62.35,
+        "exposicoes": [
+          {"dimensao": "setor", "nome": "Semicondutores", "participacaoPct": 36.25},
+          {"dimensao": "setor", "nome": "Hardware, armazenamento e periféricos", "participacaoPct": 20.42},
+          {"dimensao": "setor", "nome": "Sistemas de software", "participacaoPct": 16.02},
+          {"dimensao": "setor", "nome": "Software de aplicativos", "participacaoPct": 8.57}
+        ],
+        "observacao": "As empresas e subsetores são uma abertura econômica do VGT; o USTK11 obtém a exposição principal por cotas desse ETF estrangeiro."
+      },
+      "fontes": [
+        {"titulo": "Lâmina do USTK11", "publicador": "Investo", "origem": "gestor", "url": "https://api.mziq.com/mzfilemanager/v2/d/02c0bf8f-2988-419f-9a6f-4e116a4bf822/edc5bae1-d16f-6cb7-7b86-f6d761690aed?origin=2", "acessadoEm": "2026-09-04", "dataReferencia": "2026-07-31", "usos": ["identidade", "classificacao"]},
+        {"titulo": "USTK11", "publicador": "Investo", "origem": "gestor", "url": "https://www.investoetf.com/etf/ustk11/", "acessadoEm": "2026-09-04", "dataReferencia": "2026-07-31", "usos": ["classificacao", "carteira"]},
+        {"titulo": "MSCI USA IMI Information Technology 25/50 Index", "publicador": "MSCI", "origem": "provedor-indice", "url": "https://www.msci.com/indexes/index/734512/msci-usa-imi-information-technology-25-50-index", "acessadoEm": "2026-09-04", "usos": ["indice", "classificacao"]}
+      ],
+      "revisadoEm": "2026-09-04"
+    },
+    {
+      "ticker": "GLDX11", "idB3": 7666, "cnpj": "43210419000180",
+      "gestor": "Investo Gestão de Recursos Ltda.", "administrador": "Banco BNP Paribas Brasil S.A.",
+      "resumo": "Busca acompanhar o preço à vista do ouro por meio do ETF americano OUNZ, lastreado em barras físicas. O retorno em reais combina a variação do ouro e do dólar.",
+      "indice": {"nome": "Solactive Gold Spot Index", "provedor": "Solactive", "codigo": ".SOLAGOLD", "metodologiaUrl": "https://www.solactive.com/index/DE000SL0FW35/"},
+      "classificacao": {
+        "classesAtivo": ["commodities"], "focoPrincipal": "ativo-unico", "geografia": {"escopo": "nao-se-aplica", "paisesPrincipais": []},
+        "setores": [], "temas": [], "fatores": [], "estrategias": ["preco-spot"], "formasExposicao": ["cotas-etf"],
+        "politicaCambial": "exposto", "replicacao": "indireta"
+      },
+      "carteira": {
+        "dataReferencia": "2026-07-31", "quantidadePosicoes": 1,
+        "principaisPosicoes": [{"nome": "VanEck Merk Gold Trust ETF", "ticker": "OUNZ", "tipo": "cota-etf", "nivel": "direta", "participacaoPct": 100, "pais": "US", "moeda": "USD"}],
+        "coberturaDivulgadaPct": 100,
+        "exposicoes": [{"dimensao": "classe-ativo", "nome": "Ouro físico", "participacaoPct": 100}],
+        "observacao": "A lâmina informa um único ativo-alvo, OUNZ. O peso de 100% representa a estrutura central divulgada e não eventuais resíduos operacionais de caixa."
+      },
+      "fontes": [
+        {"titulo": "Lâmina do GLDX11", "publicador": "Investo", "origem": "gestor", "url": "https://api.mziq.com/mzfilemanager/v2/d/02c0bf8f-2988-419f-9a6f-4e116a4bf822/352597c5-f6b9-22e2-0434-eca329402714?origin=2", "acessadoEm": "2026-09-04", "dataReferencia": "2026-07-31", "usos": ["identidade", "classificacao", "carteira"]},
+        {"titulo": "Solactive Gold Spot Index", "publicador": "Solactive", "origem": "provedor-indice", "url": "https://www.solactive.com/index/DE000SL0FW35/", "acessadoEm": "2026-09-04", "usos": ["indice", "classificacao"]}
+      ],
+      "revisadoEm": "2026-09-04"
+    },
+    {
+      "ticker": "HASH11", "idB3": 5899, "cnpj": "38314708000190",
+      "gestor": "Hashdex Gestora de Recursos Ltda.", "administrador": "Banco Genial S.A.",
+      "resumo": "Acompanha uma cesta diversificada de criptoativos ponderada por capitalização de mercado, por meio de um ETF estrangeiro. O retorno em reais também incorpora a variação cambial.",
+      "indice": {"nome": "Nasdaq CME Crypto Index", "provedor": "Nasdaq", "codigo": "NCI", "metodologiaUrl": "https://indexes.nasdaqomx.com/docs/Nasdaq_Crypto_Indexes_Methodology.pdf"},
+      "classificacao": {
+        "classesAtivo": ["criptoativos"], "focoPrincipal": "mercado-amplo", "geografia": {"escopo": "nao-se-aplica", "paisesPrincipais": []},
+        "setores": [], "temas": [], "fatores": [], "estrategias": ["cesta-diversificada", "ponderacao-valor-mercado"],
+        "formasExposicao": ["cotas-etf"], "politicaCambial": "exposto", "replicacao": "indireta"
+      },
+      "carteira": {
+        "dataReferencia": "2026-09-03", "quantidadePosicoes": 9,
+        "principaisPosicoes": [
+          {"nome": "Bitcoin", "ticker": "BTC", "tipo": "criptoativo", "nivel": "look-through", "participacaoPct": 74.58},
+          {"nome": "Ethereum", "ticker": "ETH", "tipo": "criptoativo", "nivel": "look-through", "participacaoPct": 11.67},
+          {"nome": "XRP", "ticker": "XRP", "tipo": "criptoativo", "nivel": "look-through", "participacaoPct": 5.24},
+          {"nome": "Solana", "ticker": "SOL", "tipo": "criptoativo", "nivel": "look-through", "participacaoPct": 3.72},
+          {"nome": "Hyperliquid", "ticker": "HYPE", "tipo": "criptoativo", "nivel": "look-through", "participacaoPct": 3.34},
+          {"nome": "Cardano", "ticker": "ADA", "tipo": "criptoativo", "nivel": "look-through", "participacaoPct": 0.48},
+          {"nome": "Chainlink", "ticker": "LINK", "tipo": "criptoativo", "nivel": "look-through", "participacaoPct": 0.43},
+          {"nome": "Stellar", "ticker": "XLM", "tipo": "criptoativo", "nivel": "look-through", "participacaoPct": 0.31},
+          {"nome": "Bitcoin Cash", "ticker": "BCH", "tipo": "criptoativo", "nivel": "look-through", "participacaoPct": 0.22}
+        ],
+        "coberturaDivulgadaPct": 99.99, "exposicoes": [],
+        "observacao": "Os criptoativos são a abertura econômica publicada pela Hashdex. O HASH11 investe diretamente em cotas de um ETF estrangeiro que replica o NCI."
+      },
+      "fontes": [
+        {"titulo": "HASH11", "publicador": "Hashdex", "origem": "gestor", "url": "https://hashdex.com/pt-BR/products/hash11", "acessadoEm": "2026-09-04", "dataReferencia": "2026-09-02", "usos": ["identidade", "classificacao"]},
+        {"titulo": "Composição do HASH11", "publicador": "Hashdex", "origem": "gestor", "url": "https://hashdex.com/pt-BR/products/hash11/composition", "acessadoEm": "2026-09-04", "dataReferencia": "2026-09-03", "usos": ["classificacao", "carteira"]},
+        {"titulo": "Nasdaq Crypto Indexes Methodology", "publicador": "Nasdaq", "origem": "provedor-indice", "url": "https://indexes.nasdaqomx.com/docs/Nasdaq_Crypto_Indexes_Methodology.pdf", "acessadoEm": "2026-09-04", "usos": ["indice", "classificacao"]}
+      ],
+      "revisadoEm": "2026-09-04"
+    },
+    {
+      "ticker": "HERT11", "idB3": 19423, "cnpj": "60419043000138",
+      "gestor": "Hedge Investments Real Estate Gestão de Recursos Ltda.",
+      "administrador": "Hedge Investments Distribuidora de Títulos e Valores Mobiliários Ltda.",
+      "resumo": "Investe em FIIs brasileiros de tijolo com maior valor de mercado e liquidez, incluindo logística, shoppings e imóveis corporativos. Não há exposição cambial estrutural.",
+      "indice": {"nome": "FTSE Hedge Brazil All Equity REITs Index", "provedor": "FTSE Russell", "codigo": "FHBER", "metodologiaUrl": "https://www.hedgeinvest.com.br/arquivos/HERT/Documentos_Legais/2025_05_01_HERT_Metodologia.pdf"},
+      "classificacao": {
+        "classesAtivo": ["fundos-imobiliarios"], "focoPrincipal": "setorial", "geografia": {"escopo": "brasil", "paisesPrincipais": ["BR"]},
+        "setores": ["imobiliario"], "temas": [], "fatores": [], "estrategias": ["ponderacao-valor-mercado", "selecao-sistematica"],
+        "formasExposicao": ["ativos-diretos"], "politicaCambial": "nao-se-aplica", "replicacao": "fisica-nao-especificada"
+      },
+      "carteira": {
+        "dataReferencia": "2026-03-23",
+        "principaisPosicoes": [
+          {"nome": "Pátria Log FII", "ticker": "HGLG11", "tipo": "cota-fii", "nivel": "look-through", "participacaoPct": 9.39, "pais": "BR", "moeda": "BRL"},
+          {"nome": "XP Malls FII", "ticker": "XPML11", "tipo": "cota-fii", "nivel": "look-through", "participacaoPct": 9.25, "pais": "BR", "moeda": "BRL"},
+          {"nome": "BTG Pactual Logística FII", "ticker": "BTLG11", "tipo": "cota-fii", "nivel": "look-through", "participacaoPct": 7.82, "pais": "BR", "moeda": "BRL"},
+          {"nome": "Kinea Renda Imobiliária FII", "ticker": "KNRI11", "tipo": "cota-fii", "nivel": "look-through", "participacaoPct": 6.72, "pais": "BR", "moeda": "BRL"},
+          {"nome": "XP Log FII", "ticker": "XPLG11", "tipo": "cota-fii", "nivel": "look-through", "participacaoPct": 4.45, "pais": "BR", "moeda": "BRL"},
+          {"nome": "Vinci Shopping Centers FII", "ticker": "VISC11", "tipo": "cota-fii", "nivel": "look-through", "participacaoPct": 4.44, "pais": "BR", "moeda": "BRL"},
+          {"nome": "Pátria Renda Urbana FII", "ticker": "HGRU11", "tipo": "cota-fii", "nivel": "look-through", "participacaoPct": 4.28, "pais": "BR", "moeda": "BRL"},
+          {"nome": "TRX Real Estate FII", "ticker": "TRXF11", "tipo": "cota-fii", "nivel": "look-through", "participacaoPct": 4.23, "pais": "BR", "moeda": "BRL"},
+          {"nome": "Hedge Brasil Shopping FII", "ticker": "HGBS11", "tipo": "cota-fii", "nivel": "look-through", "participacaoPct": 3.74, "pais": "BR", "moeda": "BRL"},
+          {"nome": "Guardian Real Estate FII", "ticker": "GARE11", "tipo": "cota-fii", "nivel": "look-through", "participacaoPct": 3.51, "pais": "BR", "moeda": "BRL"}
+        ],
+        "coberturaDivulgadaPct": 57.83, "exposicoes": [],
+        "observacao": "Pesos das dez maiores posições do índice no rebalanceamento informado pelo gestor; não são uma conciliação contábil diária do fundo."
+      },
+      "fontes": [
+        {"titulo": "Relatório de gestão do HERT11 - julho de 2026", "publicador": "Hedge Investments", "origem": "gestor", "url": "https://www.hedgeinvest.com.br/arquivos/HERT/Relatorio_Gestao/2026_07_HERT_Relatorio.pdf", "acessadoEm": "2026-09-04", "dataReferencia": "2026-07-31", "usos": ["identidade", "classificacao"]},
+        {"titulo": "Hedge Brasil Equity REITs", "publicador": "Hedge Investments", "origem": "gestor", "url": "https://www.hedgeinvest.com.br/fundos/hert/", "acessadoEm": "2026-09-04", "dataReferencia": "2026-03-23", "usos": ["classificacao", "carteira"]},
+        {"titulo": "FTSE Hedge Brazil All Equity REITs Index - Regras Básicas", "publicador": "FTSE Russell", "origem": "provedor-indice", "url": "https://www.hedgeinvest.com.br/arquivos/HERT/Documentos_Legais/2025_05_01_HERT_Metodologia.pdf", "acessadoEm": "2026-09-04", "dataReferencia": "2025-05-01", "usos": ["indice", "classificacao"]}
+      ],
+      "revisadoEm": "2026-09-04"
+    },
+    {
+      "ticker": "BOVA11", "idB3": 990, "cnpj": "10406511000161",
+      "gestor": "BlackRock Brasil Gestora de Investimentos Ltda.", "administrador": "Banco BNP Paribas Brasil S.A.",
+      "resumo": "Reúne as ações mais negociadas e representativas da bolsa brasileira por meio do Ibovespa. É uma exposição ampla ao mercado acionário do país, com peso maior nas empresas de maior valor de mercado em circulação.",
+      "indice": {"nome": "Índice Bovespa", "provedor": "B3", "codigo": "IBOV", "metodologiaUrl": "https://www.b3.com.br/data/files/9C/15/76/F6/3F6947102255C247AC094EA8/IBOV-Metodologia-pt-br__Novo_.pdf"},
+      "classificacao": {
+        "classesAtivo": ["acoes"], "focoPrincipal": "mercado-amplo", "geografia": {"escopo": "brasil", "paisesPrincipais": ["BR"]},
+        "setores": [], "temas": [], "fatores": [], "estrategias": ["ponderacao-valor-mercado", "selecao-sistematica"],
+        "formasExposicao": ["ativos-diretos"], "politicaCambial": "nao-se-aplica", "replicacao": "fisica-nao-especificada"
+      },
+      "carteira": {
+        "dataReferencia": "2025-10-31", "quantidadePosicoes": 82,
+        "principaisPosicoes": [
+          {"nome": "Vale S.A.", "ticker": "VALE3", "tipo": "acao", "nivel": "direta", "participacaoPct": 12.25, "pais": "BR", "moeda": "BRL"},
+          {"nome": "Itaú Unibanco Holding PN", "ticker": "ITUB4", "tipo": "acao", "nivel": "direta", "participacaoPct": 8.00, "pais": "BR", "moeda": "BRL"},
+          {"nome": "Petrobras PN", "ticker": "PETR4", "tipo": "acao", "nivel": "direta", "participacaoPct": 5.77, "pais": "BR", "moeda": "BRL"},
+          {"nome": "Eletrobras ON", "ticker": "ELET3", "tipo": "acao", "nivel": "direta", "participacaoPct": 4.47, "pais": "BR", "moeda": "BRL"},
+          {"nome": "Banco Bradesco PN", "ticker": "BBDC4", "tipo": "acao", "nivel": "direta", "participacaoPct": 4.08, "pais": "BR", "moeda": "BRL"},
+          {"nome": "Petrobras ON", "ticker": "PETR3", "tipo": "acao", "nivel": "direta", "participacaoPct": 3.66, "pais": "BR", "moeda": "BRL"},
+          {"nome": "Sabesp", "ticker": "SBSP3", "tipo": "acao", "nivel": "direta", "participacaoPct": 3.46, "pais": "BR", "moeda": "BRL"},
+          {"nome": "BTG Pactual Units", "ticker": "BPAC11", "tipo": "acao", "nivel": "direta", "participacaoPct": 3.02, "pais": "BR", "moeda": "BRL"},
+          {"nome": "Itaúsa PN", "ticker": "ITSA4", "tipo": "acao", "nivel": "direta", "participacaoPct": 3.00, "pais": "BR", "moeda": "BRL"},
+          {"nome": "B3 S.A.", "ticker": "B3SA3", "tipo": "acao", "nivel": "direta", "participacaoPct": 2.89, "pais": "BR", "moeda": "BRL"}
+        ],
+        "coberturaDivulgadaPct": 50.60, "exposicoes": [],
+        "observacao": "Dez maiores posições publicadas na lâmina mensal. A composição é uma fotografia de outubro de 2025 e deve ser lida junto da data de referência."
+      },
+      "fontes": [
+        {"titulo": "BOVA11", "publicador": "BlackRock", "origem": "gestor", "url": "https://www.blackrock.com/br/products/251816/", "acessadoEm": "2026-09-04", "dataReferencia": "2026-09-02", "usos": ["identidade", "classificacao"]},
+        {"titulo": "Lâmina do BOVA11", "publicador": "BlackRock", "origem": "gestor", "url": "https://www.blackrock.com/br/literature/fact-sheet/bova11-ishares-ibovespa-fundo-de-ndice-fund-fact-sheet-pt-lm.pdf", "acessadoEm": "2026-09-04", "dataReferencia": "2025-10-31", "usos": ["identidade", "carteira"]},
+        {"titulo": "Metodologia do Índice Bovespa", "publicador": "B3", "origem": "provedor-indice", "url": "https://www.b3.com.br/data/files/9C/15/76/F6/3F6947102255C247AC094EA8/IBOV-Metodologia-pt-br__Novo_.pdf", "acessadoEm": "2026-09-04", "usos": ["indice", "classificacao"]}
+      ],
+      "revisadoEm": "2026-09-04"
+    },
+    {
+      "ticker": "SMAL11", "idB3": 989, "cnpj": "10406600000108",
+      "gestor": "BlackRock Brasil Gestora de Investimentos Ltda.", "administrador": "Banco BNP Paribas Brasil S.A.",
+      "resumo": "Investe em ações brasileiras de empresas de menor capitalização, as small caps. O recorte tende a ser menos concentrado nas gigantes da bolsa e mais sensível ao ciclo econômico doméstico.",
+      "indice": {"nome": "Índice Small Cap", "provedor": "B3", "codigo": "SMLL", "metodologiaUrl": "https://www.b3.com.br/data/files/4C/70/8E/79/75B217102C51CE07DC0D8AA8/MetodologiaSMLL_PT.pdf"},
+      "classificacao": {
+        "classesAtivo": ["acoes"], "focoPrincipal": "porte", "geografia": {"escopo": "brasil", "paisesPrincipais": ["BR"]},
+        "setores": [], "temas": [], "fatores": ["tamanho"], "estrategias": ["ponderacao-valor-mercado", "selecao-sistematica"],
+        "formasExposicao": ["ativos-diretos"], "politicaCambial": "nao-se-aplica", "replicacao": "fisica-nao-especificada"
+      },
+      "carteira": {
+        "dataReferencia": "2025-10-31", "quantidadePosicoes": 112,
+        "principaisPosicoes": [
+          {"nome": "Lojas Renner S.A.", "ticker": "LREN3", "tipo": "acao", "nivel": "direta", "participacaoPct": 4.54, "pais": "BR", "moeda": "BRL"},
+          {"nome": "Allos S.A.", "ticker": "ALOS3", "tipo": "acao", "nivel": "direta", "participacaoPct": 3.56, "pais": "BR", "moeda": "BRL"},
+          {"nome": "Sendas Distribuidora S.A.", "ticker": "ASAI3", "tipo": "acao", "nivel": "direta", "participacaoPct": 3.54, "pais": "BR", "moeda": "BRL"},
+          {"nome": "Smart Fit Escola de Ginástica e Dança S.A.", "ticker": "SMFT3", "tipo": "acao", "nivel": "direta", "participacaoPct": 3.29, "pais": "BR", "moeda": "BRL"},
+          {"nome": "Caixa em reais", "tipo": "caixa", "nivel": "direta", "participacaoPct": 3.26, "pais": "BR", "moeda": "BRL"},
+          {"nome": "Multiplan Empreendimentos Imobiliários S.A.", "ticker": "MULT3", "tipo": "acao", "nivel": "direta", "participacaoPct": 2.64, "pais": "BR", "moeda": "BRL"},
+          {"nome": "Taesa Units", "ticker": "TAEE11", "tipo": "acao", "nivel": "direta", "participacaoPct": 2.55, "pais": "BR", "moeda": "BRL"},
+          {"nome": "Cyrela Brazil Realty S.A.", "ticker": "CYRE3", "tipo": "acao", "nivel": "direta", "participacaoPct": 2.39, "pais": "BR", "moeda": "BRL"},
+          {"nome": "Hypera S.A.", "ticker": "HYPE3", "tipo": "acao", "nivel": "direta", "participacaoPct": 2.32, "pais": "BR", "moeda": "BRL"},
+          {"nome": "Natura Cosméticos S.A.", "ticker": "NATU3", "tipo": "acao", "nivel": "direta", "participacaoPct": 2.31, "pais": "BR", "moeda": "BRL"}
+        ],
+        "coberturaDivulgadaPct": 30.40,
+        "exposicoes": [
+          {"dimensao": "setor", "nome": "Consumo cíclico", "participacaoPct": 31.52},
+          {"dimensao": "setor", "nome": "Consumo não cíclico", "participacaoPct": 11.24},
+          {"dimensao": "setor", "nome": "Indústria", "participacaoPct": 10.62},
+          {"dimensao": "setor", "nome": "Imobiliário", "participacaoPct": 9.59},
+          {"dimensao": "setor", "nome": "Materiais", "participacaoPct": 9.54}
+        ],
+        "observacao": "Dez maiores posições e principais setores publicados na lâmina mensal. A parcela de caixa aparece porque fazia parte material da fotografia divulgada."
+      },
+      "fontes": [
+        {"titulo": "SMAL11", "publicador": "BlackRock", "origem": "gestor", "url": "https://www.blackrock.com/br/products/251752/ishares-bmfbovespa-small-cap-fundo-de-ndice-fund", "acessadoEm": "2026-09-04", "dataReferencia": "2026-09-01", "usos": ["identidade", "classificacao"]},
+        {"titulo": "Lâmina do SMAL11", "publicador": "BlackRock", "origem": "gestor", "url": "https://www.blackrock.com/br/literature/fact-sheet/smal11-ishares-bm-fbovespa-small-cap-fundo-de-ndice-fund-fact-sheet-pt-lm.pdf", "acessadoEm": "2026-09-04", "dataReferencia": "2025-10-31", "usos": ["identidade", "carteira"]},
+        {"titulo": "Metodologia do Índice Small Cap", "publicador": "B3", "origem": "provedor-indice", "url": "https://www.b3.com.br/data/files/4C/70/8E/79/75B217102C51CE07DC0D8AA8/MetodologiaSMLL_PT.pdf", "acessadoEm": "2026-09-04", "usos": ["indice", "classificacao"]}
+      ],
+      "revisadoEm": "2026-09-04"
+    },
+    {
+      "ticker": "BNDX11", "idB3": 7522, "cnpj": "43216095000198",
+      "gestor": "Investo Gestão de Recursos Ltda.", "administrador": "Banco BNP Paribas Brasil S.A.",
+      "resumo": "Acessa milhares de títulos públicos e privados com grau de investimento de vários países, excluindo os Estados Unidos, por meio do ETF BNDX. As moedas dos emissores são protegidas para o dólar, mas o investidor brasileiro continua exposto ao dólar frente ao real.",
+      "indice": {"nome": "Bloomberg Global Aggregate ex-USD Float Adjusted RIC Capped Index Hedged", "provedor": "Bloomberg Index Services Limited", "metodologiaUrl": "https://www.bloomberg.com/professional/products/indices/"},
+      "classificacao": {
+        "classesAtivo": ["renda-fixa"], "focoPrincipal": "mercado-amplo", "geografia": {"escopo": "multirregional", "paisesPrincipais": []},
+        "setores": [], "temas": [], "fatores": [], "estrategias": ["credito", "cesta-diversificada", "selecao-sistematica"],
+        "formasExposicao": ["cotas-etf"], "politicaCambial": "exposto", "replicacao": "indireta"
+      },
+      "carteira": {
+        "dataReferencia": "2026-07-31", "quantidadePosicoes": 6808,
+        "principaisPosicoes": [{"nome": "Vanguard Total International Bond ETF", "ticker": "BNDX", "tipo": "cota-etf", "nivel": "direta", "participacaoPct": 100, "pais": "US", "moeda": "USD"}],
+        "coberturaDivulgadaPct": 100,
+        "exposicoes": [
+          {"dimensao": "qualidade-credito", "nome": "A", "participacaoPct": 36.80},
+          {"dimensao": "qualidade-credito", "nome": "AAA", "participacaoPct": 25.39},
+          {"dimensao": "qualidade-credito", "nome": "BBB", "participacaoPct": 18.84},
+          {"dimensao": "qualidade-credito", "nome": "AA", "participacaoPct": 17.05},
+          {"dimensao": "regiao", "nome": "Europa", "participacaoPct": 57.86},
+          {"dimensao": "regiao", "nome": "Ásia-Pacífico", "participacaoPct": 18.38},
+          {"dimensao": "regiao", "nome": "América do Norte", "participacaoPct": 10.50},
+          {"dimensao": "regiao", "nome": "Mercados emergentes", "participacaoPct": 7.37}
+        ],
+        "observacao": "O peso de 100% representa a estrutura central divulgada: uma cota de ETF-alvo. Ratings, regiões e número de títulos são a abertura econômica do BNDX, não posições diretas do BNDX11."
+      },
+      "fontes": [
+        {"titulo": "Lâmina do BNDX11", "publicador": "Investo", "origem": "gestor", "url": "https://api.mziq.com/mzfilemanager/v2/d/02c0bf8f-2988-419f-9a6f-4e116a4bf822/bcc89edf-6f40-5ea9-8dce-32eef9282fc4?origin=2", "acessadoEm": "2026-09-04", "dataReferencia": "2026-07-31", "usos": ["identidade", "indice", "classificacao", "carteira"]},
+        {"titulo": "BNDX11", "publicador": "Investo", "origem": "gestor", "url": "https://www.investoetf.com/etf/bndx11/", "acessadoEm": "2026-09-04", "dataReferencia": "2026-07-31", "usos": ["classificacao", "carteira"]},
+        {"titulo": "Bloomberg Indices", "publicador": "Bloomberg", "origem": "provedor-indice", "url": "https://www.bloomberg.com/professional/products/indices/", "acessadoEm": "2026-09-04", "usos": ["indice"]}
+      ],
+      "revisadoEm": "2026-09-04"
+    },
+    {
+      "ticker": "DOLA11", "idB3": 12629, "cnpj": "55620015000144",
+      "gestor": "BB Asset Management", "administrador": "BB Asset Management",
+      "resumo": "Entrega exposição à alta ou queda do dólar frente ao real usando o contrato futuro de dólar mais próximo, com rolagem mensal. O caixa teórico do índice rende DI ou Selic, por isso o resultado não é apenas a variação do câmbio à vista.",
+      "indice": {"nome": "S&P/B3 BRL-USD Futures Index", "provedor": "S&P Dow Jones Indices e B3", "codigo": "SPBBUFT", "metodologiaUrl": "https://api.mziq.com/mzfilemanager/v2/d/319ac1a6-f735-4f52-abe7-5a90944e0ff9/124d2c01-15f0-8193-8701-8bf7f81e1994?origin=2"},
+      "classificacao": {
+        "classesAtivo": ["moedas"], "focoPrincipal": "ativo-unico", "geografia": {"escopo": "nao-se-aplica", "paisesPrincipais": []},
+        "setores": [], "temas": [], "fatores": [], "estrategias": ["rolagem-futuros", "juros-pos-fixados"],
+        "formasExposicao": ["futuros", "caixa-garantias"], "politicaCambial": "exposto", "replicacao": "sintetica"
+      },
+      "carteira": {
+        "dataReferencia": "2026-09-04", "quantidadePosicoes": 1,
+        "principaisPosicoes": [{"nome": "Primeiro vencimento do contrato futuro de dólar (DOL)", "ticker": "DOL", "tipo": "futuro", "nivel": "look-through", "participacaoPct": 100, "moeda": "USD"}],
+        "coberturaDivulgadaPct": 100,
+        "exposicoes": [
+          {"dimensao": "moeda", "nome": "Dólar dos Estados Unidos frente ao real", "participacaoPct": 100},
+          {"dimensao": "indexador", "nome": "Caixa a DI de 1 dia ou Selic Over", "participacaoPct": 100}
+        ],
+        "observacao": "A posição descreve a exposição econômica permanente do índice; o código exato do contrato muda na rolagem mensal. O caixa remunerado integra o retorno total, mas não representa uma segunda exposição cambial."
+      },
+      "fontes": [
+        {"titulo": "DOLA11", "publicador": "BB Asset", "origem": "gestor", "url": "https://www.bbasset.com.br/fundos-listados/dola11/", "acessadoEm": "2026-09-04", "dataReferencia": "2026-09-04", "usos": ["identidade", "classificacao", "carteira"]},
+        {"titulo": "Metodologia dos S&P/B3 Futures Indices", "publicador": "S&P Dow Jones Indices", "origem": "provedor-indice", "url": "https://api.mziq.com/mzfilemanager/v2/d/319ac1a6-f735-4f52-abe7-5a90944e0ff9/124d2c01-15f0-8193-8701-8bf7f81e1994?origin=2", "acessadoEm": "2026-09-04", "dataReferencia": "2023-06-01", "usos": ["indice", "classificacao", "carteira"]}
+      ],
+      "revisadoEm": "2026-09-04"
+    },
+    {
+      "ticker": "DIVO11", "idB3": 996, "cnpj": "13416245000146",
+      "gestor": "Itaú Unibanco S.A.", "administrador": "Itaú Unibanco S.A.",
+      "resumo": "Seleciona ações brasileiras que se destacaram pela distribuição de dividendos e juros sobre capital próprio. Os proventos entram no retorno do índice e são reinvestidos no fundo, não pagos diretamente ao cotista.",
+      "indice": {"nome": "Índice Dividendos", "provedor": "B3", "codigo": "IDIV", "metodologiaUrl": "https://www.b3.com.br/data/files/15/D0/4D/4A/4E5D061099BE5706790D8AA8/MetodologiaIDIV_PT1.pdf"},
+      "classificacao": {
+        "classesAtivo": ["acoes"], "focoPrincipal": "renda", "geografia": {"escopo": "brasil", "paisesPrincipais": ["BR"]},
+        "setores": [], "temas": [], "fatores": ["dividendos"], "estrategias": ["ponderacao-fundamentalista", "selecao-sistematica"],
+        "formasExposicao": ["ativos-diretos"], "politicaCambial": "nao-se-aplica", "replicacao": "fisica-amostragem"
+      },
+      "carteira": {
+        "dataReferencia": "2026-07-31",
+        "principaisPosicoes": [{"nome": "Carteira de ações do Índice Dividendos", "tipo": "outro", "nivel": "look-through", "participacaoPct": 100, "pais": "BR", "moeda": "BRL"}],
+        "coberturaDivulgadaPct": 100,
+        "exposicoes": [
+          {"dimensao": "setor", "nome": "Financeiro", "participacaoPct": 35.71},
+          {"dimensao": "setor", "nome": "Utilidade pública", "participacaoPct": 22.77},
+          {"dimensao": "setor", "nome": "Energia", "participacaoPct": 10.34},
+          {"dimensao": "setor", "nome": "Materiais básicos", "participacaoPct": 8.38},
+          {"dimensao": "setor", "nome": "Consumo cíclico", "participacaoPct": 7.20},
+          {"dimensao": "setor", "nome": "Imobiliário", "participacaoPct": 4.10},
+          {"dimensao": "setor", "nome": "Consumo não cíclico", "participacaoPct": 3.94},
+          {"dimensao": "setor", "nome": "Comunicações", "participacaoPct": 3.09},
+          {"dimensao": "setor", "nome": "Saúde", "participacaoPct": 2.59},
+          {"dimensao": "setor", "nome": "Bens industriais", "participacaoPct": 1.88}
+        ],
+        "observacao": "A lâmina mensal divulga a abertura setorial completa, mas não as ações individualizadas no próprio documento. Por isso a posição representa a cesta do índice e os setores mostram onde ela se concentra."
+      },
+      "fontes": [
+        {"titulo": "Lâmina do DIVO11", "publicador": "Itaú Asset Management", "origem": "gestor", "url": "https://assetfront.arquivosparceiros.cloud.itau.com.br/FND/ITAUCARD49295_It_Now_IDIV.pdf", "acessadoEm": "2026-09-04", "dataReferencia": "2026-07-31", "usos": ["identidade", "classificacao", "carteira"]},
+        {"titulo": "Características do DIVO11", "publicador": "It Now", "origem": "gestor", "url": "https://www.itnow.com.br/divo11/caracteristicas/", "acessadoEm": "2026-09-04", "usos": ["identidade", "classificacao"]},
+        {"titulo": "Metodologia do Índice Dividendos", "publicador": "B3", "origem": "provedor-indice", "url": "https://www.b3.com.br/data/files/15/D0/4D/4A/4E5D061099BE5706790D8AA8/MetodologiaIDIV_PT1.pdf", "acessadoEm": "2026-09-04", "usos": ["indice", "classificacao"]}
+      ],
+      "revisadoEm": "2026-09-04"
+    },
+    {
+      "ticker": "ISUS11", "idB3": 1000, "cnpj": "12984444000198",
+      "gestor": "Itaú Unibanco S.A.", "administrador": "Itaú Unibanco S.A.",
+      "resumo": "Investe em ações brasileiras selecionadas pelo processo do ISE B3, que avalia práticas ambientais, sociais e de governança. Sustentabilidade é um critério de seleção; o fundo continua sujeito ao risco normal das ações.",
+      "indice": {"nome": "Índice de Sustentabilidade Empresarial", "provedor": "B3", "codigo": "ISEE", "metodologiaUrl": "https://www.b3.com.br/data/files/EF/C1/1B/7E/CC8D59109B3D0D59AC094EA8/ISE%20B3%20-%20Metodologia%202025.pdf"},
+      "classificacao": {
+        "classesAtivo": ["acoes"], "focoPrincipal": "sustentabilidade", "geografia": {"escopo": "brasil", "paisesPrincipais": ["BR"]},
+        "setores": [], "temas": [], "fatores": [], "estrategias": ["ponderacao-valor-mercado", "selecao-sistematica"],
+        "formasExposicao": ["ativos-diretos"], "politicaCambial": "nao-se-aplica", "replicacao": "fisica-amostragem"
+      },
+      "carteira": {
+        "dataReferencia": "2026-07-31", "quantidadePosicoes": 69,
+        "principaisPosicoes": [{"nome": "Carteira de ações do ISE B3", "tipo": "outro", "nivel": "look-through", "participacaoPct": 100, "pais": "BR", "moeda": "BRL"}],
+        "coberturaDivulgadaPct": 100,
+        "exposicoes": [
+          {"dimensao": "setor", "nome": "Utilidade pública", "participacaoPct": 27.56},
+          {"dimensao": "setor", "nome": "Financeiro", "participacaoPct": 20.54},
+          {"dimensao": "setor", "nome": "Bens industriais", "participacaoPct": 10.54},
+          {"dimensao": "setor", "nome": "Consumo não cíclico", "participacaoPct": 10.41},
+          {"dimensao": "setor", "nome": "Consumo cíclico", "participacaoPct": 9.60},
+          {"dimensao": "setor", "nome": "Energia", "participacaoPct": 5.39},
+          {"dimensao": "setor", "nome": "Comunicações", "participacaoPct": 5.12},
+          {"dimensao": "setor", "nome": "Materiais básicos", "participacaoPct": 5.10},
+          {"dimensao": "setor", "nome": "Imobiliário", "participacaoPct": 3.35},
+          {"dimensao": "setor", "nome": "Saúde", "participacaoPct": 2.39}
+        ],
+        "observacao": "A quantidade de companhias vem da carteira 2026 divulgada pela B3. A lâmina mensal abre a exposição por setor, mas não individualiza as ações no próprio documento."
+      },
+      "fontes": [
+        {"titulo": "Lâmina do ISUS11", "publicador": "Itaú Asset Management", "origem": "gestor", "url": "https://assetfront.arquivosparceiros.cloud.itau.com.br/FND/ITAUCARD49298_It_Now_ISE.pdf", "acessadoEm": "2026-09-04", "dataReferencia": "2026-07-31", "usos": ["identidade", "classificacao", "carteira"]},
+        {"titulo": "Características do ISUS11", "publicador": "It Now", "origem": "gestor", "url": "https://www.itnow.com.br/isus11/caracteristicas/", "acessadoEm": "2026-09-04", "usos": ["identidade", "classificacao"]},
+        {"titulo": "Metodologia do ISE B3", "publicador": "B3", "origem": "provedor-indice", "url": "https://www.b3.com.br/data/files/EF/C1/1B/7E/CC8D59109B3D0D59AC094EA8/ISE%20B3%20-%20Metodologia%202025.pdf", "acessadoEm": "2026-09-04", "usos": ["indice", "classificacao"]},
+        {"titulo": "Carteira do ISE B3 para 2026", "publicador": "B3", "origem": "b3", "url": "https://www.b3.com.br/pt_br/noticias/sustentabilidade-8AA8D0CC9DF273EF019DF4D22CF87868.htm", "acessadoEm": "2026-09-04", "dataReferencia": "2026-05-04", "usos": ["carteira"]}
+      ],
+      "revisadoEm": "2026-09-04"
+    },
+    {
+      "ticker": "NTNS11", "idB3": 9988, "cnpj": "50642881000112",
+      "gestor": "Investo Gestão de Recursos Ltda.", "administrador": "Banco BNP Paribas Brasil S.A.",
+      "resumo": "Investe em títulos públicos Tesouro IPCA+ com vencimento entre zero e quatro anos. Combina inflação medida pelo IPCA com juros reais e mantém duração próxima de dois anos por meio de rebalanceamentos.",
+      "indice": {"nome": "ITBR IPCA 0-4 anos - Índice Teva Tesouro IPCA+ Curto Prazo", "provedor": "Teva Índices", "codigo": "TEVANTNS Index", "metodologiaUrl": "https://www.tevaindices.com.br/nossos-indices/itbr-ipca-0-4-anos-indice-teva-tesouro-ipca%2B-curto-prazo"},
+      "classificacao": {
+        "classesAtivo": ["renda-fixa"], "focoPrincipal": "vencimento-alvo", "geografia": {"escopo": "brasil", "paisesPrincipais": ["BR"]},
+        "setores": [], "temas": [], "fatores": [], "estrategias": ["inflacao", "duration-alvo", "selecao-sistematica"],
+        "formasExposicao": ["ativos-diretos"], "politicaCambial": "nao-se-aplica", "replicacao": "fisica-nao-especificada"
+      },
+      "carteira": {
+        "dataReferencia": "2026-09-02", "quantidadePosicoes": 4,
+        "principaisPosicoes": [
+          {"nome": "Tesouro IPCA+ 2028", "tipo": "titulo-publico", "nivel": "look-through", "participacaoPct": 35.18, "pais": "BR", "moeda": "BRL"},
+          {"nome": "Tesouro IPCA+ 2027", "tipo": "titulo-publico", "nivel": "look-through", "participacaoPct": 27.56, "pais": "BR", "moeda": "BRL"},
+          {"nome": "Tesouro IPCA+ 2030", "tipo": "titulo-publico", "nivel": "look-through", "participacaoPct": 26.54, "pais": "BR", "moeda": "BRL"},
+          {"nome": "Tesouro IPCA+ 2029", "tipo": "titulo-publico", "nivel": "look-through", "participacaoPct": 10.72, "pais": "BR", "moeda": "BRL"}
+        ],
+        "coberturaDivulgadaPct": 100,
+        "exposicoes": [{"dimensao": "indexador", "nome": "IPCA mais juros reais", "participacaoPct": 100}, {"dimensao": "emissor", "nome": "Tesouro Nacional", "participacaoPct": 100}],
+        "observacao": "Pesos da carteira do índice divulgados pelo gestor. São uma abertura econômica e podem diferir temporariamente da composição contábil diária do fundo."
+      },
+      "fontes": [
+        {"titulo": "Lâmina do NTNS11", "publicador": "Investo", "origem": "gestor", "url": "https://api.mziq.com/mzfilemanager/v2/d/02c0bf8f-2988-419f-9a6f-4e116a4bf822/e8571d8e-072a-cebc-b9a8-18fb95785428?origin=2", "acessadoEm": "2026-09-04", "dataReferencia": "2026-07-31", "usos": ["identidade", "classificacao"]},
+        {"titulo": "NTNS11", "publicador": "Investo", "origem": "gestor", "url": "https://www.investoetf.com/etf/ntns11/", "acessadoEm": "2026-09-04", "dataReferencia": "2026-09-02", "usos": ["classificacao", "carteira"]},
+        {"titulo": "Índice Teva Tesouro IPCA+ Curto Prazo", "publicador": "Teva Índices", "origem": "provedor-indice", "url": "https://www.tevaindices.com.br/nossos-indices/itbr-ipca-0-4-anos-indice-teva-tesouro-ipca%2B-curto-prazo", "acessadoEm": "2026-09-04", "dataReferencia": "2026-09-03", "usos": ["identidade", "indice", "classificacao", "carteira"]}
+      ],
+      "revisadoEm": "2026-09-04"
+    },
+    {
+      "ticker": "LFIX11", "idB3": 24793, "cnpj": "64731230000103",
+      "gestor": "Investo Gestão de Recursos Ltda.", "administrador": "BTG Pactual Serviços Financeiros S.A. DTVM",
+      "resumo": "Investe em Letras Financeiras emitidas pelos maiores bancos brasileiros, incluindo papéis seniores e subordinados. A remuneração combina DI com prêmio de crédito, portanto há risco dos emissores e não cobertura do FGC.",
+      "indice": {"nome": "Índice de Letra Financeira S1 DI B3", "provedor": "B3", "codigo": "ILFS1 B3", "metodologiaUrl": "https://www.b3.com.br/data/files/EA/42/86/B3/D533C91076A8EEB9AC094EA8/Metodologia_%20Indice%20de%20Letra%20Financeira%20S1%20.pdf"},
+      "classificacao": {
+        "classesAtivo": ["renda-fixa"], "focoPrincipal": "renda", "geografia": {"escopo": "brasil", "paisesPrincipais": ["BR"]},
+        "setores": ["financeiro"], "temas": [], "fatores": [], "estrategias": ["credito", "juros-pos-fixados", "ponderacao-valor-mercado"],
+        "formasExposicao": ["ativos-diretos"], "politicaCambial": "nao-se-aplica", "replicacao": "fisica-nao-especificada"
+      },
+      "carteira": {
+        "dataReferencia": "2026-08-07", "quantidadePosicoes": 6026,
+        "principaisPosicoes": [
+          {"nome": "Letras Financeiras do Bradesco", "tipo": "titulo-privado", "nivel": "look-through", "participacaoPct": 46.87, "pais": "BR", "moeda": "BRL"},
+          {"nome": "Letras Financeiras do BTG Pactual", "tipo": "titulo-privado", "nivel": "look-through", "participacaoPct": 17.76, "pais": "BR", "moeda": "BRL"},
+          {"nome": "Letras Financeiras do Santander", "tipo": "titulo-privado", "nivel": "look-through", "participacaoPct": 17.12, "pais": "BR", "moeda": "BRL"},
+          {"nome": "Letras Financeiras do Itaú", "tipo": "titulo-privado", "nivel": "look-through", "participacaoPct": 9.04, "pais": "BR", "moeda": "BRL"},
+          {"nome": "Letras Financeiras do Banco do Brasil", "tipo": "titulo-privado", "nivel": "look-through", "participacaoPct": 7.39, "pais": "BR", "moeda": "BRL"},
+          {"nome": "Letras Financeiras da Caixa Econômica Federal", "tipo": "titulo-privado", "nivel": "look-through", "participacaoPct": 1.82, "pais": "BR", "moeda": "BRL"}
+        ],
+        "coberturaDivulgadaPct": 100,
+        "exposicoes": [{"dimensao": "indexador", "nome": "DI mais spread de crédito", "participacaoPct": 100}, {"dimensao": "emissor", "nome": "Instituições financeiras do segmento S1", "participacaoPct": 100}],
+        "observacao": "Os pesos são agregados por emissor na carteira do índice; cada linha reúne diversas Letras Financeiras. O número de ativos informado pelo gestor conta os títulos individualmente."
+      },
+      "fontes": [
+        {"titulo": "Lâmina do LFIX11", "publicador": "Investo", "origem": "gestor", "url": "https://api.mziq.com/mzfilemanager/v2/d/02c0bf8f-2988-419f-9a6f-4e116a4bf822/1727a27d-3c6d-f714-5b78-1f5d1e5d149d?origin=2", "acessadoEm": "2026-09-04", "dataReferencia": "2026-07-31", "usos": ["identidade", "classificacao"]},
+        {"titulo": "LFIX11", "publicador": "Investo", "origem": "gestor", "url": "https://www.investoetf.com/etf/lfix11/", "acessadoEm": "2026-09-04", "dataReferencia": "2026-08-07", "usos": ["classificacao", "carteira"]},
+        {"titulo": "Metodologia do Índice de Letra Financeira S1 DI B3", "publicador": "B3", "origem": "provedor-indice", "url": "https://www.b3.com.br/data/files/EA/42/86/B3/D533C91076A8EEB9AC094EA8/Metodologia_%20Indice%20de%20Letra%20Financeira%20S1%20.pdf", "acessadoEm": "2026-09-04", "usos": ["indice", "classificacao", "carteira"]}
+      ],
+      "revisadoEm": "2026-09-04"
+    },
+    {
+      "ticker": "GOAT11", "idB3": 18791, "cnpj": "59834667000132",
+      "gestor": "Itaú Unibanco Asset Management Ltda.", "administrador": "Itaú Unibanco S.A.",
+      "resumo": "Combina duas classes em uma regra fixa: aproximadamente 80% em títulos públicos brasileiros indexados ao IPCA e 20% em ações do S&P 500. A parcela americana também carrega a variação do dólar frente ao real.",
+      "indice": {"nome": "S&P 500 and Brazil Sovereign Real Interest Rate Bond 20/80 Blend Index", "provedor": "S&P Dow Jones Indices", "codigo": "SPBSIB28", "metodologiaUrl": "https://www.spglobal.com/spdji/pt/documents/methodologies/methodology-sp-500-br-sov-irb-2080-bl-index-portuguese.pdf"},
+      "classificacao": {
+        "classesAtivo": ["renda-fixa", "acoes"], "focoPrincipal": "multiativo", "geografia": {"escopo": "multirregional", "paisesPrincipais": ["BR", "US"]},
+        "setores": [], "temas": [], "fatores": [], "estrategias": ["cesta-diversificada", "inflacao", "selecao-sistematica"],
+        "formasExposicao": ["cotas-etf"], "politicaCambial": "misto", "replicacao": "indireta"
+      },
+      "carteira": {
+        "dataReferencia": "2026-09-03", "quantidadePosicoes": 2,
+        "principaisPosicoes": [
+          {"nome": "It Now ID ETF IMA-B", "ticker": "IMAB11", "tipo": "cota-etf", "nivel": "look-through", "participacaoPct": 80, "pais": "BR", "moeda": "BRL"},
+          {"nome": "It Now S&P 500 TRN Fundo de Índice", "ticker": "SPXI11", "tipo": "cota-etf", "nivel": "look-through", "participacaoPct": 20, "pais": "US", "moeda": "USD"}
+        ],
+        "coberturaDivulgadaPct": 100,
+        "exposicoes": [{"dimensao": "classe-ativo", "nome": "Títulos públicos Tesouro IPCA+", "participacaoPct": 80}, {"dimensao": "classe-ativo", "nome": "Ações das maiores empresas dos Estados Unidos", "participacaoPct": 20}],
+        "observacao": "Os pesos de 80% e 20% são os alvos do índice, não uma promessa de pesos intradiários. Há rebalanceamento trimestral e também quando a parcela de renda fixa permanece abaixo do limite metodológico."
+      },
+      "fontes": [
+        {"titulo": "Características do GOAT11", "publicador": "It Now", "origem": "gestor", "url": "https://www.itnow.com.br/goat11/caracteristicas/", "acessadoEm": "2026-09-04", "usos": ["identidade", "classificacao", "carteira"]},
+        {"titulo": "Material do GOAT11", "publicador": "Itaú Asset Management", "origem": "gestor", "url": "https://assetfront.arquivosparceiros.cloud.itau.com.br/ITN/Flyer%20Comercial%20-%20GOAT11.pdf", "acessadoEm": "2026-09-04", "dataReferencia": "2025-09-30", "usos": ["identidade", "classificacao", "carteira"]},
+        {"titulo": "Metodologia do S&P 500 and Brazil Sovereign Real Interest Rate Bond 20/80 Blend Index", "publicador": "S&P Dow Jones Indices", "origem": "provedor-indice", "url": "https://www.spglobal.com/spdji/pt/documents/methodologies/methodology-sp-500-br-sov-irb-2080-bl-index-portuguese.pdf", "acessadoEm": "2026-09-04", "dataReferencia": "2026-09-03", "usos": ["indice", "classificacao", "carteira"]}
+      ],
+      "revisadoEm": "2026-09-04"
+    }
+  ]
+}

@@ -17,14 +17,17 @@ jobs:
           python-version: '3.12'
       - run: node scripts/valida-bdrs.js
       - run: node scripts/valida-etfs.js
+      - run: node scripts/valida-taxonomia-etfs.js
       - run: node scripts/valida-pagina.js
       - run: node scripts/valida-url.js
       - run: node scripts/valida-comparador.js
       - run: node scripts/valida-matriz.js
       - run: node scripts/valida-acompanhamento.js
+      - run: node scripts/testa-carteira.js
       - run: node scripts/testa-csv.js
       - run: node scripts/valida-bdrs-referencia.js
       - run: node scripts/valida-precos.js
+      - run: node scripts/testa-precos-ui.js
       - run: node scripts/valida-metricas.js
       - run: node scripts/valida-metricas-empresas.js
       - run: node scripts/testa-metricas-empresas.js

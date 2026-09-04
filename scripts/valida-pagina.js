@@ -2,11 +2,12 @@ const fs=require('fs'),path=require('path'),h=fs.readFileSync(path.join(__dirnam
 const falha=m=>{throw new Error(m);};
 const scripts=[...h.matchAll(/<script>([\s\S]*?)<\/script>/g)];if(scripts.length!==1)falha('a pagina deve manter um unico script embutido');
 new Function(scripts[0][1]);
-['secGeral','secEmpresas','secBdrs','secEtfs','secRadar','secMetodologia','drw','cmpbar','boxMatrizB','saudeBt'].forEach(id=>{if(!h.includes('id="'+id+'"'))falha('elemento ausente: '+id);});
+['secGeral','secEmpresas','secBdrs','secEtfs','secCarteira','secRadar','secMetodologia','drw','cmpbar','boxMatrizB','saudeBt','atualizaPrecosBt','formCarteira','etfCoberturas','etfClasses','etfFocos','etfGeografias','etfCaracteristicas'].forEach(id=>{if(!h.includes('id="'+id+'"'))falha('elemento ausente: '+id);});
 ['function squarify(','function peso(','const txOn =','lastFocus','wrap.inert'].forEach(x=>{if(!h.includes(x))falha('invariante ausente: '+x);});
-const secoes=[...h.matchAll(/<button data-sec="([^"]+)"/g)].map(x=>x[1]);if(JSON.stringify(secoes)!==JSON.stringify(['geral','empresas','bdrs','etfs','radar','metodologia']))falha('navegacao primaria invalida');
+const secoes=[...h.matchAll(/<button data-sec="([^"]+)"/g)].map(x=>x[1]);if(JSON.stringify(secoes)!==JSON.stringify(['geral','empresas','bdrs','etfs','carteira','radar','metodologia']))falha('navegacao primaria invalida');
 const fetches=[...scripts[0][1].matchAll(/fetch\('([^']+)'/g)].map(x=>x[1]);if(fetches.some(x=>x.startsWith('/')))falha('fetch com barra inicial quebra o deploy em subcaminho');
-['precos.json','bdrs.json','etfs.json','metricas.json','metricas-empresas.json','analise.json','eventos.json','saude.json'].forEach(x=>{if(!fetches.includes(x))falha('carga ausente: '+x);});
+['precos.json','bdrs.json','etfs.json','etfs-detalhes.json','metricas.json','metricas-empresas.json','analise.json','eventos.json','saude.json'].forEach(x=>{if(!fetches.includes(x))falha('carga ausente: '+x);});
+['ETF_DETALHE','function detalheETFHTML(','function normalizaSelecoesETF(','etfCobertura','posição direta','exposição econômica'].forEach(x=>{if(!h.includes(x))falha('integracao do detalhamento ETF ausente: '+x);});
 if(!/table\.tab thead th\{\s*position:sticky;top:0;/.test(h))falha('cabecalho das tabelas pode sobrepor a primeira linha');
 if(/table\.tab thead th\{top:\d+px\}/.test(h))falha('offset responsivo reintroduz sobreposicao na primeira linha');
 console.log('OK: estrutura, JavaScript e caminhos relativos da pagina validos');

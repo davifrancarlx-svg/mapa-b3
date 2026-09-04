@@ -1,0 +1,768 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Detalhamento editorial dos ETFs do Mapa da B3",
+  "description": "Contrato e vocabulario controlado da camada que explica indice, exposicao e carteira dos ETFs. A identidade e a categoria oficial continuam em etfs.json.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "versaoSchema",
+    "taxonomiaVersao",
+    "geradoEm",
+    "totalCatalogo",
+    "totalDetalhados",
+    "etfs"
+  ],
+  "properties": {
+    "versaoSchema": {
+      "const": 2,
+      "description": "Versao do formato do arquivo etfs-detalhes.json."
+    },
+    "taxonomiaVersao": {
+      "const": 2,
+      "description": "Versao dos vocabularios controlados definidos neste esquema."
+    },
+    "geradoEm": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "totalCatalogo": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Quantidade de ETFs existente em etfs.json no momento da geracao."
+    },
+    "totalDetalhados": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Quantidade de registros confirmados em etfs. O validador deve conferir a igualdade com o tamanho da lista."
+    },
+    "etfs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/etf"
+      }
+    }
+  },
+  "$defs": {
+    "etf": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ticker",
+        "idB3",
+        "cnpj",
+        "gestor",
+        "resumo",
+        "indice",
+        "classificacao",
+        "carteira",
+        "fontes",
+        "revisadoEm"
+      ],
+      "properties": {
+        "ticker": {
+          "type": "string",
+          "pattern": "^[A-Z0-9]{4}11$",
+          "description": "Chave de leitura humana e primeira chave de ligacao com etfs.json."
+        },
+        "idB3": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Segunda chave de ligacao com etfs.json; impede associacao apenas por nome."
+        },
+        "cnpj": {
+          "type": "string",
+          "pattern": "^[0-9]{14}$",
+          "description": "CNPJ confirmado em fonte oficial, normalizado sem pontuacao."
+        },
+        "gestor": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 160
+        },
+        "administrador": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 160
+        },
+        "resumo": {
+          "type": "string",
+          "minLength": 40,
+          "maxLength": 320,
+          "description": "Uma ou duas frases simples: o que acompanha, onde investe, como obtem a exposicao e como o cambio interfere."
+        },
+        "indice": {
+          "$ref": "#/$defs/indice"
+        },
+        "classificacao": {
+          "$ref": "#/$defs/classificacao"
+        },
+        "carteira": {
+          "$ref": "#/$defs/carteira"
+        },
+        "fontes": {
+          "$ref": "#/$defs/fontes"
+        },
+        "revisadoEm": {
+          "type": "string",
+          "format": "date",
+          "description": "Data da ultima revisao humana das evidencias."
+        },
+        "observacao": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 320
+        }
+      }
+    },
+    "indice": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "nome",
+        "provedor",
+        "metodologiaUrl"
+      ],
+      "properties": {
+        "nome": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 240
+        },
+        "provedor": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 120
+        },
+        "codigo": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "metodologiaUrl": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://"
+        }
+      }
+    },
+    "classificacao": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "classesAtivo",
+        "focoPrincipal",
+        "geografia",
+        "setores",
+        "temas",
+        "fatores",
+        "estrategias",
+        "formasExposicao",
+        "politicaCambial",
+        "replicacao"
+      ],
+      "properties": {
+        "classesAtivo": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/classeAtivo"
+          }
+        },
+        "focoPrincipal": {
+          "$ref": "#/$defs/foco"
+        },
+        "geografia": {
+          "$ref": "#/$defs/geografia"
+        },
+        "setores": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/setor"
+          }
+        },
+        "temas": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/tema"
+          }
+        },
+        "fatores": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/fator"
+          }
+        },
+        "estrategias": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/estrategia"
+          }
+        },
+        "formasExposicao": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/formaExposicao"
+          }
+        },
+        "politicaCambial": {
+          "$ref": "#/$defs/politicaCambial"
+        },
+        "replicacao": {
+          "$ref": "#/$defs/replicacao"
+        }
+      }
+    },
+    "geografia": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "escopo",
+        "paisesPrincipais"
+      ],
+      "properties": {
+        "escopo": {
+          "$ref": "#/$defs/escopoGeografico"
+        },
+        "paisesPrincipais": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Z]{2}$",
+            "description": "Codigo ISO 3166-1 alfa-2. Informar os paises que explicam materialmente a exposicao, nao toda a carteira."
+          }
+        },
+        "observacao": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 200
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "escopo": {
+                "const": "brasil"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "paisesPrincipais": {
+                "contains": {
+                  "const": "BR"
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "escopo": {
+                "const": "estados-unidos"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "paisesPrincipais": {
+                "contains": {
+                  "const": "US"
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "escopo": {
+                "const": "pais-especifico"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "paisesPrincipais": {
+                "minItems": 1,
+                "maxItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "escopo": {
+                "const": "nao-se-aplica"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "paisesPrincipais": {
+                "maxItems": 0
+              }
+            }
+          }
+        }
+      ]
+    },
+    "carteira": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "dataReferencia",
+        "principaisPosicoes",
+        "coberturaDivulgadaPct",
+        "exposicoes"
+      ],
+      "properties": {
+        "dataReferencia": {
+          "type": "string",
+          "format": "date"
+        },
+        "quantidadePosicoes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "principaisPosicoes": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 20,
+          "items": {
+            "$ref": "#/$defs/posicao"
+          }
+        },
+        "coberturaDivulgadaPct": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 500,
+          "description": "Soma das participacoes mostradas. Pode superar 100 em exposicoes nocionais com derivativos."
+        },
+        "exposicoes": {
+          "type": "array",
+          "maxItems": 60,
+          "items": {
+            "$ref": "#/$defs/exposicao"
+          }
+        },
+        "observacao": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 320
+        }
+      }
+    },
+    "posicao": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "nome",
+        "tipo",
+        "nivel",
+        "participacaoPct"
+      ],
+      "properties": {
+        "nome": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 180
+        },
+        "ticker": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 40
+        },
+        "identificador": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80,
+          "description": "ISIN, codigo do contrato ou outro identificador divulgado pela fonte."
+        },
+        "tipo": {
+          "$ref": "#/$defs/tipoPosicao"
+        },
+        "nivel": {
+          "$ref": "#/$defs/nivelPosicao"
+        },
+        "participacaoPct": {
+          "type": "number",
+          "minimum": -500,
+          "maximum": 500
+        },
+        "pais": {
+          "type": "string",
+          "pattern": "^[A-Z]{2}$"
+        },
+        "moeda": {
+          "type": "string",
+          "pattern": "^[A-Z]{3}$"
+        }
+      }
+    },
+    "exposicao": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "dimensao",
+        "nome",
+        "participacaoPct"
+      ],
+      "properties": {
+        "dimensao": {
+          "$ref": "#/$defs/dimensaoExposicao"
+        },
+        "nome": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "participacaoPct": {
+          "type": "number",
+          "minimum": -500,
+          "maximum": 500
+        }
+      }
+    },
+    "fontes": {
+      "type": "array",
+      "minItems": 2,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/fonte"
+      },
+      "allOf": [
+        {
+          "contains": {
+            "properties": {
+              "usos": {
+                "contains": {
+                  "const": "identidade"
+                }
+              }
+            },
+            "required": [
+              "usos"
+            ]
+          }
+        },
+        {
+          "contains": {
+            "properties": {
+              "usos": {
+                "contains": {
+                  "const": "indice"
+                }
+              }
+            },
+            "required": [
+              "usos"
+            ]
+          }
+        },
+        {
+          "contains": {
+            "properties": {
+              "usos": {
+                "contains": {
+                  "const": "classificacao"
+                }
+              }
+            },
+            "required": [
+              "usos"
+            ]
+          }
+        },
+        {
+          "contains": {
+            "properties": {
+              "usos": {
+                "contains": {
+                  "const": "carteira"
+                }
+              }
+            },
+            "required": [
+              "usos"
+            ]
+          }
+        }
+      ]
+    },
+    "fonte": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "titulo",
+        "publicador",
+        "origem",
+        "url",
+        "acessadoEm",
+        "usos"
+      ],
+      "properties": {
+        "titulo": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 240
+        },
+        "publicador": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 120
+        },
+        "origem": {
+          "$ref": "#/$defs/origemFonte"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://"
+        },
+        "acessadoEm": {
+          "type": "string",
+          "format": "date"
+        },
+        "dataReferencia": {
+          "type": "string",
+          "format": "date"
+        },
+        "usos": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/usoFonte"
+          }
+        }
+      }
+    },
+    "classeAtivo": {
+      "type": "string",
+      "oneOf": [
+        {"const": "acoes", "title": "Ações", "description": "Participacoes em empresas negociadas em bolsa."},
+        {"const": "renda-fixa", "title": "Renda fixa", "description": "Titulos publicos ou privados e exposicoes equivalentes a juros e credito."},
+        {"const": "fundos-imobiliarios", "title": "Fundos imobiliários", "description": "Cotas de FIIs ou indices formados por fundos imobiliarios."},
+        {"const": "criptoativos", "title": "Criptoativos", "description": "Ativos digitais ou instrumentos que buscam acompanhar seus precos."},
+        {"const": "commodities", "title": "Commodities", "description": "Metais, energia, produtos agricolas ou instrumentos ligados a esses mercados."},
+        {"const": "moedas", "title": "Moedas", "description": "Exposicao cujo objeto principal e uma moeda ou cesta de moedas."}
+      ]
+    },
+    "foco": {
+      "type": "string",
+      "oneOf": [
+        {"const": "mercado-amplo", "title": "Mercado amplo", "description": "Carteira diversificada que representa uma parcela ampla de um mercado."},
+        {"const": "porte", "title": "Porte das empresas", "description": "Recorte por capitalizacao, como empresas grandes, medias ou pequenas."},
+        {"const": "setorial", "title": "Setorial", "description": "Concentracao deliberada em um setor ou industria."},
+        {"const": "tematico", "title": "Temático", "description": "Empresas ou ativos ligados a uma tendencia economica ou tecnologia especifica."},
+        {"const": "fator-estilo", "title": "Fator ou estilo", "description": "Selecao por caracteristicas como valor, qualidade, momentum ou baixa volatilidade."},
+        {"const": "renda", "title": "Renda", "description": "Busca de dividendos, cupons ou premio de opcoes como componente central."},
+        {"const": "sustentabilidade", "title": "Sustentabilidade", "description": "Criterios ambientais, sociais, climaticos ou de governanca fazem parte do indice."},
+        {"const": "vencimento-alvo", "title": "Vencimento-alvo", "description": "Titulos ou exposicoes organizados para uma data de vencimento especifica."},
+        {"const": "indexador-macroeconomico", "title": "Indexador macroeconômico", "description": "Foco em inflacao, juros, moeda ou outro indexador macroeconomico."},
+        {"const": "ativo-unico", "title": "Ativo único", "description": "Busca acompanhar principalmente uma commodity, moeda ou criptoativo."},
+        {"const": "multiativo", "title": "Multiativo", "description": "Alocacao estrutural entre classes ou fontes de retorno diferentes."}
+      ]
+    },
+    "escopoGeografico": {
+      "type": "string",
+      "oneOf": [
+        {"const": "brasil", "title": "Brasil"},
+        {"const": "estados-unidos", "title": "Estados Unidos"},
+        {"const": "global", "title": "Global", "description": "Inclui mercados desenvolvidos e emergentes sem exclusao estrutural de uma das classes."},
+        {"const": "mercados-desenvolvidos", "title": "Mercados desenvolvidos"},
+        {"const": "mercados-emergentes", "title": "Mercados emergentes"},
+        {"const": "america-latina", "title": "América Latina"},
+        {"const": "europa", "title": "Europa"},
+        {"const": "asia-pacifico", "title": "Ásia-Pacífico"},
+        {"const": "pais-especifico", "title": "País específico", "description": "Um pais diferente de Brasil ou Estados Unidos; informar o codigo em paisesPrincipais."},
+        {"const": "multirregional", "title": "Multirregional", "description": "Duas ou mais regioes, mas nao um indice global amplo."},
+        {"const": "nao-se-aplica", "title": "Não se aplica", "description": "A geografia nao explica materialmente a exposicao, como em moeda ou commodity global."}
+      ]
+    },
+    "setor": {
+      "type": "string",
+      "oneOf": [
+        {"const": "comunicacao", "title": "Comunicação"},
+        {"const": "consumo-ciclico", "title": "Consumo cíclico"},
+        {"const": "consumo-nao-ciclico", "title": "Consumo não cíclico"},
+        {"const": "energia", "title": "Energia"},
+        {"const": "financeiro", "title": "Financeiro"},
+        {"const": "imobiliario", "title": "Imobiliário"},
+        {"const": "industria", "title": "Indústria"},
+        {"const": "materiais", "title": "Materiais"},
+        {"const": "saude", "title": "Saúde"},
+        {"const": "tecnologia", "title": "Tecnologia"},
+        {"const": "utilidade-publica", "title": "Utilidade pública"}
+      ]
+    },
+    "tema": {
+      "type": "string",
+      "oneOf": [
+        {"const": "agro", "title": "Agronegócio"},
+        {"const": "agua", "title": "Água"},
+        {"const": "ativos-digitais", "title": "Ativos digitais"},
+        {"const": "biotecnologia", "title": "Biotecnologia"},
+        {"const": "clima-carbono", "title": "Clima e carbono"},
+        {"const": "commodities-agricolas", "title": "Commodities agrícolas"},
+        {"const": "defesa-aeroespacial", "title": "Defesa e aeroespacial"},
+        {"const": "economia-digital", "title": "Economia digital"},
+        {"const": "energia-limpa", "title": "Energia limpa"},
+        {"const": "esportes-eletronicos", "title": "Esportes eletrônicos"},
+        {"const": "hidrogenio", "title": "Hidrogênio"},
+        {"const": "infraestrutura", "title": "Infraestrutura"},
+        {"const": "inteligencia-artificial", "title": "Inteligência artificial"},
+        {"const": "metais-estrategicos", "title": "Metais estratégicos"},
+        {"const": "mobilidade-eletrica", "title": "Mobilidade elétrica"},
+        {"const": "nuclear-uranio", "title": "Energia nuclear e urânio"},
+        {"const": "ouro", "title": "Ouro"},
+        {"const": "petroleo-gas", "title": "Petróleo e gás"},
+        {"const": "private-equity", "title": "Private equity e ativos alternativos"},
+        {"const": "robotica-automacao", "title": "Robótica e automação"},
+        {"const": "semicondutores", "title": "Semicondutores"},
+        {"const": "videogames", "title": "Videogames"}
+      ]
+    },
+    "fator": {
+      "type": "string",
+      "oneOf": [
+        {"const": "baixa-volatilidade", "title": "Baixa volatilidade"},
+        {"const": "beta-alto", "title": "Beta alto"},
+        {"const": "crescimento", "title": "Crescimento"},
+        {"const": "dividendos", "title": "Dividendos"},
+        {"const": "momentum", "title": "Momentum"},
+        {"const": "multifator", "title": "Multifator"},
+        {"const": "qualidade", "title": "Qualidade"},
+        {"const": "tamanho", "title": "Tamanho"},
+        {"const": "valor", "title": "Valor"}
+      ]
+    },
+    "estrategia": {
+      "type": "string",
+      "oneOf": [
+        {"const": "ponderacao-valor-mercado", "title": "Ponderação por valor de mercado"},
+        {"const": "pesos-iguais", "title": "Pesos iguais"},
+        {"const": "ponderacao-preco", "title": "Ponderação por preço"},
+        {"const": "ponderacao-fundamentalista", "title": "Ponderação fundamentalista"},
+        {"const": "selecao-sistematica", "title": "Seleção sistemática"},
+        {"const": "renda-com-opcoes", "title": "Geração de renda com opções"},
+        {"const": "alavancada", "title": "Alavancada"},
+        {"const": "inversa", "title": "Inversa"},
+        {"const": "duration-alvo", "title": "Duration-alvo"},
+        {"const": "vencimento-alvo", "title": "Vencimento-alvo"},
+        {"const": "inflacao", "title": "Proteção ou exposição à inflação"},
+        {"const": "credito", "title": "Crédito"},
+        {"const": "juros-pos-fixados", "title": "Juros pós-fixados"},
+        {"const": "cesta-diversificada", "title": "Cesta diversificada"},
+        {"const": "preco-spot", "title": "Preço à vista"},
+        {"const": "rolagem-futuros", "title": "Rolagem de futuros"},
+        {"const": "outra", "title": "Outra regra documentada", "description": "Usar somente com observacao que explique a regra e fonte oficial correspondente."}
+      ]
+    },
+    "formaExposicao": {
+      "type": "string",
+      "oneOf": [
+        {"const": "ativos-diretos", "title": "Ativos diretos", "description": "O fundo mantem os titulos, acoes ou outros ativos que produzem a exposicao."},
+        {"const": "cotas-etf", "title": "Cotas de ETF", "description": "A exposicao passa materialmente por outro ETF."},
+        {"const": "cotas-fundo", "title": "Cotas de fundo", "description": "A exposicao passa materialmente por outro fundo ou classe."},
+        {"const": "futuros", "title": "Contratos futuros"},
+        {"const": "swaps", "title": "Swaps"},
+        {"const": "outros-derivativos", "title": "Outros derivativos"},
+        {"const": "caixa-garantias", "title": "Caixa e garantias", "description": "Caixa, compromissadas ou garantias sao parte material da implementacao."}
+      ]
+    },
+    "politicaCambial": {
+      "type": "string",
+      "oneOf": [
+        {"const": "nao-se-aplica", "title": "Não se aplica", "description": "A exposicao e denominada em reais e nao tem componente cambial estrutural relevante."},
+        {"const": "exposto", "title": "Exposto ao câmbio", "description": "A variacao da moeda estrangeira afeta o retorno em reais."},
+        {"const": "protegido", "title": "Protegido", "description": "O fundo busca reduzir ou neutralizar a oscilacao cambial."},
+        {"const": "quanto", "title": "Quanto", "description": "O indice ou a estrutura converte o retorno por uma taxa cambial predeterminada segundo sua metodologia."},
+        {"const": "misto", "title": "Misto", "description": "A protecao ou exposicao varia entre parcelas relevantes da carteira."}
+      ]
+    },
+    "replicacao": {
+      "type": "string",
+      "oneOf": [
+        {"const": "fisica-nao-especificada", "title": "Física", "description": "O fundo usa os ativos do índice, mas a evidência consultada não permite afirmar se mantém todos os componentes ou uma amostra."},
+        {"const": "fisica-total", "title": "Física completa", "description": "Busca manter todos os componentes do indice em proporcoes proximas."},
+        {"const": "fisica-amostragem", "title": "Física por amostragem", "description": "Mantem uma amostra dos componentes para representar o indice."},
+        {"const": "sintetica", "title": "Sintética", "description": "Derivativos produzem parte central do retorno do indice."},
+        {"const": "indireta", "title": "Indireta", "description": "A exposicao principal passa por cotas de outro ETF ou fundo."},
+        {"const": "mista", "title": "Mista", "description": "Combina de forma material dois ou mais metodos de replicacao."}
+      ]
+    },
+    "tipoPosicao": {
+      "type": "string",
+      "oneOf": [
+        {"const": "acao", "title": "Ação"},
+        {"const": "titulo-publico", "title": "Título público"},
+        {"const": "titulo-privado", "title": "Título privado"},
+        {"const": "cota-etf", "title": "Cota de ETF"},
+        {"const": "cota-fii", "title": "Cota de FII"},
+        {"const": "cota-fundo", "title": "Cota de fundo"},
+        {"const": "criptoativo", "title": "Criptoativo"},
+        {"const": "commodity", "title": "Commodity"},
+        {"const": "futuro", "title": "Contrato futuro"},
+        {"const": "swap", "title": "Swap"},
+        {"const": "outro-derivativo", "title": "Outro derivativo"},
+        {"const": "moeda", "title": "Moeda"},
+        {"const": "caixa", "title": "Caixa ou equivalente"},
+        {"const": "outro", "title": "Outro ativo documentado"}
+      ]
+    },
+    "nivelPosicao": {
+      "type": "string",
+      "oneOf": [
+        {"const": "direta", "title": "Posição direta", "description": "Ativo mantido diretamente pelo ETF brasileiro segundo a fonte da carteira."},
+        {"const": "look-through", "title": "Exposição econômica", "description": "Componente do índice ou do veículo subjacente; não deve ser interpretado como posição custodiada diretamente pelo ETF brasileiro."}
+      ]
+    },
+    "dimensaoExposicao": {
+      "type": "string",
+      "oneOf": [
+        {"const": "classe-ativo", "title": "Classe de ativo"},
+        {"const": "pais", "title": "País"},
+        {"const": "regiao", "title": "Região"},
+        {"const": "setor", "title": "Setor"},
+        {"const": "tema", "title": "Tema"},
+        {"const": "moeda", "title": "Moeda"},
+        {"const": "indexador", "title": "Indexador"},
+        {"const": "emissor", "title": "Tipo de emissor"},
+        {"const": "qualidade-credito", "title": "Qualidade de crédito"},
+        {"const": "vencimento", "title": "Faixa de vencimento"}
+      ]
+    },
+    "origemFonte": {
+      "type": "string",
+      "oneOf": [
+        {"const": "gestor", "title": "Gestor"},
+        {"const": "administrador", "title": "Administrador"},
+        {"const": "provedor-indice", "title": "Provedor do índice"},
+        {"const": "b3", "title": "B3"},
+        {"const": "cvm", "title": "CVM"}
+      ]
+    },
+    "usoFonte": {
+      "type": "string",
+      "oneOf": [
+        {"const": "identidade", "title": "Identidade e CNPJ"},
+        {"const": "indice", "title": "Índice e metodologia"},
+        {"const": "classificacao", "title": "Classificação editorial"},
+        {"const": "carteira", "title": "Posições e exposições da carteira"}
+      ]
+    }
+  }
+}
