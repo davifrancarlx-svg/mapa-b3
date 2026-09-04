@@ -373,8 +373,18 @@ são brutos: não incluem proventos, aportes intermediários, taxas, impostos ou
 declaração fiscal. Posições sem cotação permanecem salvas e são excluídas do resultado
 agregado até que voltem a ter preço.
 
-A mesma seção torna visível a lista de BDRs acompanhados e oferece acesso direto ao filtro
-completo de acompanhamento. Favoritos e carteira continuam sendo dados locais separados.
+## Favoritos
+
+**Favoritos** é uma seção própria, separada da carteira: guarda apenas a lista de
+observação, sem quantidade nem preço médio. A estrela aparece nas tabelas de empresas
+brasileiras, BDRs e ETFs, e o botão **Acompanhar** aparece nas três fichas — qualquer
+ativo dessas bases pode ser marcado, além de códigos que apareçam nas cotações. A lista
+fica em `localStorage`, na chave `mapaB3Favoritos`, e não entra no link compartilhado.
+
+O botão **Acompanhando** da seção de BDRs conta somente os favoritos que são BDR, porque
+é aquela tabela que ele filtra; os demais aparecem em Favoritos. Pelo mesmo motivo, um
+favorito de empresa ou ETF não é listado ali como "código fora da base atual" — só um
+código que nenhuma base reconhece recebe esse aviso, e nenhum é removido automaticamente.
 
 Validação específica:
 

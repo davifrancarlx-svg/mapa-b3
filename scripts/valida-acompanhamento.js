@@ -5,7 +5,11 @@ const botao=(t,classe)=>({dataset:{fav:t},attrs:{},textContent:'',vivo:true,setA
 const bt=botao('AAPL34','fav'),ficha=botao('AAPL34','btn');
 let bloqueado=false,gravado='["AAPL34"]',renders=0,painel=false,removeFoco=false;
 const st={sec:'bdrs',modoBdr:'tabela',soFav:false,qb:'apple',bdrPais:new Set(['US']),bdrSetor:new Set(['Technology']),bdrIndustria:new Set(['Hardware']),bdrLiq:'100k',bdrFreq:'alta',bdrHist:'com',recorte:'forca'};
+/* Favorito vale para qualquer universo: o resolver e stub aqui para o teste
+   ficar sobre a logica de acompanhamento, nao sobre os catalogos. */
+const conhecidos={AAPL34:'BDR',MSFT34:'BDR',PETR4:'Empresa brasileira',BOVA11:'ETF'};
 const ctx=vm.createContext({console,st,BDR:[{ticker:'AAPL34'},{ticker:'MSFT34'}],BDR_CARGA:'pronta',FAVORITOS:new Set(),COMPARAR:new Set(['MSFT34']),AVISO_FAV:'',EVENTO_FAV:'',lastFocus:null,
+  ativoCarteira:t=>conhecidos[t]?{ticker:t,nome:t,tipo:conhecidos[t]}:null,
   $:no,document:{activeElement:bt,querySelectorAll:()=>[bt,ficha],body:{contains:n=>!!n&&n.vivo!==false}},drw:{classList:{contains:()=>painel}},chipsBDR(){},
   render(){renders++;if(removeFoco){bt.vivo=false;if(ctx.lastFocus)ctx.lastFocus.vivo=false;}},
   localStorage:{setItem(k,v){assert.equal(k,'mapaB3Favoritos');if(bloqueado)throw new Error('sem acesso');gravado=v;}}});
@@ -28,6 +32,13 @@ ctx.FAVORITOS.add('AAPL34');ctx.limpaFiltrosBDR();assert.equal(st.soFav,true);as
 removeFoco=true;ctx.document.activeElement=bt;ctx.alternaFavorito('AAPL34');assert.equal(ctx.document.activeElement,no('soFav'));
 ctx.FAVORITOS.add('AAPL34');painel=true;ctx.document.activeElement=ficha;ctx.lastFocus={vivo:true,closest:()=>({dataset:{tk:'AAPL34'}})};
 ctx.alternaFavorito('AAPL34');assert.equal(ctx.lastFocus,no('soFav'));assert.equal(ctx.document.activeElement,ficha);assert.equal(ficha.textContent,'☆ Acompanhar');
+/* Qualquer ativo pode ser favorito; o contador da tabela de BDR conta so BDR. */
+removeFoco=false;painel=false;ctx.lastFocus=null;ctx.FAVORITOS.clear();
+assert.deepEqual([...ctx.leFavoritos(['PETR4','TAEE11','AAPL34','XX1','TICKERLONGO','<script>'])],['PETR4','TAEE11','AAPL34']);
+assert.equal(ctx.alternaFavorito('PETR4'),true);assert.ok(ctx.FAVORITOS.has('PETR4'));
+assert.equal(ctx.alternaFavorito('BOVA11'),true);assert.equal(ctx.favoritosBDR().length,0);
+assert.equal(ctx.alternaFavorito('NADA9'),false);
+ctx.atualizaFavoritos();assert.equal(no('nFav').textContent,0);
 assert.ok(!codigo.slice(codigo.indexOf('function sincronizaURL('),codigo.indexOf('function leURL(')).includes('FAVORITOS'));
 assert.ok(codigo.slice(codigo.indexOf("$('csvBdr').onclick"),codigo.indexOf("$('csvEmp').onclick")).includes('filtraBDR().forEach'));
 assert.ok(codigo.includes('if(st.soFav) r = r.filter(b => FAVORITOS.has(b.ticker));'));

@@ -50,6 +50,7 @@ nav.prim button:focus-visible{outline:2px solid var(--am);outline-offset:-2px}
 .estado{font-family:var(--mo);font-size:11px;color:var(--tx3);display:flex;gap:14px;flex:0 1 auto;flex-wrap:wrap;min-width:0}
 .estado b{font-weight:500;color:var(--tx2)}
 .estado button{background:none;border:0;color:inherit;font:inherit;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.estado .msgPrecos:not(:empty){color:var(--tx2)}
 
 .wrap{max-width:1340px;margin:0 auto;padding:26px 20px 64px}
 
@@ -389,6 +390,7 @@ footer p{margin:0;max-width:62ch;line-height:1.55}
       <button data-sec="bdrs">BDRs</button>
       <button data-sec="etfs">ETFs</button>
       <button data-sec="carteira">Carteira</button>
+      <button data-sec="favoritos">Favoritos</button>
       <button data-sec="radar">Radar de listagens</button>
       <button data-sec="metodologia">Metodologia</button>
     </nav>
@@ -397,7 +399,7 @@ footer p{margin:0;max-width:62ch;line-height:1.55}
       <span id="atz"></span>
       <span id="mtz"></span>
       <button id="atualizaPrecosBt" title="Recarregar a base de cotações mais recente já publicada">atualizar cotações</button>
-      <span class="sr" id="precosMsg" role="status" aria-live="polite"></span>
+      <span class="msgPrecos" id="precosMsg" role="status" aria-live="polite"></span>
       <button id="saudeBt" title="Cobertura e atualização das fontes">dados <b id="saudeTxt">—</b></button>
     </div>
   </div>
@@ -627,11 +629,18 @@ footer p{margin:0;max-width:62ch;line-height:1.55}
     <p class="favMsg" id="carteiraMsg" role="status" aria-live="polite"></p>
     <div class="retrato" id="carteiraResumo"></div>
     <div id="carteiraTabela"></div>
+  </div>
+</section>
 
-    <h2 class="sec">BDRs favoritos</h2>
-    <p class="nota">Esta é a lista criada pelas estrelas da tabela e das fichas de BDR. Ela também fica somente neste navegador.</p>
-    <div id="carteiraFavoritos"></div>
-    <p><button class="lnk" id="verAcompanhamento">Abrir todos os favoritos nos BDRs →</button></p>
+<!-- ============ FAVORITOS ============ -->
+<section id="secFavoritos" class="hide">
+  <div class="painel">
+    <h2 class="sec">Lista de acompanhamento</h2>
+    <p class="nota">A estrela nas tabelas e o botão Acompanhar nas fichas guardam o ativo aqui. Serve para empresas brasileiras, BDRs e ETFs. A lista fica somente neste navegador e não entra no link compartilhado; marcar um ativo não cria posição na carteira.</p>
+    <p class="favMsg" id="favoritosMsg" role="status" aria-live="polite"></p>
+    <div class="retrato" id="favoritosResumo"></div>
+    <div id="favoritosLista" tabindex="-1"></div>
+    <p><button class="lnk" id="verAcompanhamento">Ver os favoritos de BDR na tabela de BDRs →</button></p>
   </div>
 </section>
 
@@ -10294,11 +10303,27 @@ function matrizBDR(list,largura=1000){
     <details class="matrizValores"><summary>Ver os ${pontos.length} BDRs representados e seus valores</summary><div class="rolagem" role="region" aria-label="Valores da matriz" tabindex="0"><table><caption class="sr">Mesmos BDRs e indicadores do gráfico, na ordem do recorte.</caption><thead><tr><th scope="col">BDR</th><th scope="col">Setor</th><th scope="col">${ex.rot}</th><th scope="col">${ey.rot}</th><th scope="col">Histórico até</th></tr></thead><tbody>${linhas}</tbody></table></div></details>`;
 }
 
+/* Estrela usada por empresas, BDR e ETF: mesmo markup para atualizaFavoritos()
+   reconhecer todas por [data-fav] e trocar rotulo sem reconstruir a linha. */
+const botaoFav = t => {
+  if(!t) return '';
+  const on = FAVORITOS.has(t);
+  return `<button class="fav" data-fav="${esc(t)}" aria-pressed="${on}" aria-label="${on?'Remover':'Adicionar'} ${esc(t)} ${on?'do':'ao'} acompanhamento">${on?'★':'☆'}</button>`;
+};
+/* Empresa com varias classes guarda a de referencia do dia -- a mesma que a
+   tabela e a ficha exibem, para o favorito nao apontar para outra classe. */
+const tickerFavorito = e => refPreco(e)?.tk || classes(e)[0] || '';
+/* Versao da estrela para a ficha: rotulo escrito, nao so o simbolo. */
+const botaoFavFicha = t => t
+  ? `<p style="display:flex;gap:7px;margin:10px 0 0"><button class="btn" data-fav="${esc(t)}" aria-pressed="${FAVORITOS.has(t)}">${FAVORITOS.has(t)?'★ Acompanhando':'☆ Acompanhar'}</button></p><p id="favFichaMsg" class="favMsg" role="status" aria-live="polite"></p>`
+  : '';
+
 function tabelaEmpresas(list){
   if(!list.length) return '<p class="nota" style="padding-top:16px">Nenhuma empresa neste recorte.</p>';
   const linhas = list.map(e => {
     const r = refPreco(e);
     return `<tr tabindex="0" data-cod="${e.cod}">
+      <td class="sel">${botaoFav(tickerFavorito(e))}</td>
       <td class="tk"><span class="marc" style="background:${e.cor}"></span>${e.tickers || e.cod}</td>
       <td><span class="emp">${esc(e.pregao)}</span><span class="sub">${esc(e.seg)}</span></td>
       <td class="col-s">${esc(e.macroL)}</td>
@@ -10310,7 +10335,7 @@ function tabelaEmpresas(list){
   }).join('');
   return `<div class="tabw"><table class="tab">
     <caption class="sr">Empresas brasileiras no recorte atual</caption>
-    <thead><tr><th>Ticker</th><th>Empresa</th><th class="col-s">Categoria</th>
+    <thead><tr><th class="sel"><span class="sr">Acompanhar</span></th><th>Ticker</th><th>Empresa</th><th class="col-s">Categoria</th>
       <th class="n">Preço</th><th class="n">Variação</th>
       <th class="n col-s">Valor de mercado</th><th class="n col-s">Liquidez</th></tr></thead>
     <tbody>${linhas}</tbody></table></div>`;
@@ -10665,6 +10690,7 @@ function abre(cod){
     <span class="pill" style="background:${e.cor};color:${txOn(e.cor)}">${e.macroL}</span>
     <h2>${e.pregao}</h2>
     <div class="rz">${e.nome}</div>
+    ${botaoFavFicha(tickerFavorito(e))}
     <dl class="kv">
       <dt>Códigos</dt><dd>${e.tickers || 'sem negociação'}</dd>
       <dt>Segmento B3</dt><dd style="font-family:'Inter Tight',sans-serif">${e.seg}</dd>
@@ -11044,6 +11070,7 @@ function tabelaETF(list){
     const r = cot(x.ticker), viva = negociouHoje(r);
     const preco = r ? fmtPreco(r.p) : '<span class="na">—</span>';
     return `<tr tabindex="0" data-te="${x.ticker}">
+      <td class="sel">${botaoFav(x.ticker)}</td>
       <td class="tk"><span class="marc" style="background:${corCategoriaEtf(x.categoria)}"></span>${x.ticker}${ETF_DETALHE.has(x.ticker)?'<span class="detMark">detalhado</span>':''}<span class="sub only-mob">${esc(x.nome)}</span></td>
       <td class="col-m">${esc(x.nome)}${badgesETF(x)}</td>
       <td class="col-s">${esc(categoriaETFPT(x.categoria)||'')}</td>
@@ -11054,7 +11081,7 @@ function tabelaETF(list){
   }).join('');
   return `<div class="tabw"><table class="tab">
     <caption class="sr">ETFs no recorte atual, com preço e categoria oficial da B3</caption>
-    <thead><tr>${th}</tr></thead>
+    <thead><tr><th class="sel"><span class="sr">Acompanhar</span></th>${th}</tr></thead>
     <tbody>${linhas}</tbody></table></div>`;
 }
 
@@ -11093,6 +11120,7 @@ function abreETF(ticker){
     <span class="selo" style="background:${cor};color:${txOn(cor)}">ETF · ${esc(categoriaETFPT(x.categoria)||'')}</span>
     <h2>${ticker}</h2>
     <div class="rz">${esc(x.nome)}</div>
+    ${botaoFavFicha(ticker)}
     ${detalhe?'<p class="dsc">'+esc(detalhe.resumo)+'</p>':''}
     <div class="bloco"><h3>Identificação</h3><dl class="kv">
       ${l('Nome do fundo', esc(x.nome), true)}
@@ -11213,8 +11241,10 @@ const SECOES = {
     d:'Ações de empresas estrangeiras negociadas na B3 por recibo de depósito. A tabela permite comparar preço, retorno, força relativa e liquidez na mesma linha.'},
   etfs:{t:'ETFs', k:'B3 · fundos de índice',
     d:'Fundos de índice negociados na B3, por categoria oficial (renda variável, renda fixa, cripto, internacional, FII e moeda).'},
-  carteira:{t:'Carteira', k:'Acompanhamento · local',
+  carteira:{t:'Carteira', k:'Posições · local',
     d:'Posições informadas por você, com quantidade, preço médio e resultado bruto pela última cotação disponível. Os dados ficam somente neste navegador.'},
+  favoritos:{t:'Favoritos', k:'Acompanhamento · local',
+    d:'Os ativos marcados com estrela nas tabelas e nas fichas, de qualquer universo. É uma lista de observação: não guarda quantidade nem preço médio.'},
   radar:{t:'Radar de listagens', k:'B3 · pipeline',
     d:'Companhias com pedido protocolado, nomes no radar do mercado e as já registradas que ainda não têm negociação relevante.'},
   metodologia:{t:'Metodologia', k:'B3 · como isto é feito',
@@ -11226,7 +11256,7 @@ function navega(sec){
     b.setAttribute('aria-current', b.dataset.sec === sec ? 'page' : 'false'));
   const s = SECOES[sec];
   $('kicker').textContent = s.k; $('secTitulo').textContent = s.t; $('secDesc').textContent = s.d;
-  ['Geral','Empresas','Bdrs','Etfs','Carteira','Radar','Metodologia'].forEach(n =>
+  ['Geral','Empresas','Bdrs','Etfs','Carteira','Favoritos','Radar','Metodologia'].forEach(n =>
     $('sec' + n).classList.toggle('hide', 'sec' + n !== 'sec' + sec.charAt(0).toUpperCase() + sec.slice(1)));
   fechaFiltros();
   scrollTo({top:0, behavior:'instant'});
@@ -11259,6 +11289,7 @@ function render(){
   if(st.sec === 'radar'){ $('secRadar').innerHTML = radarHTML(); return; }
   if(st.sec === 'metodologia'){ $('secMetodologia').innerHTML = metodologiaHTML(); return; }
   if(st.sec === 'carteira'){ renderCarteira(); return; }
+  if(st.sec === 'favoritos'){ renderFavoritos(); return; }
 
   if(st.sec === 'empresas'){
     const r = filtra();
@@ -11384,15 +11415,32 @@ function carteiraTabelaHTML(){
   }).join('');
   return `<div class="tabw"><table class="tab"><caption class="sr">Posições da carteira local</caption><thead><tr><th>Ativo</th><th class="col-s">Tipo</th><th class="n">Quantidade</th><th class="n">Preço médio</th><th class="n">Último preço</th><th class="n col-s">Custo</th><th class="n">Valor atual</th><th class="n">Resultado bruto</th><th>Ações</th></tr></thead><tbody>${linhas}</tbody></table></div>`;
 }
-function favoritosCarteiraHTML(){
-  if(!FAVORITOS.size)return '<div class="acompResumo"><p><b>Nenhum BDR favorito.</b></p><p>Use a estrela na tabela ou o botão Acompanhar na ficha de um BDR.</p></div>';
-  const itens=[...FAVORITOS].sort().map(t=>{const b=BDR.find(x=>x.ticker===t),r=cot(t);return `<button class="btn" data-tk="${esc(t)}">${esc(t)}${b?' · '+esc(b.empresa):''}${r?' · '+fmtPreco(r.p):''}</button>`;}).join('');
-  return `<div class="favoritosLista">${itens}</div><p class="nota">${FAVORITOS.size} ${FAVORITOS.size===1?'BDR favorito':'BDRs favoritos'} neste navegador.</p>`;
+/* Favoritos e carteira sao listas distintas: aqui e observacao, sem posicao.
+   A resolucao de universo reusa ativoCarteira, que ja cobre os tres catalogos. */
+function favoritosHTML(itens){
+  if(!itens.length)return '<div class="acompResumo"><p><b>Nenhum favorito ainda.</b></p><p>Use a estrela na tabela de empresas, BDRs ou ETFs, ou o botão Acompanhar dentro de uma ficha.</p></div>';
+  const linhas=itens.map(({t,a,r})=>`<tr>
+    <td class="sel">${botaoFav(t)}</td>
+    <td class="tk">${a?`<button class="lnk tk" data-fav-abre="${esc(t)}">${esc(t)}</button>`:esc(t)}<span class="sub">${esc(a?.nome||'Não identificado nos catálogos carregados')}</span></td>
+    <td class="col-s">${esc(a?.tipo||'—')}</td>
+    <td class="n">${r?fmtPreco(r.p):'<span class="na">—</span>'}</td>
+    <td class="n">${r&&negociouHoje(r)&&typeof r.v==='number'?fmtVar(r.v):'<span class="na">—</span>'}</td>
+  </tr>`).join('');
+  return `<div class="tabw"><table class="tab"><caption class="sr">Favoritos salvos neste navegador</caption><thead><tr><th class="sel"><span class="sr">Acompanhar</span></th><th>Ativo</th><th class="col-s">Tipo</th><th class="n">Último preço</th><th class="n">Variação no dia</th></tr></thead><tbody>${linhas}</tbody></table></div>`;
+}
+function renderFavoritos(){
+  const itens=[...FAVORITOS].sort().map(t=>({t,a:ativoCarteira(t),r:cot(t)}));
+  const porTipo={};itens.forEach(x=>{const k=x.a?.tipo||'Não identificado';porTipo[k]=(porTipo[k]||0)+1;});
+  const cotados=itens.filter(x=>x.r).length;
+  $('favoritosResumo').innerHTML=`<div><b>${itens.length}</b><span>${itens.length===1?'favorito':'favoritos'}</span></div>`
+    +Object.entries(porTipo).map(([k,n])=>`<div><b>${n}</b><span>${esc(k.toLowerCase())}</span></div>`).join('')
+    +`<div><b>${cotados}</b><span>com cotação</span></div>`;
+  $('favoritosLista').innerHTML=favoritosHTML(itens);
 }
 function renderCarteira(){
   const t=totaisCarteira(),comPreco=t.cotados===CARTEIRA.length,ret=t.retorno;
-  $('carteiraResumo').innerHTML=`<div><b>${CARTEIRA.length}</b><span>${CARTEIRA.length===1?'posição':'posições'}</span></div><div><b>${dinheiroCarteira(t.investido)}</b><span>custo informado</span></div><div><b>${t.cotados?dinheiroCarteira(t.atual):'—'}</b><span>valor atual · ${t.cotados}/${CARTEIRA.length} cotadas</span></div><div><b>${t.cotados?resultadoCarteira(t.resultado):'—'}</b><span>resultado bruto${comPreco?'':' das posições cotadas'}</span></div><div><b>${t.cotados?resultadoCarteira(ret,true):'—'}</b><span>retorno bruto${comPreco?'':' das posições cotadas'}</span></div><div><b>${FAVORITOS.size}</b><span>BDRs favoritos</span></div>`;
-  $('carteiraTabela').innerHTML=carteiraTabelaHTML();$('carteiraFavoritos').innerHTML=favoritosCarteiraHTML();$('carteiraMsg').textContent=AVISO_CARTEIRA;
+  $('carteiraResumo').innerHTML=`<div><b>${CARTEIRA.length}</b><span>${CARTEIRA.length===1?'posição':'posições'}</span></div><div><b>${dinheiroCarteira(t.investido)}</b><span>custo informado</span></div><div><b>${t.cotados?dinheiroCarteira(t.atual):'—'}</b><span>valor atual · ${t.cotados}/${CARTEIRA.length} cotadas</span></div><div><b>${t.cotados?resultadoCarteira(t.resultado):'—'}</b><span>resultado bruto${comPreco?'':' das posições cotadas'}</span></div><div><b>${t.cotados?resultadoCarteira(ret,true):'—'}</b><span>retorno bruto${comPreco?'':' das posições cotadas'}</span></div>`;
+  $('carteiraTabela').innerHTML=carteiraTabelaHTML();$('carteiraMsg').textContent=AVISO_CARTEIRA;
 }
 function limpaFormCarteira(){
   CARTEIRA_EDITANDO=null;$('formCarteira').reset();$('carteiraTicker').disabled=false;$('salvaPosicao').textContent='Adicionar posição';$('cancelaPosicao').classList.add('hide');
@@ -11408,10 +11456,13 @@ function abrePosicao(ticker){
   const a=ativoCarteira(ticker);if(!a)return;
   if(a.cod)abre(a.cod);else if(a.tipo==='BDR')abreBDR(ticker);else if(a.tipo==='ETF')abreETF(ticker);
 }
+/* Ticker da B3 tem quatro caracteres e um ou dois digitos: cobre acao
+   brasileira (PETR4), unit (TAEE11), BDR (AAPL34) e ETF (BOVA11). */
 function leFavoritos(salvos){
   if(!Array.isArray(salvos))throw new Error('lista de acompanhamento invalida');
-  return new Set(salvos.filter(t=>typeof t==='string'&&/^[A-Z0-9]{4}\d{2}$/.test(t)));
+  return new Set(salvos.filter(t=>typeof t==='string'&&/^[A-Z0-9]{4}\d{1,2}$/.test(t)));
 }
+function favoritosBDR(){ return [...FAVORITOS].filter(t=>BDR.some(b=>b.ticker===t)); }
 function salvaFavoritos(){
   try { localStorage.setItem('mapaB3Favoritos',JSON.stringify([...FAVORITOS]));AVISO_FAV='';return true; }
   catch { AVISO_FAV='O navegador não permitiu salvar. As alterações de acompanhamento valem somente nesta sessão; a lista salva anteriormente não foi substituída.';return false; }
@@ -11420,29 +11471,43 @@ function acompanhamentoHTML(list){
   if(!st.soFav)return '';
   const inicio='<div class="acompResumo"><p><b>Seu acompanhamento local</b></p>',privacidade='<p>A lista fica neste navegador. O link compartilha filtros, não os seus favoritos; em outro navegador, este modo usa a lista local de quem abrir. O CSV inclui somente os ativos visíveis neste recorte.</p>';
   if(BDR_CARGA!=='pronta')return inicio+`<p>${BDR_CARGA==='falha'?'Não foi possível carregar o catálogo de BDRs. Sua lista salva foi preservada; recarregue a página para tentar novamente.':'Carregando o catálogo para conferir sua lista. Nenhum favorito será removido.'}</p>`+privacidade+'</div>';
-  const conhecidos=new Set(BDR.map(b=>b.ticker)),fora=[...FAVORITOS].filter(t=>!conhecidos.has(t)),total=FAVORITOS.size-fora.length,ocultos=Math.max(0,total-list.length);
-  const resumo=!FAVORITOS.size?'Você ainda não acompanha nenhum BDR. Use a estrela na tabela ou o botão Acompanhar na ficha.':`${list.length} de ${total} ${total===1?'BDR acompanhado disponível':'BDRs acompanhados disponíveis'} na base ${list.length===1?'passa':'passam'} pelos filtros. ${ocultos} ${ocultos===1?'oculto':'ocultos'} pelos filtros atuais.`;
+  /* Esta tabela e de BDR: favorito de empresa ou ETF nao e codigo perdido,
+     so mora em outro universo -- e nao pode entrar na lista de ausentes. */
+  const conhecidos=new Set(BDR.map(b=>b.ticker)),restantes=[...FAVORITOS].filter(t=>!conhecidos.has(t));
+  const outros=restantes.filter(t=>ativoCarteira(t)),fora=restantes.filter(t=>!ativoCarteira(t));
+  const total=FAVORITOS.size-restantes.length,ocultos=Math.max(0,total-list.length);
+  const resumo=!total?`Você ainda não acompanha nenhum BDR. Use a estrela na tabela ou o botão Acompanhar na ficha.${outros.length?' Seus '+outros.length+' favoritos de outros universos estão na seção Favoritos.':''}`:`${list.length} de ${total} ${total===1?'BDR acompanhado disponível':'BDRs acompanhados disponíveis'} na base ${list.length===1?'passa':'passam'} pelos filtros. ${ocultos} ${ocultos===1?'oculto':'ocultos'} pelos filtros atuais.${outros.length?' Outros '+outros.length+' favoritos de empresas ou ETFs aparecem na seção Favoritos.':''}`;
   return inicio+`<p>${resumo}</p>`+privacidade+`<div class="acoes">${ocultos?'<button class="lnk" data-fav-acao="filtros">Ver acompanhados sem os demais filtros</button>':''}<button class="lnk" data-fav-acao="explorar">Explorar todos os BDRs</button></div>`+
     (fora.length?`<details><summary>${fora.length} códigos salvos fora da base atual — mantidos na lista</summary><p>Ausência no catálogo não confirma cancelamento do programa. Nenhum código é removido automaticamente.</p><ul>${fora.map(t=>`<li>${esc(t)} <button class="lnk" data-fav="${esc(t)}" data-fav-ausente aria-label="Remover ${esc(t)} do acompanhamento">Remover da lista</button></li>`).join('')}</ul></details>`:'')+'</div>';
 }
 function atualizaFavoritos(){
-  $('nFav').textContent=FAVORITOS.size;$('soFav').setAttribute('aria-pressed',String(st.soFav));$('soFav').setAttribute('aria-label',st.soFav?'Mostrar todos os BDRs':'Mostrar somente BDRs favoritos');
+  /* O botao da secao de BDR filtra BDRs: conta so os favoritos desse universo,
+     senao o numero promete linhas que aquela tabela nunca vai mostrar. */
+  $('nFav').textContent=favoritosBDR().length;$('soFav').setAttribute('aria-pressed',String(st.soFav));$('soFav').setAttribute('aria-label',st.soFav?'Mostrar todos os BDRs':'Mostrar somente BDRs favoritos');
   const msg=[EVENTO_FAV,AVISO_FAV].filter(Boolean).join(' ');
-  ['favMsg','favFichaMsg'].forEach(id=>{const el=$(id);if(el&&el.textContent!==msg)el.textContent=msg;});
+  ['favMsg','favFichaMsg','favoritosMsg'].forEach(id=>{const el=$(id);if(el&&el.textContent!==msg)el.textContent=msg;});
   document.querySelectorAll('[data-fav]').forEach(bt=>{
     const t=bt.dataset.fav,on=FAVORITOS.has(t);
     bt.setAttribute('aria-pressed',String(on));bt.setAttribute('aria-label',`${on?'Remover':'Adicionar'} ${t} ${on?'do':'ao'} acompanhamento`);
     bt.textContent=bt.hasAttribute('data-fav-ausente')?'Remover da lista':bt.classList.contains('fav')?(on?'★':'☆'):(on?'★ Acompanhando':'☆ Acompanhar');
   });
 }
+/* Favorito vale para qualquer universo carregado -- empresa, BDR, ETF ou
+   ticker que apareca nas cotacoes. O que ja esta na lista sempre pode sair,
+   mesmo que o catalogo do momento nao reconheca mais o codigo. */
 function alternaFavorito(t){
-  if(!FAVORITOS.has(t)&&!BDR.some(b=>b.ticker===t))return false;
+  if(!FAVORITOS.has(t)&&!ativoCarteira(t))return false;
   const foco=document.activeElement,origem=lastFocus,tkOrigem=origem?.closest('[data-tk]')?.dataset.tk;
   FAVORITOS.has(t)?FAVORITOS.delete(t):FAVORITOS.add(t);salvaFavoritos();
   EVENTO_FAV=t+(FAVORITOS.has(t)?' adicionado ao':' removido do')+' acompanhamento.';
   /* Fora do modo acompanhamento, o universo nao muda: atualizar os botoes
      evita reconstruir a linha e perder o foco. A ficha tambem permanece aberta. */
-  if(st.soFav&&st.sec==='bdrs'){
+  if(st.sec==='favoritos'){
+    /* Aqui a propria lista e o universo: quem sai some da tabela, entao o
+       foco precisa de destino antes da linha deixar de existir. */
+    render();
+    if(!document.body.contains(foco))$('favoritosLista').focus();
+  }else if(st.soFav&&st.sec==='bdrs'){
     render();
     if(drw.classList.contains('on')&&origem&&!document.body.contains(origem)){
       const box=$({tabela:'boxTabelaB',cards:'boxCardsB',matriz:'boxMatrizB'}[st.modoBdr]),novo=tkOrigem&&box.querySelector('[data-tk="'+tkOrigem+'"]');
@@ -11495,6 +11560,7 @@ document.body.addEventListener('click', ev => {
   const edita=ev.target.closest('[data-pos-edita]');if(edita){editaPosicao(edita.dataset.posEdita);return;}
   const remove=ev.target.closest('[data-pos-remove]');if(remove){removePosicao(remove.dataset.posRemove);return;}
   const pos=ev.target.closest('[data-pos-abre]');if(pos){abrePosicao(pos.dataset.posAbre);return;}
+  const favAbre=ev.target.closest('[data-fav-abre]');if(favAbre){abrePosicao(favAbre.dataset.favAbre);return;}
   if(ev.target.closest('#saudeBt,#saudeGeral')){abreSaude();return;}
   const cmpadd=ev.target.closest('[data-cmpadd]');
   if(cmpadd){ev.stopPropagation();alternaComparacao(cmpadd.dataset.cmpadd);return;}
@@ -11719,8 +11785,8 @@ addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => {
 /* Roda depois do primeiro render: a pagina nunca fica esperando rede para
    aparecer, e se um arquivo faltar ela segue funcionando sem aquele bloco. */
 function carregaPrecos(manual=false){
-  const bt=$('atualizaPrecosBt'),msg=$('precosMsg');
-  if(manual){bt.disabled=true;bt.textContent='atualizando…';msg.textContent='Buscando a base de cotações mais recente.';}
+  const bt=$('atualizaPrecosBt'),msg=$('precosMsg'),coletaAnterior=COLETAS.precos;
+  if(manual){bt.disabled=true;bt.textContent='atualizando…';msg.textContent='consultando…';}
   return fetch('precos.json'+(manual?'?v='+Date.now():''), {cache:'no-store'})
     .then(r => r.ok ? r.json() : Promise.reject(new Error('HTTP ' + r.status)))
     .then(d => {
@@ -11732,9 +11798,15 @@ function carregaPrecos(manual=false){
         $('atz').innerHTML = 'cotações <b>' + PRECO_TS + '</b>';
         $('atz').title = 'Yahoo Finance, atraso de cerca de 15 minutos.';
       }
-      if(manual)msg.textContent='Base publicada conferida. Cotações coletadas em '+(PRECO_TS||'data indisponível')+'.';render();
+      /* O botao so relê o precos.json publicado: quem coleta no Yahoo e o
+         GitHub Actions. Sem coleta nova, dizer que a base continua a mesma
+         e mais util do que um "pronto" que parece que nada aconteceu. */
+      if(manual)msg.textContent=coletaAnterior&&COLETAS.precos===coletaAnterior
+        ? 'a base publicada continua a de '+(PRECO_TS||'data indisponível')
+        : 'cotações de '+(PRECO_TS||'data indisponível');
+      render();
     })
-    .catch(() => { if(manual)msg.textContent='Não foi possível recarregar as cotações. A base anterior foi mantida.';/* sem cotacoes o mapa continua completo */ })
+    .catch(() => { if(manual)msg.textContent='não foi possível atualizar; a base anterior foi mantida';/* sem cotacoes o mapa continua completo */ })
     .finally(()=>{if(manual){bt.disabled=false;bt.textContent='atualizar cotações';}});
 }
 function carregaBDRs(){

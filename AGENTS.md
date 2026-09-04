@@ -82,7 +82,7 @@ e a barra inicial quebraria lá.
 
 ## Arquitetura de navegação
 
-São **sete seções**, uma por universo, controladas por `st.sec` e pela função `navega()`:
+São **oito seções**, uma por universo, controladas por `st.sec` e pela função `navega()`:
 
 | Seção | `st.sec` | Contêiner |
 |---|---|---|
@@ -90,9 +90,15 @@ São **sete seções**, uma por universo, controladas por `st.sec` e pela funç�
 | Empresas brasileiras | `empresas` | `#secEmpresas` — mosaico ou tabela |
 | BDRs | `bdrs` | `#secBdrs` — tabela, cards ou matriz |
 | ETFs | `etfs` | `#secEtfs` — tabela ou cards |
-| Carteira | `carteira` | `#secCarteira` — posições e acesso ao acompanhamento local |
+| Carteira | `carteira` | `#secCarteira` — posições com quantidade e preço médio |
+| Favoritos | `favoritos` | `#secFavoritos` — lista de acompanhamento, sem posição |
 | Radar de listagens | `radar` | `#secRadar` — montada por `radarHTML()` |
 | Metodologia | `metodologia` | `#secMetodologia` |
+
+**Carteira e Favoritos são listas distintas e ficam em seções separadas.** Carteira
+guarda posição (quantidade e preço médio, em `mapaB3Carteira`); Favoritos é só
+observação (`mapaB3Favoritos`). Marcar uma estrela não cria posição, e vice-versa —
+juntar as duas numa seção só já confundiu os dois papéis uma vez.
 
 A aba de ETFs **não tem treemap nem matriz**, de propósito: como BDR, é um conjunto
 grande e plano sem categoria hierárquica curada à mão (o treemap é exclusivo de
@@ -192,6 +198,16 @@ JSONs de runtime usados pelos `fetch()` relativos.
 - **Acompanhamento e carteira são locais.** Favoritos, quantidade e preço médio ficam em
   `localStorage`; filtros e ficha aberta ficam na URL. Não introduza conta, backend ou
   sincronização sem uma decisão explícita do projeto.
+- **Favorito vale para qualquer universo, mas o contador da tabela de BDR não.**
+  `alternaFavorito()` aceita qualquer ticker resolvido por `ativoCarteira()` (empresa,
+  BDR, ETF ou código presente nas cotações), e `leFavoritos()` aceita `AAAA9` e `AAAA99`.
+  Já o botão "Acompanhando" da seção de BDR conta só `favoritosBDR()`: aquela tabela
+  filtra BDRs e prometer um número que ela não pode mostrar é pior do que não contar.
+  Pelo mesmo motivo, o painel de acompanhamento não trata favorito de empresa ou ETF
+  como "código fora da base".
+- **O botão "atualizar cotações" só relê o `precos.json` publicado.** Quem coleta no
+  Yahoo é o GitHub Actions; a página é estática e não tem credencial. Por isso a
+  mensagem distingue base nova de base igual — um "pronto" mudo já pareceu defeito.
 - **Eventos não recebem resumo sintético.** `eventos.json` traz metadados e links oficiais da
   CVM. Exiba o original sem fingir interpretação editorial ou regulatória.
 - **A classificação de BDR não pode ficar incompleta.** O gerador aborta se país, setor ou
