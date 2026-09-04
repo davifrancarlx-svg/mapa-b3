@@ -1,6 +1,6 @@
 {
  "versao": 2,
- "geradoEm": "2026-09-03T22:14:59.691Z",
+ "geradoEm": "2026-09-04T00:03:29.451Z",
  "fontes": {
   "precos": {
    "nome": "Preços",
@@ -51,7 +51,7 @@
    "nome": "Histórico BDR",
    "minCobertura": 90,
    "limiteHoras": 96,
-   "atualizadoEm": "2026-09-03T00:10:54.976Z",
+   "atualizadoEm": "2026-09-04T00:02:22.421Z",
    "total": 825,
    "registros": 795,
    "renovados": 795,
@@ -59,14 +59,14 @@
    "cobertura": 96.4,
    "coberturaRenovada": 96.4,
    "observacaoInicio": "2026-08-27",
-   "observacaoFim": "2026-09-02",
+   "observacaoFim": "2026-09-03",
    "avisos": []
   },
   "metricasEmpresas": {
    "nome": "Histórico empresas",
    "minCobertura": 75,
    "limiteHoras": 96,
-   "atualizadoEm": "2026-09-03T14:22:25.828Z",
+   "atualizadoEm": "2026-09-04T00:02:56.472Z",
    "total": 369,
    "registros": 314,
    "renovados": 314,
@@ -81,7 +81,7 @@
    "nome": "Ativo lastro",
    "minCobertura": 70,
    "limiteHoras": 96,
-   "atualizadoEm": "2026-09-03T00:11:37.150Z",
+   "atualizadoEm": "2026-09-04T00:03:29.331Z",
    "total": 825,
    "registros": 760,
    "renovados": 760,
@@ -89,7 +89,7 @@
    "cobertura": 92.1,
    "coberturaRenovada": 92.1,
    "observacaoInicio": "2026-08-21",
-   "observacaoFim": "2026-09-02",
+   "observacaoFim": "2026-09-03",
    "avisos": []
   },
   "eventos": {
