@@ -363,7 +363,7 @@ regenera `fontes/font-face.css` — rode só quando a tipografia mudar.
 varredura de `index.html`, `bdrs.json`, `etfs.json`, `etfs-detalhes.json`, `eventos.json` e
 `analise.json` não achou **um** caractere que o `latin-ext` resolveria. O que sobra fora do
 `latin` são símbolos (▲ ★ → ≥), que nenhum subset latino cobre e que já vinham da fonte de
-sistema. Isso levou o custo de 821 KB em 18 arquivos para **370 KB em 9**. Não acrescente
+sistema. Isso levou o custo de 821 KB em 18 arquivos para 370 KB em 9. Um passo a mais: Inter Tight e Bricolage sao fontes variaveis, e o Google devolve um @font-face por peso apontando para o MESMO arquivo — declarar um por peso fazia o navegador baixar quatro copias identicas. `baixa-fontes.js` agrupa por hash do conteudo e declara faixa de pesos (`font-weight:400 700`), fechando em **163 KB em 5 arquivos**. Isso tambem corrigiu a interpolacao: antes o peso 500 renderizava mais estreito que o 400. Não acrescente
 subsets "por garantia" — meça antes, com o mesmo critério.
 
 `valida-pagina.js` reprova qualquer recurso externo (`<link>`, `<script src>`, `url()` no

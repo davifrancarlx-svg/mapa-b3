@@ -69,7 +69,7 @@ Uma revisão completa em blocos. Nenhuma foi commitada nem publicada.
   cobertura: mostra 15/222 (6,8%) sem virar alarme permanente.
 - `<head>` ganhou descrição, canonical, favicon, Open Graph e Twitter Card; `social.png` é
   gerada por `scripts/gera-social.js` em Node puro.
-- Fontes auto-hospedadas em `fontes/` (370 KB, 9 arquivos, só o subset `latin` — medido:
+- Fontes auto-hospedadas em `fontes/` (163 KB, 5 arquivos, só o subset `latin` — medido:
   o `latin-ext` não resolve **nenhum** caractere da base).
 - Corrigidos: `var(--sans)` que nunca existiu, 2.399 elementos caindo em Arial e 43
   negritos sintéticos.
