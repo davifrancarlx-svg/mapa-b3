@@ -112,6 +112,20 @@ autenticação por cookie + crumb e a consulta em lotes continuam restritas ao w
   página diz isso.
 - **Workflows agendados hibernam** após 60 dias sem atividade no repositório. Qualquer
   commit manual reativa.
+- **Três bases entram sob demanda.** `analise.json`, `metricas-empresas.json` e
+  `eventos.json` não são baixados no boot: a primeira chega ao entrar em BDRs, a segunda
+  em Empresas, a terceira no Radar, e todas as três também quando uma ficha ou um CSV
+  precisa delas. Numa conexão muito lenta, clicar numa ficha de BDR no primeiro instante
+  da seção pode mostrar a ficha sem o bloco de paridade — o mesmo que já acontecia quando
+  o arquivo demorava. O CSV, esse, não sai incompleto: avisa e pede a base.
+- **A série do gráfico é gravada comprimida.** Só `spP` (preço ajustado) e `spO` (offset
+  em dias sobre `spInicio`). A curva normalizada em base 100 é derivada de `spP` no
+  navegador em vez de trafegar pronta, e as datas são reconstruídas a partir dos offsets.
+  Isso tirou 1 MB de `metricas.json` e `metricas-empresas.json` juntos.
+
+Somadas, as duas mudanças levaram a primeira tela de **5,4 MB para 1,6 MB** decodificados
+(273 KB transferidos com gzip, incluindo o HTML). Nada foi perdido: as bases adiadas
+carregam por inteiro assim que a seção, a ficha ou o CSV precisa delas.
 
 ### Proteções do script
 

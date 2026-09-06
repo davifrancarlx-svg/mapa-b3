@@ -8,6 +8,7 @@ const bases={
   metricasBdr:{atualizadoEm:ts,totalBDRs:2,metricas:{A:{n:252,dt:'2026-09-02'},B:{n:22,dt:'2026-09-03'}}},
   metricasEmpresas:{atualizadoEm:ts,totalEmpresas:2,metricas:{A:{n:252,dt:'2026-09-02'},B:{n:252,dt:'2026-09-03'}}},
   analise:{atualizadoEm:ts,totalBDRs:2,analise:{A:{precoAtivo:10,fator:1,dtAtivo:'2026-09-02'},B:{precoAtivo:10,fator:1,dtAtivo:'2026-09-03'}}},
+  etfsDetalhes:{geradoEm:ts,totalCatalogo:2,totalDetalhados:1,etfs:[{ticker:'AAAA11',idB3:1,classificacao:{},revisadoEm:'2026-09-01'}]},
   eventos:{atualizadoEm:ts,eventos:{A:[{dt:'2026-08-31',url:'https://www.rad.cvm.gov.br/documento'}]}}
 };
 const normal=gera(bases,agora);valida(normal);assert.equal(normal.estado,'ok');assert.equal(normal.fontes.precos.registros,2);assert.equal(normal.fontes.eventos.cobertura,null);
@@ -23,6 +24,26 @@ const casos=[normal];
   const s=gera(b,agora);valida(s);casos.push(s);
   assert.equal(s.fontes.etfs.cobertura,50);assert.equal(s.estado,'atencao');assert.ok(s.avisos.some(a=>a.includes('Cobertura disponível')));
 }
+{
+  // O universo do detalhamento e o catalogo de ETF, e curadoria parcial nao e falha:
+  // cobertura baixa nao pode virar aviso, senao o painel fica vermelho para sempre.
+  assert.equal(normal.fontes.etfsDetalhes.total,2);
+  assert.equal(normal.fontes.etfsDetalhes.registros,1);
+  assert.equal(normal.fontes.etfsDetalhes.cobertura,50);
+  assert.equal(normal.fontes.etfsDetalhes.preservados,0);
+  assert.equal(normal.fontes.etfsDetalhes.observacaoInicio,'2026-09-01');
+  assert.equal(avaliaFonte(normal.fontes.etfsDetalhes,agora+1000*36e5,'etfsDetalhes').length,0,'curadoria manual nao tem prazo de atraso');
+  const b=structuredClone(bases);b.etfsDetalhes.totalCatalogo=99;
+  const s=gera(b,agora);valida(s);casos.push(s);
+  assert.ok(s.avisos.some(a=>a.includes('Universo diferente do catálogo ETF')));
+  const b2=structuredClone(bases);b2.etfsDetalhes.totalDetalhados=9;
+  const s2=gera(b2,agora);valida(s2);casos.push(s2);
+  assert.ok(s2.avisos.some(a=>a.includes('Contagem de detalhados')));
+  const b3=structuredClone(bases);delete b3.etfsDetalhes.etfs[0].classificacao;
+  const s3=gera(b3,agora);valida(s3);casos.push(s3);
+  assert.equal(s3.fontes.etfsDetalhes.registros,0);
+  assert.ok(s3.avisos.some(a=>a.includes('registros inválidos')));
+}
 for(const k of ['metricasBdr','metricasEmpresas','analise']){
   const b=structuredClone(bases),campo=k==='analise'?'analise':'metricas';b[k][campo].B.stale=true;
   const s=gera(b,agora);valida(s);casos.push(s);
@@ -30,7 +51,8 @@ for(const k of ['metricasBdr','metricasEmpresas','analise']){
 }
 for(const k of Object.keys(FONTES)){
   for(const valor of [null,{},'invalido']){const b=structuredClone(bases);b[k]=valor;const s=gera(b,agora);valida(s);assert.equal(s.estado,'atencao');casos.push(s);}
-  for(const valor of [null,'invalida','2026-09-04T15:00:00Z']){const b=structuredClone(bases);b[k][['bdrs','etfs'].includes(k)?'geradoEm':'atualizadoEm']=valor;const s=gera(b,agora);valida(s);assert.equal(s.estado,'atencao');casos.push(s);}
+  // Catalogos e detalhamento datam com geradoEm; as bases coletadas, com atualizadoEm.
+  for(const valor of [null,'invalida','2026-09-04T15:00:00Z']){const b=structuredClone(bases);b[k][['bdrs','etfs','etfsDetalhes'].includes(k)?'geradoEm':'atualizadoEm']=valor;const s=gera(b,agora);valida(s);assert.equal(s.estado,'atencao');casos.push(s);}
 }
 for(const modifica of [b=>b.precos.precos.A.p=0,b=>b.precos.tickersConsultados=0,b=>b.precos.tickersConsultados=1,b=>b.bdrs.bdrs[1]=b.bdrs.bdrs[0],b=>b.bdrs.bdrs[0].industria='',b=>b.eventos.eventos={},b=>b.metricasBdr.metricas.A.dt='2026-02-30']){
   const b=structuredClone(bases);modifica(b);const s=gera(b,agora);valida(s);assert.equal(s.estado,'atencao');casos.push(s);
@@ -46,7 +68,7 @@ for(const modifica of [s=>delete s.fontes.precos,s=>s.fontes.precos.cobertura=10
 }
 const codigo=fs.readFileSync(path.join(__dirname,'..','index.html'),'utf8').match(/<script>([\s\S]*?)<\/script>/)[1];
 const box={innerHTML:''},botao={textContent:'',className:''};
-const ctx=vm.createContext({Date,SAUDE:null,SAUDE_ESTADO:'carregando',$:id=>id==='saudeTxt'?botao:box,drw:{classList:{contains:()=>true}},render:()=>{},document:{addEventListener:()=>{}},setInterval:()=>{}});
+const ctx=vm.createContext({Date,SAUDE:null,SAUDE_ESTADO:'carregando',$:id=>id==='saudeTxt'?botao:box,drw:{classList:{contains:()=>true}},render:()=>{},agendaRender:()=>{},document:{addEventListener:()=>{}},setInterval:()=>{}});
 vm.runInContext(codigo.slice(codigo.indexOf('const esc ='),codigo.indexOf('\n',codigo.indexOf('const esc ='))),ctx);
 vm.runInContext(codigo.slice(codigo.indexOf('const SAUDE_REGRAS='),codigo.indexOf('/* ---------- tooltip do mosaico')),ctx);
 assert.match(ctx.saudeHTML(agora),/Carregando/);ctx.atualizaSaude();assert.equal(botao.textContent,'carregando');

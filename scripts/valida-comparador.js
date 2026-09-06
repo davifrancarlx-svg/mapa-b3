@@ -48,8 +48,15 @@ tabela=ctx.comparacaoHTML([{...b,empresa:'<img src=x onerror=alert(1)>'},c]);
 for(const texto of ['As datas finais','liquidez reduzida','Preservado após falha','Preservada após falha','0/20','>0</td>','&lt;img'])assert.ok(tabela.includes(texto),texto+' ausente');
 assert.ok(!tabela.includes('<img'));
 assert.ok(codigo.includes("if(ev.target.closest('button,a,input,select,textarea'))return;"),'teclado de controles nao deve abrir a linha');
-assert.ok(codigo.includes("$('cmpbar').inert=true"),'barra deve ficar inerte durante a comparacao');
-assert.ok(codigo.includes("$('cmpbar').inert=false"),'fechamento deve liberar a barra');
+/* A barra fica inerte por travaFundo(), que trava .wrap e a cmpbar juntos --
+   a cmpbar e irma de .wrap e sozinha continuava alcancavel por Tab. Aqui basta
+   conferir que a comparacao e o fechamento passam pelos helpers; que eles
+   travam mesmo os dois lados e que nenhuma abertura os esquece e coisa do
+   valida-pagina.js. */
+const abreCmp=codigo.slice(codigo.indexOf('function abreComparacao('),codigo.indexOf('/* ---------- diagnostico das bases'));
+assert.ok(abreCmp.includes('travaFundo()'),'comparacao deve travar o fundo e a barra');
+const fechaFn=codigo.slice(codigo.indexOf('function fecha(){'));
+assert.ok(fechaFn.includes('destravaFundo()'),'fechamento deve liberar o fundo e a barra');
 const sync=codigo.slice(codigo.indexOf('function sincronizaURL('),codigo.indexOf('function leURL('));
 assert.ok(!sync.includes('COMPARAR'),'selecao pessoal nao deve ir para a URL');
 console.log('OK: comparador, limite, persistencia, dados ausentes/zero, datas, fontes e protecoes de acessibilidade');

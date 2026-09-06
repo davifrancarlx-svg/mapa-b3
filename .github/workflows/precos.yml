@@ -8,9 +8,11 @@ on:
     - cron: '*/30 13-21 * * 1-5'
   workflow_dispatch: {}
 
-# Duas execucoes simultaneas dariam conflito de push no mesmo arquivo.
+# Os tres workflows regeneram e commitam saude.json. Grupo unico para
+# nao disputarem push no mesmo arquivo: os horarios nao se cruzam hoje, mas
+# workflow_dispatch manual cruza, e ai o rebase conflita e a execucao morre.
 concurrency:
-  group: precos
+  group: commit-dados
   cancel-in-progress: false
 
 jobs:

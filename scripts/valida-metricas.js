@@ -27,11 +27,30 @@ Object.entries(metricas).forEach(([ticker,m]) => {
   if(m.d20 < 0 || m.d20 > 20) falha(ticker + ': d20 fora do limite');
   if(m.d60 < 0 || m.d60 > 60) falha(ticker + ': d60 fora do limite');
   if(m.g20 < 0 || m.g60 < 0) falha(ticker + ': giro negativo');
+  /* Mesma regra da base de empresas: janela incompleta nao vira numero.
+     "Giro medio de 60 pregoes" com 24 sessoes seria medida sem lastro. */
+  [20,60].forEach(n => {
+    if(m.n < n && (m['g'+n] !== null || m['d'+n] !== null)) falha(ticker + ': janela de ' + n + ' incompleta com valor gravado');
+  });
   if(m.min252 > m.max252) falha(ticker + ': minima acima da maxima');
   if(Number.isFinite(m.dd252) && m.dd252 > 0) falha(ticker + ': dd252 positivo');
   if(Number.isFinite(m.dm252) && m.dm252 < 0) falha(ticker + ': dm252 negativo');
-  if(m.spP !== undefined || m.spD !== undefined){
-    if(!Array.isArray(m.sp)||!Array.isArray(m.spP)||!Array.isArray(m.spD)||m.sp.length!==m.spP.length||m.sp.length!==m.spD.length||m.spP.some(v=>!Number.isFinite(v)||v<=0)||m.spD.some(d=>!/^\d{4}-\d{2}-\d{2}$/.test(d))) falha(ticker + ': amostras de preco e data invalidas');
+  /* Serie comprimida: spP e spO. Registro preservado apos falha pode trazer o
+     formato antigo (sp + spD) adiante, e continua valido. */
+  if(m.spP !== undefined){
+    if(!Array.isArray(m.spP)||m.spP.length<2||m.spP.some(v=>!Number.isFinite(v)||v<=0)) falha(ticker + ': amostras de preco invalidas');
+    const antigo = m.spD !== undefined;
+    if(antigo){
+      if(!Array.isArray(m.sp)||!Array.isArray(m.spD)||m.sp.length!==m.spP.length||m.spD.length!==m.spP.length||m.spD.some(d=>!/^\d{4}-\d{2}-\d{2}$/.test(d))) falha(ticker + ': amostras de data invalidas');
+    } else {
+      if(m.sp !== undefined) falha(ticker + ': sp e derivado de spP, nao deve ser gravado');
+      if(!Array.isArray(m.spO)||m.spO.length!==m.spP.length||m.spO.some(o=>!Number.isInteger(o)||o<0)) falha(ticker + ': offsets da serie invalidos');
+      if(m.spO[0]!==0) falha(ticker + ': primeiro offset deve ser zero');
+      if(m.spO.some((o,i)=>i&&o<=m.spO[i-1])) falha(ticker + ': offsets fora de ordem');
+      if(!/^\d{4}-\d{2}-\d{2}$/.test(m.spInicio||'')) falha(ticker + ': spInicio ausente para reconstruir as datas');
+      const fim = new Date(Date.parse(m.spInicio+'T00:00:00Z') + m.spO[m.spO.length-1]*86400000).toISOString().slice(0,10);
+      if(fim !== m.spFim) falha(ticker + ': ultimo offset nao reconstroi spFim');
+    }
   }
   ['21','63','252'].forEach(n => {
     if(typeof m['r' + n] === 'number' && (typeof m['ri' + n] !== 'number' || typeof m['rs' + n] !== 'number'))

@@ -1,7 +1,8 @@
 const fs=require('fs'),path=require('path'),vm=require('vm'),assert=require('node:assert/strict');
 const html=fs.readFileSync(path.join(__dirname,'..','index.html'),'utf8'),codigo=html.match(/<script>([\s\S]*?)<\/script>/)[1];
 const nos={},no=id=>nos[id]||={textContent:'',value:'',attrs:{},setAttribute(k,v){this.attrs[k]=v;},focus(){ctx.document.activeElement=this;},querySelector(){return null;}};
-const botao=(t,classe)=>({dataset:{fav:t},attrs:{},textContent:'',vivo:true,setAttribute(k,v){this.attrs[k]=v;},hasAttribute(){return false;},classList:{contains:c=>c===classe},closest(){return null;}});
+// getAttribute devolve null como o elemento real: atualizaFavoritos so escreve quando muda.
+const botao=(t,classe)=>({dataset:{fav:t},attrs:{},textContent:'',vivo:true,setAttribute(k,v){this.attrs[k]=v;},getAttribute(k){return k in this.attrs?this.attrs[k]:null;},hasAttribute(){return false;},classList:{contains:c=>c===classe},closest(){return null;}});
 const bt=botao('AAPL34','fav'),ficha=botao('AAPL34','btn');
 let bloqueado=false,gravado='["AAPL34"]',renders=0,painel=false,removeFoco=false;
 const st={sec:'bdrs',modoBdr:'tabela',soFav:false,qb:'apple',bdrPais:new Set(['US']),bdrSetor:new Set(['Technology']),bdrIndustria:new Set(['Hardware']),bdrLiq:'100k',bdrFreq:'alta',bdrHist:'com',recorte:'forca'};

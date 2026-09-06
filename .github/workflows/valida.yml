@@ -28,6 +28,7 @@ jobs:
       - run: node scripts/valida-bdrs-referencia.js
       - run: node scripts/valida-precos.js
       - run: node scripts/testa-precos-ui.js
+      - run: node scripts/testa-serie.js
       - run: node scripts/valida-metricas.js
       - run: node scripts/valida-metricas-empresas.js
       - run: node scripts/testa-metricas-empresas.js
@@ -38,3 +39,7 @@ jobs:
       - run: node scripts/gera-saude.js
       - run: node scripts/testa-saude.js
       - run: node scripts/valida-saude.js
+      # Por ultimo: e o unico que abre a pagina de verdade, e so faz sentido
+      # depois de as bases passarem. O runner ja traz google-chrome-stable,
+      # entao nao ha passo de instalacao nem dependencia a baixar.
+      - run: node scripts/testa-navegador.js

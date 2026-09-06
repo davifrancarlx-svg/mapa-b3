@@ -1,6 +1,6 @@
 {
  "versao": 2,
- "geradoEm": "2026-09-05T00:02:05.217Z",
+ "geradoEm": "2026-09-06T02:29:58.887Z",
  "fontes": {
   "precos": {
    "nome": "Preços",
@@ -45,6 +45,21 @@
    "coberturaRenovada": 98.6,
    "observacaoInicio": null,
    "observacaoFim": null,
+   "avisos": []
+  },
+  "etfsDetalhes": {
+   "nome": "Detalhamento ETF",
+   "minCobertura": null,
+   "limiteHoras": null,
+   "atualizadoEm": "2026-09-04T18:00:00.000Z",
+   "total": 222,
+   "registros": 15,
+   "renovados": 15,
+   "preservados": 0,
+   "cobertura": 6.8,
+   "coberturaRenovada": 6.8,
+   "observacaoInicio": "2026-09-04",
+   "observacaoFim": "2026-09-04",
    "avisos": []
   },
   "metricasBdr": {

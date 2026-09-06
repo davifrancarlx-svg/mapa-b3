@@ -5,12 +5,19 @@ const rows=(n,vol=10)=>Array.from({length:n},(_,i)=>({ts:1700000000+i*86400,p:10
 async function testa(){
   assert.throws(()=>leEmpresas('sem bloco'));assert.throws(()=>leEmpresas('const D = {'));
   assert.equal(leEmpresas('const D = {"empresas":[{"desc":"texto } com chave"}]}')[0].desc,'texto } com chave');
-  assert.equal(calcula(rows(21),'TEST3'),null);const curto=calcula(rows(22),'TEST3');
+  assert.equal(calcula(rows(21),{ticker:'TEST3'}),null);const curto=calcula(rows(22),{ticker:'TEST3'});
+  // `extras` entra primeiro para a base continuar comecando por ticker.
+  assert.equal(curto.ticker,'TEST3');assert.equal(Object.keys(curto)[0],'ticker');
   assert.equal(curto.r21,0);assert.equal(curto.r63,null);assert.equal(curto.g60,null);assert.equal(curto.d60,null);assert.equal(curto.v21,0);assert.equal(curto.spN,22);
-  assert.equal(curto.sp.length,curto.spP.length);assert.equal(curto.sp.length,curto.spD.length);assert.equal(curto.spP[0],100);assert.match(curto.spD[0],/^\d{4}-\d{2}-\d{2}$/);
-  const serie=rows(253);serie.at(-1).a=110;assert.equal(calcula(serie,'TEST3').r252,10);assert.equal(calcula(serie,'TEST3').spN,252);
-  const zero=rows(22,0);assert.equal(calcula(zero,'TEST3').g20,0);assert.equal(calcula(zero,'TEST3').d20,0);
-  zero.at(-1).vol=null;assert.equal(calcula(zero,'TEST3').g20,null);assert.equal(calcula(zero,'TEST3').d20,null);
+  // Serie comprimida: sem sp (derivado de spP no cliente) e sem spD (offset em dias).
+  assert.equal(curto.sp,undefined);assert.equal(curto.spD,undefined);
+  assert.equal(curto.spO.length,curto.spP.length);assert.equal(curto.spP[0],100);assert.equal(curto.spO[0],0);
+  assert.ok(curto.spO.every((o,i)=>Number.isInteger(o)&&o>=0&&(!i||o>curto.spO[i-1])));
+  const refazData=(iso,dias)=>new Date(Date.parse(iso+'T00:00:00Z')+dias*86400000).toISOString().slice(0,10);
+  assert.equal(refazData(curto.spInicio,curto.spO.at(-1)),curto.spFim);
+  const serie=rows(253);serie.at(-1).a=110;assert.equal(calcula(serie,{ticker:'TEST3'}).r252,10);assert.equal(calcula(serie,{ticker:'TEST3'}).spN,252);
+  const zero=rows(22,0);assert.equal(calcula(zero,{ticker:'TEST3'}).g20,0);assert.equal(calcula(zero,{ticker:'TEST3'}).d20,0);
+  zero.at(-1).vol=null;assert.equal(calcula(zero,{ticker:'TEST3'}).g20,null);assert.equal(calcula(zero,{ticker:'TEST3'}).d20,null);
   const h={timestamp:[1,2,3],indicators:{quote:[{close:[10,0,8],volume:[0,3,null]}],adjclose:[{adjclose:[5,5,5]}]}};
   const extraido=extraiHistorico(h);assert.equal(extraido.length,2);assert.equal(extraido[0].vol,0);assert.equal(extraido[1].vol,null);
   delete h.indicators.adjclose;assert.throws(()=>extraiHistorico(h),/ajustada/);
@@ -36,7 +43,8 @@ async function testa(){
   const ctx=vm.createContext({metEmp:()=>completo,refPreco:()=>({tk:'AAAA3'})});
   vm.runInContext(codigo.slice(codigo.indexOf('const esc ='),codigo.indexOf('\n',codigo.indexOf('const esc ='))),ctx);
   vm.runInContext(codigo.slice(codigo.indexOf('const fmtPreco ='),codigo.indexOf('const met =')),ctx);
-  vm.runInContext(codigo.slice(codigo.indexOf('const spark ='),codigo.indexOf('/* Empresas com varias classes:')),ctx);
+  // Comeca em diaMais: spark depende de serieSpark, que vem antes dele.
+  vm.runInContext(codigo.slice(codigo.indexOf('const diaMais ='),codigo.indexOf('/* Empresas com varias classes:')),ctx);
   vm.runInContext(codigo.slice(codigo.indexOf('function metricasEmpresaHTML('),codigo.indexOf('let lastFocus =')),ctx);
   let texto=ctx.metricasEmpresaHTML({...e,macroL:'Categoria',seg:'Grupo'});
   for(const t of ['Referência histórica: AAAA4','intradiária usa AAAA3','ao menos três','Yahoo Finance','base 100'])assert.ok(texto.includes(t),t);
@@ -44,7 +52,7 @@ async function testa(){
   completo.stale=true;completo.referenciaParcial=true;texto=ctx.metricasEmpresaHTML(e);assert.ok(texto.includes('preservado após falha'));assert.ok(texto.includes('Seleção parcial'));
   ctx.metEmp=()=>null;assert.ok(ctx.metricasEmpresaHTML(e).includes('não significa retorno zero'));
   const botoes={};let csv;
-  Object.assign(ctx,{$:id=>botoes[id]||=( {} ),filtra:()=>[{...e,tagsL:[]}],metEmp:()=>completo,EVENTOS:{},classes:()=>['AAAA3','AAAA4'],cot:()=>null,COLETAS:{precos:'2026-09-03T12:00:00Z'},EVENTOS_ESTADO:'pronto',EVENTOS_META:null,negocioCSV:()=>'',isoCSV:()=>'',urlCVM:()=>true,finalizaCSV:linhas=>csv=linhas});
+  Object.assign(ctx,{$:id=>botoes[id]||=( {} ),filtra:()=>[{...e,tagsL:[]}],metEmp:()=>completo,METRICAS_EMP:{AAAA:completo},garante:()=>{},EVENTOS:{},classes:()=>['AAAA3','AAAA4'],cot:()=>null,COLETAS:{precos:'2026-09-03T12:00:00Z'},EVENTOS_ESTADO:'pronto',EVENTOS_META:null,negocioCSV:()=>'',isoCSV:()=>'',urlCVM:()=>true,finalizaCSV:linhas=>csv=linhas});
   vm.runInContext(codigo.slice(codigo.indexOf("$('csvEmp').onclick"),codigo.indexOf('let rz;')),ctx);botoes.csvEmp.onclick();
   assert.equal(csv[0].length,csv[1].length);assert.equal(csv[1][csv[0].indexOf('ticker_referencia')],'AAAA3');assert.equal(csv[1][csv[0].indexOf('ticker_referencia_historica')],'AAAA4');
   console.log('OK: metricas de empresas, referencia, janelas, volume ausente, amostras, cobertura e ficha');

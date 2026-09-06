@@ -4,10 +4,42 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mapa da B3</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter+Tight:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- O estado inteiro da tela vai na URL, entao o link e a unidade de
+     compartilhamento do projeto: sem estas tags ele chega sem titulo, sem
+     resumo e sem imagem. Sem numeros aqui de proposito -- crawler nao executa
+     JS, entao a contagem nao teria como ser derivada e envelheceria sozinha. -->
+<meta name="description" content="Mapa interativo das companhias listadas na B3, com os BDRs de empresas estrangeiras e os ETFs negociados no país. Preço, histórico e liquidez para achar o que investigar. Não é recomendação de investimento.">
+<meta name="theme-color" content="#101216">
+<link rel="canonical" href="https://davifrancarlx-svg.github.io/mapa-b3/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23101216'/><rect x='9' y='9' width='14' height='14' rx='2' fill='%23F2B441'/></svg>">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mapa da B3">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://davifrancarlx-svg.github.io/mapa-b3/">
+<meta property="og:title" content="Mapa da B3">
+<meta property="og:description" content="Companhias, BDRs e ETFs listados na B3 num mapa interativo, com preço, histórico e liquidez. Ferramenta de exploração, não recomendação.">
+<meta property="og:image" content="https://davifrancarlx-svg.github.io/mapa-b3/social.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Mapa da B3 — mosaico de blocos coloridos representando as companhias listadas.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mapa da B3">
+<meta name="twitter:description" content="Companhias, BDRs e ETFs listados na B3 num mapa interativo, com preço, histórico e liquidez. Ferramenta de exploração, não recomendação.">
+<meta name="twitter:image" content="https://davifrancarlx-svg.github.io/mapa-b3/social.png">
+<link rel="preload" href="fontes/inter-tight-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fontes/ibm-plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+/* Fontes auto-hospedadas: subset latin, baixadas por scripts/baixa-fontes.js.
+   O projeto nao tem dependencia externa, e isto era a ultima. */
+@font-face{font-family:'Bricolage Grotesque';font-style:normal;font-weight:600;font-display:swap;src:url(fontes/bricolage-grotesque-600.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Bricolage Grotesque';font-style:normal;font-weight:800;font-display:swap;src:url(fontes/bricolage-grotesque-800.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url(fontes/ibm-plex-mono-400.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url(fontes/ibm-plex-mono-500.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:600;font-display:swap;src:url(fontes/ibm-plex-mono-600.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Inter Tight';font-style:normal;font-weight:400;font-display:swap;src:url(fontes/inter-tight-400.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Inter Tight';font-style:normal;font-weight:500;font-display:swap;src:url(fontes/inter-tight-500.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Inter Tight';font-style:normal;font-weight:600;font-display:swap;src:url(fontes/inter-tight-600.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Inter Tight';font-style:normal;font-weight:700;font-display:swap;src:url(fontes/inter-tight-700.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
 :root{
   /* Grafite neutro, quase sem azul: o fundo nao deve competir com as cores
      das categorias, que sao o unico uso legitimo de cor forte no mapa. */
@@ -32,6 +64,11 @@ a{color:var(--am);text-decoration:underline;text-underline-offset:2px}
 .hide{display:none!important}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .num{font-family:var(--mo);font-variant-numeric:tabular-nums}
+/* <b> dentro de texto em mono herdava o 700 padrao do negrito, e a pagina so
+   pede 400/500/600 do Plex Mono: o navegador sintetizava o peso em vez de usar
+   o desenho real. 600 e o negrito de mono do projeto, o mesmo da marca e do
+   titulo da ficha. Cobre os contadores, a barra de comparacao e os rankings. */
+b.num,.res .qt b,.cmpbar b{font-weight:600}
 .up{color:var(--up)} .down{color:var(--down)} .flat{color:var(--tx3)}
 
 /* ---------- cabecalho e navegacao ---------- */
@@ -148,11 +185,14 @@ select.ord{background:var(--sup);border:1px solid var(--line);border-radius:var(
 .btn:hover{border-color:var(--line2);color:var(--tx)}
 #btFiltros{display:none}
 .btn b{font-family:var(--mo);font-weight:500;color:var(--tx)}
-.fav{background:none;border:0;color:var(--tx3);font-size:17px;line-height:1;cursor:pointer;padding:2px 4px}
+/* font-family explicito: botao sem isso cai na fonte de sistema, e a estrela,
+   a caixa e a seta vinham de Arial em 2.400 elementos da tabela -- tamanho e
+   alinhamento dos simbolos mudavam conforme o sistema operacional. */
+.fav{background:none;border:0;color:var(--tx3);font-family:var(--ui);font-size:17px;line-height:1;cursor:pointer;padding:2px 4px}
 .fav[aria-pressed="true"]{color:var(--am)}
 .only-mob{display:none}
 .sel{width:52px;text-align:center!important}
-.sel .cmp{background:none;border:0;color:var(--tx3);font-size:15px;line-height:1;cursor:pointer;padding:3px}.sel .cmp[aria-pressed="true"]{color:var(--am)}
+.sel .cmp{background:none;border:0;color:var(--tx3);font-family:var(--ui);font-size:15px;line-height:1;cursor:pointer;padding:3px}.sel .cmp[aria-pressed="true"]{color:var(--am)}
 
 /* ---------- tabela comparativa ---------- */
 .tabw{overflow-x:auto}
@@ -357,11 +397,11 @@ footer p{margin:0;max-width:62ch;line-height:1.55}
   .estado{font-size:10.5px;gap:10px;width:100%;order:2}
   table.tab .col-s{display:none}
   table.tab .col-m{display:none}
-  table.tab .only-mob{display:block;max-width:145px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:var(--sans);font-weight:400}
+  table.tab .only-mob{display:block;max-width:145px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:var(--ui);font-weight:400}
   table.tab th,table.tab td{padding:7px 5px}
   table.tab .emp{max-width:150px}
   .expand{display:table-cell;width:26px;text-align:center}
-  .expand button{background:none;border:0;color:var(--tx3);cursor:pointer;font-size:11px;padding:3px 5px}
+  .expand button{background:none;border:0;color:var(--tx3);font-family:var(--ui);cursor:pointer;font-size:11px;padding:3px 5px}
   tr.det td{padding:2px 6px 11px;white-space:normal}
   tr.det .dl{display:grid;grid-template-columns:1fr auto;gap:4px 12px;font-size:12px}
   tr.det .dl span:nth-child(odd){color:var(--tx3)}
@@ -442,7 +482,7 @@ footer p{margin:0;max-width:62ch;line-height:1.55}
 
     <div class="painel">
       <div class="res">
-        <span class="qt"><b id="nEmp">369</b><span>empresas no recorte</span></span>
+        <span class="qt"><b id="nEmp">—</b><span>empresas no recorte</span></span>
         <span id="vmSel" class="est"></span>
         <button class="lnk hide" id="clearEmp">limpar</button>
         <div class="dir">
@@ -527,7 +567,7 @@ footer p{margin:0;max-width:62ch;line-height:1.55}
       <p class="criterio" id="criterio"></p>
 
       <div class="res" style="margin-top:16px">
-        <span class="qt"><b id="nBdr">825</b><span>BDRs no recorte</span></span>
+        <span class="qt"><b id="nBdr">—</b><span>BDRs no recorte</span></span>
         <button class="lnk hide" id="clearBdr">limpar filtros</button>
         <div class="dir">
           <label class="busca">
@@ -591,7 +631,7 @@ footer p{margin:0;max-width:62ch;line-height:1.55}
 
     <div class="painel">
       <div class="res">
-        <span class="qt"><b id="nEtf">0</b><span>ETFs no recorte</span></span>
+        <span class="qt"><b id="nEtf">—</b><span>ETFs no recorte</span></span>
         <button class="lnk hide" id="clearEtf">limpar filtros</button>
         <div class="dir">
           <label class="busca">
@@ -9785,6 +9825,11 @@ const MAX_COMPARAR = 4;
 try { COMPARAR=leComparacao(JSON.parse(localStorage.getItem('mapaB3Comparar')||'[]')); } catch {}
 let COMPARACAO_ABERTA = false;
 
+/* Toda contagem em texto visivel sai daqui, nunca cravada: a Metodologia e o
+   Retrato afirmam numeros sobre D, e um literal envelhece em silencio na
+   proxima empresa ou categoria que entrar. valida-pagina.js reprova o literal. */
+const nCategorias = () => new Set(E.map(e => e.macro)).size;
+
 const norm = s => (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
 E.forEach(e => e._s = norm([e.cod,e.nome,e.pregao,e.tickers,e.macroL,e.seg,e.tagsL.join(' '),e.desc].join(' ')));
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -9839,12 +9884,32 @@ const forcaBDR = b => {
 };
 const negociouHoje = r => !!(r && r.vol > 0 && r.t && new Date(r.t*1000).toDateString() === new Date().toDateString());
 const dataNegocio = r => r?.t ? new Date(r.t*1000).toLocaleString('pt-BR', {day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'}) : '—';
-const spark = (valores, meta={}) => {
-  if(!valores || valores.length < 2) return '';
+/* A serie do grafico vem comprimida: sp saiu da base porque era exatamente spP
+   normalizado -- transportar a mesma curva duas vezes custava 250 KB. spD virou
+   spO, offset em dias corridos sobre spInicio. O calculo e refeito em UTC, igual
+   ao gerador: em fuso local a data da amostra andaria um dia.
+   Registros preservados apos falha podem carregar o formato antigo adiante, e
+   por isso sp e spD prontos ainda ganham da forma derivada. */
+const diaMais = (iso, dias) => new Date(Date.parse(iso+'T00:00:00Z') + dias*86400000).toISOString().slice(0,10);
+function serieSpark(m){
+  if(!m) return null;
+  const p = Array.isArray(m.spP) ? m.spP : [];
+  const v = Array.isArray(m.sp) && m.sp.length >= 2 ? m.sp
+    : p.length >= 2 ? p.map(x => +(x / (p[0] > 0 ? p[0] : 1) * 100).toFixed(1)) : [];
+  if(v.length < 2) return null;
+  const datas = Array.isArray(m.spD) && m.spD.length === v.length ? m.spD
+    : Array.isArray(m.spO) && m.spO.length === v.length && m.spInicio ? m.spO.map(o => diaMais(m.spInicio, o))
+    : [];
+  return {v, p: p.length === v.length ? p : [], d: datas};
+}
+const spark = m => {
+  const s = serieSpark(m);
+  if(!s) return '';
+  const valores = s.v;
   const w=360,h=72,min=Math.min(...valores),max=Math.max(...valores),faixa=max-min||1;
   const pts=valores.map((v,i)=>[(i/(valores.length-1)*w).toFixed(1),(h-4-(v-min)/faixa*(h-8)).toFixed(1)]);
   const d=pts.map((p,i)=>(i?'L':'M')+p.join(' ')).join(' '),base=(h-4-(100-min)/faixa*(h-8)).toFixed(1);
-  const precos=Array.isArray(meta.spP)&&meta.spP.length===valores.length?meta.spP:[],datas=Array.isArray(meta.spD)&&meta.spD.length===valores.length?meta.spD:[];
+  const precos=s.p,datas=s.d;
   const dados=esc(JSON.stringify({v:valores,p:precos,d:datas})),rot=precos.length?'Evolução do preço ajustado':'Evolução normalizada, base 100';
   return `<div class="sparkBox" data-spark="${dados}"><svg class="spark" viewBox="0 0 ${w} ${h}" role="img" tabindex="0" aria-label="${rot}; use as setas para consultar os pontos"><path class="base" d="M0 ${base} L${w} ${base}"></path><path d="${d}"></path><line class="mira" x1="0" y1="4" x2="0" y2="68"></line><circle class="ponto" cx="0" cy="0" r="3.5"></circle><rect class="hit" width="${w}" height="${h}"></rect></svg><output class="sparkInfo"><span>Passe o mouse ou use as setas</span><span>${precos.length?'preço ajustado':'índice base 100'}</span></output></div>`;
 };
@@ -10208,18 +10273,21 @@ function detalheLinhaBDR(ticker){
     <span>Pregões com negócio</span><span>${m.d20} de 20</span><span>Volatilidade 21d</span><span>${typeof m.v21==='number'?m.v21.toFixed(1).replace('.',',')+'%':'—'}</span>`;
 }
 
-function tabelaBDR(list){
-  if(!list.length) return '<p class="nota" style="padding-top:16px">Nenhum BDR neste recorte. Ajuste os filtros ou limpe tudo.</p>';
-  const th = COLS.map(c => {
+const VAZIO_BDR = '<p class="nota" style="padding-top:16px">Nenhum BDR neste recorte. Ajuste os filtros ou limpe tudo.</p>';
+
+function cabecalhoBDR(){
+  return COLS.map(c => {
     const ativo = st.bdrSort === c.k;
     const seta = ativo ? (st.bdrDir === 'asc' ? '▲' : '▼') : '';
     return `<th class="${c.n?'n ':''}${c.sec?'col-s ':''}${c.mob?'col-m':''}"${ativo?` aria-sort="${st.bdrDir==='asc'?'ascending':'descending'}"`:''}>
       <button data-col="${c.k}">${c.rot}<span class="s">${seta}</span></button></th>`;
   }).join('');
-  const linhas = list.map(b => {
+}
+
+function linhaBDR(b){
     const r = cot(b.ticker), m = met(b.ticker), f = forcaBDR(b);
     const viva = negociouHoje(r);
-    const preco = r ? (viva ? fmtPreco(r.p) : fmtPreco(r.p)) : '<span class="na">—</span>';
+    const preco = r ? fmtPreco(r.p) : '<span class="na">—</span>';
     return `<tr tabindex="0" data-tk="${b.ticker}">
       <td class="sel"><button class="fav" data-fav="${b.ticker}" aria-pressed="${FAVORITOS.has(b.ticker)}" aria-label="${FAVORITOS.has(b.ticker)?'Remover':'Adicionar'} ${b.ticker} ${FAVORITOS.has(b.ticker)?'do':'ao'} acompanhamento">${FAVORITOS.has(b.ticker)?'★':'☆'}</button><button class="cmp" data-cmp="${b.ticker}" aria-pressed="${COMPARAR.has(b.ticker)}" aria-label="${COMPARAR.has(b.ticker)?'Remover':'Selecionar'} ${b.ticker} ${COMPARAR.has(b.ticker)?'da':'para'} comparação">${COMPARAR.has(b.ticker)?'▣':'□'}</button></td>
       <td class="tk"><span class="marc" style="background:${corSetor(b.setor)}"></span>${b.ticker}<span class="sub only-mob">${esc(b.empresa)}</span></td>
@@ -10235,11 +10303,66 @@ function tabelaBDR(list){
       <td class="n col-s">${m?m.d20+'/20':'<span class="na">—</span>'}</td>
       <td class="expand"><button aria-expanded="false" aria-label="Mais indicadores de ${b.ticker}">▾</button></td>
     </tr>`;
-  }).join('');
+}
+
+function molduraBDR(linhas){
   return `<div class="tabw"><table class="tab">
     <caption class="sr">BDRs no recorte atual, com preço, retornos, força relativa e liquidez</caption>
-    <thead><tr><th class="sel"><span class="sr">Acompanhar e comparar</span></th>${th}<th class="expand"><span class="sr">Detalhes</span></th></tr></thead>
+    <thead><tr><th class="sel"><span class="sr">Acompanhar e comparar</span></th>${cabecalhoBDR()}<th class="expand"><span class="sr">Detalhes</span></th></tr></thead>
     <tbody>${linhas}</tbody></table></div>`;
+}
+
+function tabelaBDR(list){
+  if(!list.length) return VAZIO_BDR;
+  return molduraBDR(list.map(linhaBDR).join(''));
+}
+
+/* 825 linhas a 26 nos cada dao 21 mil nos, e monta-las de uma vez custa cerca
+   de 200 ms com layout -- a cada tecla da busca e a cada clique de coluna.
+   Duas correcoes, nesta ordem de importancia:
+
+   1. Nem todo render mexe na tabela. As colunas saem de cot() e met(); quando
+      analise.json ou saude.json chegam, o HTML e byte a byte o mesmo e a
+      reconstrucao inteira era desperdicio. A marca compara o resultado antes
+      de tocar no DOM.
+   2. Quando muda mesmo, as primeiras linhas entram na hora e o resto entra em
+      lotes, cedendo o fio entre eles. Isso e adiamento, nao paginacao: ao fim
+      as 825 estao no DOM, entao Ctrl+F, a contagem e o CSV continuam valendo
+      sobre o recorte inteiro. Nao troque por "carregar mais" com botao -- a
+      tabela existe justamente porque 825 cards nao permitem comparar. */
+const LOTE_BDR = 120;
+let marcaBDR = '', caudaBDR = null, completaBDR = false;
+/* Cancelar a cauda deixa a tabela pela metade: sem baixar completaBDR, a marca
+   diria "igual, nao precisa redesenhar" e o recorte ficaria truncado para
+   sempre ao voltar para a secao. */
+function cancelaCaudaBDR(){ if(caudaBDR){ clearTimeout(caudaBDR); caudaBDR = null; completaBDR = false; } }
+
+function desenhaTabelaBDR(lista){
+  const caixa = $('boxTabelaB');
+  if(!lista.length){ cancelaCaudaBDR(); marcaBDR = ''; completaBDR = true; caixa.innerHTML = VAZIO_BDR; return; }
+  const linhas = lista.map(linhaBDR), marca = cabecalhoBDR() + '|' + linhas.join('');
+  /* Mesmo conteudo: nao mexe. Vale tanto para a tabela ja pronta quanto para a
+     que ainda esta recebendo lotes -- sem o `|| caudaBDR`, um render redundante
+     no meio do caminho reiniciaria a cauda do zero. */
+  if(marca === marcaBDR && caixa.querySelector('tbody') && (completaBDR || caudaBDR)) return;
+  cancelaCaudaBDR();
+  marcaBDR = marca;
+  caixa.innerHTML = molduraBDR(linhas.slice(0, LOTE_BDR).join(''));
+  if(linhas.length <= LOTE_BDR){ completaBDR = true; return; }
+  completaBDR = false;
+  const corpo = caixa.querySelector('tbody');
+  let i = LOTE_BDR;
+  const proximo = () => {
+    corpo.insertAdjacentHTML('beforeend', linhas.slice(i, i + LOTE_BDR).join(''));
+    i += LOTE_BDR;
+    if(i < linhas.length){ caudaBDR = setTimeout(proximo, 0); return; }
+    caudaBDR = null; completaBDR = true;
+    /* As linhas do fim nasceram depois do inicio do render: se a estrela ou a
+       caixa de comparacao mudaram no meio do caminho, elas entrariam com o
+       estado velho. Os dois patches sao baratos e ja sabem varrer o DOM. */
+    atualizaFavoritos(); atualizaSelecao();
+  };
+  caudaBDR = setTimeout(proximo, 0);
 }
 
 function cardsBDR(list){
@@ -10389,6 +10512,24 @@ function squarify(items, X, Y, W, H){
 
 function peso(e){ return st.area==='igual' ? 1 : Math.pow(Math.max(e.vm, 1.5e9), .42); }
 
+/* Rotulo do bloco com a mesma informacao que o ponteiro recebe no tooltip:
+   antes trazia so nome e categoria, menos do que o mouse. A direcao vai
+   escrita, e nao pela seta, porque leitor de tela le "triangulo apontando
+   para cima". A descricao fica de fora de proposito: sao 369 blocos e ela
+   esta na ficha, a um Enter de distancia. */
+function rotuloTile(e, cat){
+  /* Rotulo e falado, nao lido: os codigos saem separados por virgula e espaco,
+     e variacao zero vira "estavel" em vez de "estavel de 0,00%". */
+  const r = refPreco(e), p = [e.pregao, (e.tickers || 'sem negociação').replace(/,\s*/g, ', '), cat];
+  if(r){
+    const v = typeof r.v !== 'number' ? ''
+      : r.v === 0 ? ', estável'
+      : ', ' + (r.v > 0 ? 'alta' : 'queda') + ' de ' + Math.abs(r.v).toFixed(2).replace('.',',') + '%';
+    p.push(r.tk + ' ' + fmtPreco(r.p) + v);
+  }
+  return p.join(', ');
+}
+
 function desenha(list){
   const box = mapa;
   const W = box.clientWidth, H = box.clientHeight;
@@ -10424,7 +10565,7 @@ function desenha(list){
         b.className = 'tile';
         b.style.cssText = `left:${t.x}px;top:${t.y}px;width:${Math.max(t.w-1.5,1)}px;height:${Math.max(t.h-1.5,1)}px;background:${CORES[g.c]};color:${txOn(CORES[g.c])}`;
         b.dataset.cod = t.e.cod;
-        b.setAttribute('aria-label', t.e.pregao + ', ' + (ACENTOS[g.c]||g.c));
+        b.setAttribute('aria-label', rotuloTile(t.e, ACENTOS[g.c]||g.c));
         if(t.w > 32 && t.h > 14){
           b.innerHTML = `<span class="tc">${t.e.cod}</span>` + (t.w>92 && t.h>38 ? `<span class="tn">${t.e.pregao}</span>` : '');
         }
@@ -10490,17 +10631,17 @@ function geralHTML(){
   <div class="retrato">
     <div><b>${E.length}</b><span>empresas brasileiras</span></div>
     <div><b>${BDR.length || '—'}</b><span>BDRs de empresas</span></div>
-    <div><b>19</b><span>categorias temáticas</span></div>
+    <div><b>${nCategorias()}</b><span>categorias temáticas</span></div>
     <div><b>${brl(vmTotal)}</b><span>valor de mercado somado</span></div>
     <div><b>${comPreco}</b><span>empresas com cotação</span></div>
     <div><b>${bdrMet || '—'}</b><span>BDRs com histórico</span></div>
   </div>
   <p class="nota">Cotações de ${PRECO_TS || '—'} · métricas de ${METRICA_TS || '—'} · base de companhias de ${SNAPSHOT.label}.
-  ${bdrPreco} dos ${BDR.length || 0} BDRs têm preço; ${semNeg} das ${E.length} empresas não têm negociação relevante.</p>
-  ${saude ? `<h3 class="sub">Saúde das fontes</h3><div class="saude">${[['precos','preços'],['metricasBdr','histórico de BDRs'],['metricasEmpresas','histórico de empresas'],['analise','ativo lastro']].map(([k,l])=>`<div><b>${saude[k].cobertura===null?'—':saude[k].cobertura+'%'}</b><span>${l}</span></div>`).join('')}</div><p class="fnt">Cobertura disponível no retrato dos arquivos, incluindo registros preservados após falha. Consulte a cobertura renovada e as datas no diagnóstico.</p><p style="margin:8px 0 0"><button class="lnk" id="saudeGeral">Ver diagnóstico completo →</button></p>` : ''}
+  ${BDR.length ? bdrPreco + ' dos ' + BDR.length + ' BDRs têm preço; ' : ''}${semNeg} das ${E.length} empresas não têm negociação relevante.</p>
+  ${saude ? `<h3 class="sub">Saúde das fontes</h3><div class="saude">${[['precos','preços'],['metricasBdr','histórico de BDRs'],['metricasEmpresas','histórico de empresas'],['analise','ativo lastro'],['etfsDetalhes','ETFs detalhados']].map(([k,l])=>`<div><b>${saude[k].cobertura===null?'—':saude[k].cobertura+'%'}</b><span>${l}</span></div>`).join('')}</div><p class="fnt">Cobertura disponível no retrato dos arquivos, incluindo registros preservados após falha. Consulte a cobertura renovada e as datas no diagnóstico. O detalhamento de ETFs é curadoria manual em andamento, e não tem piso: o percentual mede o quanto do catálogo já foi escrito, não uma falha de coleta.</p><p style="margin:8px 0 0"><button class="lnk" id="saudeGeral">Ver diagnóstico completo →</button></p>` : ''}
 
   <h2 class="sec">Empresas brasileiras</h2>
-  <p class="nota">369 companhias com ações registradas, organizadas em 19 categorias temáticas escritas à mão — a leitura é sobre onde a empresa ganha dinheiro, não sobre a classificação oficial da B3.</p>
+  <p class="nota">${E.length} companhias com ações registradas, organizadas em ${nCategorias()} categorias temáticas escritas à mão — a leitura é sobre onde a empresa ganha dinheiro, não sobre a classificação oficial da B3.</p>
   <div id="miniMapa" style="height:290px;position:relative;border:1px solid var(--line);background:var(--sup);overflow:hidden"></div>
   <p style="margin:10px 0 0"><button class="lnk" data-sec="empresas">Explorar o mosaico completo →</button></p>
 
@@ -10553,10 +10694,10 @@ function radarHTML(){
 function metodologiaHTML(){
   return `<div class="meto">
   <h2>Universo coberto</h2>
-  <p>Duas bases distintas. A primeira reúne as <b>${E.length} companhias brasileiras</b> com ações registradas na B3, incluindo as que hoje não têm negociação relevante: holdings de controle, empresas em processo de saída e candidatas a oferta que já se registraram. A segunda reúne os <b>${BDR.length || 825} BDRs de empresas</b> — recibos de depósito de companhias estrangeiras negociados na B3, patrocinados e não patrocinados. ETFs internacionais listados como BDR, ETPs de cripto e emissores exclusivos de dívida ficam de fora das duas.</p>
+  <p>Duas bases distintas. A primeira reúne as <b>${E.length} companhias brasileiras</b> com ações registradas na B3, incluindo as que hoje não têm negociação relevante: holdings de controle, empresas em processo de saída e candidatas a oferta que já se registraram. A segunda reúne os <b>${BDR.length ? BDR.length + ' BDRs de empresas' : 'BDRs de empresas'}</b> — recibos de depósito de companhias estrangeiras negociados na B3, patrocinados e não patrocinados.${BDR.length ? '' : ' O catálogo de BDRs ainda não carregou nesta sessão, por isso o total não aparece.'} ETFs internacionais listados como BDR, ETPs de cripto e emissores exclusivos de dívida ficam de fora das duas.</p>
 
   <h2>Classificação das empresas brasileiras</h2>
-  <p>As 19 categorias temáticas e as tags de cruzamento são <b>leitura analítica do autor</b>, escritas à mão para responder onde cada empresa realmente ganha dinheiro. Uma companhia de agro pode carregar tag de tecnologia; uma de energia, tag de saneamento. Isso <b>não substitui</b> a classificação setorial oficial da B3, que aparece na ficha de cada companhia.</p>
+  <p>As ${nCategorias()} categorias temáticas e as tags de cruzamento são <b>leitura analítica do autor</b>, escritas à mão para responder onde cada empresa realmente ganha dinheiro. Uma companhia de agro pode carregar tag de tecnologia; uma de energia, tag de saneamento. Isso <b>não substitui</b> a classificação setorial oficial da B3, que aparece na ficha de cada companhia.</p>
   <p>O valor de mercado e a liquidez média de dois meses são estimativas a partir de dados públicos, congeladas na data da base (${SNAPSHOT.label}). Servem para dar escala ao mosaico, não para decisão de investimento.</p>
 
   <h2>Classificação dos BDRs</h2>
@@ -10675,7 +10816,7 @@ function metricasEmpresaHTML(e){
   const relativo=(v,n)=>!m.stale&&Number.isInteger(n)&&n>=3?fmtPp(v):'<span class="na">—</span>';
   const amostra=n=>Number.isInteger(n)?n+(n===1?' empresa':' empresas')+' com retorno e mesma data final':'amostra não registrada nesta base';
   const periodo=m.spInicio&&m.spFim?data(m.spInicio)+' a '+data(m.spFim):null;
-  const grafico=periodo?spark(m.sp,m):'';
+  const grafico=periodo?spark(m):'';
   return `<div class="bloco"><h3>Desempenho e negociabilidade</h3><p class="fnt"><b>Referência histórica: ${esc(m.ticker)}</b> · dados até ${data(m.dt)} · ${m.n} observações.</p>
     <p class="fnt">${m.criterioReferencia==='g20'?'Classe com maior giro médio em 20 sessões entre as classes com histórico suficiente na data mais recente.':'Base anterior: classe escolhida pelo volume do dia, sem verificação de todas as classes pelo giro recente.'} ${ref&&ref.tk!==m.ticker?'A cotação intradiária usa '+esc(ref.tk)+', uma classe diferente.':''}</p>
     ${m.referenciaParcial?'<p class="fnt"><b>Seleção parcial:</b> '+m.classesValidas+' de '+m.classesConsultadas+' classes com histórico e volume suficientes. A classe escolhida pode mudar quando a cobertura se recuperar.</p>':''}
@@ -10688,9 +10829,21 @@ function metricasEmpresaHTML(e){
     ${grafico}${periodo?'<p class="fnt">Série de preço ajustado, normalizada em base 100 para desenhar a curva · '+periodo+' · '+m.spN+' observações, com pontos reduzidos para exibição. Não representa necessariamente 12 meses completos.</p>':''}
     <p class="fnt">Preço ajustado e volume: <a href="https://finance.yahoo.com/quote/${encodeURIComponent(m.ticker+'.SA')}/history/" target="_blank" rel="noopener noreferrer">Yahoo Finance</a>, fonte não oficial. Giro inclui sessões com volume zero; volume ausente não é zero. Não é recomendação de investimento.</p></div>`;
 }
+/* A barra de comparacao e IRMA de .wrap, nao filha: com uma ficha aberta,
+   wrap.inert sozinho deixava os botoes dela alcancaveis por Tab a partir de um
+   dialogo aria-modal. O #dim (z-index maior) barrava o mouse, entao o vazamento
+   so aparecia no teclado. Os dois travam sempre juntos, e por isso ha um unico
+   lugar no arquivo que escreve wrap.inert -- valida-pagina.js cobra isso. */
+function travaFundo(){ wrap.inert = true; $('cmpbar').inert = true; }
+function destravaFundo(){ wrap.inert = false; $('cmpbar').inert = false; }
+
 let lastFocus = null;
 function abre(cod){
   const e = E.find(x => x.cod === cod); if(!e) return;
+  /* Ficha aberta a partir da Carteira ou dos Favoritos nao passou pela secao
+     de empresas: pede aqui o que a secao teria pedido. Eventos chegando
+     depois sao costurados por atualizaEventosFicha(). */
+  garante('metricasEmpresas','eventos');
   const cn = e.cnpj && e.cnpj.length > 5
     ? String(e.cnpj).padStart(14,'0').replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/,'$1.$2.$3/$4-$5') : '-';
   lastFocus = document.activeElement;
@@ -10718,7 +10871,7 @@ function abre(cod){
     <div class="tg" style="margin-top:15px">${e.tagsL.map(t=>`<span>${t}</span>`).join('')}</div>`;
   drw.classList.add('on');
   dim.classList.add('on');
-  wrap.inert = true;
+  travaFundo();
   drw.querySelector('.x').onclick = fecha;
   drw.focus();
 }
@@ -10726,6 +10879,7 @@ function abre(cod){
 /* ---------- ficha do BDR, em blocos ---------- */
 function abreBDR(ticker){
   const b = BDR.find(x => x.ticker === ticker); if(!b) return;
+  garante('analise');
   const r = cot(ticker), m = met(ticker), a = ana(ticker), corS = corSetor(b.setor);
   const fonte = fontePerfilBDR(b), pares = paresIndustria(b);
   const l = (rot, valor, txt) => `<dt>${rot}</dt><dd${txt?' class="tx"':''}>${valor}</dd>`;
@@ -10744,7 +10898,7 @@ function abreBDR(ticker){
       ${l('1 mês · 21 pregões', fmtRet(m.r21))}
       ${l('3 meses · 63 pregões', fmtRet(m.r63))}
       ${l('12 meses · 252 pregões', fmtRet(m.r252))}
-    </dl>${spark(m.sp,m)}` : '<p class="fnt">Histórico insuficiente para calcular retornos.</p>';
+    </dl>${spark(m)}` : '<p class="fnt">Histórico insuficiente para calcular retornos.</p>';
 
   const paridade = a?.paridade ? `<dl class="kv">
       ${l('Ativo no exterior', `${esc(a.simbolo)} · ${esc(a.moeda||'')}`, true)}
@@ -10810,7 +10964,7 @@ function abreBDR(ticker){
       Cotação e série diária ajustada: Yahoo Finance, fonte não oficial.</p>
       <p class="fnt">Desempenho passado não garante resultado futuro. Nada aqui é recomendação.
       <button class="lnk" data-sec="metodologia" style="font-size:11.5px">Metodologia completa</button></p></div>`;
-  drw.classList.add('on'); dim.classList.add('on'); wrap.inert = true;
+  drw.classList.add('on'); dim.classList.add('on'); travaFundo();
   drw.querySelector('.x').onclick = fecha;
   EVENTO_FAV='';atualizaFavoritos();drw.focus();
 }
@@ -10845,13 +10999,22 @@ function comparacaoHTML(itens){
 }
 function abreComparacao(){
   const itens=[...COMPARAR].map(t=>BDR.find(b=>b.ticker===t)).filter(Boolean);if(itens.length<2)return;
+  garante('analise');
   lastFocus=document.activeElement;COMPARACAO_ABERTA=true;drw.classList.add('wide');drw.setAttribute('aria-label','Comparação de BDRs');
   drw.innerHTML=`<button class="x" aria-label="Fechar comparação">×</button><h2>Comparação de BDRs</h2><p class="rz">${itens.length} ativos selecionados, independentemente dos filtros. Indicadores separados, sem nota composta.</p><div id="cmpConteudo">${comparacaoHTML(itens)}</div>`;
-  drw.classList.add('on');dim.classList.add('on');wrap.inert=true;$('cmpbar').inert=true;drw.querySelector('.x').onclick=fecha;drw.focus();
+  drw.classList.add('on');dim.classList.add('on');travaFundo();drw.querySelector('.x').onclick=fecha;drw.focus();
 }
 
 /* ---------- diagnostico das bases ---------- */
-const SAUDE_REGRAS={precos:['Preços',80,72],bdrs:['Catálogo BDR',100,null],etfs:['Catálogo ETF',100,null],metricasBdr:['Histórico BDR',90,96],metricasEmpresas:['Histórico empresas',75,96],analise:['Ativo lastro',70,96],eventos:['Documentos CVM',null,120]};
+/* Precisa espelhar FONTES de gera-saude.js: recebeSaude() rejeita o arquivo
+   inteiro se as chaves divergirem, de proposito -- um diagnostico parcial e
+   pior do que nenhum. Ao acrescentar fonte la, acrescente aqui. */
+const SAUDE_REGRAS={precos:['Preços',80,72],bdrs:['Catálogo BDR',100,null],etfs:['Catálogo ETF',100,null],etfsDetalhes:['Detalhamento ETF',null,null],metricasBdr:['Histórico BDR',90,96],metricasEmpresas:['Histórico empresas',75,96],analise:['Ativo lastro',70,96],eventos:['Documentos CVM',null,120]};
+/* Sem piso de cobertura, o motivo muda conforme a fonte: uma nao tem universo
+   fechado, a outra tem curadoria progressiva. Dizer "sem percentual" nas duas
+   esconderia justamente o numero que interessa no detalhamento. */
+const SEM_PISO={eventos:'Sem percentual de cobertura: documentos limitados ao recorte e às categorias selecionadas.',
+  etfsDetalhes:'Sem piso de cobertura: a curadoria é progressiva e avança em lotes pequenos. O percentual mostra quanto do catálogo já tem ficha detalhada.'};
 function avisosFonte(x,agora,chave=''){
   const avisos=[...x.avisos],t=typeof x.atualizadoEm==='string'?Date.parse(x.atualizadoEm):NaN;
   if(!Number.isFinite(t))avisos.push('Data da coleta ausente ou inválida.');
@@ -10887,8 +11050,9 @@ function saudeHTML(agora=Date.now()){
   if(SAUDE_ESTADO==='falha')return '<p class="fnt" role="status">Não foi possível carregar um diagnóstico válido. A saúde dos dados é desconhecida; isso não significa que as bases estejam atualizadas. Recarregue a página para tentar novamente.</p>';
   const avisos=avisosSaude(SAUDE,agora),fmt=d=>Number.isFinite(Date.parse(d))?new Date(d).toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo',day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'}):'data indisponível',dia=d=>esc(d.split('-').reverse().join('/'));
   const itens=Object.entries(SAUDE.fontes).map(([k,x])=>{
-    const a=avisosFonte(x,agora,k),hist=['metricasBdr','metricasEmpresas','analise'].includes(k),catalogo=['bdrs','etfs'].includes(k),etf=k==='etfs';
-    return `<section class="bloco"><h3>${esc(x.nome)} · ${a.length?'atenção':'dentro dos limites'}</h3><p class="fnt">${x.registros} registros disponíveis${x.total!==null?' de '+x.total+' no universo ('+x.cobertura+'%)':''}.${hist?' '+x.renovados+' renovados na última coleta ('+(x.coberturaRenovada===null?'percentual indisponível':x.coberturaRenovada+'%')+'); '+x.preservados+' preservados após falha.':''}${etf?' '+x.renovados+' tickers confirmados nesta coleta ('+(x.coberturaRenovada===null?'percentual indisponível':x.coberturaRenovada+'%')+'); '+x.preservados+' ainda sem confirmação atual ou preservados após falha.':''}</p><p class="fnt">Última coleta: ${fmt(x.atualizadoEm)} (Brasília).${x.observacaoInicio?' '+(k==='eventos'?'Entregas dos documentos':'Datas das observações')+': '+dia(x.observacaoInicio)+' a '+dia(x.observacaoFim)+'.':''}</p><p class="fnt">${x.minCobertura===null?'Sem percentual de cobertura: documentos limitados ao recorte e às categorias selecionadas.':'Piso de cobertura '+(catalogo?'disponível':'renovada')+': '+x.minCobertura+'%.'} ${x.limiteHoras===null?'Catálogo atualizado manualmente, sem prazo automático de atraso.':'Aviso após '+x.limiteHoras+' horas sem coleta.'}</p>${a.length?'<p class="fnt">'+a.map(esc).join('<br>')+'</p>':''}</section>`;
+    const a=avisosFonte(x,agora,k),hist=['metricasBdr','metricasEmpresas','analise'].includes(k),catalogo=['bdrs','etfs'].includes(k),etf=k==='etfs',detalhe=k==='etfsDetalhes';
+    const datado=detalhe?'Datas das revisões':k==='eventos'?'Entregas dos documentos':'Datas das observações';
+    return `<section class="bloco"><h3>${esc(x.nome)} · ${a.length?'atenção':'dentro dos limites'}</h3><p class="fnt">${detalhe?x.registros+' fundos com ficha detalhada':x.registros+' registros disponíveis'}${x.total!==null?' de '+x.total+(detalhe?' no catálogo ':' no universo ')+'('+x.cobertura+'%)':''}.${hist?' '+x.renovados+' renovados na última coleta ('+(x.coberturaRenovada===null?'percentual indisponível':x.coberturaRenovada+'%')+'); '+x.preservados+' preservados após falha.':''}${etf?' '+x.renovados+' tickers confirmados nesta coleta ('+(x.coberturaRenovada===null?'percentual indisponível':x.coberturaRenovada+'%')+'); '+x.preservados+' ainda sem confirmação atual ou preservados após falha.':''}${detalhe?' Os demais mantêm a ficha do catálogo, sem índice de referência, carteira nem gestor — ausência de curadoria, não de fundo.':''}</p><p class="fnt">Última coleta: ${fmt(x.atualizadoEm)} (Brasília).${x.observacaoInicio?' '+datado+': '+dia(x.observacaoInicio)+' a '+dia(x.observacaoFim)+'.':''}</p><p class="fnt">${x.minCobertura===null?(SEM_PISO[k]||'Sem piso de cobertura definido para esta fonte.'):'Piso de cobertura '+(catalogo?'disponível':'renovada')+': '+x.minCobertura+'%.'} ${x.limiteHoras===null?(detalhe?'Curadoria manual, sem prazo automático de atraso.':'Catálogo atualizado manualmente, sem prazo automático de atraso.'):'Aviso após '+x.limiteHoras+' horas sem coleta.'}</p>${a.length?'<p class="fnt">'+a.map(esc).join('<br>')+'</p>':''}</section>`;
   }).join('');
   return `<p class="fnt">Diagnóstico gerado em ${fmt(SAUDE.geradoEm)} (Brasília). ${avisos.length?avisos.length+' avisos; confira as bases abaixo.':'Coberturas e datas dentro dos limites definidos.'}</p>${avisos.filter(a=>a.startsWith('Diagnóstico')||a.startsWith('Data do diagnóstico')).map(a=>'<p class="fnt">'+esc(a)+'</p>').join('')}<p class="fnt">Retrato dos arquivos na geração, não teste dos downloads desta sessão. “Renovados” exclui registros preservados após falha e, no catálogo ETF, tickers ainda sem confirmação; não garante a atualidade de cada observação. Os avisos de atraso usam o relógio deste dispositivo, em horas corridas, sem calendário de pregões ou feriados.</p>${itens}<p class="fnt">Documentos CVM: consulta não equivale à atualização da fonte. Estes limites são operacionais, não certificação da qualidade dos dados nem recomendação de investimento.</p>`;
 }
@@ -10900,25 +11064,55 @@ function atualizaSaude(){
 function abreSaude(){
   lastFocus=document.activeElement;drw.classList.remove('wide');drw.setAttribute('aria-label','Saúde dos dados');
   drw.innerHTML='<button class="x" aria-label="Fechar saúde dos dados">×</button><h2>Saúde dos dados</h2><p class="rz">Cobertura, atualização e limites automáticos das fontes.</p><div id="saudeConteudo">'+saudeHTML()+'</div>';
-  drw.classList.add('on');dim.classList.add('on');wrap.inert=true;drw.querySelector('.x').onclick=fecha;drw.focus();
+  drw.classList.add('on');dim.classList.add('on');travaFundo();drw.querySelector('.x').onclick=fecha;drw.focus();
 }
 
 /* ---------- tooltip do mosaico ---------- */
-mapa.addEventListener('mousemove', ev => {
-  const t = ev.target.closest('.tile');
-  if(!t){ tip.style.opacity = 0; return; }
-  const e = E.find(x => x.cod === t.dataset.cod);
+/* Busca por codigo num Map: o mousemove dispara a cada pixel e varrer as 369
+   empresas em lista custava caro no gesto mais frequente da tela. */
+const EMPRESA_POR_COD = new Map(E.map(e => [e.cod, e]));
+
+function conteudoTip(cod){
+  const e = EMPRESA_POR_COD.get(cod); if(!e) return null;
   const r = refPreco(e);
   tip.innerHTML = `<span class="t1">${esc(e.pregao)}</span>
     <span class="t2">${esc(e.tickers || 'sem negociação')} · ${esc(e.macroL)}</span>
     ${r ? `<span class="t3"><b>${r.tk}</b> ${fmtPreco(r.p)} ${fmtVar(r.v)}</span>` : ''}
     <span class="t4">${esc(e.desc)}</span>`;
+  return e;
+}
+const escondeTip = () => { tip.style.opacity = 0; };
+
+/* O tooltip so existia no mousemove, e 182 dos 369 blocos sao pequenos demais
+   para caber rotulo: quem navega por teclado recebia o anel de foco num
+   retangulo colorido e mudo. Mesmo conteudo, ancorado no bloco em vez do
+   ponteiro. */
+function mostraTipNoBloco(t){
+  if(!conteudoTip(t.dataset.cod)) return;
+  tip.style.opacity = 1;
+  const c = t.getBoundingClientRect(), w = tip.offsetWidth, h = tip.offsetHeight;
+  tip.style.left = Math.max(8, Math.min(c.left + c.width/2 - w/2, innerWidth - w - 10)) + 'px';
+  tip.style.top = (c.top - h - 8 < 8 ? c.bottom + 8 : c.top - h - 8) + 'px';
+}
+
+mapa.addEventListener('mousemove', ev => {
+  const t = ev.target.closest('.tile');
+  if(!t || !conteudoTip(t.dataset.cod)){ escondeTip(); return; }
   tip.style.opacity = 1;
   const w = tip.offsetWidth, h = tip.offsetHeight;
   tip.style.left = Math.min(ev.clientX + 14, innerWidth - w - 10) + 'px';
   tip.style.top = (ev.clientY - h - 12 < 8 ? ev.clientY + 18 : ev.clientY - h - 12) + 'px';
 });
-mapa.addEventListener('mouseleave', () => tip.style.opacity = 0);
+mapa.addEventListener('mouseleave', escondeTip);
+mapa.addEventListener('focusin', ev => {
+  const t = ev.target.closest('.tile');
+  if(t) mostraTipNoBloco(t);
+});
+/* Passar de um bloco para o vizinho mantem o tooltip: so some quando o foco
+   deixa o mosaico, senao piscaria a cada Tab. */
+mapa.addEventListener('focusout', ev => {
+  if(!ev.relatedTarget || !mapa.contains(ev.relatedTarget)) escondeTip();
+});
 
 /* ---------- ETF ---------- */
 let ETF = [], ETF_DETALHE = new Map();
@@ -11145,7 +11339,7 @@ function abreETF(ticker){
       Ticker: sigla da B3 com o sufixo +11${x.tickerVerificado===false?', ainda sem confirmação de cotação positiva no Yahoo Finance':', verificado no Yahoo Finance'}. Cotação e giro do dia: Yahoo Finance, fonte não oficial.</p>
       <p class="fnt">${detalhe?'Taxa de administração e patrimônio líquido não fazem parte desta camada editorial.':'Índice de referência, taxa de administração e patrimônio líquido não constam desta base.'} Consulte sempre o regulamento e a lâmina oficiais do fundo. Nada aqui é recomendação de compra ou venda.
       <button class="lnk" data-sec="metodologia" style="font-size:11.5px">Metodologia completa</button></p></div>`;
-  drw.classList.add('on'); dim.classList.add('on'); wrap.inert = true;
+  drw.classList.add('on'); dim.classList.add('on'); travaFundo();
   drw.querySelector('.x').onclick = fecha;
   drw.focus();
 }
@@ -11161,9 +11355,9 @@ function carregaETFs(){
           return norm([x.ticker,x.nome,x.nomeCurto||'',categoriaETFPT(x.categoria)||'',z?.resumo||'',...termos].join(' '));})()
       }));
       normalizaSelecoesETF();
-      chipsETF(); render(); tentaAtivo();
+      chipsETF(); agendaRender(); tentaAtivo();
     })
-    .catch(() => { render(); });
+    .catch(() => { agendaRender(); });
 }
 
 /* ---------- navegacao entre secoes ---------- */
@@ -11246,9 +11440,12 @@ function refleteEstado(){
 const SECOES = {
   geral:{t:'Visão geral', k:'B3 · panorama',
     d:'Um retrato do que está listado na B3 hoje: empresas brasileiras, BDRs de companhias estrangeiras e o que se sabe sobre novas listagens.'},
-  empresas:{t:'Empresas brasileiras', k:'B3 · 369 companhias',
-    d:'Todas as companhias com ações registradas, organizadas em 19 categorias temáticas e cruzadas por tags de exposição. O tamanho de cada bloco vem do valor de mercado estimado.'},
-  bdrs:{t:'BDRs', k:'B3 · 825 recibos',
+  /* k e d podem ser funcao quando dependem da base: o catalogo de BDR so
+     chega depois do primeiro render, e cravar o total aqui o deixaria mentir
+     na proxima vez que a lista da B3 mudar. */
+  empresas:{t:'Empresas brasileiras', k:()=>'B3 · '+E.length+' companhias',
+    d:()=>'Todas as companhias com ações registradas, organizadas em '+nCategorias()+' categorias temáticas e cruzadas por tags de exposição. O tamanho de cada bloco vem do valor de mercado estimado.'},
+  bdrs:{t:'BDRs', k:()=>BDR.length ? 'B3 · '+BDR.length+' recibos' : 'B3 · recibos de depósito',
     d:'Ações de empresas estrangeiras negociadas na B3 por recibo de depósito. A tabela permite comparar preço, retorno, força relativa e liquidez na mesma linha.'},
   etfs:{t:'ETFs', k:'B3 · fundos de índice',
     d:'Fundos de índice negociados na B3, por categoria oficial (renda variável, renda fixa, cripto, internacional, FII e moeda).'},
@@ -11261,12 +11458,25 @@ const SECOES = {
   metodologia:{t:'Metodologia', k:'B3 · como isto é feito',
     d:'De onde vem cada número, como os indicadores são calculados e o que estes dados não podem responder.'}
 };
+/* Chamado por navega() e por render(): o catalogo de BDR chega depois do
+   primeiro desenho, e o kicker precisa parar de dizer "recibos de deposito"
+   assim que o total existir. Escreve so quando muda, pelo mesmo motivo de
+   atualizaFavoritos: texto identico reescrito suja o layout da secao. */
+function cabecalhoSecao(){
+  const s = SECOES[st.sec], texto = v => typeof v === 'function' ? v() : v;
+  const poe = (id,v) => { const el = $(id); if(el.textContent !== v) el.textContent = v; };
+  poe('kicker', texto(s.k)); poe('secTitulo', s.t); poe('secDesc', texto(s.d));
+}
+
 function navega(sec){
   st.sec = sec;
+  if(sec !== 'bdrs') cancelaCaudaBDR();
+  /* Antes de desenhar: a base pesada da secao comeca a chegar enquanto o
+     usuario ainda le a tela, em vez de disputar banda no boot. */
+  garante(...(DEPENDE[sec] || []));
   document.querySelectorAll('nav.prim button').forEach(b =>
     b.setAttribute('aria-current', b.dataset.sec === sec ? 'page' : 'false'));
-  const s = SECOES[sec];
-  $('kicker').textContent = s.k; $('secTitulo').textContent = s.t; $('secDesc').textContent = s.d;
+  cabecalhoSecao();
   ['Geral','Empresas','Bdrs','Etfs','Carteira','Favoritos','Radar','Metodologia'].forEach(n =>
     $('sec' + n).classList.toggle('hide', 'sec' + n !== 'sec' + sec.charAt(0).toUpperCase() + sec.slice(1)));
   fechaFiltros();
@@ -11292,7 +11502,20 @@ function resumoRecorte(){
   return p;
 }
 
+/* Cada base que chega chamava render() direto, e no boot isso reconstruia a
+   mesma tela uma vez por arquivo. Uma janela curta agrupa as que chegam
+   juntas: quem carrega dado nao precisa saber quantos outros chegaram junto.
+   Timer, e nao requestAnimationFrame, porque em aba de fundo o quadro nunca
+   vem -- o agendamento ficaria preso e engoliria os renders seguintes. */
+let renderPendente = false;
+function agendaRender(){
+  if(renderPendente) return;
+  renderPendente = true;
+  setTimeout(() => { renderPendente = false; render(); }, 32);
+}
+
 function render(){
+  cabecalhoSecao();
   atualizaFavoritos();
   if(COMPARACAO_ABERTA&&$('cmpConteudo'))$('cmpConteudo').innerHTML=comparacaoHTML([...COMPARAR].map(t=>BDR.find(b=>b.ticker===t)).filter(Boolean));
   if(URL_ATIVA) sincronizaURL();
@@ -11319,7 +11542,9 @@ function render(){
     const r = filtraBDR();
     $('acompanhamentoBdr').innerHTML=acompanhamentoHTML(r);
     $('csvBdr').title=st.soFav?'Exportar somente os BDRs acompanhados que passam pelos filtros atuais':'Exportar os BDRs do recorte atual';
-    $('nBdr').textContent = r.length;
+    /* Antes do catalogo chegar, "0 BDRs no recorte" seria uma afirmacao falsa
+       sobre a base -- o travessao diz que o numero ainda nao existe. */
+    $('nBdr').textContent = BDR_CARGA === 'pronta' ? r.length : '—';
     const ativos = resumoRecorte();
     $('clearBdr').classList.toggle('hide', !ativos.length && !st.recorte);
     $('resumoBdr').innerHTML = ativos.length
@@ -11328,7 +11553,10 @@ function render(){
     $('boxTabelaB').classList.toggle('hide', st.modoBdr !== 'tabela');
     $('boxCardsB').classList.toggle('hide', st.modoBdr !== 'cards');
     $('boxMatrizB').classList.toggle('hide', st.modoBdr !== 'matriz');
-    if(st.modoBdr === 'tabela') $('boxTabelaB').innerHTML = tabelaBDR(r);
+    /* Sair da tabela no meio da cauda para os lotes pendentes; voltar
+       redesenha, porque completaBDR ficou falso. */
+    if(st.modoBdr !== 'tabela') cancelaCaudaBDR();
+    if(st.modoBdr === 'tabela') desenhaTabelaBDR(r);
     else if(st.modoBdr === 'cards') $('boxCardsB').innerHTML = cardsBDR(r);
     else $('boxMatrizB').innerHTML = matrizBDR(r,$('boxMatrizB').clientWidth||1000);
     return;
@@ -11497,10 +11725,16 @@ function atualizaFavoritos(){
   $('nFav').textContent=favoritosBDR().length;$('soFav').setAttribute('aria-pressed',String(st.soFav));$('soFav').setAttribute('aria-label',st.soFav?'Mostrar todos os BDRs':'Mostrar somente BDRs favoritos');
   const msg=[EVENTO_FAV,AVISO_FAV].filter(Boolean).join(' ');
   ['favMsg','favFichaMsg','favoritosMsg'].forEach(id=>{const el=$(id);if(el&&el.textContent!==msg)el.textContent=msg;});
+  /* Escrever so quando muda, como as mensagens logo acima ja faziam: na tabela
+     de BDR sao 825 estrelas, e reescrever textContent identico suja o layout
+     da tabela inteira. Era esse o custo do render que nao mexe em nada. */
   document.querySelectorAll('[data-fav]').forEach(bt=>{
     const t=bt.dataset.fav,on=FAVORITOS.has(t);
-    bt.setAttribute('aria-pressed',String(on));bt.setAttribute('aria-label',`${on?'Remover':'Adicionar'} ${t} ${on?'do':'ao'} acompanhamento`);
-    bt.textContent=bt.hasAttribute('data-fav-ausente')?'Remover da lista':bt.classList.contains('fav')?(on?'★':'☆'):(on?'★ Acompanhando':'☆ Acompanhar');
+    const rotulo=`${on?'Remover':'Adicionar'} ${t} ${on?'do':'ao'} acompanhamento`;
+    const texto=bt.hasAttribute('data-fav-ausente')?'Remover da lista':bt.classList.contains('fav')?(on?'★':'☆'):(on?'★ Acompanhando':'☆ Acompanhar');
+    if(bt.getAttribute('aria-pressed')!==String(on))bt.setAttribute('aria-pressed',String(on));
+    if(bt.getAttribute('aria-label')!==rotulo)bt.setAttribute('aria-label',rotulo);
+    if(bt.textContent!==texto)bt.textContent=texto;
   });
 }
 /* Favorito vale para qualquer universo carregado -- empresa, BDR, ETF ou
@@ -11559,10 +11793,14 @@ function atualizaSelecao(){
   $('nFav').textContent=FAVORITOS.size;$('nCmp').textContent=COMPARAR.size;
   $('cmpbar').classList.toggle('hide',!COMPARAR.size);
   $('abreCmp').disabled=COMPARAR.size<2;
+  /* Mesmo motivo de atualizaFavoritos: 825 caixas na tabela de BDR. */
   document.querySelectorAll('[data-cmp],[data-cmpadd]').forEach(bt=>{
     const t=bt.dataset.cmp||bt.dataset.cmpadd,on=COMPARAR.has(t);
-    bt.setAttribute('aria-pressed',String(on));bt.setAttribute('aria-label',`${on?'Remover':'Selecionar'} ${t} ${on?'da':'para'} comparação`);
-    bt.textContent=bt.dataset.cmp?(on?'▣':'□'):(on?'Remover da comparação':'Adicionar à comparação');
+    const rotulo=`${on?'Remover':'Selecionar'} ${t} ${on?'da':'para'} comparação`;
+    const texto=bt.dataset.cmp?(on?'▣':'□'):(on?'Remover da comparação':'Adicionar à comparação');
+    if(bt.getAttribute('aria-pressed')!==String(on))bt.setAttribute('aria-pressed',String(on));
+    if(bt.getAttribute('aria-label')!==rotulo)bt.setAttribute('aria-label',rotulo);
+    if(bt.textContent!==texto)bt.textContent=texto;
   });
 }
 document.body.addEventListener('click', ev => {
@@ -11760,6 +11998,10 @@ function baixaCSV(linhas, nome){
 }
 $('csvBdr').onclick = () => {
   if(BDR_CARGA!=='pronta'){$('csvBdrMsg').textContent=BDR_CARGA==='falha'?'Catálogo BDR indisponível. Recarregue a página antes de exportar.':'Aguarde o carregamento do catálogo BDR antes de exportar.';return;}
+  /* Treze colunas vem da analise, que agora entra sob demanda: exportar antes
+     dela chegar geraria paridade vazia, indistinguivel de dado ausente na
+     fonte. Pede a base e devolve o controle em vez de mentir no arquivo. */
+  if(!Object.keys(ANALISE).length){garante('analise');$('csvBdrMsg').textContent='Carregando a base de ativo-lastro para completar o arquivo. Peça a exportação de novo em instantes.';return;}
   const linhas = [['ticker','empresa','tipo','pais','setor','industria','fonte_classificacao','preco','variacao_pct','volume_hoje','giro_hoje','ultimo_negocio','retorno_21d_pct','retorno_63d_pct','retorno_252d_pct','vs_industria_21d_pp','vs_industria_63d_pp','vs_industria_252d_pp','vs_setor_63d_pp','percentil_industria_63d','percentil_setor_63d','giro_medio_20d','giro_medio_60d','dias_negociados_20d','drawdown_252d_pct','volatilidade_21d_anual_pct','ativo_lastro','moeda','bdrs_relacao','acoes_relacao','preco_ativo','ptax','paridade_indicativa','desvio_paridade_pct','retorno_ativo_63d_pct','efeito_cambio_63d_pct','residual_63d_pp','fonte_programa','metricas_ate','cotacao_atualizada_em']];
   linhas[0].push('historico_preservado','analise_preservada','ativo_ate','ptax_ate','ativo_ultimo_negocio','forca_exibida_pp','grupo_forca_exibida','amostra_industria_63d','fonte_cotacao','fonte_historico','fonte_ativo','fonte_cambio');
   filtraBDR().forEach(b => {
@@ -11773,6 +12015,10 @@ $('csvBdr').onclick = () => {
   finalizaCSV(linhas,'bdrs');
 };
 $('csvEmp').onclick = () => {
+  /* Mesmo motivo do CSV de BDR. Eventos nao entram nesta guarda porque o
+     arquivo ja declara eventos_estado_carga: ali a ausencia se identifica. */
+  garante('eventos');
+  if(!Object.keys(METRICAS_EMP).length){garante('metricasEmpresas');$('csvEmpMsg').textContent='Carregando o histórico das empresas para completar o arquivo. Peça a exportação de novo em instantes.';return;}
   const linhas = [['codigo','tickers','nome_pregao','razao_social','categoria','segmento_b3','tags','segmento_listagem','data_registro','valor_mercado','liquidez_2m','ticker_referencia','preco','variacao_pct','precos_todas_classes','retorno_21d_pct','retorno_63d_pct','retorno_252d_pct','vs_categoria_63d_pp','vs_segmento_63d_pp','giro_medio_20d','drawdown_252d_pct','volatilidade_21d_anual_pct','eventos_recentes','metricas_ate','cotacao_atualizada_em','descricao','ticker_referencia_historica','criterio_referencia_historica','referencia_historica_parcial','amostra_categoria_63d','amostra_segmento_63d','historico_preservado']];
   linhas[0].push('ultimo_negocio_referencia','fonte_cotacao','fonte_historico','eventos_estado_carga','eventos_consultados_em','eventos_janela_inicio','eventos_janela_fim','eventos_encontrados_no_recorte','eventos_links_oficiais');
   filtra().forEach(e => {
@@ -11815,7 +12061,7 @@ function carregaPrecos(manual=false){
       if(manual)msg.textContent=coletaAnterior&&COLETAS.precos===coletaAnterior
         ? 'a base publicada continua a de '+(PRECO_TS||'data indisponível')
         : 'cotações de '+(PRECO_TS||'data indisponível');
-      render();
+      agendaRender();
     })
     .catch(() => { if(manual)msg.textContent='não foi possível atualizar; a base anterior foi mantida';/* sem cotacoes o mapa continua completo */ })
     .finally(()=>{if(manual){bt.disabled=false;bt.textContent='atualizar cotações';}});
@@ -11831,9 +12077,9 @@ function carregaBDRs(){
       COLETAS.bdrs=isoCSV(d.geradoEm);
       if(BDR.length){COMPARAR=new Set([...COMPARAR].filter(t=>BDR.some(b=>b.ticker===t)));salvaComparacao();atualizaSelecao();}
       PARES_INDUSTRIA = {};
-      BDR_CARGA='pronta';chipsBDR(); render(); tentaAtivo();
+      BDR_CARGA='pronta';chipsBDR(); agendaRender(); tentaAtivo();
     })
-    .catch(() => { BDR_CARGA='falha';render(); });
+    .catch(() => { BDR_CARGA='falha';agendaRender(); });
 }
 function carregaMetricas(){
   fetch('metricas.json', {cache:'no-store'})
@@ -11847,22 +12093,22 @@ function carregaMetricas(){
         $('mtz').innerHTML = 'métricas <b>' + METRICA_TS + '</b>';
         $('mtz').title = Object.keys(METRICAS).length + ' BDRs com histórico; fonte Yahoo Finance.';
       }
-      render(); tentaAtivo();
+      agendaRender(); tentaAtivo();
     })
     .catch(() => { /* sem metricas a tabela segue, sem os indicadores historicos */ });
 }
 function carregaAnalise(){
-  fetch('analise.json',{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject()).then(d=>{ANALISE=d.analise||{};COLETAS.analise=isoCSV(d.atualizadoEm);render();tentaAtivo();}).catch(()=>{});
+  return fetch('analise.json',{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject()).then(d=>{ANALISE=d.analise||{};COLETAS.analise=isoCSV(d.atualizadoEm);agendaRender();tentaAtivo();}).catch(()=>{});
 }
 function carregaMetricasEmpresas(){
-  fetch('metricas-empresas.json',{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject()).then(d=>{METRICAS_EMP=d.metricas||{};COLETAS.metricasEmpresas=isoCSV(d.atualizadoEm);render();tentaAtivo();}).catch(()=>{});
+  return fetch('metricas-empresas.json',{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject()).then(d=>{METRICAS_EMP=d.metricas||{};COLETAS.metricasEmpresas=isoCSV(d.atualizadoEm);agendaRender();tentaAtivo();}).catch(()=>{});
 }
 function carregaEventos(){
-  fetch('eventos.json',{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject()).then(d=>{recebeEventos(d);render();atualizaEventosFicha();}).catch(()=>{EVENTOS_ESTADO='falha';render();atualizaEventosFicha();});
+  return fetch('eventos.json',{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject()).then(d=>{recebeEventos(d);agendaRender();atualizaEventosFicha();}).catch(()=>{EVENTOS_ESTADO='falha';agendaRender();atualizaEventosFicha();});
 }
 function carregaSaude(){
   atualizaSaude();
-  fetch('saude.json',{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject()).then(d=>{recebeSaude(d);atualizaSaude();render();}).catch(()=>{SAUDE=null;SAUDE_ESTADO='falha';atualizaSaude();render();});
+  fetch('saude.json',{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject()).then(d=>{recebeSaude(d);atualizaSaude();agendaRender();}).catch(()=>{SAUDE=null;SAUDE_ESTADO='falha';atualizaSaude();agendaRender();});
 }
 setInterval(atualizaSaude,60000);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)atualizaSaude();});
@@ -11871,10 +12117,26 @@ let ATIVO_ABERTO=false;
 function tentaAtivo(){
   if(ATIVO_ABERTO||!st.ativo)return;
   const b=BDR.find(x=>x.ticker===st.ativo),e=E.find(x=>x.cod===st.ativo),x=ETF.find(f=>f.ticker===st.ativo);
+  /* Link direto para uma ficha pode chegar em qualquer secao, inclusive numa
+     que nao depende dessa base: sem pedir aqui, a espera abaixo nunca acaba. */
+  if(b)garante('analise'); else if(e)garante('metricasEmpresas','eventos');
   if(b&&Object.keys(METRICAS).length&&Object.keys(ANALISE).length){ATIVO_ABERTO=true;abreBDR(b.ticker);}
   else if(e&&Object.keys(METRICAS_EMP).length){ATIVO_ABERTO=true;abre(e.cod);}
   else if(x&&ETF.length){ATIVO_ABERTO=true;abreETF(x.ticker);}
 }
+
+/* Bases pesadas entram sob demanda. O panorama inicial nao usa paridade,
+   historico de empresa nem documentos da CVM, e baixar os tres no boot
+   custava 3 MB antes do primeiro clique. Idempotente pela promessa guardada:
+   quem pede duas vezes reaproveita a mesma requisicao, e quem falhou nao
+   volta a tentar sozinho -- a pagina ja trata cada base ausente como ausente. */
+const CARGAS = {analise:carregaAnalise, metricasEmpresas:carregaMetricasEmpresas, eventos:carregaEventos};
+const PEDIDOS = {};
+const garante = (...nomes) => Promise.all(nomes.map(n => (PEDIDOS[n] ||= CARGAS[n]())));
+/* O que cada secao precisa alem do que o boot ja traz. Carteira e Favoritos
+   ficam de fora de proposito: elas abrem ficha de qualquer universo, e quem
+   pede a base la e a propria funcao que abre a ficha. */
+const DEPENDE = {empresas:['metricasEmpresas'], bdrs:['analise'], radar:['eventos']};
 
 leURL();refleteEstado();URL_ATIVA = true;
 chips(); chipsBDR(); chipsETF(); atualizaSelecao();
@@ -11883,16 +12145,13 @@ carregaPrecos();
 carregaBDRs();
 carregaETFs();
 carregaMetricas();
-carregaAnalise();
-carregaMetricasEmpresas();
-carregaEventos();
 carregaSaude();
 
 function fecha(){
-  COMPARACAO_ABERTA=false;$('cmpbar').inert=false;drw.setAttribute('aria-label','Ficha do ativo');
+  COMPARACAO_ABERTA=false;drw.setAttribute('aria-label','Ficha do ativo');
   drw.classList.remove('on');
   dim.classList.remove('on');
-  wrap.inert = false;
+  destravaFundo();
   drw.classList.remove('wide');
   st.ativo=null;if(URL_ATIVA)sincronizaURL();
   if(lastFocus && document.body.contains(lastFocus)) lastFocus.focus();
@@ -11900,7 +12159,9 @@ function fecha(){
 }
 dim.onclick = fecha;
 document.addEventListener('keydown', ev => {
-  if(ev.key==='Escape')fecha();
+  /* Esc dispensa o tooltip sem tirar o foco do bloco: conteudo que aparece no
+     foco precisa poder sumir sem que o usuario tenha que sair dali. */
+  if(ev.key==='Escape'){escondeTip();fecha();}
   if(ev.key==='Tab'&&COMPARACAO_ABERTA){
     const alvos=[...drw.querySelectorAll('button:not(:disabled),a[href],[tabindex="0"]')],primeiro=alvos[0],ultimo=alvos[alvos.length-1];
     if(ev.shiftKey&&(document.activeElement===primeiro||document.activeElement===drw)){ev.preventDefault();ultimo?.focus();}
