@@ -376,6 +376,51 @@ node scripts/testa-saude.js
 node scripts/valida-saude.js
 ```
 
+## Histórico dos ETFs
+
+`metricas-etfs.json` traz retorno de 12 e 3 meses, giro médio, volatilidade e o
+gráfico da série para os ETFs com histórico (201 dos 219 com ticker confirmado).
+Entra sob demanda, ao abrir a aba ou a ficha.
+
+Usa a **série ajustada**, e por isso o retorno é comparável ao das abas de BDR e
+empresas — ao contrário do de FII. Foi medido: ETF brasileiro não distribui, então
+série ajustada e série de preço coincidem.
+
+A matriz de dispersão, que dependia deste arquivo, deixou de estar bloqueada — mas
+não foi adicionada.
+
+## Aba de fundos imobiliários
+
+528 FIIs listados pela B3, no mesmo endpoint dos ETFs com `typeFund` em `FII`.
+A tabela é o modo padrão; cards são a alternativa.
+
+O que ela mostra que as outras não mostram:
+
+- **Tipo de carteira** — tijolo, papel, fundo de fundos ou híbrido, derivado da
+  composição declarada no informe mensal da CVM, não do nome nem do campo de
+  segmento da própria CVM (que deixa 61% em "Multicategoria" e chega a classificar
+  o MXRF, fundo de papel, como logística).
+- **P/VP** — preço de hoje sobre o valor patrimonial da cota do último informe.
+  É derivado no navegador, não publicado pelo fundo, e os dois lados da conta não
+  são do mesmo dia. Não é medida de preço justo.
+- **Patrimônio líquido, cotas emitidas, cotistas e taxa de administração**, direto
+  do informe.
+
+Filtros: tipo de carteira, presença de cotação, tipo de gestão e segmento declarado.
+
+- **Distribuído 12m** — o total pago por cota nos últimos 12 meses sobre o preço
+  de hoje. **Não é dividend yield:** a fonte junta rendimento e amortização de cota
+  (devolução de capital) sem separar. Quem distribuiu mais que o próprio preço vem
+  marcado com `!` — são 10 fundos, todos devolvendo capital.
+- **Variação de preço 12m** — da série de preço de fechamento, não da ajustada.
+  Em FII o ajuste retroativo do Yahoo distorce a série (XPML11: +713,7% ajustado
+  contra +0,3% de preço no mesmo ano).
+
+A aba **não** tem treemap nem matriz, de propósito: como em ETF, é conjunto plano
+sem hierarquia curada à mão.
+
+Detalhes de fonte, junção por ISIN e armadilhas: `FIIS.md`.
+
 ## Carteira local
 
 A seção **Carteira** aceita ticker, quantidade e preço médio unitário para empresas

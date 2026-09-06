@@ -1,11 +1,11 @@
 /*
  * Busca cotacoes das acoes da B3 no Yahoo Finance e grava precos.json.
  *
- * A lista de tickers vem de tres fontes: o proprio mapa-b3.html (empresas
- * brasileiras), o bdrs.json (BDRs) e o etfs.json (ETFs), quando existirem.
- * bdrs.json e etfs.json sao gerados por scripts/gera-bdrs.js e
- * scripts/gera-etfs.js -- este script aqui so consome as listas, nao decide
- * quais BDRs ou ETFs existem.
+ * A lista de tickers vem de quatro fontes: o proprio mapa-b3.html (empresas
+ * brasileiras), o bdrs.json (BDRs), o etfs.json (ETFs) e o fiis.json (fundos
+ * imobiliarios), quando existirem. Os tres catalogos sao gerados por
+ * scripts/gera-bdrs.js, gera-etfs.js e gera-fiis.js -- este script aqui so
+ * consome as listas, nao decide quais BDRs, ETFs ou FIIs existem.
  *
  * Uso: node scripts/atualiza-precos.js
  */
@@ -17,6 +17,7 @@ const RAIZ = path.join(__dirname, '..');
 const SAIDA = path.join(RAIZ, 'precos.json');
 const BDRS = path.join(RAIZ, 'bdrs.json');
 const ETFS = path.join(RAIZ, 'etfs.json');
+const FIIS = path.join(RAIZ, 'fiis.json');
 
 /* Aceita os dois nomes: no GitHub Pages o arquivo da raiz costuma virar
    index.html, mas localmente pode continuar como mapa-b3.html. */
@@ -69,6 +70,16 @@ function leTickersETF(){
   return (j.etfs || []).map(x => x.ticker).filter(Boolean);
 }
 
+/* Entram tambem os que o catalogo marcou sem cotacao: 112 dos 528 FIIs sao
+   restritos a investidor qualificado e nunca negociaram, mas um deles pode
+   comecar a negociar antes da proxima geracao do catalogo, e ai o preco
+   aparece sozinho. Custa slot em lote, nao request extra. */
+function leTickersFII(){
+  if(!fs.existsSync(FIIS)) return [];
+  const j = JSON.parse(fs.readFileSync(FIIS, 'utf8'));
+  return (j.fiis || []).map(x => x.ticker).filter(Boolean);
+}
+
 /* O endpoint em lote do Yahoo exige cookie + crumb. O de simbolo unico nao,
    mas exigiria uma request por ticker. */
 async function autentica(){
@@ -108,8 +119,9 @@ async function buscaLote(simbolos, { cookie, crumb }, tentativa = 1){
   const tickersEmpresas = leTickers();
   const tickersBDR = leTickersBDR();
   const tickersETF = leTickersETF();
-  const tickers = [...new Set([...tickersEmpresas, ...tickersBDR, ...tickersETF])];
-  console.log(tickersEmpresas.length + ' tickers de empresas + ' + tickersBDR.length + ' de BDR + ' + tickersETF.length + ' de ETF = ' + tickers.length + ' únicos');
+  const tickersFII = leTickersFII();
+  const tickers = [...new Set([...tickersEmpresas, ...tickersBDR, ...tickersETF, ...tickersFII])];
+  console.log(tickersEmpresas.length + ' tickers de empresas + ' + tickersBDR.length + ' de BDR + ' + tickersETF.length + ' de ETF + ' + tickersFII.length + ' de FII = ' + tickers.length + ' únicos');
 
   const sessao = await autentica();
   const precos = {};

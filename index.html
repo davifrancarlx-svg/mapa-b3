@@ -8,7 +8,7 @@
      compartilhamento do projeto: sem estas tags ele chega sem titulo, sem
      resumo e sem imagem. Sem numeros aqui de proposito -- crawler nao executa
      JS, entao a contagem nao teria como ser derivada e envelheceria sozinha. -->
-<meta name="description" content="Mapa interativo das companhias listadas na B3, com os BDRs de empresas estrangeiras e os ETFs negociados no país. Preço, histórico e liquidez para achar o que investigar. Não é recomendação de investimento.">
+<meta name="description" content="Mapa interativo das companhias listadas na B3, com os BDRs de empresas estrangeiras, os ETFs e os fundos imobiliários negociados no país. Preço, histórico e liquidez para achar o que investigar. Não é recomendação de investimento.">
 <meta name="theme-color" content="#101216">
 <link rel="canonical" href="https://davifrancarlx-svg.github.io/mapa-b3/">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23101216'/><rect x='9' y='9' width='14' height='14' rx='2' fill='%23F2B441'/></svg>">
@@ -17,14 +17,14 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:url" content="https://davifrancarlx-svg.github.io/mapa-b3/">
 <meta property="og:title" content="Mapa da B3">
-<meta property="og:description" content="Companhias, BDRs e ETFs listados na B3 num mapa interativo, com preço, histórico e liquidez. Ferramenta de exploração, não recomendação.">
+<meta property="og:description" content="Companhias, BDRs, ETFs e fundos imobiliários listados na B3 num mapa interativo, com preço, histórico e liquidez. Ferramenta de exploração, não recomendação.">
 <meta property="og:image" content="https://davifrancarlx-svg.github.io/mapa-b3/social.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Mapa da B3 — mosaico de blocos coloridos representando as companhias listadas.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Mapa da B3">
-<meta name="twitter:description" content="Companhias, BDRs e ETFs listados na B3 num mapa interativo, com preço, histórico e liquidez. Ferramenta de exploração, não recomendação.">
+<meta name="twitter:description" content="Companhias, BDRs, ETFs e fundos imobiliários listados na B3 num mapa interativo, com preço, histórico e liquidez. Ferramenta de exploração, não recomendação.">
 <meta name="twitter:image" content="https://davifrancarlx-svg.github.io/mapa-b3/social.png">
 <link rel="preload" href="fontes/inter-tight.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fontes/ibm-plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -61,6 +61,10 @@ a{color:var(--am);text-decoration:underline;text-underline-offset:2px}
 :where(button,select,input,a):focus-visible{outline:2px solid var(--am);outline-offset:2px}
 .hide{display:none!important}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* Link de pular: a secao de BDR tem mais de 2.500 paradas de Tab, e sem isto
+   nao ha como sair da tabela pelo teclado sem atravessar todas. */
+.pular{position:absolute;left:-9999px;top:0;z-index:60;background:var(--sup2);color:var(--tx);font:600 13px var(--ui);padding:10px 14px;border:1px solid var(--line);border-radius:var(--r);text-decoration:none}
+.pular:focus{left:10px;top:10px}
 .num{font-family:var(--mo);font-variant-numeric:tabular-nums}
 /* <b> dentro de texto em mono herdava o 700 padrao do negrito, e a pagina so
    pede 400/500/600 do Plex Mono: o navegador sintetizava o peso em vez de usar
@@ -419,6 +423,7 @@ footer p{margin:0;max-width:62ch;line-height:1.55}
 </style>
 </head>
 <body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
 <header class="topo">
   <div class="in">
     <div class="marca"><i></i>Mapa da B3</div>
@@ -427,6 +432,7 @@ footer p{margin:0;max-width:62ch;line-height:1.55}
       <button data-sec="empresas">Empresas brasileiras</button>
       <button data-sec="bdrs">BDRs</button>
       <button data-sec="etfs">ETFs</button>
+      <button data-sec="fiis">FIIs</button>
       <button data-sec="carteira">Carteira</button>
       <button data-sec="favoritos">Favoritos</button>
       <button data-sec="radar">Radar de listagens</button>
@@ -444,6 +450,7 @@ footer p{margin:0;max-width:62ch;line-height:1.55}
 </header>
 
 <div class="wrap">
+<main id="conteudo" tabindex="-1">
 
 <div class="intro">
   <div class="kicker" id="kicker">B3 · panorama</div>
@@ -653,6 +660,55 @@ footer p{margin:0;max-width:62ch;line-height:1.55}
   </div>
 </section>
 
+<!-- ============ FIIs ============ -->
+<section id="secFiis" class="hide">
+  <div class="lay">
+    <aside class="side" id="sideFii" aria-label="Filtros de fundos imobiliários">
+      <div class="fgrp" data-open="true">
+        <button class="fhead" aria-expanded="true">Tipo de carteira<span class="cnt hide" id="cntTipoFii"></span><span class="arw">▾</span></button>
+        <div class="fbody"><div class="opts" id="fiiTipos"></div></div>
+      </div>
+      <div class="fgrp" data-open="true">
+        <button class="fhead" aria-expanded="true">Negociação<span class="arw">▾</span></button>
+        <div class="fbody"><div class="opts" id="fiiNegociacoes"></div></div>
+      </div>
+      <div class="fgrp" data-open="false">
+        <button class="fhead" aria-expanded="false">Gestão<span class="cnt hide" id="cntGestaoFii"></span><span class="arw">▾</span></button>
+        <div class="fbody"><div class="opts" id="fiiGestoes"></div></div>
+      </div>
+      <div class="fgrp" data-open="false">
+        <button class="fhead" aria-expanded="false">Segmento declarado à CVM<span class="cnt hide" id="cntSegFii"></span><span class="arw">▾</span></button>
+        <div class="fbody"><div class="opts" id="fiiSegmentos"></div></div>
+      </div>
+      <button class="btn fechaF" data-fecha-filtro>Ver resultados</button>
+    </aside>
+
+    <div class="painel">
+      <div class="res">
+        <span class="qt"><b id="nFii">—</b><span>FIIs no recorte</span></span>
+        <button class="lnk hide" id="clearFii">limpar filtros</button>
+        <div class="dir">
+          <label class="busca">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+            <input id="qFii" type="search" placeholder="Ticker ou nome do fundo" aria-label="Buscar fundos imobiliários">
+          </label>
+          <button class="btn" id="btFiltros4" data-abre-filtro>Filtros</button>
+          <div class="seg" role="group" aria-label="Modo de visualização">
+            <button id="mTabelaFii" aria-pressed="true">Tabela</button>
+            <button id="mCardsFii" aria-pressed="false">Cards</button>
+          </div>
+        </div>
+      </div>
+      <div class="recorte" id="resumoFii" aria-live="polite"></div>
+      <p class="nota">O tipo de carteira é derivado do que o fundo declarou à CVM no informe mensal, não do nome nem do campo de segmento — que deixa a maioria em "Multicategoria" e chega a classificar fundo de papel como logística. P/VP compara o preço de hoje com o valor patrimonial do último informe, que é mensal e atrasa: não é medida de preço justo. "Distribuído 12m" é o total pago por cota sobre o preço de hoje — <b>não é dividend yield</b>: a fonte junta rendimento e amortização de cota, e um fundo devolvendo capital aparece com percentual altíssimo. Os marcados com <b>!</b> distribuíram mais que o próprio preço.</p>
+      <div class="guiaEtf" id="guiaFii" aria-label="O que cada tipo de carteira significa"></div>
+
+      <div id="boxTabelaFii"></div>
+      <div id="boxCardsFii" class="hide"></div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ CARTEIRA ============ -->
 <section id="secCarteira" class="hide">
   <div class="painel">
@@ -688,6 +744,7 @@ footer p{margin:0;max-width:62ch;line-height:1.55}
 
 <!-- ============ METODOLOGIA ============ -->
 <section id="secMetodologia" class="hide"></section>
+</main>
 
 <footer>
   <div class="fl">
@@ -9810,7 +9867,9 @@ const st = {
   buscaPais:'', buscaInd:'', buscaTag:'',
   modoEtf:'tabela', qe:'', etfCategoria:new Set(), etfCobertura:'todos',
   etfClasse:new Set(), etfFoco:new Set(), etfGeo:new Set(), etfCaracteristica:new Set(),
-  etfSort:'nome', etfDir:'asc'
+  etfSort:'nome', etfDir:'asc',
+  modoFii:'tabela', qf:'', fiiTipo:new Set(), fiiNegociacao:'todos',
+  fiiGestao:new Set(), fiiSegmento:new Set(), fiiSort:'pl', fiiDir:'desc'
 };
 
 let FAVORITOS = new Set(), COMPARAR = new Set(), CARTEIRA = [];
@@ -9842,7 +9901,7 @@ const brl = v => {
 
 /* ---------- cotacoes ---------- */
 let PRECOS = {}, PRECO_TS = '', METRICAS = {}, METRICA_TS = '', PARES_INDUSTRIA = {};
-const COLETAS = {precos:'',bdrs:'',metricasBdr:'',metricasEmpresas:'',analise:''};
+const COLETAS = {precos:'',bdrs:'',metricasBdr:'',metricasEmpresas:'',metricasFiis:'',metricasEtfs:'',analise:''};
 let ANALISE = {}, METRICAS_EMP = {}, EVENTOS = {}, SAUDE = null, URL_ATIVA = false;
 let SAUDE_ESTADO = 'carregando';
 let EVENTOS_META = null, EVENTOS_ESTADO = 'carregando';
@@ -10508,7 +10567,13 @@ function squarify(items, X, Y, W, H){
   return out;
 }
 
-function peso(e){ return st.area==='igual' ? 1 : Math.pow(Math.max(e.vm, 1.5e9), .42); }
+/* A raiz comprime a escala e o piso de R$ 1,5 bi impede que empresa pequena
+   vire bloco de 1 pixel. Fica separado de peso() porque o mini mapa da Visao
+   geral usa a mesma formula sem obedecer a st.area -- ele e previa fixa, nao
+   segue o controle de area da secao de Empresas. Duas copias da formula ja
+   e o erro que este projeto cometeu com calcula(). */
+const pesoVM = e => Math.pow(Math.max(e.vm, 1.5e9), .42);
+function peso(e){ return st.area==='igual' ? 1 : pesoVM(e); }
 
 /* Rotulo do bloco com a mesma informacao que o ponteiro recebe no tooltip:
    antes trazia so nome e categoria, menos do que o mouse. A direcao vai
@@ -10629,14 +10694,14 @@ function geralHTML(){
   <div class="retrato">
     <div><b>${E.length}</b><span>empresas brasileiras</span></div>
     <div><b>${BDR.length || '—'}</b><span>BDRs de empresas</span></div>
+    <div><b>${ETF.length || '—'}</b><span>ETFs listados</span></div>
+    <div><b>${FII.length || '—'}</b><span>fundos imobiliários</span></div>
     <div><b>${nCategorias()}</b><span>categorias temáticas</span></div>
     <div><b>${brl(vmTotal)}</b><span>valor de mercado somado</span></div>
-    <div><b>${comPreco}</b><span>empresas com cotação</span></div>
-    <div><b>${bdrMet || '—'}</b><span>BDRs com histórico</span></div>
   </div>
   <p class="nota">Cotações de ${PRECO_TS || '—'} · métricas de ${METRICA_TS || '—'} · base de companhias de ${SNAPSHOT.label}.
   ${BDR.length ? bdrPreco + ' dos ' + BDR.length + ' BDRs têm preço; ' : ''}${semNeg} das ${E.length} empresas não têm negociação relevante.</p>
-  ${saude ? `<h3 class="sub">Saúde das fontes</h3><div class="saude">${[['precos','preços'],['metricasBdr','histórico de BDRs'],['metricasEmpresas','histórico de empresas'],['analise','ativo lastro'],['etfsDetalhes','ETFs detalhados']].map(([k,l])=>`<div><b>${saude[k].cobertura===null?'—':saude[k].cobertura+'%'}</b><span>${l}</span></div>`).join('')}</div><p class="fnt">Cobertura disponível no retrato dos arquivos, incluindo registros preservados após falha. Consulte a cobertura renovada e as datas no diagnóstico. O detalhamento de ETFs é curadoria manual em andamento, e não tem piso: o percentual mede o quanto do catálogo já foi escrito, não uma falha de coleta.</p><p style="margin:8px 0 0"><button class="lnk" id="saudeGeral">Ver diagnóstico completo →</button></p>` : ''}
+  ${saude ? `<h3 class="sub">Saúde das fontes</h3><div class="saude">${[['precos','preços'],['metricasBdr','histórico de BDRs'],['metricasEmpresas','histórico de empresas'],['analise','ativo lastro'],['etfsDetalhes','ETFs detalhados'],['fiis','catálogo de FIIs'],['metricasFiis','histórico de FIIs'],['metricasEtfs','histórico de ETFs']].map(([k,l])=>`<div><b>${saude[k].cobertura===null?'—':saude[k].cobertura+'%'}</b><span>${l}</span></div>`).join('')}</div><p class="fnt">Cobertura disponível no retrato dos arquivos, incluindo registros preservados após falha. Consulte a cobertura renovada e as datas no diagnóstico. O detalhamento de ETFs é curadoria manual em andamento, e não tem piso: o percentual mede o quanto do catálogo já foi escrito, não uma falha de coleta.</p><p style="margin:8px 0 0"><button class="lnk" id="saudeGeral">Ver diagnóstico completo →</button></p>` : ''}
 
   <h2 class="sec">Empresas brasileiras</h2>
   <p class="nota">${E.length} companhias com ações registradas, organizadas em ${nCategorias()} categorias temáticas escritas à mão — a leitura é sobre onde a empresa ganha dinheiro, não sobre a classificação oficial da B3.</p>
@@ -10651,6 +10716,18 @@ function geralHTML(){
   <h3 class="sub">Perfil de liquidez</h3>${barras(liqPerfil, BDR.length, 'var(--line2)')}
   <p style="margin:10px 0 0"><button class="lnk" data-sec="bdrs">Abrir a tabela comparativa →</button></p>`
   : '<p class="nota">Carregando a base de BDRs…</p>'}
+
+  ${ETF.length || FII.length ? `<h2 class="sec">Fundos listados</h2>
+  <div class="duo">
+    ${ETF.length ? `<div><h3 class="sub" style="margin-top:0">ETFs por categoria</h3>${barras(
+      Object.entries(ETF.reduce((c,x)=>{const k=categoriaETFPT(x.categoria)||x.categoria;c[k]=(c[k]||0)+1;return c;},{})).sort((a,b)=>b[1]-a[1]),
+      ETF.length, k=>corCategoriaEtf(Object.keys(CATEGORIA_ETF_PT).find(c=>categoriaETFPT(c)===k)||k))}` : ''}</div>
+    ${FII.length ? `<div><h3 class="sub" style="margin-top:0">FIIs por tipo de carteira</h3>${barras(
+      Object.entries(FII.reduce((c,x)=>{const k=tipoFii(x);c[k]=(c[k]||0)+1;return c;},{})).sort((a,b)=>b[1]-a[1]),
+      FII.length, k=>corTipoFii(k))}` : ''}</div>
+  </div>
+  <p class="nota">${ETF.length ? ETF.length + ' ETFs nas categorias oficiais da B3' : 'Catálogo de ETFs ainda carregando'}${ETF.length && FII.length ? ' · ' : ''}${FII.length ? FII.length + ' fundos imobiliários, classificados pela carteira declarada à CVM' : ''}. O tipo de carteira sai do informe mensal, não do nome do fundo.</p>
+  <p style="margin:10px 0 0">${ETF.length ? '<button class="lnk" data-sec="etfs">Explorar os ETFs →</button>' : ''}${ETF.length && FII.length ? ' &nbsp; ' : ''}${FII.length ? '<button class="lnk" data-sec="fiis">Explorar os fundos imobiliários →</button>' : ''}</p>` : ''}
 
   <h2 class="sec">Movimentos do mercado</h2>
   <p class="nota">Todos os recortes abaixo aplicam um piso de giro médio de R$ 100 mil em 20 pregões. Sem esse piso, o topo do ranking vira papel que negociou uma única vez no período. Não é recomendação: é ponto de partida para investigar.</p>
@@ -10692,7 +10769,11 @@ function radarHTML(){
 function metodologiaHTML(){
   return `<div class="meto">
   <h2>Universo coberto</h2>
-  <p>Duas bases distintas. A primeira reúne as <b>${E.length} companhias brasileiras</b> com ações registradas na B3, incluindo as que hoje não têm negociação relevante: holdings de controle, empresas em processo de saída e candidatas a oferta que já se registraram. A segunda reúne os <b>${BDR.length ? BDR.length + ' BDRs de empresas' : 'BDRs de empresas'}</b> — recibos de depósito de companhias estrangeiras negociados na B3, patrocinados e não patrocinados.${BDR.length ? '' : ' O catálogo de BDRs ainda não carregou nesta sessão, por isso o total não aparece.'} ETFs internacionais listados como BDR, ETPs de cripto e emissores exclusivos de dívida ficam de fora das duas.</p>
+  <p>Quatro bases distintas. A primeira reúne as <b>${E.length} companhias brasileiras</b> com ações registradas na B3, incluindo as que hoje não têm negociação relevante: holdings de controle, empresas em processo de saída e candidatas a oferta que já se registraram. A segunda reúne os <b>${BDR.length ? BDR.length + ' BDRs de empresas' : 'BDRs de empresas'}</b> — recibos de depósito de companhias estrangeiras negociados na B3, patrocinados e não patrocinados.${BDR.length ? '' : ' O catálogo de BDRs ainda não carregou nesta sessão, por isso o total não aparece.'} ETFs internacionais listados como BDR, ETPs de cripto e emissores exclusivos de dívida ficam de fora dessas duas.</p>
+  <p>A terceira reúne os <b>${ETF.length ? ETF.length + ' ETFs' : 'ETFs'}</b> listados pela B3 nas seis categorias oficiais de fundo de índice, e a quarta os <b>${FII.length ? FII.length + ' fundos imobiliários'  : 'fundos imobiliários'}</b>. As duas vêm da mesma API de fundos listados da B3, e nenhuma delas tem tags de cruzamento nem descrição autoral: o que existe de classificação é oficial ou derivado de número oficial.</p>
+  <p>Nos fundos imobiliários, o tipo de carteira — tijolo, papel ou fundo de fundos — <b>não</b> vem do nome nem do campo de segmento da CVM, que deixa a maioria em "Multicategoria" e chega a classificar fundo de papel como logística. Vem da composição que o próprio fundo declara no informe mensal, e as três frações vão publicadas ao lado do rótulo para a leitura ser conferível.</p>
+  <p>Duas medidas dessa aba são derivadas no navegador, não publicadas por ninguém: <b>P/VP</b> divide o preço de hoje pelo valor patrimonial do último informe, que é mensal e atrasa; e <b>Distribuído 12m</b> divide o total pago por cota pelo preço de hoje. Esta segunda <b>não é dividend yield</b> — a fonte junta rendimento e amortização de cota, que é devolução de capital, e um fundo em liquidação aparece com percentual altíssimo. Os que distribuíram mais que o próprio preço vêm marcados.</p>
+  <p>O histórico dos fundos imobiliários usa a <b>série de preço</b>, não a ajustada das outras abas: em FII o ajuste retroativo do Yahoo se acumula com distribuições mensais, amortizações e emissões e distorce a série. Nos ETFs, que não distribuem com frequência, as duas séries coincidem e vale a ajustada — por isso o retorno de ETF é comparável ao de BDR e empresas, e o dos FIIs não.</p>
 
   <h2>Classificação das empresas brasileiras</h2>
   <p>As ${nCategorias()} categorias temáticas e as tags de cruzamento são <b>leitura analítica do autor</b>, escritas à mão para responder onde cada empresa realmente ganha dinheiro. Uma companhia de agro pode carregar tag de tecnologia; uma de energia, tag de saneamento. Isso <b>não substitui</b> a classificação setorial oficial da B3, que aparece na ficha de cada companhia.</p>
@@ -10991,7 +11072,7 @@ function comparacaoHTML(itens){
     ${grupo('Paridade indicativa')}${linha('Ativo-lastro · moeda',b=>ana(b.ticker)?.simbolo?txt(ana(b.ticker).simbolo)+' · '+txt(ana(b.ticker).moeda):'—')}
     ${linha('Relação · BDRs : unidades do lastro',b=>ana(b.ticker)?.bdrs&&ana(b.ticker)?.acoes?num(ana(b.ticker).bdrs)+' : '+num(ana(b.ticker).acoes):'—')}
     ${linha('Paridade em reais',b=>ana(b.ticker)?.paridade>0?fmtPreco(ana(b.ticker).paridade):'—')}${linha('Data do ativo-lastro',b=>data(ana(b.ticker)?.dtAtivo))}${linha('Data da PTAX',b=>data(ana(b.ticker)?.dtCambio))}${linha('Documento oficial do programa',b=>link(ana(b.ticker)?.fontePrograma,'Banco B3'))}
-    ${grupo('Qualidade e origem')}${linha('Histórico até',b=>data(met(b.ticker)?.dt))}${linha('Observações do histórico',b=>num(met(b.ticker)?.n))}${linha('Estado do histórico',b=>!met(b.ticker)?'Sem histórico':met(b.ticker).stale?'Preservado após falha':'Última coleta disponível')}${linha('Estado da análise',b=>!ana(b.ticker)?'Sem análise':ana(b.ticker).stale?'Preservada após falha':'Última coleta disponível')}
+    ${grupo('Qualidade e origem')}${linha('Histórico até',b=>data(met(b.ticker)?.dt))}${linha('Observações do histórico',b=>num(met(b.ticker)?.n))}${linha('Estado do histórico',b=>!met(b.ticker)?'Sem histórico':met(b.ticker).stale?'Preservado após falha':'Última coleta disponível')}${linha('Estado da análise',b=>!baseOk('analise')?(ESTADO_BASE.analise==='falha'?'Base não carregada nesta sessão':'Carregando…'):!ana(b.ticker)?'Sem análise':ana(b.ticker).stale?'Preservada após falha':'Última coleta disponível')}
     ${linha('Preço e histórico · não oficial',b=>link('https://finance.yahoo.com/quote/'+encodeURIComponent(b.ticker+'.SA')+'/history/','Yahoo Finance'))}
     </tbody></table></div><p class="fnt">Preço nominal menor não significa ativo mais barato. A paridade não é preço justo nem arbitragem executável: horários, liquidez, custos e tributos diferem. PTAX: ${link('https://dadosabertos.bcb.gov.br/pt_BR/dataset/dolar-americano-usd-todos-os-boletins-diarios','Banco Central')}. Consulte as datas acima; última coleta disponível não significa tempo real.</p><p class="fnt">Os retornos usam preços ajustados em reais. Os minigráficos individuais não são sobrepostos porque a base compacta não informa datas por ponto. Sem nota composta ou recomendação de investimento.</p>`;
 }
@@ -11007,7 +11088,7 @@ function abreComparacao(){
 /* Precisa espelhar FONTES de gera-saude.js: recebeSaude() rejeita o arquivo
    inteiro se as chaves divergirem, de proposito -- um diagnostico parcial e
    pior do que nenhum. Ao acrescentar fonte la, acrescente aqui. */
-const SAUDE_REGRAS={precos:['Preços',80,72],bdrs:['Catálogo BDR',100,null],etfs:['Catálogo ETF',100,null],etfsDetalhes:['Detalhamento ETF',null,null],metricasBdr:['Histórico BDR',90,96],metricasEmpresas:['Histórico empresas',75,96],analise:['Ativo lastro',70,96],eventos:['Documentos CVM',null,120]};
+const SAUDE_REGRAS={precos:['Preços',80,72],bdrs:['Catálogo BDR',100,null],etfs:['Catálogo ETF',100,null],etfsDetalhes:['Detalhamento ETF',null,null],fiis:['Catálogo FII',100,null],metricasBdr:['Histórico BDR',90,96],metricasEmpresas:['Histórico empresas',75,96],metricasFiis:['Histórico FII',85,96],metricasEtfs:['Histórico ETF',85,96],analise:['Ativo lastro',70,96],eventos:['Documentos CVM',null,120]};
 /* Sem piso de cobertura, o motivo muda conforme a fonte: uma nao tem universo
    fechado, a outra tem curadoria progressiva. Dizer "sem percentual" nas duas
    esconderia justamente o numero que interessa no detalhamento. */
@@ -11019,7 +11100,7 @@ function avisosFonte(x,agora,chave=''){
   else if(t>agora+300000)avisos.push('Data da coleta no futuro; confira o relógio e a base.');
   else if(x.limiteHoras!==null&&agora-t>x.limiteHoras*36e5)avisos.push('Última coleta há mais de '+x.limiteHoras+' horas.');
   // Catalogos medem integridade da lista; bases derivadas medem renovacao.
-  const disponivel=['bdrs','etfs'].includes(chave),registros=disponivel?x.registros:x.renovados;
+  const disponivel=['bdrs','etfs','fiis'].includes(chave),registros=disponivel?x.registros:x.renovados;
   if(x.minCobertura!==null&&(x.total===null||x.total<=0||registros/x.total*100<x.minCobertura))avisos.push('Cobertura '+(disponivel?'disponível':'renovada')+' abaixo do limite de '+x.minCobertura+'%.');
   return avisos;
 }
@@ -11048,9 +11129,9 @@ function saudeHTML(agora=Date.now()){
   if(SAUDE_ESTADO==='falha')return '<p class="fnt" role="status">Não foi possível carregar um diagnóstico válido. A saúde dos dados é desconhecida; isso não significa que as bases estejam atualizadas. Recarregue a página para tentar novamente.</p>';
   const avisos=avisosSaude(SAUDE,agora),fmt=d=>Number.isFinite(Date.parse(d))?new Date(d).toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo',day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'}):'data indisponível',dia=d=>esc(d.split('-').reverse().join('/'));
   const itens=Object.entries(SAUDE.fontes).map(([k,x])=>{
-    const a=avisosFonte(x,agora,k),hist=['metricasBdr','metricasEmpresas','analise'].includes(k),catalogo=['bdrs','etfs'].includes(k),etf=k==='etfs',detalhe=k==='etfsDetalhes';
+    const a=avisosFonte(x,agora,k),hist=['metricasBdr','metricasEmpresas','metricasFiis','metricasEtfs','analise'].includes(k),catalogo=['bdrs','etfs','fiis'].includes(k),etf=k==='etfs',fii=k==='fiis',detalhe=k==='etfsDetalhes';
     const datado=detalhe?'Datas das revisões':k==='eventos'?'Entregas dos documentos':'Datas das observações';
-    return `<section class="bloco"><h3>${esc(x.nome)} · ${a.length?'atenção':'dentro dos limites'}</h3><p class="fnt">${detalhe?x.registros+' fundos com ficha detalhada':x.registros+' registros disponíveis'}${x.total!==null?' de '+x.total+(detalhe?' no catálogo ':' no universo ')+'('+x.cobertura+'%)':''}.${hist?' '+x.renovados+' renovados na última coleta ('+(x.coberturaRenovada===null?'percentual indisponível':x.coberturaRenovada+'%')+'); '+x.preservados+' preservados após falha.':''}${etf?' '+x.renovados+' tickers confirmados nesta coleta ('+(x.coberturaRenovada===null?'percentual indisponível':x.coberturaRenovada+'%')+'); '+x.preservados+' ainda sem confirmação atual ou preservados após falha.':''}${detalhe?' Os demais mantêm a ficha do catálogo, sem índice de referência, carteira nem gestor — ausência de curadoria, não de fundo.':''}</p><p class="fnt">Última coleta: ${fmt(x.atualizadoEm)} (Brasília).${x.observacaoInicio?' '+datado+': '+dia(x.observacaoInicio)+' a '+dia(x.observacaoFim)+'.':''}</p><p class="fnt">${x.minCobertura===null?(SEM_PISO[k]||'Sem piso de cobertura definido para esta fonte.'):'Piso de cobertura '+(catalogo?'disponível':'renovada')+': '+x.minCobertura+'%.'} ${x.limiteHoras===null?(detalhe?'Curadoria manual, sem prazo automático de atraso.':'Catálogo atualizado manualmente, sem prazo automático de atraso.'):'Aviso após '+x.limiteHoras+' horas sem coleta.'}</p>${a.length?'<p class="fnt">'+a.map(esc).join('<br>')+'</p>':''}</section>`;
+    return `<section class="bloco"><h3>${esc(x.nome)} · ${a.length?'atenção':'dentro dos limites'}</h3><p class="fnt">${detalhe?x.registros+' fundos com ficha detalhada':x.registros+' registros disponíveis'}${x.total!==null?' de '+x.total+(detalhe?' no catálogo ':' no universo ')+'('+x.cobertura+'%)':''}.${hist?' '+x.renovados+' renovados na última coleta ('+(x.coberturaRenovada===null?'percentual indisponível':x.coberturaRenovada+'%')+'); '+x.preservados+' preservados após falha.':''}${etf?' '+x.renovados+' tickers confirmados nesta coleta ('+(x.coberturaRenovada===null?'percentual indisponível':x.coberturaRenovada+'%')+'); '+x.preservados+' ainda sem confirmação atual ou preservados após falha.':''}${fii?' '+x.renovados+' com cotação confirmada ('+(x.coberturaRenovada===null?'percentual indisponível':x.coberturaRenovada+'%')+'); '+x.preservados+' sem cotação — a lista da B3 inclui fundos restritos a investidor qualificado, que existem mas nunca negociaram em bolsa.':''}${detalhe?' Os demais mantêm a ficha do catálogo, sem índice de referência, carteira nem gestor — ausência de curadoria, não de fundo.':''}</p><p class="fnt">Última coleta: ${fmt(x.atualizadoEm)} (Brasília).${x.observacaoInicio?' '+datado+': '+dia(x.observacaoInicio)+' a '+dia(x.observacaoFim)+'.':''}</p><p class="fnt">${x.minCobertura===null?(SEM_PISO[k]||'Sem piso de cobertura definido para esta fonte.'):'Piso de cobertura '+(catalogo?'disponível':'renovada')+': '+x.minCobertura+'%.'} ${x.limiteHoras===null?(detalhe?'Curadoria manual, sem prazo automático de atraso.':'Catálogo atualizado manualmente, sem prazo automático de atraso.'):'Aviso após '+x.limiteHoras+' horas sem coleta.'}</p>${a.length?'<p class="fnt">'+a.map(esc).join('<br>')+'</p>':''}</section>`;
   }).join('');
   return `<p class="fnt">Diagnóstico gerado em ${fmt(SAUDE.geradoEm)} (Brasília). ${avisos.length?avisos.length+' avisos; confira as bases abaixo.':'Coberturas e datas dentro dos limites definidos.'}</p>${avisos.filter(a=>a.startsWith('Diagnóstico')||a.startsWith('Data do diagnóstico')).map(a=>'<p class="fnt">'+esc(a)+'</p>').join('')}<p class="fnt">Retrato dos arquivos na geração, não teste dos downloads desta sessão. “Renovados” exclui registros preservados após falha e, no catálogo ETF, tickers ainda sem confirmação; não garante a atualidade de cada observação. Os avisos de atraso usam o relógio deste dispositivo, em horas corridas, sem calendário de pregões ou feriados.</p>${itens}<p class="fnt">Documentos CVM: consulta não equivale à atualização da fonte. Estes limites são operacionais, não certificação da qualidade dos dados nem recomendação de investimento.</p>`;
 }
@@ -11113,7 +11194,12 @@ mapa.addEventListener('focusout', ev => {
 });
 
 /* ---------- ETF ---------- */
-let ETF = [], ETF_DETALHE = new Map();
+let ETF = [], ETF_DETALHE = new Map(), METRICAS_ETF = {};
+/* Serie ajustada, como BDR e empresas -- e ao contrario do FII, que usa preco.
+   ETF brasileiro nao distribui, entao nao ha fator retroativo se acumulando e
+   as duas series coincidem. Por isso estes r* SAO comparaveis com os das
+   outras duas bases. */
+const metEtf = t => METRICAS_ETF[t] || null;
 
 /* Categoria vem pronta da B3 (typeFund), sem falha por item -- diferente de
    pais/setor/industria do BDR, que dependem de uma consulta por empresa. */
@@ -11204,6 +11290,8 @@ function valorColETF(x, k){
     case 'ticker': return x.ticker;
     case 'nome': return x.nome;
     case 'categoria': return categoriaETFPT(x.categoria) || '';
+    case 'r252': { const m = metEtf(x.ticker); return typeof m?.r252 === 'number' ? m.r252 : null; }
+    case 'giro': { const m = metEtf(x.ticker); return typeof m?.g20 === 'number' ? m.g20 : null; }
     case 'preco': return r ? r.p : null;
     case 'estado': return negociouHoje(r) ? 1 : 0;
     case 'variacao': return r && typeof r.v === 'number' ? r.v : null;
@@ -11258,7 +11346,9 @@ const COLS_ETF = [
   {k:'categoria', rot:'Categoria', sec:true},
   {k:'preco',     rot:'Último preço', n:true},
   {k:'estado',    rot:'Negociação', sec:true},
-  {k:'variacao',  rot:'Variação no dia', n:true}
+  {k:'variacao',  rot:'Variação no dia', n:true},
+  {k:'r252',      rot:'Retorno 12m', n:true},
+  {k:'giro',      rot:'Giro médio 20d', n:true, sec:true}
 ];
 
 function tabelaETF(list){
@@ -11280,6 +11370,8 @@ function tabelaETF(list){
       <td class="n">${preco}</td>
       <td class="col-s"><span class="est${viva?' viva':''}">${viva?'hoje':(r?'último':'—')}</span></td>
       <td class="n">${r && viva && typeof r.v === 'number' ? fmtVar(r.v) : '<span class="na">—</span>'}</td>
+      <td class="n">${typeof metEtf(x.ticker)?.r252 === 'number' ? fmtRet(metEtf(x.ticker).r252) : '<span class="na">—</span>'}</td>
+      <td class="n col-s">${typeof metEtf(x.ticker)?.g20 === 'number' ? fmtGiro(metEtf(x.ticker).g20) : '<span class="na">—</span>'}</td>
     </tr>`;
   }).join('');
   return `<div class="tabw"><table class="tab">
@@ -11303,6 +11395,7 @@ function cardsETF(list){
 
 function abreETF(ticker){
   const x = ETF.find(f => f.ticker === ticker); if(!x) return;
+  garante('metricasEtfs');
   const r = cot(ticker), viva = negociouHoje(r), cor = corCategoriaEtf(x.categoria), detalhe=ETF_DETALHE.get(ticker);
   const l = (rot, valor, txt) => `<dt>${rot}</dt><dd${txt?' class="tx"':''}>${valor}</dd>`;
 
@@ -11314,6 +11407,19 @@ function abreETF(ticker){
       ${l('Giro do dia', fmtGiro(r.giro))}
     </dl>${viva ? '' : '<p class="fnt">Sem negócio hoje: o preço acima é o último conhecido, não uma cotação corrente.</p>'}`
     : '<p class="fnt">Sem cotação disponível para este ETF.</p>';
+
+  const mE = metEtf(ticker);
+  const diaEtf = d => d ? esc(String(d).split('-').reverse().join('/')) : '—';
+  const historicoEtf = mE ? `<div class="bloco"><h3>Histórico e liquidez</h3><dl class="kv">
+      ${l('Retorno · 12 meses', typeof mE.r252 === 'number' ? fmtRet(mE.r252) : '<span class="na">—</span>')}
+      ${l('Retorno · 3 meses', typeof mE.r63 === 'number' ? fmtRet(mE.r63) : '<span class="na">—</span>')}
+      ${l('Giro médio · 20 pregões', typeof mE.g20 === 'number' ? fmtGiro(mE.g20) : '<span class="na">—</span>')}
+      ${l('Pregões negociados · 20 sessões', typeof mE.d20 === 'number' ? mE.d20 + ' de 20' : '<span class="na">—</span>', true)}
+      ${l('Distância da máxima · 12 meses', typeof mE.dd252 === 'number' ? fmtRet(mE.dd252) : '<span class="na">—</span>')}
+      ${l('Volatilidade anualizada · 21 pregões', typeof mE.v21 === 'number' ? mE.v21.toFixed(1).replace('.', ',') + '%' : '<span class="na">—</span>')}
+      ${l('Histórico até', diaEtf(mE.dt), true)}
+    </dl>${spark(mE)}<p class="fnt">Série diária ajustada do Yahoo Finance, fonte não oficial. Mesma medida das abas de BDR e empresas, e comparável com elas — o ETF brasileiro não distribui com frequência, então série ajustada e série de preço coincidem.${mE.stale ? ' <b>Histórico preservado após falha na atualização.</b>' : ''}</p></div>`
+    : (x.tickerVerificado === false ? '<div class="bloco"><h3>Histórico e liquidez</h3><p class="fnt">Fundo sem cotação confirmada, portanto sem histórico de retorno ou liquidez.</p></div>' : '');
 
   lastFocus = document.activeElement;
   st.ativo = ticker; if(URL_ATIVA) sincronizaURL();
@@ -11331,21 +11437,25 @@ function abreETF(ticker){
     </dl><p class="fnt"><b>Foco da categoria:</b> ${esc(focoCategoriaEtf(x.categoria))}</p>${detalhe?'':'<p class="fnt">Isso descreve a classe, não a carteira específica deste fundo. Ainda não há curadoria individual para esta ficha; consulte o índice, o regulamento e a lâmina do gestor.</p>'}</div>
     <div class="bloco"><h3>Cotação</h3>${cotacao}
       <p class="fnt">Yahoo Finance, atraso de ~15 min.${PRECO_TS ? ' Consultada em ' + PRECO_TS + '.' : ''}</p></div>
+    ${historicoEtf}
     ${detalheETFHTML(detalhe,l)}
     <div class="bloco"><h3>Classificação e fontes</h3>
       <p class="fnt">Lista e categoria: <a href="https://sistemaswebb3-listados.b3.com.br/fundsListedPage/" target="_blank" rel="noopener noreferrer">B3, consulta oficial de fundos listados</a>.<br>
       Ticker: sigla da B3 com o sufixo +11${x.tickerVerificado===false?', ainda sem confirmação de cotação positiva no Yahoo Finance':', verificado no Yahoo Finance'}. Cotação e giro do dia: Yahoo Finance, fonte não oficial.</p>
-      <p class="fnt">${detalhe?'Taxa de administração e patrimônio líquido não fazem parte desta camada editorial.':'Índice de referência, taxa de administração e patrimônio líquido não constam desta base.'} Consulte sempre o regulamento e a lâmina oficiais do fundo. Nada aqui é recomendação de compra ou venda.
+      <p class="fnt">Retorno, giro e volatilidade: Yahoo Finance, série diária ajustada. ${detalhe?'Taxa de administração e patrimônio líquido não fazem parte desta camada editorial.':'Índice de referência, taxa de administração e patrimônio líquido não constam desta base.'} Consulte sempre o regulamento e a lâmina oficiais do fundo. Nada aqui é recomendação de compra ou venda.
       <button class="lnk" data-sec="metodologia" style="font-size:11.5px">Metodologia completa</button></p></div>`;
   drw.classList.add('on'); dim.classList.add('on'); travaFundo();
   drw.querySelector('.x').onclick = fecha;
   drw.focus();
 }
 
+function carregaMetricasEtfs(){
+  return fetch('metricas-etfs.json',{cache:'no-cache'}).then(r=>r.ok?r.json():Promise.reject()).then(d=>{METRICAS_ETF=d.metricas||{};COLETAS.metricasEtfs=isoCSV(d.atualizadoEm);concluiBase('metricasEtfs',true);tentaAtivo();}).catch(()=>{concluiBase('metricasEtfs',false);});
+}
 function carregaETFs(){
   Promise.all([
-    fetch('etfs.json', {cache:'no-store'}).then(r => r.ok ? r.json() : Promise.reject(new Error('HTTP ' + r.status))),
-    fetch('etfs-detalhes.json', {cache:'no-store'}).then(r => r.ok ? r.json() : null).catch(()=>null)
+    fetch('etfs.json', {cache:'no-cache'}).then(r => r.ok ? r.json() : Promise.reject(new Error('HTTP ' + r.status))),
+    fetch('etfs-detalhes.json', {cache:'no-cache'}).then(r => r.ok ? r.json() : null).catch(()=>null)
   ]).then(([d,det]) => {
       ETF_DETALHE = new Map((det?.etfs || []).map(x=>[x.ticker,x]));
       ETF = (d.etfs || []).map(x => Object.assign({}, x, {
@@ -11354,6 +11464,328 @@ function carregaETFs(){
       }));
       normalizaSelecoesETF();
       chipsETF(); agendaRender(); tentaAtivo();
+    })
+    .catch(() => { agendaRender(); });
+}
+
+/* ---------- FII ---------- */
+let FII = [], METRICAS_FII = {};
+
+/* Cores por tipo de carteira. O tipo NAO vem do campo Segmento_Atuacao da
+   CVM -- ele deixa 61% em "Multicategoria"/"Outros" e chega a classificar o
+   MXRF, fundo de papel, como logistica. Vem da carteira declarada no informe
+   mensal, que e conta de balanco e nao rotulo. Ver FIIS.md. */
+const CORES_TIPO_FII = {
+  'Tijolo':'#3E7C59', 'Papel':'#B08324', 'Fundo de fundos':'#5A6C8C', 'Híbrido':'#8A5A8C'
+};
+const SEM_TIPO = 'Sem carteira classificada';
+const corTipoFii = t => CORES_TIPO_FII[t] || '#4A5568';
+const tipoFii = x => x.tipo || SEM_TIPO;
+
+const FOCO_TIPO_FII = {
+  'Tijolo':'Dois terços ou mais da carteira em imóveis: terrenos, prédios prontos ou em construção, para renda ou para venda. O resultado depende de aluguel, vacância e valor do imóvel.',
+  'Papel':'Dois terços ou mais em títulos de crédito imobiliário — CRI, LCI, letras hipotecárias. O resultado depende de juros, índice de correção e inadimplência, não de imóvel físico.',
+  'Fundo de fundos':'Dois terços ou mais em cotas de outros fundos. Adiciona uma camada de taxa e o desempenho reflete a carteira escolhida pelo gestor.',
+  'Híbrido':'Nenhuma classe chega a dois terços da carteira. A leitura exige olhar a composição, não o rótulo.',
+  [SEM_TIPO]:'Sem informe correspondente na CVM, ou com carteira que não se expressa como composição — há fundo que declara componente negativa, e uma fração negativa não é participação.'
+};
+
+/* P/VP e DERIVADO, nao publicado por ninguem: preco de hoje sobre o valor
+   patrimonial do ultimo informe, que e mensal e atrasa. Por isso anda sempre
+   com a data do informe do lado e nunca aparece sozinho. */
+function pvp(x){
+  const r = cot(x.ticker);
+  return r && typeof x.valorPatrimonialCota === 'number' && x.valorPatrimonialCota > 0
+    ? r.p / x.valorPatrimonialCota : null;
+}
+const fmtPvp = v => v === null ? '<span class="na">—</span>' : v.toFixed(2).replace('.', ',');
+
+const metFii = t => METRICAS_FII[t] || null;
+
+/* Quanto o fundo DISTRIBUIU em 12 meses, como percentual do preco de hoje.
+   Nao se chama rendimento de proposito: o evento de provento do Yahoo junta
+   rendimento e amortizacao de cota (devolucao de capital) sem separar, e a
+   diferenca e o que decide se o numero significa renda ou o fundo devolvendo
+   o proprio patrimonio.
+   Derivado no cliente pelo mesmo motivo do P/VP: a base grava a soma em reais
+   e a pagina divide pelo preco do dia, senao numerador e denominador ficariam
+   congelados em datas diferentes. */
+function distFii(x){
+  const m = metFii(x.ticker), r = cot(x.ticker);
+  return m && r && m.prov12 > 0 ? m.prov12 / r.p * 100 : null;
+}
+/* Distribuir mais que o proprio preco nao e um limiar arbitrario, e uma
+   impossibilidade: nenhuma renda de 12 meses vale mais que o ativo inteiro.
+   Sao 10 fundos, todos devolvendo capital. */
+const distImplausivel = v => v !== null && v >= 100;
+const fmtDist = v => v === null ? '<span class="na">—</span>'
+  : (distImplausivel(v) ? '<span class="na" title="Distribuiu mais que o próprio preço: é devolução de capital, não renda">' + v.toFixed(0).replace('.', ',') + '%&nbsp;!</span>'
+    : v.toFixed(2).replace('.', ',') + '%');
+
+/* Reconstroi as datas dos proventos a partir do offset, em UTC dos dois lados,
+   exatamente como serieSpark() faz com a serie do grafico. */
+function serieProventos(m){
+  if(!m || !m.provInicio || !Array.isArray(m.provV) || !m.provV.length) return [];
+  return m.provV.map((v, i) => ({ d: diaMais(m.provInicio, m.provO[i]), v }));
+}
+const fmtPct1 = v => typeof v === 'number' ? v.toFixed(1).replace('.', ',') + '%' : '—';
+
+const composicaoFII = x => x.tipo
+  ? '<div class="dist">' + [['Imóveis', x.tijolo, '#3E7C59'], ['Papel (CRI e afins)', x.papel, '#B08324'], ['Cotas de outros fundos', x.cotas, '#5A6C8C']]
+      .map(([k, v, c]) => '<div class="l"><span class="k">' + k + '</span><span class="b"><i style="width:' + Math.max(0, Math.min(100, v)) + '%;background:' + c + '"></i></span><span class="v">' + fmtPct1(v) + '</span></div>').join('')
+    + '</div>'
+  : '';
+
+function guiaTiposFII(){
+  const n = {}; FII.forEach(x => { const t = tipoFii(x); n[t] = (n[t] || 0) + 1; });
+  return [...Object.keys(CORES_TIPO_FII), SEM_TIPO].filter(t => n[t])
+    .map(t => '<article style="--cat:' + corTipoFii(t) + '"><h3>' + esc(t) + ' <span class="num">· ' + n[t] + '</span></h3><p>' + esc(FOCO_TIPO_FII[t] || '') + '</p></article>').join('');
+}
+
+function filtraFII(){
+  let r = FII;
+  if(st.qf){ const q = norm(st.qf); r = r.filter(x => x._s.includes(q)); }
+  if(st.fiiTipo.size) r = r.filter(x => st.fiiTipo.has(tipoFii(x)));
+  if(st.fiiNegociacao === 'negociados') r = r.filter(x => cot(x.ticker));
+  else if(st.fiiNegociacao === 'sem') r = r.filter(x => !cot(x.ticker));
+  if(st.fiiGestao.size) r = r.filter(x => st.fiiGestao.has(x.gestao || ''));
+  if(st.fiiSegmento.size) r = r.filter(x => st.fiiSegmento.has(x.segmentoCVM || ''));
+  return ordenaFII(r);
+}
+
+function valorColFII(x, k){
+  const r = cot(x.ticker);
+  switch(k){
+    case 'ticker': return x.ticker;
+    case 'nome': return x.nome || '';
+    case 'tipo': return tipoFii(x);
+    case 'preco': return r ? r.p : null;
+    case 'variacao': return r && negociouHoje(r) && typeof r.v === 'number' ? r.v : null;
+    case 'pvp': return pvp(x);
+    case 'dist': return distFii(x);
+    case 'vp252': { const m = metFii(x.ticker); return typeof m?.vp252 === 'number' ? m.vp252 : null; }
+    case 'giro': { const m = metFii(x.ticker); return typeof m?.g20 === 'number' ? m.g20 : null; }
+    case 'vp': return typeof x.valorPatrimonialCota === 'number' ? x.valorPatrimonialCota : null;
+    case 'pl': return typeof x.patrimonioLiquido === 'number' ? x.patrimonioLiquido : null;
+    case 'cotistas': return typeof x.cotistas === 'number' ? x.cotistas : null;
+    default: return null;
+  }
+}
+
+/* Ausencia vai para o fim nas duas direcoes, como em valorCol() dos BDRs. */
+function ordenaFII(list){
+  const k = st.fiiSort, dir = st.fiiDir === 'asc' ? 1 : -1;
+  return [...list].sort((a, b) => {
+    const x = valorColFII(a, k), y = valorColFII(b, k);
+    const vx = x === null || x === undefined || x === '', vy = y === null || y === undefined || y === '';
+    if(vx && vy) return a.ticker.localeCompare(b.ticker);
+    if(vx) return 1;
+    if(vy) return -1;
+    if(typeof x === 'number' && typeof y === 'number') return (x - y) * dir || a.ticker.localeCompare(b.ticker);
+    return String(x).localeCompare(String(y), 'pt-BR') * dir || a.ticker.localeCompare(b.ticker);
+  });
+}
+
+function chipsFII(){
+  const cT = {}; FII.forEach(x => { const t = tipoFii(x); cT[t] = (cT[t] || 0) + 1; });
+  opcoes('fiiTipos', [...Object.keys(CORES_TIPO_FII), SEM_TIPO].filter(t => cT[t])
+    .map(t => ({v:t, rot:t, n:cT[t], cor:corTipoFii(t)})), st.fiiTipo, 'fiitipo');
+
+  const comPreco = FII.filter(x => cot(x.ticker)).length;
+  radios('fiiNegociacoes', {
+    todos:{rot:'Todos os fundos · ' + FII.length},
+    negociados:{rot:'Com cotação · ' + comPreco},
+    sem:{rot:'Sem cotação · ' + Math.max(0, FII.length - comPreco)}
+  }, st.fiiNegociacao, 'fiineg');
+
+  const lista = (campo, set, chave, destino) => {
+    const n = {}; FII.forEach(x => { const v = x[campo]; if(v) n[v] = (n[v] || 0) + 1; });
+    opcoes(destino, Object.keys(n).sort((a, b) => n[b] - n[a] || a.localeCompare(b, 'pt-BR'))
+      .map(v => ({v, rot:v, n:n[v]})), set, chave);
+  };
+  lista('gestao', st.fiiGestao, 'fiigestao', 'fiiGestoes');
+  lista('segmentoCVM', st.fiiSegmento, 'fiiseg', 'fiiSegmentos');
+  conta(st.fiiTipo.size, 'cntTipoFii');
+  conta(st.fiiGestao.size, 'cntGestaoFii');
+  conta(st.fiiSegmento.size, 'cntSegFii');
+}
+
+function resumoFiltrosFII(){
+  const p = [];
+  if(st.fiiNegociacao === 'negociados') p.push('com cotação');
+  else if(st.fiiNegociacao === 'sem') p.push('sem cotação');
+  [st.fiiTipo, st.fiiGestao, st.fiiSegmento].forEach(set => set.forEach(v => p.push(v)));
+  if(st.qf) p.push('busca: ' + st.qf);
+  return p;
+}
+
+const COLS_FII = [
+  {k:'ticker',   rot:'Ticker'},
+  {k:'nome',     rot:'Fundo', mob:true},
+  {k:'tipo',     rot:'Carteira', sec:true},
+  {k:'preco',    rot:'Último preço', n:true},
+  {k:'variacao', rot:'Variação no dia', n:true},
+  {k:'pvp',      rot:'P/VP', n:true},
+  {k:'dist',     rot:'Distribuído 12m', n:true},
+  {k:'vp252',    rot:'Variação de preço 12m', n:true, sec:true},
+  {k:'giro',     rot:'Giro médio 20d', n:true, sec:true},
+  {k:'vp',       rot:'Valor patrimonial', n:true, sec:true},
+  {k:'pl',       rot:'Patrimônio líquido', n:true, sec:true},
+  {k:'cotistas', rot:'Cotistas', n:true, sec:true}
+];
+
+function tabelaFII(list){
+  if(!list.length) return '<p class="nota" style="padding-top:16px">Nenhum fundo neste recorte. Ajuste os filtros ou limpe tudo.</p>';
+  const th = COLS_FII.map(c => {
+    const ativo = st.fiiSort === c.k;
+    const seta = ativo ? (st.fiiDir === 'asc' ? '▲' : '▼') : '';
+    return '<th class="' + (c.n ? 'n ' : '') + (c.sec ? 'col-s ' : '') + (c.mob ? 'col-m' : '') + '"' + (ativo ? ' aria-sort="' + (st.fiiDir === 'asc' ? 'ascending' : 'descending') + '"' : '') + '>' +
+      '<button data-col="' + c.k + '">' + c.rot + '<span class="s">' + seta + '</span></button></th>';
+  }).join('');
+  const linhas = list.map(x => {
+    const r = cot(x.ticker), viva = negociouHoje(r), cor = corTipoFii(tipoFii(x));
+    return '<tr tabindex="0" data-tf="' + x.ticker + '">' +
+      '<td class="sel">' + botaoFav(x.ticker) + '</td>' +
+      '<td class="tk"><span class="marc" style="background:' + cor + '"></span>' + x.ticker + '<span class="sub only-mob">' + esc(x.nome) + '</span></td>' +
+      '<td class="col-m">' + esc(x.nome) + '</td>' +
+      '<td class="col-s">' + esc(tipoFii(x)) + '</td>' +
+      '<td class="n">' + (r ? fmtPreco(r.p) : '<span class="na">—</span>') + '</td>' +
+      '<td class="n">' + (r && viva && typeof r.v === 'number' ? fmtVar(r.v) : '<span class="na">—</span>') + '</td>' +
+      '<td class="n">' + fmtPvp(pvp(x)) + '</td>' +
+      '<td class="n">' + fmtDist(distFii(x)) + '</td>' +
+      '<td class="n col-s">' + (typeof metFii(x.ticker)?.vp252 === 'number' ? fmtRet(metFii(x.ticker).vp252) : '<span class="na">—</span>') + '</td>' +
+      '<td class="n col-s">' + (typeof metFii(x.ticker)?.g20 === 'number' ? fmtGiro(metFii(x.ticker).g20) : '<span class="na">—</span>') + '</td>' +
+      '<td class="n col-s">' + (typeof x.valorPatrimonialCota === 'number' ? fmtPreco(x.valorPatrimonialCota) : '<span class="na">—</span>') + '</td>' +
+      '<td class="n col-s">' + (typeof x.patrimonioLiquido === 'number' ? brl(x.patrimonioLiquido) : '<span class="na">—</span>') + '</td>' +
+      '<td class="n col-s">' + (typeof x.cotistas === 'number' ? x.cotistas.toLocaleString('pt-BR') : '<span class="na">—</span>') + '</td>' +
+    '</tr>';
+  }).join('');
+  return '<div class="tabw"><table class="tab">' +
+    '<caption class="sr">Fundos imobiliários no recorte atual, com preço, tipo de carteira e dados patrimoniais do informe da CVM</caption>' +
+    '<thead><tr><th class="sel"><span class="sr">Acompanhar</span></th>' + th + '</tr></thead>' +
+    '<tbody>' + linhas + '</tbody></table></div>';
+}
+
+function cardsFII(list){
+  if(!list.length) return '<p class="nota" style="padding-top:16px">Nenhum fundo neste recorte.</p>';
+  return '<div class="grid">' + list.map(x => {
+    const r = cot(x.ticker), cor = corTipoFii(tipoFii(x)), v = pvp(x), d = distFii(x);
+    const preco = r ? '<span class="pr"><b>' + fmtPreco(r.p) + '</b>' + (negociouHoje(r) ? fmtVar(r.v) : '') + '</span>'
+      : '<span class="pr na">sem cotação</span>';
+    return '<button class="card" data-tf="' + x.ticker + '" style="border-left-color:' + cor + '">' +
+      '<span class="top"><span class="cod" style="color:' + cor + '">' + x.ticker + '</span>' +
+      '<span class="nm">' + esc(x.nome) + '</span>' + preco + '</span>' +
+      '<div class="cat">' + esc(tipoFii(x)) + (v === null ? '' : ' · P/VP ' + fmtPvp(v)) + (d === null ? '' : ' · distr. ' + fmtDist(d)) + '</div></button>';
+  }).join('') + '</div>';
+}
+
+function abreFII(ticker){
+  const x = FII.find(f => f.ticker === ticker); if(!x) return;
+  garante('metricasFiis');
+  const r = cot(ticker), viva = negociouHoje(r), cor = corTipoFii(tipoFii(x)), v = pvp(x);
+  const l = (rot, valor, txt) => '<dt>' + rot + '</dt><dd' + (txt ? ' class="tx"' : '') + '>' + valor + '</dd>';
+  const dia = d => d ? esc(String(d).split('-').reverse().join('/')) : '—';
+
+  const cotacao = r ? '<dl class="kv">' +
+      l('Último preço', fmtPreco(r.p)) +
+      l('Variação no dia', viva && typeof r.v === 'number' ? fmtVar(r.v) : '<span class="na">—</span>') +
+      l('Negociou hoje', viva ? 'sim' : 'não', true) +
+      l('Último negócio', dataNegocio(r), true) +
+      l('Giro do dia', fmtGiro(r.giro)) +
+    '</dl>' + (viva ? '' : '<p class="fnt">Sem negócio hoje: o preço acima é o último conhecido, não uma cotação corrente.</p>')
+    : '<p class="fnt">Sem cotação disponível para este fundo.' + (x.tickerVerificado === false ? ' A B3 lista o fundo, mas ele não tem cotação no Yahoo — ' + FII.filter(f => f.tickerVerificado === false).length + ' dos ' + FII.length + ' são restritos a investidor qualificado e nunca negociaram em bolsa.' : '') + '</p>';
+
+  const patrimonio = x.cnpj ? '<dl class="kv">' +
+      l('Patrimônio líquido', typeof x.patrimonioLiquido === 'number' ? brl(x.patrimonioLiquido) : '<span class="na">—</span>') +
+      l('Valor patrimonial da cota', typeof x.valorPatrimonialCota === 'number' ? fmtPreco(x.valorPatrimonialCota) : '<span class="na">—</span>') +
+      l('P/VP', fmtPvp(v)) +
+      l('Cotas emitidas', typeof x.cotasEmitidas === 'number' ? x.cotasEmitidas.toLocaleString('pt-BR') : '<span class="na">—</span>') +
+      l('Cotistas', typeof x.cotistas === 'number' ? x.cotistas.toLocaleString('pt-BR') : '<span class="na">—</span>') +
+      l('Despesa com taxa de administração', typeof x.taxaAdministracao === 'number' ? fmtPct1(x.taxaAdministracao * 100) + ' do patrimônio no mês' : '<span class="na">—</span>') +
+      l('Competência do informe', dia(x.informeEm), true) +
+    '</dl>' + (typeof x.patrimonioLiquido === 'number' && x.patrimonioLiquido < 0 ? '<p class="fnt"><b>Patrimônio líquido negativo:</b> o fundo declarou passivo maior que ativo nesta competência.</p>' : '') +
+      (v === null ? '' : '<p class="fnt">P/VP é derivado aqui, não publicado pelo fundo: preço de hoje sobre o valor patrimonial de ' + dia(x.informeEm) + '. O informe é mensal e atrasa, então os dois lados da conta não são do mesmo dia. Não é medida de preço justo.</p>')
+    : '<p class="fnt">Sem informe correspondente na CVM' + (x.cvmAmbiguo ? ': mais de um fundo declara o mesmo ISIN e não foi possível decidir qual é este sem risco de atribuir o patrimônio errado.' : '. Patrimônio, valor da cota e composição não estão disponíveis para este fundo.') + '</p>';
+
+  const m = metFii(ticker), prov = serieProventos(m), rend = distFii(x);
+  const historico = m ? '<dl class="kv">' +
+      l('Variação de preço · 12 meses', typeof m.vp252 === 'number' ? fmtRet(m.vp252) : '<span class="na">—</span>') +
+      l('Variação de preço · 3 meses', typeof m.vp63 === 'number' ? fmtRet(m.vp63) : '<span class="na">—</span>') +
+      l('Giro médio · 20 pregões', typeof m.g20 === 'number' ? fmtGiro(m.g20) : '<span class="na">—</span>') +
+      l('Pregões negociados · 20 sessões', typeof m.d20 === 'number' ? m.d20 + ' de 20' : '<span class="na">—</span>', true) +
+      l('Distância da máxima · 12 meses', typeof m.dd252 === 'number' ? fmtRet(m.dd252) : '<span class="na">—</span>') +
+      l('Volatilidade anualizada · 21 pregões', typeof m.v21 === 'number' ? fmtPct1(m.v21) : '<span class="na">—</span>') +
+      l('Histórico até', dia(m.dt), true) +
+    '</dl>' + spark(m) +
+      '<p class="fnt">A série desta seção é o <b>preço de fechamento</b>, não o preço ajustado usado nas abas de BDR e empresas — em FII o ajuste retroativo do Yahoo se acumula com distribuições mensais, amortizações e emissões, e chega a marcar +713,7% num fundo cuja cota andou 0,3% no mesmo ano. Aqui as duas pernas do resultado aparecem separadas: variação da cota acima, distribuição no bloco anterior.</p>' +
+      (m.stale ? '<p class="fnt"><b>Histórico preservado após falha na atualização.</b> Os números acima são da última coleta bem-sucedida.</p>' : '')
+    : '<p class="fnt">' + (x.tickerVerificado === false ? 'Fundo sem cotação em bolsa, portanto sem histórico de retorno ou liquidez.' : 'Histórico ainda não carregado ou indisponível para este fundo.') + '</p>';
+
+  const rendimento = m ? (m.provN > 0
+    ? '<dl class="kv">' +
+        l('Distribuído · 12 meses', fmtDist(rend) + ' do preço') +
+        l('Total por cota', fmtPreco(m.prov12)) +
+        l('Distribuições no período', m.provN + (m.provN >= 10 ? ' (mensal)' : ''), true) +
+        l('Último provento', fmtPreco(m.provUlt) + ' em ' + dia(m.provUltEm), true) +
+      '</dl>' +
+      '<div class="dist">' + prov.slice().reverse().map(p =>
+        '<div class="l"><span class="k">' + dia(p.d) + '</span><span class="b"><i style="width:' + Math.max(2, Math.min(100, p.v / Math.max(...prov.map(z => z.v)) * 100)).toFixed(1) + '%;background:#B08324"></i></span><span class="v">' + fmtPreco(p.v) + '</span></div>').join('') + '</div>' +
+      '<p class="fnt">' + (rend === null ? 'O percentual precisa de cotação e ainda não há preço para este fundo. ' : 'O percentual divide o total distribuído nos 12 meses pelo preço de hoje — é retrovisor, não previsão: distribuição de FII varia mês a mês. ') +
+      (m.provN < 10 ? '<b>Foram ' + m.provN + ' distribuições no período, não 12</b>, então o total não é comparável ao de um fundo que paga todo mês. ' : '') +
+      '<b>Isto não é dividend yield.</b> O evento de provento do Yahoo junta rendimento e amortização de cota — devolução de capital — sem separar as duas, e amortização não é renda: o fundo está devolvendo o próprio patrimônio, e a cota cai junto.</p>' +
+      (distImplausivel(rend) ? '<p class="fnt"><b>Este fundo distribuiu mais que o próprio preço em 12 meses.</b> Isso não pode ser renda; é devolução de capital, tipicamente em amortização ou liquidação. Leia o número como "quanto saiu do fundo", não como retorno.</p>' : '')
+    : '<p class="fnt">Nenhum provento registrado nos 12 meses anteriores à última observação. Isso pode significar fundo em formação, em liquidação, ou ausência de registro na fonte — não é o mesmo que distribuição zero declarada pelo fundo.</p>')
+    : '';
+
+  const carteira = x.tipo
+    ? composicaoFII(x) + '<p class="fnt">Composição declarada no informe de ' + dia(x.carteiraEm) + '. Dois terços ou mais numa classe definem o rótulo; abaixo disso o fundo é híbrido.</p>'
+    : '<p class="fnt">' + esc(FOCO_TIPO_FII[SEM_TIPO]) + '</p>';
+
+  lastFocus = document.activeElement;
+  st.ativo = ticker; if(URL_ATIVA) sincronizaURL();
+  drw.classList.remove('wide');
+  drw.innerHTML = '<button class="x" aria-label="Fechar ficha">×</button>' +
+    '<span class="selo" style="background:' + cor + ';color:' + txOn(cor) + '">FII · ' + esc(tipoFii(x)) + '</span>' +
+    '<h2>' + ticker + '</h2>' +
+    '<div class="rz">' + esc(x.nome) + '</div>' +
+    botaoFavFicha(ticker) +
+    '<div class="bloco"><h3>Cotação</h3>' + cotacao +
+      '<p class="fnt">Yahoo Finance, atraso de ~15 min.' + (PRECO_TS ? ' Consultada em ' + PRECO_TS + '.' : '') + '</p></div>' +
+    (rendimento ? '<div class="bloco"><h3>Rendimento distribuído</h3>' + rendimento + '</div>' : '') +
+    '<div class="bloco"><h3>Composição da carteira</h3>' + carteira + '</div>' +
+    '<div class="bloco"><h3>Histórico e liquidez</h3>' + historico +
+      '<p class="fnt">Yahoo Finance, série diária ajustada, fonte não oficial.</p></div>' +
+    '<div class="bloco"><h3>Patrimônio</h3>' + patrimonio + '</div>' +
+    '<div class="bloco"><h3>Identificação</h3><dl class="kv">' +
+      l('Nome do fundo', esc(x.nome), true) +
+      l('CNPJ', x.cnpj ? esc(x.cnpj) : '<span class="na">—</span>', true) +
+      l('Administrador', x.administrador ? esc(x.administrador) : '<span class="na">—</span>', true) +
+      l('Tipo de gestão', x.gestao ? esc(x.gestao) : '<span class="na">—</span>', true) +
+      l('Público-alvo', x.publicoAlvo ? esc(x.publicoAlvo) : '<span class="na">—</span>', true) +
+      l('Segmento declarado à CVM', x.segmentoCVM ? esc(x.segmentoCVM) : '<span class="na">—</span>', true) +
+    '</dl><p class="fnt">O segmento acima é o campo que o fundo preenche no informe, e está aqui por rastreabilidade — não é o que classifica o fundo nesta página. Ele deixa a maioria em "Multicategoria" ou "Outros" e chega a errar: o MXRF, fundo de papel, aparece nele como logística. A carteira declarada é que manda.</p></div>' +
+    '<div class="bloco"><h3>Classificação e fontes</h3>' +
+      '<p class="fnt">Lista: <a href="https://sistemaswebb3-listados.b3.com.br/fundsListedPage/" target="_blank" rel="noopener noreferrer">B3, consulta oficial de fundos listados</a>.<br>' +
+      'Patrimônio, composição e identificação: <a href="https://dados.cvm.gov.br/dataset/fii-doc-inf_mensal" target="_blank" rel="noopener noreferrer">CVM, informe mensal de FII</a>, competência de ' + dia(x.informeEm) + '.<br>' +
+      'Ticker: sigla da B3 com o sufixo +11' + (x.tickerVerificado === false ? ', ainda sem confirmação de cotação positiva no Yahoo Finance' : ', verificado no Yahoo Finance') + '. Cotação e giro do dia: Yahoo Finance, fonte não oficial.</p>' +
+      (x.juncaoFraca ? '<p class="fnt"><b>Correspondência com a CVM verificada com folga menor.</b> O ISIN do informe aponta para a sigla deste fundo, mas o nome na CVM difere bastante do nome na B3, então a ligação foi aceita com menos margem que a das demais.</p>' : '') +
+      '<p class="fnt">Rendimento e histórico: Yahoo Finance (não oficial), a partir dos eventos de provento da série diária. Consulte sempre o relatório gerencial e o regulamento oficiais do fundo. Nada aqui é recomendação de compra ou venda.</p></div>';
+  drw.classList.add('on'); dim.classList.add('on'); travaFundo();
+  drw.querySelector('.x').onclick = fecha;
+  drw.focus();
+}
+
+function carregaMetricasFiis(){
+  return fetch('metricas-fiis.json',{cache:'no-cache'}).then(r=>r.ok?r.json():Promise.reject()).then(d=>{METRICAS_FII=d.metricas||{};COLETAS.metricasFiis=isoCSV(d.atualizadoEm);concluiBase('metricasFiis',true);tentaAtivo();}).catch(()=>{concluiBase('metricasFiis',false);});
+}
+function carregaFIIs(){
+  fetch('fiis.json', {cache:'no-cache'})
+    .then(r => r.ok ? r.json() : Promise.reject(new Error('HTTP ' + r.status)))
+    .then(d => {
+      FII = (d.fiis || []).map(x => Object.assign({}, x, {
+        _s: norm([x.ticker, x.nome, x.nomeCurto || '', tipoFii(x), x.segmentoCVM || '', x.administrador || ''].join(' '))
+      }));
+      chipsFII(); agendaRender(); tentaAtivo();
     })
     .catch(() => { agendaRender(); });
 }
@@ -11378,6 +11810,12 @@ function sincronizaURL(){
     [...st.etfGeo].sort().forEach(v=>p.append('geo',v));[...st.etfCaracteristica].sort().forEach(v=>p.append('caracteristica',v));
     if(st.etfCobertura!=='todos')p.set('cobertura',st.etfCobertura);
     if(st.etfSort!=='nome')p.set('ord',st.etfSort);if(st.etfDir!=='asc')p.set('dir',st.etfDir);
+  } else if(st.sec==='fiis'){
+    if(st.modoFii!=='tabela')p.set('modo',st.modoFii);if(st.qf)p.set('q',st.qf);
+    [...st.fiiTipo].sort().forEach(v=>p.append('tipo',v));
+    [...st.fiiGestao].sort().forEach(v=>p.append('gestao',v));[...st.fiiSegmento].sort().forEach(v=>p.append('segmento',v));
+    if(st.fiiNegociacao!=='todos')p.set('negociacao',st.fiiNegociacao);
+    if(st.fiiSort!=='pl')p.set('ord',st.fiiSort);if(st.fiiDir!=='desc')p.set('dir',st.fiiDir);
   }
   if(st.ativo)p.set('ativo',st.ativo);history.replaceState(null,'','?'+p.toString());
 }
@@ -11396,6 +11834,9 @@ function padroesURL(sec){
   }else if(sec==='etfs'){
     Object.assign(st,{modoEtf:'tabela',qe:'',etfCobertura:'todos',etfSort:'nome',etfDir:'asc'});
     st.etfCategoria.clear();st.etfClasse.clear();st.etfFoco.clear();st.etfGeo.clear();st.etfCaracteristica.clear();
+  }else if(sec==='fiis'){
+    Object.assign(st,{modoFii:'tabela',qf:'',fiiNegociacao:'todos',fiiSort:'pl',fiiDir:'desc'});
+    st.fiiTipo.clear();st.fiiGestao.clear();st.fiiSegmento.clear();
   }
 }
 function leURL(){
@@ -11416,6 +11857,12 @@ function leURL(){
     carrega('classe',st.etfClasse);carrega('foco',st.etfFoco);carrega('geo',st.etfGeo);carrega('caracteristica',st.etfCaracteristica);
     if(['detalhados','pendentes'].includes(p.get('cobertura')))st.etfCobertura=p.get('cobertura');
     if(COLS_ETF.some(c=>c.k===p.get('ord')))st.etfSort=p.get('ord');if(['asc','desc'].includes(p.get('dir')))st.etfDir=p.get('dir');
+  }else if(st.sec==='fiis'){
+    if(['tabela','cards'].includes(p.get('modo')))st.modoFii=p.get('modo');st.qf=(p.get('q')||'').slice(0,200);
+    const carrega=(k,set)=>p.getAll(k).slice(0,30).forEach(x=>set.add(x.slice(0,80)));
+    carrega('tipo',st.fiiTipo);carrega('gestao',st.fiiGestao);carrega('segmento',st.fiiSegmento);
+    if(['negociados','sem'].includes(p.get('negociacao')))st.fiiNegociacao=p.get('negociacao');
+    if(COLS_FII.some(c=>c.k===p.get('ord')))st.fiiSort=p.get('ord');if(['asc','desc'].includes(p.get('dir')))st.fiiDir=p.get('dir');
   }
   st.ativo=(p.get('ativo')||'').slice(0,30)||null;
 }
@@ -11431,8 +11878,8 @@ function normalizaSelecoesETF(){
   corrige(st.etfCaracteristica,det.flatMap(caracEtf));
 }
 function refleteEstado(){
-  $('qEmp').value=st.q;$('qBdr').value=st.qb;$('qEtf').value=st.qe;$('ordEmp').value=st.sort;$('soFav').setAttribute('aria-pressed',String(st.soFav));
-  [[$('aVal'),'val',st.area],[$('aIgual'),'igual',st.area],[$('mOu'),'ou',st.tagMode],[$('mE'),'e',st.tagMode],[$('mMosaico'),'mosaico',st.modoEmp],[$('mTabelaE'),'tabela',st.modoEmp],[$('mTabelaEtf'),'tabela',st.modoEtf],[$('mCardsEtf'),'cards',st.modoEtf]].forEach(([b,v,a])=>b.setAttribute('aria-pressed',String(v===a)));
+  $('qEmp').value=st.q;$('qBdr').value=st.qb;$('qEtf').value=st.qe;$('qFii').value=st.qf;$('ordEmp').value=st.sort;$('soFav').setAttribute('aria-pressed',String(st.soFav));
+  [[$('aVal'),'val',st.area],[$('aIgual'),'igual',st.area],[$('mOu'),'ou',st.tagMode],[$('mE'),'e',st.tagMode],[$('mMosaico'),'mosaico',st.modoEmp],[$('mTabelaE'),'tabela',st.modoEmp],[$('mTabelaEtf'),'tabela',st.modoEtf],[$('mCardsEtf'),'cards',st.modoEtf],[$('mTabelaFii'),'tabela',st.modoFii],[$('mCardsFii'),'cards',st.modoFii]].forEach(([b,v,a])=>b.setAttribute('aria-pressed',String(v===a)));
   [$('mTabela'),$('mCards'),$('mMatriz')].forEach(b=>b.setAttribute('aria-pressed',String(b.id===({tabela:'mTabela',cards:'mCards',matriz:'mMatriz'}[st.modoBdr]))));
 }
 const SECOES = {
@@ -11447,6 +11894,8 @@ const SECOES = {
     d:'Ações de empresas estrangeiras negociadas na B3 por recibo de depósito. A tabela permite comparar preço, retorno, força relativa e liquidez na mesma linha.'},
   etfs:{t:'ETFs', k:'B3 · fundos de índice',
     d:'Fundos de índice negociados na B3, por categoria oficial (renda variável, renda fixa, cripto, internacional, FII e moeda).'},
+  fiis:{t:'Fundos imobiliários', k:()=>FII.length ? 'B3 · '+FII.length+' fundos' : 'B3 · fundos listados',
+    d:'Fundos de investimento imobiliário listados na B3, classificados pela carteira que declaram à CVM: tijolo, papel ou fundo de fundos. Traz patrimônio, valor patrimonial da cota e P/VP.'},
   carteira:{t:'Carteira', k:'Posições · local',
     d:'Posições informadas por você, com quantidade, preço médio e resultado bruto pela última cotação disponível. Os dados ficam somente neste navegador.'},
   favoritos:{t:'Favoritos', k:'Acompanhamento · local',
@@ -11475,7 +11924,7 @@ function navega(sec){
   document.querySelectorAll('nav.prim button').forEach(b =>
     b.setAttribute('aria-current', b.dataset.sec === sec ? 'page' : 'false'));
   cabecalhoSecao();
-  ['Geral','Empresas','Bdrs','Etfs','Carteira','Favoritos','Radar','Metodologia'].forEach(n =>
+  ['Geral','Empresas','Bdrs','Etfs','Fiis','Carteira','Favoritos','Radar','Metodologia'].forEach(n =>
     $('sec' + n).classList.toggle('hide', 'sec' + n !== 'sec' + sec.charAt(0).toUpperCase() + sec.slice(1)));
   fechaFiltros();
   scrollTo({top:0, behavior:'instant'});
@@ -11573,6 +12022,23 @@ function render(){
     $('boxCardsEtf').classList.toggle('hide', st.modoEtf !== 'cards');
     if(st.modoEtf === 'tabela') $('boxTabelaEtf').innerHTML = tabelaETF(r);
     else $('boxCardsEtf').innerHTML = cardsETF(r);
+    return;
+  }
+
+  if(st.sec === 'fiis'){
+    const r = filtraFII();
+    const comPreco = r.filter(x => cot(x.ticker)).length;
+    const comInforme = r.filter(x => x.cnpj).length;
+    const filtros = resumoFiltrosFII();
+    $('nFii').textContent = FII.length ? r.length : '—';
+    $('resumoFii').innerHTML = (r.length ? `<b>${comPreco}</b> com último preço <span>·</span> <b>${comInforme}</b> com informe da CVM` : '') +
+      (filtros.length ? `${r.length ? '<br>' : ''}Filtros: ` + filtros.map(x => `<b>${esc(x)}</b>`).join('<span>×</span>') : '');
+    $('guiaFii').innerHTML = guiaTiposFII();
+    $('clearFii').classList.toggle('hide', !(st.qf || st.fiiTipo.size || st.fiiNegociacao !== 'todos' || st.fiiGestao.size || st.fiiSegmento.size));
+    $('boxTabelaFii').classList.toggle('hide', st.modoFii !== 'tabela');
+    $('boxCardsFii').classList.toggle('hide', st.modoFii !== 'cards');
+    if(st.modoFii === 'tabela') $('boxTabelaFii').innerHTML = tabelaFII(r);
+    else $('boxCardsFii').innerHTML = cardsFII(r);
   }
 }
 
@@ -11591,7 +12057,7 @@ function miniMapa(){
   const byCat = {};
   E.forEach(e => (byCat[e.macro] ||= []).push(e));
   const grupos = Object.keys(byCat).map(c => ({
-    c, v: byCat[c].reduce((a,e)=>a+Math.pow(Math.max(e.vm,1.5e9),.42),0), itens: byCat[c]
+    c, v: byCat[c].reduce((a,e)=>a+pesoVM(e),0), itens: byCat[c]
   })).sort((a,b)=>b.v-a.v);
   squarify(grupos, 0, 0, W, H).forEach(g => {
     const d = document.createElement('div');
@@ -11630,6 +12096,7 @@ function ativoCarteira(ticker){
   if(e)return {ticker,nome:e.pregao,tipo:'Empresa brasileira',cod:e.cod};
   const b=BDR.find(x=>x.ticker===ticker);if(b)return {ticker,nome:b.empresa,tipo:'BDR'};
   const x=ETF.find(x=>x.ticker===ticker);if(x)return {ticker,nome:x.nome,tipo:'ETF'};
+  const f=FII.find(x=>x.ticker===ticker);if(f)return {ticker,nome:f.nome,tipo:'FII'};
   if(cot(ticker))return {ticker,nome:'Ativo encontrado nas cotações',tipo:'Ativo B3'};
   return null;
 }
@@ -11765,6 +12232,10 @@ function limpaFiltrosBDR(){
   st.bdrLiq='todas';st.bdrFreq='todas';st.bdrHist='todos';st.recorte=null;
   $('qBdr').value='';chipsBDR();render();
 }
+function limpaFiltrosFII(){
+  st.qf='';st.fiiNegociacao='todos';st.fiiTipo.clear();st.fiiGestao.clear();st.fiiSegmento.clear();
+  $('qFii').value='';chipsFII();render();
+}
 function limpaFiltrosETF(){
   st.qe='';st.etfCategoria.clear();st.etfCobertura='todos';st.etfClasse.clear();st.etfFoco.clear();st.etfGeo.clear();st.etfCaracteristica.clear();
   $('qEtf').value='';chipsETF();render();
@@ -11841,6 +12312,9 @@ document.body.addEventListener('click', ev => {
     if(st.sec === 'etfs'){
       if(st.etfSort === k) st.etfDir = st.etfDir === 'asc' ? 'desc' : 'asc';
       else { st.etfSort = k; st.etfDir = (k === 'ticker' || k === 'nome' || k === 'categoria') ? 'asc' : 'desc'; }
+    } else if(st.sec === 'fiis'){
+      if(st.fiiSort === k) st.fiiDir = st.fiiDir === 'asc' ? 'desc' : 'asc';
+      else { st.fiiSort = k; st.fiiDir = (k === 'ticker' || k === 'nome' || k === 'tipo') ? 'asc' : 'desc'; }
     } else {
       if(st.bdrSort === k) st.bdrDir = st.bdrDir === 'asc' ? 'desc' : 'asc';
       else { st.bdrSort = k; st.bdrDir = (k === 'ticker' || k === 'empresa' || k === 'pais') ? 'asc' : 'desc'; }
@@ -11852,6 +12326,8 @@ document.body.addEventListener('click', ev => {
   if(c && c.dataset.cod){ abre(c.dataset.cod); return; }
   const te = ev.target.closest('[data-te]');
   if(te && te.dataset.te){ abreETF(te.dataset.te); return; }
+  const tf = ev.target.closest('[data-tf]');
+  if(tf && tf.dataset.tf){ abreFII(tf.dataset.tf); return; }
   const t = ev.target.closest('[data-tk]');
   if(t && t.dataset.tk) abreBDR(t.dataset.tk);
 });
@@ -11861,10 +12337,10 @@ document.body.addEventListener('keydown', ev => {
   if(ev.target.closest('button,a,input,select,textarea'))return;
   const ponto = ev.target.closest('circle[data-tk]');
   if(ponto){ev.preventDefault();abreBDR(ponto.dataset.tk);return;}
-  const tr = ev.target.closest('tr[data-tk],tr[data-cod],tr[data-te]');
+  const tr = ev.target.closest('tr[data-tk],tr[data-cod],tr[data-te],tr[data-tf]');
   if(!tr) return;
   ev.preventDefault();
-  if(tr.dataset.tk) abreBDR(tr.dataset.tk); else if(tr.dataset.te) abreETF(tr.dataset.te); else abre(tr.dataset.cod);
+  if(tr.dataset.tk) abreBDR(tr.dataset.tk); else if(tr.dataset.te) abreETF(tr.dataset.te); else if(tr.dataset.tf) abreFII(tr.dataset.tf); else abre(tr.dataset.cod);
 });
 document.querySelectorAll('.fhead').forEach(h => h.onclick = () => {
   const g = h.parentElement, o = g.dataset.open === 'true';
@@ -11905,6 +12381,10 @@ document.body.addEventListener('change', ev => {
   else if(f === 'etfgeo') alterna(st.etfGeo);
   else if(f === 'etfcarac') alterna(st.etfCaracteristica);
   else if(f === 'etfcobertura') st.etfCobertura=v;
+  else if(f === 'fiitipo') alterna(st.fiiTipo);
+  else if(f === 'fiigestao') alterna(st.fiiGestao);
+  else if(f === 'fiiseg') alterna(st.fiiSegmento);
+  else if(f === 'fiineg') st.fiiNegociacao=v;
   else if(f === 'liq'){ st.bdrLiq = v; st.recorte = null; }
   else if(f === 'freq'){ st.bdrFreq = v; st.recorte = null; }
   else if(f === 'hist'){ st.bdrHist = v; st.recorte = null; }
@@ -11926,6 +12406,7 @@ const deb = (fn) => { clearTimeout(td); td = setTimeout(fn, 140); };
 $('qEmp').addEventListener('input', ev => deb(() => { st.q = ev.target.value; render(); }));
 $('qBdr').addEventListener('input', ev => deb(() => { st.qb = ev.target.value; render(); }));
 $('qEtf').addEventListener('input', ev => deb(() => { st.qe = ev.target.value; render(); }));
+$('qFii').addEventListener('input', ev => deb(() => { st.qf = ev.target.value; render(); }));
 $('bPais').addEventListener('input', ev => deb(() => { st.buscaPais = ev.target.value; chipsBDR(); }));
 $('bInd').addEventListener('input', ev => deb(() => { st.buscaInd = ev.target.value; chipsBDR(); }));
 $('bTag').addEventListener('input', ev => deb(() => { st.buscaTag = ev.target.value; chips(); }));
@@ -11937,6 +12418,7 @@ $('clearEmp').onclick = () => {
 };
 $('clearBdr').onclick=()=>{limpaFiltrosBDR();$('qBdr').focus();};
 $('clearEtf').onclick=()=>{limpaFiltrosETF();$('qEtf').focus();};
+$('clearFii').onclick=()=>{limpaFiltrosFII();$('qFii').focus();};
 
 const par = (a, b, val, key, fn) => {
   a.onclick = () => { st[key] = val[0]; a.setAttribute('aria-pressed','true'); b.setAttribute('aria-pressed','false'); (fn||render)(); };
@@ -11949,6 +12431,7 @@ $('mMatriz').onclick=()=>{st.modoBdr='matriz';[$('mTabela'),$('mCards'),$('mMatr
 $('mTabela').onclick=()=>{st.modoBdr='tabela';[$('mTabela'),$('mCards'),$('mMatriz')].forEach(b=>b.setAttribute('aria-pressed',String(b===$('mTabela'))));render();};
 $('mCards').onclick=()=>{st.modoBdr='cards';[$('mTabela'),$('mCards'),$('mMatriz')].forEach(b=>b.setAttribute('aria-pressed',String(b===$('mCards'))));render();};
 par($('mTabelaEtf'), $('mCardsEtf'), ['tabela','cards'], 'modoEtf');
+par($('mTabelaFii'), $('mCardsFii'), ['tabela','cards'], 'modoFii');
 $('soFav').onclick=()=>{st.soFav=!st.soFav;$('soFav').setAttribute('aria-pressed',String(st.soFav));render();};
 $('formCarteira').onsubmit=ev=>{
   ev.preventDefault();const ticker=(CARTEIRA_EDITANDO||$('carteiraTicker').value).trim().toUpperCase(),qtd=numeroCarteira($('carteiraQtd').value),pm=numeroCarteira($('carteiraPm').value),a=ativoCarteira(ticker);
@@ -11999,7 +12482,9 @@ $('csvBdr').onclick = () => {
   /* Treze colunas vem da analise, que agora entra sob demanda: exportar antes
      dela chegar geraria paridade vazia, indistinguivel de dado ausente na
      fonte. Pede a base e devolve o controle em vez de mentir no arquivo. */
-  if(!Object.keys(ANALISE).length){garante('analise');$('csvBdrMsg').textContent='Carregando a base de ativo-lastro para completar o arquivo. Peça a exportação de novo em instantes.';return;}
+  /* O recado sai ANTES do garante(): ele repoe o estado para 'carregando' e
+     apagaria a informacao de que a tentativa anterior falhou. */
+  if(!baseOk('analise')){const recado=recadoBase('analise','a base de ativo-lastro, que preenche treze colunas do arquivo');garante('analise');$('csvBdrMsg').textContent=recado;return;}
   const linhas = [['ticker','empresa','tipo','pais','setor','industria','fonte_classificacao','preco','variacao_pct','volume_hoje','giro_hoje','ultimo_negocio','retorno_21d_pct','retorno_63d_pct','retorno_252d_pct','vs_industria_21d_pp','vs_industria_63d_pp','vs_industria_252d_pp','vs_setor_63d_pp','percentil_industria_63d','percentil_setor_63d','giro_medio_20d','giro_medio_60d','dias_negociados_20d','drawdown_252d_pct','volatilidade_21d_anual_pct','ativo_lastro','moeda','bdrs_relacao','acoes_relacao','preco_ativo','ptax','paridade_indicativa','desvio_paridade_pct','retorno_ativo_63d_pct','efeito_cambio_63d_pct','residual_63d_pp','fonte_programa','metricas_ate','cotacao_atualizada_em']];
   linhas[0].push('historico_preservado','analise_preservada','ativo_ate','ptax_ate','ativo_ultimo_negocio','forca_exibida_pp','grupo_forca_exibida','amostra_industria_63d','fonte_cotacao','fonte_historico','fonte_ativo','fonte_cambio');
   filtraBDR().forEach(b => {
@@ -12016,7 +12501,7 @@ $('csvEmp').onclick = () => {
   /* Mesmo motivo do CSV de BDR. Eventos nao entram nesta guarda porque o
      arquivo ja declara eventos_estado_carga: ali a ausencia se identifica. */
   garante('eventos');
-  if(!Object.keys(METRICAS_EMP).length){garante('metricasEmpresas');$('csvEmpMsg').textContent='Carregando o histórico das empresas para completar o arquivo. Peça a exportação de novo em instantes.';return;}
+  if(!baseOk('metricasEmpresas')){const recado=recadoBase('metricasEmpresas','o histórico das empresas, que preenche parte do arquivo');garante('metricasEmpresas');$('csvEmpMsg').textContent=recado;return;}
   const linhas = [['codigo','tickers','nome_pregao','razao_social','categoria','segmento_b3','tags','segmento_listagem','data_registro','valor_mercado','liquidez_2m','ticker_referencia','preco','variacao_pct','precos_todas_classes','retorno_21d_pct','retorno_63d_pct','retorno_252d_pct','vs_categoria_63d_pp','vs_segmento_63d_pp','giro_medio_20d','drawdown_252d_pct','volatilidade_21d_anual_pct','eventos_recentes','metricas_ate','cotacao_atualizada_em','descricao','ticker_referencia_historica','criterio_referencia_historica','referencia_historica_parcial','amostra_categoria_63d','amostra_segmento_63d','historico_preservado']];
   linhas[0].push('ultimo_negocio_referencia','fonte_cotacao','fonte_historico','eventos_estado_carga','eventos_consultados_em','eventos_janela_inicio','eventos_janela_fim','eventos_encontrados_no_recorte','eventos_links_oficiais');
   filtra().forEach(e => {
@@ -12042,7 +12527,7 @@ addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => {
 function carregaPrecos(manual=false){
   const bt=$('atualizaPrecosBt'),msg=$('precosMsg'),coletaAnterior=COLETAS.precos;
   if(manual){bt.disabled=true;bt.textContent='atualizando…';msg.textContent='consultando…';}
-  return fetch('precos.json'+(manual?'?v='+Date.now():''), {cache:'no-store'})
+  return fetch('precos.json'+(manual?'?v='+Date.now():''), {cache:'no-cache'})
     .then(r => r.ok ? r.json() : Promise.reject(new Error('HTTP ' + r.status)))
     .then(d => {
       const novos=d.precos||{};if(!Object.keys(novos).length)throw new Error('base vazia');
@@ -12065,7 +12550,7 @@ function carregaPrecos(manual=false){
     .finally(()=>{if(manual){bt.disabled=false;bt.textContent='atualizar cotações';}});
 }
 function carregaBDRs(){
-  fetch('bdrs.json', {cache:'no-store'})
+  fetch('bdrs.json', {cache:'no-cache'})
     .then(r => r.ok ? r.json() : Promise.reject(new Error('HTTP ' + r.status)))
     .then(d => {
       BDR = (d.bdrs || []).map(b => Object.assign({}, b, {
@@ -12080,7 +12565,7 @@ function carregaBDRs(){
     .catch(() => { BDR_CARGA='falha';agendaRender(); });
 }
 function carregaMetricas(){
-  fetch('metricas.json', {cache:'no-store'})
+  fetch('metricas.json', {cache:'no-cache'})
     .then(r => r.ok ? r.json() : Promise.reject(new Error('HTTP ' + r.status)))
     .then(d => {
       METRICAS = d.metricas || {};
@@ -12096,17 +12581,17 @@ function carregaMetricas(){
     .catch(() => { /* sem metricas a tabela segue, sem os indicadores historicos */ });
 }
 function carregaAnalise(){
-  return fetch('analise.json',{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject()).then(d=>{ANALISE=d.analise||{};COLETAS.analise=isoCSV(d.atualizadoEm);agendaRender();tentaAtivo();}).catch(()=>{});
+  return fetch('analise.json',{cache:'no-cache'}).then(r=>r.ok?r.json():Promise.reject()).then(d=>{ANALISE=d.analise||{};COLETAS.analise=isoCSV(d.atualizadoEm);concluiBase('analise',true);tentaAtivo();}).catch(()=>{concluiBase('analise',false);});
 }
 function carregaMetricasEmpresas(){
-  return fetch('metricas-empresas.json',{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject()).then(d=>{METRICAS_EMP=d.metricas||{};COLETAS.metricasEmpresas=isoCSV(d.atualizadoEm);agendaRender();tentaAtivo();}).catch(()=>{});
+  return fetch('metricas-empresas.json',{cache:'no-cache'}).then(r=>r.ok?r.json():Promise.reject()).then(d=>{METRICAS_EMP=d.metricas||{};COLETAS.metricasEmpresas=isoCSV(d.atualizadoEm);concluiBase('metricasEmpresas',true);tentaAtivo();}).catch(()=>{concluiBase('metricasEmpresas',false);});
 }
 function carregaEventos(){
-  return fetch('eventos.json',{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject()).then(d=>{recebeEventos(d);agendaRender();atualizaEventosFicha();}).catch(()=>{EVENTOS_ESTADO='falha';agendaRender();atualizaEventosFicha();});
+  return fetch('eventos.json',{cache:'no-cache'}).then(r=>r.ok?r.json():Promise.reject()).then(d=>{recebeEventos(d);concluiBase('eventos',true);atualizaEventosFicha();}).catch(()=>{EVENTOS_ESTADO='falha';concluiBase('eventos',false);atualizaEventosFicha();});
 }
 function carregaSaude(){
   atualizaSaude();
-  fetch('saude.json',{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject()).then(d=>{recebeSaude(d);atualizaSaude();agendaRender();}).catch(()=>{SAUDE=null;SAUDE_ESTADO='falha';atualizaSaude();agendaRender();});
+  fetch('saude.json',{cache:'no-cache'}).then(r=>r.ok?r.json():Promise.reject()).then(d=>{recebeSaude(d);atualizaSaude();agendaRender();}).catch(()=>{SAUDE=null;SAUDE_ESTADO='falha';atualizaSaude();agendaRender();});
 }
 setInterval(atualizaSaude,60000);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)atualizaSaude();});
@@ -12114,27 +12599,56 @@ $('atualizaPrecosBt').onclick=()=>carregaPrecos(true);
 let ATIVO_ABERTO=false;
 function tentaAtivo(){
   if(ATIVO_ABERTO||!st.ativo)return;
-  const b=BDR.find(x=>x.ticker===st.ativo),e=E.find(x=>x.cod===st.ativo),x=ETF.find(f=>f.ticker===st.ativo);
+  const b=BDR.find(x=>x.ticker===st.ativo),e=E.find(x=>x.cod===st.ativo),x=ETF.find(f=>f.ticker===st.ativo),g=FII.find(f=>f.ticker===st.ativo);
   /* Link direto para uma ficha pode chegar em qualquer secao, inclusive numa
      que nao depende dessa base: sem pedir aqui, a espera abaixo nunca acaba. */
-  if(b)garante('analise'); else if(e)garante('metricasEmpresas','eventos');
+  if(b)garante('analise'); else if(e)garante('metricasEmpresas','eventos'); else if(g)garante('metricasFiis'); else if(x)garante('metricasEtfs');
   if(b&&Object.keys(METRICAS).length&&Object.keys(ANALISE).length){ATIVO_ABERTO=true;abreBDR(b.ticker);}
   else if(e&&Object.keys(METRICAS_EMP).length){ATIVO_ABERTO=true;abre(e.cod);}
-  else if(x&&ETF.length){ATIVO_ABERTO=true;abreETF(x.ticker);}
+  else if(x&&ETF.length&&Object.keys(METRICAS_ETF).length){ATIVO_ABERTO=true;abreETF(x.ticker);}
+  else if(g&&FII.length&&Object.keys(METRICAS_FII).length){ATIVO_ABERTO=true;abreFII(g.ticker);}
 }
+
+/* Todo fetch usa `no-cache`, nao `no-store`: os dois obrigam a passar pelo
+   servidor a cada carga, mas o primeiro deixa o navegador guardar a copia e
+   receber um 304 vazio quando nada mudou. O Pages manda ETag em tudo, e a
+   pagina e recarregada varias vezes por dia. `no-store` jogava fora ~410 KB
+   comprimidos a cada recarga sem ganhar frescor nenhum em troca. */
 
 /* Bases pesadas entram sob demanda. O panorama inicial nao usa paridade,
    historico de empresa nem documentos da CVM, e baixar os tres no boot
    custava 3 MB antes do primeiro clique. Idempotente pela promessa guardada:
    quem pede duas vezes reaproveita a mesma requisicao, e quem falhou nao
    volta a tentar sozinho -- a pagina ja trata cada base ausente como ausente. */
-const CARGAS = {analise:carregaAnalise, metricasEmpresas:carregaMetricasEmpresas, eventos:carregaEventos};
+const CARGAS = {analise:carregaAnalise, metricasEmpresas:carregaMetricasEmpresas, eventos:carregaEventos, metricasFiis:carregaMetricasFiis, metricasEtfs:carregaMetricasEtfs};
 const PEDIDOS = {};
-const garante = (...nomes) => Promise.all(nomes.map(n => (PEDIDOS[n] ||= CARGAS[n]())));
+/* 'ausente' antes de alguem pedir, 'carregando', 'pronta' ou 'falha'. Quem
+   falhou LIBERA a promessa: uma queda de rede transitoria desligava paridade,
+   comparacao e CSV pelo resto da sessao, porque o .catch resolvia e o cache
+   guardava a promessa boa. Agora a proxima interacao tenta de novo. */
+const ESTADO_BASE = {analise:'ausente', metricasEmpresas:'ausente', eventos:'ausente', metricasFiis:'ausente', metricasEtfs:'ausente'};
+const baseOk = n => ESTADO_BASE[n] === 'pronta';
+function concluiBase(n, ok){
+  ESTADO_BASE[n] = ok ? 'pronta' : 'falha';
+  if(!ok) delete PEDIDOS[n];
+  agendaRender();
+}
+const garante = (...nomes) => Promise.all(nomes.map(n => {
+  if(!PEDIDOS[n]){ ESTADO_BASE[n] = 'carregando'; PEDIDOS[n] = CARGAS[n](); }
+  return PEDIDOS[n];
+}));
+/* Texto unico para as tres bases, para nao divergirem: o que a tela diz
+   depende do estado da carga, nunca do dado estar vazio. */
+function recadoBase(n, oQue){
+  const e = ESTADO_BASE[n];
+  return e === 'falha' ? 'Não foi possível carregar ' + oQue + '. Tentando de novo; peça em instantes.'
+    : e === 'pronta' ? ''
+    : 'Carregando ' + oQue + '. Peça de novo em instantes.';
+}
 /* O que cada secao precisa alem do que o boot ja traz. Carteira e Favoritos
    ficam de fora de proposito: elas abrem ficha de qualquer universo, e quem
    pede a base la e a propria funcao que abre a ficha. */
-const DEPENDE = {empresas:['metricasEmpresas'], bdrs:['analise'], radar:['eventos']};
+const DEPENDE = {empresas:['metricasEmpresas'], bdrs:['analise'], radar:['eventos'], fiis:['metricasFiis'], etfs:['metricasEtfs']};
 
 leURL();refleteEstado();URL_ATIVA = true;
 chips(); chipsBDR(); chipsETF(); atualizaSelecao();
@@ -12142,6 +12656,7 @@ navega(st.sec);
 carregaPrecos();
 carregaBDRs();
 carregaETFs();
+carregaFIIs();
 carregaMetricas();
 carregaSaude();
 

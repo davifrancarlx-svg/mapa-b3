@@ -20,7 +20,11 @@ const ctx=vm.createContext({console,MAX_COMPARAR:4,BDR:bdrs,COMPARAR:new Set(),F
   $:no,document:{querySelectorAll:()=>[]},localStorage:{setItem(k,v){if(bloqueado)throw new Error('bloqueado');salvo=v;}},
   met:t=>metricas[t]||null,ana:t=>analise[t]||null,cot:t=>precos[t]?.p>0?precos[t]:null,
   paisPT:v=>v,setorPT:v=>v,industriaPT:v=>v,forcaBDR:b=>({rot:'vs. indústria',v:metricas[b.ticker]?.ri63}),
-  fontePerfilBDR:b=>({nome:'Fonte de '+b.empresa,url:'https://finance.yahoo.com/quote/'+b.ticker+'/profile/'})});
+  fontePerfilBDR:b=>({nome:'Fonte de '+b.empresa,url:'https://finance.yahoo.com/quote/'+b.ticker+'/profile/'}),
+  /* A base entra como carregada: o teste exercita o conteudo da tabela, e o
+     estado de carga tem verificacao propria mais abaixo. */
+  ESTADO_BASE:{analise:'pronta',metricasEmpresas:'pronta',eventos:'pronta',metricasFiis:'pronta'},
+  baseOk:n=>true});
 vm.runInContext(codigo.slice(codigo.indexOf('const esc ='),codigo.indexOf('\n',codigo.indexOf('const esc ='))),ctx);
 vm.runInContext(codigo.slice(codigo.indexOf('const fmtPreco ='),codigo.indexOf('const met =')),ctx);
 ['leComparacao','salvaComparacao','alternaComparacao','atualizaSelecao','comparacaoHTML'].forEach(n=>vm.runInContext(funcao(n),ctx));

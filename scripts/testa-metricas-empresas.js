@@ -40,7 +40,8 @@ async function testa(){
   const ruim=structuredClone(base);ruim.metricas.AAAA.ticker='BBBB4';assert.throws(()=>valida(ruim,[e]));
   ruim.metricas.AAAA={...completo,g20:-1};assert.throws(()=>valida(ruim,[e]));
   const codigo=fs.readFileSync(path.join(__dirname,'..','index.html'),'utf8').match(/<script>([\s\S]*?)<\/script>/)[1];
-  const ctx=vm.createContext({metEmp:()=>completo,refPreco:()=>({tk:'AAAA3'})});
+  /* O recorte inclui o comparador, que agora consulta o estado da carga. */
+  const ctx=vm.createContext({metEmp:()=>completo,refPreco:()=>({tk:'AAAA3'}),baseOk:()=>true,ESTADO_BASE:{analise:'pronta',metricasEmpresas:'pronta',eventos:'pronta',metricasFiis:'pronta'}});
   vm.runInContext(codigo.slice(codigo.indexOf('const esc ='),codigo.indexOf('\n',codigo.indexOf('const esc ='))),ctx);
   vm.runInContext(codigo.slice(codigo.indexOf('const fmtPreco ='),codigo.indexOf('const met =')),ctx);
   // Comeca em diaMais: spark depende de serieSpark, que vem antes dele.

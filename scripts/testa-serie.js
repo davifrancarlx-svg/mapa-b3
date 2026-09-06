@@ -11,7 +11,7 @@
 const assert = require('node:assert/strict');
 const fs = require('fs');
 const path = require('path');
-const { arred, media, mediana, retorno, desvio, dia, offsetDias, extraiHistorico, calcula } = require('./lib/serie');
+const { arred, media, mediana, retorno, desvio, dia, offsetDias, extraiHistorico, extraiProventos, calcula } = require('./lib/serie');
 
 const linhas = (n, vol = 10, preco = 100) =>
   Array.from({length:n}, (_,i) => ({ ts: 1700000000 + i*86400, p: preco, a: preco, vol }));
@@ -100,12 +100,33 @@ assert.equal(m.spO[0], 0);
 assert.ok(m.spO.every((o,i) => Number.isInteger(o) && (!i || o > m.spO[i-1])), 'offsets crescentes');
 assert.equal(dia(oscila.at(-1).ts), m.spFim);
 
+/* ---------- proventos ---------- */
+/* O chart do Yahoo devolve os dividendos num objeto com chave arbitraria, nao
+   num array: iterar por Object.values e ordenar por data e o contrato. E a
+   data vem em epoch, entao vale a mesma regra de UTC do resto da serie. */
+{
+  const bruto = {events:{dividends:{
+    '1767225600':{amount:1.1,date:1767225600},   // 2026-01-01 00:00Z
+    '1759276800':{amount:0.9,date:1759276800},   // 2025-10-01, fora de ordem
+    '1764547200':{amount:0,date:1764547200},     // zero nao e provento
+    'lixo':{amount:'1,20',date:1762128000},      // valor nao numerico
+    'semData':{amount:1.3}
+  }}};
+  const p = extraiProventos(bruto);
+  assert.deepEqual(p, [{d:'2025-10-01',v:0.9},{d:'2026-01-01',v:1.1}], 'proventos ordenados, sem zero nem lixo');
+  assert.deepEqual(extraiProventos({}), [], 'sem eventos devolve lista vazia');
+  assert.deepEqual(extraiProventos({events:{}}), [], 'events sem dividends devolve lista vazia');
+  /* Fronteira de dia em UTC: 23:30Z continua no mesmo dia, nao no seguinte. */
+  assert.equal(extraiProventos({events:{dividends:{a:{amount:1,date:Date.parse('2026-03-10T23:30:00Z')/1000}}}})[0].d, '2026-03-10');
+  assert.equal(extraiProventos({events:{dividends:{a:{amount:1,date:Date.parse('2026-03-10T00:30:00Z')/1000}}}})[0].d, '2026-03-10');
+}
+
 /* ---------- nenhum gerador pode ter copia propria ---------- */
-const geradores = ['atualiza-metricas.js', 'atualiza-metricas-empresas.js'];
+const geradores = ['atualiza-metricas.js', 'atualiza-metricas-empresas.js', 'atualiza-metricas-fiis.js', 'atualiza-metricas-etfs.js'];
 for(const g of geradores){
   const src = fs.readFileSync(path.join(__dirname, g), 'utf8');
   assert.ok(/require\('\.\/lib\/serie'\)/.test(src), g + ' deve usar o nucleo compartilhado');
-  for(const nome of ['function calcula(', 'function extraiHistorico(', 'function desvio(', 'async function historico(']){
+  for(const nome of ['function calcula(', 'function extraiHistorico(', 'function desvio(', 'async function historico(', 'function extraiProventos(', 'async function historicoProventos(']){
     assert.ok(!src.includes(nome), g + ' redefine ' + nome.replace(/^(async )?function /,'') + ' em vez de importar');
   }
   for(const nome of ['const arred =', 'const arred=', 'const media =', 'const media=', 'const mediana =', 'const mediana=', 'const retorno =', 'const retorno=', 'const espera =', 'const espera=']){

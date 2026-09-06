@@ -177,6 +177,89 @@ function confere(nome, condicao, detalhe = ''){
   confere('filtro de categoria reduz e restaura', etf.filtrado > 0 && etf.filtrado < etf.todos && etf.restaurado === etf.todos, etf.todos + ' → ' + etf.filtrado + ' → ' + etf.restaurado);
   confere('ordenação de ETF inverte', etf.dir1 !== etf.dir2, etf.dir1 + ' → ' + etf.dir2);
 
+  /* Historico de ETF: serie AJUSTADA, ao contrario da de FII. As duas
+     convencoes convivem no mesmo projeto, e a unica coisa que impede de
+     trocarem de lugar e alguem conferir. */
+  const metEtfC = await avalia(`await new Promise(r=>setTimeout(r,400));
+    const linhas=[...document.querySelectorAll('#boxTabelaEtf tbody tr')];
+    const comRet=linhas.filter(tr=>/\\d/.test(tr.querySelectorAll('td')[7].textContent)).length;
+    const esperado=ETF.filter(x=>typeof METRICAS_ETF[x.ticker]?.r252==='number').length;
+    const rot=[...document.querySelectorAll('#boxTabelaEtf thead th')].map(t=>t.textContent.trim().replace(/[▲▼]/g,''));
+    const temVp=Object.values(METRICAS_ETF).some(m=>m.vp252!==undefined);
+    const temProv=Object.values(METRICAS_ETF).some(m=>m.prov12!==undefined);
+    const alvo=ETF.find(x=>METRICAS_ETF[x.ticker]);
+    const tr=linhas.find(x=>x.dataset.te===alvo.ticker);
+    tr.focus();tr.click();await new Promise(r=>setTimeout(r,300));
+    const temGrafico=!!drw.querySelector('.spark');
+    const temBloco=/Histórico e liquidez/.test(drw.textContent);
+    document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape'}));
+    await new Promise(r=>setTimeout(r,260));
+    return {comRet,esperado,rot,temVp,temProv,temGrafico,temBloco,carregadas:Object.keys(METRICAS_ETF).length,tk:alvo.ticker};`);
+  confere('métricas de ETF entram sob demanda', metEtfC.carregadas > 0, metEtfC.carregadas + ' com histórico');
+  confere('retorno de ETF aparece onde a janela fecha', metEtfC.comRet === metEtfC.esperado && metEtfC.comRet > 0, metEtfC.comRet + '/' + metEtfC.esperado);
+  confere('ETF usa a convenção da série ajustada', !metEtfC.temVp && !metEtfC.temProv && metEtfC.rot.includes('Retorno 12m'),
+    metEtfC.temVp ? 'vp* vazou do FII' : metEtfC.temProv ? 'provento vazou do FII' : 'r252 e sem provento');
+  confere('ficha de ETF traz histórico e gráfico', metEtfC.temBloco && metEtfC.temGrafico, metEtfC.tk);
+
+  /* 3b. tabela de FII: total, filtro por tipo de carteira, ordenacao e P/VP */
+  await vai('fiis');
+  const fii = await avalia(`const n=()=>document.querySelectorAll('#boxTabelaFii tbody tr').length;
+    const todos=n(); const tipo=[...document.querySelectorAll('#fiiTipos input')][0]; const rotulo=tipo.value;
+    tipo.checked=true;tipo.dispatchEvent(new Event('change',{bubbles:true}));await new Promise(r=>setTimeout(r,260));
+    const filtrado=n();
+    const soDoTipo=[...document.querySelectorAll('#boxTabelaFii tbody tr')].every(tr=>tr.querySelectorAll('td')[3].textContent.trim()===rotulo);
+    tipo.checked=false;tipo.dispatchEvent(new Event('change',{bubbles:true}));await new Promise(r=>setTimeout(r,260));
+    const cli=()=>{document.querySelector('#boxTabelaFii th button[data-col=\\'pvp\\']').click();return st.fiiDir;};
+    const a=cli(),b=cli();
+    await new Promise(r=>setTimeout(r,260));
+    const comPvp=[...document.querySelectorAll('#boxTabelaFii tbody tr')].filter(tr=>/\\d/.test(tr.querySelectorAll('td')[6].textContent)).length;
+    const esperadoPvp=FII.filter(x=>{const r=cot(x.ticker);return r&&typeof x.valorPatrimonialCota==='number'&&x.valorPatrimonialCota>0;}).length;
+    return {todos,filtrado,soDoTipo,rotulo,restaurado:n(),esperado:FII.length,dir1:a,dir2:b,comPvp,esperadoPvp};`);
+  confere('tabela de FII lista o catálogo', fii.todos === fii.esperado, fii.todos + '/' + fii.esperado);
+  confere('filtro por tipo de carteira reduz, isola e restaura', fii.filtrado > 0 && fii.filtrado < fii.todos && fii.soDoTipo && fii.restaurado === fii.todos,
+    fii.todos + ' → ' + fii.filtrado + ' (' + fii.rotulo + ') → ' + fii.restaurado);
+  confere('ordenação de FII inverte', fii.dir1 !== fii.dir2, fii.dir1 + ' → ' + fii.dir2);
+  confere('P/VP aparece onde há preço e valor patrimonial', fii.comPvp === fii.esperadoPvp && fii.comPvp > 0, fii.comPvp + '/' + fii.esperadoPvp + ' linhas com P/VP');
+
+  /* A ficha do FII e a unica que mostra composicao de carteira em barras. */
+  const fichaFii = await avalia(`const alvo=FII.find(x=>x.tipo&&cot(x.ticker));
+    const tr=[...document.querySelectorAll('#boxTabelaFii tbody tr')].find(x=>x.dataset.tf===alvo.ticker);
+    tr.focus();tr.click();await new Promise(r=>setTimeout(r,300));
+    /* Escopado ao bloco da carteira: o de proventos tambem usa .dist. */
+    const bloco=[...drw.querySelectorAll('.bloco')].find(b=>/Composição da carteira/.test(b.querySelector('h3')?.textContent||''));
+    const barras=bloco?bloco.querySelectorAll('.dist .l').length:0;
+    const temPatrimonio=/Patrimônio/.test(drw.textContent);
+    document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape'}));
+    await new Promise(r=>setTimeout(r,260));
+    return {aberta:true,tk:alvo.ticker,barras,temPatrimonio,
+      voltou:document.activeElement.dataset&&document.activeElement.dataset.tf===alvo.ticker,
+      destravou:document.querySelector('.wrap').inert===false};`);
+  confere('ficha de FII mostra composição da carteira', fichaFii.barras === 3 && fichaFii.temPatrimonio, fichaFii.tk + ', ' + fichaFii.barras + ' faixas');
+  confere('Esc na ficha de FII devolve o foco à linha', fichaFii.voltou && fichaFii.destravou);
+
+  /* 3c. distribuicao: a coluna nao pode se vender como dividend yield, e quem
+     distribuiu mais que o proprio preco tem de chegar marcado -- senao o topo
+     de uma ordenacao vira devolucao de capital com cara de renda. */
+  const dist = await avalia(`document.querySelector('#boxTabelaFii th button[data-col="dist"]').click();
+    await new Promise(r=>setTimeout(r,300));
+    const linhas=[...document.querySelectorAll('#boxTabelaFii tbody tr')];
+    const cel=tr=>tr.querySelectorAll('td')[7];
+    const marcados=linhas.filter(tr=>cel(tr).querySelector('.na[title]')).length;
+    const esperado=FII.filter(x=>{const d=distFii(x);return d!==null&&d>=100;}).length;
+    const comValor=linhas.filter(tr=>/\\d/.test(cel(tr).textContent)).length;
+    const esperadoValor=FII.filter(x=>distFii(x)!==null).length;
+    const rot=[...document.querySelectorAll('#boxTabelaFii thead th')].map(t=>t.textContent.trim().replace(/[▲▼]/g,''));
+    /* A serie desta base e preco: nenhuma variacao de 12 meses pode explodir
+       como o ajustado explodia (XPML marcava +713,7%). */
+    const absurdos=Object.values(METRICAS_FII).filter(m=>typeof m.vp252==='number'&&Math.abs(m.vp252)>150).length;
+    const temR252=Object.values(METRICAS_FII).some(m=>m.r252!==undefined);
+    return {marcados,esperado,comValor,esperadoValor,rot,absurdos,temR252,
+      dizRendimento:rot.some(r=>/rendimento/i.test(r)), dizDistribuido:rot.some(r=>/distribuído/i.test(r))};`);
+  confere('coluna de distribuição não se chama rendimento', !dist.dizRendimento && dist.dizDistribuido, dist.rot[7] + ' / ' + dist.rot[8]);
+  confere('distribuição aparece onde há provento e preço', dist.comValor === dist.esperadoValor && dist.comValor > 0, dist.comValor + '/' + dist.esperadoValor);
+  confere('quem distribuiu mais que o próprio preço vem marcado', dist.marcados === dist.esperado && dist.marcados > 0, dist.marcados + ' marcados');
+  confere('variação de 12 meses vem da série de preço, não da ajustada', dist.absurdos === 0 && !dist.temR252, dist.absurdos + ' acima de 150%');
+
   /* 4. ficha: Esc devolve o foco a origem, e o fundo fica inerte de verdade */
   await vai('bdrs');
   const ficha = await avalia(`let t=Date.now();
@@ -202,7 +285,7 @@ function confere(nome, condicao, detalhe = ''){
   /* 5. nenhuma secao rola horizontalmente em 375 px */
   await abre(375, 812);
   const rolagem = [];
-  for(const sec of ['geral','empresas','bdrs','etfs','carteira','favoritos','radar','metodologia']){
+  for(const sec of ['geral','empresas','bdrs','etfs','fiis','carteira','favoritos','radar','metodologia']){
     await vai(sec);
     const x = await avalia('return {larg:innerWidth,scroll:document.documentElement.scrollWidth};');
     if(x.scroll > x.larg + 1) rolagem.push(sec + ' (' + x.scroll + '>' + x.larg + ')');

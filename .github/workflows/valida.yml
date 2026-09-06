@@ -17,6 +17,7 @@ jobs:
           python-version: '3.12'
       - run: node scripts/valida-bdrs.js
       - run: node scripts/valida-etfs.js
+      - run: node scripts/valida-fiis.js
       - run: node scripts/valida-taxonomia-etfs.js
       - run: node scripts/valida-pagina.js
       - run: node scripts/valida-url.js
@@ -31,6 +32,8 @@ jobs:
       - run: node scripts/testa-serie.js
       - run: node scripts/valida-metricas.js
       - run: node scripts/valida-metricas-empresas.js
+      - run: node scripts/valida-metricas-fiis.js
+      - run: node scripts/valida-metricas-etfs.js
       - run: node scripts/testa-metricas-empresas.js
       - run: node scripts/valida-analise.js
       - run: node scripts/valida-eventos.js

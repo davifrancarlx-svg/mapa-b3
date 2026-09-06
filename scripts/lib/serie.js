@@ -49,17 +49,48 @@ function extraiHistorico(h){
     .sort((a,b) => a.ts - b.ts);
 }
 
-async function historico(ticker, tentativa = 1){
-  try{
-    const u = 'https://query1.finance.yahoo.com/v8/finance/chart/' + ticker + '.SA'
-      + '?interval=1d&range=2y&events=div%2Csplits&includeAdjustedClose=true';
-    const r = await fetch(u, { headers:{ 'User-Agent':UA }, signal: AbortSignal.timeout(25000) });
-    if(r.status !== 200) throw new Error('status ' + r.status);
-    return extraiHistorico((await r.json()).chart?.result?.[0]);
-  } catch(err){
-    if(tentativa < 3){ await espera(700 * tentativa); return historico(ticker, tentativa + 1); }
+/* Proventos vem no mesmo chart (`events=div`), e ate agora eram descartados.
+   Nao entram em calcula() de proposito: BDR e acao brasileira nao publicam
+   rendimento por este caminho, e enfiar o campo la faria as duas bases
+   existentes crescerem com uma coluna sempre vazia. Quem usa e o gerador de
+   FII, onde o rendimento mensal e a medida central do universo. */
+function extraiProventos(h){
+  const d = h?.events?.dividends;
+  if(!d || typeof d !== 'object') return [];
+  return Object.values(d)
+    .filter(x => x && Number.isFinite(x.date) && Number.isFinite(x.amount) && x.amount > 0)
+    .map(x => ({ d: dia(x.date), v: x.amount }))
+    .sort((a, b) => a.d.localeCompare(b.d));
+}
+
+const urlChart = ticker => 'https://query1.finance.yahoo.com/v8/finance/chart/' + ticker + '.SA'
+  + '?interval=1d&range=2y&events=div%2Csplits&includeAdjustedClose=true';
+
+async function baixaChart(ticker){
+  const r = await fetch(urlChart(ticker), { headers:{ 'User-Agent':UA }, signal: AbortSignal.timeout(25000) });
+  if(r.status !== 200) throw new Error('status ' + r.status);
+  return (await r.json()).chart?.result?.[0];
+}
+
+/* A retentativa cobre o download E a extracao, como sempre cobriu: um payload
+   truncado chega com status 200 e so estoura na hora de ler a serie ajustada. */
+async function tentaTres(fn, tentativa = 1){
+  try{ return await fn(); }
+  catch(err){
+    if(tentativa < 3){ await espera(700 * tentativa); return tentaTres(fn, tentativa + 1); }
     throw err;
   }
+}
+
+async function historico(ticker){
+  return tentaTres(async () => extraiHistorico(await baixaChart(ticker)));
+}
+
+async function historicoProventos(ticker){
+  return tentaTres(async () => {
+    const c = await baixaChart(ticker);
+    return { rows: extraiHistorico(c), proventos: extraiProventos(c) };
+  });
 }
 
 /* `extras` entra primeiro para preservar a ordem dos campos ja publicados
@@ -93,4 +124,4 @@ function calcula(rows, extras = {}){
   };
 }
 
-module.exports = { UA, espera, arred, media, mediana, retorno, desvio, dia, offsetDias, extraiHistorico, historico, calcula };
+module.exports = { UA, espera, arred, media, mediana, retorno, desvio, dia, offsetDias, extraiHistorico, extraiProventos, historico, historicoProventos, calcula };

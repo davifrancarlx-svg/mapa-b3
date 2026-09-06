@@ -1,7 +1,10 @@
 const fs=require('fs'),path=require('path'),vm=require('vm'),assert=require('node:assert/strict');
 const codigo=fs.readFileSync(path.join(__dirname,'..','index.html'),'utf8').match(/<script>([\s\S]*?)<\/script>/)[1];
 const nos={},no=id=>nos[id]||={disabled:false,textContent:'',innerHTML:'',title:''};let chamada='',renders=0;
-const ctx=vm.createContext({console,Date,PRECOS:{ANTIGA:{p:1}},COLETAS:{precos:''},PRECO_TS:'',isoCSV:d=>new Date(d).toISOString(),agendaRender:()=>renders++,$:no,fetch:async(url,opt)=>{chamada=url;assert.equal(opt.cache,'no-store');return {ok:true,json:async()=>({atualizadoEm:'2026-09-04T12:30:00Z',precos:{PETR4:{p:30}}})};}});
+const ctx=vm.createContext({console,Date,PRECOS:{ANTIGA:{p:1}},COLETAS:{precos:''},PRECO_TS:'',isoCSV:d=>new Date(d).toISOString(),agendaRender:()=>renders++,$:no,fetch:async(url,opt)=>{chamada=url;/* no-cache, nao no-store: os dois revalidam sempre, mas so o primeiro
+     aceita um 304 vazio quando o arquivo nao mudou. O botao manual ainda
+     acrescenta ?v= para furar qualquer cache. */
+    assert.equal(opt.cache,'no-cache');return {ok:true,json:async()=>({atualizadoEm:'2026-09-04T12:30:00Z',precos:{PETR4:{p:30}}})};}});
 vm.runInContext(codigo.slice(codigo.indexOf('function carregaPrecos('),codigo.indexOf('function carregaBDRs(')),ctx);
 (async()=>{
   await ctx.carregaPrecos(true);assert.match(chamada,/^precos\.json\?v=\d+$/);assert.equal(ctx.PRECOS.PETR4.p,30);assert.equal(no('atualizaPrecosBt').disabled,false);assert.equal(no('atualizaPrecosBt').textContent,'atualizar cotações');assert.match(no('precosMsg').textContent,/^cotações de /);assert.equal(renders,1);

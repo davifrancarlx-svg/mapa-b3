@@ -16,6 +16,34 @@ atualizadas automaticamente durante o pregão.
 - **222 ETFs** — lista completa da B3 nas seis categorias oficiais de fundo listado tipo
   ETF, com ticker e categoria; base deliberadamente mais enxuta que a de BDR (ver seção
   "Fonte dos dados")
+- **528 fundos imobiliários** — lista completa da B3, com patrimônio, valor patrimonial da
+  cota e classificação derivada da carteira declarada à CVM. Detalhes de fonte, junção e
+  classificação em `FIIS.md` — leia antes de mexer
+
+## Público e plataforma
+
+**Este projeto tem um usuário: o autor.** Não é produto, não tem outros
+visitantes e não vai ter. Decidido em 06/09/2026, e isso reordena a prioridade
+de quase toda melhoria — o que se justificava por "primeira visita", "alcance"
+ou "quem recebe o link" perdeu a razão de ser; o que se justifica por uso
+repetido, todo dia, na mesma máquina, ganhou.
+
+**Não faça mais trabalho de mobile.** O uso é só em desktop. O problema
+conhecido está medido — em 375 px a barra de seções tem 627 px de conteúdo em
+335 px visíveis, e com `scrollbar-width:none` quatro das oito seções
+(Carteira, Favoritos, Radar, Metodologia) ficam invisíveis sem qualquer pista.
+Fica registrado e **não é pendência**. Não remova o que já existe de
+responsivo; apenas não invista mais ali.
+
+O que **continua** valendo apesar do usuário único:
+
+- **Acessibilidade de teclado**, porque o próprio autor navega por teclado. O
+  que perde força é conformidade formal e leitor de tela de terceiros.
+- **Integridade editorial.** A separação entre dado oficial, estimativa e
+  leitura autoral não existe para convencer um leitor externo: existe para o
+  autor não confundir as três em decisão própria daqui a seis meses. Essa é a
+  regra que menos deve afrouxar com o público reduzido.
+- **Sem recomendação de investimento**, pelo mesmo motivo.
 
 ## Regra número um: não reescreva o que já funciona
 
@@ -60,6 +88,9 @@ index.html          const D = {...}  ← 369 empresas, embutido no arquivo (font
    │                 fetch('bdrs.json')     ← lista de BDRs, carregado em runtime
    │                 fetch('etfs.json')     ← lista de ETFs, carregado em runtime
    │                 fetch('etfs-detalhes.json') ← curadoria progressiva de índice e carteira
+   │                 fetch('fiis.json')     ← fundos imobiliários, carregado em runtime
+   │   (garante)     fetch('metricas-fiis.json') ← histórico e proventos dos FIIs
+   │                 fetch('metricas-etfs.json') ← histórico dos ETFs
    │                 fetch('metricas.json') ← indicadores históricos, carregado em runtime
    │                 fetch('saude.json')    ← datas, coberturas e alertas das bases
    │  sob demanda    fetch('metricas-empresas.json') ← indicadores das empresas brasileiras
@@ -70,6 +101,10 @@ index.html          const D = {...}  ← 369 empresas, embutido no arquivo (font
 scripts/atualiza-precos.js   lê os tickers DO index.html + do bdrs.json + do etfs.json → grava precos.json
 scripts/gera-bdrs.js         API da B3 + perfis do Yahoo + complementos → grava bdrs.json
 scripts/gera-etfs.js         API da B3 (fundos listados) + verificação de ticker no Yahoo → grava etfs.json
+scripts/gera-fiis.js         API da B3 (typeFund FII) + informe mensal da CVM → grava fiis.json
+scripts/atualiza-metricas-fiis.js Yahoo diario (preco, nao ajustado) + proventos → grava metricas-fiis.json
+scripts/atualiza-metricas-etfs.js Yahoo diario ajustado → grava metricas-etfs.json
+scripts/lib/zip.js            leitor de ZIP proprio, para os pacotes de dados abertos da CVM
 scripts/lib/serie.js          núcleo compartilhado dos dois geradores de métricas
 scripts/atualiza-metricas.js Yahoo diário ajustado → grava metricas.json
 scripts/atualiza-metricas-empresas.js Yahoo diário ajustado → grava metricas-empresas.json
@@ -91,6 +126,20 @@ casando chaves (com consciência de string). Consequências:
 **Os arquivos JSON de runtime são separados, e precisam continuar sendo.** O
 GitHub Actions commita o `precos.json` sozinho a cada 30 min; embutir os preços no HTML
 mataria a atualização automática.
+
+**Cinco bases entram sob demanda, não no boot** (`analise`, `metricasEmpresas`,
+`eventos`, `metricasFiis`, `metricasEtfs`). O texto abaixo descreve as três
+primeiras; as duas de fundos seguem exatamente o mesmo desenho.
+
+**Falha de carga não pode virar afirmação sobre o dado.** `ESTADO_BASE` guarda
+`ausente`/`carregando`/`pronta`/`falha` por base, e quem falha **libera a promessa**
+em `PEDIDOS` para a próxima interação tentar de novo — antes, uma queda de rede
+transitória desligava paridade, comparação e CSV pelo resto da sessão, e o
+comparador passava a dizer "Sem análise", que é uma afirmação sobre a base e não
+sobre a carga. `recadoBase()` é o texto único das três situações, e precisa ser
+lido **antes** de chamar `garante()`, que repõe o estado para `carregando` e
+apagaria a informação de que a tentativa anterior falhou. `testa-csv.js` reprova
+essa inversão.
 
 **Três bases entram sob demanda, não no boot.** `analise.json`, `metricas-empresas.json`
 e `eventos.json` somam 3 MB e nenhuma delas desenha a Visão geral: a primeira só aparece
@@ -125,7 +174,7 @@ e a barra inicial quebraria lá.
 
 ## Arquitetura de navegação
 
-São **oito seções**, uma por universo, controladas por `st.sec` e pela função `navega()`:
+São **nove seções**, uma por universo, controladas por `st.sec` e pela função `navega()`:
 
 | Seção | `st.sec` | Contêiner |
 |---|---|---|
@@ -133,6 +182,7 @@ São **oito seções**, uma por universo, controladas por `st.sec` e pela funç�
 | Empresas brasileiras | `empresas` | `#secEmpresas` — mosaico ou tabela |
 | BDRs | `bdrs` | `#secBdrs` — tabela, cards ou matriz |
 | ETFs | `etfs` | `#secEtfs` — tabela ou cards |
+| Fundos imobiliários | `fiis` | `#secFiis` — tabela ou cards |
 | Carteira | `carteira` | `#secCarteira` — posições com quantidade e preço médio |
 | Favoritos | `favoritos` | `#secFavoritos` — lista de acompanhamento, sem posição |
 | Radar de listagens | `radar` | `#secRadar` — montada por `radarHTML()` |
@@ -143,10 +193,42 @@ guarda posição (quantidade e preço médio, em `mapaB3Carteira`); Favoritos é
 observação (`mapaB3Favoritos`). Marcar uma estrela não cria posição, e vice-versa —
 juntar as duas numa seção só já confundiu os dois papéis uma vez.
 
-A aba de ETFs **não tem treemap nem matriz**, de propósito: como BDR, é um conjunto
-grande e plano sem categoria hierárquica curada à mão (o treemap é exclusivo de
-`empresas`) e, diferente de BDR, ainda não tem histórico de retorno/liquidez para
-sustentar um eixo de dispersão. Não adicione um até existir um `metricas-etfs.json`.
+A aba de ETFs **não tem treemap**, de propósito: como BDR, é um conjunto grande e
+plano sem categoria hierárquica curada à mão (o treemap é exclusivo de `empresas`).
+
+**A matriz de dispersão deixou de estar bloqueada:** `metricas-etfs.json` existe
+desde 06/09/2026, com retorno, giro e volatilidade dos 201 ETFs que têm histórico.
+Ela não foi adicionada — é decisão de produto em aberto, não impedimento técnico.
+
+`metricas-etfs.json` usa a **série ajustada**, como BDR e empresas, e os campos se
+chamam `r21`/`r63`/`r252`: são comparáveis com aqueles. Isso foi medido antes de
+decidir — BOVA11, IVVB11 e HASH11 dão série ajustada idêntica à de preço e zero
+proventos em dois anos, porque ETF brasileiro reinveste em vez de distribuir. É o
+contrário do FII, e o validador de cada base reprova a convenção da outra: um `vp*`
+em ETF ou um `r*` em FII derruba a geração. Se um dia surgir ETF que distribua com
+frequência, refaça a conta antes de continuar confiando no ajustado.
+
+A aba de FIIs também não tem treemap nem matriz, pelo mesmo motivo.
+
+**`metricas-fiis.json` é a única base em que a série é o PREÇO, não o ajustado.**
+Em FII o ajuste retroativo do Yahoo se acumula com distribuições mensais,
+amortizações e emissões: o XPML11 marcava +713,7% de "retorno" num ano em que a
+cota andou 0,3%. Por isso os campos se chamam `vp21`/`vp63`/`vp252` — variação
+de preço — e **não** `r21`/`r63`/`r252`. Não renomeie de volta e não compare
+com as outras bases: o validador reprova as duas coisas.
+
+**A coluna "Distribuído 12m" não é dividend yield, e não pode passar a se
+chamar assim.** O evento de provento do Yahoo junta rendimento e amortização de
+cota sem separar; dos 342 fundos com distribuição, 10 distribuíram mais que o
+próprio preço. Esses vêm marcados com `!` — critério que não é limiar
+arbitrário, e sim impossibilidade lógica. O campo `Percentual_Amortizacao_Cotas_Mes`
+da CVM foi testado como detector e pega só 12 dos 54 casos suspeitos.
+
+O que a seção de FII tem de próprio é o **P/VP**, derivado no cliente: preço de
+hoje sobre o valor patrimonial da cota do último informe. É o único número
+calculado no navegador nessa seção, e por isso anda sempre com a data do
+informe ao lado — os dois lados da conta não são do mesmo dia, e ele não é
+medida de preço justo.
 
 **Mosaico e tabela são modos internos**, guardados em `st.modoEmp` e `st.modoBdr` — não são
 irmãos de "BDRs" na navegação. Essa confusão era o principal problema da versão anterior:
@@ -242,6 +324,18 @@ JSONs de runtime usados pelos `fetch()` relativos, a `social.png` e a pasta `fon
   pela coincidência de ticker e `idB3`, com CNPJ confirmado em fonte oficial. Não inferir
   índice, carteira, geografia ou estratégia apenas pelo nome do fundo. Ao alterar o
   esquema, rode `node scripts/valida-taxonomia-etfs.js`.
+- **Fundos imobiliários: mesma API de fundos listados da B3**, com `typeFund` em `FII` no
+  lugar das categorias de ETF. Não confundir com a categoria `ETF-FII` de `etfs.json`:
+  aquilo é ETF que segue índice de fundos imobiliários, não fundo imobiliário. O mesmo
+  endpoint ainda expõe FIAGRO, FI-INFRA, FIP e FIDC, que **não** entram hoje.
+- **Fundamento e carteira dos FIIs: informe mensal de FII da CVM** (dados abertos). Aqui
+  existe o que faltava aos ETFs — um elo que **não passa por nome**: o ISIN da cota, no
+  formato `BR` + acrônimo + `CTF`, carrega o próprio acrônimo da B3. **Mas o ISIN não é
+  único** (`BRSPTWCTF002` aparece em sete fundos), então ele só levanta candidatos e o
+  nome desempata — nessa ordem, nunca o contrário. A classificação tijolo/papel/fundo de
+  fundos vem da **carteira declarada no balanço**, não do campo `Segmento_Atuacao`, que
+  deixa 61% em "Multicategoria"/"Outros" e chega a errar (classifica o MXRF, fundo de
+  papel, como "Logística"). Tudo isso está detalhado em `FIIS.md`, com os números.
 - **Ativo-lastro e relação do programa: descritivos operacionais oficiais do Banco B3.**
   `scripts/gera-bdrs-referencia.py` lê os PDFs e registra o link específico de cada programa.
 - **Câmbio de referência: PTAX do Banco Central do Brasil.** Histórico do ativo-lastro e do
@@ -257,9 +351,21 @@ JSONs de runtime usados pelos `fetch()` relativos, a `social.png` e a pasta `fon
 - **`file://` bloqueia `fetch`.** Abrir o HTML com duplo clique mostra o mapa **sem preços e
   sem BDRs**, silenciosamente — a falha é capturada de propósito para a página não quebrar.
   Para testar de verdade, sirva por HTTP.
-- **`bdrs.json` e `etfs.json` não estão no cron.** Preços e métricas têm automações
-  próprias, mas as duas listas mudam raramente; rode `gera-bdrs.js`/`gera-etfs.js` à mão
-  quando precisar.
+- **`bdrs.json`, `etfs.json` e `fiis.json` não estão no cron.** Preços e métricas têm
+  automações próprias, mas as três listas mudam raramente; rode
+  `gera-bdrs.js`/`gera-etfs.js`/`gera-fiis.js` à mão quando precisar.
+- **112 dos 528 FIIs não têm cotação, e isso é normal.** A lista da B3 inclui fundos
+  restritos a investidor qualificado, que têm CNPJ e informe mas nunca negociaram. Foi
+  medido duas vezes, e **nenhum sufixo alternativo** (`11B`, `12`, `13`, `10`, `11A`)
+  devolve preço — não é o `+11` que está errado. Por isso o piso de cobertura de ticker em
+  `gera-fiis.js` é 70%, e não os 85% de `gera-etfs.js`: copiar aquele número derruba a
+  geração toda vez. Quem protege contra a API quebrar é a guarda relativa contra a última
+  geração boa.
+- **Patrimônio líquido negativo de FII é real** (o Panamby declara −R$ 27,3 milhões); não
+  trate como erro. Já **zero em valor da cota é ausência de dado**, e vira `null` — um
+  informe chega a declarar 500 bilhões de cotas para R$ 50 mil de patrimônio. Mesma lógica
+  do preço zero em `precos.json`. E **componente negativa de carteira cancela a
+  classificação inteira**: sem número honesto, sem rótulo.
 - **`metricas.json` tem cron diário separado.** Retornos usam 21/63/252 pregões ajustados;
   força relativa é a diferença para a mediana da indústria ou setor, e giro médio inclui
   sessões sem negócio. Não compare preços nominais de BDRs como medida de oportunidade.

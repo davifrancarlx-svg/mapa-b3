@@ -19,18 +19,25 @@ Repositório: <https://github.com/davifrancarlx-svg/mapa-b3>
 - 369 empresas brasileiras, curadas manualmente em `const D` dentro de `index.html`.
 - 825 BDRs, com país, setor, indústria traduzida e fonte rastreável.
 - 222 ETFs nas seis categorias oficiais, com 15 detalhados em `etfs-detalhes.json`.
-- Oito seções: visão geral, empresas, BDRs, ETFs, carteira, favoritos, radar e metodologia.
+- 528 fundos imobiliários, classificados pela carteira declarada à CVM (206 tijolo,
+  103 fundo de fundos, 73 papel, 33 híbrido, 113 sem carteira classificável), com
+  patrimônio, valor patrimonial da cota e P/VP. Ver `FIIS.md`.
+- Nove seções: visão geral, empresas, BDRs, ETFs, FIIs, carteira, favoritos, radar
+  e metodologia.
 - URLs compartilham seção, ficha, modo, filtros e ordenação.
 - Favoritos, carteira e comparação permanecem locais no navegador.
-- **23 validadores**, todos verdes, incluindo um que abre a página num Chrome headless.
+- **26 validadores**, todos verdes, incluindo um que abre a página num Chrome headless
+  com 30 verificações.
+- Cinco bases entram sob demanda, e falha de carga tem estado próprio: a página
+  distingue "carregando" de "não foi possível" e volta a tentar sozinha.
 
 O projeto é HTML, CSS e JavaScript puro, sem framework, bundler ou dependências —
 agora inclusive sem o Google Fonts. Não alterar essa arquitetura. Os `fetch()`
 precisam continuar relativos e os JSONs de runtime devem permanecer separados.
 
-## Alterações não commitadas
+## Revisão em blocos (commitada e publicada)
 
-Uma revisão completa em blocos. Nenhuma foi commitada nem publicada.
+Commits `aea6a93` e `7d979e0` em `main`, publicados no GitHub Pages e no Lovable.
 
 **Carga e render**
 - Três bases pesadas (`analise.json`, `metricas-empresas.json`, `eventos.json`) entram
@@ -104,17 +111,63 @@ Uma revisão completa em blocos. Nenhuma foi commitada nem publicada.
 
 ## Pendências deliberadas
 
-- **Bloco 4, pulado a pedido:** no celular a navegação tem 627 px de conteúdo em 335 px
-  com `scrollbar-width:none`, então Favoritos, Radar e Metodologia ficam invisíveis, sem
-  pista de que a barra rola. O mesmo vale para os recortes de exploração.
+- **Mobile saiu do escopo (06/09/2026).** O uso é só desktop; ver "Público e plataforma"
+  no `AGENTS.md`. O diagnóstico fica registrado caso volte: em 375 px a navegação tem
+  627 px de conteúdo em 335 px, e quatro das oito seções ficam invisíveis. **Não é
+  pendência.**
 - O mosaico tem 369 paradas de Tab. Resolver exige `tabindex` rotativo com navegação por
   setas, que mexe perto do `squarify()`.
 - Unificar `relativos()` entre os geradores — muda dado publicado.
 
+## Decisões declaradas em 06/09/2026
+
+- **Fundos imobiliários entraram, com histórico.** Novo universo, pedido
+  explicitamente e priorizado acima dos blocos de melhoria. `fiis.json` (catálogo,
+  CVM, classificação) e `metricas-fiis.json` (399 fundos com histórico, 342 com
+  distribuição). Duas decisões que estão em `FIIS.md` e não devem ser desfeitas:
+  a série é o **preço**, não o ajustado (campos `vp*`), e a coluna de distribuição
+  **não é dividend yield**.
+- **ETFs ganharam histórico.** `metricas-etfs.json`, série ajustada e campos `r*`,
+  comparáveis com BDR e empresas — o oposto do FII, e medido antes de decidir.
+- **Correções de integridade.** Um literal de contagem que eu mesmo tinha introduzido
+  na ficha de FII ("112 dos 528"), a fórmula do peso duplicada no mini mapa,
+  `<main>` e link de pular, e `no-store` trocado por `no-cache` em todos os `fetch`.
+  A regra de contagem literal deixou de ser uma lista curada e passou a ser genérica,
+  cobrindo markup e script; sete regressões foram reinjetadas para provar que ela pega.
+- **A Metodologia sai no futuro.** O autor declarou que a seção não lhe é útil. Ainda
+  **não** é tarefa — esperar o pedido. Ao remover, lembrar que `SECOES`, `navega()`,
+  `leURL()`/`padroesURL()`, `cabecalhoSecao()` e vários validadores citam
+  `metodologia`, e que parte das contagens derivadas vive nesse texto.
+- **A carteira precisa sobreviver à troca de desktop.** Hoje mora só em
+  `localStorage` e zera em cada máquina. Isto é a "decisão explícita do projeto" que
+  o `AGENTS.md` exigia para relaxar a regra de não ter sincronização. **Ponto em
+  aberto antes de implementar:** o repositório é público, então commitar quantidade e
+  preço médio publica a posição financeira do autor, e o histórico do git a preserva.
+
 ## Próxima entrega recomendada
 
-Commitar e publicar o que está acima, depois retomar a ampliação de
-`etfs-detalhes.json` em lotes pequenos, com fontes oficiais e o validador verde.
+**Commitar e publicar.** Nada desde a revisão em blocos foi commitado: os fundos
+imobiliários, o histórico de ETF, o cache, o estado de carga e as correções de
+integridade estão todos só no disco.
+
+Depois disso, em ordem de valor:
+
+1. **Tirar a série do gráfico do boot.** `metricas.json` ainda leva 187 KB gzip de
+   série que só é usada ao abrir uma ficha de BDR.
+2. **Força relativa dentro do tipo de FII** — comparar distribuição e P/VP contra a
+   mediana dos fundos da mesma carteira, como `relativos()` já faz por indústria
+   nos BDRs. Comparar P/VP de fundo de papel com o de tijolo não diz nada.
+3. **Matriz de dispersão dos ETFs**, agora destravada por `metricas-etfs.json`.
+4. **FIAGRO (49) e FI-INFRA (41)** — uma linha em `gera-fiis.js`.
+
+Pendente de decisão do autor, sem trabalho iniciado: **como persistir a carteira**
+entre desktops sem publicar a posição num repositório público (a recomendação é
+arquivo cifrado com WebCrypto), e **remover a Metodologia** — ela foi atualizada
+para não ficar factualmente errada, mas segue marcada para sair.
+
+Sem solução conhecida: separar rendimento de amortização nos FIIs. A CVM publica o
+percentual de amortização mensal, mas ele identifica só 12 dos 54 fundos com
+distribuição suspeita.
 
 ## Prompt curto para a próxima conversa
 

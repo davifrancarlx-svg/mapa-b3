@@ -9,10 +9,29 @@ const bases={
   metricasEmpresas:{atualizadoEm:ts,totalEmpresas:2,metricas:{A:{n:252,dt:'2026-09-02'},B:{n:252,dt:'2026-09-03'}}},
   analise:{atualizadoEm:ts,totalBDRs:2,analise:{A:{precoAtivo:10,fator:1,dtAtivo:'2026-09-02'},B:{precoAtivo:10,fator:1,dtAtivo:'2026-09-03'}}},
   etfsDetalhes:{geradoEm:ts,totalCatalogo:2,totalDetalhados:1,etfs:[{ticker:'AAAA11',idB3:1,classificacao:{},revisadoEm:'2026-09-01'}]},
+  fiis:{geradoEm:ts,catalogoB3:{total:2},fiis:[{ticker:'CCCC11',nome:'Fundo C',idB3:11,informeEm:'2026-08-01'},{ticker:'DDDD11',nome:'Fundo D',idB3:12,informeEm:'2026-08-01'}]},
+  metricasFiis:{atualizadoEm:ts,totalFIIs:2,elegiveis:2,metricas:{CCCC11:{n:252,dt:'2026-09-02'},DDDD11:{n:252,dt:'2026-09-03'}}},
+  metricasEtfs:{atualizadoEm:ts,totalETFs:2,elegiveis:2,metricas:{AAAA11:{n:252,dt:'2026-09-02'},BBBB11:{n:252,dt:'2026-09-03'}}},
   eventos:{atualizadoEm:ts,eventos:{A:[{dt:'2026-08-31',url:'https://www.rad.cvm.gov.br/documento'}]}}
 };
 const normal=gera(bases,agora);valida(normal);assert.equal(normal.estado,'ok');assert.equal(normal.fontes.precos.registros,2);assert.equal(normal.fontes.eventos.cobertura,null);
 const casos=[normal];
+/* FII e catalogo: o piso mede a integridade da LISTA, nao a renovacao. Sem
+   isso, os 112 fundos restritos que nunca negociaram deixariam a fonte
+   vermelha para sempre. */
+{
+  const b=structuredClone(bases);b.fiis.fiis[1].tickerVerificado=false;
+  const s=gera(b,agora);valida(s);casos.push(s);
+  assert.equal(s.fontes.fiis.cobertura,100);assert.equal(s.fontes.fiis.coberturaRenovada,50);
+  assert.equal(s.fontes.fiis.preservados,1);assert.equal(s.estado,'ok');
+  assert.equal(avaliaFonte(s.fontes.fiis,agora,'fiis').length,0);
+}
+{
+  const b=structuredClone(bases);b.fiis.fiis.pop();
+  const s=gera(b,agora);valida(s);casos.push(s);
+  assert.equal(s.fontes.fiis.cobertura,50);assert.equal(s.estado,'atencao');
+  assert.ok(s.avisos.some(a=>a.includes('Catálogo FII')));
+}
 {
   const b=structuredClone(bases);b.etfs.etfs[1].tickerVerificado=false;
   const s=gera(b,agora);valida(s);casos.push(s);
@@ -52,7 +71,7 @@ for(const k of ['metricasBdr','metricasEmpresas','analise']){
 for(const k of Object.keys(FONTES)){
   for(const valor of [null,{},'invalido']){const b=structuredClone(bases);b[k]=valor;const s=gera(b,agora);valida(s);assert.equal(s.estado,'atencao');casos.push(s);}
   // Catalogos e detalhamento datam com geradoEm; as bases coletadas, com atualizadoEm.
-  for(const valor of [null,'invalida','2026-09-04T15:00:00Z']){const b=structuredClone(bases);b[k][['bdrs','etfs','etfsDetalhes'].includes(k)?'geradoEm':'atualizadoEm']=valor;const s=gera(b,agora);valida(s);assert.equal(s.estado,'atencao');casos.push(s);}
+  for(const valor of [null,'invalida','2026-09-04T15:00:00Z']){const b=structuredClone(bases);b[k][['bdrs','etfs','etfsDetalhes','fiis'].includes(k)?'geradoEm':'atualizadoEm']=valor;const s=gera(b,agora);valida(s);assert.equal(s.estado,'atencao');casos.push(s);}
 }
 for(const modifica of [b=>b.precos.precos.A.p=0,b=>b.precos.tickersConsultados=0,b=>b.precos.tickersConsultados=1,b=>b.bdrs.bdrs[1]=b.bdrs.bdrs[0],b=>b.bdrs.bdrs[0].industria='',b=>b.eventos.eventos={},b=>b.metricasBdr.metricas.A.dt='2026-02-30']){
   const b=structuredClone(bases);modifica(b);const s=gera(b,agora);valida(s);assert.equal(s.estado,'atencao');casos.push(s);
