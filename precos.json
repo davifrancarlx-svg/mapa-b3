@@ -1,5 +1,5 @@
 {
- "atualizadoEm": "2026-09-06T16:18:28.304Z",
+ "atualizadoEm": "2026-09-07T18:05:30.213Z",
  "fonte": "Yahoo Finance (nao oficial), cotacoes com atraso",
  "tickersConsultados": 2050,
  "tickersComPreco": 1854,
@@ -979,7 +979,7 @@
   "CEED4": {
    "p": 20,
    "v": 0,
-   "f": null,
+   "f": 20,
    "vol": 0,
    "giro": 0,
    "t": 1788481907,
@@ -2582,8 +2582,8 @@
    "p": 42.01,
    "v": -5.6,
    "f": 44.5,
-   "vol": 100,
-   "giro": 4201,
+   "vol": 200,
+   "giro": 8402,
    "t": 1788529079,
    "estado": "CLOSED"
   },
