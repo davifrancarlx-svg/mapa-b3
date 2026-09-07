@@ -9,11 +9,12 @@
  * da CVM sem CNPJ, CNPJ repetido entre fundos, caminho de juncao nao
  * declarado, ou rotulo que nao decorra das fracoes publicadas.
  *
- * Sao tres camadas, e a ordem entre elas e o contrato: complemento conferido a
- * mao, ISIN da cota e, em ultimo recurso, nome oficial completo. A terceira
- * relaxou uma regra que este projeto declarava inviolavel, e por isso ela e
- * cercada aqui: nao pode ultrapassar a do ISIN em volume, exige similaridade
- * alta, e cada fundo carrega em juncaoVia de onde veio.
+ * A JUNCAO E PELO CNPJ, E NUNCA POR NOME. O CNPJ vem da propria B3
+ * (Search/GetDetailFund, pelo idFNET). Foi assim que a regra "nunca por nome"
+ * voltou: entre 06/09/2026 e a descoberta desse endpoint, o gerador chegou a
+ * casar por nome em ultimo recurso, e produzia erros reais -- o RBLG11 (RB
+ * Capital Logistico) recebia o patrimonio do RB Capital Renda I. Nao volte a
+ * casar por texto: o CNPJ existe e e exato.
  *
  * Uso: node scripts/valida-fiis.js
  */
@@ -42,12 +43,12 @@ if(typeof base.geradoEm !== 'string' || !Number.isFinite(Date.parse(base.geradoE
 for(const k of ['lista', 'informe', 'juncao', 'classificacao', 'ticker']){
   if(typeof base.fontes?.[k] !== 'string' || !base.fontes[k].trim()) falha('metadado de fonte ausente: ' + k);
 }
-/* A fonte declarada precisa descrever as TRES camadas. Antes esta regra exigia
-   a frase "nunca por nome"; ela caiu em 06/09/2026, quando o nome virou ultimo
-   recurso -- mas so sob as condicoes que o gerador aplica, e a declaracao tem
-   de dizer isso, senao a proxima pessoa afrouxa mais um pouco sem perceber. */
-for(const t of [/ISIN/i, /complemento/i, /ultimo/i])
-  if(!t.test(base.fontes?.juncao || '')) falha('a juncao declarada precisa descrever as tres camadas (complemento, ISIN e nome em ultimo recurso)');
+/* A fonte declarada tem de dizer que a juncao e por CNPJ e que nao passa por
+   nome. A regra ja caiu uma vez, por algumas horas, e voltou quando o CNPJ
+   oficial apareceu -- deixar a frase explicita e o que impede a proxima
+   pessoa de afrouxar de novo sem perceber. */
+if(!/CNPJ/i.test(base.fontes?.juncao || '')) falha('a juncao declarada deve ser pelo CNPJ');
+if(!/nunca por nome/i.test(base.fontes?.juncao || '')) falha('a juncao declarada deve afirmar que nao casa por nome');
 
 const cat = base.catalogoB3 || {};
 if(cat.total !== fiis.length) falha('total declarado difere do tamanho da lista');
@@ -57,16 +58,14 @@ if(!Number.isInteger(cat.verificados) || !Number.isInteger(cat.preservados) || !
 }
 
 const cvm = base.cvm || {};
-for(const k of ['correspondentes', 'comCarteira', 'ambiguos', 'juncaoFraca', 'porComplemento', 'porIsin', 'porNome']){
+for(const k of ['correspondentes', 'comCarteira', 'comCnpj', 'porB3', 'porComplemento']){
   if(!Number.isInteger(cvm[k]) || cvm[k] < 0) falha('contagem da CVM invalida: ' + k);
 }
-if(cvm.juncaoFraca > cvm.correspondentes) falha('mais juncoes fracas do que correspondencias');
-/* Todo fundo com camada da CVM veio por exatamente um caminho. */
-if(cvm.porComplemento + cvm.porIsin + cvm.porNome !== cvm.correspondentes) falha('caminhos de juncao nao somam o total de correspondencias');
-/* A camada por nome e o unico ponto onde o projeto aceita casar por texto, e
-   so em ultimo recurso. Se ela virar a principal, alguma das anteriores
-   quebrou em silencio e o dado ficou mais fraco sem ninguem notar. */
-if(cvm.porNome > cvm.porIsin) falha('mais fundos casados por nome do que por ISIN; a ordem das camadas inverteu');
+if(cvm.porB3 + cvm.porComplemento !== cvm.comCnpj) falha('caminhos do CNPJ nao somam o total com CNPJ');
+if(cvm.correspondentes > cvm.comCnpj) falha('mais informes do que CNPJs; a juncao nao pode inventar correspondencia');
+/* O complemento manual e rede de seguranca, nao caminho principal. Se ele
+   passar a dominar, o endpoint da B3 quebrou e ninguem percebeu. */
+if(cvm.porComplemento > cvm.porB3) falha('mais CNPJs vindos de complemento manual do que da B3');
 if(cvm.correspondentes > fiis.length) falha('mais correspondencias da CVM do que fundos');
 if(cvm.comCarteira > cvm.correspondentes) falha('carteira classificada sem correspondencia na CVM');
 
@@ -76,7 +75,7 @@ for(const k of ['competenciaInicio', 'competenciaFim']){
 }
 if(cvm.competenciaInicio && cvm.competenciaFim && cvm.competenciaInicio > cvm.competenciaFim) falha('intervalo de competencia invertido');
 
-let comCVM = 0, comCarteira = 0, preservados = 0, naoVerificados = 0, fracas = 0;
+let comCVM = 0, comCarteira = 0, comCnpj = 0, preservados = 0, naoVerificados = 0;
 const cnpjs = new Map();
 
 fiis.forEach(x => {
@@ -92,33 +91,33 @@ fiis.forEach(x => {
   if(x.tickerVerificado === false) naoVerificados++;
   if(x.cvmAmbiguo !== undefined && x.cvmAmbiguo !== true) falha('marcador de ambiguidade invalido: ' + id);
 
-  /* Camada da CVM: ou vem inteira e ancorada num CNPJ, ou nao vem. */
-  const camposCVM = ['cnpj', 'segmentoCVM', 'gestao', 'publicoAlvo', 'administrador', 'informeEm', 'similaridade', 'juncaoVia',
-                     'patrimonioLiquido', 'valorPatrimonialCota', 'cotasEmitidas', 'cotistas', 'taxaAdministracao'];
-  const temAlgum = camposCVM.some(c => x[c] !== undefined);
-  if(x.juncaoFraca !== undefined && x.juncaoFraca !== true) falha('marcador de juncao fraca invalido: ' + id);
-  if(x.juncaoFraca === true){
-    fracas++;
-    if(!temAlgum) falha('juncao fraca sem camada da CVM: ' + id);
-  }
-  if(temAlgum){
-    comCVM++;
-    if(typeof x.cnpj !== 'string' || !/^\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}$/.test(x.cnpj)) falha('dado da CVM sem CNPJ valido: ' + id);
-    if(x.cvmAmbiguo === true) falha('fundo ambiguo nao pode carregar dado da CVM: ' + id);
-    /* A similaridade e o que torna a juncao auditavel depois: sem ela nao da
-       para saber se o par foi obvio ou apertado. */
-    if(typeof x.similaridade !== 'number' || !(x.similaridade >= 0 && x.similaridade <= 1)) falha('similaridade ausente ou fora de 0..1: ' + id);
-    /* De que evidencia veio este patrimonio -- sem isso nao da para auditar. */
-    if(!['complemento', 'isin', 'isin-fraco', 'nome'].includes(x.juncaoVia)) falha('caminho de juncao invalido ou ausente: ' + id);
+  /* O CNPJ vem da B3 e vale por si: existe mesmo quando a CVM nao tem informe
+     para o fundo, porque identifica quem ele e e permite conferir a mao. */
+  if(x.cnpj !== undefined){
+    comCnpj++;
+    if(typeof x.cnpj !== 'string' || !/^\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}$/.test(x.cnpj)) falha('CNPJ invalido: ' + id);
+    /* De onde ele veio. Nao ha mais caminho por texto, e um valor fora destes
+       dois significaria que alguem reintroduziu um. */
+    if(!['b3', 'complemento'].includes(x.juncaoVia)) falha('caminho de juncao invalido ou ausente: ' + id);
     if(x.juncaoVia === 'complemento'){
       if(typeof x.juncaoFonte !== 'string' || !/^https:\/\//.test(x.juncaoFonte)) falha('complemento sem fonte oficial: ' + id);
     } else if(x.juncaoFonte !== undefined) falha('fonte de complemento em juncao automatica: ' + id);
-    /* Casar por nome sem folga seria o erro que a camada existe para evitar. */
-    /* Jaccard, nao contencao -- ver o comentario das duas listas de ruido no
-       gerador. O piso mais baixo reflete a medida mais exigente. */
-    if(x.juncaoVia === 'nome' && !(x.similaridade >= 0.6)) falha('juncao por nome com similaridade insuficiente: ' + id);
-    if(x.juncaoVia === 'isin-fraco' && x.juncaoFraca !== true) falha('juncao fraca sem o marcador: ' + id);
-    if((x.similaridade < 0.4) !== (x.juncaoFraca === true)) falha('marcador de juncao fraca nao acompanha a similaridade: ' + id);
+  } else if(x.juncaoVia !== undefined) falha('caminho de juncao sem CNPJ: ' + id);
+
+  /* Restos da juncao por texto, que existiu por algumas horas em 06/09/2026 e
+     saiu quando o CNPJ oficial apareceu. Se voltarem, alguem reintroduziu o
+     casamento por nome que produzia atribuicao errada. */
+  for(const c of ['similaridade', 'juncaoFraca', 'cvmAmbiguo']){
+    if(x[c] !== undefined) falha(c + ' e resto da juncao por texto, que saiu da base: ' + id);
+  }
+
+  /* Camada da CVM: ou vem inteira, ou nao vem -- e so existe com CNPJ. */
+  const camposCVM = ['segmentoCVM', 'gestao', 'publicoAlvo', 'administrador', 'informeEm',
+                     'patrimonioLiquido', 'valorPatrimonialCota', 'cotasEmitidas', 'cotistas', 'taxaAdministracao'];
+  const temAlgum = camposCVM.some(c => x[c] !== undefined);
+  if(temAlgum){
+    comCVM++;
+    if(x.cnpj === undefined) falha('dado da CVM sem CNPJ: ' + id);
     if(!dia(x.informeEm)) falha('data do informe invalida: ' + id);
     for(const c of ['patrimonioLiquido', 'valorPatrimonialCota', 'cotasEmitidas', 'cotistas', 'taxaAdministracao']){
       if(x[c] !== undefined && x[c] !== null && (typeof x[c] !== 'number' || !Number.isFinite(x[c]))) falha('numero invalido em ' + c + ': ' + id);
@@ -131,13 +130,10 @@ fiis.forEach(x => {
     if(x.valorPatrimonialCota !== undefined && x.valorPatrimonialCota !== null && x.valorPatrimonialCota === 0) falha('valor patrimonial da cota gravado como zero em vez de null: ' + id);
     if(x.cotasEmitidas !== undefined && x.cotasEmitidas !== null && !(x.cotasEmitidas > 0)) falha('quantidade de cotas nao positiva em vez de null: ' + id);
     if(typeof x.cotistas === 'number' && (!Number.isInteger(x.cotistas) || x.cotistas < 0)) falha('numero de cotistas invalido: ' + id);
-    /* Um CNPJ so pode pertencer a um fundo: CNPJ repetido e a assinatura de
-       uma juncao que colou o mesmo informe em dois tickers. */
-    if(cnpjs.has(x.cnpj)) falha('CNPJ repetido em ' + cnpjs.get(x.cnpj) + ' e ' + id);
-    else cnpjs.set(x.cnpj, x.ticker);
-  } else if(x.cnpj !== undefined){
-    falha('CNPJ sem nenhum dado da CVM: ' + id);
   }
+  /* CNPJ sem informe NAO e erro: a B3 devolve o CNPJ dos 528, e 18 deles nao
+     aparecem no informe mensal da CVM. O fundo continua identificado; o que
+     falta e o dado do outro lado. */
 
   /* Classificacao: o rotulo tem de decorrer das fracoes publicadas, senao ele
      e opiniao disfarcada de derivacao. */
@@ -169,8 +165,13 @@ if(preservados !== cat.preservados) falha('total de registros preservados incons
 if(naoVerificados !== cat.naoVerificados) falha('total de tickers nao verificados inconsistente');
 if(comCVM !== cvm.correspondentes) falha('total de correspondencias da CVM inconsistente com os registros');
 if(comCarteira !== cvm.comCarteira) falha('total de carteiras classificadas inconsistente com os registros');
-if(fracas !== cvm.juncaoFraca) falha('total de juncoes fracas inconsistente com os registros');
-if(fiis.filter(x => x.cvmAmbiguo === true).length !== cvm.ambiguos) falha('total de fundos ambiguos inconsistente com o declarado');
+if(comCnpj !== cvm.comCnpj) falha('total de CNPJs inconsistente com os registros');
+if(fiis.filter(x => x.juncaoVia === 'b3').length !== cvm.porB3) falha('total de CNPJs vindos da B3 inconsistente');
+if(fiis.filter(x => x.juncaoVia === 'complemento').length !== cvm.porComplemento) falha('total de complementos manuais inconsistente');
+/* Um CNPJ nao pertence a dois fundos: repetido e a assinatura de uma juncao
+   que colou o mesmo informe em dois tickers. */
+const comCnpjLista = fiis.filter(x => x.cnpj).map(x => x.cnpj);
+if(new Set(comCnpjLista).size !== comCnpjLista.length) falha('ha CNPJ repetido entre fundos');
 
 /* A ordem alfabetica e contrato: o diff da base precisa ser legivel. */
 const ordenado = fiis.map(x => x.ticker).join('|');

@@ -343,17 +343,17 @@ JSONs de runtime usados pelos `fetch()` relativos, a `social.png` e a pasta `fon
   aquilo é ETF que segue índice de fundos imobiliários, não fundo imobiliário. O mesmo
   endpoint ainda expõe FIAGRO, FI-INFRA, FIP e FIDC, que **não** entram hoje.
 - **Fundamento e carteira dos FIIs: informe mensal de FII da CVM** (dados abertos). A
-  junção tem **três camadas**, porque não existe ponte pública entre o ticker da B3 e o
-  CNPJ da CVM: (1) complemento manual conferido em fonte oficial, em
-  `scripts/fiis-complementos.json`; (2) o ISIN da cota, que carrega o acrônimo da B3 —
-  mas vem sujo e repetido (`BRSPTWCTF002` aparece em sete fundos), então só levanta
-  candidatos e o nome desempata; (3) o nome oficial completo, **em último recurso**.
-  A camada 3 derrubou a regra "nunca por nome" que este arquivo trazia, em 06/09/2026, e
-  vive cercada: `fundName` completo e nunca o `tradingName` abreviado (era ele que
-  produzia falsos 1,00 — "FII BTG CRI" vira o token único BTG e casava com "BTG RENDA
-  URBANA"), dois termos distintivos, folga sobre o segundo colocado, e só CNPJ que
-  nenhum outro ticker reivindicou. Cada fundo grava `juncaoVia`; `valida-fiis.js`
-  reprova se a camada de nome ultrapassar a do ISIN em volume. A classificação
+  junção é **pelo CNPJ, e o CNPJ vem da própria B3**: `Search/GetDetailFund`, com o
+  `idFNET` que é o mesmo `id` da listagem, devolve o CNPJ dos 528 fundos. Junção exata,
+  **nunca por nome** e sem depender do `Codigo_ISIN` do informe, que vem vazio, `0` ou
+  com o acrônimo de outro fundo (o HIRE traz o do HYPI). Cobertura: 510 de 528 (96,6%).
+  O endpoint só é encontrado com `idFNET` — por acrônimo devolve 404, e foi isso que me
+  fez perder tempo com heurísticas antes.
+  **O mesmo endpoint devolve `tradingCode`, e ele NÃO serve para ticker:** vem `null`
+  para fundos que negociam (FLMA11 a R$ 155,95) e, quando difere do `+11`, é o `+11` que
+  tem cotação no Yahoo. São 17 divergências, todas medidas. O ticker continua sendo
+  acrônimo+11 confirmado no Yahoo. `scripts/fiis-complementos.json` sobra como rede de
+  segurança, e nasce vazio. A classificação
   tijolo/papel/fundo de fundos vem da **carteira declarada no balanço**, não do campo
   `Segmento_Atuacao`, que deixa 61% em "Multicategoria"/"Outros" e chega a errar
   (classifica o MXRF, fundo de papel, como "Logística"). Tudo em `FIIS.md`, com os números.

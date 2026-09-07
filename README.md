@@ -419,12 +419,11 @@ Filtros: tipo de carteira, presença de cotação, tipo de gestão e segmento de
 A aba **não** tem treemap nem matriz, de propósito: como em ETF, é conjunto plano
 sem hierarquia curada à mão.
 
-A lista é completa — são todos os FIIs que a B3 publica. O que varia é quanto de
-camada da CVM cada um tem: 476 dos 528 (90,2%). Os que faltam não estão no informe da
-CVM, e para eles existe `scripts/fiis-complementos.json`, preenchido à mão com fonte
-oficial.
+A lista é completa — são todos os FIIs que a B3 publica, os 528 com CNPJ oficial. A
+junção com o informe da CVM é exata, por CNPJ, e cobre 510 deles (96,6%). Os 18 que
+faltam têm identidade, mas não aparecem no informe mensal.
 
-Detalhes de fonte, as três camadas de junção e armadilhas: `FIIS.md`.
+Detalhes de fonte, a junção e armadilhas: `FIIS.md`.
 
 ## Carteira entre computadores
 

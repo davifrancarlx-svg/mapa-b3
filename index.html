@@ -11655,7 +11655,7 @@ function abreFII(ticker){
       l('Competência do informe', dia(x.informeEm), true) +
     '</dl>' + (typeof x.patrimonioLiquido === 'number' && x.patrimonioLiquido < 0 ? '<p class="fnt"><b>Patrimônio líquido negativo:</b> o fundo declarou passivo maior que ativo nesta competência.</p>' : '') +
       (v === null ? '' : '<p class="fnt">P/VP é derivado aqui, não publicado pelo fundo: preço de hoje sobre o valor patrimonial de ' + dia(x.informeEm) + '. O informe é mensal e atrasa, então os dois lados da conta não são do mesmo dia. Não é medida de preço justo.</p>')
-    : '<p class="fnt">Sem informe correspondente na CVM' + (x.cvmAmbiguo ? ': mais de um fundo declara o mesmo ISIN e não foi possível decidir qual é este sem risco de atribuir o patrimônio errado.' : '. Patrimônio, valor da cota e composição não estão disponíveis para este fundo.') + '</p>';
+    : '<p class="fnt">Sem informe correspondente na CVM. O fundo está identificado pelo CNPJ' + (x.cnpj ? ' ' + esc(x.cnpj) : '') + ', mas não aparece no informe mensal — patrimônio, valor da cota e composição não existem do outro lado.</p>';
 
   const m = metFii(ticker), prov = serieProventos(m), rend = distFii(x), rel = relativoFii(x);
   const historico = m ? '<dl class="kv">' +
@@ -11725,11 +11725,10 @@ function abreFII(ticker){
     '</dl><p class="fnt">O segmento acima é o campo que o fundo preenche no informe, e está aqui por rastreabilidade — não é o que classifica o fundo nesta página. Ele deixa a maioria em "Multicategoria" ou "Outros" e chega a errar: o MXRF, fundo de papel, aparece nele como logística. A carteira declarada é que manda.</p></div>' +
     '<div class="bloco"><h3>Classificação e fontes</h3>' +
       '<p class="fnt">Lista: <a href="https://sistemaswebb3-listados.b3.com.br/fundsListedPage/" target="_blank" rel="noopener noreferrer">B3, consulta oficial de fundos listados</a>.<br>' +
+      'CNPJ: B3, consulta de fundos listados — é ele que liga este fundo ao informe da CVM, sem passar por nome.<br>' +
       'Patrimônio, composição e identificação: <a href="https://dados.cvm.gov.br/dataset/fii-doc-inf_mensal" target="_blank" rel="noopener noreferrer">CVM, informe mensal de FII</a>, competência de ' + dia(x.informeEm) + '.<br>' +
       'Ticker: sigla da B3 com o sufixo +11' + (x.tickerVerificado === false ? ', ainda sem confirmação de cotação positiva no Yahoo Finance' : ', verificado no Yahoo Finance') + '. Cotação e giro do dia: Yahoo Finance, fonte não oficial.</p>' +
-      (x.juncaoFraca ? '<p class="fnt"><b>Correspondência com a CVM verificada com folga menor.</b> O ISIN do informe aponta para a sigla deste fundo, mas o nome na CVM difere bastante do nome na B3, então a ligação foi aceita com menos margem que a das demais.</p>' : '') +
-      (x.juncaoVia === 'nome' ? '<p class="fnt"><b>Correspondência feita pelo nome, não pelo ISIN.</b> O ISIN deste fundo no informe da CVM está ausente ou aponta para outra sigla, então a ligação veio do nome oficial completo — exigindo dois termos distintivos, folga sobre o segundo colocado e um CNPJ que nenhum outro fundo reivindica. É a evidência mais fraca desta base; confira o CNPJ acima antes de usar o patrimônio para decidir algo.</p>' : '') +
-      (x.juncaoVia === 'complemento' ? '<p class="fnt">Correspondência conferida à mão em fonte oficial: <a href="' + esc(x.juncaoFonte) + '" target="_blank" rel="noopener noreferrer">documento do fundo</a>.</p>' : '') +
+      (x.juncaoVia === 'complemento' ? '<p class="fnt">CNPJ conferido à mão em fonte oficial: <a href="' + esc(x.juncaoFonte) + '" target="_blank" rel="noopener noreferrer">documento do fundo</a>.</p>' : '') +
       '<p class="fnt">Rendimento e histórico: Yahoo Finance (não oficial), a partir dos eventos de provento da série diária. Consulte sempre o relatório gerencial e o regulamento oficiais do fundo. Nada aqui é recomendação de compra ou venda.</p></div>';
   drw.classList.add('on'); dim.classList.add('on'); travaFundo();
   drw.querySelector('.x').onclick = fecha;

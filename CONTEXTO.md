@@ -19,10 +19,10 @@ Repositório: <https://github.com/davifrancarlx-svg/mapa-b3>
 - 369 empresas brasileiras, curadas manualmente em `const D` dentro de `index.html`.
 - 825 BDRs, com país, setor, indústria traduzida e fonte rastreável.
 - 222 ETFs nas seis categorias oficiais, com 15 detalhados em `etfs-detalhes.json`.
-- 528 fundos imobiliários — **a lista completa que a B3 publica**. 476 (90,2%) com
-  informe da CVM: 434 pelo ISIN e 42 pelo nome oficial completo, em último recurso e
-  marcados. Classificados pela carteira declarada (220 tijolo, 121 fundo de fundos,
-  79 papel, 35 híbrido, 73 sem carteira). Ver `FIIS.md`.
+- 528 fundos imobiliários — **a lista completa que a B3 publica**, todos com CNPJ
+  oficial. 510 (96,6%) com informe da CVM, junção exata por CNPJ. Classificados pela
+  carteira declarada (235 tijolo, 127 fundo de fundos, 84 papel, 39 híbrido, 43 sem
+  carteira). Ver `FIIS.md`.
 - Nove seções: visão geral, empresas, BDRs, ETFs, FIIs, carteira, favoritos, radar
   e metodologia.
 - URLs compartilham seção, ficha, modo, filtros e ordenação.
@@ -147,20 +147,20 @@ Commits `aea6a93` e `7d979e0` em `main`, publicados no GitHub Pages e no Lovable
   aberto antes de implementar:** o repositório é público, então commitar quantidade e
   preço médio publica a posição financeira do autor, e o histórico do git a preserva.
 
-## Junção com a CVM: onde parou
+## Junção com a CVM: resolvida
 
-A cobertura foi de 82,2% para **90,2%** com a camada 3 (nome oficial completo). Os 52
-que faltam **não estão no informe da CVM**, ou estão sob um nome que nenhuma camada
-alcança — não é limitação de código, é ausência de dado público ligando ticker a CNPJ.
+**96,6%**, por CNPJ exato. A B3 expõe o CNPJ de cada fundo em
+`Search/GetDetailFund` — o parâmetro é o `idFNET`, que é o `id` que a listagem já
+devolve, e por acrônimo o endpoint dá 404. Os 528 fundos têm CNPJ.
 
-Para eles existe `scripts/fiis-complementos.json`, que nasce vazio: cada entrada é um
-CNPJ conferido à mão numa fonte oficial, com o link registrado, no mesmo padrão do
-`bdrs-complementos.json`. Ele tem prioridade sobre as duas junções automáticas.
+Isso apagou uma junção em três camadas que existiu por algumas horas em 06/09/2026 e
+chegava a casar por nome. Ela produzia erro real — o RBLG11 recebia o patrimônio do RB
+Capital Renda I —, e a regra **"nunca por nome" voltou**, agora afirmada pelo
+`valida-fiis.js`, que reprova a volta de `similaridade`, `juncaoFraca` ou `cvmAmbiguo`.
 
-Dois pares aceitos pela camada 3 são plausíveis mas não prováveis pelo nome, e valeria
-confirmá-los ali: **KOIM11** (Kinea Oportunidades Imobiliárias ↔ "Oportunidades
-Imobiliárias I") e **PLAG11** (Pátria Logística Agro ↔ "Pátria Agro"), ambos com
-Jaccard 0,67. Os dois trazem o aviso na ficha.
+Os 18 restantes têm CNPJ e identidade, mas **não aparecem no informe mensal da CVM**:
+falta o dado do outro lado, não a ligação. `scripts/fiis-complementos.json` fica como
+rede de segurança caso o endpoint da B3 falhe, e nasce vazio.
 
 ## O que sobrou
 
