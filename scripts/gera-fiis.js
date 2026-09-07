@@ -145,7 +145,12 @@ async function detalheB3(item, tentativa){
     const t = await r.text();
     if(t.length < 5) return null;
     const j = JSON.parse(t);
-    return formataCnpj(j.cnpj) ? { cnpj: formataCnpj(j.cnpj), classificacao: j.classification || null } : null;
+    /* Ignoramos j.classification de proposito: e a classificacao setorial da
+       B3, e foi medida contra a nossa. Repete o defeito do Segmento_Atuacao da
+       CVM (o MXRF, fundo de papel, aparece como "Logistica" nas duas) e nao
+       preenche nenhum dos 18 fundos sem informe, que e onde faria falta.
+       Quem classifica aqui e a carteira declarada. */
+    return formataCnpj(j.cnpj) ? { cnpj: formataCnpj(j.cnpj) } : null;
   } catch {
     if(tentativa < 3){ await espera(400 * tentativa); return detalheB3(item, tentativa + 1); }
     return null;
@@ -252,7 +257,7 @@ function leAnterior(){
   catch(err){ throw new Error('base anterior invalida: ' + err.message); }
 }
 
-(async () => {
+async function atualiza(){
   console.log('buscando lista oficial de FIIs na B3...');
   const anterior = leAnterior();
   const lista = await listaTodosFII();
@@ -282,7 +287,7 @@ function leAnterior(){
       const c = complementos[tk];
       const d = c ? { cnpj: c.cnpj } : await detalheB3(item);
       if(!d){ semCnpj++; }
-      else resolvido.set(tk, { cnpj: d.cnpj, via: c ? 'complemento' : 'b3', fonte: c ? c.fonte : undefined, classificacaoB3: d.classificacao });
+      else resolvido.set(tk, { cnpj: d.cnpj, via: c ? 'complemento' : 'b3', fonte: c ? c.fonte : undefined });
       if((i + 1) % 100 === 0) console.log('  ' + (i + 1) + '/' + lista.length);
       await espera(120);
     }
@@ -326,7 +331,6 @@ function leAnterior(){
       f.cnpj = r.cnpj;
       f.juncaoVia = r.via;
       if(r.via === 'complemento') f.juncaoFonte = r.fonte;
-      if(r.classificacaoB3) f.classificacaoB3 = r.classificacaoB3;
     }
     const g = r ? informe.geral[r.cnpj] : null;
     if(g){
@@ -404,4 +408,11 @@ function leAnterior(){
   fs.writeFileSync(TEMP, JSON.stringify(saida, null, 1) + '\n', 'utf8');
   fs.renameSync(TEMP, SAIDA);
   console.log('\ngravado fiis.json com ' + finais.length + ' fundos (' + (fs.statSync(SAIDA).size / 1024).toFixed(0) + ' KB)');
-})().catch(e => { console.error('ERRO:', e.message); process.exit(1); });
+}
+
+/* Sem este guard o arquivo nao pode ser exigido: um require dispararia as
+   1056 chamadas de rede da geracao. Os geradores de metricas ja faziam assim;
+   este ficou de fora ate alguem tentar reaproveitar leComplementos daqui. */
+module.exports = { leComplementos, formataCnpj };
+
+if(require.main === module) atualiza().catch(e => { console.error('ERRO:', e.message); process.exit(1); });

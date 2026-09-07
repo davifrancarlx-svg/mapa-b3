@@ -34,6 +34,15 @@ function falha(msg){
   process.exitCode = 1;
 }
 
+/* O arquivo de complementos so era conferido ao gerar, e gerar leva minutos.
+   Lido aqui, entrada malformada ou sem fonte oficial derruba na CI, antes de
+   alguem descobrir na proxima geracao. */
+/* O arquivo de complementos so era conferido ao gerar, e gerar leva minutos.
+   Lido aqui, entrada malformada ou sem fonte oficial derruba na CI, antes de
+   alguem descobrir na proxima geracao. */
+try { require('./gera-fiis').leComplementos(); }
+catch(e){ falha('fiis-complementos.json invalido: ' + e.message); }
+
 const fiis = Array.isArray(base.fiis) ? base.fiis : [];
 if(!Array.isArray(base.fiis)) falha('lista de FIIs ausente ou invalida');
 if(typeof base.geradoEm !== 'string' || !Number.isFinite(Date.parse(base.geradoEm))) falha('data de geracao invalida');
