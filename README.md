@@ -419,7 +419,12 @@ Filtros: tipo de carteira, presença de cotação, tipo de gestão e segmento de
 A aba **não** tem treemap nem matriz, de propósito: como em ETF, é conjunto plano
 sem hierarquia curada à mão.
 
-Detalhes de fonte, junção por ISIN e armadilhas: `FIIS.md`.
+A lista é completa — são todos os FIIs que a B3 publica. O que varia é quanto de
+camada da CVM cada um tem: 476 dos 528 (90,2%). Os que faltam não estão no informe da
+CVM, e para eles existe `scripts/fiis-complementos.json`, preenchido à mão com fonte
+oficial.
+
+Detalhes de fonte, as três camadas de junção e armadilhas: `FIIS.md`.
 
 ## Carteira entre computadores
 

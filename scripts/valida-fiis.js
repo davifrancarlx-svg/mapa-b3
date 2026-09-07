@@ -2,12 +2,18 @@
  * Valida fiis.json sem consultar a rede: identidade, coerencia da camada da
  * CVM e as invariantes que sustentam a classificacao.
  *
- * O ponto mais delicado desta base e a JUNCAO por ISIN. Se ela quebrar, o
- * arquivo continua com aparencia perfeita e passa a atribuir o patrimonio de
- * um fundo a outro -- exatamente o risco que manteve patrimonio fora de
- * etfs.json. Por isso aqui se reprova qualquer registro que tenha dado da CVM
- * sem CNPJ, CNPJ repetido entre fundos, ou rotulo que nao decorra das fracoes
- * publicadas.
+ * O ponto mais delicado desta base e a JUNCAO com o informe da CVM. Se ela
+ * quebrar, o arquivo continua com aparencia perfeita e passa a atribuir o
+ * patrimonio de um fundo a outro -- exatamente o risco que manteve patrimonio
+ * fora de etfs.json. Por isso aqui se reprova qualquer registro que tenha dado
+ * da CVM sem CNPJ, CNPJ repetido entre fundos, caminho de juncao nao
+ * declarado, ou rotulo que nao decorra das fracoes publicadas.
+ *
+ * Sao tres camadas, e a ordem entre elas e o contrato: complemento conferido a
+ * mao, ISIN da cota e, em ultimo recurso, nome oficial completo. A terceira
+ * relaxou uma regra que este projeto declarava inviolavel, e por isso ela e
+ * cercada aqui: nao pode ultrapassar a do ISIN em volume, exige similaridade
+ * alta, e cada fundo carrega em juncaoVia de onde veio.
  *
  * Uso: node scripts/valida-fiis.js
  */
@@ -36,8 +42,12 @@ if(typeof base.geradoEm !== 'string' || !Number.isFinite(Date.parse(base.geradoE
 for(const k of ['lista', 'informe', 'juncao', 'classificacao', 'ticker']){
   if(typeof base.fontes?.[k] !== 'string' || !base.fontes[k].trim()) falha('metadado de fonte ausente: ' + k);
 }
-if(!/ISIN/i.test(base.fontes?.juncao || '')) falha('a juncao declarada deve ser pelo ISIN');
-if(/nome/i.test(base.fontes?.juncao || '') && !/nunca por nome/i.test(base.fontes.juncao)) falha('juncao por nome e proibida');
+/* A fonte declarada precisa descrever as TRES camadas. Antes esta regra exigia
+   a frase "nunca por nome"; ela caiu em 06/09/2026, quando o nome virou ultimo
+   recurso -- mas so sob as condicoes que o gerador aplica, e a declaracao tem
+   de dizer isso, senao a proxima pessoa afrouxa mais um pouco sem perceber. */
+for(const t of [/ISIN/i, /complemento/i, /ultimo/i])
+  if(!t.test(base.fontes?.juncao || '')) falha('a juncao declarada precisa descrever as tres camadas (complemento, ISIN e nome em ultimo recurso)');
 
 const cat = base.catalogoB3 || {};
 if(cat.total !== fiis.length) falha('total declarado difere do tamanho da lista');
@@ -47,10 +57,16 @@ if(!Number.isInteger(cat.verificados) || !Number.isInteger(cat.preservados) || !
 }
 
 const cvm = base.cvm || {};
-for(const k of ['correspondentes', 'comCarteira', 'ambiguos', 'juncaoFraca']){
+for(const k of ['correspondentes', 'comCarteira', 'ambiguos', 'juncaoFraca', 'porComplemento', 'porIsin', 'porNome']){
   if(!Number.isInteger(cvm[k]) || cvm[k] < 0) falha('contagem da CVM invalida: ' + k);
 }
 if(cvm.juncaoFraca > cvm.correspondentes) falha('mais juncoes fracas do que correspondencias');
+/* Todo fundo com camada da CVM veio por exatamente um caminho. */
+if(cvm.porComplemento + cvm.porIsin + cvm.porNome !== cvm.correspondentes) falha('caminhos de juncao nao somam o total de correspondencias');
+/* A camada por nome e o unico ponto onde o projeto aceita casar por texto, e
+   so em ultimo recurso. Se ela virar a principal, alguma das anteriores
+   quebrou em silencio e o dado ficou mais fraco sem ninguem notar. */
+if(cvm.porNome > cvm.porIsin) falha('mais fundos casados por nome do que por ISIN; a ordem das camadas inverteu');
 if(cvm.correspondentes > fiis.length) falha('mais correspondencias da CVM do que fundos');
 if(cvm.comCarteira > cvm.correspondentes) falha('carteira classificada sem correspondencia na CVM');
 
@@ -77,7 +93,7 @@ fiis.forEach(x => {
   if(x.cvmAmbiguo !== undefined && x.cvmAmbiguo !== true) falha('marcador de ambiguidade invalido: ' + id);
 
   /* Camada da CVM: ou vem inteira e ancorada num CNPJ, ou nao vem. */
-  const camposCVM = ['cnpj', 'segmentoCVM', 'gestao', 'publicoAlvo', 'administrador', 'informeEm', 'similaridade',
+  const camposCVM = ['cnpj', 'segmentoCVM', 'gestao', 'publicoAlvo', 'administrador', 'informeEm', 'similaridade', 'juncaoVia',
                      'patrimonioLiquido', 'valorPatrimonialCota', 'cotasEmitidas', 'cotistas', 'taxaAdministracao'];
   const temAlgum = camposCVM.some(c => x[c] !== undefined);
   if(x.juncaoFraca !== undefined && x.juncaoFraca !== true) falha('marcador de juncao fraca invalido: ' + id);
@@ -92,6 +108,16 @@ fiis.forEach(x => {
     /* A similaridade e o que torna a juncao auditavel depois: sem ela nao da
        para saber se o par foi obvio ou apertado. */
     if(typeof x.similaridade !== 'number' || !(x.similaridade >= 0 && x.similaridade <= 1)) falha('similaridade ausente ou fora de 0..1: ' + id);
+    /* De que evidencia veio este patrimonio -- sem isso nao da para auditar. */
+    if(!['complemento', 'isin', 'isin-fraco', 'nome'].includes(x.juncaoVia)) falha('caminho de juncao invalido ou ausente: ' + id);
+    if(x.juncaoVia === 'complemento'){
+      if(typeof x.juncaoFonte !== 'string' || !/^https:\/\//.test(x.juncaoFonte)) falha('complemento sem fonte oficial: ' + id);
+    } else if(x.juncaoFonte !== undefined) falha('fonte de complemento em juncao automatica: ' + id);
+    /* Casar por nome sem folga seria o erro que a camada existe para evitar. */
+    /* Jaccard, nao contencao -- ver o comentario das duas listas de ruido no
+       gerador. O piso mais baixo reflete a medida mais exigente. */
+    if(x.juncaoVia === 'nome' && !(x.similaridade >= 0.6)) falha('juncao por nome com similaridade insuficiente: ' + id);
+    if(x.juncaoVia === 'isin-fraco' && x.juncaoFraca !== true) falha('juncao fraca sem o marcador: ' + id);
     if((x.similaridade < 0.4) !== (x.juncaoFraca === true)) falha('marcador de juncao fraca nao acompanha a similaridade: ' + id);
     if(!dia(x.informeEm)) falha('data do informe invalida: ' + id);
     for(const c of ['patrimonioLiquido', 'valorPatrimonialCota', 'cotasEmitidas', 'cotistas', 'taxaAdministracao']){

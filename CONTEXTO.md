@@ -19,9 +19,10 @@ Repositório: <https://github.com/davifrancarlx-svg/mapa-b3>
 - 369 empresas brasileiras, curadas manualmente em `const D` dentro de `index.html`.
 - 825 BDRs, com país, setor, indústria traduzida e fonte rastreável.
 - 222 ETFs nas seis categorias oficiais, com 15 detalhados em `etfs-detalhes.json`.
-- 528 fundos imobiliários, classificados pela carteira declarada à CVM (206 tijolo,
-  103 fundo de fundos, 73 papel, 33 híbrido, 113 sem carteira classificável), com
-  patrimônio, valor patrimonial da cota e P/VP. Ver `FIIS.md`.
+- 528 fundos imobiliários — **a lista completa que a B3 publica**. 476 (90,2%) com
+  informe da CVM: 434 pelo ISIN e 42 pelo nome oficial completo, em último recurso e
+  marcados. Classificados pela carteira declarada (220 tijolo, 121 fundo de fundos,
+  79 papel, 35 híbrido, 73 sem carteira). Ver `FIIS.md`.
 - Nove seções: visão geral, empresas, BDRs, ETFs, FIIs, carteira, favoritos, radar
   e metodologia.
 - URLs compartilham seção, ficha, modo, filtros e ordenação.
@@ -145,6 +146,21 @@ Commits `aea6a93` e `7d979e0` em `main`, publicados no GitHub Pages e no Lovable
   o `AGENTS.md` exigia para relaxar a regra de não ter sincronização. **Ponto em
   aberto antes de implementar:** o repositório é público, então commitar quantidade e
   preço médio publica a posição financeira do autor, e o histórico do git a preserva.
+
+## Junção com a CVM: onde parou
+
+A cobertura foi de 82,2% para **90,2%** com a camada 3 (nome oficial completo). Os 52
+que faltam **não estão no informe da CVM**, ou estão sob um nome que nenhuma camada
+alcança — não é limitação de código, é ausência de dado público ligando ticker a CNPJ.
+
+Para eles existe `scripts/fiis-complementos.json`, que nasce vazio: cada entrada é um
+CNPJ conferido à mão numa fonte oficial, com o link registrado, no mesmo padrão do
+`bdrs-complementos.json`. Ele tem prioridade sobre as duas junções automáticas.
+
+Dois pares aceitos pela camada 3 são plausíveis mas não prováveis pelo nome, e valeria
+confirmá-los ali: **KOIM11** (Kinea Oportunidades Imobiliárias ↔ "Oportunidades
+Imobiliárias I") e **PLAG11** (Pátria Logística Agro ↔ "Pátria Agro"), ambos com
+Jaccard 0,67. Os dois trazem o aviso na ficha.
 
 ## O que sobrou
 

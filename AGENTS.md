@@ -342,14 +342,21 @@ JSONs de runtime usados pelos `fetch()` relativos, a `social.png` e a pasta `fon
   lugar das categorias de ETF. Não confundir com a categoria `ETF-FII` de `etfs.json`:
   aquilo é ETF que segue índice de fundos imobiliários, não fundo imobiliário. O mesmo
   endpoint ainda expõe FIAGRO, FI-INFRA, FIP e FIDC, que **não** entram hoje.
-- **Fundamento e carteira dos FIIs: informe mensal de FII da CVM** (dados abertos). Aqui
-  existe o que faltava aos ETFs — um elo que **não passa por nome**: o ISIN da cota, no
-  formato `BR` + acrônimo + `CTF`, carrega o próprio acrônimo da B3. **Mas o ISIN não é
-  único** (`BRSPTWCTF002` aparece em sete fundos), então ele só levanta candidatos e o
-  nome desempata — nessa ordem, nunca o contrário. A classificação tijolo/papel/fundo de
-  fundos vem da **carteira declarada no balanço**, não do campo `Segmento_Atuacao`, que
-  deixa 61% em "Multicategoria"/"Outros" e chega a errar (classifica o MXRF, fundo de
-  papel, como "Logística"). Tudo isso está detalhado em `FIIS.md`, com os números.
+- **Fundamento e carteira dos FIIs: informe mensal de FII da CVM** (dados abertos). A
+  junção tem **três camadas**, porque não existe ponte pública entre o ticker da B3 e o
+  CNPJ da CVM: (1) complemento manual conferido em fonte oficial, em
+  `scripts/fiis-complementos.json`; (2) o ISIN da cota, que carrega o acrônimo da B3 —
+  mas vem sujo e repetido (`BRSPTWCTF002` aparece em sete fundos), então só levanta
+  candidatos e o nome desempata; (3) o nome oficial completo, **em último recurso**.
+  A camada 3 derrubou a regra "nunca por nome" que este arquivo trazia, em 06/09/2026, e
+  vive cercada: `fundName` completo e nunca o `tradingName` abreviado (era ele que
+  produzia falsos 1,00 — "FII BTG CRI" vira o token único BTG e casava com "BTG RENDA
+  URBANA"), dois termos distintivos, folga sobre o segundo colocado, e só CNPJ que
+  nenhum outro ticker reivindicou. Cada fundo grava `juncaoVia`; `valida-fiis.js`
+  reprova se a camada de nome ultrapassar a do ISIN em volume. A classificação
+  tijolo/papel/fundo de fundos vem da **carteira declarada no balanço**, não do campo
+  `Segmento_Atuacao`, que deixa 61% em "Multicategoria"/"Outros" e chega a errar
+  (classifica o MXRF, fundo de papel, como "Logística"). Tudo em `FIIS.md`, com os números.
 - **Ativo-lastro e relação do programa: descritivos operacionais oficiais do Banco B3.**
   `scripts/gera-bdrs-referencia.py` lê os PDFs e registra o link específico de cada programa.
 - **Câmbio de referência: PTAX do Banco Central do Brasil.** Histórico do ativo-lastro e do

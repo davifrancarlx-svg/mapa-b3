@@ -1,0 +1,7 @@
+{
+  "_leia": "Ponte manual entre o ticker da B3 e o CNPJ do informe da CVM, para os fundos que nem o ISIN nem o nome resolvem. Mesmo papel do bdrs-complementos.json. Tem PRIORIDADE sobre as duas junções automáticas: o que está aqui foi conferido por uma pessoa numa fonte oficial, e é a evidência mais forte que a base tem.",
+  "_comoPreencher": "Abra o regulamento, o informe ou a página oficial do fundo, confirme que o CNPJ pertence àquele ticker, e registre o link em `fonte`. Não use site agregador, não deduza pelo nome e não copie de outro fundo da mesma gestora — foi exatamente assim que o patrimônio do BTG Renda Urbana quase foi parar no BTCI11.",
+  "_formato": "\"TICKER\": { \"cnpj\": \"00.000.000/0001-00\", \"fonte\": \"https://...\", \"conferidoEm\": \"AAAA-MM-DD\" }",
+  "_porQueVazio": "Nasce vazio de propósito. As junções automáticas cobrem o que dá para cobrir com segurança; este arquivo existe para o que sobrar, preenchido um a um. Um palpite aqui é pior que a ausência, porque passa por conferência humana.",
+  "fundos": {}
+}

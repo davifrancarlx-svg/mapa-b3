@@ -15,12 +15,28 @@
  *  - Verificacao de ticker: Yahoo Finance (nao oficial) -- so confirma que
  *    acronym+11 tem cotacao; nao e fonte da lista nem da classificacao.
  *
- * A JUNCAO E PELO ISIN, NAO PELO NOME. O informe da CVM tem CNPJ como chave e
- * a B3 tem `acronym`; cruzar por nome arriscaria atribuir o patrimonio de um
- * fundo a outro, que e exatamente o motivo de etfs.json nao ter patrimonio.
- * O ISIN da cota resolve isso: BR + acronimo de 4 posicoes + CTF + digitos,
- * entao o proprio ISIN carrega o acronimo da B3, de forma deterministica e
- * oficial dos dois lados.
+ * A JUNCAO COM A CVM TEM TRES CAMADAS, da evidencia mais forte para a mais
+ * fraca. O informe tem CNPJ como chave e a B3 tem `acronym`, e nao existe
+ * ponte publica entre os dois -- a B3 nao expoe CNPJ por fundo, e o arquivo de
+ * instrumentos que teria o mapa esta atras do UP2DATA, que e servico
+ * registrado.
+ *
+ *  1. COMPLEMENTO MANUAL (scripts/fiis-complementos.json): alguem conferiu o
+ *     CNPJ numa fonte oficial e registrou o link. Manda sobre as outras duas.
+ *  2. ISIN DA COTA: BR + acronimo de 4 posicoes + CTF + digitos, entao o
+ *     proprio ISIN carrega o acronimo da B3. Oficial dos dois lados -- mas o
+ *     campo vem sujo: vazio, "0", ou com o acronimo de OUTRO fundo (o HIRE
+ *     traz o ISIN do HYPI), e repetido (BRSPTWCTF002 aparece em sete).
+ *  3. NOME OFICIAL COMPLETO, so em ultimo recurso. Esta camada relaxou uma
+ *     regra que este arquivo declarava inviolavel, e por isso vem cercada:
+ *     usa o `fundName` completo e NUNCA o `tradingName` abreviado (foi ele
+ *     que produzia falsos 1,00 -- "FII BTG CRI" vira o token unico BTG e
+ *     casava com "BTG RENDA URBANA", outro fundo), exige dois termos
+ *     distintivos, exige folga sobre o segundo colocado, e so aceita CNPJ que
+ *     nenhum outro ticker reivindicou.
+ *
+ * Cada fundo grava em `juncaoVia` por qual caminho veio. Sem isso nao ha como
+ * auditar depois de que evidencia cada patrimonio saiu.
  *
  * Uso: node scripts/gera-fiis.js
  */
@@ -30,6 +46,7 @@ const path = require('path');
 const { lista: listaZip, extrai, csv } = require('./lib/zip');
 
 const SAIDA = path.join(__dirname, '..', 'fiis.json');
+const COMPLEMENTOS = path.join(__dirname, 'fiis-complementos.json');
 const TEMP = SAIDA + '.tmp';
 const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0 Safari/537.36';
 const espera = ms => new Promise(r => setTimeout(r, ms));
@@ -56,24 +73,68 @@ const CONCENTRACAO = 2 / 3;        /* fatia minima para rotular; abaixo disso e 
 const LIMIAR_DESEMPATE = 0.6;  /* o vencedor precisa parecer mesmo com o fundo */
 const MARGEM_DESEMPATE = 0.4;  /* e precisa ganhar do segundo com folga */
 const LIMIAR_FRACO = 0.4;      /* candidato unico abaixo disto entra sinalizado */
+/* Camada 3, por nome completo. Mais exigente que a de desempate: la o ISIN ja
+   tinha apontado o grupo, aqui nao ha ancora nenhuma. */
+const NOME_MIN_TOKENS = 2;     /* dois termos distintivos em comum, nao um */
+const NOME_MIN_JACCARD = 0.6;  /* simetrico: o que sobra fora da intersecao pesa */
+const NOME_MARGEM = 0.2;       /* folga sobre o segundo colocado */
 
-/* Palavras que todo FII tem no nome e que nao distinguem nada. */
+/* Duas listas de ruido, e a diferenca entre elas importa.
+   RUIDO e agressiva e serve ao DESEMPATE por ISIN, onde o grupo ja esta
+   reduzido a dois ou tres fundos do mesmo acronimo e o que se quer e ignorar
+   enfeite. */
 const RUIDO = new Set(['FUNDO', 'FUNDOS', 'DE', 'DO', 'DA', 'DOS', 'DAS', 'INVESTIMENTO', 'INVESTIMENTOS',
   'IMOBILIARIO', 'IMOBILIARIA', 'IMOBILIARIOS', 'FII', 'RESPONSABILIDADE', 'LIMITADA', 'LTDA', 'RL', 'RESP',
   'E', 'EM', 'FI', 'FDO', 'I', 'II', 'III', 'RECEBIVEIS', 'CRI', 'MULTIESTRATEGIA', 'RENDA', 'CLASSE',
   'UNICA', 'COTAS', 'PARTICIPACOES']);
 
+/* RUIDO_NOME e conservadora e serve a camada 3, que compara contra a base
+   inteira sem ancora nenhuma. Ali RENDA, RECEBIVEIS, CRI, MULTIESTRATEGIA e os
+   ordinais NAO sao ruido: sao exatamente o que separa "RB Capital Renda I" de
+   "RB Capital Logistico". Engoli-los fez os dois casarem. */
+const RUIDO_NOME = new Set(['FUNDO', 'FUNDOS', 'DE', 'DO', 'DA', 'DOS', 'DAS', 'INVESTIMENTO', 'INVESTIMENTOS',
+  'IMOBILIARIO', 'IMOBILIARIA', 'IMOBILIARIOS', 'FII', 'RESPONSABILIDADE', 'LIMITADA', 'LTDA', 'RL', 'RESP',
+  'E', 'EM', 'FI', 'FDO']);
+
 const termos = s => String(s == null ? '' : s).normalize('NFD').replace(/[\u0300-\u036f]/g, '')
   .toUpperCase().replace(/[^A-Z0-9 ]/g, ' ').split(/\s+/).filter(t => t.length > 1 && !RUIDO.has(t));
+
+/* Jaccard, nao contencao: aqui o que sobra FORA da intersecao tem de pesar.
+   Com contencao, "RB CAPITAL" contido em "RB CAPITAL LOGISTICO" dava 1,00 e o
+   "LOGISTICO" nao custava nada. A contagem de termos entra junto porque
+   proporcao alta com um termo so nao identifica ninguem. */
+const termosNome = s => String(s == null ? '' : s).normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+  .toUpperCase().replace(/[^A-Z0-9 ]/g, ' ').split(/\s+/).filter(t => t.length > 1 && !RUIDO_NOME.has(t));
+
+function comuns(a, b){
+  const A = new Set(termosNome(a)), B = new Set(termosNome(b));
+  let c = 0;
+  for(const t of A) if(B.has(t)) c++;
+  const uniao = A.size + B.size - c;
+  return { c, s: uniao ? c / uniao : 0 };
+}
+
+function leComplementos(){
+  if(!fs.existsSync(COMPLEMENTOS)) return {};
+  const j = JSON.parse(fs.readFileSync(COMPLEMENTOS, 'utf8')).fundos || {};
+  for(const [tk, v] of Object.entries(j)){
+    if(!/^[A-Z0-9]{4}11$/.test(tk)) throw new Error('complemento com ticker invalido: ' + tk);
+    if(!v || !/^\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}$/.test(v.cnpj || '')) throw new Error('complemento sem CNPJ valido: ' + tk);
+    /* Sem fonte nao entra: o valor deste arquivo e ser conferivel, e um CNPJ
+       sem link vira palpite com aparencia de curadoria. */
+    if(typeof v.fonte !== 'string' || !/^https:\/\//.test(v.fonte)) throw new Error('complemento sem fonte oficial: ' + tk);
+  }
+  return j;
+}
 
 /* Contencao, nao Jaccard: o nome da B3 e abreviado e o da CVM e por extenso,
    entao o que importa e o menor estar contido no maior. */
 function similar(a, b){
   const A = new Set(termos(a)), B = new Set(termos(b));
   if(!A.size || !B.size) return 0;
-  let comuns = 0;
-  for(const t of A) if(B.has(t)) comuns++;
-  return comuns / Math.min(A.size, B.size);
+  let n = 0;
+  for(const t of A) if(B.has(t)) n++;
+  return n / Math.min(A.size, B.size);
 }
 
 /* Dois anos: um fundo que parou de entregar informe em 2026 mas continua
@@ -272,6 +333,19 @@ function classifica(ap){
   };
 }
 
+/* Camada 3: so para quem sobrou das duas primeiras. `livres` sao os fundos da
+   CVM que nenhum ticker reivindicou -- um CNPJ nao pertence a dois fundos, e
+   ignorar isso e como a versao frouxa mandava o patrimonio do BTG Renda
+   Urbana para o BTCI11. */
+function resolvePorNome(item, livres){
+  const pontos = livres.map(g => ({ g, ...comuns(item.nome, g.Nome_Fundo_Classe) }))
+    .filter(z => z.c >= NOME_MIN_TOKENS && z.s >= NOME_MIN_JACCARD)
+    .sort((a, b) => b.s - a.s || b.c - a.c);
+  if(!pontos.length) return null;
+  if(pontos.length > 1 && pontos[0].s - pontos[1].s < NOME_MARGEM) return null;
+  return { g: pontos[0].g, s: pontos[0].s, tokens: pontos[0].c };
+}
+
 function leAnterior(){
   if(!fs.existsSync(SAIDA)) return { fiis: [] };
   try { return JSON.parse(fs.readFileSync(SAIDA, 'utf8')); }
@@ -295,10 +369,53 @@ function leAnterior(){
   console.log('  ' + Object.keys(informe.geral).length + ' fundos no informe; ' + candidatos.size + ' acronimos com ISIN utilizavel');
   if(disputados.length) console.log('  ' + disputados.length + ' acronimos com mais de um fundo reivindicando o ISIN: ' + disputados.map(([a]) => a).join(', '));
 
+  /* ---------- junção em três camadas ---------- */
+  const complementos = leComplementos();
+  const porCnpj = new Map(Object.values(informe.geral).map(g => [g.CNPJ_Fundo_Classe, g]));
+  const resolvido = new Map();
+  let ambiguos = 0;
+
+  /* Camadas 1 e 2, na mesma passada: complemento manual manda, ISIN vem
+     depois. As duas produzem evidência forte o bastante para reivindicar um
+     CNPJ com exclusividade. */
+  for(const item of lista){
+    const tk = item.acronym + '11';
+    const c = complementos[tk];
+    if(c){
+      const g = porCnpj.get(c.cnpj);
+      /* CNPJ conferido a mão que não existe no informe é erro de digitação ou
+         fundo que parou de entregar: avisa, não engole. */
+      if(g) { resolvido.set(tk, { g, via: 'complemento', s: 1, fonte: c.fonte }); continue; }
+      console.log('  complemento aponta CNPJ ausente do informe: ' + tk + ' -> ' + c.cnpj);
+    }
+    const r = resolveCVM(item, candidatos.get(item.acronym));
+    if(r.estado === 'ok' || r.estado === 'fraca') resolvido.set(tk, { g: r.g, via: r.estado === 'fraca' ? 'isin-fraco' : 'isin', s: r.s });
+    else if(r.estado === 'ambiguo') { resolvido.set(tk, { ambiguo: true }); ambiguos++; }
+  }
+
+  /* Camada 3: só quem sobrou, e só contra CNPJ que ninguém reivindicou. */
+  const usados = new Set([...resolvido.values()].filter(r => r.g).map(r => r.g.CNPJ_Fundo_Classe));
+  const livres = Object.values(informe.geral).filter(g => !usados.has(g.CNPJ_Fundo_Classe));
+  let porNome = 0;
+  for(const item of lista){
+    const tk = item.acronym + '11';
+    if(resolvido.has(tk)) continue;
+    const r = resolvePorNome(item, livres);
+    if(!r) continue;
+    /* Dois tickers não podem cair no mesmo CNPJ nem nesta camada. */
+    if(usados.has(r.g.CNPJ_Fundo_Classe)) continue;
+    usados.add(r.g.CNPJ_Fundo_Classe);
+    resolvido.set(tk, { g: r.g, via: 'nome', s: r.s, tokens: r.tokens });
+    porNome++;
+  }
+  console.log('  junção: ' + [...resolvido.values()].filter(r => r.via === 'complemento').length + ' por complemento manual, '
+    + [...resolvido.values()].filter(r => r.via === 'isin' || r.via === 'isin-fraco').length + ' por ISIN, '
+    + porNome + ' por nome completo; ' + ambiguos + ' descartados por disputa');
+
   console.log('\nverificando ticker de negociacao (uma chamada por fundo)...');
   const finais = [], naoVerificados = [];
   const anteriores = new Map((anterior.fiis || []).map(x => [x.idB3, x]));
-  let preservados = 0, comCVM = 0, comCarteira = 0, ambiguos = 0, fracas = 0;
+  let preservados = 0, comCVM = 0, comCarteira = 0, fracas = 0;
 
   for(let i = 0; i < lista.length; i++){
     const item = lista[i];
@@ -313,11 +430,16 @@ function leAnterior(){
       else { f.tickerVerificado = false; naoVerificados.push(f); }
     }
 
-    const r = resolveCVM(item, candidatos.get(item.acronym));
-    if(r.estado === 'ambiguo'){ f.cvmAmbiguo = true; ambiguos++; }
-    if(r.estado === 'ok' || r.estado === 'fraca'){
+    const r = resolvido.get(esperado);
+    if(r && r.ambiguo) f.cvmAmbiguo = true;
+    if(r && r.g){
       comCVM++;
-      if(r.estado === 'fraca'){ f.juncaoFraca = true; fracas++; }
+      if(r.via === 'isin-fraco'){ f.juncaoFraca = true; fracas++; }
+      /* O caminho fica gravado: complemento conferido a mão, ISIN, ou nome
+         completo em último recurso. Sem isso não dá para auditar depois de
+         que evidência cada patrimônio veio. */
+      f.juncaoVia = r.via;
+      if(r.via === 'complemento') f.juncaoFonte = r.fonte;
       f.similaridade = arred(r.s, 2);
       const g = r.g;
       const cnpj = g.CNPJ_Fundo_Classe;
@@ -375,7 +497,7 @@ function leAnterior(){
     fontes: {
       lista: 'B3 (GetListFunds, typeFund FII)',
       informe: 'CVM - informe mensal de FII (dados abertos), arquivos geral, complemento e ativo_passivo',
-      juncao: 'ISIN da cota (BR+acronimo+CTF), oficial nos dois lados; nunca por nome',
+      juncao: 'Tres camadas, da evidencia mais forte para a mais fraca: complemento manual conferido em fonte oficial (scripts/fiis-complementos.json), ISIN da cota (BR+acronimo+CTF), e por ultimo o nome oficial completo -- este exigindo dois termos distintivos, folga sobre o segundo colocado e CNPJ que nenhum outro ticker reivindicou. O caminho de cada fundo fica em juncaoVia.',
       classificacao: 'derivada da carteira declarada no informe; ' + Math.round(CONCENTRACAO * 100) + '% ou mais numa classe define o rotulo, abaixo disso Hibrido',
       ticker: 'Yahoo Finance (nao oficial), so para confirmar acronimo+11'
     },
@@ -385,6 +507,9 @@ function leAnterior(){
       comCarteira,
       ambiguos,
       juncaoFraca: fracas,
+      porComplemento: finais.filter(f => f.juncaoVia === 'complemento').length,
+      porIsin: finais.filter(f => f.juncaoVia === 'isin' || f.juncaoVia === 'isin-fraco').length,
+      porNome: finais.filter(f => f.juncaoVia === 'nome').length,
       competenciaInicio: competencias[0] || null,
       competenciaFim: competencias[competencias.length - 1] || null
     },

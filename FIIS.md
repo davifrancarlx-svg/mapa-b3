@@ -26,40 +26,89 @@ o patrimônio de um fundo a outro.
 
 Nos FIIs existe um elo que não passa por nome: **o ISIN da cota**, publicado no
 informe da CVM, tem o formato `BR` + acrônimo de 4 posições + `CTF` + dígitos.
-O acrônimo é o mesmo que a B3 usa. Oficial dos dois lados.
+O acrônimo é o mesmo que a B3 usa. Mas ele não basta, e o que se montou em volta
+está na seção seguinte.
 
-### Mas o ISIN não é único, e essa é a armadilha
+## A junção com a CVM tem três camadas
 
-Administradores repetem o mesmo ISIN em fundos diferentes:
+O informe tem CNPJ como chave e a B3 tem `acronym`, e **não existe ponte pública
+entre os dois**. Procurei em três lugares antes de desistir:
 
-```
-BRSPTWCTF002  ->  SP Downtown, SF, BFC, JK 1455, MS, FL Square, FLFC
-BRXPMLCTF000  ->  XP Malls  +  Península
-BRTRXFCTF003  ->  TRX Real Estate  +  Liquidez Projetos GD
-```
+- a B3 **não expõe CNPJ por fundo** — sete formatos de endpoint de detalhe
+  testados, todos 404 ou vazios;
+- o `Codigo_ISIN` do informe vem sujo: vazio, `0`, `000000000000`, ou com o
+  acrônimo de **outro** fundo (o HIRE traz o ISIN do HYPI);
+- o arquivo de instrumentos da B3, que teria o mapa ticker↔ISIN, está atrás do
+  **UP2DATA**, que é serviço registrado — a API devolve um token e o download
+  para na autenticação, pelo navegador também.
 
-Aceitar o primeiro candidato daria ao XPML11 o patrimônio do Península.
+Daí as três camadas, da evidência mais forte para a mais fraca:
 
-**Por isso o ISIN só levanta candidatos, e o nome desempata** — nessa ordem, e
-só nessa. O inverso não funciona: usar nome como filtro de entrada derrubaria
-dezenas de pares corretos, porque a B3 abrevia (`FII BTHR`, `FII GUARDIAN`,
-`FII RTEL`) enquanto a CVM escreve por extenso e às vezes com erro de digitação
-(`FII GUARDIAL LOGISTICA` para o Guardian). A medição:
-
-| situação | fundos | o que acontece |
+| camada | evidência | quando entra |
 |---|---|---|
-| candidato único | 426 | entra, com a similaridade gravada |
-| disputa resolvida com folga | 10 | entra o vencedor (XPML: 1,00 contra 0,00) |
-| disputa sem folga | 2 | **fica sem camada da CVM** (BPLC e HSAF, 1,00 contra 1,00) |
+| 1. complemento manual | pessoa conferiu o CNPJ em fonte oficial e registrou o link | sempre que existir |
+| 2. ISIN da cota | `BR` + acrônimo + `CTF`, oficial dos dois lados | se não houver complemento |
+| 3. nome oficial completo | último recurso, marcado | se as duas falharem |
 
-Classes do mesmo fundo (mesma raiz de CNPJ, Resolução CVM 175) não disputam
-entre si — vale a de informe mais recente. Só raízes diferentes caracterizam
-disputa.
+Cada fundo grava **`juncaoVia`** com o caminho que o trouxe. Sem isso não há
+como auditar depois de que evidência cada patrimônio saiu.
 
-Cada registro guarda `similaridade`, e os 17 pares aceitos com nome pouco
-parecido levam `juncaoFraca: true`. A junção fica auditável depois, e
-`valida-fiis.js` reprova CNPJ repetido entre dois tickers — que é a assinatura
-de uma junção que colou o mesmo informe em dois fundos.
+### A camada 3 relaxou uma regra, e por isso vem cercada
+
+Este arquivo dizia, em maiúsculas, que a junção nunca seria por nome — porque
+cruzar por nome arriscaria atribuir o patrimônio de um fundo a outro. O risco é
+real, e eu o reproduzi: a versão frouxa casava assim, tudo com similaridade
+1,00,
+
+```
+BTCI11 (BTG CRI)   → BTG RENDA URBANA     ← outro fundo
+HSAF11 (HSI CRI)   → HSI - MALLS          ← outro fundo
+FIIP11 (RB Cap I)  → RB CAPITAL RENDA I   ← ISIN de HUSC
+HIRE11             → HIRE PROPERTIES      ← ISIN de HYPI
+```
+
+O defeito era o **nome abreviado**: `tradingName` "FII BTG CRI", tirando as
+palavras de ruído, vira o token único `BTG`. Um token em comum dá proporção
+1,00 e não identifica nada.
+
+A camada 3 usa o **`fundName` completo**, e mais quatro travas:
+
+- pelo menos **dois** termos distintivos em comum, não um;
+- **Jaccard** mínimo de 0,60 — não contenção. A diferença não é detalhe: com
+  contenção, `RB CAPITAL` cabendo em `RB CAPITAL LOGÍSTICO` dava 1,00 e o
+  "LOGÍSTICO" não custava nada, e foi assim que o RBLG11 casou com o RB Capital
+  Renda I. Jaccard faz o que sobra fora da interseção pesar;
+- **lista de ruído própria e conservadora**. A lista agressiva do desempate
+  engolia `RENDA`, `RECEBÍVEIS`, `CRI`, `MULTIESTRATÉGIA` e os ordinais —
+  exatamente os termos que separam "RB Capital **Renda I**" de "RB Capital
+  **Logístico**";
+- folga sobre o segundo colocado, e só CNPJ que **nenhum outro ticker
+  reivindicou** — um CNPJ não pertence a dois fundos.
+
+As duas primeiras travas foram acrescentadas depois de **auditar os 39 pares**
+que a versão inicial produzia: três estavam errados (RBLG11 → RB Capital Renda I,
+SPXG11 → BGR Galpões, MCRE11 → Iron Capital). Com Jaccard e a lista
+conservadora, os três caem — junto com dois que provavelmente estavam certos
+mas abreviados demais para provar. **Perder um par correto é preferível a
+publicar um errado**, e os que caem podem entrar no arquivo de complementos.
+
+`valida-fiis.js` reprova se a camada de nome ultrapassar a do ISIN em volume:
+se ela virar a principal, alguma das anteriores quebrou em silêncio e o dado
+ficou mais fraco sem ninguém notar.
+
+Na página, o fundo casado por nome traz o aviso na ficha, com o CNPJ ao lado —
+é a evidência mais fraca da base e o leitor precisa saber disso antes de usar o
+patrimônio para decidir algo.
+
+### O que ainda não fecha
+
+Os fundos que sobram **não estão no informe da CVM**, ou estão sob um nome que
+nenhuma das três camadas alcança. Não é limitação do código: não existe o dado
+público para ligar. Para esses, o caminho é o `scripts/fiis-complementos.json`,
+um a um, com o link da fonte — mesmo padrão do `bdrs-complementos.json`.
+
+**A lista de fundos, essa, está completa:** são todos os que a B3 lista. O que
+varia é quanto de camada da CVM cada um tem.
 
 ## A classificação não vem do campo de segmento da CVM
 
