@@ -1,9 +1,17 @@
 /*
  * Calcula metricas historicas dos BDRs a partir de cotacoes diarias ajustadas.
  * O navegador recebe so os indicadores prontos; o historico bruto nao vai para
- * metricas.json, para manter a pagina leve. A serie do grafico vai comprimida:
- * so spP (preco ajustado) e spO (offset em dias sobre spInicio). A curva
- * normalizada e derivada de spP no cliente, e nao trafega.
+ * metricas.json. A serie do grafico vai comprimida: so spP (preco ajustado) e
+ * spO (offset em dias sobre spInicio). A curva normalizada e derivada de spP
+ * no cliente, e nao trafega.
+ *
+ * SAO DOIS ARQUIVOS, e precisam continuar sendo. metricas.json e a unica base
+ * pesada que ainda entra no boot -- a Visao geral usa retorno, giro e forca
+ * relativa dela --, mas 64% do peso era a serie do grafico, que so e usada ao
+ * abrir uma ficha de BDR. Separada em metricas-series.json e carregada sob
+ * demanda, o boot cai de 187 KB comprimidos para 55 KB nesta base.
+ * O cliente mescla os dois de volta em METRICAS quando a serie chega, entao
+ * serieSpark() e spark() nao sabem que existem dois arquivos.
  *
  * Uso: node scripts/atualiza-metricas.js
  */
@@ -16,6 +24,10 @@ const { espera, arred, mediana, historico, calcula } = require('./lib/serie');
 const RAIZ = path.join(__dirname, '..');
 const BDRS = path.join(RAIZ, 'bdrs.json');
 const SAIDA = path.join(RAIZ, 'metricas.json');
+const SAIDA_SERIE = path.join(RAIZ, 'metricas-series.json');
+/* Campos da serie do grafico: saem de metricas.json e vao para o arquivo
+   separado. Ficam listados num lugar so para os dois lados nao divergirem. */
+const CAMPOS_SERIE = ['spInicio', 'spFim', 'spN', 'spP', 'spO'];
 const CONCORRENCIA = 6;
 const COBERTURA_MINIMA = .9;
 
@@ -82,9 +94,29 @@ function relativos(metricas, bdrs, chave, destino, grupo){
     comHistoricoNovo: novos,
     preservados: Object.values(metricas).filter(m => m.stale).length,
     semHistorico: bdrs.filter(b => !metricas[b.ticker]).map(b => b.ticker),
-    metricas
+    metricas: {}
+  };
+  /* Registro preservado apos falha pode carregar o formato antigo (sp/spD).
+     Vai junto para o arquivo de serie, senao ficaria orfao no de indicadores. */
+  const series = {};
+  for(const [k, m] of Object.entries(metricas)){
+    const serie = {}, resto = {};
+    for(const [c, v] of Object.entries(m)){
+      if(CAMPOS_SERIE.includes(c) || c === 'sp' || c === 'spD') serie[c] = v; else resto[c] = v;
+    }
+    saida.metricas[k] = resto;
+    if(Object.keys(serie).length) series[k] = serie;
+  }
+  const saidaSerie = {
+    atualizadoEm: saida.atualizadoEm,
+    fonte: saida.fonte,
+    metodologia: 'Serie do grafico separada de metricas.json: ela e 64% do peso e so e usada ao abrir uma ficha. O cliente mescla os dois em METRICAS, entao os campos sao os mesmos de sempre.',
+    totalBDRs: bdrs.length,
+    series
   };
   fs.writeFileSync(SAIDA, JSON.stringify(saida, null, 1) + '\n', 'utf8');
-  console.log('gravado em ' + SAIDA + ': ' + Object.keys(metricas).length + '/' + bdrs.length + ' BDRs com metricas');
+  fs.writeFileSync(SAIDA_SERIE, JSON.stringify(saidaSerie, null, 1) + '\n', 'utf8');
+  console.log('gravado em ' + SAIDA + ': ' + Object.keys(saida.metricas).length + '/' + bdrs.length + ' BDRs com metricas');
+  console.log('gravado em ' + SAIDA_SERIE + ': ' + Object.keys(series).length + ' series');
   if(falhas.length) console.log('falhas: ' + falhas.join(', '));
 })().catch(err => { console.error('ERRO:', err.message); process.exit(1); });

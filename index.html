@@ -363,15 +363,6 @@ table.tab .marc{display:inline-block;width:6px;height:6px;border-radius:1px;marg
 .fontesEtf{margin:7px 0 0;padding-left:17px;color:var(--tx3);font-size:11.5px;line-height:1.5}
 .fontesEtf li{margin:4px 0}.fontesEtf a{color:var(--tx2)}
 
-/* ---------- metodologia ---------- */
-.meto{max-width:76ch}
-.meto h2{font-family:var(--ed);font-weight:600;font-size:18px;margin:30px 0 7px;letter-spacing:-.01em}
-.meto h2:first-child{margin-top:0}
-.meto p{color:var(--tx2);font-size:13.5px;line-height:1.62;margin:0 0 10px}
-.meto ul{margin:0 0 10px;padding-left:18px;color:var(--tx2);font-size:13.5px;line-height:1.62}
-.meto li{margin-bottom:4px}
-.meto b{color:var(--tx);font-weight:600}
-
 /* ---------- rodape ---------- */
 footer{border-top:1px solid var(--line);margin-top:42px;padding:18px 0 0;color:var(--tx3);font-size:12px}
 footer .fl{display:flex;gap:10px 26px;flex-wrap:wrap;align-items:baseline}
@@ -436,7 +427,6 @@ footer p{margin:0;max-width:62ch;line-height:1.55}
       <button data-sec="carteira">Carteira</button>
       <button data-sec="favoritos">Favoritos</button>
       <button data-sec="radar">Radar de listagens</button>
-      <button data-sec="metodologia">Metodologia</button>
     </nav>
     <div class="estado">
       <span>base <b id="snapDate">14 de agosto de 2026</b></span>
@@ -724,6 +714,16 @@ footer p{margin:0;max-width:62ch;line-height:1.55}
     <p class="favMsg" id="carteiraMsg" role="status" aria-live="polite"></p>
     <div class="retrato" id="carteiraResumo"></div>
     <div id="carteiraTabela"></div>
+
+    <h3 class="sub">Levar a carteira para outro computador</h3>
+    <p class="nota">As posições ficam neste navegador e some ao trocar de máquina. Para levá-las junto, o arquivo <b>carteira.json</b> vai cifrado no repositório: quem abrir sem a senha vê ruído. A senha não é guardada em lugar nenhum — se perdê-la, o arquivo não volta.</p>
+    <form class="carteiraForm" id="formSync">
+      <label>Senha<input id="syncSenha" type="password" autocomplete="current-password" placeholder="mínimo 8 caracteres" minlength="8"></label>
+      <button class="btn" type="button" id="syncExporta">Gerar arquivo cifrado</button>
+      <button class="btn" type="button" id="syncImporta">Restaurar do arquivo publicado</button>
+    </form>
+    <p class="favMsg" id="syncMsg" role="status" aria-live="polite"></p>
+    <div id="syncPreview"></div>
   </div>
 </section>
 
@@ -742,14 +742,12 @@ footer p{margin:0;max-width:62ch;line-height:1.55}
 <!-- ============ RADAR ============ -->
 <section id="secRadar" class="hide"></section>
 
-<!-- ============ METODOLOGIA ============ -->
-<section id="secMetodologia" class="hide"></section>
 </main>
 
 <footer>
   <div class="fl">
     <p><b>Fontes:</b> B3 e Banco B3 (listas e programas), CVM (documentos), Banco Central (PTAX) e Yahoo Finance, não oficial, para cotações, perfis e históricos. Cotações com atraso de cerca de 15 minutos.</p>
-    <p>Nada aqui é recomendação de compra ou venda. <button class="lnk" data-sec="metodologia">Ver metodologia completa</button></p>
+    <p>Nada aqui é recomendação de compra ou venda. Cada ficha declara as próprias fontes.</p>
   </div>
 </footer>
 </div>
@@ -9882,9 +9880,10 @@ const MAX_COMPARAR = 4;
 try { COMPARAR=leComparacao(JSON.parse(localStorage.getItem('mapaB3Comparar')||'[]')); } catch {}
 let COMPARACAO_ABERTA = false;
 
-/* Toda contagem em texto visivel sai daqui, nunca cravada: a Metodologia e o
-   Retrato afirmam numeros sobre D, e um literal envelhece em silencio na
-   proxima empresa ou categoria que entrar. valida-pagina.js reprova o literal. */
+/* Toda contagem em texto visivel sai daqui, nunca cravada: o Retrato e as
+   notas de secao afirmam numeros sobre a base, e um literal envelhece em
+   silencio na proxima empresa ou categoria que entrar. valida-pagina.js
+   reprova o literal, no markup e no script. */
 const nCategorias = () => new Set(E.map(e => e.macro)).size;
 
 const norm = s => (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
@@ -10765,95 +10764,6 @@ function radarHTML(){
   ${tabelaEmpresas(semNeg)}`;
 }
 
-/* ---------- metodologia ---------- */
-function metodologiaHTML(){
-  return `<div class="meto">
-  <h2>Universo coberto</h2>
-  <p>Quatro bases distintas. A primeira reúne as <b>${E.length} companhias brasileiras</b> com ações registradas na B3, incluindo as que hoje não têm negociação relevante: holdings de controle, empresas em processo de saída e candidatas a oferta que já se registraram. A segunda reúne os <b>${BDR.length ? BDR.length + ' BDRs de empresas' : 'BDRs de empresas'}</b> — recibos de depósito de companhias estrangeiras negociados na B3, patrocinados e não patrocinados.${BDR.length ? '' : ' O catálogo de BDRs ainda não carregou nesta sessão, por isso o total não aparece.'} ETFs internacionais listados como BDR, ETPs de cripto e emissores exclusivos de dívida ficam de fora dessas duas.</p>
-  <p>A terceira reúne os <b>${ETF.length ? ETF.length + ' ETFs' : 'ETFs'}</b> listados pela B3 nas seis categorias oficiais de fundo de índice, e a quarta os <b>${FII.length ? FII.length + ' fundos imobiliários'  : 'fundos imobiliários'}</b>. As duas vêm da mesma API de fundos listados da B3, e nenhuma delas tem tags de cruzamento nem descrição autoral: o que existe de classificação é oficial ou derivado de número oficial.</p>
-  <p>Nos fundos imobiliários, o tipo de carteira — tijolo, papel ou fundo de fundos — <b>não</b> vem do nome nem do campo de segmento da CVM, que deixa a maioria em "Multicategoria" e chega a classificar fundo de papel como logística. Vem da composição que o próprio fundo declara no informe mensal, e as três frações vão publicadas ao lado do rótulo para a leitura ser conferível.</p>
-  <p>Duas medidas dessa aba são derivadas no navegador, não publicadas por ninguém: <b>P/VP</b> divide o preço de hoje pelo valor patrimonial do último informe, que é mensal e atrasa; e <b>Distribuído 12m</b> divide o total pago por cota pelo preço de hoje. Esta segunda <b>não é dividend yield</b> — a fonte junta rendimento e amortização de cota, que é devolução de capital, e um fundo em liquidação aparece com percentual altíssimo. Os que distribuíram mais que o próprio preço vêm marcados.</p>
-  <p>O histórico dos fundos imobiliários usa a <b>série de preço</b>, não a ajustada das outras abas: em FII o ajuste retroativo do Yahoo se acumula com distribuições mensais, amortizações e emissões e distorce a série. Nos ETFs, que não distribuem com frequência, as duas séries coincidem e vale a ajustada — por isso o retorno de ETF é comparável ao de BDR e empresas, e o dos FIIs não.</p>
-
-  <h2>Classificação das empresas brasileiras</h2>
-  <p>As ${nCategorias()} categorias temáticas e as tags de cruzamento são <b>leitura analítica do autor</b>, escritas à mão para responder onde cada empresa realmente ganha dinheiro. Uma companhia de agro pode carregar tag de tecnologia; uma de energia, tag de saneamento. Isso <b>não substitui</b> a classificação setorial oficial da B3, que aparece na ficha de cada companhia.</p>
-  <p>O valor de mercado e a liquidez média de dois meses são estimativas a partir de dados públicos, congeladas na data da base (${SNAPSHOT.label}). Servem para dar escala ao mosaico, não para decisão de investimento.</p>
-
-  <h2>Classificação dos BDRs</h2>
-  <p>A relação de tickers e o tipo de programa vêm da base oficial de empresas listadas da B3. País, setor e indústria <b>não têm classificação oficial da B3 para BDR</b>: a fonte padrão é o perfil que o Yahoo Finance mantém da empresa, com tradução editorial para português. Quando esse perfil não existe, a classificação é verificada em página oficial da companhia ou documento regulatório, e a fonte específica aparece na ficha do ativo.</p>
-  <p>Diferente das empresas brasileiras, os BDRs <b>não têm descrição escrita à mão nem tags de cruzamento</b>. É a lista completa das ativas para compra, com dado de identificação e indicadores calculados — sem curadoria analítica por trás.</p>
-
-  <h2>Cotações</h2>
-  <p>Preços vêm do Yahoo Finance, que <b>não é fonte oficial da B3</b>, com atraso de cerca de 15 minutos. Atualizam a cada 30 minutos durante o pregão. Ação parada retorna preço zero na origem, o que é ausência de dado e não cotação: esses casos aparecem explicitamente como sem cotação, nunca como R$ 0,00.</p>
-  <p>O botão <b>atualizar cotações</b> recarrega a versão mais recente já publicada pelo projeto. A coleta no Yahoo continua no GitHub Actions: esta página é estática e não guarda credenciais nem dispara centenas de consultas a partir do navegador.</p>
-  <p>Empresas com mais de uma classe de ação exibem a classe de <b>maior volume no dia</b>, decidida pelo dado da própria API e não por convenção de sufixo. A ficha mostra todas as classes.</p>
-  <p><b>O tamanho dos blocos no mosaico não acompanha o preço.</b> Ele vem do valor de mercado estimado na data da base, que é um retrato fixo. Recalcular exigiria a quantidade de ações em circulação, que não está na base. Os dois divergem com o tempo.</p>
-
-  <h2>Métricas históricas dos BDRs</h2>
-  <p>Calculadas a partir de até dois anos de preços diários <b>ajustados</b> (proventos e desdobramentos considerados). Os períodos de 1, 3 e 12 meses correspondem a <b>21, 63 e 252 pregões</b>, não a meses de calendário. Volatilidade é o desvio-padrão dos retornos diários das últimas 21 sessões, anualizado. Distância da máxima usa a máxima de 252 pregões.</p>
-  <p>Histórico insuficiente fica explicitamente sem dado, nunca preenchido com zero ou estimativa.</p>
-
-  <h2>Paridade e decomposição do BDR</h2>
-  <p>A relação entre BDRs e ações do ativo-lastro vem dos <b>descritivos operacionais oficiais do Banco B3</b>. A paridade indicativa multiplica o preço do ativo no exterior pela cotação de venda PTAX mais recente e pela quantidade de ações representada por cada BDR. O desvio compara essa referência com a última cotação disponível do recibo.</p>
-  <p>Paridade <b>não é preço justo</b>. Bolsas fecham em horários diferentes e há diferenças de liquidez, formação de mercado, custos, impostos e defasagem entre fontes. A decomposição histórica separa o retorno do ativo-lastro e o efeito cambial; o residual reúne justamente essas diferenças e eventuais descasamentos de dados.</p>
-
-  <h2>Métricas das empresas brasileiras</h2>
-  <p>A referência histórica é a classe com maior giro médio em 20 sessões entre as classes com histórico suficiente na data mais recente disponível. Todas as classes são consultadas; falhas parciais são sinalizadas. Essa referência pode diferir da classe de maior volume no dia usada na cotação intradiária.</p>
-  <p>A comparação relativa usa a mediana da categoria temática ou do segmento oficial, com pelo menos três empresas com retorno na mesma data final, excluindo históricos preservados após falha. A ficha informa a amostra. Volume ausente não é zero; janelas incompletas ficam sem indicador. O gráfico informa o período efetivo da série, que pode ter menos de 12 meses.</p>
-
-  <h2>Percentis, matriz e acompanhamento</h2>
-  <p>Percentil indica a posição do retorno de 63 pregões dentro do setor ou da indústria: 80 significa que o ativo ficou acima ou igual a 80% dos pares com dado, não que seja melhor investimento. A matriz apenas cruza dois indicadores selecionados e respeita todos os filtros ativos.</p>
-  <p>A lista de acompanhamento e a seleção do comparador ficam somente neste navegador, em armazenamento local. Filtros, ordenação, modo de visualização e ficha aberta ficam na URL, permitindo compartilhar o mesmo recorte sem transmitir a lista pessoal.</p>
-
-  <h2>Carteira local</h2>
-  <p>Quantidade e preço médio são informados pelo usuário e ficam somente no armazenamento deste navegador. O valor atual usa a última cotação disponível; o resultado é bruto e não incorpora aportes intermediários, proventos, taxas, impostos ou eventos corporativos. Não é relatório fiscal nem recomendação de investimento.</p>
-
-  <h2>Força relativa</h2>
-  <p>É a diferença, <b>em pontos percentuais</b>, entre o retorno do ativo e a <b>mediana</b> do seu grupo no mesmo período. O grupo padrão é a indústria; quando a indústria tem menos de três BDRs com histórico, a comparação usa o setor, e a ficha informa o tamanho da amostra. É uma ferramenta de comparação relativa, não um julgamento de qualidade.</p>
-
-  <h2>Liquidez</h2>
-  <p>Giro médio é a média de preço × volume nos últimos 20 ou 60 pregões, e <b>inclui as sessões sem negócio</b> — o que puxa a média para baixo de propósito, para não superestimar a liquidez de recibos pouco negociados. Frequência de negociação conta em quantos dos últimos 20 pregões houve negócio.</p>
-  <p>Todos os recortes de exploração aplicam um piso de liquidez explícito. Sem ele, qualquer ranking de retorno é dominado por papéis que negociaram uma única vez no período, com preço que não representa mercado.</p>
-
-  <h2>Eventos corporativos e saúde dos dados</h2>
-  <p>Fatos relevantes, comunicados, avisos aos acionistas e calendários vêm do conjunto IPE oficial da CVM. O recorte considera 180 dias inclusivos pela data de entrega, não pela data do acontecimento, e carrega até oito registros por empresa. Protocolos e versões diferentes são preservados mesmo quando os assuntos coincidem.</p>
-  <p>O site consulta a base em dias úteis; a CVM informa periodicidade semanal para os arquivos. Os textos exibidos são os metadados originais, sem resumo ou interpretação. Ausência de documentos neste recorte não significa ausência de eventos corporativos. O painel de saúde informa data, cobertura e alertas de cada base.</p>
-
-  <h2>Limitações e periodicidade</h2>
-  <ul>
-    <li>Preços: atualizados a cada 30 minutos durante o pregão, com atraso de ~15 minutos.</li>
-    <li>Métricas históricas: recalculadas uma vez por dia, após o fechamento.</li>
-    <li>Eventos da CVM: consultados diariamente em dias úteis.</li>
-    <li>Paridade: combina fontes com horários de referência distintos e deve ser lida como aproximação.</li>
-    <li>Lista de BDRs e base de empresas: atualizadas manualmente, com frequência baixa.</li>
-    <li>A fonte de cotações é uma API não documentada e pode mudar ou sair do ar sem aviso.</li>
-    <li>Desempenho passado não garante resultado futuro.</li>
-  </ul>
-  <p><b>Nada nesta página é recomendação de compra ou venda</b>, nem análise de investimento. É um instrumento de exploração e comparação de dados públicos.</p>
-  </div>`;
-}
-
-/* Na ficha cabe o detalhe: todas as classes, marcando qual virou referencia. */
-function cotacoesHTML(e){
-  const ts = classes(e);
-  if(!ts.length) return '';
-  const comPreco = ts.filter(t => cot(t));
-  if(!comPreco.length){
-    return `<div class="cot"><h3>Cotações</h3>
-      <p class="fnt">Sem cotação disponível. Esta companhia tem registro na B3 mas não apresenta negociação relevante.</p></div>`;
-  }
-  const ref = refPreco(e);
-  const itens = ts.map(t => {
-    const p = cot(t);
-    if(!p) return `<li><span class="tk">${t}</span><span class="vl flat">sem cotação</span></li>`;
-    const marca = ref && ref.tk === t && comPreco.length > 1 ? '<span class="ref">ref</span>' : '';
-    return `<li><span class="tk">${t}</span>${marca}<span class="vl">${fmtPreco(p.p)} ${fmtVar(p.v)}</span></li>`;
-  }).join('');
-  return `<div class="cot"><h3>Cotações</h3><ul>${itens}</ul>
-    <p class="fnt">Yahoo Finance, atraso de ~15 min.${PRECO_TS ? ' Atualizado às ' + PRECO_TS + '.' : ''}
-    ${comPreco.length > 1 ? ' A classe marcada como <b>ref</b> é a de maior volume no dia e alimenta o card e o mosaico.' : ''}</p></div>`;
-}
-
 /* ---------- ficha ---------- */
 function urlCVM(url){
   try{const u=new URL(url);return typeof url==='string'&&!url.includes('\\')&&u.protocol==='https:'&&(u.hostname==='cvm.gov.br'||u.hostname.endsWith('.cvm.gov.br'))&&!u.username&&!u.password&&!u.port;}catch{return false;}
@@ -10957,6 +10867,7 @@ function abre(cod){
 
 /* ---------- ficha do BDR, em blocos ---------- */
 function abreBDR(ticker){
+  garante('seriesBdr');
   const b = BDR.find(x => x.ticker === ticker); if(!b) return;
   garante('analise');
   const r = cot(ticker), m = met(ticker), a = ana(ticker), corS = corSetor(b.setor);
@@ -11041,8 +10952,7 @@ function abreBDR(ticker){
       <p class="fnt">Lista e tipo de programa: B3, base oficial de empresas listadas.<br>
       País, setor e indústria: <a href="${fonte.url}" target="_blank" rel="noopener noreferrer">${esc(fonte.nome)}</a> — não é classificação oficial da B3.<br>
       Cotação e série diária ajustada: Yahoo Finance, fonte não oficial.</p>
-      <p class="fnt">Desempenho passado não garante resultado futuro. Nada aqui é recomendação.
-      <button class="lnk" data-sec="metodologia" style="font-size:11.5px">Metodologia completa</button></p></div>`;
+      <p class="fnt">Desempenho passado não garante resultado futuro. Nada aqui é recomendação.</p></div>`;
   drw.classList.add('on'); dim.classList.add('on'); travaFundo();
   drw.querySelector('.x').onclick = fecha;
   EVENTO_FAV='';atualizaFavoritos();drw.focus();
@@ -11442,13 +11352,22 @@ function abreETF(ticker){
     <div class="bloco"><h3>Classificação e fontes</h3>
       <p class="fnt">Lista e categoria: <a href="https://sistemaswebb3-listados.b3.com.br/fundsListedPage/" target="_blank" rel="noopener noreferrer">B3, consulta oficial de fundos listados</a>.<br>
       Ticker: sigla da B3 com o sufixo +11${x.tickerVerificado===false?', ainda sem confirmação de cotação positiva no Yahoo Finance':', verificado no Yahoo Finance'}. Cotação e giro do dia: Yahoo Finance, fonte não oficial.</p>
-      <p class="fnt">Retorno, giro e volatilidade: Yahoo Finance, série diária ajustada. ${detalhe?'Taxa de administração e patrimônio líquido não fazem parte desta camada editorial.':'Índice de referência, taxa de administração e patrimônio líquido não constam desta base.'} Consulte sempre o regulamento e a lâmina oficiais do fundo. Nada aqui é recomendação de compra ou venda.
-      <button class="lnk" data-sec="metodologia" style="font-size:11.5px">Metodologia completa</button></p></div>`;
+      <p class="fnt">Retorno, giro e volatilidade: Yahoo Finance, série diária ajustada. ${detalhe?'Taxa de administração e patrimônio líquido não fazem parte desta camada editorial.':'Índice de referência, taxa de administração e patrimônio líquido não constam desta base.'} Consulte sempre o regulamento e a lâmina oficiais do fundo. Nada aqui é recomendação de compra ou venda.</p></div>`;
   drw.classList.add('on'); dim.classList.add('on'); travaFundo();
   drw.querySelector('.x').onclick = fecha;
   drw.focus();
 }
 
+/* A serie do grafico de BDR mora em metricas-series.json desde que saiu do
+   boot -- ela era 64% do peso de metricas.json e so aparece ao abrir uma
+   ficha. Chegando, e mesclada em METRICAS: quem lê (serieSpark, spark) recebe
+   o registro inteiro, como sempre recebeu. */
+function carregaSeriesBdr(){
+  return fetch('metricas-series.json',{cache:'no-cache'}).then(r=>r.ok?r.json():Promise.reject()).then(d=>{
+    for(const [t,serie] of Object.entries(d.series||{})) if(METRICAS[t]) Object.assign(METRICAS[t],serie);
+    concluiBase('seriesBdr',true);tentaAtivo();
+  }).catch(()=>{concluiBase('seriesBdr',false);});
+}
 function carregaMetricasEtfs(){
   return fetch('metricas-etfs.json',{cache:'no-cache'}).then(r=>r.ok?r.json():Promise.reject()).then(d=>{METRICAS_ETF=d.metricas||{};COLETAS.metricasEtfs=isoCSV(d.atualizadoEm);concluiBase('metricasEtfs',true);tentaAtivo();}).catch(()=>{concluiBase('metricasEtfs',false);});
 }
@@ -11521,6 +11440,37 @@ const distImplausivel = v => v !== null && v >= 100;
 const fmtDist = v => v === null ? '<span class="na">—</span>'
   : (distImplausivel(v) ? '<span class="na" title="Distribuiu mais que o próprio preço: é devolução de capital, não renda">' + v.toFixed(0).replace('.', ',') + '%&nbsp;!</span>'
     : v.toFixed(2).replace('.', ',') + '%');
+
+/* Amostra minima para comparar. Abaixo disso a mediana e ruido, e o projeto ja
+   trata amostra pequena assim nos BDRs (forcaBDR exige tres). Aqui e mais
+   exigente porque o grupo e maior: sao quatro tipos para centenas de fundos. */
+const MIN_PARES_FII = 8;
+const medianaDe = a => {
+  if(!a.length) return null;
+  const v = [...a].sort((x, y) => x - y), m = Math.floor(v.length / 2);
+  return v.length % 2 ? v[m] : (v[m - 1] + v[m]) / 2;
+};
+/* Compara com os pares do MESMO tipo de carteira, nunca com o universo todo.
+   Devolve tambem o tamanho da amostra: sem ele o numero nao e auditavel, e a
+   pagina precisa poder dizer quando a comparacao nao se sustenta. */
+function relativoFii(x){
+  if(!x.tipo) return null;
+  const pares = FII.filter(f => f.tipo === x.tipo);
+  const meu = { pvp: pvp(x), dist: distFii(x) };
+  const grupo = {
+    pvp: pares.map(pvp).filter(v => typeof v === 'number' && Number.isFinite(v)),
+    /* Fundo que distribuiu mais que o proprio preco esta devolvendo capital, e
+       entra na mediana puxando tudo para cima. Fica de fora do grupo. */
+    dist: pares.map(distFii).filter(v => typeof v === 'number' && Number.isFinite(v) && !distImplausivel(v))
+  };
+  const linha = (k) => {
+    if(typeof meu[k] !== 'number' || grupo[k].length < MIN_PARES_FII) return null;
+    const med = medianaDe(grupo[k]);
+    return { meu: meu[k], mediana: med, dif: meu[k] - med, n: grupo[k].length };
+  };
+  const r = { tipo: x.tipo, pvp: linha('pvp'), dist: linha('dist'), pares: pares.length };
+  return (r.pvp || r.dist) ? r : null;
+}
 
 /* Reconstroi as datas dos proventos a partir do offset, em UTC dos dois lados,
    exatamente como serieSpark() faz com a serie do grafico. */
@@ -11707,7 +11657,7 @@ function abreFII(ticker){
       (v === null ? '' : '<p class="fnt">P/VP é derivado aqui, não publicado pelo fundo: preço de hoje sobre o valor patrimonial de ' + dia(x.informeEm) + '. O informe é mensal e atrasa, então os dois lados da conta não são do mesmo dia. Não é medida de preço justo.</p>')
     : '<p class="fnt">Sem informe correspondente na CVM' + (x.cvmAmbiguo ? ': mais de um fundo declara o mesmo ISIN e não foi possível decidir qual é este sem risco de atribuir o patrimônio errado.' : '. Patrimônio, valor da cota e composição não estão disponíveis para este fundo.') + '</p>';
 
-  const m = metFii(ticker), prov = serieProventos(m), rend = distFii(x);
+  const m = metFii(ticker), prov = serieProventos(m), rend = distFii(x), rel = relativoFii(x);
   const historico = m ? '<dl class="kv">' +
       l('Variação de preço · 12 meses', typeof m.vp252 === 'number' ? fmtRet(m.vp252) : '<span class="na">—</span>') +
       l('Variação de preço · 3 meses', typeof m.vp63 === 'number' ? fmtRet(m.vp63) : '<span class="na">—</span>') +
@@ -11753,6 +11703,15 @@ function abreFII(ticker){
       '<p class="fnt">Yahoo Finance, atraso de ~15 min.' + (PRECO_TS ? ' Consultada em ' + PRECO_TS + '.' : '') + '</p></div>' +
     (rendimento ? '<div class="bloco"><h3>Rendimento distribuído</h3>' + rendimento + '</div>' : '') +
     '<div class="bloco"><h3>Composição da carteira</h3>' + carteira + '</div>' +
+    (rel ? '<div class="bloco"><h3>Comparação com fundos de ' + esc(rel.tipo.toLowerCase()) + '</h3><dl class="kv">' +
+      (rel.pvp ? l('P/VP · este fundo', fmtPvp(rel.pvp.meu)) + l('P/VP · mediana do grupo', fmtPvp(rel.pvp.mediana)) +
+        l('Diferença', (rel.pvp.dif >= 0 ? '+' : '−') + Math.abs(rel.pvp.dif).toFixed(2).replace('.', ',')) : '') +
+      (rel.dist ? l('Distribuído 12m · este fundo', fmtDist(rel.dist.meu)) + l('Distribuído 12m · mediana do grupo', fmtDist(rel.dist.mediana)) +
+        l('Diferença', fmtPp(rel.dist.dif)) : '') +
+      '</dl><p class="fnt">Mediana dos ' + (rel.pvp ? rel.pvp.n : rel.dist.n) + ' fundos de ' + esc(rel.tipo.toLowerCase()) +
+      ' com o dado disponível, de ' + rel.pares + ' no tipo. Comparar P/VP ou distribuição entre tipos de carteira diferentes não diz nada — um fundo de papel e um de tijolo não medem a mesma coisa —, por isso o grupo é o próprio tipo.' +
+      (rel.dist ? ' Fundos que distribuíram mais que o próprio preço ficam fora da mediana: estão devolvendo capital e puxariam o grupo inteiro.' : '') +
+      ' Mediana, não média, e não é ranking nem recomendação.</p></div>' : '') +
     '<div class="bloco"><h3>Histórico e liquidez</h3>' + historico +
       '<p class="fnt">Yahoo Finance, série diária ajustada, fonte não oficial.</p></div>' +
     '<div class="bloco"><h3>Patrimônio</h3>' + patrimonio + '</div>' +
@@ -11902,8 +11861,6 @@ const SECOES = {
     d:'Os ativos marcados com estrela nas tabelas e nas fichas, de qualquer universo. É uma lista de observação: não guarda quantidade nem preço médio.'},
   radar:{t:'Radar de listagens', k:'B3 · pipeline',
     d:'Companhias com pedido protocolado, nomes no radar do mercado e as já registradas que ainda não têm negociação relevante.'},
-  metodologia:{t:'Metodologia', k:'B3 · como isto é feito',
-    d:'De onde vem cada número, como os indicadores são calculados e o que estes dados não podem responder.'}
 };
 /* Chamado por navega() e por render(): o catalogo de BDR chega depois do
    primeiro desenho, e o kicker precisa parar de dizer "recibos de deposito"
@@ -11924,7 +11881,7 @@ function navega(sec){
   document.querySelectorAll('nav.prim button').forEach(b =>
     b.setAttribute('aria-current', b.dataset.sec === sec ? 'page' : 'false'));
   cabecalhoSecao();
-  ['Geral','Empresas','Bdrs','Etfs','Fiis','Carteira','Favoritos','Radar','Metodologia'].forEach(n =>
+  ['Geral','Empresas','Bdrs','Etfs','Fiis','Carteira','Favoritos','Radar'].forEach(n =>
     $('sec' + n).classList.toggle('hide', 'sec' + n !== 'sec' + sec.charAt(0).toUpperCase() + sec.slice(1)));
   fechaFiltros();
   scrollTo({top:0, behavior:'instant'});
@@ -11968,7 +11925,6 @@ function render(){
   if(URL_ATIVA) sincronizaURL();
   if(st.sec === 'geral'){ $('secGeral').innerHTML = geralHTML(); miniMapa(); return; }
   if(st.sec === 'radar'){ $('secRadar').innerHTML = radarHTML(); return; }
-  if(st.sec === 'metodologia'){ $('secMetodologia').innerHTML = metodologiaHTML(); return; }
   if(st.sec === 'carteira'){ renderCarteira(); return; }
   if(st.sec === 'favoritos'){ renderFavoritos(); return; }
 
@@ -12091,6 +12047,48 @@ function salvaCarteira(){
   try { localStorage.setItem('mapaB3Carteira',JSON.stringify(CARTEIRA));AVISO_CARTEIRA='';return true; }
   catch { AVISO_CARTEIRA='O navegador não permitiu salvar. As alterações da carteira valem somente nesta sessão.';return false; }
 }
+/* ---------- carteira cifrada entre maquinas ---------- */
+/* PBKDF2 alto de proposito: o arquivo fica num repositorio publico, entao a
+   unica defesa contra forca bruta e o custo de cada tentativa. */
+const SYNC_ITERACOES = 310000;
+const b64 = b => btoa(String.fromCharCode(...new Uint8Array(b)));
+const deB64 = t => Uint8Array.from(atob(t), c => c.charCodeAt(0));
+
+async function chaveSync(senha, salt){
+  const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(senha), 'PBKDF2', false, ['deriveKey']);
+  return crypto.subtle.deriveKey({name:'PBKDF2', salt, iterations:SYNC_ITERACOES, hash:'SHA-256'},
+    base, {name:'AES-GCM', length:256}, false, ['encrypt','decrypt']);
+}
+async function cifraCarteira(senha, posicoes){
+  const salt = crypto.getRandomValues(new Uint8Array(16)), iv = crypto.getRandomValues(new Uint8Array(12));
+  const chave = await chaveSync(senha, salt);
+  const claro = new TextEncoder().encode(JSON.stringify(posicoes));
+  const dados = await crypto.subtle.encrypt({name:'AES-GCM', iv}, chave, claro);
+  return {versao:1, cifrado:true, algoritmo:'AES-GCM-256 + PBKDF2-SHA256', iteracoes:SYNC_ITERACOES,
+    salt:b64(salt), iv:b64(iv), dados:b64(dados), geradoEm:new Date().toISOString(),
+    aviso:'Conteúdo cifrado. Sem a senha não há como ler, e não existe recuperação.'};
+}
+async function decifraCarteira(senha, arq){
+  if(!arq || arq.cifrado !== true || !arq.salt || !arq.iv || !arq.dados) throw new Error('arquivo não é uma carteira cifrada');
+  const it = Number.isInteger(arq.iteracoes) && arq.iteracoes > 0 ? arq.iteracoes : SYNC_ITERACOES;
+  const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(senha), 'PBKDF2', false, ['deriveKey']);
+  const chave = await crypto.subtle.deriveKey({name:'PBKDF2', salt:deB64(arq.salt), iterations:it, hash:'SHA-256'},
+    base, {name:'AES-GCM', length:256}, false, ['decrypt']);
+  const claro = await crypto.subtle.decrypt({name:'AES-GCM', iv:deB64(arq.iv)}, chave, deB64(arq.dados));
+  /* leCarteira() valida de novo: o que veio do arquivo nao e mais confiavel
+     que o que veio do localStorage. */
+  return leCarteira(JSON.parse(new TextDecoder().decode(claro)));
+}
+/* Mostra o que muda antes de trocar: a carteira local pode ser a mais recente,
+   e restaurar por cima sem avisar apagaria trabalho. */
+function comparaCarteiras(atual, nova){
+  const ma = new Map(atual.map(x => [x.ticker, x])), mn = new Map(nova.map(x => [x.ticker, x]));
+  const entram = nova.filter(x => !ma.has(x.ticker)).map(x => x.ticker);
+  const saem = atual.filter(x => !mn.has(x.ticker)).map(x => x.ticker);
+  const mudam = nova.filter(x => ma.has(x.ticker) && (ma.get(x.ticker).qtd !== x.qtd || ma.get(x.ticker).pm !== x.pm)).map(x => x.ticker);
+  return {entram, saem, mudam};
+}
+
 function ativoCarteira(ticker){
   const e=E.find(x=>(x.tickers||'').split(',').map(t=>t.trim()).includes(ticker));
   if(e)return {ticker,nome:e.pregao,tipo:'Empresa brasileira',cod:e.cod};
@@ -12420,6 +12418,50 @@ $('clearBdr').onclick=()=>{limpaFiltrosBDR();$('qBdr').focus();};
 $('clearEtf').onclick=()=>{limpaFiltrosETF();$('qEtf').focus();};
 $('clearFii').onclick=()=>{limpaFiltrosFII();$('qFii').focus();};
 
+const syncMsg = t => { $('syncMsg').textContent = t; };
+$('syncExporta').onclick = async () => {
+  const senha = $('syncSenha').value;
+  if(senha.length < 8) return syncMsg('Escolha uma senha de pelo menos 8 caracteres. Ela não é guardada, e sem ela o arquivo não volta.');
+  if(!CARTEIRA.length) return syncMsg('A carteira está vazia; não há o que exportar.');
+  try{
+    const arq = await cifraCarteira(senha, CARTEIRA);
+    baixaArquivo(JSON.stringify(arq, null, 1) + '\n', 'carteira.json', 'application/json');
+    syncMsg(CARTEIRA.length + ' posições cifradas. Commite o carteira.json na raiz do repositório; no outro computador, abra a carteira e use "Restaurar do arquivo publicado" com a mesma senha.');
+  }catch(e){ syncMsg('Não foi possível cifrar: ' + e.message); }
+};
+$('syncImporta').onclick = async () => {
+  const senha = $('syncSenha').value;
+  if(!senha) return syncMsg('Informe a senha usada para gerar o arquivo.');
+  syncMsg('Buscando carteira.json…');
+  $('syncPreview').innerHTML = '';
+  let arq;
+  try{
+    const r = await fetch('carteira.json', {cache:'no-cache'});
+    if(!r.ok) return syncMsg(r.status === 404
+      ? 'Não há carteira.json publicado ainda. Gere o arquivo cifrado neste computador e commite antes de restaurar no outro.'
+      : 'Não foi possível baixar o carteira.json (HTTP ' + r.status + ').');
+    arq = await r.json();
+  }catch(e){ return syncMsg('Não foi possível ler o carteira.json: ' + e.message); }
+  let nova;
+  try{ nova = await decifraCarteira(senha, arq); }
+  catch{ return syncMsg('Senha incorreta, ou o arquivo não corresponde a esta senha. Nada foi alterado.'); }
+  if(!nova.length) return syncMsg('O arquivo decifrou, mas não tem posição válida. Nada foi alterado.');
+  const d = comparaCarteiras(CARTEIRA, nova);
+  /* Confirmacao explicita: substituir e destrutivo, e o local pode ser o novo. */
+  $('syncPreview').innerHTML = '<p class="fnt">O arquivo tem <b>' + nova.length + '</b> posições, gerado em ' + esc(String(arq.geradoEm || '').slice(0, 10).split('-').reverse().join('/')) + '.'
+    + (d.entram.length ? ' Entram: <b>' + d.entram.map(esc).join(', ') + '</b>.' : '')
+    + (d.saem.length ? ' <b>Saem: ' + d.saem.map(esc).join(', ') + '</b>.' : '')
+    + (d.mudam.length ? ' Mudam: <b>' + d.mudam.map(esc).join(', ') + '</b>.' : '')
+    + (!d.entram.length && !d.saem.length && !d.mudam.length ? ' É igual à carteira deste navegador.' : '')
+    + '</p><p style="margin:8px 0 0"><button class="btn" id="syncConfirma">Substituir a carteira deste navegador</button></p>';
+  $('syncConfirma').onclick = () => {
+    CARTEIRA = nova; salvaCarteira(); render();
+    syncMsg(nova.length + ' posições restauradas neste navegador.');
+    $('syncPreview').innerHTML = '';
+  };
+  syncMsg('Arquivo decifrado. Confira o que muda antes de substituir.');
+};
+
 const par = (a, b, val, key, fn) => {
   a.onclick = () => { st[key] = val[0]; a.setAttribute('aria-pressed','true'); b.setAttribute('aria-pressed','false'); (fn||render)(); };
   b.onclick = () => { st[key] = val[1]; b.setAttribute('aria-pressed','true'); a.setAttribute('aria-pressed','false'); (fn||render)(); };
@@ -12472,10 +12514,14 @@ function finalizaCSV(linhas,universo,agora=new Date()){
   try{baixaCSV(linhas,(universo==='bdrs'?'bdrs-b3-':'mapa-b3-')+agora.toISOString().replace(/[:.]/g,'-')+'.csv');msg.textContent='Arquivo preparado com '+(linhas.length-1)+(linhas.length===2?' ativo':' ativos')+' do recorte atual. Campos vazios indicam dados ausentes; confira datas e sinalizações no CSV.';}
   catch{msg.textContent='Não foi possível preparar o CSV. Tente novamente.';}
 }
-function baixaCSV(linhas, nome){
-  const blob=new Blob([textoCSV(linhas)],{type:'text/csv;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');
+function baixaArquivo(conteudo, nome, tipo){
+  const blob=new Blob([conteudo],{type:tipo}),url=URL.createObjectURL(blob),a=document.createElement('a');
   try{a.href=url;a.download=nome;document.body.appendChild(a);a.click();}
   finally{a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+}
+/* Mantem nome e assinatura: testa-csv.js troca esta funcao por um duble. */
+function baixaCSV(linhas, nome){
+  baixaArquivo(textoCSV(linhas), nome, 'text/csv;charset=utf-8');
 }
 $('csvBdr').onclick = () => {
   if(BDR_CARGA!=='pronta'){$('csvBdrMsg').textContent=BDR_CARGA==='falha'?'Catálogo BDR indisponível. Recarregue a página antes de exportar.':'Aguarde o carregamento do catálogo BDR antes de exportar.';return;}
@@ -12602,7 +12648,7 @@ function tentaAtivo(){
   const b=BDR.find(x=>x.ticker===st.ativo),e=E.find(x=>x.cod===st.ativo),x=ETF.find(f=>f.ticker===st.ativo),g=FII.find(f=>f.ticker===st.ativo);
   /* Link direto para uma ficha pode chegar em qualquer secao, inclusive numa
      que nao depende dessa base: sem pedir aqui, a espera abaixo nunca acaba. */
-  if(b)garante('analise'); else if(e)garante('metricasEmpresas','eventos'); else if(g)garante('metricasFiis'); else if(x)garante('metricasEtfs');
+  if(b)garante('analise','seriesBdr'); else if(e)garante('metricasEmpresas','eventos'); else if(g)garante('metricasFiis'); else if(x)garante('metricasEtfs');
   if(b&&Object.keys(METRICAS).length&&Object.keys(ANALISE).length){ATIVO_ABERTO=true;abreBDR(b.ticker);}
   else if(e&&Object.keys(METRICAS_EMP).length){ATIVO_ABERTO=true;abre(e.cod);}
   else if(x&&ETF.length&&Object.keys(METRICAS_ETF).length){ATIVO_ABERTO=true;abreETF(x.ticker);}
@@ -12620,13 +12666,13 @@ function tentaAtivo(){
    custava 3 MB antes do primeiro clique. Idempotente pela promessa guardada:
    quem pede duas vezes reaproveita a mesma requisicao, e quem falhou nao
    volta a tentar sozinho -- a pagina ja trata cada base ausente como ausente. */
-const CARGAS = {analise:carregaAnalise, metricasEmpresas:carregaMetricasEmpresas, eventos:carregaEventos, metricasFiis:carregaMetricasFiis, metricasEtfs:carregaMetricasEtfs};
+const CARGAS = {analise:carregaAnalise, metricasEmpresas:carregaMetricasEmpresas, eventos:carregaEventos, metricasFiis:carregaMetricasFiis, metricasEtfs:carregaMetricasEtfs, seriesBdr:carregaSeriesBdr};
 const PEDIDOS = {};
 /* 'ausente' antes de alguem pedir, 'carregando', 'pronta' ou 'falha'. Quem
    falhou LIBERA a promessa: uma queda de rede transitoria desligava paridade,
    comparacao e CSV pelo resto da sessao, porque o .catch resolvia e o cache
    guardava a promessa boa. Agora a proxima interacao tenta de novo. */
-const ESTADO_BASE = {analise:'ausente', metricasEmpresas:'ausente', eventos:'ausente', metricasFiis:'ausente', metricasEtfs:'ausente'};
+const ESTADO_BASE = {analise:'ausente', metricasEmpresas:'ausente', eventos:'ausente', metricasFiis:'ausente', metricasEtfs:'ausente', seriesBdr:'ausente'};
 const baseOk = n => ESTADO_BASE[n] === 'pronta';
 function concluiBase(n, ok){
   ESTADO_BASE[n] = ok ? 'pronta' : 'falha';
@@ -12648,7 +12694,7 @@ function recadoBase(n, oQue){
 /* O que cada secao precisa alem do que o boot ja traz. Carteira e Favoritos
    ficam de fora de proposito: elas abrem ficha de qualquer universo, e quem
    pede a base la e a propria funcao que abre a ficha. */
-const DEPENDE = {empresas:['metricasEmpresas'], bdrs:['analise'], radar:['eventos'], fiis:['metricasFiis'], etfs:['metricasEtfs']};
+const DEPENDE = {empresas:['metricasEmpresas'], bdrs:['analise','seriesBdr'], radar:['eventos'], fiis:['metricasFiis'], etfs:['metricasEtfs']};
 
 leURL();refleteEstado();URL_ATIVA = true;
 chips(); chipsBDR(); chipsETF(); atualizaSelecao();

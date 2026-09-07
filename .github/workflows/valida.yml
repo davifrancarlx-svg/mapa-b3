@@ -25,6 +25,7 @@ jobs:
       - run: node scripts/valida-matriz.js
       - run: node scripts/valida-acompanhamento.js
       - run: node scripts/testa-carteira.js
+      - run: node scripts/testa-carteira-sync.js
       - run: node scripts/testa-csv.js
       - run: node scripts/valida-bdrs-referencia.js
       - run: node scripts/valida-precos.js

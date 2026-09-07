@@ -285,7 +285,7 @@ function confere(nome, condicao, detalhe = ''){
   /* 5. nenhuma secao rola horizontalmente em 375 px */
   await abre(375, 812);
   const rolagem = [];
-  for(const sec of ['geral','empresas','bdrs','etfs','fiis','carteira','favoritos','radar','metodologia']){
+  for(const sec of ['geral','empresas','bdrs','etfs','fiis','carteira','favoritos','radar']){
     await vai(sec);
     const x = await avalia('return {larg:innerWidth,scroll:document.documentElement.scrollWidth};');
     if(x.scroll > x.larg + 1) rolagem.push(sec + ' (' + x.scroll + '>' + x.larg + ')');

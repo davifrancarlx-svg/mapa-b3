@@ -26,10 +26,12 @@ Repositório: <https://github.com/davifrancarlx-svg/mapa-b3>
   e metodologia.
 - URLs compartilham seção, ficha, modo, filtros e ordenação.
 - Favoritos, carteira e comparação permanecem locais no navegador.
-- **26 validadores**, todos verdes, incluindo um que abre a página num Chrome headless
+- **27 validadores**, todos verdes, incluindo um que abre a página num Chrome headless
   com 30 verificações.
-- Cinco bases entram sob demanda, e falha de carga tem estado próprio: a página
+- Seis bases entram sob demanda, e falha de carga tem estado próprio: a página
   distingue "carregando" de "não foi possível" e volta a tentar sozinha.
+- **Oito seções**: a Metodologia foi removida a pedido do autor.
+- A carteira atravessa desktops por um `carteira.json` cifrado com WebCrypto.
 
 O projeto é HTML, CSS e JavaScript puro, sem framework, bundler ou dependências —
 agora inclusive sem o Google Fonts. Não alterar essa arquitetura. Os `fetch()`
@@ -144,26 +146,17 @@ Commits `aea6a93` e `7d979e0` em `main`, publicados no GitHub Pages e no Lovable
   aberto antes de implementar:** o repositório é público, então commitar quantidade e
   preço médio publica a posição financeira do autor, e o histórico do git a preserva.
 
-## Próxima entrega recomendada
+## O que sobrou
 
-**Commitar e publicar.** Nada desde a revisão em blocos foi commitado: os fundos
-imobiliários, o histórico de ETF, o cache, o estado de carga e as correções de
-integridade estão todos só no disco.
+O backlog foi ao chão. O que resta são decisões de produto, não pendências:
 
-Depois disso, em ordem de valor:
-
-1. **Tirar a série do gráfico do boot.** `metricas.json` ainda leva 187 KB gzip de
-   série que só é usada ao abrir uma ficha de BDR.
-2. **Força relativa dentro do tipo de FII** — comparar distribuição e P/VP contra a
-   mediana dos fundos da mesma carteira, como `relativos()` já faz por indústria
-   nos BDRs. Comparar P/VP de fundo de papel com o de tijolo não diz nada.
-3. **Matriz de dispersão dos ETFs**, agora destravada por `metricas-etfs.json`.
-4. **FIAGRO (49) e FI-INFRA (41)** — uma linha em `gera-fiis.js`.
-
-Pendente de decisão do autor, sem trabalho iniciado: **como persistir a carteira**
-entre desktops sem publicar a posição num repositório público (a recomendação é
-arquivo cifrado com WebCrypto), e **remover a Metodologia** — ela foi atualizada
-para não ficar factualmente errada, mas segue marcada para sair.
+- **Matriz de dispersão dos ETFs.** `metricas-etfs.json` destravou tecnicamente,
+  mas seria um terceiro modo de visualização numa aba que hoje tem dois. Não foi
+  feita de propósito — é escolha do autor, não impedimento.
+- **FIAGRO (49) e FI-INFRA (41)** saem do mesmo endpoint da B3 com uma linha. **Não
+  foram adicionados**, e não devem entrar na seção de fundos imobiliários sem
+  decisão explícita: FIAGRO é agro, e misturá-lo ali quebraria o significado da
+  seção. Se entrarem, entram como universo próprio.
 
 Sem solução conhecida: separar rendimento de amortização nos FIIs. A CVM publica o
 percentual de amortização mensal, mas ele identifica só 12 dos 54 fundos com

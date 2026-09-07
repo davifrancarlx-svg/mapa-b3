@@ -421,6 +421,18 @@ sem hierarquia curada à mão.
 
 Detalhes de fonte, junção por ISIN e armadilhas: `FIIS.md`.
 
+## Carteira entre computadores
+
+As posições ficam em `localStorage` e somem ao trocar de máquina. Para levá-las
+junto, a seção Carteira gera um `carteira.json` **cifrado** (AES-GCM + PBKDF2 em
+WebCrypto): você commita o arquivo, e no outro computador restaura com a mesma
+senha.
+
+O repositório é público, então o arquivo precisa ser ruído para quem o abrir —
+nem ticker nem quantidade aparecem. **A senha não é guardada em lugar nenhum**;
+se perdê-la, o arquivo não volta. Restaurar mostra o que entra, o que sai e o
+que muda antes de substituir, porque a carteira local pode ser a mais recente.
+
 ## Carteira local
 
 A seção **Carteira** aceita ticker, quantidade e preço médio unitário para empresas

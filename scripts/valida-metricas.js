@@ -10,6 +10,9 @@ const RAIZ = path.join(__dirname, '..');
 const bdrs = JSON.parse(fs.readFileSync(path.join(RAIZ, 'bdrs.json'), 'utf8')).bdrs || [];
 const base = JSON.parse(fs.readFileSync(path.join(RAIZ, 'metricas.json'), 'utf8'));
 const metricas = base.metricas || {};
+/* A serie do grafico vive em arquivo proprio desde que saiu do boot. */
+const baseSerie = JSON.parse(fs.readFileSync(path.join(RAIZ, 'metricas-series.json'), 'utf8'));
+const series = baseSerie.series || {};
 const universo = new Set(bdrs.map(b => b.ticker));
 const erros = [];
 const campos = ['r21','r63','r252','g20','g60','d20','d60','dd252','dm252','min252','max252','mm50','mm200','v21','ri21','ri63','ri252','rs21','rs63','rs252'];
@@ -17,6 +20,26 @@ const campos = ['r21','r63','r252','g20','g60','d20','d60','dd252','dm252','min2
 const falha = msg => erros.push(msg);
 if(base.totalBDRs !== bdrs.length) falha('totalBDRs diverge de bdrs.json');
 if(!base.fonte || !base.metodologia || !base.atualizadoEm) falha('metadados de fonte, metodologia ou data ausentes');
+
+/* Os dois arquivos sao um so dado partido em dois. Se sairem de coletas
+   diferentes, a ficha mostra o grafico de um dia com os indicadores de outro
+   e nada quebra -- por isso a data tem de bater exatamente. */
+if(baseSerie.atualizadoEm !== base.atualizadoEm) falha('metricas-series.json e de outra coleta que metricas.json');
+if(baseSerie.totalBDRs !== base.totalBDRs) falha('totalBDRs diverge entre os dois arquivos');
+if(!baseSerie.metodologia) falha('metadados de metricas-series.json ausentes');
+/* Serie orfa: registro que saiu de metricas.json e ficou para tras aqui. */
+Object.keys(series).forEach(t => { if(!metricas[t]) falha(t + ': serie sem registro correspondente em metricas.json'); });
+/* E o contrario: quem tem historico suficiente precisa ter serie. */
+Object.entries(metricas).forEach(([t, m]) => {
+  if(Number.isInteger(m.n) && m.n >= 22 && !series[t]) falha(t + ': registro com historico mas sem serie em metricas-series.json');
+});
+/* A serie NAO pode voltar para metricas.json: o boot pagava 187 KB
+   comprimidos por uma curva que so aparece ao abrir uma ficha. */
+Object.entries(metricas).forEach(([t, m]) => {
+  ['spP','spO','spInicio','spFim','spN','sp','spD'].forEach(c => {
+    if(m[c] !== undefined) falha(t + ': ' + c + ' voltou para metricas.json; a serie mora em metricas-series.json');
+  });
+});
 
 Object.entries(metricas).forEach(([ticker,m]) => {
   if(!universo.has(ticker)) falha(ticker + ': fora do universo de BDRs');
@@ -35,9 +58,12 @@ Object.entries(metricas).forEach(([ticker,m]) => {
   if(m.min252 > m.max252) falha(ticker + ': minima acima da maxima');
   if(Number.isFinite(m.dd252) && m.dd252 > 0) falha(ticker + ': dd252 positivo');
   if(Number.isFinite(m.dm252) && m.dm252 < 0) falha(ticker + ': dm252 negativo');
-  /* Serie comprimida: spP e spO. Registro preservado apos falha pode trazer o
-     formato antigo (sp + spD) adiante, e continua valido. */
-  if(m.spP !== undefined){
+  /* Serie comprimida: spP e spO, agora no arquivo separado. Registro
+     preservado apos falha pode trazer o formato antigo (sp + spD) adiante, e
+     continua valido. */
+  const m2 = series[ticker];
+  if(m2 && m2.spP !== undefined){
+    const m = m2;
     if(!Array.isArray(m.spP)||m.spP.length<2||m.spP.some(v=>!Number.isFinite(v)||v<=0)) falha(ticker + ': amostras de preco invalidas');
     const antigo = m.spD !== undefined;
     if(antigo){

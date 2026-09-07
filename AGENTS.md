@@ -127,9 +127,18 @@ casando chaves (com consciência de string). Consequências:
 GitHub Actions commita o `precos.json` sozinho a cada 30 min; embutir os preços no HTML
 mataria a atualização automática.
 
-**Cinco bases entram sob demanda, não no boot** (`analise`, `metricasEmpresas`,
-`eventos`, `metricasFiis`, `metricasEtfs`). O texto abaixo descreve as três
-primeiras; as duas de fundos seguem exatamente o mesmo desenho.
+**Seis bases entram sob demanda, não no boot** (`analise`, `metricasEmpresas`,
+`eventos`, `metricasFiis`, `metricasEtfs`, `seriesBdr`). O texto abaixo descreve
+as três primeiras; as demais seguem exatamente o mesmo desenho.
+
+**A série do gráfico de BDR mora em `metricas-series.json`, não em
+`metricas.json`.** `metricas.json` é a única base pesada que ainda entra no
+boot — a Visão geral usa retorno, giro e força relativa dela —, mas 64% do peso
+era uma curva que só aparece ao abrir uma ficha: 187 KB comprimidos viraram 57.
+O cliente **mescla** a série de volta em `METRICAS` quando ela chega, então
+`serieSpark()` e `spark()` não sabem que existem dois arquivos. `valida-metricas.js`
+exige que os dois tenham o mesmo `atualizadoEm` — de coletas diferentes, a ficha
+mostraria o gráfico de um dia com os indicadores de outro, e nada quebraria.
 
 **Falha de carga não pode virar afirmação sobre o dado.** `ESTADO_BASE` guarda
 `ausente`/`carregando`/`pronta`/`falha` por base, e quem falha **libera a promessa**
@@ -174,7 +183,13 @@ e a barra inicial quebraria lá.
 
 ## Arquitetura de navegação
 
-São **nove seções**, uma por universo, controladas por `st.sec` e pela função `navega()`:
+São **oito seções**, controladas por `st.sec` e pela função `navega()`. A
+Metodologia foi removida em 06/09/2026 a pedido do autor — antes de tirar, foi
+conferido que nenhuma ressalva vivia só ali ("não é dividend yield", "preço
+justo", "preço de fechamento", "recomendação de compra ou venda", "amortização"
+e a atribuição ao Yahoo continuam nas notas de seção, nas fichas e no rodapé).
+**Não recrie a seção**; ressalva nova vai na nota da seção ou na ficha, que é
+onde o leitor está.
 
 | Seção | `st.sec` | Contêiner |
 |---|---|---|
@@ -186,7 +201,6 @@ São **nove seções**, uma por universo, controladas por `st.sec` e pela funç�
 | Carteira | `carteira` | `#secCarteira` — posições com quantidade e preço médio |
 | Favoritos | `favoritos` | `#secFavoritos` — lista de acompanhamento, sem posição |
 | Radar de listagens | `radar` | `#secRadar` — montada por `radarHTML()` |
-| Metodologia | `metodologia` | `#secMetodologia` |
 
 **Carteira e Favoritos são listas distintas e ficam em seções separadas.** Carteira
 guarda posição (quantidade e preço médio, em `mapaB3Carteira`); Favoritos é só
@@ -404,8 +418,18 @@ JSONs de runtime usados pelos `fetch()` relativos, a `social.png` e a pasta `fon
   a relação oficial do programa e a PTAX do Banco Central. Horários, liquidez, custos e
   tributos diferem; mantenha a linguagem de referência indicativa e o residual explícito.
 - **Acompanhamento e carteira são locais.** Favoritos, quantidade e preço médio ficam em
-  `localStorage`; filtros e ficha aberta ficam na URL. Não introduza conta, backend ou
-  sincronização sem uma decisão explícita do projeto.
+  `localStorage`; filtros e ficha aberta ficam na URL. Não introduza conta ou backend.
+- **A carteira atravessa desktops por um `carteira.json` cifrado**, decidido em
+  06/09/2026. AES-GCM com chave derivada por PBKDF2 (310 mil iterações), tudo em
+  WebCrypto nativo — sem dependência. O repositório é público, então o arquivo
+  precisa ser ruído para quem o abrir. Três garantias não podem cair, e
+  `scripts/testa-carteira-sync.js` existe só para elas: **nada em claro** no
+  arquivo (nem ticker, nem quantidade), **senha errada rejeitada**, e **arquivo
+  adulterado rejeitado** — é por isso que é GCM e não CBC. **A senha nunca é
+  guardada:** ao lado do arquivo cifrado, no mesmo navegador, ela anularia a
+  cifra, e o teste reprova qualquer tentativa de persistir. E restaurar **nunca
+  sobrescreve em silêncio**: mostra o que entra, o que sai e o que muda antes,
+  porque a carteira local pode ser a mais recente.
 - **Favorito vale para qualquer universo, mas o contador da tabela de BDR não.**
   `alternaFavorito()` aceita qualquer ticker resolvido por `ativoCarteira()` (empresa,
   BDR, ETF ou código presente nas cotações), e `leFavoritos()` aceita `AAAA9` e `AAAA99`.
