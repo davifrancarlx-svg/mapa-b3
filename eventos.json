@@ -1,12 +1,12 @@
 {
  "versao": 2,
- "atualizadoEm": "2026-09-09T16:41:55.003344+00:00",
+ "atualizadoEm": "2026-09-10T16:27:30.399947+00:00",
  "fonte": [
   "https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/IPE/DADOS/ipe_cia_aberta_2026.zip"
  ],
  "janela": {
-  "inicio": "2026-03-14",
-  "fim": "2026-09-09",
+  "inicio": "2026-03-15",
+  "fim": "2026-09-10",
   "dias": 180
  },
  "categorias": [
@@ -331,7 +331,7 @@
   "LUPA": 26,
   "KLBN": 20,
   "GRND": 10,
-  "MNPR": 6,
+  "MNPR": 5,
   "SANB": 13,
   "UCAS": 12,
   "RCSL": 13,
@@ -351,8 +351,8 @@
   "LJQQ": 3,
   "DXCO": 8
  },
- "documentosNoRecorte": 4746,
- "documentosExibidos": 2257,
+ "documentosNoRecorte": 4745,
+ "documentosExibidos": 2256,
  "metodologia": "Recorte por data de entrega, quatro categorias IPE; protocolo e versao preservados; ate 8 registros por empresa, sem resumo editorial",
  "empresasComEventos": 333,
  "eventos": {
@@ -24568,17 +24568,6 @@
     "versao": 1,
     "apresentacao": "AP - Apresentação",
     "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1493397&numSequencia=1018103&numVersao=1"
-   },
-   {
-    "dt": "2026-03-14",
-    "categoria": "Aviso aos Acionistas",
-    "tipo": "Solicitação de acionista para o Boletim de Voto",
-    "assunto": "Inclusão de candidato ao Conselho de Administração||Inclusão de candidato ao Conselho Fiscal||Solicitação de votação em separado",
-    "especie": null,
-    "protocolo": "013765IPE140420260108097375-16",
-    "versao": 1,
-    "apresentacao": "AP - Apresentação",
-    "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1490502&numSequencia=1015208&numVersao=1"
    }
   ],
   "SANB": [

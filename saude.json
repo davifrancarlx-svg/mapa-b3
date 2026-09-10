@@ -1,6 +1,6 @@
 {
  "versao": 2,
- "geradoEm": "2026-09-09T22:17:31.718Z",
+ "geradoEm": "2026-09-10T16:27:30.596Z",
  "fontes": {
   "precos": {
    "nome": "Preços",
@@ -156,14 +156,14 @@
    "nome": "Documentos CVM",
    "minCobertura": null,
    "limiteHoras": 120,
-   "atualizadoEm": "2026-09-09T16:41:55.003344+00:00",
+   "atualizadoEm": "2026-09-10T16:27:30.399947+00:00",
    "total": null,
-   "registros": 2257,
-   "renovados": 2257,
+   "registros": 2256,
+   "renovados": 2256,
    "preservados": 0,
    "cobertura": null,
    "coberturaRenovada": null,
-   "observacaoInicio": "2026-03-14",
+   "observacaoInicio": "2026-03-16",
    "observacaoFim": "2026-09-05",
    "avisos": []
   }
