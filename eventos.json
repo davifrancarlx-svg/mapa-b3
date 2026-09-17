@@ -1,12 +1,12 @@
 {
  "versao": 2,
- "atualizadoEm": "2026-09-16T17:02:39.953286+00:00",
+ "atualizadoEm": "2026-09-17T17:03:26.539148+00:00",
  "fonte": [
   "https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/IPE/DADOS/ipe_cia_aberta_2026.zip"
  ],
  "janela": {
-  "inicio": "2026-03-21",
-  "fim": "2026-09-16",
+  "inicio": "2026-03-22",
+  "fim": "2026-09-17",
   "dias": 180
  },
  "categorias": [
@@ -205,7 +205,7 @@
   "PETR": 69,
   "JFEN": 4,
   "BHIA": 20,
-  "CSNA": 16,
+  "CSNA": 15,
   "CBEE": 1,
   "VLID": 20,
   "WLMM": 3,
@@ -324,14 +324,13 @@
   "JOPA": 4,
   "HBTS": 1,
   "FRAS": 13,
-  "MNDL": 1,
   "POMO": 12,
   "RAPT": 18,
   "SLCE": 50,
   "LUPA": 25,
   "KLBN": 19,
   "GRND": 10,
-  "MNPR": 5,
+  "MNPR": 3,
   "SANB": 12,
   "UCAS": 12,
   "RCSL": 13,
@@ -342,7 +341,6 @@
   "GOAU": 9,
   "PATI": 3,
   "BRSR": 16,
-  "HETA": 1,
   "LREN": 11,
   "TASA": 5,
   "RANI": 35,
@@ -351,10 +349,10 @@
   "LJQQ": 3,
   "DXCO": 7
  },
- "documentosNoRecorte": 4608,
- "documentosExibidos": 2234,
+ "documentosNoRecorte": 4603,
+ "documentosExibidos": 2230,
  "metodologia": "Recorte por data de entrega, quatro categorias IPE; protocolo e versao preservados; ate 8 registros por empresa, sem resumo editorial",
- "empresasComEventos": 333,
+ "empresasComEventos": 331,
  "eventos": {
   "BBAS": [
    {
@@ -23740,19 +23738,6 @@
     "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1544412&numSequencia=1069118&numVersao=1"
    }
   ],
-  "MNDL": [
-   {
-    "dt": "2026-03-21",
-    "categoria": "Aviso aos Acionistas",
-    "tipo": "Comunicado art.133 da Lei nº6.404/76",
-    "assunto": null,
-    "especie": null,
-    "protocolo": "005312IPE210320260107808096-31",
-    "versao": 1,
-    "apresentacao": "AP - Apresentação",
-    "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1493400&numSequencia=1018106&numVersao=1"
-   }
-  ],
   "POMO": [
    {
     "dt": "2026-09-09",
@@ -24326,28 +24311,6 @@
     "versao": 1,
     "apresentacao": "AP - Apresentação",
     "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1493716&numSequencia=1018422&numVersao=1"
-   },
-   {
-    "dt": "2026-03-21",
-    "categoria": "Comunicado ao Mercado",
-    "tipo": "Outros Comunicados Não Considerados Fatos Relevantes",
-    "assunto": "Alteração do Boletim de Voto à Distância",
-    "especie": null,
-    "protocolo": "013765IPE210320260126895731-73",
-    "versao": 1,
-    "apresentacao": "AP - Apresentação",
-    "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1493396&numSequencia=1018102&numVersao=1"
-   },
-   {
-    "dt": "2026-03-21",
-    "categoria": "Aviso aos Acionistas",
-    "tipo": "Adoção do processo de voto múltiplo",
-    "assunto": "Solicitação de minoritários para adoção de voto múltiplo e inclusão de candidatos",
-    "especie": null,
-    "protocolo": "013765IPE140420260107608897-02",
-    "versao": 1,
-    "apresentacao": "AP - Apresentação",
-    "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1493397&numSequencia=1018103&numVersao=1"
    }
   ],
   "SANB": [
@@ -25127,19 +25090,6 @@
     "versao": 1,
     "apresentacao": "AP - Apresentação",
     "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1533073&numSequencia=1057779&numVersao=1"
-   }
-  ],
-  "HETA": [
-   {
-    "dt": "2026-03-21",
-    "categoria": "Aviso aos Acionistas",
-    "tipo": "Comunicado art.133 da Lei nº6.404/76",
-    "assunto": null,
-    "especie": null,
-    "protocolo": "006629IPE210320260146978138-15",
-    "versao": 1,
-    "apresentacao": "AP - Apresentação",
-    "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1493399&numSequencia=1018105&numVersao=1"
    }
   ],
   "LREN": [
