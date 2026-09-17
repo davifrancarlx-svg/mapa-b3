@@ -1,12 +1,12 @@
 {
  "versao": 2,
- "geradoEm": "2026-09-17T20:29:28.151Z",
+ "geradoEm": "2026-09-17T23:01:14.618Z",
  "fontes": {
   "precos": {
    "nome": "Preços",
    "minCobertura": 80,
    "limiteHoras": 72,
-   "atualizadoEm": "2026-09-17T20:29:28.031Z",
+   "atualizadoEm": "2026-09-17T23:01:14.499Z",
    "total": 2050,
    "registros": 1857,
    "renovados": 1857,
