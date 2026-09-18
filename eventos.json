@@ -1,12 +1,12 @@
 {
  "versao": 2,
- "atualizadoEm": "2026-09-17T17:03:26.539148+00:00",
+ "atualizadoEm": "2026-09-18T16:27:55.601061+00:00",
  "fonte": [
   "https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/IPE/DADOS/ipe_cia_aberta_2026.zip"
  ],
  "janela": {
-  "inicio": "2026-03-22",
-  "fim": "2026-09-17",
+  "inicio": "2026-03-23",
+  "fim": "2026-09-18",
   "dias": 180
  },
  "categorias": [
@@ -61,7 +61,7 @@
   "GEPA": 6,
   "ISAE": 23,
   "TPIS": 17,
-  "EQTL": 37,
+  "EQTL": 36,
   "DTCY": 1,
   "RECV": 30,
   "LIGT": 29,
@@ -102,7 +102,7 @@
   "TCSA": 9,
   "LPSB": 6,
   "IGSN": 6,
-  "DESK": 13,
+  "DESK": 12,
   "JHSF": 19,
   "EZTC": 20,
   "MRVE": 16,
@@ -149,7 +149,7 @@
   "SBFG": 10,
   "CASH": 20,
   "ARND": 14,
-  "WEST": 20,
+  "WEST": 19,
   "HBRE": 7,
   "SNSY": 2,
   "PPLA": 6,
@@ -349,7 +349,7 @@
   "LJQQ": 3,
   "DXCO": 7
  },
- "documentosNoRecorte": 4603,
+ "documentosNoRecorte": 4600,
  "documentosExibidos": 2230,
  "metodologia": "Recorte por data de entrega, quatro categorias IPE; protocolo e versao preservados; ate 8 registros por empresa, sem resumo editorial",
  "empresasComEventos": 331,
