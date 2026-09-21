@@ -9958,7 +9958,7 @@ function serieSpark(m){
     : [];
   return {v, p: p.length === v.length ? p : [], d: datas};
 }
-const spark = m => {
+const spark = (m, tipo='preço ajustado') => {
   const s = serieSpark(m);
   if(!s) return '';
   const valores = s.v;
@@ -9966,8 +9966,8 @@ const spark = m => {
   const pts=valores.map((v,i)=>[(i/(valores.length-1)*w).toFixed(1),(h-4-(v-min)/faixa*(h-8)).toFixed(1)]);
   const d=pts.map((p,i)=>(i?'L':'M')+p.join(' ')).join(' '),base=(h-4-(100-min)/faixa*(h-8)).toFixed(1);
   const precos=s.p,datas=s.d;
-  const dados=esc(JSON.stringify({v:valores,p:precos,d:datas})),rot=precos.length?'Evolução do preço ajustado':'Evolução normalizada, base 100';
-  return `<div class="sparkBox" data-spark="${dados}"><svg class="spark" viewBox="0 0 ${w} ${h}" role="img" tabindex="0" aria-label="${rot}; use as setas para consultar os pontos"><path class="base" d="M0 ${base} L${w} ${base}"></path><path d="${d}"></path><line class="mira" x1="0" y1="4" x2="0" y2="68"></line><circle class="ponto" cx="0" cy="0" r="3.5"></circle><rect class="hit" width="${w}" height="${h}"></rect></svg><output class="sparkInfo"><span>Passe o mouse ou use as setas</span><span>${precos.length?'preço ajustado':'índice base 100'}</span></output></div>`;
+  const dados=esc(JSON.stringify({v:valores,p:precos,d:datas})),rot=precos.length?'Evolução do '+esc(tipo):'Evolução normalizada, base 100';
+  return `<div class="sparkBox" data-spark="${dados}"><svg class="spark" viewBox="0 0 ${w} ${h}" role="img" tabindex="0" aria-label="${rot}; use as setas para consultar os pontos"><path class="base" d="M0 ${base} L${w} ${base}"></path><path d="${d}"></path><line class="mira" x1="0" y1="4" x2="0" y2="68"></line><circle class="ponto" cx="0" cy="0" r="3.5"></circle><rect class="hit" width="${w}" height="${h}"></rect></svg><output class="sparkInfo"><span>Passe o mouse ou use as setas</span><span>${precos.length?esc(tipo):'índice base 100'}</span></output></div>`;
 };
 
 function mostraSpark(box,i){
@@ -10835,7 +10835,7 @@ function abre(cod){
   garante('metricasEmpresas','eventos');
   const cn = e.cnpj && e.cnpj.length > 5
     ? String(e.cnpj).padStart(14,'0').replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/,'$1.$2.$3/$4-$5') : '-';
-  lastFocus = document.activeElement;
+  if(!drw.classList.contains('on'))lastFocus = document.activeElement;
   st.ativo=cod;if(URL_ATIVA)sincronizaURL();
   drw.classList.remove('wide');
   drw.innerHTML = `
@@ -10925,7 +10925,7 @@ function abreBDR(ticker){
       ${l('Distância da máxima · 12m', fmtRet(m.dd252))}
     </dl>` : '';
 
-  lastFocus = document.activeElement;
+  if(!drw.classList.contains('on'))lastFocus = document.activeElement;
   st.ativo=ticker;if(URL_ATIVA)sincronizaURL();
   drw.classList.remove('wide');
   drw.innerHTML = `
@@ -10989,7 +10989,7 @@ function comparacaoHTML(itens){
 function abreComparacao(){
   const itens=[...COMPARAR].map(t=>BDR.find(b=>b.ticker===t)).filter(Boolean);if(itens.length<2)return;
   garante('analise');
-  lastFocus=document.activeElement;COMPARACAO_ABERTA=true;drw.classList.add('wide');drw.setAttribute('aria-label','Comparação de BDRs');
+  if(!drw.classList.contains('on'))lastFocus=document.activeElement;COMPARACAO_ABERTA=true;drw.classList.add('wide');drw.setAttribute('aria-label','Comparação de BDRs');
   drw.innerHTML=`<button class="x" aria-label="Fechar comparação">×</button><h2>Comparação de BDRs</h2><p class="rz">${itens.length} ativos selecionados, independentemente dos filtros. Indicadores separados, sem nota composta.</p><div id="cmpConteudo">${comparacaoHTML(itens)}</div>`;
   drw.classList.add('on');dim.classList.add('on');travaFundo();drw.querySelector('.x').onclick=fecha;drw.focus();
 }
@@ -11051,7 +11051,7 @@ function atualizaSaude(){
   const box=$('saudeConteudo');if(box&&drw.classList.contains('on'))box.innerHTML=saudeHTML();
 }
 function abreSaude(){
-  lastFocus=document.activeElement;drw.classList.remove('wide');drw.setAttribute('aria-label','Saúde dos dados');
+  if(!drw.classList.contains('on'))lastFocus=document.activeElement;drw.classList.remove('wide');drw.setAttribute('aria-label','Saúde dos dados');
   drw.innerHTML='<button class="x" aria-label="Fechar saúde dos dados">×</button><h2>Saúde dos dados</h2><p class="rz">Cobertura, atualização e limites automáticos das fontes.</p><div id="saudeConteudo">'+saudeHTML()+'</div>';
   drw.classList.add('on');dim.classList.add('on');travaFundo();drw.querySelector('.x').onclick=fecha;drw.focus();
 }
@@ -11331,7 +11331,7 @@ function abreETF(ticker){
     </dl>${spark(mE)}<p class="fnt">Série diária ajustada do Yahoo Finance, fonte não oficial. Mesma medida das abas de BDR e empresas, e comparável com elas — o ETF brasileiro não distribui com frequência, então série ajustada e série de preço coincidem.${mE.stale ? ' <b>Histórico preservado após falha na atualização.</b>' : ''}</p></div>`
     : (x.tickerVerificado === false ? '<div class="bloco"><h3>Histórico e liquidez</h3><p class="fnt">Fundo sem cotação confirmada, portanto sem histórico de retorno ou liquidez.</p></div>' : '');
 
-  lastFocus = document.activeElement;
+  if(!drw.classList.contains('on'))lastFocus = document.activeElement;
   st.ativo = ticker; if(URL_ATIVA) sincronizaURL();
   drw.classList.remove('wide');
   drw.innerHTML = `
@@ -11362,10 +11362,17 @@ function abreETF(ticker){
    boot -- ela era 64% do peso de metricas.json e so aparece ao abrir uma
    ficha. Chegando, e mesclada em METRICAS: quem lê (serieSpark, spark) recebe
    o registro inteiro, como sempre recebeu. */
+let SERIES_BDR = null;
+function mesclaSeriesBdr(){
+  if(!SERIES_BDR || !COLETAS.metricasBdr)return;
+  if(isoCSV(SERIES_BDR.atualizadoEm)!==COLETAS.metricasBdr){concluiBase('seriesBdr',false);return;}
+  for(const [t,serie] of Object.entries(SERIES_BDR.series||{})) if(METRICAS[t]) Object.assign(METRICAS[t],serie);
+  concluiBase('seriesBdr',true);
+  return true;
+}
 function carregaSeriesBdr(){
   return fetch('metricas-series.json',{cache:'no-cache'}).then(r=>r.ok?r.json():Promise.reject()).then(d=>{
-    for(const [t,serie] of Object.entries(d.series||{})) if(METRICAS[t]) Object.assign(METRICAS[t],serie);
-    concluiBase('seriesBdr',true);tentaAtivo();
+    SERIES_BDR=d;if(mesclaSeriesBdr())tentaAtivo();
   }).catch(()=>{concluiBase('seriesBdr',false);});
 }
 function carregaMetricasEtfs(){
@@ -11666,7 +11673,7 @@ function abreFII(ticker){
       l('Distância da máxima · 12 meses', typeof m.dd252 === 'number' ? fmtRet(m.dd252) : '<span class="na">—</span>') +
       l('Volatilidade anualizada · 21 pregões', typeof m.v21 === 'number' ? fmtPct1(m.v21) : '<span class="na">—</span>') +
       l('Histórico até', dia(m.dt), true) +
-    '</dl>' + spark(m) +
+    '</dl>' + spark(m, 'preço de fechamento') +
       '<p class="fnt">A série desta seção é o <b>preço de fechamento</b>, não o preço ajustado usado nas abas de BDR e empresas — em FII o ajuste retroativo do Yahoo se acumula com distribuições mensais, amortizações e emissões, e chega a marcar +713,7% num fundo cuja cota andou 0,3% no mesmo ano. Aqui as duas pernas do resultado aparecem separadas: variação da cota acima, distribuição no bloco anterior.</p>' +
       (m.stale ? '<p class="fnt"><b>Histórico preservado após falha na atualização.</b> Os números acima são da última coleta bem-sucedida.</p>' : '')
     : '<p class="fnt">' + (x.tickerVerificado === false ? 'Fundo sem cotação em bolsa, portanto sem histórico de retorno ou liquidez.' : 'Histórico ainda não carregado ou indisponível para este fundo.') + '</p>';
@@ -11691,7 +11698,7 @@ function abreFII(ticker){
     ? composicaoFII(x) + '<p class="fnt">Composição declarada no informe de ' + dia(x.carteiraEm) + '. Dois terços ou mais numa classe definem o rótulo; abaixo disso o fundo é híbrido.</p>'
     : '<p class="fnt">' + esc(FOCO_TIPO_FII[SEM_TIPO]) + '</p>';
 
-  lastFocus = document.activeElement;
+  if(!drw.classList.contains('on'))lastFocus = document.activeElement;
   st.ativo = ticker; if(URL_ATIVA) sincronizaURL();
   drw.classList.remove('wide');
   drw.innerHTML = '<button class="x" aria-label="Fechar ficha">×</button>' +
@@ -11713,7 +11720,7 @@ function abreFII(ticker){
       (rel.dist ? ' Fundos que distribuíram mais que o próprio preço ficam fora da mediana: estão devolvendo capital e puxariam o grupo inteiro.' : '') +
       ' Mediana, não média, e não é ranking nem recomendação.</p></div>' : '') +
     '<div class="bloco"><h3>Histórico e liquidez</h3>' + historico +
-      '<p class="fnt">Yahoo Finance, série diária ajustada, fonte não oficial.</p></div>' +
+      '<p class="fnt">Yahoo Finance, série diária de preço de fechamento, fonte não oficial.</p></div>' +
     '<div class="bloco"><h3>Patrimônio</h3>' + patrimonio + '</div>' +
     '<div class="bloco"><h3>Identificação</h3><dl class="kv">' +
       l('Nome do fundo', esc(x.nome), true) +
@@ -12038,7 +12045,13 @@ function leCarteira(salvos){
     const ticker=typeof x?.ticker==='string'?x.ticker.trim().toUpperCase():'',qtd=Number(x?.qtd),pm=Number(x?.pm);
     if(/^[A-Z0-9]{5,10}$/.test(ticker)&&Number.isFinite(qtd)&&qtd>0&&Number.isFinite(pm)&&pm>0)unicos.set(ticker,{ticker,qtd,pm});
   });
-  return [...unicos.values()];
+  const posicoes=[...unicos.values()];
+  if(!custoCarteiraValido(posicoes))throw new Error('Valores da carteira excedem o limite numérico.');
+  return posicoes;
+}
+function custoCarteiraValido(posicoes){
+  let total=0;
+  return posicoes.every(x=>Number.isFinite(x.qtd*x.pm)&&Number.isFinite(total+=x.qtd*x.pm));
 }
 function numeroCarteira(v){
   const s=String(v??'').trim().replace(/\s/g,'');if(!s)return NaN;
@@ -12052,7 +12065,7 @@ function salvaCarteira(){
 /* PBKDF2 alto de proposito: o arquivo fica num repositorio publico, entao a
    unica defesa contra forca bruta e o custo de cada tentativa. */
 const SYNC_ITERACOES = 310000;
-const b64 = b => btoa(String.fromCharCode(...new Uint8Array(b)));
+const b64 = b => {const a=new Uint8Array(b);let s='';for(let i=0;i<a.length;i+=8192)s+=String.fromCharCode(...a.subarray(i,i+8192));return btoa(s);};
 const deB64 = t => Uint8Array.from(atob(t), c => c.charCodeAt(0));
 
 async function chaveSync(senha, salt){
@@ -12064,18 +12077,23 @@ async function cifraCarteira(senha, posicoes){
   const salt = crypto.getRandomValues(new Uint8Array(16)), iv = crypto.getRandomValues(new Uint8Array(12));
   const chave = await chaveSync(senha, salt);
   const claro = new TextEncoder().encode(JSON.stringify(posicoes));
+  if(claro.length>1048576)throw new Error('A carteira excede o limite de 1 MiB.');
   const dados = await crypto.subtle.encrypt({name:'AES-GCM', iv}, chave, claro);
   return {versao:1, cifrado:true, algoritmo:'AES-GCM-256 + PBKDF2-SHA256', iteracoes:SYNC_ITERACOES,
     salt:b64(salt), iv:b64(iv), dados:b64(dados), geradoEm:new Date().toISOString(),
     aviso:'Conteúdo cifrado. Sem a senha não há como ler, e não existe recuperação.'};
 }
 async function decifraCarteira(senha, arq){
-  if(!arq || arq.cifrado !== true || !arq.salt || !arq.iv || !arq.dados) throw new Error('arquivo não é uma carteira cifrada');
-  const it = Number.isInteger(arq.iteracoes) && arq.iteracoes > 0 ? arq.iteracoes : SYNC_ITERACOES;
+  if(!arq || arq.versao!==1 || arq.cifrado!==true || arq.algoritmo!=='AES-GCM-256 + PBKDF2-SHA256' || arq.iteracoes!==SYNC_ITERACOES)throw new Error('Formato ou parâmetros da carteira cifrada inválidos.');
+  const campos=[arq.salt,arq.iv,arq.dados];
+  if(campos.some(t=>typeof t!=='string'||!t.length||t.length>1398128||t.length%4!==0||!/^[A-Za-z0-9+/]*={0,2}$/.test(t)))throw new Error('Conteúdo cifrado inválido ou grande demais.');
+  const salt=deB64(arq.salt),iv=deB64(arq.iv),dados=deB64(arq.dados);
+  if(salt.length!==16||iv.length!==12||dados.length<16||dados.length>1048592)throw new Error('Tamanho da carteira cifrada inválido.');
+  const it = arq.iteracoes;
   const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(senha), 'PBKDF2', false, ['deriveKey']);
-  const chave = await crypto.subtle.deriveKey({name:'PBKDF2', salt:deB64(arq.salt), iterations:it, hash:'SHA-256'},
+  const chave = await crypto.subtle.deriveKey({name:'PBKDF2', salt, iterations:it, hash:'SHA-256'},
     base, {name:'AES-GCM', length:256}, false, ['decrypt']);
-  const claro = await crypto.subtle.decrypt({name:'AES-GCM', iv:deB64(arq.iv)}, chave, deB64(arq.dados));
+  const claro = await crypto.subtle.decrypt({name:'AES-GCM', iv}, chave, dados);
   /* leCarteira() valida de novo: o que veio do arquivo nao e mais confiavel
      que o que veio do localStorage. */
   return leCarteira(JSON.parse(new TextDecoder().decode(claro)));
@@ -12103,7 +12121,9 @@ const dinheiroCarteira=v=>Number.isFinite(v)?v.toLocaleString('pt-BR',{style:'cu
 function totaisCarteira(posicoes=CARTEIRA){
   let investido=0,atual=0,custoCotado=0,cotados=0;
   posicoes.forEach(x=>{const custo=x.qtd*x.pm,r=cot(x.ticker);investido+=custo;if(r){atual+=x.qtd*r.p;custoCotado+=custo;cotados++;}});
-  return {investido,atual,custoCotado,cotados,resultado:atual-custoCotado,retorno:custoCotado>0?(atual/custoCotado-1)*100:null};
+  const finito=v=>Number.isFinite(v)?v:null,resultado=finito(atual-custoCotado);
+  return {investido:finito(investido),atual:finito(atual),custoCotado:finito(custoCotado),cotados,resultado,
+    retorno:Number.isFinite(atual)&&Number.isFinite(custoCotado)&&custoCotado>0?finito((atual/custoCotado-1)*100):null};
 }
 function resultadoCarteira(v,percentual=false){
   if(!Number.isFinite(v))return '<span class="na">—</span>';
@@ -12153,11 +12173,11 @@ function editaPosicao(ticker){
   CARTEIRA_EDITANDO=ticker;$('carteiraTicker').value=ticker;$('carteiraTicker').disabled=true;$('carteiraQtd').value=String(x.qtd).replace('.',',');$('carteiraPm').value=String(x.pm).replace('.',',');$('salvaPosicao').textContent='Salvar alterações';$('cancelaPosicao').classList.remove('hide');$('carteiraQtd').focus();
 }
 function removePosicao(ticker){
-  CARTEIRA=CARTEIRA.filter(x=>x.ticker!==ticker);salvaCarteira();AVISO_CARTEIRA=ticker+' removido da carteira.';if(CARTEIRA_EDITANDO===ticker)limpaFormCarteira();renderCarteira();
+  CARTEIRA=CARTEIRA.filter(x=>x.ticker!==ticker);if(salvaCarteira())AVISO_CARTEIRA=ticker+' removido da carteira.';if(CARTEIRA_EDITANDO===ticker)limpaFormCarteira();renderCarteira();
 }
 function abrePosicao(ticker){
   const a=ativoCarteira(ticker);if(!a)return;
-  if(a.cod)abre(a.cod);else if(a.tipo==='BDR')abreBDR(ticker);else if(a.tipo==='ETF')abreETF(ticker);
+  if(a.cod)abre(a.cod);else if(a.tipo==='BDR')abreBDR(ticker);else if(a.tipo==='ETF')abreETF(ticker);else if(a.tipo==='FII')abreFII(ticker);
 }
 /* Ticker da B3 tem quatro caracteres e um ou dois digitos: cobre acao
    brasileira (PETR4), unit (TAEE11), BDR (AAPL34) e ETF (BOVA11). */
@@ -12420,6 +12440,7 @@ $('clearEtf').onclick=()=>{limpaFiltrosETF();$('qEtf').focus();};
 $('clearFii').onclick=()=>{limpaFiltrosFII();$('qFii').focus();};
 
 const syncMsg = t => { $('syncMsg').textContent = t; };
+let SYNC_PEDIDO=0;
 $('syncExporta').onclick = async () => {
   const senha = $('syncSenha').value;
   if(senha.length < 8) return syncMsg('Escolha uma senha de pelo menos 8 caracteres. Ela não é guardada, e sem ela o arquivo não volta.');
@@ -12431,6 +12452,8 @@ $('syncExporta').onclick = async () => {
   }catch(e){ syncMsg('Não foi possível cifrar: ' + e.message); }
 };
 $('syncImporta').onclick = async () => {
+  const pedido=++SYNC_PEDIDO;
+  $('syncPreview').innerHTML = '';
   const senha = $('syncSenha').value;
   if(!senha) return syncMsg('Informe a senha usada para gerar o arquivo.');
   syncMsg('Buscando carteira.json…');
@@ -12438,16 +12461,20 @@ $('syncImporta').onclick = async () => {
   let arq;
   try{
     const r = await fetch('carteira.json', {cache:'no-cache'});
+    if(pedido!==SYNC_PEDIDO)return;
     if(!r.ok) return syncMsg(r.status === 404
       ? 'Não há carteira.json publicado ainda. Gere o arquivo cifrado neste computador e commite antes de restaurar no outro.'
       : 'Não foi possível baixar o carteira.json (HTTP ' + r.status + ').');
     arq = await r.json();
-  }catch(e){ return syncMsg('Não foi possível ler o carteira.json: ' + e.message); }
+  }catch(e){ if(pedido===SYNC_PEDIDO)syncMsg('Não foi possível ler o carteira.json: ' + e.message);return; }
+  if(pedido!==SYNC_PEDIDO)return;
   let nova;
   try{ nova = await decifraCarteira(senha, arq); }
-  catch{ return syncMsg('Senha incorreta, ou o arquivo não corresponde a esta senha. Nada foi alterado.'); }
+  catch{ if(pedido===SYNC_PEDIDO)syncMsg('Senha incorreta ou arquivo inválido, incompatível ou adulterado. Nada foi alterado.');return; }
+  if(pedido!==SYNC_PEDIDO)return;
   if(!nova.length) return syncMsg('O arquivo decifrou, mas não tem posição válida. Nada foi alterado.');
   const d = comparaCarteiras(CARTEIRA, nova);
+  const origem=JSON.stringify(CARTEIRA);
   /* Confirmacao explicita: substituir e destrutivo, e o local pode ser o novo. */
   $('syncPreview').innerHTML = '<p class="fnt">O arquivo tem <b>' + nova.length + '</b> posições, gerado em ' + esc(String(arq.geradoEm || '').slice(0, 10).split('-').reverse().join('/')) + '.'
     + (d.entram.length ? ' Entram: <b>' + d.entram.map(esc).join(', ') + '</b>.' : '')
@@ -12456,6 +12483,9 @@ $('syncImporta').onclick = async () => {
     + (!d.entram.length && !d.saem.length && !d.mudam.length ? ' É igual à carteira deste navegador.' : '')
     + '</p><p style="margin:8px 0 0"><button class="btn" id="syncConfirma">Substituir a carteira deste navegador</button></p>';
   $('syncConfirma').onclick = () => {
+    if(pedido!==SYNC_PEDIDO)return;
+    if(JSON.stringify(CARTEIRA)!==origem){$('syncPreview').innerHTML='';syncMsg('A carteira mudou desde a prévia. Restaure o arquivo novamente para conferir as diferenças atualizadas.');return;}
+    SYNC_PEDIDO++;
     CARTEIRA = nova; salvaCarteira(); render();
     syncMsg(nova.length + ' posições restauradas neste navegador.');
     $('syncPreview').innerHTML = '';
@@ -12481,8 +12511,9 @@ $('formCarteira').onsubmit=ev=>{
   if(!/^[A-Z0-9]{5,10}$/.test(ticker)){AVISO_CARTEIRA='Informe um ticker válido, como PETR4, AAPL34 ou BOVA11.';renderCarteira();return;}
   if(!a){AVISO_CARTEIRA='Ticker não encontrado nas bases carregadas. Confira o código ou aguarde o carregamento dos catálogos.';renderCarteira();return;}
   if(!Number.isFinite(qtd)||qtd<=0||!Number.isFinite(pm)||pm<=0){AVISO_CARTEIRA='Quantidade e preço médio precisam ser números maiores que zero.';renderCarteira();return;}
+  if(!custoCarteiraValido([...CARTEIRA.filter(x=>x.ticker!==ticker),{qtd,pm}])){AVISO_CARTEIRA='O custo da posição ou da carteira excede o limite numérico. Reduza os valores.';renderCarteira();return;}
   const nova={ticker,qtd,pm},i=CARTEIRA.findIndex(x=>x.ticker===ticker);if(i>=0)CARTEIRA[i]=nova;else CARTEIRA.push(nova);
-  salvaCarteira();AVISO_CARTEIRA=ticker+(i>=0?' atualizado.':' adicionado à carteira.');limpaFormCarteira();renderCarteira();
+  if(salvaCarteira())AVISO_CARTEIRA=ticker+(i>=0?' atualizado.':' adicionado à carteira.');limpaFormCarteira();renderCarteira();
 };
 $('carteiraTicker').addEventListener('input',ev=>{ev.target.value=ev.target.value.toUpperCase().replace(/[^A-Z0-9]/g,'');});
 $('cancelaPosicao').onclick=()=>{limpaFormCarteira();AVISO_CARTEIRA='Edição cancelada.';renderCarteira();$('carteiraTicker').focus();};
@@ -12617,6 +12648,7 @@ function carregaMetricas(){
     .then(d => {
       METRICAS = d.metricas || {};
       COLETAS.metricasBdr=isoCSV(d.atualizadoEm);
+      mesclaSeriesBdr();
       PARES_INDUSTRIA = {};
       if(d.atualizadoEm){
         METRICA_TS = new Date(d.atualizadoEm).toLocaleDateString('pt-BR', {day:'2-digit',month:'2-digit',year:'numeric'});
@@ -12715,6 +12747,12 @@ function fecha(){
   drw.classList.remove('wide');
   st.ativo=null;if(URL_ATIVA)sincronizaURL();
   if(lastFocus && document.body.contains(lastFocus)) lastFocus.focus();
+  else if(lastFocus){
+    const origem=lastFocus.closest?.('[data-pos-abre],[data-fav-abre]'),t=origem?.dataset.posAbre||origem?.dataset.favAbre;
+    const novo=t&&[...document.querySelectorAll('[data-pos-abre],[data-fav-abre]')].find(b=>(b.dataset.posAbre||b.dataset.favAbre)===t);
+    const destino=novo||(st.sec==='carteira'?$('carteiraTicker'):st.sec==='favoritos'?$('favoritosLista'):$('secTitulo'));
+    if(destino){if(!novo&&st.sec!=='carteira')destino.setAttribute('tabindex','-1');destino.focus();}
+  }
   lastFocus = null;
 }
 dim.onclick = fecha;

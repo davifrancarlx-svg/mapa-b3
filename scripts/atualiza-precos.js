@@ -83,13 +83,13 @@ function leTickersFII(){
 /* O endpoint em lote do Yahoo exige cookie + crumb. O de simbolo unico nao,
    mas exigiria uma request por ticker. */
 async function autentica(){
-  const r = await fetch('https://fc.yahoo.com/', { headers:{ 'User-Agent':UA }, redirect:'manual' });
+  const r = await fetch('https://fc.yahoo.com/', { headers:{ 'User-Agent':UA }, redirect:'manual', signal:AbortSignal.timeout(25000) });
   const bruto = r.headers.getSetCookie ? r.headers.getSetCookie() : [];
   if(!bruto.length) throw new Error('Yahoo nao devolveu cookie');
   const cookie = bruto.map(c => c.split(';')[0]).join('; ');
 
   const cr = await fetch('https://query1.finance.yahoo.com/v1/test/getcrumb', {
-    headers:{ 'User-Agent':UA, Cookie:cookie }
+    headers:{ 'User-Agent':UA, Cookie:cookie }, signal:AbortSignal.timeout(25000)
   });
   const crumb = (await cr.text()).trim();
   if(cr.status !== 200 || !crumb || crumb.length > 40) throw new Error('nao consegui obter o crumb (status ' + cr.status + ')');
@@ -101,7 +101,7 @@ async function buscaLote(simbolos, { cookie, crumb }, tentativa = 1){
     + '?symbols=' + simbolos.map(s => s + '.SA').join(',')
     + '&crumb=' + encodeURIComponent(crumb);
   try{
-    const r = await fetch(url, { headers:{ 'User-Agent':UA, Cookie:cookie } });
+    const r = await fetch(url, { headers:{ 'User-Agent':UA, Cookie:cookie }, signal:AbortSignal.timeout(25000) });
     if(r.status !== 200) throw new Error('status ' + r.status);
     const j = await r.json();
     return j.quoteResponse?.result || [];

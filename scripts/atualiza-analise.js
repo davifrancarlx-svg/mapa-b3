@@ -13,7 +13,7 @@ const arred=(n,c=2)=>Number.isFinite(n)?+n.toFixed(c):null;
 const retorno=(a,n)=>a.length>n&&a[a.length-1-n]>0?(a.at(-1)/a[a.length-1-n]-1)*100:null;
 
 async function json(url,tentativa=1){
-  try{const r=await fetch(url,{headers:{'User-Agent':UA}});if(r.status!==200)throw new Error('status '+r.status);return r.json();}
+  try{const r=await fetch(url,{headers:{'User-Agent':UA},signal:AbortSignal.timeout(25000)});if(r.status!==200)throw new Error('status '+r.status);return await r.json();}
   catch(e){if(tentativa<3){await espera(600*tentativa);return json(url,tentativa+1);}throw e;}
 }
 async function resolve(ref,empresa){

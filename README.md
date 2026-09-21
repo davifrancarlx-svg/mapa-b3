@@ -432,6 +432,10 @@ junto, a seção Carteira gera um `carteira.json` **cifrado** (AES-GCM + PBKDF2 
 WebCrypto): você commita o arquivo, e no outro computador restaura com a mesma
 senha.
 
+O formato v1 aceita os parâmetros criptográficos originais e até 1 MiB de conteúdo
+antes da cifra. A importação rejeita formatos e tamanhos incompatíveis antes de derivar
+a chave; se a carteira local mudar depois da prévia, é necessário gerar outra prévia.
+
 O repositório é público, então o arquivo precisa ser ruído para quem o abrir —
 nem ticker nem quantidade aparecem. **A senha não é guardada em lugar nenhum**;
 se perdê-la, o arquivo não volta. Restaurar mostra o que entra, o que sai e o
@@ -441,7 +445,7 @@ que muda antes de substituir, porque a carteira local pode ser a mais recente.
 
 A seção **Carteira** aceita ticker, quantidade e preço médio unitário para empresas
 brasileiras, BDRs e ETFs presentes nas bases carregadas. As posições são gravadas em
-`localStorage` na chave `mapaB3Carteira`; não há conta, backend ou sincronização.
+`localStorage` na chave `mapaB3Carteira`; não há conta ou backend. A transferência entre computadores é manual, por arquivo cifrado, conforme a seção anterior; não há sincronização automática.
 
 O valor atual usa a última cotação disponível em `precos.json`. Custo, resultado e retorno
 são brutos: não incluem proventos, aportes intermediários, taxas, impostos ou ajustes para
@@ -479,10 +483,11 @@ o mesmo padrão de engenharia reversa já usado para BDR, só que em outro endpo
 oficial, além da cotação. Não há índice de referência, taxa de administração nem patrimônio
 líquido — nenhuma fonte oficial encontrada expõe esses campos por fundo sem risco de cruzar
 o dado de um fundo com outro (a B3 identifica cada fundo por um `id` interno; a CVM, por
-CNPJ; não existe chave em comum entre as duas). Por isso a ficha do ETF é mais curta que a
-do BDR: sem desempenho histórico, sem comparação, sem recorte de exploração — um recorte
-de ranking exigiria um piso de liquidez que só existe quando há histórico, e não há
-`metricas-etfs.json` ainda.
+CNPJ; não existe chave em comum entre as duas). O histórico vem separado em
+`metricas-etfs.json`, carregado sob demanda: traz retornos ajustados, giro,
+volatilidade e gráfico. A curadoria individual de índice e carteira fica em
+`etfs-detalhes.json`, com cobertura progressiva. Comparador e recortes de ranking
+não estão disponíveis nesta seção; acrescentá-los continua sendo decisão de produto.
 
 A interface explica, em linguagem curta, o foco de cada uma das seis categorias e repete
 o contexto na ficha do ETF. Essa explicação é da classe oficial, não uma descrição da

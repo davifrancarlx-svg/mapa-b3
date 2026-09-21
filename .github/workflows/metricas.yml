@@ -37,6 +37,18 @@ jobs:
       - name: Validar métricas das empresas
         run: node scripts/valida-metricas-empresas.js
 
+      - name: Calcular métricas dos FIIs
+        run: node scripts/atualiza-metricas-fiis.js
+
+      - name: Validar métricas dos FIIs
+        run: node scripts/valida-metricas-fiis.js
+
+      - name: Calcular métricas dos ETFs
+        run: node scripts/atualiza-metricas-etfs.js
+
+      - name: Validar métricas dos ETFs
+        run: node scripts/valida-metricas-etfs.js
+
       - name: Atualizar ativo lastro, câmbio e paridade
         run: node scripts/atualiza-analise.js
 
@@ -50,7 +62,7 @@ jobs:
         run: |
           git config user.name  'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add metricas.json metricas-empresas.json analise.json saude.json
+          git add metricas.json metricas-series.json metricas-empresas.json metricas-fiis.json metricas-etfs.json analise.json saude.json
           if git diff --staged --quiet; then
             echo "Nenhuma mudança nas métricas, nada a commitar."
           else

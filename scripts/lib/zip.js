@@ -70,11 +70,27 @@ function extrai(buf, e){
    string vazia, nunca undefined, para o chamador nao confundir ausencia de
    coluna com ausencia de valor. */
 function csv(texto){
-  const linhas = texto.split(/\r?\n/).filter(l => l.trim());
+  const linhas=[];let linha=[],campo='',aspas=false,fechou=false;
+  const celula=()=>{linha.push(campo.trim());campo='';fechou=false;};
+  const registro=()=>{const temConteudo=linha.length>0||campo.trim()!==''||fechou;celula();if(temConteudo)linhas.push(linha);linha=[];};
+  texto=texto.replace(/^\uFEFF/,'');
+  for(let i=0;i<texto.length;i++){
+    const c=texto[i];
+    if(aspas){
+      if(c==='"'){if(texto[i+1]==='"'){campo+='"';i++;}else{aspas=false;fechou=true;}}
+      else campo+=c;
+    }else if(c===';')celula();
+    else if(c==='\n'||c==='\r'){registro();if(c==='\r'&&texto[i+1]==='\n')i++;}
+    else if(c==='"'&&!campo.trim()&&!fechou){campo='';aspas=true;}
+    else if(c==='"'||(fechou&&!/\s/.test(c)))throw new Error('csv invalido: aspas malformadas');
+    else campo+=c;
+  }
+  if(aspas)throw new Error('csv invalido: campo entre aspas incompleto');
+  if(campo||linha.length||fechou)registro();
   if(!linhas.length) return [];
-  const cab = linhas[0].split(';').map(s => s.trim());
-  return linhas.slice(1).map(l => {
-    const cel = l.split(';');
+  const cab = linhas[0];
+  return linhas.slice(1).map(cel => {
+    if(cel.length!==cab.length)throw new Error('csv invalido: quantidade de colunas divergente');
     const o = {};
     cab.forEach((k, i) => o[k] = (cel[i] ?? '').trim());
     return o;

@@ -140,6 +140,8 @@ function confere(nome, condicao, detalhe = ''){
     /* Tooltip no foco: sem ele o bloco mudo e um retangulo colorido e calado. */
     const tip=document.getElementById('tip');escondeTip();
     mudos[0].dispatchEvent(new FocusEvent('focusin',{bubbles:true}));
+    const prazoTip=Date.now()+1000;
+    while(+getComputedStyle(tip).opacity<1&&Date.now()<prazoTip)await new Promise(r=>setTimeout(r,20));
     const tipNoFoco=+getComputedStyle(tip).opacity>0&&(tip.querySelector('.t1')||{}).textContent;
     return {blocos:tiles.length, grupos:document.querySelectorAll('#mapa .grp').length,
       esperadoBlocos:E.length, esperadoGrupos:nCategorias(),
@@ -281,6 +283,30 @@ function confere(nome, condicao, detalhe = ''){
   confere('foco não escapa do diálogo modal', ficha.barraVisivel && !ficha.vazou);
   confere('Esc devolve o foco à origem', ficha.voltou);
   confere('fechamento destrava fundo e barra', ficha.destravou);
+
+  /* Origem substituida por render durante carga assincrona da ficha. */
+  await vai('carteira');
+  const focoCarteira=await avalia(`CARTEIRA=[{ticker:'MXRF11',qtd:1,pm:10}];renderCarteira();
+    const origem=document.querySelector('[data-pos-abre="MXRF11"]');origem.focus();origem.click();
+    await new Promise(r=>setTimeout(r,160));renderCarteira();abreFII('MXRF11');
+    const rotulo=drw.querySelector('.spark')?.getAttribute('aria-label')||'';
+    const fonte=drw.textContent.includes('série diária de preço de fechamento');
+    document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape'}));
+    const voltou=document.activeElement.dataset.posAbre==='MXRF11';
+    const outra=document.querySelector('[data-pos-abre="MXRF11"]');outra.focus();outra.click();
+    CARTEIRA=[];renderCarteira();fecha();
+    return {voltou,alternativo:document.activeElement.id==='carteiraTicker',rotulo,fonte};`);
+  confere('carteira recupera foco por ticker apos render',focoCarteira.voltou);
+  confere('carteira sem origem recebe foco no formulario',focoCarteira.alternativo);
+  confere('grafico e fonte de FII dizem preco de fechamento',focoCarteira.rotulo.includes('preço de fechamento')&&focoCarteira.fonte);
+  await vai('favoritos');
+  const focoFavoritos=await avalia(`FAVORITOS.add('MXRF11');renderFavoritos();
+    const origem=document.querySelector('[data-fav-abre="MXRF11"]');origem.focus();origem.click();
+    renderFavoritos();fecha();const voltou=document.activeElement.dataset.favAbre==='MXRF11';
+    document.activeElement.click();FAVORITOS.delete('MXRF11');renderFavoritos();fecha();
+    return {voltou,alternativo:document.activeElement.id==='favoritosLista'};`);
+  confere('favoritos recupera foco por ticker apos render',focoFavoritos.voltou);
+  confere('favorito removido devolve foco a lista',focoFavoritos.alternativo);
 
   /* 5. nenhuma secao rola horizontalmente em 375 px */
   await abre(375, 812);

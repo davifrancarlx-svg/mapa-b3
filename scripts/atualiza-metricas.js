@@ -50,6 +50,8 @@ function relativos(metricas, bdrs, chave, destino, grupo){
   const base = JSON.parse(fs.readFileSync(BDRS, 'utf8'));
   const bdrs = base.bdrs || [];
   const anterior = fs.existsSync(SAIDA) ? JSON.parse(fs.readFileSync(SAIDA, 'utf8')).metricas || {} : {};
+  const seriesAnteriores = fs.existsSync(SAIDA_SERIE) ? JSON.parse(fs.readFileSync(SAIDA_SERIE, 'utf8')).series || {} : {};
+  for(const [t, serie] of Object.entries(seriesAnteriores)) if(anterior[t]) Object.assign(anterior[t], serie);
   const metricas = {};
   const falhas = [];
   let proximo = 0, novos = 0;

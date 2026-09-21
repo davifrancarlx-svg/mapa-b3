@@ -1,0 +1,137 @@
+[
+  {
+    "script": "testa-carteira-sync.js",
+    "exit": 0,
+    "output": "OK: carteira cifrada — formato, sigilo, senha errada, adulteração, entrada suja e prévia da substituição"
+  },
+  {
+    "script": "testa-carteira.js",
+    "exit": 0,
+    "output": "OK: carteira local, validação, números em pt-BR, totais, ausência de cotação e persistência"
+  },
+  {
+    "script": "testa-csv.js",
+    "exit": 0,
+    "output": "OK: CSV, filtros, ordem, favoritos, datas, fontes, ausentes/zero, preservados, formulas, falhas e limpeza do download"
+  },
+  {
+    "script": "testa-eventos.js",
+    "exit": 0,
+    "output": "OK: eventos, dominios, protocolos, datas, contagens, estados de carga e metadados escapados"
+  },
+  {
+    "script": "testa-metricas-empresas.js",
+    "exit": 0,
+    "output": "OK: metricas de empresas, referencia, janelas, volume ausente, amostras, cobertura e ficha"
+  },
+  {
+    "script": "testa-precos-ui.js",
+    "exit": 0,
+    "output": "OK: recarga manual de preços, cache descartado, estados do botão e preservação após falha"
+  },
+  {
+    "script": "testa-regressoes-revisao.js",
+    "exit": 0,
+    "output": "OK: ordem de cargas, coletas divergentes, preservacao apos falha, carteira sem armazenamento e arquivos publicados"
+  },
+  {
+    "script": "testa-saude.js",
+    "exit": 0,
+    "output": "OK: saúde, contagens reais, preservados, dados ausentes, limites exatos, relógio, esquema e estados da interface"
+  },
+  {
+    "script": "testa-serie.js",
+    "exit": 0,
+    "output": "OK: nucleo de serie compartilhado, janelas incompletas, volume ausente e datas em UTC"
+  },
+  {
+    "script": "valida-acompanhamento.js",
+    "exit": 0,
+    "output": "OK: acompanhamento, persistencia, falha de gravacao, filtros, catalogo ausente, botoes e retorno de foco"
+  },
+  {
+    "script": "valida-analise.js",
+    "exit": 0,
+    "output": "OK: 760/825 BDRs com ativo lastro atualizado"
+  },
+  {
+    "script": "valida-bdrs-referencia.js",
+    "exit": 0,
+    "output": "OK: 761/825 BDRs com relacao oficial do programa"
+  },
+  {
+    "script": "valida-bdrs.js",
+    "exit": 0,
+    "output": "OK: 825 BDRs classificados, 20 complementos com fonte e todas as industrias traduzidas"
+  },
+  {
+    "script": "valida-comparador.js",
+    "exit": 0,
+    "output": "OK: comparador, limite, persistencia, dados ausentes/zero, datas, fontes e protecoes de acessibilidade"
+  },
+  {
+    "script": "valida-etfs.js",
+    "exit": 0,
+    "output": "OK: 222 ETFs catalogados e todas as categorias traduzidas"
+  },
+  {
+    "script": "valida-eventos.js",
+    "exit": 0,
+    "output": "OK: 2230 documentos; fontes, identificadores, datas e contagens validados"
+  },
+  {
+    "script": "valida-fiis.js",
+    "exit": 0,
+    "output": "OK: 528 FIIs; 510 com informe da CVM (96.6%); 235 Tijolo, 127 Fundo de fundos, 84 Papel, 43 (sem carteira), 39 Híbrido."
+  },
+  {
+    "script": "valida-matriz.js",
+    "exit": 0,
+    "output": "OK: matriz, 36 pares de eixos, medianas, escala log, dados ausentes, URL e representacao textual"
+  },
+  {
+    "script": "valida-metricas-empresas.js",
+    "exit": 0,
+    "output": "OK: 314/369 empresas; tickers, janelas, numeros e amostras validados"
+  },
+  {
+    "script": "valida-metricas-etfs.js",
+    "exit": 0,
+    "output": "OK: 201 ETFs com histórico"
+  },
+  {
+    "script": "valida-metricas-fiis.js",
+    "exit": 0,
+    "output": "OK: 399 FIIs com histórico, 342 com provento nos últimos 12 meses"
+  },
+  {
+    "script": "valida-metricas.js",
+    "exit": 0,
+    "output": "OK: 795/825 BDRs com metricas (96.4%)"
+  },
+  {
+    "script": "valida-pagina.js",
+    "exit": 0,
+    "output": "OK: estrutura, JavaScript e caminhos relativos da pagina validos"
+  },
+  {
+    "script": "valida-precos.js",
+    "exit": 0,
+    "output": "OK: 1856/2050 tickers com preco valido"
+  },
+  {
+    "script": "valida-saude.js",
+    "exit": 1,
+    "output": "Histórico BDR: Última coleta há mais de 96 horas.\nHistórico empresas: Última coleta há mais de 96 horas.\nHistórico FII: Última coleta há mais de 96 horas.\nHistórico ETF: Última coleta há mais de 96 horas.\nAtivo lastro: Última coleta há mais de 96 horas."
+  },
+  {
+    "script": "valida-taxonomia-etfs.js",
+    "exit": 0,
+    "output": "OK: esquema com 15 vocabularios; base editorial ligada ao catalogo"
+  },
+  {
+    "script": "valida-url.js",
+    "exit": 0,
+    "output": "OK: URL, padrões, parâmetros inválidos, vírgulas, controles, celular, filtros BDR, filtros ETF e retorno do navegador"
+  }
+]
