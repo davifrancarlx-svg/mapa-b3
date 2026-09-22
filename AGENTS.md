@@ -66,6 +66,13 @@ Em particular, **não toque nestas partes sem um motivo forte e específico**:
   Por isso `travaFundo()`/`destravaFundo()` são o **único** lugar que escreve `wrap.inert`,
   e toda abertura de ficha passa por eles — `valida-pagina.js` reprova as quatro formas de
   quebrar isso, inclusive uma abertura nova que esqueça a chamada.
+  **A volta do foco é a mesma regra para os seis pontos de abertura.** Um render assíncrono
+  troca a origem enquanto a ficha está aberta, e `lastFocus` fica apontando para um nó
+  solto. Cada origem carrega o próprio identificador num `data-*` (`data-cod`, `data-tk`,
+  `data-te`, `data-tf`, `data-pos-abre`, `data-fav-abre`), e `fecha()` reencontra o item por
+  esse identificador antes de cair na seção — a lista está em `ORIGENS`, num lugar só.
+  Quando a recuperação existia apenas para Carteira e Favoritos, quem navegava o mosaico
+  por teclado voltava para o título da seção, perdido entre 369 blocos.
 - **`txOn()`** — calcula luminância relativa e escolhe texto claro ou escuro conforme a cor
   de fundo do bloco. Sem isso o contraste quebra em várias categorias.
 - **Setas ▲▼ junto da variação** — a direção não pode depender só de verde/vermelho, por
@@ -447,6 +454,18 @@ JSONs de runtime usados pelos `fetch()` relativos, a `social.png` e a pasta `fon
 - **O botão "atualizar cotações" só relê o `precos.json` publicado.** Quem coleta no
   Yahoo é o GitHub Actions; a página é estática e não tem credencial. Por isso a
   mensagem distingue base nova de base igual — um "pronto" mudo já pareceu defeito.
+- **Função removida com o ponto de chamada vivo passa por todos os validadores.**
+  `valida-pagina.js` roda `new Function(script)`, que confere **sintaxe**, não referência:
+  um `cotacoesHTML(e)` chamado por `abre()` sem existir em lugar nenhum é código
+  sintaticamente perfeito. O erro só aparece quando aquela linha executa — e como `abre()`
+  monta a ficha inteira num template literal, a `ReferenceError` derrubava a ficha antes do
+  `innerHTML`: **nenhuma empresa brasileira abria**, nem pela seção, nem pela Carteira, nem
+  pelos Favoritos. Ficou assim em produção por semanas com 35 verificações de navegador
+  passando, porque nenhuma delas abria ficha de empresa. As três vítimas do mesmo commit
+  foram `cotacoesHTML()`, o CSS `.cot`/`.ref` e a classe `.pill` do selo de categoria.
+  Lição operacional: **toda ficha precisa de uma verificação em `testa-navegador.js`** — é o
+  único teste que executa o código de verdade. Ao remover uma função, procure o nome no
+  arquivo inteiro antes, não só onde você está editando.
 - **Eventos não recebem resumo sintético.** `eventos.json` traz metadados e links oficiais da
   CVM. Exiba o original sem fingir interpretação editorial ou regulatória.
 - **`FONTES` em `gera-saude.js` e `SAUDE_REGRAS` no `index.html` precisam ser idênticos.**

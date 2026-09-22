@@ -10368,11 +10368,6 @@ function molduraBDR(linhas){
     <tbody>${linhas}</tbody></table></div>`;
 }
 
-function tabelaBDR(list){
-  if(!list.length) return VAZIO_BDR;
-  return molduraBDR(list.map(linhaBDR).join(''));
-}
-
 /* 825 linhas a 26 nos cada dao 21 mil nos, e monta-las de uma vez custa cerca
    de 200 ms com layout -- a cada tecla da busca e a cada clique de coluna.
    Duas correcoes, nesta ordem de importancia:
@@ -10798,6 +10793,25 @@ function recebeEventos(d){
 function atualizaEventosFicha(){
   const box=$('eventosFicha');if(box&&drw.classList.contains('on')&&E.some(e=>e.cod===st.ativo))box.innerHTML=eventosEmpresaHTML(st.ativo);
 }
+/* Empresa pode ter varias classes (PETR3/PETR4): a ficha lista todas e diz qual
+   alimenta mosaico e card. A variacao do dia so aparece quando o papel negociou
+   hoje -- senao seria a variacao de um pregao antigo lida como se fosse de agora. */
+function cotacoesHTML(e){
+  const ts=classes(e);
+  if(!ts.length)return '<div class="bloco"><h3>Cotações</h3><p class="fnt">Companhia sem código de negociação na base. Registro na B3 não implica negociação.</p></div>';
+  const ref=refPreco(e);
+  if(!ref)return '<div class="bloco"><h3>Cotações</h3><p class="fnt">Sem cotação disponível para '+(ts.length>1?'nenhuma das classes':'esta classe')+'. Ausência de preço não é preço zero.</p></div>';
+  const varias=ts.filter(t=>cot(t)).length>1;
+  const linhas=ts.map(t=>{
+    const p=cot(t),marca=varias&&ref.tk===t?' · referência':'';
+    return `<dt>${esc(t)}${marca}</dt><dd>${p?fmtPreco(p.p)+(negociouHoje(p)?' '+fmtVar(p.v):''):'<span class="na">sem cotação</span>'}</dd>`;
+  }).join('');
+  return `<div class="bloco"><h3>Cotações</h3><dl class="kv">${linhas}
+    <dt>Giro do dia · ${esc(ref.tk)}</dt><dd>${fmtGiro(ref.giro)}</dd>
+    <dt>Último negócio · ${esc(ref.tk)}</dt><dd class="tx">${dataNegocio(ref)}</dd></dl>
+    ${negociouHoje(ref)?'':'<p class="fnt">Sem negócio hoje: o preço acima é o último conhecido, não uma cotação corrente.</p>'}
+    <p class="fnt">Yahoo Finance, atraso de ~15 min.${PRECO_TS?' Consultada em '+PRECO_TS+'.':''}${varias?' A classe marcada como referência é a de maior volume no dia: é ela que alimenta o mosaico e o preço do card.':''}</p></div>`;
+}
 function metricasEmpresaHTML(e){
   const m=metEmp(e.cod);
   if(!m)return '<div class="bloco"><h3>Desempenho e negociabilidade</h3><p class="fnt">Histórico ajustado indisponível ou insuficiente. Ausência de dados não significa retorno zero.</p></div>';
@@ -10840,7 +10854,7 @@ function abre(cod){
   drw.classList.remove('wide');
   drw.innerHTML = `
     <button class="x" aria-label="Fechar ficha">×</button>
-    <span class="pill" style="background:${e.cor};color:${txOn(e.cor)}">${e.macroL}</span>
+    <span class="selo" style="background:${e.cor};color:${txOn(e.cor)}">${e.macroL}</span>
     <h2>${e.pregao}</h2>
     <div class="rz">${e.nome}</div>
     ${botaoFavFicha(tickerFavorito(e))}
@@ -12739,6 +12753,15 @@ carregaFIIs();
 carregaMetricas();
 carregaSaude();
 
+/* Um render assincrono pode trocar a origem enquanto a ficha esta aberta: base
+   que chega, cauda da tabela que termina, favorito que muda. Os seis pontos de
+   abertura carregam o proprio identificador num data-*, entao a volta do foco e
+   a mesma regra para todos -- reencontra pelo identificador e so cai na secao
+   quando o item sumiu mesmo do recorte. Antes so carteira e favoritos voltavam,
+   e quem navegava o mosaico por teclado perdia o lugar entre 369 blocos. */
+const ORIGENS = ['data-pos-abre','data-fav-abre','data-cod','data-tk','data-te','data-tf'];
+const SELETOR_ORIGEM = ORIGENS.map(a => '[' + a + ']').join(',');
+const idOrigem = el => { for(const a of ORIGENS){ const v = el.getAttribute?.(a); if(v) return a + '=' + v; } return null; };
 function fecha(){
   COMPARACAO_ABERTA=false;drw.setAttribute('aria-label','Ficha do ativo');
   drw.classList.remove('on');
@@ -12748,8 +12771,8 @@ function fecha(){
   st.ativo=null;if(URL_ATIVA)sincronizaURL();
   if(lastFocus && document.body.contains(lastFocus)) lastFocus.focus();
   else if(lastFocus){
-    const origem=lastFocus.closest?.('[data-pos-abre],[data-fav-abre]'),t=origem?.dataset.posAbre||origem?.dataset.favAbre;
-    const novo=t&&[...document.querySelectorAll('[data-pos-abre],[data-fav-abre]')].find(b=>(b.dataset.posAbre||b.dataset.favAbre)===t);
+    const origem=lastFocus.closest?.(SELETOR_ORIGEM),id=origem&&idOrigem(origem);
+    const novo=id&&[...document.querySelectorAll(SELETOR_ORIGEM)].find(b=>idOrigem(b)===id);
     const destino=novo||(st.sec==='carteira'?$('carteiraTicker'):st.sec==='favoritos'?$('favoritosLista'):$('secTitulo'));
     if(destino){if(!novo&&st.sec!=='carteira')destino.setAttribute('tabindex','-1');destino.focus();}
   }

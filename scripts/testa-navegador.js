@@ -284,6 +284,28 @@ function confere(nome, condicao, detalhe = ''){
   confere('Esc devolve o foco à origem', ficha.voltou);
   confere('fechamento destrava fundo e barra', ficha.destravou);
 
+  /* Empresa e o unico universo cuja ficha passa por abre(), e foi a unica sem
+     teste aqui: uma funcao removida sem o ponto de chamada deixou a ficha
+     inteira quebrada em producao com as 35 verificacoes anteriores passando. */
+  await vai('empresas');
+  const fichaEmp = await avalia(`await garante('metricasEmpresas','eventos').catch(()=>{});
+    const alvo=E.find(x=>classes(x).length>1&&cot(classes(x)[0]))||E[0];
+    const bloco=document.querySelector('#mapa .tile[data-cod="'+alvo.cod+'"]')||document.querySelector('#mapa .tile');
+    const cod=bloco.dataset.cod,e=E.find(x=>x.cod===cod);
+    bloco.focus();bloco.click();await new Promise(r=>setTimeout(r,260));
+    const aberta=drw.classList.contains('on'),h3=[...drw.querySelectorAll('h3')].map(h=>h.textContent),txt=drw.textContent;
+    document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape'}));
+    await new Promise(r=>setTimeout(r,260));
+    return {aberta,cod,h3,voltou:document.activeElement.dataset&&document.activeElement.dataset.cod===cod,
+      comPreco:classes(e).filter(t=>cot(t)).length,marcaRef:txt.includes('referência'),
+      temCotacoes:h3.includes('Cotações'),temDesempenho:h3.some(t=>/Desempenho/.test(t)),temCVM:h3.some(t=>/CVM/.test(t))};`);
+  confere('ficha de empresa abre a partir do mosaico', fichaEmp.aberta, fichaEmp.cod);
+  confere('ficha de empresa traz cotações, desempenho e documentos',
+    fichaEmp.temCotacoes && fichaEmp.temDesempenho && fichaEmp.temCVM, fichaEmp.h3.join(' · '));
+  confere('classe de referência é apontada quando há mais de uma com preço',
+    fichaEmp.comPreco > 1 ? fichaEmp.marcaRef : !fichaEmp.marcaRef, fichaEmp.comPreco + ' com preço');
+  confere('Esc na ficha de empresa devolve o foco ao bloco', fichaEmp.voltou);
+
   /* Origem substituida por render durante carga assincrona da ficha. */
   await vai('carteira');
   const focoCarteira=await avalia(`CARTEIRA=[{ticker:'MXRF11',qtd:1,pm:10}];renderCarteira();
