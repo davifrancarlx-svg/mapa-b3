@@ -1,5 +1,5 @@
 {
- "atualizadoEm": "2026-09-24T21:07:02.181Z",
+ "atualizadoEm": "2026-09-24T23:57:16.819Z",
  "fonte": "Yahoo Finance (nao oficial), cotacoes com atraso",
  "tickersConsultados": 2050,
  "tickersComPreco": 1856,
@@ -16543,7 +16543,7 @@
    "f": 7.5,
    "vol": 175,
    "giro": 1286,
-   "t": 1790254800,
+   "t": 1790291378,
    "estado": "POSTPOST"
   },
   "VXXV11": {
