@@ -1,12 +1,12 @@
 {
  "versao": 2,
- "atualizadoEm": "2026-09-24T17:15:13.466156+00:00",
+ "atualizadoEm": "2026-09-25T17:15:43.531624+00:00",
  "fonte": [
   "https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/IPE/DADOS/ipe_cia_aberta_2026.zip"
  ],
  "janela": {
-  "inicio": "2026-03-29",
-  "fim": "2026-09-24",
+  "inicio": "2026-03-30",
+  "fim": "2026-09-25",
   "dias": 180
  },
  "categorias": [
@@ -260,7 +260,7 @@
   "BLAU": 12,
   "WHRL": 3,
   "TFCO": 7,
-  "OBTC": 34,
+  "OBTC": 33,
   "MLAS": 6,
   "RBNS": 9,
   "PMAM": 47,
@@ -347,7 +347,7 @@
   "LJQQ": 3,
   "DXCO": 7
  },
- "documentosNoRecorte": 4413,
+ "documentosNoRecorte": 4412,
  "documentosExibidos": 2188,
  "metodologia": "Recorte por data de entrega, quatro categorias IPE; protocolo e versao preservados; ate 8 registros por empresa, sem resumo editorial",
  "empresasComEventos": 329,
