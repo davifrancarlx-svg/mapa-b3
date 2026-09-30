@@ -1,12 +1,12 @@
 {
  "versao": 2,
- "atualizadoEm": "2026-09-29T18:06:53.764869+00:00",
+ "atualizadoEm": "2026-09-30T18:00:57.777970+00:00",
  "fonte": [
   "https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/IPE/DADOS/ipe_cia_aberta_2026.zip"
  ],
  "janela": {
-  "inicio": "2026-04-03",
-  "fim": "2026-09-29",
+  "inicio": "2026-04-04",
+  "fim": "2026-09-30",
   "dias": 180
  },
  "categorias": [
@@ -119,7 +119,7 @@
   "LOGG": 17,
   "BMOB": 12,
   "OSXB": 20,
-  "OPCT": 24,
+  "OPCT": 23,
   "KLAS": 5,
   "GGPS": 11,
   "ANIM": 17,
@@ -131,7 +131,7 @@
   "PRIO": 14,
   "BRBI": 5,
   "CVCB": 13,
-  "SOJA": 7,
+  "SOJA": 6,
   "ORVR": 18,
   "QUAL": 11,
   "MDNE": 15,
@@ -344,8 +344,8 @@
   "LJQQ": 3,
   "DXCO": 8
  },
- "documentosNoRecorte": 4307,
- "documentosExibidos": 2171,
+ "documentosNoRecorte": 4305,
+ "documentosExibidos": 2170,
  "metodologia": "Recorte por data de entrega, quatro categorias IPE; protocolo e versao preservados; ate 8 registros por empresa, sem resumo editorial",
  "empresasComEventos": 326,
  "eventos": {
@@ -9201,17 +9201,6 @@
     "versao": 1,
     "apresentacao": "AP - Apresentação",
     "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1501312&numSequencia=1026018&numVersao=1"
-   },
-   {
-    "dt": "2026-04-03",
-    "categoria": "Aviso aos Acionistas",
-    "tipo": "Outros avisos",
-    "assunto": "Alteração da chapa proposta pela administração para a composição do Conselho de Administração",
-    "especie": null,
-    "protocolo": "025704IPE030420260154032703-90",
-    "versao": 1,
-    "apresentacao": "AP - Apresentação",
-    "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1501101&numSequencia=1025807&numVersao=1"
    }
   ],
   "ORVR": [
