@@ -1,12 +1,12 @@
 {
  "versao": 2,
- "atualizadoEm": "2026-10-08T18:52:44.829550+00:00",
+ "atualizadoEm": "2026-10-09T18:23:19.100110+00:00",
  "fonte": [
   "https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/IPE/DADOS/ipe_cia_aberta_2026.zip"
  ],
  "janela": {
-  "inicio": "2026-04-12",
-  "fim": "2026-10-08",
+  "inicio": "2026-04-13",
+  "fim": "2026-10-09",
   "dias": 180
  },
  "categorias": [
@@ -66,7 +66,7 @@
   "LIGT": 27,
   "ENMT": 6,
   "IVPR": 5,
-  "MBRF": 13,
+  "MBRF": 12,
   "CTAX": 12,
   "ECOR": 18,
   "ENEV": 19,
@@ -343,7 +343,7 @@
   "LJQQ": 3,
   "DXCO": 5
  },
- "documentosNoRecorte": 4262,
+ "documentosNoRecorte": 4261,
  "documentosExibidos": 2159,
  "metodologia": "Recorte por data de entrega, quatro categorias IPE; protocolo e versao preservados; ate 8 registros por empresa, sem resumo editorial",
  "empresasComEventos": 325,
