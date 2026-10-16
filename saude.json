@@ -1,12 +1,12 @@
 {
  "versao": 2,
- "geradoEm": "2026-10-16T16:43:07.712Z",
+ "geradoEm": "2026-10-16T17:09:57.349Z",
  "fontes": {
   "precos": {
    "nome": "Preços",
    "minCobertura": 80,
    "limiteHoras": 72,
-   "atualizadoEm": "2026-10-15T23:32:35.149Z",
+   "atualizadoEm": "2026-10-16T17:09:57.234Z",
    "total": 2050,
    "registros": 1858,
    "renovados": 1858,
@@ -14,7 +14,7 @@
    "cobertura": 90.6,
    "coberturaRenovada": 90.6,
    "observacaoInicio": "2026-04-15",
-   "observacaoFim": "2026-10-15",
+   "observacaoFim": "2026-10-16",
    "avisos": []
   },
   "bdrs": {
