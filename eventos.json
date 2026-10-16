@@ -1,12 +1,12 @@
 {
  "versao": 2,
- "atualizadoEm": "2026-10-15T17:05:14.762479+00:00",
+ "atualizadoEm": "2026-10-16T16:43:07.548919+00:00",
  "fonte": [
   "https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/IPE/DADOS/ipe_cia_aberta_2026.zip"
  ],
  "janela": {
-  "inicio": "2026-04-19",
-  "fim": "2026-10-15",
+  "inicio": "2026-04-20",
+  "fim": "2026-10-16",
   "dias": 180
  },
  "categorias": [
