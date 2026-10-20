@@ -1,6 +1,6 @@
 {
  "versao": 2,
- "geradoEm": "2026-10-19T22:51:17.484Z",
+ "geradoEm": "2026-10-20T01:06:01.730Z",
  "fontes": {
   "precos": {
    "nome": "Preços",
@@ -81,7 +81,7 @@
    "nome": "Histórico BDR",
    "minCobertura": 90,
    "limiteHoras": 96,
-   "atualizadoEm": "2026-10-17T00:25:38.236Z",
+   "atualizadoEm": "2026-10-20T01:04:46.341Z",
    "total": 825,
    "registros": 800,
    "renovados": 796,
@@ -89,14 +89,14 @@
    "cobertura": 97,
    "coberturaRenovada": 96.5,
    "observacaoInicio": "2026-08-27",
-   "observacaoFim": "2026-10-16",
+   "observacaoFim": "2026-10-20",
    "avisos": []
   },
   "metricasEmpresas": {
    "nome": "Histórico empresas",
    "minCobertura": 75,
    "limiteHoras": 96,
-   "atualizadoEm": "2026-10-17T00:26:15.971Z",
+   "atualizadoEm": "2026-10-20T01:05:21.440Z",
    "total": 369,
    "registros": 314,
    "renovados": 313,
@@ -104,14 +104,14 @@
    "cobertura": 85.1,
    "coberturaRenovada": 84.8,
    "observacaoInicio": "2026-09-03",
-   "observacaoFim": "2026-10-16",
+   "observacaoFim": "2026-10-20",
    "avisos": []
   },
   "metricasFiis": {
    "nome": "Histórico FII",
    "minCobertura": 85,
    "limiteHoras": 96,
-   "atualizadoEm": "2026-10-17T00:26:29.005Z",
+   "atualizadoEm": "2026-10-20T01:05:32.431Z",
    "total": 416,
    "registros": 401,
    "renovados": 399,
@@ -119,29 +119,29 @@
    "cobertura": 96.4,
    "coberturaRenovada": 95.9,
    "observacaoInicio": "2026-08-31",
-   "observacaoFim": "2026-10-16",
+   "observacaoFim": "2026-10-20",
    "avisos": []
   },
   "metricasEtfs": {
    "nome": "Histórico ETF",
    "minCobertura": 85,
    "limiteHoras": 96,
-   "atualizadoEm": "2026-10-17T00:26:35.420Z",
+   "atualizadoEm": "2026-10-20T01:05:38.124Z",
    "total": 219,
    "registros": 215,
    "renovados": 215,
    "preservados": 0,
    "cobertura": 98.2,
    "coberturaRenovada": 98.2,
-   "observacaoInicio": "2026-10-15",
-   "observacaoFim": "2026-10-16",
+   "observacaoInicio": "2026-10-16",
+   "observacaoFim": "2026-10-19",
    "avisos": []
   },
   "analise": {
    "nome": "Ativo lastro",
    "minCobertura": 70,
    "limiteHoras": 96,
-   "atualizadoEm": "2026-10-17T00:27:00.986Z",
+   "atualizadoEm": "2026-10-20T01:06:01.566Z",
    "total": 825,
    "registros": 760,
    "renovados": 760,
@@ -149,7 +149,7 @@
    "cobertura": 92.1,
    "coberturaRenovada": 92.1,
    "observacaoInicio": "2026-08-14",
-   "observacaoFim": "2026-10-15",
+   "observacaoFim": "2026-10-16",
    "avisos": []
   },
   "eventos": {
