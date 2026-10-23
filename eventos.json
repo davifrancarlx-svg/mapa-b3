@@ -1,12 +1,12 @@
 {
  "versao": 2,
- "atualizadoEm": "2026-10-22T17:14:40.215145+00:00",
+ "atualizadoEm": "2026-10-23T17:12:52.817625+00:00",
  "fonte": [
   "https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/IPE/DADOS/ipe_cia_aberta_2026.zip"
  ],
  "janela": {
-  "inicio": "2026-04-26",
-  "fim": "2026-10-22",
+  "inicio": "2026-04-27",
+  "fim": "2026-10-23",
   "dias": 180
  },
  "categorias": [
@@ -52,7 +52,7 @@
   "EGIE": 23,
   "VIVT": 18,
   "JALL": 6,
-  "COGN": 11,
+  "COGN": 10,
   "MOTV": 30,
   "SHOW": 8,
   "HYPE": 10,
@@ -136,7 +136,7 @@
   "QUAL": 13,
   "MDNE": 16,
   "BRAV": 46,
-  "ONCO": 48,
+  "ONCO": 47,
   "DMVF": 8,
   "MELK": 5,
   "VVEO": 18,
@@ -256,7 +256,7 @@
   "BLAU": 11,
   "WHRL": 2,
   "TFCO": 7,
-  "OBTC": 37,
+  "OBTC": 36,
   "MLAS": 6,
   "RBNS": 8,
   "PMAM": 47,
@@ -341,7 +341,7 @@
   "LJQQ": 3,
   "DXCO": 6
  },
- "documentosNoRecorte": 4159,
+ "documentosNoRecorte": 4156,
  "documentosExibidos": 2128,
  "metodologia": "Recorte por data de entrega, quatro categorias IPE; protocolo e versao preservados; ate 8 registros por empresa, sem resumo editorial",
  "empresasComEventos": 323,

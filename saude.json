@@ -1,6 +1,6 @@
 {
  "versao": 2,
- "geradoEm": "2026-10-23T00:39:19.599Z",
+ "geradoEm": "2026-10-23T17:12:52.964Z",
  "fontes": {
   "precos": {
    "nome": "Preços",
@@ -156,7 +156,7 @@
    "nome": "Documentos CVM",
    "minCobertura": null,
    "limiteHoras": 120,
-   "atualizadoEm": "2026-10-22T17:14:40.215145+00:00",
+   "atualizadoEm": "2026-10-23T17:12:52.817625+00:00",
    "total": null,
    "registros": 2128,
    "renovados": 2128,
